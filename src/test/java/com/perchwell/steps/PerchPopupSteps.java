@@ -1,0 +1,14 @@
+package com.perchwell.steps;
+
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.steps.ScenarioSteps;
+import com.perchwell.pages.perchwell.PerchPopupPage;
+
+public class PerchPopupSteps extends ScenarioSteps {
+    PerchPopupPage perchPopupPage;
+
+    @Step
+    public void clickNotNowButton () {
+        perchPopupPage.clickNotNowButton();
+    }
+}
