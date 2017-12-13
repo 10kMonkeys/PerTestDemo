@@ -1,13 +1,12 @@
 package com.perchwell;
 
+import com.perchwell.steps.*;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import com.perchwell.steps.*;
 
 
 @RunWith(SerenityRunner.class)
@@ -37,9 +36,8 @@ public class SampleTest {
     @Steps
     AccountSteps accountSteps;
 
-
     @Test
-    public void addClient() {
+    public void addClient() throws Exception {
 
         loginSteps.login();
         perchwellSteps.skipAllHints();
@@ -54,9 +52,9 @@ public class SampleTest {
         clientSteps.shouldSeeRecentlyCreatedClient();
 
     }
-    @Ignore
+
     @Test
-    public void createNewTagForListing() {
+    public void createNewTagForListing() throws Exception {
 
         loginSteps.login();
         perchwellSteps.skipAllHints();
@@ -74,10 +72,8 @@ public class SampleTest {
         tagsSteps.clickSearchButton();
         tagsSteps.shouldSeeCreatedTagUpperCase();
     }
-
-    @Ignore
     @Test
-    public void deleteCreatedTag() {
+    public void deleteCreatedTag() throws Exception {
 
         loginSteps.login();
         perchwellSteps.skipAllHints();
@@ -89,7 +85,7 @@ public class SampleTest {
         tagsSteps.clickBackButton();
         openedBuildingSteps.ckickDeleteTagButton();
         tagsSteps.shouldNotSeeCreatedTagUpperCase();
-        openedBuildingSteps .clickBackButton();
+        openedBuildingSteps.clickBackButton();
         perchwellSteps.clickOpenAccountButton();
         accountSteps.clickTagsLabel();
         tagsSteps.shouldNotSeeCreatedTagUpperCase();

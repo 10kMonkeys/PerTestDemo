@@ -1,4 +1,4 @@
-package com.perchwell.pages;
+package com.perchwell.pages.base;
 
         import com.google.common.base.Predicate;
         import io.appium.java_client.ios.IOSDriver;

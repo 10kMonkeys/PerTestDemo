@@ -1,12 +1,14 @@
 package com.perchwell.pages.clientdetails;
 
+import com.perchwell.pages.base.BaseSwipe;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import com.perchwell.pages.BasePage;
 
-public class ClientPage extends BasePage {
+import static java.util.concurrent.TimeUnit.SECONDS;
+
+public class ClientPage extends BaseSwipe {
 
     public ClientPage(WebDriver driver){
         super (driver);
@@ -48,7 +50,12 @@ public class ClientPage extends BasePage {
         this.getGroupLabelName(groupName).click();
     }
 
-    public boolean isClientDisplayed(String clientName) {
+    public boolean isClientDisplayed(String clientName) throws Exception {
+        if (getDriver().findElements(MobileBy.AccessibilityId(clientName)).size() > 0) {
+            setImplicitTimeout(1, SECONDS);
+            swipeDownUntilElementVisible(clientName);
+            resetImplicitTimeout();
+        }
         return isElementVisible(MobileBy.AccessibilityId(clientName));
     }
 }

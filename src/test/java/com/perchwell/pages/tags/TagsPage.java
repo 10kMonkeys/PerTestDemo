@@ -1,15 +1,18 @@
 package com.perchwell.pages.tags;
 
-import com.perchwell.pages.BasePage;
+import com.perchwell.pages.base.BaseSwipe;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class TagsPage extends BasePage {
+
+public class TagsPage extends BaseSwipe {
 
     public TagsPage(WebDriver driver){
+
         super (driver);
     }
 
@@ -45,6 +48,16 @@ public class TagsPage extends BasePage {
     public void clickSearchButton() { element(searchButton).click(); }
 
     public boolean isTagDisplayed(String tagName) {
+        return isElementVisible(MobileBy.AccessibilityId(tagName));
+
+    }
+
+    public boolean isTagDisplayedWithSwipe(String tagName) throws Exception {
+        if (getDriver().findElements(MobileBy.AccessibilityId(tagName)).size() > 0) {
+            setImplicitTimeout(1, SECONDS);
+            swipeDownUntilElementVisible(tagName);
+            resetImplicitTimeout();
+        }
         return isElementVisible(MobileBy.AccessibilityId(tagName));
     }
 }

@@ -1,10 +1,10 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import com.perchwell.pages.BasePage;
 
 public class OpenedBuildingPage extends BasePage {
 
@@ -34,5 +34,9 @@ public class OpenedBuildingPage extends BasePage {
         return isElementVisible(MobileBy.AccessibilityId(tagName));
     }
 
-    public void ckickDeleteTagButton() { element(deleteTagButton).click(); }
+    public void ckickDeleteTagButton() {
+        while (element(deleteTagButton).isCurrentlyVisible()) {
+            element(deleteTagButton).click();
+        }
+    }
 }

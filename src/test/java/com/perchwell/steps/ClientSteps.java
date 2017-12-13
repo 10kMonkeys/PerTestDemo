@@ -23,7 +23,7 @@ public class ClientSteps extends ScenarioSteps {
     }
 
     @Step
-    public void shouldSeeRecentlyCreatedClient() {
+    public void shouldSeeRecentlyCreatedClient() throws Exception {
         Assert.assertTrue(clientPage.isClientDisplayed(client.getUniqueClientName()));
     }
 

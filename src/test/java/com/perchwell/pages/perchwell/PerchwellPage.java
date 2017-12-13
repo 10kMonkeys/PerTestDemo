@@ -1,6 +1,6 @@
 package com.perchwell.pages.perchwell;
 
-import com.perchwell.pages.BasePage;
+import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

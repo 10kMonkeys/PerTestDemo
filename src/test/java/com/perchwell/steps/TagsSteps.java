@@ -13,19 +13,19 @@ public class TagsSteps extends ScenarioSteps {
 
     @Step
     public void setRandomTagAndSave() {
-        tag.setUniqueTagName(RandomGenerator.getRandomString("11ATAGNAME"));
+        tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
         this.tagsPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
         this.tagsPage.clickCreateTagLabel();
     }
 
     @Step
-    public void shouldNotSeeCreatedTagUpperCase(){
+    public void shouldNotSeeCreatedTagUpperCase() {
         Assert.assertFalse(tagsPage.isTagDisplayed(tag.getUniqueTagName().toUpperCase()));
     }
 
     @Step
-    public void shouldSeeCreatedTagUpperCase(){
-        Assert.assertTrue(tagsPage.isTagDisplayed(tag.getUniqueTagName().toUpperCase()));
+    public void shouldSeeCreatedTagUpperCase() throws Exception {
+        Assert.assertTrue(tagsPage.isTagDisplayedWithSwipe(tag.getUniqueTagName().toUpperCase()));
     }
 
     @Step
