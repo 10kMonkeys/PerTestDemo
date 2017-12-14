@@ -35,7 +35,7 @@ public class OpenedBuildingPage extends BasePage {
     }
 
     public void ckickDeleteTagButton() {
-        while (element(deleteTagButton).isCurrentlyVisible()) {
+        while (element(deleteTagButton).isPresent()) {
             element(deleteTagButton).click();
         }
     }
