@@ -19,10 +19,16 @@ public class LoginPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "LOG IN")
     private WebElement loginButton;
 
+    @iOSXCUITFindBy(accessibility = "CONNECT WITH")
+    private WebElement connectWithButton;
+
 
     public void setEmail(String email) { element(emailTextBox).sendKeys(email); }
 
     public void clickLogin() { element(loginButton).click(); }
 
     public void setPassword(String password) { element(passwordField).sendKeys(password); }
+
+    public void clickConnectWith() { element(connectWithButton).click(); }
+
 }

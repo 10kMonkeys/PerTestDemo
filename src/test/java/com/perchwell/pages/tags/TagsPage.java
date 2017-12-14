@@ -25,6 +25,10 @@ public class TagsPage extends BaseSwipe {
     @iOSXCUITFindBy(accessibility = "Back")
     private WebElement back;
 
+    @iOSXCUITFindBy(accessibility = "Back")
+    private WebElement firstExistingTag;
+
+
    // @iOSXCUITFindBy(accessibility = )
 
     private WebElement getCreatedTagLabel(String uniqueTagName){
