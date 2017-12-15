@@ -37,6 +37,43 @@ public class SampleTest {
     @Steps
     AccountSteps accountSteps;
 
+       //id=1
+    @Ignore
+    @Test
+    public void LogInAsClient() throws Exception {
+
+        loginSteps.loginAsClient();
+        perchwellSteps.skipAllHints();
+        perchPopupSteps.clickNotNowButton();
+        perchwellSteps.clickOpenAccountButton();
+        accountSteps.shouldSeeOptionAgents();
+        accountSteps.shouldSeeOptionDisscussions();
+        accountSteps.shouldSeeOptionTags();
+        accountSteps.shouldSeeOptionCompare();
+    }
+
+//id=2
+@Ignore
+    @Test
+    public void LogInAsBroker() throws Exception {
+
+        loginSteps.loginAsBroker();
+        perchwellSteps.skipAllHints();
+        perchPopupSteps.clickNotNowButton();
+        perchwellSteps.clickOpenAccountButton();
+        accountSteps.shouldSeeOptionClient();
+        accountSteps.shouldSeeOptionDisscussions();
+        accountSteps.shouldSeeOptionTags();
+        accountSteps.shouldSeeOptionCompare();
+    }
+
+//id=3
+    @Test
+    public void LogInWithGoogle() throws Exception {
+        loginSteps.loginWithGoogle();
+        perchPopupSteps.shouldSeePopupText();
+    }
+
     @Ignore
     //id=5
     @Test
@@ -56,33 +93,27 @@ public class SampleTest {
 
     }
 
-//id=2
-    @Test
-    public void LogInAsBroker() throws Exception {
+    //id=6
+      @Test
+    public void useExistingTagForListing() throws Exception {
 
         loginSteps.loginAsBroker();
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
+        perchwellSteps.openFirstBuilding();
+        openedBuildingSteps.clickDiscussWithMyClientHint();
+        openedBuildingSteps.clickMyTagsLabel();
+        tagsSteps.clickExistingTagLabel();
+        tagsSteps.clickBackButton();
+        openedBuildingSteps.clickBackButton();
         perchwellSteps.clickOpenAccountButton();
-        accountSteps.shouldSeeOptionClient();
-        accountSteps.shouldSeeOptionDisscussions();
-        accountSteps.shouldSeeOptionTags();
-        accountSteps.shouldSeeOptionCompare();
+        accountSteps.clickTagsLabel();
+        tagsSteps.shouldSeeExistingTagUpperCase();
+        tagsSteps.clickUsedTag();
+        tagsSteps.clickSearchButton();
+        tagsSteps.shouldSeeExistingTagUpperCase();
     }
 
-//id=1
-    @Test
-    public void LogInAsClient() throws Exception {
-
-        loginSteps.loginAsClient();
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOpenAccountButton();
-        accountSteps.shouldSeeOptionAgents();
-        accountSteps.shouldSeeOptionDisscussions();
-        accountSteps.shouldSeeOptionTags();
-        accountSteps.shouldSeeOptionCompare();
-    }
 
     //id=7
     @Ignore
@@ -106,31 +137,9 @@ public class SampleTest {
         tagsSteps.shouldSeeCreatedTagUpperCase();
     }
 
-    //id=6
-   @Ignore
-    @Test
-    public void taggedExistingTagForListing() throws Exception {
-
-        loginSteps.loginAsBroker();
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.openFirstBuilding();
-        openedBuildingSteps.clickDiscussWithMyClientHint();
-        openedBuildingSteps.clickMyTagsLabel();
-
-
-        tagsSteps.clickBackButton();
-        openedBuildingSteps.clickBackButton();
-        perchwellSteps.clickOpenAccountButton();
-        accountSteps.clickTagsLabel();
-        tagsSteps.shouldSeeCreatedTagUpperCase();
-        tagsSteps.clickCreatedTag();
-        tagsSteps.clickSearchButton();
-        tagsSteps.shouldSeeCreatedTagUpperCase();
-    }
 
     //id=9
-    @Ignore
+@Ignore
     @Test
     public void deleteCreatedTag() throws Exception {
 
@@ -149,4 +158,33 @@ public class SampleTest {
         accountSteps.clickTagsLabel();
         tagsSteps.shouldNotSeeCreatedTagUpperCase();
     }
+
+
+    @Ignore
+    //id=10
+    @Test
+    public void addToCompare() throws Exception {
+
+        loginSteps.loginAsBroker();
+        perchwellSteps.skipAllHints();
+        perchPopupSteps.clickNotNowButton();
+        perchwellSteps.openFirstBuilding();
+        openedBuildingSteps.addToCompare();
+        perchwellSteps.openSecondBuilding();
+        openedBuildingSteps.addToCompare();
+        perchwellSteps.openThirdBuilding();
+        openedBuildingSteps.addToCompare();
+
+        perchwellSteps.clickOpenAccountButton();
+        accountSteps.clickClientsLabel();
+        clientSteps.clickAddNewClientButton();
+        clientSteps.setRundomClientData();
+        clientSteps.clickGroupLabel();
+        clientSteps.selectGroup("Actively Searching");
+        clientSteps.clickInviteButton();
+        clientSteps.shouldSeeRecentlyCreatedClient();
+
+    }
+
+
 }

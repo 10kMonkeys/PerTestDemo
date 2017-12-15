@@ -5,19 +5,23 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+public class GoogleLoginPage  extends BasePage {
 
-public class LoginPage extends BasePage {
 
-    public LoginPage(WebDriver driver){ super (driver);}
-
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField")
+    @iOSXCUITFindBy(accessibility= "Email or phone")
     private WebElement emailTextBox;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSecureTextField")
+
+    @iOSXCUITFindBy(accessibility = "NEXT")
+    private WebElement loginButton;
+
+
+    @iOSXCUITFindBy(accessibility= "Enter your password")
     private WebElement passwordField;
 
-    @iOSXCUITFindBy(accessibility = "LOG IN")
-    private WebElement loginButton;
+    public GoogleLoginPage(WebDriver driver) {
+        super(driver);
+    }
 
 
     public void setEmail(String email) { element(emailTextBox).sendKeys(email); }
@@ -25,7 +29,5 @@ public class LoginPage extends BasePage {
     public void clickLogin() { element(loginButton).click(); }
 
     public void setPassword(String password) { element(passwordField).sendKeys(password); }
-
-
 
 }

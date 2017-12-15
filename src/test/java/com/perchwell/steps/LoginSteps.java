@@ -2,6 +2,7 @@ package com.perchwell.steps;
 
 
 import com.perchwell.entity.Account;
+import com.perchwell.pages.starting.GoogleLoginPage;
 import com.perchwell.pages.starting.LoginPage;
 import com.perchwell.pages.starting.WelcomePage;
 import net.thucydides.core.annotations.Step;
@@ -14,9 +15,9 @@ public class LoginSteps extends ScenarioSteps {
     Account account;
     WelcomePage welcomePage;
     LoginPage loginPage;
+ GoogleLoginPage googleLoginPage;
 
-
-    private void login(String email, String password) {
+    private void login (String email, String password) {
 
         welcomePage.clickLoginButton();
         loginPage.setEmail(email);
@@ -36,4 +37,13 @@ public class LoginSteps extends ScenarioSteps {
 
     }
 
+    @Step ("Log in with Google ")
+    public void loginWithGoogle() {
+        welcomePage.clickConnectWith();
+        googleLoginPage.setEmail(account.client_email);
+        googleLoginPage.clickLogin();
+        googleLoginPage.setPassword(account.client_password);
+        googleLoginPage.clickLogin();
+
+    }
 }

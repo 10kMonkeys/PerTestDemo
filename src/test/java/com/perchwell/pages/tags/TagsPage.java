@@ -3,18 +3,23 @@ package com.perchwell.pages.tags;
 import com.perchwell.pages.base.BaseSwipe;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 
 public class TagsPage extends BaseSwipe {
 
-    public TagsPage(WebDriver driver){
+    public TagsPage(WebDriver driver) {
 
-        super (driver);
+        super(driver);
     }
+
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSearchField")
     private WebElement searchTagTexBox;
@@ -25,13 +30,9 @@ public class TagsPage extends BaseSwipe {
     @iOSXCUITFindBy(accessibility = "Back")
     private WebElement back;
 
-    @iOSXCUITFindBy(accessibility = "Back")
-    private WebElement firstExistingTag;
+      // @iOSXCUITFindBy(accessibility = )
 
-
-   // @iOSXCUITFindBy(accessibility = )
-
-    private WebElement getCreatedTagLabel(String uniqueTagName){
+    private WebElement getCreatedTagLabel(String uniqueTagName) {
         WebElement createdTag = getDriver().findElement(MobileBy.AccessibilityId(uniqueTagName));
         return createdTag;
     }
@@ -39,17 +40,25 @@ public class TagsPage extends BaseSwipe {
     @iOSXCUITFindBy(accessibility = "search")
     private WebElement searchButton;
 
-    public void setUniqueSearchTagTextBox(String uniqueTagName) { element(searchTagTexBox).sendKeys(uniqueTagName); }
-
-    public void clickCreateTagLabel () { element(createTagLabel).click(); }
-
-    public void clickBackButton() { element(back).click(); }
-
-    public void clickCreatedTagLabel(String uniqueTagName) {
-        this.getCreatedTagLabel(uniqueTagName).click();
+    public void setUniqueSearchTagTextBox(String uniqueTagName) {
+        element(searchTagTexBox).sendKeys(uniqueTagName);
     }
 
-    public void clickSearchButton() { element(searchButton).click(); }
+    public void clickCreateTagLabel() {
+        element(createTagLabel).click();
+    }
+
+    public void clickBackButton() {
+        element(back).click();
+    }
+
+    public void clickTagLabel(String TagName) {
+        this.getCreatedTagLabel(TagName).click();
+    }
+
+    public void clickSearchButton() {
+        element(searchButton).click();
+    }
 
     public boolean isTagDisplayed(String tagName) {
         return isElementVisible(MobileBy.AccessibilityId(tagName));
@@ -63,5 +72,29 @@ public class TagsPage extends BaseSwipe {
             resetImplicitTimeout();
         }
         return isElementVisible(MobileBy.AccessibilityId(tagName));
+
     }
+
+
+
+    public WebElement findExistingTagLabel() {
+        WebElement parentCell = null;
+
+        List<WebElement> listCells = getDriver().findElements(By.className("XCUIElementTypeCell"));
+
+        for (WebElement desiredElement : listCells) {
+
+            if (desiredElement.findElements(By.className("XCUIElementTypeButton")).size() == 0) {
+                parentCell = desiredElement;
+                break;
+            }
+        }
+       WebElement parentLabelElement = parentCell.findElements(By.className("XCUIElementTypeStaticText")).get(0);
+
+
+
+        return parentLabelElement;
+    }
+
+
 }

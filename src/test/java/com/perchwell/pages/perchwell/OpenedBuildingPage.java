@@ -24,6 +24,9 @@ public class OpenedBuildingPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton[1]")
     private WebElement deleteTagButton;
 
+    @iOSXCUITFindBy(accessibility = "compare untinted")
+    private WebElement compareButton;
+
     public void clickDiscussWithMyClientHint() { element(discussThisHint).click(); }
 
     public void clickMyTagsLabel() { element(myTagsLabel).click(); }
@@ -38,5 +41,9 @@ public class OpenedBuildingPage extends BasePage {
         while (element(deleteTagButton).isPresent()) {
             element(deleteTagButton).click();
         }
+    }
+
+    public void clickAddToCompareButton() {
+        element(compareButton).click();
     }
 }

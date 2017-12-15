@@ -4,6 +4,8 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.perchwell.OpenedBuildingPage;
 
+import java.util.List;
+
 public class OpenedBuildingSteps extends ScenarioSteps{
     OpenedBuildingPage openedBuildingPage;
 
@@ -24,4 +26,12 @@ public class OpenedBuildingSteps extends ScenarioSteps{
     public void ckickDeleteTagButton() {
         openedBuildingPage.ckickDeleteTagButton();
     }
+
+    @Step
+    public void addToCompare() {
+        openedBuildingPage.clickAddToCompareButton();
+
+    }
+
+
 }

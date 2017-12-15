@@ -25,5 +25,16 @@ public class PerchwellSteps extends ScenarioSteps {
     @Step
     public void openFirstBuilding() {
         perchwellPage.openFirstBuilding();
+
     }
+
+    @Step
+    public void openSecondBuilding() { perchwellPage.openSecondBuilding();
+    }
+
+    @Step
+    public void openThirdBuilding() { perchwellPage.openThirdBuilding();
+    }
+
+
 }

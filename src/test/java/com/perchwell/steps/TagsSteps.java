@@ -6,6 +6,7 @@ import com.perchwell.pages.tags.TagsPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 public class TagsSteps extends ScenarioSteps {
     Tag tag = new Tag();
@@ -30,7 +31,12 @@ public class TagsSteps extends ScenarioSteps {
 
     @Step
     public void clickCreatedTag(){
-        tagsPage.clickCreatedTagLabel(tag.getUniqueTagName());
+        tagsPage.clickTagLabel(tag.getUniqueTagName());
+    }
+
+    @Step
+    public void clickUsedTag(){
+        tagsPage.clickTagLabel(tag.getExistingTagname());
     }
 
     @Step
@@ -41,5 +47,18 @@ public class TagsSteps extends ScenarioSteps {
     @Step
     public void clickSearchButton() {
         tagsPage.clickSearchButton();
+    }
+
+    @Step
+    public void clickExistingTagLabel() {
+        WebElement element= tagsPage.findExistingTagLabel();
+        element.click();
+        tag.setExistingTagname(element.getAttribute("name"));
+
+    }
+
+    @Step
+    public void shouldSeeExistingTagUpperCase() throws Exception {
+        Assert.assertTrue(tagsPage.isTagDisplayedWithSwipe(tag.getExistingTagname().toUpperCase()));
     }
 }

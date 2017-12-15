@@ -29,6 +29,12 @@ public class PerchwellPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[1]")
     private WebElement firstBuilding;
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[2]")
+    private WebElement secondBuilding;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[3]")
+    private WebElement thirdBuilding;
+
     public void clickOpenAccountButton() { element(openAccountButton).click(); }
 
     public void clickEditSearchFiltersHint() { element(editSearchFiltersHint).click(); }
@@ -41,5 +47,7 @@ public class PerchwellPage extends BasePage {
 
     public void openFirstBuilding() { element(firstBuilding).click(); }
 
+    public void openSecondBuilding() { element(secondBuilding).click();  }
 
+    public void openThirdBuilding() { element(thirdBuilding).click();   }
 }
