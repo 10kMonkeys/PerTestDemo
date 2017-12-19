@@ -6,7 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class GoogleLoginPage  extends BasePage {
-
+    public GoogleLoginPage(WebDriver driver) {
+        super(driver);
+    }
 
     @iOSXCUITFindBy(accessibility= "Email or phone")
     private WebElement emailTextBox;
@@ -19,9 +21,6 @@ public class GoogleLoginPage  extends BasePage {
     @iOSXCUITFindBy(accessibility= "Enter your password")
     private WebElement passwordField;
 
-    public GoogleLoginPage(WebDriver driver) {
-        super(driver);
-    }
 
 
     public void setEmail(String email) { element(emailTextBox).sendKeys(email); }

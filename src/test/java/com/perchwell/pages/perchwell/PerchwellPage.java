@@ -1,11 +1,18 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
+import com.perchwell.pages.base.BaseSwipe;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class PerchwellPage extends BasePage {
+import static java.util.concurrent.TimeUnit.SECONDS;
+
+public class PerchwellPage extends BaseSwipe {
 
     public PerchwellPage(WebDriver driver){
         super (driver);
@@ -32,6 +39,10 @@ public class PerchwellPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[2]")
     private WebElement secondBuilding;
 
+    public WebElement getThirdBuilding() {
+        return thirdBuilding;
+    }
+
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[3]")
     private WebElement thirdBuilding;
 
@@ -49,5 +60,17 @@ public class PerchwellPage extends BasePage {
 
     public void openSecondBuilding() { element(secondBuilding).click();  }
 
-    public void openThirdBuilding() { element(thirdBuilding).click();   }
+    public void openThirdBuilding() throws Exception {
+                element(thirdBuilding).click();
+    }
+
+    public boolean isBuildingDisplayedWithSwipe(WebElement element) throws Exception {
+            setImplicitTimeout(1, SECONDS);
+            swipeDownUntilElementVisible(element);
+            resetImplicitTimeout();
+    return element.isDisplayed();
+
+    }
+
+
 }

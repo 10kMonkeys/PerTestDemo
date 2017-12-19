@@ -19,6 +19,11 @@ public class AccountSteps extends ScenarioSteps{
     }
 
     @Step
+    public void clickCompareLabel() {
+        accountPage.clickCompareLabel();
+    }
+
+    @Step
     public void shouldSeeOptionClient() throws Exception {
         Assert.assertTrue(accountPage.optionClientsIsDispalyed());
     }

@@ -33,6 +33,7 @@ public class AccountPage extends BasePage {
 
     public void clickTagsLabel() { element(tagsLabel).click(); }
 
+    public void clickCompareLabel() { element(compareLabel).click(); }
 
     public boolean optionTagsIsDispalyed() {
         return tagsLabel.isDisplayed();

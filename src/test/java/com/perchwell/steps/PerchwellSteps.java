@@ -4,11 +4,14 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.perchwell.PerchwellPage;
 
+import java.util.List;
+
 
 public class PerchwellSteps extends ScenarioSteps {
     PerchwellPage perchwellPage;
+    public static List<String> building;
 
-    @Step
+   @Step
     public void skipAllHints(){
 
         perchwellPage.clickEditSearchFiltersHint();
@@ -25,16 +28,17 @@ public class PerchwellSteps extends ScenarioSteps {
     @Step
     public void openFirstBuilding() {
         perchwellPage.openFirstBuilding();
-
     }
 
     @Step
-    public void openSecondBuilding() { perchwellPage.openSecondBuilding();
+    public void openSecondBuilding() {
+        perchwellPage.openSecondBuilding();
     }
 
     @Step
-    public void openThirdBuilding() { perchwellPage.openThirdBuilding();
-    }
+    public void openThirdBuilding() throws Exception {
+       perchwellPage.isBuildingDisplayedWithSwipe(perchwellPage.getThirdBuilding());
+       perchwellPage.openThirdBuilding(); }
 
 
 }

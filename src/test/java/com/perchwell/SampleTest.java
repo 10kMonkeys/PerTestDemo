@@ -17,6 +17,8 @@ public class SampleTest {
     WebDriver driver;
 
     @Steps
+    CompareSteps compareSteps;
+    @Steps
     OpenedBuildingSteps openedBuildingSteps;
 
     @Steps
@@ -38,9 +40,9 @@ public class SampleTest {
     AccountSteps accountSteps;
 
        //id=1
-    @Ignore
+
     @Test
-    public void LogInAsClient() throws Exception {
+    public void logInAsClient() throws Exception {
 
         loginSteps.loginAsClient();
         perchwellSteps.skipAllHints();
@@ -53,9 +55,9 @@ public class SampleTest {
     }
 
 //id=2
-@Ignore
+
     @Test
-    public void LogInAsBroker() throws Exception {
+    public void logInAsBroker() throws Exception {
 
         loginSteps.loginAsBroker();
         perchwellSteps.skipAllHints();
@@ -69,12 +71,12 @@ public class SampleTest {
 
 //id=3
     @Test
-    public void LogInWithGoogle() throws Exception {
+    public void logInWithGoogle() throws Exception {
         loginSteps.loginWithGoogle();
         perchPopupSteps.shouldSeePopupText();
     }
 
-    @Ignore
+
     //id=5
     @Test
     public void addClient() throws Exception {
@@ -116,7 +118,7 @@ public class SampleTest {
 
 
     //id=7
-    @Ignore
+
     @Test
     public void createNewTagForListing() throws Exception {
 
@@ -139,7 +141,7 @@ public class SampleTest {
 
 
     //id=9
-@Ignore
+
     @Test
     public void deleteCreatedTag() throws Exception {
 
@@ -160,7 +162,7 @@ public class SampleTest {
     }
 
 
-    @Ignore
+
     //id=10
     @Test
     public void addToCompare() throws Exception {
@@ -169,20 +171,24 @@ public class SampleTest {
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.openFirstBuilding();
+		openedBuildingSteps.clickDiscussWithMyClientHint();
         openedBuildingSteps.addToCompare();
+        openedBuildingSteps.clickBackButton();
         perchwellSteps.openSecondBuilding();
         openedBuildingSteps.addToCompare();
+        openedBuildingSteps.clickBackButton();
         perchwellSteps.openThirdBuilding();
         openedBuildingSteps.addToCompare();
-
+        openedBuildingSteps.clickBackButton();
         perchwellSteps.clickOpenAccountButton();
-        accountSteps.clickClientsLabel();
-        clientSteps.clickAddNewClientButton();
-        clientSteps.setRundomClientData();
-        clientSteps.clickGroupLabel();
-        clientSteps.selectGroup("Actively Searching");
-        clientSteps.clickInviteButton();
-        clientSteps.shouldSeeRecentlyCreatedClient();
+        accountSteps.clickCompareLabel();
+        compareSteps.clickSwipeUpToRemoveHint();
+        compareSteps.firstBuildingIsDispayed();
+        compareSteps.shoudSeeFirstBuildingInCompare();
+        compareSteps.secondBuildingIsDispayed();
+        compareSteps.shoudSeeSecondBuildingInCompare();
+        compareSteps.thirdBuildingIsDispayed();
+
 
     }
 

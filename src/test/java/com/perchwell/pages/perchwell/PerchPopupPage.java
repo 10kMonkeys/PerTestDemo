@@ -17,12 +17,12 @@ public class PerchPopupPage extends BasePage {
 
 
     @iOSXCUITFindBy(accessibility ="WOULD YOU LIKE TO RECEIVE NOTIFICATIONS FROM PERCHWELL?")
-    private WebElement Text;
+    private WebElement text;
 
-    public void clickNotNowButton() { element(notNowButton).click(); }
+    public void clickNotNowButton() {element(notNowButton).click(); }
 
     public boolean popupTextIsDispalyed() {
-        return Text.isDisplayed();
+        return text.isDisplayed();
     }
 
 

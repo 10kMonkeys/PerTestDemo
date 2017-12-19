@@ -90,10 +90,7 @@ public class TagsPage extends BaseSwipe {
             }
         }
        WebElement parentLabelElement = parentCell.findElements(By.className("XCUIElementTypeStaticText")).get(0);
-
-
-
-        return parentLabelElement;
+       return parentLabelElement;
     }
 
 

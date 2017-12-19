@@ -21,8 +21,13 @@ public class OpenedBuildingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Nav Back White")
     private WebElement backButton;
 
+
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton[1]")
     private WebElement deleteTagButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
+    //**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]
+    private WebElement buildingAddress;
 
     @iOSXCUITFindBy(accessibility = "compare untinted")
     private WebElement compareButton;
@@ -33,9 +38,6 @@ public class OpenedBuildingPage extends BasePage {
 
     public void clickBackButton(){ element(backButton).click(); }
 
-    public boolean isTagDisplayed(String tagName) {
-        return isElementVisible(MobileBy.AccessibilityId(tagName));
-    }
 
     public void ckickDeleteTagButton() {
         while (element(deleteTagButton).isPresent()) {
@@ -46,4 +48,12 @@ public class OpenedBuildingPage extends BasePage {
     public void clickAddToCompareButton() {
         element(compareButton).click();
     }
+
+    public String getBuildingAddress()  {
+        return  buildingAddress.getAttribute("name");
+         }
+
+
+
+
 }
