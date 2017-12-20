@@ -40,7 +40,6 @@ public class SampleTest {
     AccountSteps accountSteps;
 
        //id=1
-
     @Test
     public void logInAsClient() throws Exception {
 
@@ -55,7 +54,6 @@ public class SampleTest {
     }
 
 //id=2
-
     @Test
     public void logInAsBroker() throws Exception {
 
@@ -70,14 +68,16 @@ public class SampleTest {
     }
 
 //id=3
+
     @Test
     public void logInWithGoogle() throws Exception {
         loginSteps.loginWithGoogle();
-        perchPopupSteps.shouldSeePopupText();
+        perchwellSteps.shouldSeeEditSearchFiltersHint();
     }
 
 
     //id=5
+
     @Test
     public void addClient() throws Exception {
 
@@ -118,8 +118,7 @@ public class SampleTest {
 
 
     //id=7
-
-    @Test
+	    @Test
     public void createNewTagForListing() throws Exception {
 
         loginSteps.loginAsBroker();
@@ -164,6 +163,7 @@ public class SampleTest {
 
 
     //id=10
+
     @Test
     public void addToCompare() throws Exception {
 

@@ -72,5 +72,7 @@ public class PerchwellPage extends BaseSwipe {
 
     }
 
-
+	public boolean editSearchFiltersHintIsDispalyed() {
+		return editSearchFiltersHint.isDisplayed();
+	}
 }

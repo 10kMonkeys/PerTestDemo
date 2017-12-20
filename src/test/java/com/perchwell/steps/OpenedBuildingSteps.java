@@ -9,7 +9,6 @@ import java.util.List;
 
 public class OpenedBuildingSteps extends ScenarioSteps{
     OpenedBuildingPage openedBuildingPage;
-      public static List<String> building = new ArrayList<String>();
 
     @Step
     public void clickDiscussWithMyClientHint() { openedBuildingPage.clickDiscussWithMyClientHint(); }
@@ -32,7 +31,7 @@ public class OpenedBuildingSteps extends ScenarioSteps{
     @Step
     public void addToCompare() {
         openedBuildingPage.clickAddToCompareButton();
-        building.add(openedBuildingPage.getBuildingAddress());
+        openedBuildingPage.buildingAddressList.add(openedBuildingPage.getBuildingAddress());
 
     }
 

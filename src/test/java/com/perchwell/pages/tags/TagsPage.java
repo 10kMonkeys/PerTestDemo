@@ -76,7 +76,6 @@ public class TagsPage extends BaseSwipe {
     }
 
 
-
     public WebElement findExistingTagLabel() {
         WebElement parentCell = null;
 
