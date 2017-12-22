@@ -28,9 +28,6 @@ public class WelcomePage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Continue")
 	private WebElement continueButton;
 
-
-
-
     public void clickConnectWith() { element(connectWithButton).click(); }
 
     public void clickLoginButton(){

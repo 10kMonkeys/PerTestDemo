@@ -10,10 +10,6 @@ public class CompareSteps extends ScenarioSteps {
     ComparePage comparePage;
     OpenedBuildingPage openedBuildingPage;
 
-    @Step
-    public void clickSwipeUpToRemoveHint() {
-       comparePage.clickSwipeUpToRemoveHint();
-    }
 
     @Step(("The first buildingAddressList is displayed without swipe"))
     public void firstBuildingIsDispayed(){
@@ -27,7 +23,6 @@ public class CompareSteps extends ScenarioSteps {
 		Assert.assertTrue(comparePage.getFirstBuildingAddress().equalsIgnoreCase(openedBuildingPage.buildingAddressList.get(0)));
 
     }
-
 
     @Step("The second buildingAddressList is displayed without swipe")
     public void secondBuildingIsDispayed(){
@@ -48,9 +43,34 @@ public class CompareSteps extends ScenarioSteps {
 	}
 
     @Step
-    public void click() {
+    public void clickSwipeUpToRemoveHint() {
         comparePage.clickSwipeUpToRemoveHint();
     }
 
 
+	@Step
+	public void clickCancelMsgButton() {
+		comparePage.clickCancelMsgButton();
+	}
+
+	@Step
+	public void clickRemoveMsgButtom() {
+		comparePage.clickRemoveMsgButtom();
+	}
+
+	@Step
+	public void scrollUpFirstBuilding() throws Exception {
+		comparePage.scrollUpFirstBulding();
+	}
+
+	@Step
+	public void shoudSeeRemovePropertyMsg() {
+		Assert.assertTrue(comparePage.removePropertyMsgIsDispayed());
+	}
+
+
+	@Step
+	public void notSeeFirstBuildingInCompare() {
+			Assert.assertFalse(comparePage.getFirstBuildingAddress().equalsIgnoreCase(openedBuildingPage.buildingAddressList.get(0)));
+	}
 }

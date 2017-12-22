@@ -1,16 +1,21 @@
 package com.perchwell.pages.perchwell;
 
-import com.perchwell.pages.base.BasePage;
-import com.perchwell.pages.base.BaseSwipe;
+import com.perchwell.pages.base.BaseScroll;
+
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.apache.xpath.operations.Bool;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+
+import java.util.HashMap;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class ComparePage extends BaseSwipe {
+public class ComparePage extends BaseScroll {
+
+
     public ComparePage(WebDriver driver) {
         super(driver);
     }
@@ -28,10 +33,33 @@ public class ComparePage extends BaseSwipe {
     private WebElement thirdBuildingsAddress;
 
 
+	@iOSXCUITFindBy(accessibility = "REMOVE PROPERTY?")
+	private WebElement removePropertyMsg;
+
+	@iOSXCUITFindBy(accessibility = "CANCEL")
+	private WebElement cancelMsgButton;
+
+	@iOSXCUITFindBy(accessibility = "REMOVE")
+	private WebElement removeMsgButtom;
+
+	OpenedBuildingPage openedBuildingPage;
+
+	public Boolean removePropertyMsgIsDispayed()  {
+	return isElementDisplayed(removePropertyMsg);
+
+}
+
     public void clickSwipeUpToRemoveHint() {
     	element(swipeUpToRemoveHint).click();
     }
 
+	public void clickCancelMsgButton() {
+		element(cancelMsgButton).click();
+	}
+
+	public void clickRemoveMsgButtom() {
+		element(removeMsgButtom).click();
+	}
     public String getFirstBuildingAddress()  {
         return firstBuildingsAddress.getAttribute("name");
 
@@ -48,7 +76,7 @@ public class ComparePage extends BaseSwipe {
     }
 
     public Boolean firstBuildingIsDispayed()  {
-        return firstBuildingsAddress.isDisplayed();
+    	return isElementDisplayed(firstBuildingsAddress);
 
     }
 
@@ -56,6 +84,21 @@ public class ComparePage extends BaseSwipe {
         return secondBuildingsAddress.isDisplayed();
 
     }
+
+
+	public void scrollUpFirstBulding() throws Exception {
+		setImplicitTimeout(1, SECONDS);
+
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+
+		HashMap<String, String> scrollObject = new HashMap<String, String>();
+		scrollObject.put("direction", "down");
+		js.executeScript("mobile: scroll", scrollObject);
+		resetImplicitTimeout();
+
+
+	}
+//    @Deprecated
 //	public Boolean thirdBuildingIsDispayed() throws Exception {
 //		return isBuildingDisplayedWithSwipe(thirdBuildingsAddress);
 //
@@ -78,7 +121,7 @@ public class ComparePage extends BaseSwipe {
 
 		if (getDriver().findElements(MobileBy.AccessibilityId(building)).size() > 0) {
 			setImplicitTimeout(1, SECONDS);
-			result=swipeRightUntilElementVisible(building);
+			result= swipeRightUntilElementVisible(building);
 			resetImplicitTimeout();
 		}
 
@@ -86,8 +129,6 @@ public class ComparePage extends BaseSwipe {
 
 
     }
-
-
 
     }
 
