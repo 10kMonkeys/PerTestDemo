@@ -16,6 +16,7 @@ public void createNewTagForListing() throws Exception {
 
 	loginSteps.loginAsBroker();
 	perchwellSteps.skipAllHints();
+	perchPopupSteps.clickNotNowButton();
 	perchwellSteps.openFirstBuilding();
 	openedBuildingSteps.clickDiscussWithMyClientHint();
 	openedBuildingSteps.clickMyTagsLabel();

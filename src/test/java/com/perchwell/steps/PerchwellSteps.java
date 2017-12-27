@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PerchwellSteps extends ScenarioSteps {
     PerchwellPage perchwellPage;
-    public static List<String> buildingAddressList;
+
 
    @Step
     public void skipAllHints(){
@@ -32,6 +32,12 @@ public void shouldSeeEditSearchFiltersHint() throws Exception {
     }
 
     @Step
+    public void clickMagnifer(){
+        perchwellPage.clickMagnifer();
+    }
+
+
+    @Step
     public void openFirstBuilding() {
         perchwellPage.openFirstBuilding();
     }
@@ -46,5 +52,23 @@ public void shouldSeeEditSearchFiltersHint() throws Exception {
        perchwellPage.isBuildingDisplayedWithSwipe(perchwellPage.getThirdBuilding());
        perchwellPage.openThirdBuilding(); }
 
+	@Step
+	public void countItemsInListViewBeforApplyingFilter(){
+	perchwellPage.numberOfItemsInListView=perchwellPage.countItemsInListView();
 
+  // System.out.print("Count before"+perchwellPage.numberOfItemsInListView);
+   }
+
+	@Step
+	public void shoudSeeNoLessItemsInListViewAfterDeleteFilter(){
+     	Assert.assertTrue(perchwellPage.countItemsInListView() >= perchwellPage.numberOfItemsInListView);
+		//Save new value number of items
+     	perchwellPage.numberOfItemsInListView=perchwellPage.countItemsInListView();
+
+	}
+
+@Step
+public void clickMap(){
+	perchwellPage.clickMap();
+}
 }

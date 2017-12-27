@@ -78,18 +78,20 @@ public class TagsPage extends BaseSwipe {
 
     public WebElement findExistingTagLabel() {
         WebElement parentCell = null;
-
+        WebElement parentLabelElement =null;
         List<WebElement> listCells = getDriver().findElements(By.className("XCUIElementTypeCell"));
+        if (listCells.size()>0) {
+            for (WebElement desiredElement : listCells) {
 
-        for (WebElement desiredElement : listCells) {
-
-            if (desiredElement.findElements(By.className("XCUIElementTypeButton")).size() == 0) {
-                parentCell = desiredElement;
-                break;
+                if (desiredElement.findElements(By.className("XCUIElementTypeButton")).size() == 0) {
+                    parentCell = desiredElement;
+                    break;
+                }
             }
+           if  (parentCell!=null){ parentLabelElement = parentCell.findElements(By.className("XCUIElementTypeStaticText")).get(0);}
+
         }
-       WebElement parentLabelElement = parentCell.findElements(By.className("XCUIElementTypeStaticText")).get(0);
-       return parentLabelElement;
+        return parentLabelElement;
     }
 
 

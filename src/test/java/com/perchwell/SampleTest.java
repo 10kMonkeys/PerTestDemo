@@ -38,5 +38,9 @@ public class SampleTest {
 	@Steps
 	TagsSteps tagsSteps;
 
+	@Steps
+SearchSteps searchSteps;
 
+	@Steps
+MapSteps mapSteps;
 }

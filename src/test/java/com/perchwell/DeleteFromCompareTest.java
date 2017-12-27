@@ -24,7 +24,7 @@ public void deleteFromCompare() throws Exception {
 	openedBuildingSteps.clickBackButton();
 	perchwellSteps.clickOpenAccountButton();
 	accountSteps.clickCompareLabel();
-compareSteps.clickSwipeUpToRemoveHint();
+	compareSteps.clickSwipeUpToRemoveHint();
 	compareSteps.shoudSeeFirstBuildingInCompare();
 	compareSteps.scrollUpFirstBuilding();
 	compareSteps.shoudSeeRemovePropertyMsg();

@@ -51,7 +51,14 @@ public class TagsSteps extends ScenarioSteps {
 
     @Step
     public void clickExistingTagLabel() {
+
         WebElement element= tagsPage.findExistingTagLabel();
+        if (element == null){
+         this.setRandomTagAndSave();
+         this.tagsPage.clickCreateTagLabel();
+		 element= tagsPage.findExistingTagLabel();
+		}
+
         element.click();
         tag.setExistingTagname(element.getAttribute("name"));
 

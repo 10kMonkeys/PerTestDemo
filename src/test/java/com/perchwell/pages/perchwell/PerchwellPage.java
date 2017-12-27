@@ -7,6 +7,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -30,6 +31,9 @@ public class PerchwellPage extends BaseSwipe {
     @iOSXCUITFindBy(accessibility = "EXPLORE SEARCH RESULTS BY LOCATION")
     private WebElement exploreSearchResultHint;
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
+    private WebElement magniferIcon;
+
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
     private WebElement openAccountButton;
 
@@ -39,14 +43,17 @@ public class PerchwellPage extends BaseSwipe {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[2]")
     private WebElement secondBuilding;
 
-    public WebElement getThirdBuilding() {
-        return thirdBuilding;
-    }
-
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[3]")
     private WebElement thirdBuilding;
 
+@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeButton")
+private WebElement map;
+
+ public Integer numberOfItemsInListView;
+
+    public WebElement getThirdBuilding() { return thirdBuilding; }
     public void clickOpenAccountButton() { element(openAccountButton).click(); }
+    public void clickMagnifer() { element(magniferIcon).click(); }
 
     public void clickEditSearchFiltersHint() { element(editSearchFiltersHint).click(); }
 
@@ -54,9 +61,15 @@ public class PerchwellPage extends BaseSwipe {
 
     public void clickTransformDataHint() { element(transformDataHint).click(); }
 
+public void clickMap() { element(map).click(); }
+
     public void clickExploreSearchResultHint() { element(exploreSearchResultHint).click(); }
 
-    public void openFirstBuilding() { element(firstBuilding).click(); }
+    public void openFirstBuilding() {
+       if (firstBuilding.isDisplayed()) {
+        element(firstBuilding).click();
+    }
+    }
 
     public void openSecondBuilding() { element(secondBuilding).click();  }
 
@@ -75,4 +88,10 @@ public class PerchwellPage extends BaseSwipe {
 	public boolean editSearchFiltersHintIsDispalyed() {
 		return editSearchFiltersHint.isDisplayed();
 	}
+
+
+public Integer countItemsInListView() {
+    return getDriver().findElements(By.className("XCUIElementTypeCell")).size();
+
+}
 }
