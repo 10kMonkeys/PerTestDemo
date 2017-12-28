@@ -1,9 +1,13 @@
-package com.perchwell;
+package com.perchwell.test;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class ApplyingLocationFilterTest extends SampleTest {
-@Test
+
+
+	@Ignore
+	@Test
 public void resultAfterApplyingLocationFilter() {
 	loginSteps.loginAsBroker();
 	perchwellSteps.skipAllHints();

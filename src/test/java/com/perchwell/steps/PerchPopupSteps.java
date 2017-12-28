@@ -18,4 +18,6 @@ public class PerchPopupSteps extends ScenarioSteps {
     public void shouldSeePopupText() throws Exception {
         Assert.assertTrue(perchPopupPage.popupTextIsDispalyed());
     }
+
+
 }

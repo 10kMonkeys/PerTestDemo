@@ -46,10 +46,11 @@ public class PerchwellPage extends BaseSwipe {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[3]")
     private WebElement thirdBuilding;
 
-@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeButton")
-private WebElement map;
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeButton")
+    private WebElement map;
 
- public Integer numberOfItemsInListView;
+    public Integer numberOfItemsInListView;
+   // public String buildingAddress;
 
     public WebElement getThirdBuilding() { return thirdBuilding; }
     public void clickOpenAccountButton() { element(openAccountButton).click(); }
@@ -61,14 +62,12 @@ private WebElement map;
 
     public void clickTransformDataHint() { element(transformDataHint).click(); }
 
-public void clickMap() { element(map).click(); }
+    public void clickMap() { element(map).click(); }
 
     public void clickExploreSearchResultHint() { element(exploreSearchResultHint).click(); }
 
     public void openFirstBuilding() {
-       if (firstBuilding.isDisplayed()) {
-        element(firstBuilding).click();
-    }
+         element(firstBuilding).click();
     }
 
     public void openSecondBuilding() { element(secondBuilding).click();  }
@@ -90,8 +89,13 @@ public void clickMap() { element(map).click(); }
 	}
 
 
-public Integer countItemsInListView() {
+    public Integer countItemsInListView() {
     return getDriver().findElements(By.className("XCUIElementTypeCell")).size();
 
+}
+
+public String getFistBuildingAddress() {
+
+      return  firstBuilding.findElements(By.className("XCUIElementTypeStaticText")).get(1).getAttribute("name");
 }
 }

@@ -10,21 +10,19 @@ import com.perchwell.pages.base.BasePage;
 
 public class PerchPopupPage extends BasePage {
 
-    public PerchPopupPage(WebDriver driver){super (driver);}
+public PerchPopupPage(WebDriver driver){super (driver);}
 
-    @iOSXCUITFindBy(accessibility = "NOT NOW")
-    private WebElement notNowButton;
+@iOSXCUITFindBy(accessibility = "NOT NOW")
+private WebElement notNowButton;
 
+@iOSXCUITFindBy(accessibility ="WOULD YOU LIKE TO RECEIVE NOTIFICATIONS FROM PERCHWELL?")
+private WebElement text;
 
-    @iOSXCUITFindBy(accessibility ="WOULD YOU LIKE TO RECEIVE NOTIFICATIONS FROM PERCHWELL?")
-    private WebElement text;
+public void clickNotNowButton() {element(notNowButton).click(); }
 
-    public void clickNotNowButton() {element(notNowButton).click(); }
-
-    public boolean popupTextIsDispalyed() {
+public boolean popupTextIsDispalyed() {
         return text.isDisplayed();
     }
-
 
 
 }

@@ -1,5 +1,7 @@
 package com.perchwell.steps;
 
+import com.perchwell.pages.perchwell.OpenedBuildingPage;
+import com.perchwell.test.SampleTest;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.perchwell.PerchwellPage;
@@ -10,6 +12,7 @@ import java.util.List;
 
 public class PerchwellSteps extends ScenarioSteps {
     PerchwellPage perchwellPage;
+//OpenedBuildingSteps openedBuildingSteps;
 
 
    @Step
@@ -21,10 +24,10 @@ public class PerchwellSteps extends ScenarioSteps {
         perchwellPage.clickExploreSearchResultHint();
     }
 
-@Step
-public void shouldSeeEditSearchFiltersHint() throws Exception {
-    Assert.assertTrue(perchwellPage.editSearchFiltersHintIsDispalyed());
-}
+	@Step
+	public void shouldSeeEditSearchFiltersHint() throws Exception {
+		Assert.assertTrue(perchwellPage.editSearchFiltersHintIsDispalyed());
+	}
 
     @Step
     public void clickOpenAccountButton(){
@@ -56,19 +59,25 @@ public void shouldSeeEditSearchFiltersHint() throws Exception {
 	public void countItemsInListViewBeforApplyingFilter(){
 	perchwellPage.numberOfItemsInListView=perchwellPage.countItemsInListView();
 
-  // System.out.print("Count before"+perchwellPage.numberOfItemsInListView);
    }
 
 	@Step
 	public void shoudSeeNoLessItemsInListViewAfterDeleteFilter(){
+		//System.out.print("Count before 2"+perchwellPage.numberOfItemsInListView);
      	Assert.assertTrue(perchwellPage.countItemsInListView() >= perchwellPage.numberOfItemsInListView);
 		//Save new value number of items
      	perchwellPage.numberOfItemsInListView=perchwellPage.countItemsInListView();
+		//System.out.print("Count before  3 "+perchwellPage.numberOfItemsInListView);
+	}
 
+	@Step
+	public void clickMap(){
+		perchwellPage.clickMap();
 	}
 
 @Step
-public void clickMap(){
-	perchwellPage.clickMap();
-}
+public void getFirstBuildingAddress() {
+   	OpenedBuildingSteps openedBuildingSteps=new OpenedBuildingSteps();
+  	openedBuildingSteps.addBuildingAddressInList(perchwellPage.getFistBuildingAddress());
+   }
 }

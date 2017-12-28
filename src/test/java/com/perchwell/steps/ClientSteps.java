@@ -19,8 +19,8 @@ public class ClientSteps extends ScenarioSteps {
     public void setRundomClientData() {
         client.setUniqueClientName(RandomGenerator.getRandomString("11CLIENTNAME"));
         this.clientPage.setClientName(client.getUniqueClientName());
-        this.clientPage.setClientEmail("TestItechArt2017@gmail.com");
-        //this.clientPage.setClientEmail(RandomGenerator.getRandomString("11CLIENTEMAIL")+"@EMAIL.COM");
+        //this.clientPage.setClientEmail("TestItechArt2017@gmail.com");
+        this.clientPage.setClientEmail(RandomGenerator.getRandomString("11CLIENTEMAIL")+"@EMAIL.COM");
     }
 
     @Step
@@ -43,6 +43,7 @@ public class ClientSteps extends ScenarioSteps {
     	if (clientPage.getAddNewClientButton().isDisplayed()){
         clientPage.clickAddNewClientButton();
     }
+    else
 		{
 			clientPage.clickInviteNewClientButton();
 		}

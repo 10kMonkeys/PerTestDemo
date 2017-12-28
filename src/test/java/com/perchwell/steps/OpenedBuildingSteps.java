@@ -1,13 +1,12 @@
 package com.perchwell.steps;
 
+import com.perchwell.pages.perchwell.OpenedBuildingPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import com.perchwell.pages.perchwell.OpenedBuildingPage;
+import org.junit.Assert;
 
-import java.util.ArrayList;
-import java.util.List;
+public class OpenedBuildingSteps extends ScenarioSteps {
 
-public class OpenedBuildingSteps extends ScenarioSteps{
     OpenedBuildingPage openedBuildingPage;
 
     @Step
@@ -31,13 +30,17 @@ public class OpenedBuildingSteps extends ScenarioSteps{
     @Step
     public void addToCompare() {
         openedBuildingPage.clickAddToCompareButton();
-        openedBuildingPage.buildingAddressList.add(openedBuildingPage.getBuildingAddress());
+        addBuildingAddressInList(openedBuildingPage.getBuildingAddress());
 
     }
 
+     protected void addBuildingAddressInList(String buildingAddress){
 
+                 openedBuildingPage.buildingAddressList.add(buildingAddress);
+}
 
+public void shouldSeeBuildingAddress() {
+    Assert.assertTrue(openedBuildingPage.getBuildingAddress().equalsIgnoreCase(openedBuildingPage.buildingAddressList.get(0)));
 
-
-
+}
 }

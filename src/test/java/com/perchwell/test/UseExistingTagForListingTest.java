@@ -1,16 +1,9 @@
-package com.perchwell;
+package com.perchwell.test;
 
-import com.perchwell.steps.*;
-import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Steps;
+import com.perchwell.test.SampleTest;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
-
 
 public class UseExistingTagForListingTest extends SampleTest {
-
 
 @Test
 public void useExistingTagForListing() throws Exception {

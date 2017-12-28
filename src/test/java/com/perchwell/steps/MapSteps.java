@@ -24,7 +24,7 @@ public void countItemsInListAndMapViewIsSame(){
 	System.out.print("In map "+mapPage.numberOfItemsInMapView);
 
 		Assert.assertTrue(mapPage.numberOfItemsInMapView == perchwellPage.numberOfItemsInListView);
-
+	System.out.print("Count before 4"+perchwellPage.numberOfItemsInListView);
 }
 	// System.out.print("Count before"+perchwellPage.numberOfItemsInListView);
 }

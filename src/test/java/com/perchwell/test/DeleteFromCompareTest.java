@@ -1,8 +1,8 @@
-package com.perchwell;
+package com.perchwell.test;
 
 import org.junit.Test;
 
-public class DeleteFromCompareTest extends SampleTest{
+public class DeleteFromCompareTest extends SampleTest {
 
 
 
@@ -35,4 +35,5 @@ public void deleteFromCompare() throws Exception {
 	compareSteps.notSeeFirstBuildingInCompare();
 
 
-}}
+}
+}

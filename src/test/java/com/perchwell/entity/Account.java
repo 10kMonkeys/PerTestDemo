@@ -5,7 +5,7 @@ public class Account {
     public static String password = "h2aj1p";
 
     public static String client_email = "itech.perch.test@gmail.com";
-    public static String client_password = "perchtest";
+    public static String client_password = "h2aj1p";
 
 
 }
