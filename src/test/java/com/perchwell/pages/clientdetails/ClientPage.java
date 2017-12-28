@@ -14,10 +14,13 @@ public class ClientPage extends BaseSwipe {
         super (driver);
     }
 
-    @iOSXCUITFindBy(accessibility = "ADD NEW CLIENT")
+@iOSXCUITFindBy(accessibility = "ADD NEW CLIENT")
     private WebElement addNewClientButton;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
+@iOSXCUITFindBy(accessibility = "INVITE MY CLIENTS")
+private WebElement inviteNewClientButton;
+
+@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
     private WebElement clientNameTextBox;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeTextField")
@@ -26,7 +29,9 @@ public class ClientPage extends BaseSwipe {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeButton")
     private WebElement groupLabel;
 
-
+	public WebElement getAddNewClientButton() {
+	return addNewClientButton;
+}
 
     private WebElement getGroupLabelName(String groupName){
         WebElement groupLabelName = getDriver().findElement(MobileBy.AccessibilityId(groupName));
@@ -39,6 +44,10 @@ public class ClientPage extends BaseSwipe {
     public void clickInviteButton() { element(inviteButton).click(); }
 
     public void clickAddNewClientButton() { element(addNewClientButton).click(); }
+
+public void clickInviteNewClientButton() { element(inviteNewClientButton).click(); }
+
+
 
     public void setClientName(String clientName){ element(clientNameTextBox).sendKeys(clientName); }
 
