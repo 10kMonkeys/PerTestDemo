@@ -1,4 +1,4 @@
-package com.perchwell.test;
+package com.perchwell.tests;
 
 import org.junit.Test;
 
@@ -13,22 +13,22 @@ public void addToCompare() throws Exception {
 	perchPopupSteps.clickNotNowButton();
 	perchwellSteps.openFirstBuilding();
 	openedBuildingSteps.clickDiscussWithMyClientHint();
-	openedBuildingSteps.addToCompare();
+	openedBuildingSteps.addToCompare("the first building");
 	openedBuildingSteps.clickBackButton();
 	perchwellSteps.openSecondBuilding();
-	openedBuildingSteps.addToCompare();
+	openedBuildingSteps.addToCompare("the second building");
 	openedBuildingSteps.clickBackButton();
 	perchwellSteps.openThirdBuilding();
-	openedBuildingSteps.addToCompare();
+	openedBuildingSteps.addToCompare("the third building");
 	openedBuildingSteps.clickBackButton();
 	perchwellSteps.clickOpenAccountButton();
 	accountSteps.clickCompareLabel();
 	compareSteps.clickSwipeUpToRemoveHint();
 	compareSteps.firstBuildingIsDispayed();
-	compareSteps.shoudSeeFirstBuildingInCompare();
+	compareSteps.shoudSeeFirstBuildingInCompare("the first building");
 	compareSteps.secondBuildingIsDispayed();
-	compareSteps.shoudSeeSecondBuildingInCompare();
-	compareSteps.thirdBuildingIsDispayed();
+	compareSteps.shoudSeeSecondBuildingInCompare("the second building");
+	compareSteps.thirdBuildingIsDispayed("the third building");
 
 
 }

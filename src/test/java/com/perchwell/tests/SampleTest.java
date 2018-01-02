@@ -1,6 +1,5 @@
-package com.perchwell.test;
+package com.perchwell.tests;
 
-import com.perchwell.email.Gmail;
 import com.perchwell.steps.*;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;

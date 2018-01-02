@@ -6,7 +6,7 @@ import org.openqa.selenium.Dimension;
 
 import java.time.Duration;
 
-public class Helper {
+public abstract class Helper {
 
     public static void swipeVertical(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage, int duration) {
         Dimension size = driver.manage().window().getSize();

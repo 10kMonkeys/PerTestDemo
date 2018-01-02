@@ -8,7 +8,7 @@ import org.junit.Assert;
 
 public class CompareSteps extends ScenarioSteps {
     ComparePage comparePage;
-    OpenedBuildingPage openedBuildingPage;
+
 
 
     @Step(("The first buildingAddressList is displayed without swipe"))
@@ -16,30 +16,21 @@ public class CompareSteps extends ScenarioSteps {
         Assert.assertTrue(comparePage.firstBuildingIsDispayed());
      }
 
-
-    @Step("Shoud see the first buildingAddressList is selected earlier for compare")
-    public void shoudSeeFirstBuildingInCompare() {
-
-		Assert.assertTrue(comparePage.getFirstBuildingAddress().equalsIgnoreCase(openedBuildingPage.buildingAddressList.get(0)));
-
-    }
-
-    @Step("The second buildingAddressList is displayed without swipe")
+      @Step("The second buildingAddressList is displayed without swipe")
     public void secondBuildingIsDispayed(){
         Assert.assertTrue(comparePage.secondBuildingIsDispayed());
     }
 
 
-    @Step("Shoud see the second buildingAddressList is selected earlier for compare")
-    public void shoudSeeSecondBuildingInCompare() {
-        Assert.assertTrue(comparePage.getSecondBuildingAddress().equalsIgnoreCase(openedBuildingPage.buildingAddressList.get(1)));
+    @Step("Shoud see {0} is selected earlier for compare")
+    public void shoudSeeSecondBuildingInCompare(String building) {
+        Assert.assertTrue(comparePage.getSecondBuildingAddress().equalsIgnoreCase(comparePage.getBuildingAddressFromSessionVariable(building)));
     }
 
 	@Step(("The third buildingAddressList is displayed with swipe"))
-	public void thirdBuildingIsDispayed() throws Exception {
+	public void thirdBuildingIsDispayed(String building) throws Exception {
 
-    	String elementName=openedBuildingPage.buildingAddressList.get(2);
-		Assert.assertTrue(comparePage.isBuildingDisplayedWithSwipe(elementName));
+		Assert.assertTrue(comparePage.isBuildingDisplayedWithSwipe(comparePage.getBuildingAddressFromSessionVariable(building)));
 	}
 
     @Step
@@ -69,8 +60,23 @@ public class CompareSteps extends ScenarioSteps {
 	}
 
 
-	@Step
-	public void notSeeFirstBuildingInCompare() {
-			Assert.assertFalse(comparePage.getFirstBuildingAddress().equalsIgnoreCase(openedBuildingPage.buildingAddressList.get(0)));
+ @Step("Shoudn't exist {0} in compare")
+	public void notSeeFirstBuildingInCompare(String building) {
+			Assert.assertFalse(comparePage.getFirstBuildingAddress().equalsIgnoreCase(comparePage.getBuildingAddressFromSessionVariable(building)));
 	}
+
+@Step("Shoud see {0} is selected earlier for compare")
+public void shoudSeeFirstBuildingInCompare(String building) {
+	Assert.assertTrue(comparePage.getFirstBuildingAddress().equalsIgnoreCase(comparePage.getBuildingAddressFromSessionVariable(building)));
+}
+
+
+//@Deprecated
+//@Step("Shoud see the first buildingAddressList is selected earlier for compare")
+//public void shoudSeeFirstBuildingInCompare() {
+//
+//	Assert.assertTrue(comparePage.getFirstBuildingAddress().equalsIgnoreCase(openedBuildingPage.buildingAddressList.get(0)));
+//
+//}
+
 }

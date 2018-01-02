@@ -1,14 +1,9 @@
 package com.perchwell.steps;
 
-import com.perchwell.pages.perchwell.OpenedBuildingPage;
-import com.perchwell.test.SampleTest;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.perchwell.PerchwellPage;
 import org.junit.Assert;
-
-import java.util.List;
-
 
 public class PerchwellSteps extends ScenarioSteps {
     PerchwellPage perchwellPage;
@@ -77,7 +72,6 @@ public class PerchwellSteps extends ScenarioSteps {
 
 @Step
 public void getFirstBuildingAddress() {
-   	OpenedBuildingSteps openedBuildingSteps=new OpenedBuildingSteps();
-  	openedBuildingSteps.addBuildingAddressInList(perchwellPage.getFistBuildingAddress());
+   	  	perchwellPage.addBuildingAddressInSessionVariable("buidingAddress",perchwellPage.getFistBuildingAddress());
    }
 }

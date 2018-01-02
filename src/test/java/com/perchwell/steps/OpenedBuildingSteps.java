@@ -1,6 +1,7 @@
 package com.perchwell.steps;
 
 import com.perchwell.pages.perchwell.OpenedBuildingPage;
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -27,20 +28,21 @@ public class OpenedBuildingSteps extends ScenarioSteps {
         openedBuildingPage.ckickDeleteTagButton();
     }
 
-    @Step
-    public void addToCompare() {
+    @Step ("Add to compare {0}")
+    public void addToCompare(String buildingName) {
         openedBuildingPage.clickAddToCompareButton();
-        addBuildingAddressInList(openedBuildingPage.getBuildingAddress());
+        addBuildingAddressInSessionVariable(buildingName, openedBuildingPage.getBuildingAddress());
 
     }
 
-     protected void addBuildingAddressInList(String buildingAddress){
+     private void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress){
+        openedBuildingPage.addBuildingAddressInSessionVariable(buildingName, buildingAddress);
 
-                 openedBuildingPage.buildingAddressList.add(buildingAddress);
+
 }
 
 public void shouldSeeBuildingAddress() {
-    Assert.assertTrue(openedBuildingPage.getBuildingAddress().equalsIgnoreCase(openedBuildingPage.buildingAddressList.get(0)));
+    Assert.assertTrue(openedBuildingPage.getBuildingAddress().equalsIgnoreCase(openedBuildingPage.getBuildingAddressFromSessionVariable("buidingAddress")));
 
 }
 }

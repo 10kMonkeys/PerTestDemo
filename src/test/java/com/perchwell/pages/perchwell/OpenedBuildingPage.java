@@ -1,8 +1,8 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.pages.base.BasePage;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -14,7 +14,7 @@ public class OpenedBuildingPage extends BasePage {
     public OpenedBuildingPage(WebDriver driver){
         super (driver);
     }
-     public static List<String> buildingAddressList = new ArrayList<String>();
+    // public static List<String> buildingAddressList = new ArrayList<String>();
 
     @iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
     private WebElement discussThisHint;
@@ -22,8 +22,6 @@ public class OpenedBuildingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "MY TAGS")
     private WebElement myTagsLabel;
 
-//    @iOSXCUITFindBy(accessibility = "Nav Back White")
-//    private WebElement backButton;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
     private WebElement backButton;
@@ -58,7 +56,11 @@ public class OpenedBuildingPage extends BasePage {
         return  buildingAddress.getAttribute("name");
          }
 
+public void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
 
-
-
+    Serenity.setSessionVariable(buildingName).to(buildingAddress);
+}
+public String getBuildingAddressFromSessionVariable(String buildingName) {
+	return Serenity.sessionVariableCalled(buildingName);
+}
 }

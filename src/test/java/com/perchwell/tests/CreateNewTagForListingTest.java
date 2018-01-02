@@ -1,12 +1,11 @@
-package com.perchwell.test;
+package com.perchwell.tests;
 
-import com.perchwell.test.SampleTest;
 import org.junit.Test;
 
-public class UseExistingTagForListingTest extends SampleTest {
+public class CreateNewTagForListingTest extends SampleTest {
 
 @Test
-public void useExistingTagForListing() throws Exception {
+public void createNewTagForListing() throws Exception {
 
 	loginSteps.loginAsBroker();
 	perchwellSteps.skipAllHints();
@@ -14,14 +13,14 @@ public void useExistingTagForListing() throws Exception {
 	perchwellSteps.openFirstBuilding();
 	openedBuildingSteps.clickDiscussWithMyClientHint();
 	openedBuildingSteps.clickMyTagsLabel();
-	tagsSteps.clickExistingTagLabel();
+	tagsSteps.setRandomTagAndSave();
 	tagsSteps.clickBackButton();
 	openedBuildingSteps.clickBackButton();
 	perchwellSteps.clickOpenAccountButton();
 	accountSteps.clickTagsLabel();
-	tagsSteps.shouldSeeExistingTagUpperCase();
-	tagsSteps.clickUsedTag();
+	tagsSteps.shouldSeeCreatedTagUpperCase();
+	tagsSteps.clickCreatedTag();
 	tagsSteps.clickSearchButton();
-	tagsSteps.shouldSeeExistingTagUpperCase();
+	tagsSteps.shouldSeeCreatedTagUpperCase();
 }
 }

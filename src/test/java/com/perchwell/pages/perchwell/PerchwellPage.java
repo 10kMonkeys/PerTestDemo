@@ -6,6 +6,7 @@ import com.perchwell.pages.base.BaseSwipe;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -98,4 +99,13 @@ public String getFistBuildingAddress() {
 
       return  firstBuilding.findElements(By.className("XCUIElementTypeStaticText")).get(1).getAttribute("name");
 }
+
+
+public void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
+
+    Serenity.setSessionVariable(buildingName).to(buildingAddress);
+}
+
+
+
 }

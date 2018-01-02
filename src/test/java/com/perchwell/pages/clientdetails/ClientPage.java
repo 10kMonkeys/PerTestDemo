@@ -64,6 +64,7 @@ public void clickInviteNewClientButton() { element(inviteNewClientButton).click(
             setImplicitTimeout(1, SECONDS);
             swipeDownUntilElementVisible(clientName);
             resetImplicitTimeout();
+
         }
         return isElementVisible(MobileBy.AccessibilityId(clientName));
     }

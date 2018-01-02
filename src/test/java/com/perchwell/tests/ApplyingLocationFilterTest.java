@@ -1,4 +1,4 @@
-package com.perchwell.test;
+package com.perchwell.tests;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -6,7 +6,7 @@ import org.junit.Test;
 public class ApplyingLocationFilterTest extends SampleTest {
 
 
-	@Ignore
+
 	@Test
 public void resultAfterApplyingLocationFilter() {
 	loginSteps.loginAsBroker();
@@ -18,9 +18,11 @@ public void resultAfterApplyingLocationFilter() {
 	searchSteps.clickDeleteSecondLocation();
 	searchSteps.clickApplyButton();
 	perchPopupSteps.clickNotNowButton();
-	perchwellSteps.shoudSeeNoLessItemsInListViewAfterDeleteFilter();
+	//perchwellSteps.shoudSeeNoLessItemsInListViewAfterDeleteFilter();
 	perchwellSteps.clickMap();
 	mapSteps.ckickNotNowButton();
+		mapSteps.zoomIn();
+		mapSteps.zoomIn();
 	mapSteps.countItemsInListView();
 	mapSteps.countItemsInListAndMapViewIsSame();
 

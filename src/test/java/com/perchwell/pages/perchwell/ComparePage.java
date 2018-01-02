@@ -4,6 +4,7 @@ import com.perchwell.pages.base.BaseScroll;
 
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -130,5 +131,10 @@ public class ComparePage extends BaseScroll {
 
     }
 
-    }
+public String getBuildingAddressFromSessionVariable(String buildingName) {
+	return Serenity.sessionVariableCalled(buildingName);
+}
+
+
+}
 

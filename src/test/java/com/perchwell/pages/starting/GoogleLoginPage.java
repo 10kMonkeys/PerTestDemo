@@ -25,7 +25,7 @@ public class GoogleLoginPage  extends BasePage {
     private WebElement passwordField;
 
 
-	@iOSXCUITFindBy(accessibility = "Itech Perch itech.perch.test@gmail.com")
+	@iOSXCUITFindBy(accessibility = "Itech Perch itech.perch.tests@gmail.com")
 		private WebElement existingAccount;
 
 
