@@ -21,20 +21,31 @@ public void ckickNotNowButton() {
 }
 
 @Step
-public void countItemsInListView() {
+public void countItemsInMapView() throws Exception {
+	//ZoomIn and ZoomOut is used for display all points
+	zoomIn();
+	mapPage.swipeRight();
+	zoomOut();
 	mapPage.numberOfItemsInMapView = mapPage.countItemsInMapView();
 }
 
 @Step
-public void countItemsInListAndMapViewIsSame(){
+public void itemsInListAndMapViewIsSame(){
 	System.out.print("In map "+mapPage.numberOfItemsInMapView);
+	System.out.print("Count = "+perchwellPage.numberOfItemsInListView);
+	Assert.assertTrue(mapPage.numberOfItemsInMapView == perchwellPage.numberOfItemsInListView);
 
-		Assert.assertTrue(mapPage.numberOfItemsInMapView == perchwellPage.numberOfItemsInListView);
-	System.out.print("Count before 4"+perchwellPage.numberOfItemsInListView);
 }
 
-public void zoomIn() {
-	mapPage.zoomIn();
+private void zoomIn() {
+	mapPage.zoom("1.5","1.1");
+
 }
-// System.out.print("Count before"+perchwellPage.numberOfItemsInListView);
+
+private void zoomOut() {
+	mapPage.zoom("0.5","-1.9");
+
+}
+
+
 }

@@ -58,11 +58,11 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void shoudSeeNoLessItemsInListViewAfterDeleteFilter(){
-		//System.out.print("Count before 2"+perchwellPage.numberOfItemsInListView);
+		System.out.print("Count before 2"+perchwellPage.numberOfItemsInListView);
      	Assert.assertTrue(perchwellPage.countItemsInListView() >= perchwellPage.numberOfItemsInListView);
 		//Save new value number of items
      	perchwellPage.numberOfItemsInListView=perchwellPage.countItemsInListView();
-		//System.out.print("Count before  3 "+perchwellPage.numberOfItemsInListView);
+		System.out.print("Count before  3 "+perchwellPage.numberOfItemsInListView);
 	}
 
 	@Step

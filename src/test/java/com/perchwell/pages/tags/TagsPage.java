@@ -27,7 +27,7 @@ public class TagsPage extends BaseSwipe {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell")
     private WebElement createTagLabel;
 
-    @iOSXCUITFindBy(accessibility = "Back")
+    @iOSXCUITFindBy(accessibility = "Nav Back White")
     private WebElement back;
 
       // @iOSXCUITFindBy(accessibility = )

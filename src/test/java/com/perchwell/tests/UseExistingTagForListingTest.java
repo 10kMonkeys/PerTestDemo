@@ -1,5 +1,6 @@
 package com.perchwell.tests;
 
+import com.perchwell.SampleTest;
 import org.junit.Test;
 
 public class UseExistingTagForListingTest extends SampleTest {

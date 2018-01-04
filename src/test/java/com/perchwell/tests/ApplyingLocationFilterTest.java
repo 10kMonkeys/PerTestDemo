@@ -1,14 +1,15 @@
 package com.perchwell.tests;
 
+import com.perchwell.SampleTest;
 import org.junit.Ignore;
 import org.junit.Test;
 
 public class ApplyingLocationFilterTest extends SampleTest {
 
 
-
+@Ignore
 	@Test
-public void resultAfterApplyingLocationFilter() {
+public void resultAfterApplyingLocationFilter() throws Exception {
 	loginSteps.loginAsBroker();
 	perchwellSteps.skipAllHints();
 	perchPopupSteps.clickNotNowButton();
@@ -18,13 +19,11 @@ public void resultAfterApplyingLocationFilter() {
 	searchSteps.clickDeleteSecondLocation();
 	searchSteps.clickApplyButton();
 	perchPopupSteps.clickNotNowButton();
-	//perchwellSteps.shoudSeeNoLessItemsInListViewAfterDeleteFilter();
+	perchwellSteps.shoudSeeNoLessItemsInListViewAfterDeleteFilter();
 	perchwellSteps.clickMap();
 	mapSteps.ckickNotNowButton();
-		mapSteps.zoomIn();
-		mapSteps.zoomIn();
-	mapSteps.countItemsInListView();
-	mapSteps.countItemsInListAndMapViewIsSame();
+	mapSteps.countItemsInMapView();
+	mapSteps.itemsInListAndMapViewIsSame();
 
 }
 }

@@ -50,7 +50,7 @@ public class PerchwellPage extends BaseSwipe {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeButton")
     private WebElement map;
 
-    public Integer numberOfItemsInListView;
+    public static Integer numberOfItemsInListView;
    // public String buildingAddress;
 
     public WebElement getThirdBuilding() { return thirdBuilding; }

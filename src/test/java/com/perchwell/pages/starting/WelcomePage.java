@@ -28,7 +28,11 @@ public class WelcomePage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Continue")
 	private WebElement continueButton;
 
+@iOSXCUITFindBy(accessibility = "FORGOT PASSWORD")
+private WebElement forgotPassword;
+
     public void clickConnectWith() { element(connectWithButton).click(); }
+public void clickForgotPassword() { element(forgotPassword).click(); }
 
     public void clickLoginButton(){
         element(loginButton).click();

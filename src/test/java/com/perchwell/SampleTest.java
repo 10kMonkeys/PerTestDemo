@@ -15,39 +15,41 @@ import java.util.TimerTask;
 
 @RunWith(SerenityRunner.class)
 public class SampleTest {
+@Managed
+WebDriver driver;
 
-    @Managed
-    WebDriver driver;
+@Steps
+protected  CompareSteps compareSteps;
 
-    @Steps
-    CompareSteps compareSteps;
+@Steps
+protected  OpenedBuildingSteps openedBuildingSteps;
 
-    @Steps
-    OpenedBuildingSteps openedBuildingSteps;
+@Steps
+protected LoginSteps loginSteps;
 
-    @Steps
-    LoginSteps loginSteps;
+@Steps
+protected ResetPasswordSteps resetPasswordSteps;
 
-    @Steps
-    PerchwellSteps perchwellSteps;
+@Steps
+protected PerchwellSteps perchwellSteps;
 
-    @Steps
-    PerchPopupSteps perchPopupSteps;
+@Steps
+protected PerchPopupSteps perchPopupSteps;
 
-    @Steps
-    AccountSteps accountSteps;
+@Steps
+protected AccountSteps accountSteps;
 
-	@Steps
-	ClientSteps clientSteps;
+@Steps
+protected ClientSteps clientSteps;
 
-	@Steps
-	TagsSteps tagsSteps;
+@Steps
+protected TagsSteps tagsSteps;
 
-	@Steps
-    SearchSteps searchSteps;
+@Steps
+protected SearchSteps searchSteps;
 
-	@Steps
-    MapSteps mapSteps;
+@Steps
+protected MapSteps mapSteps;
 
     static TimerTask task = new TravisAlive();
     static Timer timer = new Timer(true);

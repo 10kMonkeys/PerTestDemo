@@ -31,11 +31,19 @@ public class LoginSteps extends ScenarioSteps {
 
     }
 
+	@Step
+	public void clickLoginButton(){
+		welcomePage.clickLoginButton();
+	}
+
     @Step ("Log in as Broker ")
     public void loginAsBroker(){
         login(account.email, account.password);
 
     }
+
+    @Step
+    public void clickForgotPassword() { welcomePage.clickForgotPassword(); }
 
     @Step ("Log in with Google ")
     public void loginWithGoogle() {

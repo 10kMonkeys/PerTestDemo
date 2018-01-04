@@ -20,12 +20,11 @@ public BaseSwipe(WebDriver driver){
         By byElement = MobileBy.iOSNsPredicateString("name == '" + elementName + "' AND visible==1");
 
         boolean isFoundTheElement = getDriver().findElements(byElement).size() > 0;
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
         while (!isFoundTheElement) {
-
-            WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-            WebDriver webDriver = webDriverFacade.getProxiedDriver();
-            AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
             Helper.swipeVertical(appiumDriver, 0.9, 0.2, 0.5, 1);
 
