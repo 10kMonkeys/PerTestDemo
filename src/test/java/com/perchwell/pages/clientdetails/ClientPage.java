@@ -1,8 +1,10 @@
 package com.perchwell.pages.clientdetails;
 
+import com.perchwell.email.MailTrap;
 import com.perchwell.pages.base.BaseSwipe;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -14,13 +16,13 @@ public class ClientPage extends BaseSwipe {
         super (driver);
     }
 
-@iOSXCUITFindBy(accessibility = "ADD NEW CLIENT")
+	@iOSXCUITFindBy(accessibility = "ADD NEW CLIENT")
     private WebElement addNewClientButton;
 
-@iOSXCUITFindBy(accessibility = "INVITE MY CLIENTS")
-private WebElement inviteNewClientButton;
+	@iOSXCUITFindBy(accessibility = "INVITE MY CLIENTS")
+	private WebElement inviteNewClientButton;
 
-@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
     private WebElement clientNameTextBox;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeTextField")
@@ -45,9 +47,7 @@ private WebElement inviteNewClientButton;
 
     public void clickAddNewClientButton() { element(addNewClientButton).click(); }
 
-public void clickInviteNewClientButton() { element(inviteNewClientButton).click(); }
-
-
+	public void clickInviteNewClientButton() { element(inviteNewClientButton).click(); }
 
     public void setClientName(String clientName){ element(clientNameTextBox).sendKeys(clientName); }
 
@@ -68,4 +68,12 @@ public void clickInviteNewClientButton() { element(inviteNewClientButton).click(
         }
         return isElementVisible(MobileBy.AccessibilityId(clientName));
     }
+	public void addValueInSessionVariable(String name, String value) {   Serenity.setSessionVariable(name).to(value);}
+
+	public String getValueFromSessionVariable(String name) { return Serenity.sessionVariableCalled(name);	}
+
+public Boolean invitationEmailSent(String email) {
+	return MailTrap.getEmail(getValueFromSessionVariable(email));
+
+}
 }

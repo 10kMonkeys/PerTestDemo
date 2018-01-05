@@ -6,26 +6,28 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import com.perchwell.pages.clientdetails.ClientPage;
-import com.perchwell.entity.Client;
+
 
 
 public class ClientSteps extends ScenarioSteps {
 
-    Client client = new Client();
+   // Client client = new Client();
     ClientPage clientPage;
 
 
     @Step
     public void setRundomClientData() {
-        client.setUniqueClientName(RandomGenerator.getRandomString("11CLIENTNAME"));
-        this.clientPage.setClientName(client.getUniqueClientName());
+        clientPage.addValueInSessionVariable("User name", RandomGenerator.getRandomString("11CLIENTNAME"));
+        //client.setUniqueClientName(RandomGenerator.getRandomString("11CLIENTNAME"));
+        this.clientPage.setClientName(clientPage.getValueFromSessionVariable("User name"));
         //this.clientPage.setClientEmail("TestItechArt2017@gmail.com");
-        this.clientPage.setClientEmail(RandomGenerator.getRandomString("11CLIENTEMAIL")+"@EMAIL.COM");
+        clientPage.addValueInSessionVariable("User email", RandomGenerator.getRandomString("11CLIENTEMAIL")+"@EMAIL.COM");
+        this.clientPage.setClientEmail(clientPage.getValueFromSessionVariable("User email"));
     }
 
     @Step
     public void shouldSeeRecentlyCreatedClient() throws Exception {
-        Assert.assertTrue(clientPage.isClientDisplayed(client.getUniqueClientName()));
+        Assert.assertTrue(clientPage.isClientDisplayed(clientPage.getValueFromSessionVariable("User name")));
     }
 
     @Step
@@ -53,4 +55,10 @@ public class ClientSteps extends ScenarioSteps {
     public void clickInviteButton() {
         clientPage.clickInviteButton();
     }
+
+    @Step
+public void invitationEmailSent() {
+       Assert.assertTrue(clientPage.invitationEmailSent("User email"));
+
+}
 }

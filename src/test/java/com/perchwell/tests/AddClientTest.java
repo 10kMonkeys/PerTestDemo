@@ -19,6 +19,7 @@ public void addClient() throws Exception {
 	clientSteps.selectGroup("Actively Searching");
 	clientSteps.clickInviteButton();
 	clientSteps.shouldSeeRecentlyCreatedClient();
+	clientSteps.invitationEmailSent();
 
 }
 }
