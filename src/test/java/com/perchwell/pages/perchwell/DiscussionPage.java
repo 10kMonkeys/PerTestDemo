@@ -20,7 +20,7 @@ public boolean ccMyEmailTextDispayed() {
 	return element(ccMyEmailText).isDisplayed();
 }
 
-public boolean clickBackButton() {
-	return element(backButton).isDisplayed();
+public void clickBackButton() {
+	 element(backButton).click();
 }
 }

@@ -22,8 +22,8 @@ public void discussionWithNewClientTest() throws Exception {
 	clientSteps.clickInviteButton();
 	discussionSteps.clickBackButton();
 	clientSteps.clickBackButton();
-   // clientSteps.closePage();
-	clientSteps.clickBackButton();
+	clientSteps.closePage();
+
 	openedBuildingSteps.clickAddDiscusButton();
 	clientSteps.shouldSeeRecentlyCreatedClient();
 	clientSteps.clickDesiredClient();
