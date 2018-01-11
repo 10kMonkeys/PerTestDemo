@@ -64,6 +64,19 @@ public class TagsSteps extends ScenarioSteps {
 
     }
 
+@Step
+public void clickSeveralExistingTagLabel() {
+
+    tagsPage.findExistingTagLabel().click();
+    tagsPage.findExistingTagLabel().click();
+
+
+}
+@Step
+public void clickShareButton() {
+    tagsPage.clickShareButton();
+}
+
     @Step
     public void shouldSeeExistingTagUpperCase() throws Exception {
         Assert.assertTrue(tagsPage.isTagDisplayedWithSwipe(tag.getExistingTagname().toUpperCase()));

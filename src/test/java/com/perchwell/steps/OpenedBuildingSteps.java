@@ -8,41 +8,51 @@ import org.junit.Assert;
 
 public class OpenedBuildingSteps extends ScenarioSteps {
 
-    OpenedBuildingPage openedBuildingPage;
+OpenedBuildingPage openedBuildingPage;
 
-    @Step
-    public void clickDiscussWithMyClientHint() { openedBuildingPage.clickDiscussWithMyClientHint(); }
+@Step
+public void clickDiscussWithMyClientHint() {
+	openedBuildingPage.clickDiscussWithMyClientHint();
+}
 
-    @Step
-    public void clickMyTagsLabel() {
-        openedBuildingPage.clickMyTagsLabel();
-    }
+@Step
+public void clickMyTagsLabel() {
+	openedBuildingPage.clickMyTagsLabel();
+}
 
-    @Step
-    public void clickBackButton() {
-        openedBuildingPage.clickBackButton();
-    }
+@Step
+public void clickBackButton() {
+	openedBuildingPage.clickBackButton();
+}
 
-    @Step
-    public void ckickDeleteTagButton() {
-        openedBuildingPage.ckickDeleteTagButton();
-    }
+@Step
+public void ckickDeleteTagButton() {
+	openedBuildingPage.ckickDeleteTagButton();
+}
 
-    @Step ("Add to compare {0}")
-    public void addToCompare(String buildingName) {
-        openedBuildingPage.clickAddToCompareButton();
-        addBuildingAddressInSessionVariable(buildingName, openedBuildingPage.getBuildingAddress());
-
-    }
-
-     private void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress){
-        openedBuildingPage.addBuildingAddressInSessionVariable(buildingName, buildingAddress);
-
+@Step("Add to compare {0}")
+public void addToCompare(String buildingName) {
+	openedBuildingPage.clickAddToCompareButton();
+	addBuildingAddressInSessionVariable(buildingName, openedBuildingPage.getBuildingAddress());
 
 }
 
-public void shouldSeeBuildingAddress() {
-    Assert.assertTrue(openedBuildingPage.getBuildingAddress().equalsIgnoreCase(openedBuildingPage.getBuildingAddressFromSessionVariable("buidingAddress")));
+@Step
+public void clickDiscussWithMyClientButton() {
+	openedBuildingPage.clickDiscussWithClientButton();
+}
 
+@Step
+public void clickAddDiscusButton() {
+	openedBuildingPage.clickAddDiscus();
+}
+
+
+private void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
+	openedBuildingPage.addBuildingAddressInSessionVariable(buildingName, buildingAddress);
+}
+
+public void shouldSeeBuildingAddress() {
+	Assert.assertTrue(openedBuildingPage.getBuildingAddress().equalsIgnoreCase(openedBuildingPage.getBuildingAddressFromSessionVariable("buidingAddress")));
 }
 }

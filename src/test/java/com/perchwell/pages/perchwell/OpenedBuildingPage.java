@@ -35,6 +35,19 @@ public class OpenedBuildingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "compare untinted")
     private WebElement compareButton;
 
+@iOSXCUITFindBy(accessibility = "DISCUSS WITH MY CLIENT")
+private WebElement disccusWithClientButton;
+
+@iOSXCUITFindBy(accessibility = "circle_plus_gray")
+private WebElement addDiscus;
+
+public void clickAddDiscus() { element(addDiscus).click(); }
+
+
+public void clickDiscussWithClientButton() { element(disccusWithClientButton).click(); }
+
+
+
     public void clickDiscussWithMyClientHint() { element(discussThisHint).click(); }
 
     public void clickMyTagsLabel() { element(myTagsLabel).click(); }

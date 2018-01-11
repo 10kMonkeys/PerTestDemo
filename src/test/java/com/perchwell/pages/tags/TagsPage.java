@@ -20,6 +20,8 @@ public class TagsPage extends BaseSwipe {
         super(driver);
     }
 
+    @iOSXCUITFindBy(accessibility = "share")
+    private WebElement shareButton;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSearchField")
     private WebElement searchTagTexBox;
@@ -51,6 +53,10 @@ public class TagsPage extends BaseSwipe {
     public void clickBackButton() {
         element(back).click();
     }
+
+    public void clickShareButton() {
+    element(shareButton).click();
+}
 
     public void clickTagLabel(String TagName) {
         this.getCreatedTagLabel(TagName).click();

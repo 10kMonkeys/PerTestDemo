@@ -61,4 +61,25 @@ public void invitationEmailSent() {
        Assert.assertTrue(clientPage.invitationEmailSent("User email"));
 
 }
+
+@Step
+public void selectClient() {
+    clientPage.addValueInSessionVariable("Client", clientPage.getClientName());
+    clientPage.clickClient();
+
+}
+@Step
+public void clickBackButton() {
+  clientPage.clickBackButton();
+}
+
+@Step
+public void closePage() {
+        clientPage.closePage();
+}
+
+@Step
+public void clickDesiredClient() throws Exception {
+   clientPage.clickDesiredClient(clientPage.getValueFromSessionVariable("User name"));
+}
 }

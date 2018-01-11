@@ -28,10 +28,13 @@ private WebElement deleteSecondLocationButton;
 @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell")
 private WebElement itemListView;
 
+
 private String getFirstLocationName(){
 	return firstLocation.getAttribute("name");}
 
 public void clickDeleteFirstLocation(){deleteFirstLocationButton.click();}
+
+
 
 public void clickApplyButton(){applyButton.click();}
 
