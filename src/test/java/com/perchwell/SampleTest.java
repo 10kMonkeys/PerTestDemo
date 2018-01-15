@@ -7,7 +7,6 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.junit.BeforeClass;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
@@ -21,10 +20,7 @@ public abstract class SampleTest {
     @Managed
     WebDriver driver;
 
-    @Steps
-    protected  CompareSteps compareSteps;
-
-    @Steps
+     @Steps
     protected  OpenedBuildingSteps openedBuildingSteps;
 
     @Steps
@@ -55,17 +51,28 @@ public abstract class SampleTest {
     protected MapSteps mapSteps;
 
     @Steps
-    protected DiscussionSteps discussionSteps;
-
-    @Steps
     protected SelectResultSteps selectResultStep;
 
     @Steps
     protected DiscussionsListSteps discussionsListSteps;
 
+    @Steps
+    protected  CompareSteps compareSteps;
 
-    static TimerTask task = new TravisAlive();
-    static Timer timer;
+
+     //@Steps
+    //protected ResetPasswordSteps resetPasswordSteps;
+
+    @Steps
+    protected DiscussionSteps discussionSteps;
+
+    @Steps
+    protected AnalyticsSteps analyticsSteps;
+
+
+
+        static TimerTask task = new TravisAlive();
+        static Timer timer;
 
 
     @BeforeClass
@@ -73,7 +80,9 @@ public abstract class SampleTest {
         if(timer == null){
             TimerTask task = new TravisAlive();
             timer = new Timer(true);
-            timer.schedule(task, 15000, 10000);
+
+            timer.schedule(task, 15000, 540000);
+
         }
     }
 }
