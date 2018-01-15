@@ -1,0 +1,13 @@
+Should be installed:
+- Maven 3.5.2
+- Java 8
+- XCode 9.1
+- Appium 1.7.1
+
+1. Run XCode
+2. Run Appium
+3. Specify path to app file in serenity.properties
+4. Open project folder in terminal
+   Run "mvn clean verify"
+
+Report available in target/site/index.html

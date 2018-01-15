@@ -1,0 +1,7 @@
+os: osx
+language: java
+asx_image: xcode9.1
+before_script:
+  - npm install -g appium
+  - appium &
+script: mvn clean verify
