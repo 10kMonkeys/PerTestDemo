@@ -86,4 +86,20 @@ public class AnalyticsSteps extends ScenarioSteps {
     public void isDaysOnMarketAdd(){
         Assert.assertTrue(analyticsPage.isDaysOnMarketAdd());
     }
+
+    @Step
+    public void okButtonClick(){
+        analyticsPage.okButtonClick();
+    }
+
+    @Step
+    public void doneMovingCharts(){
+        analyticsPage.doneMovingChartsButtonClick();
+    }
+
+    @Step
+    public void isDealCountByTypeDeleted(){
+        Assert.assertFalse(analyticsPage.isDealCountByTypeDisplayed());
+    }
+
 }

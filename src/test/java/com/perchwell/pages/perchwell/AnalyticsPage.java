@@ -41,6 +41,9 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE (BY DEAL COUNT)")
     private  WebElement buildingTypeButton;
 
+    @iOSXCUITFindBy(accessibility = "DEAL COUNT BY TYPE")
+    private  WebElement dealCountByTypeChart;
+
     @iOSXCUITFindBy(accessibility = "NYC TOWNHOUSES")
     private  WebElement nycTownhousesButton;
 
@@ -56,10 +59,7 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DAYS ON MARKET")
     private  WebElement daysOnMarketButton;
 
-    @iOSXCUITFindBy(iOSClassChain = "**//XCUIElementTypeCollectionView[2]")
-    private WebElement longPress;
-
-    @iOSXCUITFindBy(iOSClassChain = "**//XCUIElementTypeButton[1]")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[3]")
     private  WebElement deleteChartButton;
 
     @iOSXCUITFindBy(accessibility = "DONE MOVING CHARTS")
@@ -76,6 +76,9 @@ public class AnalyticsPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "PRESS AND HOLD ANY CHART TO REARRANGE OR DELETE")
     private WebElement pressAndHoldHint;
+
+    @iOSXCUITFindBy(accessibility = "OK")
+    private WebElement okButton;
 
     //endregion
 
@@ -104,7 +107,7 @@ public class AnalyticsPage extends BasePage {
     }
 
     public void holdCharts(){
-        action.longPress(longPress).release().perform();
+        action.longPress(dealCountByTypeChart).release().perform();
     }
 
     public void deleteChart(){
@@ -176,6 +179,14 @@ public class AnalyticsPage extends BasePage {
 
     public boolean isDaysOnMarketAdd(){
         return element(daysOnMarketButton).isEnabled();
+    }
+
+    public boolean isDealCountByTypeDisplayed(){
+        return element(dealCountByTypeChart).isDisplayed();
+    }
+
+    public void okButtonClick(){
+        element(okButton).click();
     }
 
 }
