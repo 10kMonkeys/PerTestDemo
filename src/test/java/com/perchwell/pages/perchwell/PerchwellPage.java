@@ -50,6 +50,9 @@ public class PerchwellPage extends BaseSwipe {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeButton")
     private WebElement map;
 
+    @iOSXCUITFindBy(accessibility = "market report logo")
+    private WebElement analyticsButton;
+
     public static Integer numberOfItemsInListView;
    // public String buildingAddress;
 
@@ -93,19 +96,20 @@ public class PerchwellPage extends BaseSwipe {
     public Integer countItemsInListView() {
     return getDriver().findElements(By.className("XCUIElementTypeCell")).size();
 
-}
+    }
 
-public String getFistBuildingAddress() {
+    public String getFistBuildingAddress() {
 
-      return  firstBuilding.findElements(By.className("XCUIElementTypeStaticText")).get(1).getAttribute("name");
-}
-
-
-public void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
-
-    Serenity.setSessionVariable(buildingName).to(buildingAddress);
-}
+          return  firstBuilding.findElements(By.className("XCUIElementTypeStaticText")).get(1).getAttribute("name");
+    }
 
 
+    public void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
 
+        Serenity.setSessionVariable(buildingName).to(buildingAddress);
+    }
+
+    public void openAnalytics(){
+        element(analyticsButton).click();
+    }
 }

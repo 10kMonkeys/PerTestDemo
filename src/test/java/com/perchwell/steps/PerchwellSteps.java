@@ -70,8 +70,12 @@ public class PerchwellSteps extends ScenarioSteps {
 		perchwellPage.clickMap();
 	}
 
-@Step
-public void getFirstBuildingAddress() {
-   	  	perchwellPage.addBuildingAddressInSessionVariable("buidingAddress",perchwellPage.getFistBuildingAddress());
-   }
+    @Step
+    public void getFirstBuildingAddress() {
+            perchwellPage.addBuildingAddressInSessionVariable("buidingAddress",perchwellPage.getFistBuildingAddress());
+       }
+    @Step
+    public void clickAnalytics(){
+        perchwellPage.openAnalytics();
+    }
 }
