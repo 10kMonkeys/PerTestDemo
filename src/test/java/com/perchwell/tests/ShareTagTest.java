@@ -12,7 +12,6 @@ public void shareTagTest() throws Exception {
 	loginSteps.loginAsBroker();
 	perchwellSteps.skipAllHints();
 	perchPopupSteps.clickNotNowButton();
-
 	perchwellSteps.clickOpenAccountButton();
 	accountSteps.clickTagsLabel();
 	tagsSteps.clickSeveralExistingTagLabel();

@@ -1,24 +1,20 @@
 package com.perchwell.steps;
 
-
-import com.perchwell.entity.Account;
+import com.perchwell.entity.AppProperties;
 import com.perchwell.pages.starting.GoogleLoginPage;
 import com.perchwell.pages.starting.LoginPage;
 import com.perchwell.pages.starting.WelcomePage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
-
-
 public class LoginSteps extends ScenarioSteps {
 
-    Account account;
+  //  Account account;
     WelcomePage welcomePage;
     LoginPage loginPage;
  	GoogleLoginPage googleLoginPage;
 
     private void login (String email, String password) {
-
         welcomePage.clickLoginButton();
         loginPage.setEmail(email);
         loginPage.setPassword(password);
@@ -27,7 +23,7 @@ public class LoginSteps extends ScenarioSteps {
 
     @Step ("Log in as Client ")
     public void loginAsClient(){
-      login(account.client_email, account.client_password);
+      login(AppProperties.INSTANCE.getProperty("client_email"), AppProperties.INSTANCE.getProperty("client_password"));
 
     }
 
@@ -38,7 +34,7 @@ public class LoginSteps extends ScenarioSteps {
 
     @Step ("Log in as Broker ")
     public void loginAsBroker(){
-        login(account.email, account.password);
+        login(AppProperties.INSTANCE.getProperty("email"), AppProperties.INSTANCE.getProperty("password"));
 
     }
 
@@ -56,11 +52,13 @@ public class LoginSteps extends ScenarioSteps {
 			//welcomePage.clickConnectWith();
         }
         else {
-            googleLoginPage.setEmail(account.client_email);
+            googleLoginPage.setEmail(AppProperties.INSTANCE.getProperty("client_email"));
             googleLoginPage.clickLogin();
-            googleLoginPage.setPassword(account.client_password);
+            googleLoginPage.setPassword(AppProperties.INSTANCE.getProperty("client_password"));
             googleLoginPage.clickLogin();
         };
 
     }
+
+
 }

@@ -16,18 +16,15 @@ public class AccountPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DISCUSSIONS")
     private WebElement discussionsLabel;
 
-
     @iOSXCUITFindBy(accessibility = "COMPARE")
     private WebElement compareLabel;
 
     @iOSXCUITFindBy(accessibility = "AGENTS")
     private WebElement agentsLabel;
 
-
     public AccountPage(WebDriver driver){
         super (driver);
     }
-
 
     public void clickClientsLabel() { element(clientLabel).click(); }
 
@@ -55,4 +52,5 @@ public class AccountPage extends BasePage {
         return agentsLabel.isDisplayed();
     }
 
+    public void clickDiscussionsLabel() { element(discussionsLabel).click();    }
 }
