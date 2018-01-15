@@ -9,8 +9,6 @@ import org.junit.Assert;
 public class CompareSteps extends ScenarioSteps {
     ComparePage comparePage;
 
-
-
     @Step(("The first buildingAddressList is displayed without swipe"))
     public void firstBuildingIsDispayed(){
         Assert.assertTrue(comparePage.firstBuildingIsDispayed());
@@ -29,7 +27,6 @@ public class CompareSteps extends ScenarioSteps {
 
 	@Step(("The third buildingAddressList is displayed with swipe"))
 	public void thirdBuildingIsDispayed(String building) throws Exception {
-
 		Assert.assertTrue(comparePage.isBuildingDisplayedWithSwipe(comparePage.getBuildingAddressFromSessionVariable(building)));
 	}
 
@@ -37,7 +34,6 @@ public class CompareSteps extends ScenarioSteps {
     public void clickSwipeUpToRemoveHint() {
         comparePage.clickSwipeUpToRemoveHint();
     }
-
 
 	@Step
 	public void clickCancelMsgButton() {
@@ -60,15 +56,15 @@ public class CompareSteps extends ScenarioSteps {
 	}
 
 
- @Step("Shoudn't exist {0} in compare")
+ 	@Step("Shoudn't exist {0} in compare")
 	public void notSeeFirstBuildingInCompare(String building) {
 			Assert.assertFalse(comparePage.getFirstBuildingAddress().equalsIgnoreCase(comparePage.getBuildingAddressFromSessionVariable(building)));
 	}
 
-@Step("Shoud see {0} is selected earlier for compare")
-public void shoudSeeFirstBuildingInCompare(String building) {
-	Assert.assertTrue(comparePage.getFirstBuildingAddress().equalsIgnoreCase(comparePage.getBuildingAddressFromSessionVariable(building)));
-}
+	@Step("Shoud see {0} is selected earlier for compare")
+	public void shoudSeeFirstBuildingInCompare(String building) {
+		Assert.assertTrue(comparePage.getFirstBuildingAddress().equalsIgnoreCase(comparePage.getBuildingAddressFromSessionVariable(building)));
+	}
 
 
 //@Deprecated
