@@ -6,7 +6,6 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.junit.BeforeClass;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
@@ -71,7 +70,7 @@ WebDriver driver;
         if(timer == null){
             TimerTask task = new TravisAlive();
             timer = new Timer(true);
-            timer.schedule(task, 15000, 10000);
+            timer.schedule(task, 15000, 540000);
         }
     }
 }
