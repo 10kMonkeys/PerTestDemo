@@ -1,6 +1,7 @@
 package com.perchwell.email;
 
-import com.perchwell.entity.Account;
+
+import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
 import org.apache.http.HttpEntity;
@@ -22,7 +23,7 @@ public static void getEmails() {
 	HttpClient client = HttpClientBuilder.create().build();
 	// HttpGet request = new HttpGet("https://mailtrap.io/api/v1/inboxes"); //"id":239589 //search=&page=&last_id=
 	HttpGet request = new HttpGet("https://mailtrap.io/api/v1/inboxes/239589/messages?");
-	request.addHeader("Api-Token", Account.API_TOKEN);
+	request.addHeader("Api-Token", AppProperties.INSTANCE.getProperty("API_TOKEN"));
 	try {
 		HttpResponse response = client.execute(request);
 		HttpEntity entity = response.getEntity();
@@ -60,7 +61,7 @@ public static MailTrapAttachment[] getMassageAttachment(int message_id) {
 	//Rest (get)
 	HttpGet request = new HttpGet("https://private-anon-7b61566ab2-mailtrap.apiary-proxy.com/api/v1/inboxes/239589/messages/" + message_id + "/attachments");
 	//Token is provided MailTrap
-	request.addHeader("Api-Token", Account.API_TOKEN);
+	request.addHeader("Api-Token", AppProperties.INSTANCE.getProperty("API_TOKEN"));
 	try {
 		HttpResponse response = client.execute(request);
 
@@ -83,7 +84,7 @@ public static MailTrapResponse[] getEmail(String search) {
 
 	HttpGet request = new HttpGet("https://mailtrap.io/api/v1/inboxes/239589/messages?search=" + search);
 	//Token is provided MailTrap
-	request.addHeader("Api-Token", Account.API_TOKEN);
+	request.addHeader("Api-Token", AppProperties.INSTANCE.getProperty("API_TOKEN"));
 	MailTrapResponse[] mailTrapResponse = new MailTrapResponse[0];
 
 	try {
