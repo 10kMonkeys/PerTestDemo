@@ -4,7 +4,7 @@ public class Account {
 public static String email = "siarhei.stsepanenka@itechart-group.com";
 public static String password = "h2aj1p";
 
-public static String client_email = "itech.perch.tests@gmail.com";
+public static String client_email = "itech.perch.test@gmail.com";
 public static String client_password = "123456";
 
 public final static String FOR_RESET_EMAIL = "TestItechArt2017@gmail.com";
