@@ -26,8 +26,8 @@ public abstract class SampleTest {
     @Steps
     protected LoginSteps loginSteps;
 
-    @Steps
-    protected ResetPasswordSteps resetPasswordSteps;
+//    @Steps
+//    protected ResetPasswordSteps resetPasswordSteps;
 
     @Steps
     protected PerchwellSteps perchwellSteps;
@@ -53,15 +53,11 @@ public abstract class SampleTest {
     @Steps
     protected SelectResultSteps selectResultStep;
 
-    @Steps
-    protected DiscussionsListSteps discussionsListSteps;
+//    @Steps
+//    protected DiscussionsListSteps discussionsListSteps;
 
     @Steps
     protected  CompareSteps compareSteps;
-
-
-     //@Steps
-    //protected ResetPasswordSteps resetPasswordSteps;
 
     @Steps
     protected DiscussionSteps discussionSteps;
