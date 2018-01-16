@@ -2,7 +2,9 @@ package com.perchwell.pages.clientdetails;
 
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.MailTrapResponse;
-import com.perchwell.pages.base.BaseSwipe;
+
+import com.perchwell.helpers.Helper;
+import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
@@ -11,7 +13,7 @@ import org.openqa.selenium.WebElement;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class ClientPage extends BaseSwipe {
+public class ClientPage extends BasePage {
 
 	public ClientPage(WebDriver driver) {
 		super(driver);
@@ -91,7 +93,7 @@ public class ClientPage extends BaseSwipe {
 	public boolean isClientDisplayed(String clientName) throws Exception {
 		if (getDriver().findElements(MobileBy.AccessibilityId(clientName)).size() > 0) {
 			setImplicitTimeout(1, SECONDS);
-			swipeDownUntilElementVisible(clientName);
+			Helper.swipeDownUntilElementVisible(clientName);
 			resetImplicitTimeout();
 		}
 		return isElementVisible(MobileBy.AccessibilityId(clientName));
@@ -108,12 +110,10 @@ public class ClientPage extends BaseSwipe {
 	public Boolean invitationEmailSent(String email) {
 		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(getValueFromSessionVariable(email));
 		return (mailTrapResponse.length > 0);
-
 	}
 
 	public String getClientName() {
 		return client.getAttribute("name");
-
 	}
 
 	public void clickBackButton() {
@@ -122,12 +122,10 @@ public class ClientPage extends BaseSwipe {
 
 	public void closePage() {
 		element(closeButton).click();
-
 	}
 
 	public void clickDesiredClient(String clientName) {
 		element(MobileBy.AccessibilityId(clientName)).click();
-
 	}
 
 	public void logOut() {

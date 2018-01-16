@@ -12,8 +12,8 @@ public class PerchwellSteps extends ScenarioSteps {
 
    @Step
     public void skipAllHints(){
-
         perchwellPage.clickEditSearchFiltersHint();
+        if (perchwellPage.isEditSearchFiltersHintisDisplayed()){perchwellPage.clickEditSearchFiltersHint();}
         perchwellPage.clickManageYourProfileHint();
         perchwellPage.clickTransformDataHint();
         perchwellPage.clickExploreSearchResultHint();

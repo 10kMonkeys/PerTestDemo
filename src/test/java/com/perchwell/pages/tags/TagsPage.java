@@ -1,9 +1,9 @@
 package com.perchwell.pages.tags;
 
-import com.perchwell.pages.base.BaseSwipe;
+import com.perchwell.helpers.Helper;
+import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,10 +13,8 @@ import java.util.List;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 
-public class TagsPage extends BaseSwipe {
-
+public class TagsPage extends BasePage {
     public TagsPage(WebDriver driver) {
-
         super(driver);
     }
 
@@ -31,8 +29,6 @@ public class TagsPage extends BaseSwipe {
 
     @iOSXCUITFindBy(accessibility = "Nav Back White")
     private WebElement back;
-
-      // @iOSXCUITFindBy(accessibility = )
 
     private WebElement getCreatedTagLabel(String uniqueTagName) {
         WebElement createdTag = getDriver().findElement(MobileBy.AccessibilityId(uniqueTagName));
@@ -74,11 +70,10 @@ public class TagsPage extends BaseSwipe {
     public boolean isTagDisplayedWithSwipe(String tagName) throws Exception {
         if (getDriver().findElements(MobileBy.AccessibilityId(tagName)).size() > 0) {
             setImplicitTimeout(1, SECONDS);
-            swipeDownUntilElementVisible(tagName);
+            Helper.swipeDownUntilElementVisible(tagName);
             resetImplicitTimeout();
         }
         return isElementVisible(MobileBy.AccessibilityId(tagName));
-
     }
 
 
