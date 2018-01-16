@@ -8,6 +8,8 @@ import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static com.perchwell.helpers.Helper.isElementDisplayed;
+
 public class AnalyticsPage extends BasePage {
 
     WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
@@ -182,7 +184,7 @@ public class AnalyticsPage extends BasePage {
     }
 
     public boolean isDealCountByTypeDisplayed(){
-        return element(dealCountByTypeChart).isDisplayed();
+        return isElementDisplayed(dealCountByTypeChart);
     }
 
     public void okButtonClick(){
