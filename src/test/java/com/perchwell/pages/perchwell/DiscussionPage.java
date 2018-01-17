@@ -1,7 +1,6 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.pages.base.BasePage;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.By;
@@ -16,7 +15,7 @@ public DiscussionPage(WebDriver driver) {
 @iOSXCUITFindBy(accessibility = "CC my email on this conversation")
 private WebElement ccMyEmailText;
 
-@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
 private WebElement backButton;
 
 @iOSXCUITFindBy(accessibility = "SEND")
