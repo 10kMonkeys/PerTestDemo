@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
@@ -7,8 +8,6 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import static com.perchwell.helpers.Helper.isElementDisplayed;
 
 public class AnalyticsPage extends BasePage {
 
@@ -35,6 +34,9 @@ public class AnalyticsPage extends BasePage {
     private WebElement acrisClosingsButton;
 
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT (BY DEAL COUNT)")
+    private  WebElement dealCountByHeightButton;
+
+    @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT")
     private  WebElement buildingHeightButton;
 
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY HEIGHT")
@@ -82,30 +84,16 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "OK")
     private WebElement okButton;
 
+    @iOSXCUITFindBy(accessibility = "MKT SHARE")
+    private WebElement mktShareButton;
+
+    @iOSXCUITFindBy(accessibility = "THIS IS A PRO-ONLY FEATURE")
+    private WebElement thisIsAProOnlyFeatureMessage;
+
     //endregion
 
     public AnalyticsPage(WebDriver driver){
         super(driver);
-    }
-
-    public void addSixCharts(){
-        element(rebnyListingsButton).click();
-        element(askingPriceButton).click();
-        element(plusWhiteButton).click();
-        element(rebnyListingsButton).click();
-        element(bedroomsButton).click();
-        element(plusWhiteButton).click();
-        element(acrisClosingsButton).click();
-        element(buildingHeightButton).click();
-        element(plusWhiteButton).click();
-        element(acrisClosingsButton).click();
-        element(buildingTypeButton).click();
-        element(plusWhiteButton).click();
-        element(nycTownhousesButton).click();
-        element(domByPriceButton).click();
-        element(plusWhiteButton).click();
-        element(nycTownhousesButton).click();
-        element(dealCountByPriceButton).click();
     }
 
     public void holdCharts(){
@@ -135,7 +123,7 @@ public class AnalyticsPage extends BasePage {
 
     public void addChartFromACRISSection(){
         element(acrisClosingsButton).click();
-        element(buildingHeightButton).click();
+        element(dealCountByHeightButton).click();
     }
 
     public void addChartFromNYCSection(){
@@ -184,11 +172,26 @@ public class AnalyticsPage extends BasePage {
     }
 
     public boolean isDealCountByTypeDisplayed(){
-        return isElementDisplayed(dealCountByTypeChart);
+        return Helper.isElementDisplayed(dealCountByTypeChart);
     }
 
     public void okButtonClick(){
         element(okButton).click();
     }
 
+    public boolean isThisIsAProOnlyFeatureMessageShow(){
+        return element(thisIsAProOnlyFeatureMessage).isDisplayed();
+    }
+
+    public void addBuildingHeightChartWithMKTShare(){
+        element(rebnyListingsButton).click();
+        element(mktShareButton).click();
+        element(buildingHeightButton).click();
+    }
+
+    public void addAskingPriceChartWithMKTShare(){
+        element(rebnyListingsButton).click();
+        element(mktShareButton).click();
+        element(askingPriceButton).click();
+    }
 }
