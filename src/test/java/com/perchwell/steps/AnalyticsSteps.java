@@ -7,10 +7,6 @@ import org.junit.Assert;
 
 public class AnalyticsSteps extends ScenarioSteps {
     AnalyticsPage analyticsPage;
-    @Step
-    public void addSixCharts(){
-        analyticsPage.addSixCharts();
-    }
 
     @Step
     public void holdCharts(){
@@ -102,4 +98,18 @@ public class AnalyticsSteps extends ScenarioSteps {
         Assert.assertFalse(analyticsPage.isDealCountByTypeDisplayed());
     }
 
+    @Step
+    public void addAskingPriceChartWithMKTShare(){
+        analyticsPage.addAskingPriceChartWithMKTShare();
+    }
+
+    @Step
+    public void isThisIsAProOnlyFeatureMessageShow(){
+        analyticsPage.isThisIsAProOnlyFeatureMessageShow();
+    }
+
+    @Step
+    public void addBuildingHeightChartWithMKTShare(){
+        analyticsPage.addBuildingHeightChartWithMKTShare();
+    }
 }
