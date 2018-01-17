@@ -7,7 +7,6 @@ import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.*;
 
 import java.time.Duration;
-
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public abstract class  Helper {
@@ -59,7 +58,7 @@ public abstract class  Helper {
     }
 
     public static boolean isElementDisplayed(WebElement element) {
-        try {
+              try {
             return element.isDisplayed();
         } catch (NoSuchElementException e) {
             return false;

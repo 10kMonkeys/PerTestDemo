@@ -6,110 +6,110 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 
 public class AnalyticsSteps extends ScenarioSteps {
-    AnalyticsPage analyticsPage;
+    AnalyticsPage onPage;
 
     @Step
     public void holdCharts(){
-        analyticsPage.holdCharts();
+        onPage.holdCharts();
     }
 
     @Step
     public void deleteChart(){
-        analyticsPage.deleteChart();
+        onPage.deleteChart();
     }
 
     @Step
     public void isAddIconDisplayed(){
-        Assert.assertTrue(analyticsPage.isAddIconDisplayed());
+        Assert.assertTrue(onPage.isAddIconDisplayed());
     }
 
     @Step
     public void addChartFromREBNYSection(){
-        analyticsPage.addChartFromREBNYSection();
+        onPage.addChartFromREBNYSection();
     }
 
     @Step
     public void addButtonClick(){
-        analyticsPage.addButtonClick();
+        onPage.addButtonClick();
     }
 
     @Step
     public void addChartFromACRISSection(){
-        analyticsPage.addChartFromACRISSection();
+        onPage.addChartFromACRISSection();
     }
 
     @Step
     public void addChartFromNYCSection(){
-        analyticsPage.addChartFromNYCSection();
+        onPage.addChartFromNYCSection();
     }
 
     @Step
     public void addChartFromManagementSection(){
-        analyticsPage.addChartFromManagementSection();
+        onPage.addChartFromManagementSection();
     }
 
     @Step
     public void addTwoCharts(){
-        analyticsPage.addTwoCharts();
+        onPage.addTwoCharts();
     }
 
     @Step
     public void skipHints(){
-        analyticsPage.skipHints();
+        onPage.skipHints();
     }
 
     @Step
     public void isMessageMaximumSixChartsDisplayed(){
-        Assert.assertTrue(analyticsPage.isMessageMaximumSixChartsDisplayed());
+        Assert.assertTrue(onPage.isMessageMaximumSixChartsDisplayed());
     }
 
     @Step
     public void isAskingPriseChartAdd(){
-        Assert.assertTrue(analyticsPage.isAskingPriseChartAdd());
+        Assert.assertTrue(onPage.isAskingPriseChartAdd());
     }
 
     @Step
     public void isBuildingHeightCartAdd(){
-        Assert.assertTrue(analyticsPage.isBuildingHeightCartAdd());
+        Assert.assertTrue(onPage.isBuildingHeightCartAdd());
     }
 
     @Step
     public void isDomByPriceCartAdd(){
-        Assert.assertTrue(analyticsPage.isDomByPriceCartAdd());
+        Assert.assertTrue(onPage.isDomByPriceCartAdd());
     }
 
     @Step
     public void isDaysOnMarketAdd(){
-        Assert.assertTrue(analyticsPage.isDaysOnMarketAdd());
+        Assert.assertTrue(onPage.isDaysOnMarketAdd());
     }
 
     @Step
     public void okButtonClick(){
-        analyticsPage.okButtonClick();
+        onPage.okButtonClick();
     }
 
     @Step
     public void doneMovingCharts(){
-        analyticsPage.doneMovingChartsButtonClick();
+        onPage.doneMovingChartsButtonClick();
     }
 
     @Step
     public void isDealCountByTypeDeleted(){
-        Assert.assertFalse(analyticsPage.isDealCountByTypeDisplayed());
+        Assert.assertFalse(onPage.isDealCountByTypeDisplayed());
     }
 
     @Step
     public void addAskingPriceChartWithMKTShare(){
-        analyticsPage.addAskingPriceChartWithMKTShare();
+        onPage.addAskingPriceChartWithMKTShare();
     }
 
     @Step
     public void isThisIsAProOnlyFeatureMessageShow(){
-        analyticsPage.isThisIsAProOnlyFeatureMessageShow();
+        onPage.isThisIsAProOnlyFeatureMessageShow();
     }
 
     @Step
     public void addBuildingHeightChartWithMKTShare(){
-        analyticsPage.addBuildingHeightChartWithMKTShare();
+        onPage.addBuildingHeightChartWithMKTShare();
     }
 }

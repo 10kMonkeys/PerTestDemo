@@ -11,6 +11,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -35,13 +36,15 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "client_group_button")
 	private WebElement groupLabel;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText")
+//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]")
+   @FindBy(xpath="//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]")
 	private WebElement firstClient;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+	@iOSXCUITFindBy(xpath= "//XCUIElementTypeNavigationBar[@name=\"ADD MY CLIENT\"]/XCUIElementTypeButtonn")
 	private WebElement backButton;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[1]")
+	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[1]")
+	@FindBy(xpath="//XCUIElementTypeNavigationBar[@name=\"SELECT CLIENT\"]/XCUIElementTypeButton")
 	private WebElement closeButton;
 
 	@iOSXCUITFindBy(accessibility = "INVITE")

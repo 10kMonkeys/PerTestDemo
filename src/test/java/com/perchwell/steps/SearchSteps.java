@@ -5,21 +5,21 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
 public class SearchSteps extends ScenarioSteps {
-SearchPage searchPage;
+SearchPage onPage;
 
 @Step
 public void clickDeleteFirstLocation() {
-	searchPage.clickDeleteFirstLocation();
+	onPage.clickDeleteFirstLocation();
 }
 
 @Step
 public void clickDeleteSecondLocation() {
-	searchPage.clickDeleteSecondLocation();
+	onPage.clickDeleteSecondLocation();
 }
 
 @Step
 public void clickApplyButton() {
-	searchPage.clickApplyButton();
+	onPage.clickApplyButton();
 }
 
 }

@@ -6,76 +6,77 @@ import com.perchwell.pages.perchwell.PerchwellPage;
 import org.junit.Assert;
 
 public class PerchwellSteps extends ScenarioSteps {
-    PerchwellPage perchwellPage;
+    PerchwellPage onPage;
 //OpenedBuildingSteps openedBuildingSteps;
 
 
    @Step
     public void skipAllHints(){
-        perchwellPage.clickEditSearchFiltersHint();
-        if (perchwellPage.isEditSearchFiltersHintisDisplayed()){perchwellPage.clickEditSearchFiltersHint();}
-        perchwellPage.clickManageYourProfileHint();
-        perchwellPage.clickTransformDataHint();
-        perchwellPage.clickExploreSearchResultHint();
+        onPage.clickEditSearchFiltersHint();
+        if (onPage.isEditSearchFiltersHintisDisplayed()){
+			onPage.clickEditSearchFiltersHint();}
+        onPage.clickManageYourProfileHint();
+        onPage.clickTransformDataHint();
+        onPage.clickExploreSearchResultHint();
     }
 
 	@Step
 	public void shouldSeeEditSearchFiltersHint() throws Exception {
-		Assert.assertTrue(perchwellPage.editSearchFiltersHintIsDispalyed());
+		Assert.assertTrue(onPage.editSearchFiltersHintIsDispalyed());
 	}
 
     @Step
     public void clickOpenAccountButton(){
-        perchwellPage.clickOpenAccountButton();
+        onPage.clickOpenAccountButton();
     }
 
     @Step
     public void clickMagnifer(){
-        perchwellPage.clickMagnifer();
+        onPage.clickMagnifer();
     }
 
 
     @Step
     public void openFirstBuilding() {
-        perchwellPage.openFirstBuilding();
+        onPage.openFirstBuilding();
     }
 
     @Step
     public void openSecondBuilding() {
-        perchwellPage.openSecondBuilding();
+        onPage.openSecondBuilding();
     }
 
     @Step
     public void openThirdBuilding() throws Exception {
-       perchwellPage.isBuildingDisplayedWithSwipe(perchwellPage.getThirdBuilding());
-       perchwellPage.openThirdBuilding(); }
+       onPage.isBuildingDisplayedWithSwipe(onPage.getThirdBuilding());
+       onPage.openThirdBuilding(); }
 
 	@Step
 	public void countItemsInListViewBeforApplyingFilter(){
-	perchwellPage.numberOfItemsInListView=perchwellPage.countItemsInListView();
+	onPage.numberOfItemsInListView= onPage.countItemsInListView();
 
    }
 
 	@Step
 	public void shoudSeeNoLessItemsInListViewAfterDeleteFilter(){
-		System.out.print("Count before 2"+perchwellPage.numberOfItemsInListView);
-     	Assert.assertTrue(perchwellPage.countItemsInListView() >= perchwellPage.numberOfItemsInListView);
+		System.out.print("Count before 2"+ onPage.numberOfItemsInListView);
+     	Assert.assertTrue(onPage.countItemsInListView() >= onPage.numberOfItemsInListView);
 		//Save new value number of items
-     	perchwellPage.numberOfItemsInListView=perchwellPage.countItemsInListView();
-		System.out.print("Count before  3 "+perchwellPage.numberOfItemsInListView);
+     	onPage.numberOfItemsInListView= onPage.countItemsInListView();
+		System.out.print("Count before  3 "+ onPage.numberOfItemsInListView);
 	}
 
 	@Step
 	public void clickMap(){
-		perchwellPage.clickMap();
+		onPage.clickMap();
 	}
 
     @Step
     public void getFirstBuildingAddress() {
-            perchwellPage.addBuildingAddressInSessionVariable("buidingAddress",perchwellPage.getFistBuildingAddress());
+            onPage.addBuildingAddressInSessionVariable("buidingAddress", onPage.getFistBuildingAddress());
        }
     @Step
     public void clickAnalytics(){
-        perchwellPage.openAnalytics();
+        onPage.openAnalytics();
     }
 }

@@ -7,21 +7,21 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 
 public class SelectResultSteps extends ScenarioSteps {
-SelectResultPage selectResultPage;
+SelectResultPage onPage;
 
 @Step
 public void clickClientOption() {
-	selectResultPage.clickClientOption();
+	onPage.clickClientOption();
 }
 
 @Step
 public void clickMyEmailOption() {
-	selectResultPage.clickMyEmailOption();
+	onPage.clickMyEmailOption();
 }
 
 @Step
 public void clickShareButton() {
-	selectResultPage.clickShareButton();
+	onPage.clickShareButton();
 }
 
 @Step
@@ -32,23 +32,23 @@ public void createReportWithName(String ReportName) {
 }
 
 public void clickReportSemtOkButton() {
-	selectResultPage.clickReportSemtOkButton();
+	onPage.clickReportSemtOkButton();
 }
 
 private void clickSaveButton() {
-	selectResultPage.clickSaveButton();
+	onPage.clickSaveButton();
 }
 
 private void provideReportName(String reportName) {
-	selectResultPage.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
-	selectResultPage.provideReportname(selectResultPage.getValueFromSessionVariable("Report name"));
+	onPage.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
+	onPage.provideReportname(onPage.getValueFromSessionVariable("Report name"));
 }
 
 @Step("Should see sent email. Mail is checked twice with a one minute waiting")
 public void shouldFindSentEmail() {
-	Boolean result = selectResultPage.shouldFindSentEmail(selectResultPage.getValueFromSessionVariable("Report name"));
+	Boolean result = onPage.shouldFindSentEmail(onPage.getValueFromSessionVariable("Report name"));
 	if (!result) {
-		result = selectResultPage.shouldFindSentEmail(selectResultPage.getValueFromSessionVariable("Report name"));
+		result = onPage.shouldFindSentEmail(onPage.getValueFromSessionVariable("Report name"));
 	}
 	Assert.assertTrue(result);
 

@@ -6,28 +6,25 @@ import org.junit.Assert;
 
 public class DiscussionSteps extends ScenarioSteps {
 
-DiscussionPage discussionPage;
+DiscussionPage onPage;
 
 	@Step
 	public void shouldSeeDicsussionWithNewClient() {
-		Assert.assertTrue(discussionPage.ccMyEmailTextDispayed());
+		Assert.assertTrue(onPage.ccMyEmailTextDispayed());
 	}
-
 
 	@Step
 	public void clickBackButton() {
-		discussionPage.clickBackButton();
+		onPage.clickBackButton();
 	}
-
 
 	private void typeMessage(String text) {
-		discussionPage.typeMessage(text);
-		discussionPage.addValueInSessionVariable("message",text);
+		onPage.typeMessage(text);
+		onPage.addValueInSessionVariable("message",text);
 	}
 
-
 	private void clickSend() {
-		discussionPage.clickSend();
+		onPage.clickSend();
 	}
 
 	@Step("Send message '{0}'")
@@ -36,9 +33,10 @@ DiscussionPage discussionPage;
 		this.clickSend();
 	}
 
-public void shouldSeeMessageInDiscussion() {
-	Assert.assertTrue(discussionPage.messageIsDispayed());
+	public void shouldSeeMessageInDiscussion() {
+		Assert.assertTrue(onPage.messageIsDispayed());
 
-}
+	}
+
 }
 

@@ -7,65 +7,62 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 
 public class CompareSteps extends ScenarioSteps {
-    ComparePage comparePage;
+	ComparePage onPage;
 
-    @Step(("The first buildingAddressList is displayed without swipe"))
-    public void firstBuildingIsDispayed(){
-        Assert.assertTrue(comparePage.firstBuildingIsDispayed());
-     }
+	@Step(("The first buildingAddressList is displayed without swipe"))
+	public void firstBuildingIsDispayed() {
+		Assert.assertTrue(onPage.firstBuildingIsDispayed());
+	}
 
-      @Step("The second buildingAddressList is displayed without swipe")
-    public void secondBuildingIsDispayed(){
-        Assert.assertTrue(comparePage.secondBuildingIsDispayed());
-    }
+	@Step("The second buildingAddressList is displayed without swipe")
+	public void secondBuildingIsDispayed() {
+		Assert.assertTrue(onPage.secondBuildingIsDispayed());
+	}
 
-
-    @Step("Shoud see {0} is selected earlier for compare")
-    public void shoudSeeSecondBuildingInCompare(String building) {
-        Assert.assertTrue(comparePage.getSecondBuildingAddress().equalsIgnoreCase(comparePage.getBuildingAddressFromSessionVariable(building)));
-    }
+	@Step("Shoud see {0} is selected earlier for compare")
+	public void shoudSeeSecondBuildingInCompare(String building) {
+		Assert.assertTrue(onPage.getSecondBuildingAddress().equalsIgnoreCase(onPage.getBuildingAddressFromSessionVariable(building)));
+	}
 
 	@Step(("The third buildingAddressList is displayed with swipe"))
 	public void thirdBuildingIsDispayed(String building) throws Exception {
-		Assert.assertTrue(comparePage.isBuildingDisplayedWithSwipe(comparePage.getBuildingAddressFromSessionVariable(building)));
+		Assert.assertTrue(onPage.isBuildingDisplayedWithSwipe(onPage.getBuildingAddressFromSessionVariable(building)));
 	}
 
-    @Step
-    public void clickSwipeUpToRemoveHint() {
-        comparePage.clickSwipeUpToRemoveHint();
-    }
+	@Step
+	public void clickSwipeUpToRemoveHint() {
+		onPage.clickSwipeUpToRemoveHint();
+	}
 
 	@Step
 	public void clickCancelMsgButton() {
-		comparePage.clickCancelMsgButton();
+		onPage.clickCancelMsgButton();
 	}
 
 	@Step
 	public void clickRemoveMsgButtom() {
-		comparePage.clickRemoveMsgButtom();
+		onPage.clickRemoveMsgButtom();
 	}
 
 	@Step
 	public void scrollUpFirstBuilding() throws Exception {
-		comparePage.scrollUpFirstBulding();
+		onPage.scrollUpFirstBulding();
 	}
 
 	@Step
 	public void shoudSeeRemovePropertyMsg() {
-		Assert.assertTrue(comparePage.removePropertyMsgIsDispayed());
+		Assert.assertTrue(onPage.removePropertyMsgIsDispayed());
 	}
 
-
- 	@Step("Shoudn't exist {0} in compare")
+	@Step("Shoudn't exist {0} in compare")
 	public void notSeeFirstBuildingInCompare(String building) {
-			Assert.assertFalse(comparePage.getFirstBuildingAddress().equalsIgnoreCase(comparePage.getBuildingAddressFromSessionVariable(building)));
+		Assert.assertFalse(onPage.getFirstBuildingAddress().equalsIgnoreCase(onPage.getBuildingAddressFromSessionVariable(building)));
 	}
 
 	@Step("Shoud see {0} is selected earlier for compare")
 	public void shoudSeeFirstBuildingInCompare(String building) {
-		Assert.assertTrue(comparePage.getFirstBuildingAddress().equalsIgnoreCase(comparePage.getBuildingAddressFromSessionVariable(building)));
+		Assert.assertTrue(onPage.getFirstBuildingAddress().equalsIgnoreCase(onPage.getBuildingAddressFromSessionVariable(building)));
 	}
-
 
 //@Deprecated
 //@Step("Shoud see the first buildingAddressList is selected earlier for compare")

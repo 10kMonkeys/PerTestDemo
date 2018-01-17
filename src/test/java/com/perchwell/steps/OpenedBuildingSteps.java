@@ -8,60 +8,59 @@ import org.junit.Assert;
 
 public class OpenedBuildingSteps extends ScenarioSteps {
 
-	OpenedBuildingPage openedBuildingPage;
+	OpenedBuildingPage onPage;
 
 	@Step
 	public void clickDiscussWithMyClientHint() {
-		openedBuildingPage.clickDiscussWithMyClientHint();
+		onPage.clickDiscussWithMyClientHint();
 	}
 
 	@Step
 	public void clickMyTagsLabel() {
-		openedBuildingPage.clickMyTagsLabel();
+		onPage.clickMyTagsLabel();
 	}
 
 	@Step
 	public void clickBackButton() {
-		openedBuildingPage.clickBackButton();
+		onPage.clickBackButton();
 	}
 
 	@Step
 	public void ckickDeleteTagButton() {
-		openedBuildingPage.ckickDeleteTagButton();
+		onPage.ckickDeleteTagButton();
 	}
 
 	@Step("Add to compare {0}")
 	public void addToCompare(String buildingName) {
-		openedBuildingPage.clickAddToCompareButton();
-		addBuildingAddressInSessionVariable(buildingName, openedBuildingPage.getBuildingAddress());
+		onPage.clickAddToCompareButton();
+		addBuildingAddressInSessionVariable(buildingName, onPage.getBuildingAddress());
 	}
 
 	@Step
 	public void clickDiscussWithMyClientButton() {
-		openedBuildingPage.clickDiscussWithClientButton();
+		onPage.clickDiscussWithClientButton();
 	}
 
 	@Step
 	public void clickAddDiscusButton() {
-		openedBuildingPage.clickAddDiscus();
+		onPage.clickAddDiscus();
 	}
 
-
 	private void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
-		openedBuildingPage.addAddressInSessionVariable(buildingName, buildingAddress);
+		onPage.addAddressInSessionVariable(buildingName, buildingAddress);
 	}
 
 	public void shouldSeeBuildingAddress() {
-		Assert.assertTrue(openedBuildingPage.getBuildingAddress().equalsIgnoreCase(openedBuildingPage.getFromSessionVariable("buidingAddress")));
+		Assert.assertTrue(onPage.getBuildingAddress().equalsIgnoreCase(onPage.getFromSessionVariable("buidingAddress")));
 	}
 
 	@Step
 	public void openExistingDuscussion() {
-		openedBuildingPage.openExistingDuscussion(openedBuildingPage.getFromSessionVariable("Client"));
+		onPage.openExistingDuscussion(onPage.getFromSessionVariable("Client"));
 	}
 
 	public void shouldSeeExistingDuscussion() {
-	Assert.assertTrue(openedBuildingPage.duscussionIsDisplayed(openedBuildingPage.getFromSessionVariable("Client")));
+		Assert.assertTrue(onPage.duscussionIsDisplayed(onPage.getFromSessionVariable("Client")));
 	}
 }
 
