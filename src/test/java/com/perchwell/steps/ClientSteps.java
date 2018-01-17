@@ -1,6 +1,6 @@
 package com.perchwell.steps;
 
-import com.perchwell.helpers.RandomGenerator;
+import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -12,17 +12,20 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void setRundomClientData() {
-		clientPage.addValueInSessionVariable("User name", RandomGenerator.getRandomString("11CLIENTNAME"));
-		//client.setUniqueClientName(RandomGenerator.getRandomString("11CLIENTNAME"));
+		clientPage.addValueInSessionVariable("User name",clientPage.generateClientName());
 		this.clientPage.setClientName(clientPage.getValueFromSessionVariable("User name"));
-		//this.clientPage.setClientEmail("TestItechArt2017@gmail.com");
-		clientPage.addValueInSessionVariable("User email", RandomGenerator.getRandomString("11CLIENTEMAIL") + "@EMAIL.COM");
+		clientPage.addValueInSessionVariable("User email", clientPage.generateClientEmail()) ;
 		this.clientPage.setClientEmail(clientPage.getValueFromSessionVariable("User email"));
 	}
 
 	@Step
 	public void shouldSeeRecentlyCreatedClient() throws Exception {
 		Assert.assertTrue(clientPage.isClientDisplayed(clientPage.getValueFromSessionVariable("User name")));
+	}
+
+	@Step
+	public void clickYesButtonLogOutWindow() {
+		clientPage.clickYesButtonLogOutWindow();
 	}
 
 	@Step
@@ -52,19 +55,16 @@ public class ClientSteps extends ScenarioSteps {
 	@Step
 	public void invitationEmailSent() {
 		Assert.assertTrue(clientPage.invitationEmailSent("User email"));
-
 	}
 
 	@Step
 	public void selectClient() {
 		clientPage.addValueInSessionVariable("Client", clientPage.getClientName());
 		clientPage.clickClient();
-
 	}
 
 	@Step
 	public void clickBackButton() {
-
 		clientPage.clickBackButton();
 	}
 
@@ -76,6 +76,14 @@ public class ClientSteps extends ScenarioSteps {
 	@Step
 	public void clickDesiredClient() throws Exception {
 		clientPage.clickDesiredClient(clientPage.getValueFromSessionVariable("User name"));
+	}
+
+	@Step
+	public void clickExistingClient() throws Exception {
+		if (clientPage.isClientDisplayed(AppProperties.INSTANCE.getProperty("client_name").toUpperCase())) {
+			clientPage.clickDesiredClient(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
+			clientPage.addValueInSessionVariable("Client", AppProperties.INSTANCE.getProperty("client_name"));
+		}
 	}
 
 	@Step

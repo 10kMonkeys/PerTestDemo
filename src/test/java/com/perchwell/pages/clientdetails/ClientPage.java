@@ -4,6 +4,7 @@ import com.perchwell.email.MailTrap;
 import com.perchwell.entity.MailTrapResponse;
 
 import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -35,7 +36,7 @@ public class ClientPage extends BasePage {
 	private WebElement groupLabel;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText")
-	private WebElement client;
+	private WebElement firstClient;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
 	private WebElement backButton;
@@ -49,6 +50,9 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "LOG OUT")
 	private WebElement logOutButton;
 
+	@iOSXCUITFindBy(accessibility = "YES")
+	private WebElement yesButtonLogOutWindow;
+
 	public WebElement getAddNewClientButton() {
 		return addNewClientButton;
 	}
@@ -60,6 +64,10 @@ public class ClientPage extends BasePage {
 
 	public void clickInviteButton() {
 		element(inviteButton).click();
+	}
+
+	public void clickYesButtonLogOutWindow() {
+		element(yesButtonLogOutWindow).click();
 	}
 
 	public void clickAddNewClientButton() {
@@ -83,7 +91,7 @@ public class ClientPage extends BasePage {
 	}
 
 	public void clickClient() {
-		element(client).click();
+		element(firstClient).click();
 	}
 
 	public void selectGroup(String groupName) {
@@ -113,7 +121,7 @@ public class ClientPage extends BasePage {
 	}
 
 	public String getClientName() {
-		return client.getAttribute("name");
+		return firstClient.getAttribute("name");
 	}
 
 	public void clickBackButton() {
@@ -130,5 +138,13 @@ public class ClientPage extends BasePage {
 
 	public void logOut() {
 		element(logOutButton).click();
+	}
+
+	public String generateClientName() {
+		return RandomGenerator.getRandomString("11CLIENTNAME");
+	}
+
+	public String generateClientEmail() {
+		return RandomGenerator.getRandomString("11CLIENTEMAIL") + "@EMAIL.COM";
 	}
 }

@@ -2,6 +2,7 @@ package com.perchwell.pages.perchwell;
 
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.By;
@@ -111,7 +112,10 @@ private WebElement addDiscus;
 	}
 
 	public boolean duscussionIsDisplayed(String discussionName) {
-		WebElement clicablElement = getDiscussion(discussionName);
+		WebElement clicablElement=element(MobileBy.AccessibilityId(discussionName));
+		System.out.print(clicablElement);
+
+		//WebElement clicablElement = getDiscussion(discussionName);
 		return ((clicablElement != null)?true:false);
 
 	}
