@@ -66,7 +66,9 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void clickEditSearchFiltersHint() {
+		setImplicitTimeout(1, SECONDS);
 		element(editSearchFiltersHint).click();
+		resetImplicitTimeout();
 	}
 
 	public Boolean isEditSearchFiltersHintisDisplayed() {
@@ -74,11 +76,15 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void clickManageYourProfileHint() {
+		setImplicitTimeout(1, SECONDS);
 		element(manageYourProfileHint).click();
+		resetImplicitTimeout();
 	}
 
 	public void clickTransformDataHint() {
+		setImplicitTimeout(1, SECONDS);
 		element(transformDataHint).click();
+		resetImplicitTimeout();
 	}
 
 	public void clickMap() {
@@ -86,7 +92,9 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void clickExploreSearchResultHint() {
+		setImplicitTimeout(1, SECONDS);
 		element(exploreSearchResultHint).click();
+		resetImplicitTimeout();
 	}
 
 	public void openFirstBuilding() {
@@ -106,7 +114,6 @@ public class PerchwellPage extends BasePage {
 		Helper.swipeDownUntilElementVisible(element);
 		resetImplicitTimeout();
 		return element.isDisplayed();
-
 	}
 
 	public boolean editSearchFiltersHintIsDispalyed() {
@@ -115,7 +122,6 @@ public class PerchwellPage extends BasePage {
 
 	public Integer countItemsInListView() {
 		return getDriver().findElements(By.className("XCUIElementTypeCell")).size();
-
 	}
 
 	public String getFistBuildingAddress() {
