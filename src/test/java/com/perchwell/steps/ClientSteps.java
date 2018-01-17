@@ -1,10 +1,10 @@
 package com.perchwell.steps;
 
 import com.perchwell.helpers.RandomGenerator;
+import com.perchwell.pages.clientdetails.ClientPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
-import com.perchwell.pages.clientdetails.ClientPage;
 
 public class ClientSteps extends ScenarioSteps {
 

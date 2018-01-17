@@ -41,7 +41,7 @@ private WebElement compareButton;
 @iOSXCUITFindBy(accessibility = "DISCUSS WITH MY CLIENT")
 private WebElement disccusWithClientButton;
 
-@iOSXCUITFindBy(accessibility = "circle_plus_gray")
+@iOSXCUITFindBy(accessibility = "NEW")
 private WebElement addDiscus;
 
 	public void clickAddDiscus() {
