@@ -38,10 +38,10 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText")
 	private WebElement firstClient;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name=\"ADD MY CLIENT\"]/XCUIElementTypeButton")
 	private WebElement backButton;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[1]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name=\"SELECT CLIENT\"]/XCUIElementTypeButton")
 	private WebElement closeButton;
 
 	@iOSXCUITFindBy(accessibility = "INVITE")

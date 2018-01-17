@@ -8,86 +8,86 @@ import com.perchwell.pages.clientdetails.ClientPage;
 
 public class ClientSteps extends ScenarioSteps {
 
-	ClientPage clientPage;
+	ClientPage onPage;
 
 	@Step
 	public void setRundomClientData() {
-		clientPage.addValueInSessionVariable("User name",clientPage.generateClientName());
-		this.clientPage.setClientName(clientPage.getValueFromSessionVariable("User name"));
-		clientPage.addValueInSessionVariable("User email", clientPage.generateClientEmail()) ;
-		this.clientPage.setClientEmail(clientPage.getValueFromSessionVariable("User email"));
+		onPage.addValueInSessionVariable("User name", onPage.generateClientName());
+		this.onPage.setClientName(onPage.getValueFromSessionVariable("User name"));
+		onPage.addValueInSessionVariable("User email", onPage.generateClientEmail()) ;
+		this.onPage.setClientEmail(onPage.getValueFromSessionVariable("User email"));
 	}
 
 	@Step
 	public void shouldSeeRecentlyCreatedClient() throws Exception {
-		Assert.assertTrue(clientPage.isClientDisplayed(clientPage.getValueFromSessionVariable("User name")));
+		Assert.assertTrue(onPage.isClientDisplayed(onPage.getValueFromSessionVariable("User name")));
 	}
 
 	@Step
 	public void clickYesButtonLogOutWindow() {
-		clientPage.clickYesButtonLogOutWindow();
+		onPage.clickYesButtonLogOutWindow();
 	}
 
 	@Step
 	public void clickGroupLabel() {
-		clientPage.clickGroupLabel();
+		onPage.clickGroupLabel();
 	}
 
 	@Step
 	public void selectGroup(String groupName) {
-		clientPage.selectGroup(groupName);
+		onPage.selectGroup(groupName);
 	}
 
 	@Step
 	public void clickAddNewClientButton() {
-		if (clientPage.getAddNewClientButton().isDisplayed()) {
-			clientPage.clickAddNewClientButton();
+		if (onPage.getAddNewClientButton().isDisplayed()) {
+			onPage.clickAddNewClientButton();
 		} else {
-			clientPage.clickInviteNewClientButton();
+			onPage.clickInviteNewClientButton();
 		}
 	}
 
 	@Step
 	public void clickInviteButton() {
-		clientPage.clickInviteButton();
+		onPage.clickInviteButton();
 	}
 
 	@Step
 	public void invitationEmailSent() {
-		Assert.assertTrue(clientPage.invitationEmailSent("User email"));
+		Assert.assertTrue(onPage.invitationEmailSent("User email"));
 	}
 
 	@Step
 	public void selectClient() {
-		clientPage.addValueInSessionVariable("Client", clientPage.getClientName());
-		clientPage.clickClient();
+		onPage.addValueInSessionVariable("Client", onPage.getClientName());
+		onPage.clickClient();
 	}
 
 	@Step
 	public void clickBackButton() {
-		clientPage.clickBackButton();
+		onPage.clickBackButton();
 	}
 
 	@Step
 	public void closePage() {
-		clientPage.closePage();
+		onPage.closePage();
 	}
 
 	@Step
 	public void clickDesiredClient() throws Exception {
-		clientPage.clickDesiredClient(clientPage.getValueFromSessionVariable("User name"));
+		onPage.clickDesiredClient(onPage.getValueFromSessionVariable("User name"));
 	}
 
 	@Step
 	public void clickExistingClient() throws Exception {
-		if (clientPage.isClientDisplayed(AppProperties.INSTANCE.getProperty("client_name").toUpperCase())) {
-			clientPage.clickDesiredClient(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
-			clientPage.addValueInSessionVariable("Client", AppProperties.INSTANCE.getProperty("client_name"));
+		if (onPage.isClientDisplayed(AppProperties.INSTANCE.getProperty("client_name").toUpperCase())) {
+			onPage.clickDesiredClient(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
+			onPage.addValueInSessionVariable("Client", AppProperties.INSTANCE.getProperty("client_name"));
 		}
 	}
 
 	@Step
 	public void logOut() {
-		clientPage.logOut();
+		onPage.logOut();
 	}
 }

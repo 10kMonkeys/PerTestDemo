@@ -15,7 +15,7 @@ public DiscussionPage(WebDriver driver) {
 @iOSXCUITFindBy(accessibility = "CC my email on this conversation")
 private WebElement ccMyEmailText;
 
-@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+@iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name=\"Perchwell_Staging.ChatView\"]/XCUIElementTypeButton")
 private WebElement backButton;
 
 @iOSXCUITFindBy(accessibility = "SEND")
