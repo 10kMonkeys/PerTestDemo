@@ -6,45 +6,45 @@ import com.perchwell.pages.account.AccountPage;
 import org.junit.Assert;
 
 public class AccountSteps extends ScenarioSteps{
-    AccountPage accountPage;
+    AccountPage onPage;
 
     @Step
     public void clickClientsLabel() {
-        accountPage.clickClientsLabel();
+        onPage.clickClientsLabel();
     }
 
     @Step
     public void clickTagsLabel() {
-        accountPage.clickTagsLabel();
+        onPage.clickTagsLabel();
     }
 
     @Step
     public void clickCompareLabel() {
-        accountPage.clickCompareLabel();
+        onPage.clickCompareLabel();
     }
 
     @Step
     public void shouldSeeOptionClient() throws Exception {
-        Assert.assertTrue(accountPage.optionClientsIsDispalyed());
+        Assert.assertTrue(onPage.optionClientsIsDispalyed());
     }
 
     @Step
     public void shouldSeeOptionCompare() throws Exception {
-        Assert.assertTrue(accountPage.optionCompareIsDispalyed());
+        Assert.assertTrue(onPage.optionCompareIsDispalyed());
     }
     @Step
     public void shouldSeeOptionDisscussions() throws Exception {
-        Assert.assertTrue(accountPage.optionDiscussionsIsDispalyed());
+        Assert.assertTrue(onPage.optionDiscussionsIsDispalyed());
     }
     @Step
     public void shouldSeeOptionTags() throws Exception {
-        Assert.assertTrue(accountPage.optionTagsIsDispalyed());
+        Assert.assertTrue(onPage.optionTagsIsDispalyed());
     }
 
     @Step
     public void shouldSeeOptionAgents() throws Exception {
-        Assert.assertTrue(accountPage.optionAgentsIsDispalyed());
+        Assert.assertTrue(onPage.optionAgentsIsDispalyed());
     }
     @Step
-    public void clickDiscusionsLabel() { accountPage.clickDiscussionsLabel();   }
+    public void clickDiscusionsLabel() { onPage.clickDiscussionsLabel();   }
 }

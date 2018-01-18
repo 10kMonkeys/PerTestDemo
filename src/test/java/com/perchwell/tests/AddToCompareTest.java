@@ -25,9 +25,9 @@ public void addToCompare() throws Exception {
 	perchwellSteps.clickOpenAccountButton();
 	accountSteps.clickCompareLabel();
 	compareSteps.clickSwipeUpToRemoveHint();
-	compareSteps.firstBuildingIsDispayed();
+	//compareSteps.firstBuildingIsDispayed();
 	compareSteps.shoudSeeFirstBuildingInCompare("the first building");
-	compareSteps.secondBuildingIsDispayed();
+	//compareSteps.secondBuildingIsDispayed();
 	compareSteps.shoudSeeSecondBuildingInCompare("the second building");
 	compareSteps.thirdBuildingIsDispayed("the third building");
 

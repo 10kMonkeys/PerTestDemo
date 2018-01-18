@@ -6,17 +6,17 @@ import com.perchwell.pages.perchwell.PerchPopupPage;
 import org.junit.Assert;
 
 public class PerchPopupSteps extends ScenarioSteps {
-    PerchPopupPage perchPopupPage;
+    PerchPopupPage onPage;
 
     @Step
     public void clickNotNowButton () {
-        perchPopupPage.clickNotNowButton();
+        onPage.clickNotNowButton();
     }
 
 
     @Step
     public void shouldSeePopupText() throws Exception {
-        Assert.assertTrue(perchPopupPage.popupTextIsDispalyed());
+        Assert.assertTrue(onPage.popupTextIsDispalyed());
     }
 
 

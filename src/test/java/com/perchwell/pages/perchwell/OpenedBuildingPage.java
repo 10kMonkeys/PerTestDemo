@@ -8,6 +8,7 @@ import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public OpenedBuildingPage(WebDriver driver) {
 private WebElement discussThisHint;
 
 //XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeCollectionView
-@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeCollectionView")
+@iOSXCUITFindBy(xpath = "/XCUIElementTypeCollectionView")
 private WebElement collectionForDiscussionSeach;
 
 @iOSXCUITFindBy(accessibility = "MY TAGS")
@@ -30,7 +31,8 @@ private WebElement myTagsLabel;
 @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
 private WebElement backButton;
 
-@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton[1]")
+//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton[1]")
+	@FindBy(name= "x white")
 private WebElement deleteTagButton;
 
 @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
@@ -88,8 +90,9 @@ private WebElement addDiscus;
 	}
 
 	public void openExistingDuscussion(String discussionName) {
-		WebElement clicablElement = getDiscussion(discussionName);
-		clicablElement.click();
+		element(MobileBy.AccessibilityId(discussionName)).click();
+		//WebElement clicablElement = getDiscussion(discussionName);
+		//clicablElement.click();
 	}
 
 	private WebElement getDiscussion(String discussionName) {

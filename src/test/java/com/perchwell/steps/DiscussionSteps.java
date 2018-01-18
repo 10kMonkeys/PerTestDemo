@@ -13,18 +13,15 @@ DiscussionPage onPage;
 		Assert.assertTrue(onPage.ccMyEmailTextDispayed());
 	}
 
-
 	@Step
 	public void clickBackButton() {
 		onPage.clickBackButton();
 	}
 
-
 	private void typeMessage(String text) {
 		onPage.typeMessage(text);
 		onPage.addValueInSessionVariable("message",text);
 	}
-
 
 	private void clickSend() {
 		onPage.clickSend();
@@ -36,9 +33,10 @@ DiscussionPage onPage;
 		this.clickSend();
 	}
 
-public void shouldSeeMessageInDiscussion() {
-	Assert.assertTrue(onPage.messageIsDispayed());
+	public void shouldSeeMessageInDiscussion() {
+		Assert.assertTrue(onPage.messageIsDispayed());
 
-}
+	}
+
 }
 
