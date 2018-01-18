@@ -26,9 +26,6 @@ public abstract class SampleTest {
     @Steps
     protected LoginSteps loginSteps;
 
-//    @Steps
-//    protected ResetPasswordSteps resetPasswordSteps;
-
     @Steps
     protected PerchwellSteps perchwellSteps;
 
@@ -53,8 +50,8 @@ public abstract class SampleTest {
     @Steps
     protected SelectResultSteps selectResultStep;
 
-//    @Steps
-//    protected DiscussionsListSteps discussionsListSteps;
+    @Steps
+    protected DiscussionsListSteps discussionsListSteps;
 
     @Steps
     protected  CompareSteps compareSteps;
@@ -64,8 +61,6 @@ public abstract class SampleTest {
 
     @Steps
     protected AnalyticsSteps analyticsSteps;
-
-
 
         static TimerTask task = new TravisAlive();
         static Timer timer;

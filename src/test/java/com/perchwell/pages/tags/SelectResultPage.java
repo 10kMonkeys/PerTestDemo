@@ -9,30 +9,32 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class SelectResultPage extends BasePage {
 
-public SelectResultPage(WebDriver driver) {
-	super(driver);
-}
+	public SelectResultPage(WebDriver driver) {
+		super(driver);
+	}
 
-@iOSXCUITFindBy(accessibility = "OK")
-private WebElement reportSemtOkButton;
+	@iOSXCUITFindBy(accessibility = "OK")
+	private WebElement reportSemtOkButton;
 
-@iOSXCUITFindBy(accessibility = "MY EMAIL")
-private WebElement myEmailOption;
+	@iOSXCUITFindBy(accessibility = "MY EMAIL")
+	private WebElement myEmailOption;
 
-@iOSXCUITFindBy(accessibility = "CLIENT")
-private WebElement clientOption;
+	@iOSXCUITFindBy(accessibility = "CLIENT")
+	private WebElement clientOption;
 
-@iOSXCUITFindBy(accessibility = "share")
-private WebElement shareButton;
+	//@iOSXCUITFindBy(accessibility = "SearchTagsButton")
+   @FindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton")
+	private WebElement shareButton;
 
-@iOSXCUITFindBy(accessibility = "SAVE")
-private WebElement saveButton;
+	@iOSXCUITFindBy(accessibility = "SAVE")
+	private WebElement saveButton;
 
-@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
-private WebElement nameThisReport;
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
+	private WebElement nameThisReport;
 
 	public void clickShareButton() {
 		element(shareButton).click();
@@ -70,17 +72,16 @@ private WebElement nameThisReport;
 		//Waiting while report was sent
 		try {
 			Thread.sleep(30000);
-			} catch (InterruptedException e)
-		{
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		//Get last emails with HEADER_SHARE_TAGS
 		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_SHARE_TAGS"));
 		Boolean reportWasFound = false;
 		report_name = report_name + ".pdf";
-			//Get attachments
+		//Get attachments
 		MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
-			//Find attachments with REPORT_NAME
+		//Find attachments with REPORT_NAME
 		for (MailTrapAttachment my_attachment : mailTrapAttachment) {
 			if (my_attachment.getFilename().equalsIgnoreCase(report_name)) {
 				reportWasFound = true;

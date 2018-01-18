@@ -6,6 +6,7 @@ import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class DiscussionPage extends BasePage {
 public DiscussionPage(WebDriver driver) {
@@ -15,7 +16,8 @@ public DiscussionPage(WebDriver driver) {
 @iOSXCUITFindBy(accessibility = "CC my email on this conversation")
 private WebElement ccMyEmailText;
 
-@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+@FindBy(xpath = "//XCUIElementTypeNavigationBar[@name=\"Perchwell_Staging.ChatView\"]/XCUIElementTypeButton")
 private WebElement backButton;
 
 @iOSXCUITFindBy(accessibility = "SEND")

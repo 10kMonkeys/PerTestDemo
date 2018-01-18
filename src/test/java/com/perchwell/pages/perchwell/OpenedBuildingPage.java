@@ -14,38 +14,38 @@ import java.util.List;
 
 public class OpenedBuildingPage extends BasePage {
 
-public OpenedBuildingPage(WebDriver driver) {
-	super(driver);
-}
+	public OpenedBuildingPage(WebDriver driver) {
+		super(driver);
+	}
 
-@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
-private WebElement discussThisHint;
+	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
+	private WebElement discussThisHint;
 
-//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeCollectionView
-@iOSXCUITFindBy(xpath = "/XCUIElementTypeCollectionView")
-private WebElement collectionForDiscussionSeach;
+	//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeCollectionView
+	@iOSXCUITFindBy(xpath = "/XCUIElementTypeCollectionView")
+	private WebElement collectionForDiscussionSeach;
 
-@iOSXCUITFindBy(accessibility = "MY TAGS")
-private WebElement myTagsLabel;
+	@iOSXCUITFindBy(accessibility = "MY TAGS")
+	private WebElement myTagsLabel;
 
-@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
-private WebElement backButton;
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+	private WebElement backButton;
 
-//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton[1]")
-	@FindBy(name= "x white")
-private WebElement deleteTagButton;
+	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton[1]")
+	@FindBy(xpath = "//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton[1]")
+	private WebElement deleteTagButton;
 
-@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
-private WebElement buildingAddress;
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
+	private WebElement buildingAddress;
 
-@iOSXCUITFindBy(accessibility = "compare untinted")
-private WebElement compareButton;
+	@iOSXCUITFindBy(accessibility = "compare untinted")
+	private WebElement compareButton;
 
-@iOSXCUITFindBy(accessibility = "DISCUSS WITH MY CLIENT")
-private WebElement disccusWithClientButton;
+	@iOSXCUITFindBy(accessibility = "DISCUSS WITH MY CLIENT")
+	private WebElement disccusWithClientButton;
 
-@iOSXCUITFindBy(accessibility = "NEW")
-private WebElement addDiscus;
+	@iOSXCUITFindBy(accessibility = "NEW")
+	private WebElement addDiscus;
 
 	public void clickAddDiscus() {
 		element(addDiscus).click();
@@ -115,11 +115,11 @@ private WebElement addDiscus;
 	}
 
 	public boolean duscussionIsDisplayed(String discussionName) {
-		WebElement clicablElement=element(MobileBy.AccessibilityId(discussionName));
+		WebElement clicablElement = element(MobileBy.AccessibilityId(discussionName));
 		System.out.print(clicablElement);
 
 		//WebElement clicablElement = getDiscussion(discussionName);
-		return ((clicablElement != null)?true:false);
+		return ((clicablElement != null) ? true : false);
 
 	}
 }
