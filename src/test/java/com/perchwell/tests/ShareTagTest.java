@@ -14,15 +14,15 @@ public class ShareTagTest extends SampleTest {
 		perchwellSteps.clickOpenAccountButton();
 		accountSteps.clickTagsLabel();
 		tagsSteps.clickSeveralExistingTagLabel();
-		tagsSteps.clickShareButton();
-		selectResultStep.clickShareButton();
+		tagsSteps.clickTagSearchButton();
+		selectResultStep.clickTagPDFExportButton();
 		selectResultStep.clickMyEmailOption();
-		selectResultStep.createReportWithName("Test my email");
+		selectResultStep.createReportWithNameAndSave("Test my email");
 		selectResultStep.shouldFindSentEmail();
-		selectResultStep.clickShareButton();
+		selectResultStep.clickTagPDFExportButton();
 		selectResultStep.clickClientOption();
 		clientSteps.selectClient();
-		selectResultStep.createReportWithName("Test client email");
+		selectResultStep.createReportWithNameAndSave("Test client email");
 		selectResultStep.shouldFindSentEmail();
 
 
