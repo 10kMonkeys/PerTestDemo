@@ -9,7 +9,6 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class SelectResultPage extends BasePage {
 
@@ -27,7 +26,7 @@ public class SelectResultPage extends BasePage {
 	private WebElement clientOption;
 
 	@iOSXCUITFindBy(accessibility = "TagPDFExportButton")
-	private WebElement shareButton;
+	private WebElement tagPDFExportButton;
 
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
@@ -35,8 +34,8 @@ public class SelectResultPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
 	private WebElement nameThisReport;
 
-	public void clickShareButton() {
-		element(shareButton).click();
+	public void clickTagPDFExportButton() {
+		element(tagPDFExportButton).click();
 	}
 
 	public void clickClientOption() {
@@ -51,7 +50,7 @@ public class SelectResultPage extends BasePage {
 		element(myEmailOption).click();
 	}
 
-	public void provideReportname(String reportName) {
+	public void setReportName(String reportName) {
 		element(nameThisReport).sendKeys(reportName);
 	}
 

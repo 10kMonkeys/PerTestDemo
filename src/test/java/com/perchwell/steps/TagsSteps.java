@@ -10,53 +10,53 @@ import org.openqa.selenium.WebElement;
 
 public class TagsSteps extends ScenarioSteps {
 	Tag tag = new Tag();
-	TagsPage tagsPage;
+	TagsPage onPage;
 
 	@Step
 	public void setRandomTagAndSave() {
 		tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
-		this.tagsPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
-		this.tagsPage.clickCreateTagLabel();
+		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
+		this.onPage.clickCreateTagLabel();
 	}
 
 	@Step
 	public void shouldNotSeeCreatedTagUpperCase() {
-		Assert.assertFalse(tagsPage.isTagDisplayed(tag.getUniqueTagName().toUpperCase()));
+		Assert.assertFalse(onPage.isTagDisplayed(tag.getUniqueTagName().toUpperCase()));
 	}
 
 	@Step
 	public void shouldSeeCreatedTagUpperCase() throws Exception {
-		Assert.assertTrue(tagsPage.isTagDisplayedWithSwipe(tag.getUniqueTagName().toUpperCase()));
+		Assert.assertTrue(onPage.isTagDisplayedWithSwipe(tag.getUniqueTagName().toUpperCase()));
 	}
 
 	@Step
 	public void clickCreatedTag() {
-		tagsPage.clickTagLabel(tag.getUniqueTagName());
+		onPage.clickTagLabel(tag.getUniqueTagName());
 	}
 
 	@Step
 	public void clickUsedTag() {
-		tagsPage.clickTagLabel(tag.getExistingTagname());
+		onPage.clickTagLabel(tag.getExistingTagname());
 	}
 
 	@Step
 	public void clickBackButton() {
-		tagsPage.clickBackButton();
+		onPage.clickBackButton();
 	}
 
 	@Step
 	public void clickSearchButton() {
-		tagsPage.clickSearchButton();
+		onPage.clickSearchButton();
 	}
 
 	@Step
 	public void clickExistingTagLabel() {
 
-		WebElement element = tagsPage.findExistingTagLabel();
+		WebElement element = onPage.findExistingTagLabel();
 		if (element == null) {
 			this.setRandomTagAndSave();
-			this.tagsPage.clickCreateTagLabel();
-			element = tagsPage.findExistingTagLabel();
+			this.onPage.clickCreateTagLabel();
+			element = onPage.findExistingTagLabel();
 		}
 
 		element.click();
@@ -66,14 +66,14 @@ public class TagsSteps extends ScenarioSteps {
 
 	@Step
 	public void clickSeveralExistingTagLabel() {
-		WebElement firstTag = tagsPage.findExistingTagLabel();
+		WebElement firstTag = onPage.findExistingTagLabel();
 		if (firstTag != null) {
 			firstTag.click();
 		} else {
 			Assert.assertFalse("Does not exist any tags", firstTag == null);
 		}
 
-		WebElement secondTag = tagsPage.findExistingTagLabel();
+		WebElement secondTag = onPage.findExistingTagLabel();
 		if (secondTag != null && firstTag != null) {
 			secondTag.click();
 		} else {
@@ -83,11 +83,11 @@ public class TagsSteps extends ScenarioSteps {
 
 	@Step
 	public void clickTagSearchButton() {
-		tagsPage.clickTagSearchButton();
+		onPage.clickTagSearchButton();
 	}
 
 	@Step
 	public void shouldSeeExistingTagUpperCase() throws Exception {
-		Assert.assertTrue(tagsPage.isTagDisplayedWithSwipe(tag.getExistingTagname().toUpperCase()));
+		Assert.assertTrue(onPage.isTagDisplayedWithSwipe(tag.getExistingTagname().toUpperCase()));
 	}
 }
