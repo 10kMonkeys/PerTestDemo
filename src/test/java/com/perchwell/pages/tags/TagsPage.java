@@ -7,7 +7,6 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
@@ -19,8 +18,8 @@ public class TagsPage extends BasePage {
 	}
 
 	//@iOSXCUITFindBy(accessibility = "SearchTagsButton")
-	@FindBy(xpath = "//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton")
-	private WebElement shareButton;
+	@iOSXCUITFindBy(accessibility = "TagSearchButton")
+	private WebElement TagSearchButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSearchField")
 	private WebElement searchTagTexBox;
@@ -51,8 +50,8 @@ public class TagsPage extends BasePage {
 		element(back).click();
 	}
 
-	public void clickShareButton() {
-		element(shareButton).click();
+	public void clickTagSearchButton() {
+		element(TagSearchButton).click();
 	}
 
 	public void clickTagLabel(String TagName) {

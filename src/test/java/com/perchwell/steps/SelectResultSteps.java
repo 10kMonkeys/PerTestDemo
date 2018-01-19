@@ -20,12 +20,12 @@ public class SelectResultSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickShareButton() {
-		onPage.clickShareButton();
+	public void clickTagPDFExportButton() {
+		onPage.clickTagPDFExportButton();
 	}
 
 	@Step
-	public void createReportWithName(String ReportName) {
+	public void createReportWithNameAndSave(String ReportName) {
 		this.provideReportName(ReportName);
 		this.clickSaveButton();
 		this.clickReportSemtOkButton();
@@ -41,7 +41,7 @@ public class SelectResultSteps extends ScenarioSteps {
 
 	private void provideReportName(String reportName) {
 		onPage.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
-		onPage.provideReportname(onPage.getValueFromSessionVariable("Report name"));
+		onPage.setReportName(onPage.getValueFromSessionVariable("Report name"));
 	}
 
 	@Step("Should see sent email. Mail is checked twice with a one minute waiting")
