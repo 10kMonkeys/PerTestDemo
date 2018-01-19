@@ -82,8 +82,8 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickShareButton() {
-		tagsPage.clickShareButton();
+	public void clickTagSearchButton() {
+		tagsPage.clickTagSearchButton();
 	}
 
 	@Step

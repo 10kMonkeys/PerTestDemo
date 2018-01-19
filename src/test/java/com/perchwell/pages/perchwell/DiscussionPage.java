@@ -31,21 +31,26 @@ private WebElement message;
 	public boolean ccMyEmailTextDispayed() {
 		return element(ccMyEmailText).isDisplayed();
 	}
+
 	public void clickBackButton() {
 		element(backButton).click();
 	}
 	public void typeMessage(String text) {
 		element(message).sendKeys(text);
 	}
+
 	public void clickSend() {
 		element(sendButton).click();
 	}
+
 	public void addValueInSessionVariable(String name, String value) {
 		Serenity.setSessionVariable(name).to(value);
 	}
+
 	public String getValueFromSessionVariable(String name) {
 		return Serenity.sessionVariableCalled(name);
 	}
+
 	public boolean messageIsDispayed() {
 		return Helper.isElementDisplayed(element(By.name(getValueFromSessionVariable("message"))));
 	}
