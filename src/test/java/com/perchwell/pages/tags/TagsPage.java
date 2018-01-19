@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
@@ -17,9 +18,8 @@ public class TagsPage extends BasePage {
 		super(driver);
 	}
 
-	//@iOSXCUITFindBy(accessibility = "SearchTagsButton")
 	@iOSXCUITFindBy(accessibility = "TagSearchButton")
-	private WebElement TagSearchButton;
+	private WebElement shareButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSearchField")
 	private WebElement searchTagTexBox;
@@ -50,8 +50,8 @@ public class TagsPage extends BasePage {
 		element(back).click();
 	}
 
-	public void clickTagSearchButton() {
-		element(TagSearchButton).click();
+	public void clickShareButton() {
+		element(shareButton).click();
 	}
 
 	public void clickTagLabel(String TagName) {
@@ -79,7 +79,8 @@ public class TagsPage extends BasePage {
 	public WebElement findExistingTagLabel() {
 		WebElement parentCell = null;
 		WebElement parentLabelElement = null;
-		List<WebElement> listCells = getDriver().findElements(By.className("XCUIElementTypeCell"));
+		WebElement table = getDriver().findElement(By.xpath("//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeTable"));
+		List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
 		if (listCells.size() > 0) {
 			for (WebElement desiredElement : listCells) {
 

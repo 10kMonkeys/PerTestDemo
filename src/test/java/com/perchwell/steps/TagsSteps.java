@@ -66,9 +66,19 @@ public class TagsSteps extends ScenarioSteps {
 
 	@Step
 	public void clickSeveralExistingTagLabel() {
+		WebElement firstTag = tagsPage.findExistingTagLabel();
+		if (firstTag != null) {
+			firstTag.click();
+		} else {
+			Assert.assertFalse("Does not exist any tags", firstTag == null);
+		}
 
-		tagsPage.findExistingTagLabel().click();
-		tagsPage.findExistingTagLabel().click();
+		WebElement secondTag = tagsPage.findExistingTagLabel();
+		if (secondTag != null && firstTag != null) {
+			secondTag.click();
+		} else {
+			Assert.assertFalse("Does not exist several tags", secondTag == null);
+		}
 	}
 
 	@Step
