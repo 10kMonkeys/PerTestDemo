@@ -18,8 +18,7 @@ public class TagsPage extends BasePage {
 		super(driver);
 	}
 
-	//@iOSXCUITFindBy(accessibility = "SearchTagsButton")
-	@FindBy(xpath = "//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton")
+	@iOSXCUITFindBy(accessibility = "TagSearchButton")
 	private WebElement shareButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSearchField")
@@ -80,7 +79,8 @@ public class TagsPage extends BasePage {
 	public WebElement findExistingTagLabel() {
 		WebElement parentCell = null;
 		WebElement parentLabelElement = null;
-		List<WebElement> listCells = getDriver().findElements(By.className("XCUIElementTypeCell"));
+		WebElement table = getDriver().findElement(By.xpath("//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeTable"));
+		List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
 		if (listCells.size() > 0) {
 			for (WebElement desiredElement : listCells) {
 

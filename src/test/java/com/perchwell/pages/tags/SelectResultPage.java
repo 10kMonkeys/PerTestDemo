@@ -26,8 +26,7 @@ public class SelectResultPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "CLIENT")
 	private WebElement clientOption;
 
-	//@iOSXCUITFindBy(accessibility = "SearchTagsButton")
-   @FindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton")
+	@iOSXCUITFindBy(accessibility = "TagPDFExportButton")
 	private WebElement shareButton;
 
 	@iOSXCUITFindBy(accessibility = "SAVE")
