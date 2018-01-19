@@ -9,6 +9,7 @@ import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,25 +25,37 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "ADD NEW CLIENT")
 	private WebElement addNewClientButton;
 
+	@iOSXCUITFindBy(accessibility = "ADD NEW AGENT")
+	private WebElement addNewAgentButton;
+
 	@iOSXCUITFindBy(accessibility = "INVITE MY CLIENTS")
 	private WebElement inviteNewClientButton;
 
 	@iOSXCUITFindBy(accessibility = "client_name_text_field")
 	private WebElement clientNameTextBox;
 
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeTextView")
+	private WebElement addMessageField;
+
 	@iOSXCUITFindBy(accessibility = "client_email_text_field")
 	private WebElement clientEmailTextBox;
+
+	@iOSXCUITFindBy(accessibility = "agent_email_text_field")
+	private WebElement agentEmailTextBox;
 
 	@iOSXCUITFindBy(accessibility = "client_group_button")
 	private WebElement groupLabel;
 
-//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]")
-   @FindBy(xpath="//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]")
+	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]")
+	@FindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]")
 	private WebElement firstClient;
 
 	//@iOSXCUITFindBy(xpath= "//XCUIElementTypeNavigationBar[@name=\"ADD MY CLIENT\"]/XCUIElementTypeButtonn")
 	@iOSXCUITFindBy(accessibility = "AddClientViewControllerBackButton")
 	private WebElement backButton;
+
+	@iOSXCUITFindBy(accessibility = "Nav Back White")
+	private WebElement backButtonCreateAgent;
 
 	@iOSXCUITFindBy(accessibility = "contactsViewCloseButton")
 	//@FindBy(xpath="//XCUIElementTypeNavigationBar[@name=\"SELECT CLIENT\"]/XCUIElementTypeButton")
@@ -125,7 +138,7 @@ public class ClientPage extends BasePage {
 	}
 
 	public String getClientName() {
-		return firstClient.getAttribute("name");
+		return firstClient.findElement(By.className("XCUIElementTypeStaticText")).getAttribute("name");
 	}
 
 	public void clickBackButton() {
@@ -150,5 +163,21 @@ public class ClientPage extends BasePage {
 
 	public String generateClientEmail() {
 		return RandomGenerator.getRandomString("11CLIENTEMAIL") + "@EMAIL.COM";
+	}
+
+	public void clickAddNewAgentButton() {
+		element(addNewAgentButton).click();
+	}
+
+	public void setAgentEmail(String email) {
+		element(agentEmailTextBox).sendKeys(email);
+	}
+
+	public void setMessageField(String message) {
+		element(addMessageField).sendKeys(message);
+	}
+
+	public void clickBackButtonCreateAgent() {
+		element(backButtonCreateAgent).click();
 	}
 }

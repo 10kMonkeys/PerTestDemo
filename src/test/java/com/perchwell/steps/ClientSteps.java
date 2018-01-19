@@ -14,7 +14,7 @@ public class ClientSteps extends ScenarioSteps {
 	public void setRundomClientData() {
 		onPage.addValueInSessionVariable("User name", onPage.generateClientName());
 		this.onPage.setClientName(onPage.getValueFromSessionVariable("User name"));
-		onPage.addValueInSessionVariable("User email", onPage.generateClientEmail()) ;
+		onPage.addValueInSessionVariable("User email", onPage.generateClientEmail());
 		this.onPage.setClientEmail(onPage.getValueFromSessionVariable("User email"));
 	}
 
@@ -68,6 +68,13 @@ public class ClientSteps extends ScenarioSteps {
 		onPage.clickBackButton();
 	}
 
+
+	@Step
+	public void clickBackButtonCreateAgent() {
+		onPage.clickBackButtonCreateAgent();
+	}
+
+
 	@Step
 	public void closePage() {
 		onPage.closePage();
@@ -89,5 +96,24 @@ public class ClientSteps extends ScenarioSteps {
 	@Step
 	public void logOut() {
 		onPage.logOut();
+	}
+
+	public void clickAddNewAgentButton() {
+		//if (onPage.getAddNewClientButton().isDisplayed()) {
+		onPage.clickAddNewAgentButton();
+//		} else {
+//			onPage.clickInviteNewClientButton();
+//		}
+	}
+
+	@Step("Set email {0}")
+	public void setAgentEmail(String email) {
+		this.onPage.setAgentEmail(email);
+	}
+
+	@Step("Set text in the message field {0}")
+	public void setMessageField(String msg) {
+		onPage.setMessageField(msg);
+		onPage.addValueInSessionVariable("Msg for agent",msg);
 	}
 }

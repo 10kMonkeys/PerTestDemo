@@ -2,7 +2,9 @@ package com.perchwell.pages.perchwell;
 
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.MailTrapResponse;
+import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.WebDriver;
@@ -55,5 +57,10 @@ public class DiscussionsListPage extends BasePage {
 			}
 		}
 		return reportWasFound;
+	}
+
+
+	public boolean discusionWithMsgIsDispayed(String message) {
+		return Helper.isElementDisplayed(element(MobileBy.name(message)));
 	}
 }
