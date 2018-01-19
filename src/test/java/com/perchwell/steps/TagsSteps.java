@@ -69,8 +69,6 @@ public class TagsSteps extends ScenarioSteps {
 
 		tagsPage.findExistingTagLabel().click();
 		tagsPage.findExistingTagLabel().click();
-
-
 	}
 
 	@Step

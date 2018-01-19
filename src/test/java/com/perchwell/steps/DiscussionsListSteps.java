@@ -27,5 +27,10 @@ DiscussionsListPage onPage;
 		Assert.assertTrue(onPage.discussionsEmailSent(onPage.getValueFromSessionVariable("message"), AppProperties.INSTANCE.getProperty("client_email")));
 	}
 
+	@Step("Discussion with new agent is not created")
+	public void discussionWithMessageNotDisplayed(){
+		Assert.assertFalse(onPage.discusionWithMsgIsDispayed(onPage.getValueFromSessionVariable("Msg for agent")));
+	}
+
 }
 

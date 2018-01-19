@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
@@ -30,11 +31,9 @@ private WebElement message;
 	public boolean ccMyEmailTextDispayed() {
 		return element(ccMyEmailText).isDisplayed();
 	}
-
 	public void clickBackButton() {
 		element(backButton).click();
 	}
-
 	public void typeMessage(String text) {
 		element(message).sendKeys(text);
 	}
@@ -44,12 +43,10 @@ private WebElement message;
 	public void addValueInSessionVariable(String name, String value) {
 		Serenity.setSessionVariable(name).to(value);
 	}
-
 	public String getValueFromSessionVariable(String name) {
 		return Serenity.sessionVariableCalled(name);
 	}
-
 	public boolean messageIsDispayed() {
-		return element(By.name(getValueFromSessionVariable("message"))).isDisplayed();
+		return Helper.isElementDisplayed(element(By.name(getValueFromSessionVariable("message"))));
 	}
 }

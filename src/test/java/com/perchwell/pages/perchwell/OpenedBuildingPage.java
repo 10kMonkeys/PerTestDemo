@@ -44,6 +44,9 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DISCUSS WITH MY CLIENT")
 	private WebElement disccusWithClientButton;
 
+	@iOSXCUITFindBy(accessibility = "DISCUSS WITH MY AGENT")
+	private WebElement disccusWithMyAgentButton;
+
 	@iOSXCUITFindBy(accessibility = "NEW")
 	private WebElement addDiscus;
 
@@ -90,9 +93,8 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void openExistingDuscussion(String discussionName) {
-		element(MobileBy.AccessibilityId(discussionName)).click();
-		//WebElement clicablElement = getDiscussion(discussionName);
-		//clicablElement.click();
+		WebElement discuss = getDriver().findElements(By.name(discussionName)).get(0);
+		discuss.click();
 	}
 
 	private WebElement getDiscussion(String discussionName) {
@@ -117,9 +119,11 @@ public class OpenedBuildingPage extends BasePage {
 	public boolean duscussionIsDisplayed(String discussionName) {
 		WebElement clicablElement = element(MobileBy.AccessibilityId(discussionName));
 		System.out.print(clicablElement);
-
-		//WebElement clicablElement = getDiscussion(discussionName);
 		return ((clicablElement != null) ? true : false);
 
+	}
+
+	public void clickDiscussWithMyAgentButton() {
+		element(disccusWithMyAgentButton).click();
 	}
 }
