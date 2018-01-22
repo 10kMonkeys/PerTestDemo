@@ -5,13 +5,13 @@ import org.junit.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
-public class DiscussionWithNewAgentTest extends SampleTest {
+
+public class TC26_DiscussionWithExistingAgent extends SampleTest {
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
 	@Test
-	public void discussionWithNewAgentTest() {
+	public void discussionWithExistingAgent() throws Exception {
 		loginSteps.loginAsClient();
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
@@ -19,17 +19,12 @@ public class DiscussionWithNewAgentTest extends SampleTest {
 		openedBuildingSteps.clickDiscussWithMyClientHint();
 		openedBuildingSteps.clickDiscussWithMyAgentButton();
 		openedBuildingSteps.clickAddDiscusButton();
-		clientSteps.clickAddNewAgentButton();
-		clientSteps.setAgentEmail("Not_existing_email@test.ru");
-		clientSteps.setMessageField("Hello. I'd like invite you on "+sdf.format(new Date()));
-		clientSteps.clickInviteButton();
+		clientSteps.clickExistingAgent();
+		discussionSteps.sendMessage("I'd like discuss with you " + sdf);
 		discussionSteps.clickBackButton();
-		clientSteps.clickBackButtonCreateAgent();
 		clientSteps.closePage();
-		openedBuildingSteps.clickBackButton();
-		perchwellSteps.clickOpenAccountButton();
-		accountSteps.clickDiscusionsLabel();
-		discussionsListSteps.discussionWithMessageNotDisplayed();
-
+		openedBuildingSteps.shouldSeeExistingDuscussionWithAgent();
+		openedBuildingSteps.openExistingDuscussionWithAgent();
+		discussionSteps.shouldSeeMessageInDiscussion();
 	}
 }

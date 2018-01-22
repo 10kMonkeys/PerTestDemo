@@ -36,7 +36,7 @@ public class DiscussionSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeMessageInDiscussion() {
-		Assert.assertTrue(onPage.messageIsDispayed());
+		Assert.assertTrue(onPage.messageIsDispayed(onPage.getValueFromSessionVariable("message")));
 
 	}
 

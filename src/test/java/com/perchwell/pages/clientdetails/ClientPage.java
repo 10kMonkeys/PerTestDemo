@@ -48,9 +48,8 @@ public class ClientPage extends BasePage {
 
 	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]")
 	@FindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]")
-	private WebElement firstClient;
+	private WebElement firstClientOrAgent;
 
-	//@iOSXCUITFindBy(xpath= "//XCUIElementTypeNavigationBar[@name=\"ADD MY CLIENT\"]/XCUIElementTypeButtonn")
 	@iOSXCUITFindBy(accessibility = "AddClientViewControllerBackButton")
 	private WebElement backButton;
 
@@ -107,21 +106,21 @@ public class ClientPage extends BasePage {
 		element(groupLabel).click();
 	}
 
-	public void clickClient() {
-		element(firstClient).click();
+	public void clickFirstClientOrAgent() {
+		element(firstClientOrAgent).click();
 	}
 
 	public void selectGroup(String groupName) {
 		this.getGroupLabelName(groupName).click();
 	}
 
-	public boolean isClientDisplayed(String clientName) throws Exception {
-		if (getDriver().findElements(MobileBy.AccessibilityId(clientName)).size() > 0) {
+	public boolean isClientOrAgentDisplayed(String name) throws Exception {
+		if (getDriver().findElements(MobileBy.AccessibilityId(name)).size() > 0) {
 			setImplicitTimeout(1, SECONDS);
-			Helper.swipeDownUntilElementVisible(clientName);
+			Helper.swipeDownUntilElementVisible(name);
 			resetImplicitTimeout();
 		}
-		return isElementVisible(MobileBy.AccessibilityId(clientName));
+		return isElementVisible(MobileBy.AccessibilityId(name));
 	}
 
 	public void addValueInSessionVariable(String name, String value) {
@@ -137,8 +136,8 @@ public class ClientPage extends BasePage {
 		return (mailTrapResponse.length > 0);
 	}
 
-	public String getClientName() {
-		return firstClient.findElement(By.className("XCUIElementTypeStaticText")).getAttribute("name");
+	public String getFirstClientOrAgentName() {
+		return firstClientOrAgent.findElement(By.className("XCUIElementTypeStaticText")).getAttribute("name");
 	}
 
 	public void clickBackButton() {
@@ -149,8 +148,8 @@ public class ClientPage extends BasePage {
 		element(closeButton).click();
 	}
 
-	public void clickDesiredClient(String clientName) {
-		element(MobileBy.AccessibilityId(clientName)).click();
+	public void clickDesiredClientOrAgent(String name) {
+		element(MobileBy.AccessibilityId(name)).click();
 	}
 
 	public void logOut() {

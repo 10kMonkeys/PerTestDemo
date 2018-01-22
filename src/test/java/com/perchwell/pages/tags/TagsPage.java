@@ -17,7 +17,8 @@ public class TagsPage extends BasePage {
 		super(driver);
 	}
 
-	@iOSXCUITFindBy(accessibility = "tagSearchButton")
+	//@iOSXCUITFindBy(accessibility = "tagSearchButton")
+	@iOSXCUITFindBy(accessibility = "TagSearchButton")
 	private WebElement tagSearchButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSearchField")

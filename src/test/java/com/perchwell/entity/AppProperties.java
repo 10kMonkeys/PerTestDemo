@@ -28,7 +28,7 @@ private Properties props = null;
 		if (props.containsKey(key))
 			value = (String) props.get(key);
 		else {
-			System.out.println(key +" not found");
+			System.out.println(key +" is not found!!!");
 			// сообщит о том, что свойство не найдено?
 		}
 		return value;

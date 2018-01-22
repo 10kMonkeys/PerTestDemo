@@ -31,7 +31,8 @@ public class SelectResultPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
+	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
+	@iOSXCUITFindBy(accessibility = "generic_text_input_field")
 	private WebElement nameThisReport;
 
 	public void clickTagPDFExportButton() {
@@ -58,7 +59,7 @@ public class SelectResultPage extends BasePage {
 		Serenity.setSessionVariable(name).to(value);
 	}
 
-	public void clickReportSemtOkButton() {
+	public void clickReportSentOkButton() {
 		reportSemtOkButton.click();
 	}
 

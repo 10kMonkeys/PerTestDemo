@@ -26,20 +26,20 @@ public class SelectResultSteps extends ScenarioSteps {
 
 	@Step
 	public void createReportWithNameAndSave(String ReportName) {
-		this.provideReportName(ReportName);
+		this.setReportName(ReportName);
 		this.clickSaveButton();
-		this.clickReportSemtOkButton();
+		this.clickReportSentOkButton();
 	}
 
-	public void clickReportSemtOkButton() {
-		onPage.clickReportSemtOkButton();
+	public void clickReportSentOkButton() {
+		onPage.clickReportSentOkButton();
 	}
 
 	private void clickSaveButton() {
 		onPage.clickSaveButton();
 	}
 
-	private void provideReportName(String reportName) {
+	private void setReportName(String reportName) {
 		onPage.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
 		onPage.setReportName(onPage.getValueFromSessionVariable("Report name"));
 	}

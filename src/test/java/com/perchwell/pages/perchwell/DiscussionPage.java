@@ -51,7 +51,7 @@ private WebElement message;
 		return Serenity.sessionVariableCalled(name);
 	}
 
-	public boolean messageIsDispayed() {
-		return Helper.isElementDisplayed(element(By.name(getValueFromSessionVariable("message"))));
+	public boolean messageIsDispayed(String message) {
+		return Helper.isElementDisplayed(element(By.name(message)));
 	}
 }

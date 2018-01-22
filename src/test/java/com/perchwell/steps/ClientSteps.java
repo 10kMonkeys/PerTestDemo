@@ -20,7 +20,7 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeRecentlyCreatedClient() throws Exception {
-		Assert.assertTrue(onPage.isClientDisplayed(onPage.getValueFromSessionVariable("User name")));
+		Assert.assertTrue(onPage.isClientOrAgentDisplayed(onPage.getValueFromSessionVariable("User name")));
 	}
 
 	@Step
@@ -59,8 +59,8 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void selectClient() {
-		onPage.addValueInSessionVariable("Client", onPage.getClientName());
-		onPage.clickClient();
+		onPage.addValueInSessionVariable("Client", onPage.getFirstClientOrAgentName());
+		onPage.clickFirstClientOrAgent();
 	}
 
 	@Step
@@ -68,12 +68,10 @@ public class ClientSteps extends ScenarioSteps {
 		onPage.clickBackButton();
 	}
 
-
 	@Step
 	public void clickBackButtonCreateAgent() {
 		onPage.clickBackButtonCreateAgent();
 	}
-
 
 	@Step
 	public void closePage() {
@@ -82,13 +80,13 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void clickDesiredClient() throws Exception {
-		onPage.clickDesiredClient(onPage.getValueFromSessionVariable("User name"));
+		onPage.clickDesiredClientOrAgent(onPage.getValueFromSessionVariable("User name"));
 	}
 
 	@Step
 	public void clickExistingClient() throws Exception {
-		if (onPage.isClientDisplayed(AppProperties.INSTANCE.getProperty("client_name").toUpperCase())) {
-			onPage.clickDesiredClient(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
+		if (onPage.isClientOrAgentDisplayed(AppProperties.INSTANCE.getProperty("client_name").toUpperCase())) {
+			onPage.clickDesiredClientOrAgent(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
 			onPage.addValueInSessionVariable("Client", AppProperties.INSTANCE.getProperty("client_name"));
 		}
 	}
@@ -114,6 +112,12 @@ public class ClientSteps extends ScenarioSteps {
 	@Step("Set text in the message field {0}")
 	public void setMessageField(String msg) {
 		onPage.setMessageField(msg);
-		onPage.addValueInSessionVariable("Msg for agent",msg);
+		onPage.addValueInSessionVariable("Msg for agent", msg);
+	}
+
+	@Step
+	public void clickExistingAgent() throws Exception {
+		onPage.addValueInSessionVariable("Agent", onPage.getFirstClientOrAgentName());
+		onPage.clickFirstClientOrAgent();
 	}
 }

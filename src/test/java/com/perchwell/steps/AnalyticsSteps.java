@@ -1,115 +1,156 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.perchwell.AnalyticsPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 
 public class AnalyticsSteps extends ScenarioSteps {
-    AnalyticsPage onPage;
+	AnalyticsPage onPage;
 
-    @Step
-    public void holdCharts(){
-        onPage.holdCharts();
-    }
+	@Step
+	public void holdCharts() {
+		onPage.holdCharts();
+	}
 
-    @Step
-    public void deleteChart(){
-        onPage.deleteChart();
-    }
+	@Step
+	public void deleteChart() {
+		onPage.deleteChart();
+	}
 
-    @Step
-    public void isAddIconDisplayed(){
-        Assert.assertTrue(onPage.isAddIconDisplayed());
-    }
+	@Step
+	public void isAddIconDisplayed() {
+		Assert.assertTrue(onPage.isAddIconDisplayed());
+	}
 
-    @Step
-    public void addChartFromREBNYSection(){
-        onPage.addChartFromREBNYSection();
-    }
+	@Step
+	public void addChartFromREBNYSection() {
+		onPage.addChartFromREBNYSection();
+	}
 
-    @Step
-    public void addButtonClick(){
-        onPage.addButtonClick();
-    }
+	@Step
+	public void addButtonClick() {
+		onPage.addButtonClick();
+	}
 
-    @Step
-    public void addChartFromACRISSection(){
-        onPage.addChartFromACRISSection();
-    }
+	@Step
+	public void shareButtonClick() {
+		onPage.shareButtonClick();
+	}
 
-    @Step
-    public void addChartFromNYCSection(){
-        onPage.addChartFromNYCSection();
-    }
+	@Step
+	public void addChartFromACRISSection() {
+		onPage.addChartFromACRISSection();
+	}
 
-    @Step
-    public void addChartFromManagementSection(){
-        onPage.addChartFromManagementSection();
-    }
+	@Step
+	public void addChartFromNYCSection() {
+		onPage.addChartFromNYCSection();
+	}
 
-    @Step
-    public void addTwoCharts(){
-        onPage.addTwoCharts();
-    }
+	@Step
+	public void addChartFromManagementSection() {
+		onPage.addChartFromManagementSection();
+	}
 
-    @Step
-    public void skipHints(){
-        onPage.skipHints();
-    }
+	@Step
+	public void addTwoCharts() {
+		onPage.addTwoCharts();
+	}
 
-    @Step
-    public void isMessageMaximumSixChartsDisplayed(){
-        Assert.assertTrue(onPage.isMessageMaximumSixChartsDisplayed());
-    }
+	@Step
+	public void skipHints() {
+		onPage.skipHints();
+	}
 
-    @Step
-    public void isAskingPriseChartAdd(){
-        Assert.assertTrue(onPage.isAskingPriseChartAdd());
-    }
+	@Step
+	public void isMessageMaximumSixChartsDisplayed() {
+		Assert.assertTrue(onPage.isMessageMaximumSixChartsDisplayed());
+	}
 
-    @Step
-    public void isBuildingHeightCartAdd(){
-        Assert.assertTrue(onPage.isBuildingHeightCartAdd());
-    }
+	@Step
+	public void isAskingPriseChartAdd() {
+		Assert.assertTrue(onPage.isAskingPriseChartAdd());
+	}
 
-    @Step
-    public void isDomByPriceCartAdd(){
-        Assert.assertTrue(onPage.isDomByPriceCartAdd());
-    }
+	@Step
+	public void isBuildingHeightCartAdd() {
+		Assert.assertTrue(onPage.isBuildingHeightCartAdd());
+	}
 
-    @Step
-    public void isDaysOnMarketAdd(){
-        Assert.assertTrue(onPage.isDaysOnMarketAdd());
-    }
+	@Step
+	public void isDomByPriceCartAdd() {
+		Assert.assertTrue(onPage.isDomByPriceCartAdd());
+	}
 
-    @Step
-    public void okButtonClick(){
-        onPage.okButtonClick();
-    }
+	@Step
+	public void isDaysOnMarketAdd() {
+		Assert.assertTrue(onPage.isDaysOnMarketAdd());
+	}
 
-    @Step
-    public void doneMovingCharts(){
-        onPage.doneMovingChartsButtonClick();
-    }
+	@Step
+	public void okButtonClick() {
+		onPage.okButtonClick();
+	}
 
-    @Step
-    public void isDealCountByTypeDeleted(){
-        Assert.assertFalse(onPage.isDealCountByTypeDisplayed());
-    }
+	@Step
+	public void doneMovingCharts() {
+		onPage.doneMovingChartsButtonClick();
+	}
 
-    @Step
-    public void addAskingPriceChartWithMKTShare(){
-        onPage.addAskingPriceChartWithMKTShare();
-    }
+	@Step
+	public void isDealCountByTypeDeleted() {
+		Assert.assertFalse(onPage.isDealCountByTypeDisplayed());
+	}
 
-    @Step
-    public void isThisIsAProOnlyFeatureMessageShow(){
-        onPage.isThisIsAProOnlyFeatureMessageShow();
-    }
+	@Step
+	public void addAskingPriceChartWithMKTShare() {
+		onPage.addAskingPriceChartWithMKTShare();
+	}
 
-    @Step
-    public void addBuildingHeightChartWithMKTShare(){
-        onPage.addBuildingHeightChartWithMKTShare();
-    }
+	@Step
+	public void isThisIsAProOnlyFeatureMessageShow() {
+		onPage.isThisIsAProOnlyFeatureMessageShow();
+	}
+
+	@Step
+	public void addBuildingHeightChartWithMKTShare() {
+		onPage.addBuildingHeightChartWithMKTShare();
+	}
+
+	public void clickMyEmailOption() {
+		onPage.clickMyEmailOption();
+	}
+
+	@Step
+	public void createReportWithNameAndSave(String report_name) {
+
+		this.setReportName(report_name);
+		this.clickSaveButton();
+		this.clickReportSentOkButton();
+
+	}
+
+	public void clickReportSentOkButton() {
+		onPage.clickReportSentOkButton();
+	}
+
+	private void clickSaveButton() {
+		onPage.clickSaveButton();
+	}
+
+	private void setReportName(String reportName) {
+		onPage.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
+		onPage.setReportName(onPage.getValueFromSessionVariable("Report name"));
+	}
+
+	@Step
+	public void shouldFindSentEmail() {
+		Boolean result = onPage.shouldFindSentEmail(onPage.getValueFromSessionVariable("Report name"));
+		if (!result) {
+			result = onPage.shouldFindSentEmail(onPage.getValueFromSessionVariable("Report name"));
+		}
+		Assert.assertTrue(result);
+	}
 }
