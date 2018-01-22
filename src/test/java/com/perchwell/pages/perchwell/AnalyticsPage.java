@@ -118,35 +118,43 @@ public class AnalyticsPage extends BasePage {
         element(doneMovingChartsButton).click();
     }
 
-    public void addChartFromREBNYSection(){
+    public void rebnyListingsButtonClick(){
         element(rebnyListingsButton).click();
-        element(askingPriceButton).click();
     }
 
     public void addButtonClick(){
         element(plusWhiteButton).click();
     }
 
-    public void addChartFromACRISSection(){
-        element(acrisClosingsButton).click();
+    public void dealCountByHeightButtonClick(){
         element(dealCountByHeightButton).click();
     }
 
-    public void addChartFromNYCSection(){
-        element(nycTownhousesButton).click();
+    public void domByPriceButtonClick(){
         element(domByPriceButton).click();
     }
 
-    public void addChartFromManagementSection(){
+    public void nycTownHousesButtonClick(){
+        element(nycTownhousesButton).click();
+    }
+
+    public void managementButtonClick(){
         element(managementButton).click();
+    }
+
+    public void daysOnMarketButtonClick(){
         element(daysOnMarketButton).click();
     }
 
-    public void addTwoCharts(){
-        element(rebnyListingsButton).click();
+    public void bedroomsButtonClick(){
         element(bedroomsButton).click();
-        element(plusWhiteButton).click();
+    }
+
+    public void acrisClosingsButtonClick(){
         element(acrisClosingsButton).click();
+    }
+
+    public void buildingTypeButtonClick(){
         element(buildingTypeButton).click();
     }
 
@@ -189,16 +197,12 @@ public class AnalyticsPage extends BasePage {
         return element(thisIsAProOnlyFeatureMessage).isDisplayed();
     }
 
-    public void addBuildingHeightChartWithMKTShare(){
-        element(rebnyListingsButton).click();
-        element(mktShareButton).click();
+    public void buildingHeightButton(){
         element(buildingHeightButton).click();
     }
 
-    public void addAskingPriceChartWithMKTShare(){
-        element(rebnyListingsButton).click();
+    public void mktShareButtonClick(){
         element(mktShareButton).click();
-        element(askingPriceButton).click();
     }
 
     public void askingPriceChartClick(){
