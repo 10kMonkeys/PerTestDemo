@@ -112,4 +112,19 @@ public class AnalyticsSteps extends ScenarioSteps {
     public void addBuildingHeightChartWithMKTShare(){
         onPage.addBuildingHeightChartWithMKTShare();
     }
+
+    @Step
+    public void askingPriceChartClick(){
+        onPage.askingPriceChartClick();
+    }
+
+    @Step
+    public void upToOneMillionButtonClick(){
+        onPage.upToOneMillionButtonClick();
+    }
+
+    @Step
+    public void selectFirstBuildingInList(){
+        onPage.selectFirstBuildingInList();
+    }
 }

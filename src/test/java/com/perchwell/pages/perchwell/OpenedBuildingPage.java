@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
@@ -121,5 +122,9 @@ private WebElement addDiscus;
 		//WebElement clicablElement = getDiscussion(discussionName);
 		return ((clicablElement != null)?true:false);
 
+	}
+
+	public boolean isDiscussionWithMyClientDisplayed(){
+		return Helper.isElementDisplayed(disccusWithClientButton);
 	}
 }

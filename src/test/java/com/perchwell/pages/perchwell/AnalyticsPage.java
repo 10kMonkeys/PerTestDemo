@@ -90,6 +90,12 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "THIS IS A PRO-ONLY FEATURE")
     private WebElement thisIsAProOnlyFeatureMessage;
 
+    @iOSXCUITFindBy(accessibility = "UP TO $1M")
+    private WebElement upToOneMillionButton;
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]")
+    private WebElement firstBuildingInList;
+
     //endregion
 
     public AnalyticsPage(WebDriver driver){
@@ -193,5 +199,17 @@ public class AnalyticsPage extends BasePage {
         element(rebnyListingsButton).click();
         element(mktShareButton).click();
         element(askingPriceButton).click();
+    }
+
+    public void askingPriceChartClick(){
+        element(askingPriceButton).click();
+    }
+
+    public void upToOneMillionButtonClick(){
+        element(upToOneMillionButton).click();
+    }
+
+    public void selectFirstBuildingInList(){
+        element(firstBuildingInList).click();
     }
 }
