@@ -3,8 +3,12 @@ package com.perchwell.tests;
 import com.perchwell.SampleTest;
 import org.junit.Test;
 
-public class AddMessageInDiscussionTest extends SampleTest {
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+public class AddMessageInDiscussionTest extends SampleTest {
+	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 @Test
 public void addMessageInDiscussionTest() {
 
@@ -20,7 +24,7 @@ public void addMessageInDiscussionTest() {
 	discussionSteps.clickBackButton();
 	clientSteps.closePage();
 	openedBuildingSteps.openExistingDuscussion();
-	discussionSteps.sendMessage("Let's start discussion");
+	discussionSteps.sendMessage("Let's start discussion "+ sdf.format(new Date()));
 	discussionSteps.shouldSeeMessageInDiscussion();
 
 }

@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-
+import java.util.Date;
 
 public class TC26_DiscussionWithExistingAgent extends SampleTest {
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
@@ -20,7 +20,7 @@ public class TC26_DiscussionWithExistingAgent extends SampleTest {
 		openedBuildingSteps.clickDiscussWithMyAgentButton();
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickExistingAgent();
-		discussionSteps.sendMessage("I'd like discuss with you " + sdf);
+		discussionSteps.sendMessage("I'd like discuss with you " + sdf.format(new Date()));
 		discussionSteps.clickBackButton();
 		clientSteps.closePage();
 		openedBuildingSteps.shouldSeeExistingDuscussionWithAgent();

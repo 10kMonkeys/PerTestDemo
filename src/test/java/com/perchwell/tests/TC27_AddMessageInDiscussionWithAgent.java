@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TC27_AddMessageInDiscussionWithAgent extends SampleTest {
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -14,21 +15,17 @@ public class TC27_AddMessageInDiscussionWithAgent extends SampleTest {
 		loginSteps.loginAsClient();
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
-
 		perchwellSteps.openFirstBuilding();
-
 		openedBuildingSteps.clickDiscussWithMyClientHint();
 		openedBuildingSteps.clickDiscussWithMyAgentButton();
-
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickExistingAgent();
 		discussionSteps.sendMessage("Hello");
 		discussionSteps.clickBackButton();
 		clientSteps.closePage();
-
 		openedBuildingSteps.shouldSeeExistingDuscussionWithAgent();
 		openedBuildingSteps.openExistingDuscussionWithAgent();
-		discussionSteps.sendMessage("Add message " + sdf);
+		discussionSteps.sendMessage("Add message " + sdf.format(new Date()));
 		discussionSteps.shouldSeeMessageInDiscussion();
 	}
 }

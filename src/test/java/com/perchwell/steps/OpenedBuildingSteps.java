@@ -75,7 +75,7 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 
 	@Step
 	public void openExistingDuscussionWithAgent() {
-		onPage.openExistingDuscussion(onPage.getFromSessionVariable("Agent"));
+		onPage.openExistingDiscussionWithAgent(onPage.getFromSessionVariable("Agent"));
 	}
 }
 

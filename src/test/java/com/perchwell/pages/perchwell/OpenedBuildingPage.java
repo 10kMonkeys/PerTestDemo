@@ -22,7 +22,7 @@ public class OpenedBuildingPage extends BasePage {
 	private WebElement discussThisHint;
 
 	//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeCollectionView
-	@iOSXCUITFindBy(xpath = "/XCUIElementTypeCollectionView")
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeCollectionView[1]")
 	private WebElement collectionForDiscussionSeach;
 
 	@iOSXCUITFindBy(accessibility = "MY TAGS")
@@ -93,27 +93,24 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void openExistingDuscussion(String discussionName) {
+
 		WebElement discuss = getDriver().findElements(By.name(discussionName)).get(0);
 		discuss.click();
 	}
 
-	private WebElement getDiscussion(String discussionName) {
+	public void openExistingDiscussionWithAgent(String discussionName) {
 		List<WebElement> listCells = collectionForDiscussionSeach.findElements(By.className("XCUIElementTypeCell"));
-		WebElement parentCell = null;
-		WebElement clicablElement = null;
 		if (listCells.size() > 0) {
-			System.out.print("Number + " + listCells.size());
 			for (WebElement desiredElement : listCells) {
-				if (desiredElement.findElements(MobileBy.AccessibilityId(discussionName)).size() != 0) {
-					parentCell = desiredElement;
+				WebElement original_element = desiredElement.findElements(By.className("XCUIElementTypeStaticText")).get(0);
+				String name_element = desiredElement.findElements(By.className("XCUIElementTypeStaticText")).get(0).getAttribute("name");
+
+				if (discussionName.equalsIgnoreCase(original_element.getAttribute("name"))) {
+					element(MobileBy.AccessibilityId(name_element)).click();
 					break;
 				}
 			}
-			if (parentCell != null) {
-				clicablElement = parentCell.findElements(By.className("XCUIElementTypeImage")).get(0);
-			}
 		}
-		return clicablElement;
 	}
 
 	public boolean duscussionIsDisplayed(String discussionName) {
