@@ -77,5 +77,11 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void openExistingDuscussionWithAgent() {
 		onPage.openExistingDiscussionWithAgent(onPage.getFromSessionVariable("Agent"));
 	}
+
+	@Step
+	public void isDiscussionWithMyClientDisplayed() {
+		Assert.assertTrue(onPage.isDiscussionWithMyClientDisplayed());
+
+	}
 }
 
