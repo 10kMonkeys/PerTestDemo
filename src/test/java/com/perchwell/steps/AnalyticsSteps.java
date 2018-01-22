@@ -25,7 +25,8 @@ public class AnalyticsSteps extends ScenarioSteps {
 
     @Step
     public void addChartFromREBNYSection(){
-        onPage.addChartFromREBNYSection();
+        onPage.rebnyListingsButtonClick();
+        onPage.askingPriceChartClick();
     }
 
     @Step
@@ -35,22 +36,29 @@ public class AnalyticsSteps extends ScenarioSteps {
 
     @Step
     public void addChartFromACRISSection(){
-        onPage.addChartFromACRISSection();
+        onPage.acrisClosingsButtonClick();
+        onPage.dealCountByHeightButtonClick();
     }
 
     @Step
     public void addChartFromNYCSection(){
-        onPage.addChartFromNYCSection();
+        onPage.nycTownHousesButtonClick();
+        onPage.domByPriceButtonClick();
     }
 
     @Step
     public void addChartFromManagementSection(){
-        onPage.addChartFromManagementSection();
+        onPage.managementButtonClick();
+        onPage.daysOnMarketButtonClick();
     }
 
     @Step
     public void addTwoCharts(){
-        onPage.addTwoCharts();
+        onPage.rebnyListingsButtonClick();
+        onPage.bedroomsButtonClick();
+        onPage.addButtonClick();
+        onPage.acrisClosingsButtonClick();
+        onPage.buildingTypeButtonClick();
     }
 
     @Step
@@ -100,7 +108,9 @@ public class AnalyticsSteps extends ScenarioSteps {
 
     @Step
     public void addAskingPriceChartWithMKTShare(){
-        onPage.addAskingPriceChartWithMKTShare();
+        onPage.rebnyListingsButtonClick();
+        onPage.mktShareButtonClick();
+        onPage.askingPriceChartClick();
     }
 
     @Step
@@ -110,6 +120,23 @@ public class AnalyticsSteps extends ScenarioSteps {
 
     @Step
     public void addBuildingHeightChartWithMKTShare(){
-        onPage.addBuildingHeightChartWithMKTShare();
+        onPage.rebnyListingsButtonClick();
+        onPage.mktShareButtonClick();
+        onPage.buildingHeightButton();
+    }
+
+    @Step
+    public void askingPriceChartClick(){
+        onPage.askingPriceChartClick();
+    }
+
+    @Step
+    public void upToOneMillionButtonClick(){
+        onPage.upToOneMillionButtonClick();
+    }
+
+    @Step
+    public void selectFirstBuildingInList(){
+        onPage.selectFirstBuildingInList();
     }
 }

@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
@@ -125,5 +126,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void clickDiscussWithMyAgentButton() {
 		element(disccusWithMyAgentButton).click();
+	}
+
+	public boolean isDiscussionWithMyClientDisplayed(){
+		return Helper.isElementDisplayed(disccusWithClientButton);
 	}
 }

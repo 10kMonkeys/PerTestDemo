@@ -90,6 +90,12 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "THIS IS A PRO-ONLY FEATURE")
     private WebElement thisIsAProOnlyFeatureMessage;
 
+    @iOSXCUITFindBy(accessibility = "UP TO $1M")
+    private WebElement upToOneMillionButton;
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[2]")
+    private WebElement firstBuildingInList;
+
     //endregion
 
     public AnalyticsPage(WebDriver driver){
@@ -112,35 +118,43 @@ public class AnalyticsPage extends BasePage {
         element(doneMovingChartsButton).click();
     }
 
-    public void addChartFromREBNYSection(){
+    public void rebnyListingsButtonClick(){
         element(rebnyListingsButton).click();
-        element(askingPriceButton).click();
     }
 
     public void addButtonClick(){
         element(plusWhiteButton).click();
     }
 
-    public void addChartFromACRISSection(){
-        element(acrisClosingsButton).click();
+    public void dealCountByHeightButtonClick(){
         element(dealCountByHeightButton).click();
     }
 
-    public void addChartFromNYCSection(){
-        element(nycTownhousesButton).click();
+    public void domByPriceButtonClick(){
         element(domByPriceButton).click();
     }
 
-    public void addChartFromManagementSection(){
+    public void nycTownHousesButtonClick(){
+        element(nycTownhousesButton).click();
+    }
+
+    public void managementButtonClick(){
         element(managementButton).click();
+    }
+
+    public void daysOnMarketButtonClick(){
         element(daysOnMarketButton).click();
     }
 
-    public void addTwoCharts(){
-        element(rebnyListingsButton).click();
+    public void bedroomsButtonClick(){
         element(bedroomsButton).click();
-        element(plusWhiteButton).click();
+    }
+
+    public void acrisClosingsButtonClick(){
         element(acrisClosingsButton).click();
+    }
+
+    public void buildingTypeButtonClick(){
         element(buildingTypeButton).click();
     }
 
@@ -183,15 +197,23 @@ public class AnalyticsPage extends BasePage {
         return element(thisIsAProOnlyFeatureMessage).isDisplayed();
     }
 
-    public void addBuildingHeightChartWithMKTShare(){
-        element(rebnyListingsButton).click();
-        element(mktShareButton).click();
+    public void buildingHeightButton(){
         element(buildingHeightButton).click();
     }
 
-    public void addAskingPriceChartWithMKTShare(){
-        element(rebnyListingsButton).click();
+    public void mktShareButtonClick(){
         element(mktShareButton).click();
+    }
+
+    public void askingPriceChartClick(){
         element(askingPriceButton).click();
+    }
+
+    public void upToOneMillionButtonClick(){
+        element(upToOneMillionButton).click();
+    }
+
+    public void selectFirstBuildingInList(){
+        element(firstBuildingInList).click();
     }
 }
