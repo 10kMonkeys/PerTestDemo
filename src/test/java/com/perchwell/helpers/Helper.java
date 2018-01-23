@@ -94,4 +94,15 @@ public abstract class  Helper {
         }
     }
 
+    public static  void clickByCoordinates(double yCoordinate, double xCoordinate) {
+
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        Dimension size = appiumDriver.manage().window().getSize();
+        int width = (int) (size.width * xCoordinate);
+        int height = (int) (size.height * yCoordinate);
+        new TouchAction(appiumDriver).tap(width, height).perform();
+    }
 }

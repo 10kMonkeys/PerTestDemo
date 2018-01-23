@@ -8,13 +8,19 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
+import java.util.concurrent.TimeUnit;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class AnalyticsPage extends BasePage {
 
     WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
     WebDriver webDriver = webDriverFacade.getProxiedDriver();
     AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-    TouchAction action = new TouchAction(appiumDriver);
+
 
     //region WebElements
 
@@ -103,6 +109,7 @@ public class AnalyticsPage extends BasePage {
     }
 
     public void holdCharts(){
+        TouchAction action = new TouchAction(appiumDriver);
         action.longPress(dealCountByTypeChart).release().perform();
     }
 
@@ -214,6 +221,7 @@ public class AnalyticsPage extends BasePage {
     }
 
     public void selectFirstBuildingInList(){
-        element(firstBuildingInList).click();
+        getDriver().manage().timeouts().setScriptTimeout(10,SECONDS);
+        Helper.clickByCoordinates(0.15,0.05);
     }
 }
