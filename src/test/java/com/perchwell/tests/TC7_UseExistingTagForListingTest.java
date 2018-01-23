@@ -3,7 +3,7 @@ package com.perchwell.tests;
 import com.perchwell.SampleTest;
 import org.junit.Test;
 
-public class UseExistingTagForListingTest extends SampleTest {
+public class TC7_UseExistingTagForListingTest extends SampleTest {
 
 @Test
 public void useExistingTagForListing() throws Exception {

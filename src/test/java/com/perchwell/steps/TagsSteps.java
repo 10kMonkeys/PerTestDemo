@@ -65,28 +65,6 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickSeveralExistingTagLabel() {
-		WebElement firstTag = onPage.findExistingTagLabel();
-		if (firstTag != null) {
-			firstTag.click();
-		} else {
-			Assert.assertFalse("Does not exist any tags", firstTag == null);
-		}
-
-		WebElement secondTag = onPage.findExistingTagLabel();
-		if (secondTag != null && firstTag != null) {
-			secondTag.click();
-		} else {
-			Assert.assertFalse("Does not exist several tags", secondTag == null);
-		}
-	}
-
-	@Step
-	public void clickTagSearchButton() {
-		onPage.clickTagSearchButton();
-	}
-
-	@Step
 	public void shouldSeeExistingTagUpperCase() throws Exception {
 		Assert.assertTrue(onPage.isTagDisplayedWithSwipe(tag.getExistingTagname().toUpperCase()));
 	}

@@ -50,9 +50,6 @@ public class TagsPage extends BasePage {
 		element(back).click();
 	}
 
-	public void clickTagSearchButton() {
-		element(tagSearchButton).click();
-	}
 
 	public void clickTagLabel(String TagName) {
 		this.getCreatedTagLabel(TagName).click();
@@ -79,7 +76,9 @@ public class TagsPage extends BasePage {
 	public WebElement findExistingTagLabel() {
 		WebElement parentCell = null;
 		WebElement parentLabelElement = null;
-		WebElement table = getDriver().findElement(By.xpath("//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeTable"));
+		//XCUIElementTypeApplication[@name="Perchwell"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable
+		//XCUIElementTypeTable classname
+		WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
 		List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
 		if (listCells.size() > 0) {
 			for (WebElement desiredElement : listCells) {

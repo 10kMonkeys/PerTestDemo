@@ -13,8 +13,8 @@ public class ShareTagTest extends SampleTest {
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickOpenAccountButton();
 		accountSteps.clickTagsLabel();
-		tagsSteps.clickSeveralExistingTagLabel();
-		tagsSteps.clickTagSearchButton();
+		myTagsSteps.clickSeveralExistingTagLabel();
+		myTagsSteps.clickTagSearchButton();
 		selectResultStep.clickTagPDFExportButton();
 		selectResultStep.clickMyEmailOption();
 		selectResultStep.createReportWithNameAndSave("Test my email");

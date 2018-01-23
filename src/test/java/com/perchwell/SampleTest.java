@@ -62,6 +62,9 @@ public abstract class SampleTest {
     @Steps
     protected AnalyticsSteps analyticsSteps;
 
+    @Steps
+    protected MyTagsSteps myTagsSteps;
+
         static TimerTask task = new TravisAlive();
         static Timer timer;
 

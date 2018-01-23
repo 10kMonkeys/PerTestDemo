@@ -1,10 +1,15 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.email.MailTrap;
+import com.perchwell.entity.AppProperties;
+import com.perchwell.entity.MailTrapAttachment;
+import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,7 +38,10 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS")
     private WebElement acrisClosingsButton;
 
-    @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT (BY DEAL COUNT)")
+	@iOSXCUITFindBy(accessibility = "share")
+	private WebElement shareButton;
+
+	@iOSXCUITFindBy(accessibility = "BUILDING HEIGHT (BY DEAL COUNT)")
     private  WebElement dealCountByHeightButton;
 
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT")
@@ -96,9 +104,23 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[2]")
     private WebElement firstBuildingInList;
 
-    //endregion
 
-    public AnalyticsPage(WebDriver driver){
+	@iOSXCUITFindBy(accessibility = "generic_text_input_field")
+	private WebElement nameThisReport;
+
+
+	@iOSXCUITFindBy(accessibility = "OK")
+	private WebElement reportSentOkButton;
+
+	@iOSXCUITFindBy(accessibility = "SAVE")
+	private WebElement saveButton;
+
+	@iOSXCUITFindBy(accessibility = "MY EMAIL")
+	private WebElement myEmailOption;
+
+	//endregion
+
+	public AnalyticsPage(WebDriver driver){
         super(driver);
     }
 
@@ -216,4 +238,55 @@ public class AnalyticsPage extends BasePage {
     public void selectFirstBuildingInList(){
         element(firstBuildingInList).click();
     }
+
+
+	public void clickReportSentOkButton() {
+		reportSentOkButton.click();
+	}
+
+	public void addValueInSessionVariable(String name, String value) {
+		Serenity.setSessionVariable(name).to(value);
+	}
+
+	public String getValueFromSessionVariable(String name) {
+		return Serenity.sessionVariableCalled(name);
+	}
+
+	public void clickSaveButton() {
+		element(saveButton).click();
+	}
+
+	public void setReportName(String reportName) {
+		element(nameThisReport).sendKeys(reportName);
+	}
+	public Boolean shouldFindSentEmail(String report_name) {
+		//Waiting while report was sent
+		try {
+			Thread.sleep(30000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		//Get last emails with HEADER_SHARE_TAGS
+		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_ANALYTICS"));
+		Boolean reportWasFound = false;
+		report_name = report_name + ".pdf";
+		//Get attachments
+		MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
+		//Find attachments with REPORT_NAME
+		for (MailTrapAttachment my_attachment : mailTrapAttachment) {
+			if (my_attachment.getFilename().equalsIgnoreCase(report_name)) {
+				reportWasFound = true;
+				break;
+			}
+		}
+		return reportWasFound;
+	}
+	public void shareButtonClick() {
+		element(shareButton).click();
+	}
+	public void clickMyEmailOption() {
+		element(myEmailOption).click();
+	}
+
+
 }
