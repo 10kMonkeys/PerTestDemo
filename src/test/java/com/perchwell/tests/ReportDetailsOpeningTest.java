@@ -15,7 +15,7 @@ public class ReportDetailsOpeningTest extends SampleTest {
         analyticsSteps.skipHints();
         analyticsSteps.askingPriceChartClick();
         analyticsSteps.upToOneMillionButtonClick();
-        analyticsSteps.selectFirstBuildingInList();
+        analyticsSteps.selectSecondBuildingInList();
         openedBuildingSteps.clickDiscussWithMyClientHint();
         openedBuildingSteps.isDiscussionWithMyClientDisplayed();
 

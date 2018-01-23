@@ -7,6 +7,8 @@ import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.*;
 
 import java.time.Duration;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public abstract class  Helper {
@@ -103,6 +105,7 @@ public abstract class  Helper {
         Dimension size = appiumDriver.manage().window().getSize();
         int width = (int) (size.width * xCoordinate);
         int height = (int) (size.height * yCoordinate);
-        new TouchAction(appiumDriver).tap(width, height).perform();
+        getDriver().manage().timeouts().setScriptTimeout(6,SECONDS);
+        new TouchAction(appiumDriver).press(width, height).perform();
     }
 }

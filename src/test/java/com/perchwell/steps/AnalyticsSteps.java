@@ -136,7 +136,7 @@ public class AnalyticsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectFirstBuildingInList(){
-        onPage.selectFirstBuildingInList();
+    public void selectSecondBuildingInList(){
+        onPage.selectSecondBuildingInList();
     }
 }

@@ -220,8 +220,8 @@ public class AnalyticsPage extends BasePage {
         element(upToOneMillionButton).click();
     }
 
-    public void selectFirstBuildingInList(){
-        getDriver().manage().timeouts().setScriptTimeout(10,SECONDS);
-        Helper.clickByCoordinates(0.15,0.05);
+    public void selectSecondBuildingInList(){
+
+        Helper.clickByCoordinates(0.256,0.43);
     }
 }
