@@ -3,7 +3,7 @@ package com.perchwell.tests;
 import com.perchwell.SampleTest;
 import org.junit.Test;
 
-public class AddClientTest extends SampleTest {
+public class TC5_AddClientTest extends SampleTest {
 
 @Test
 public void addClient() throws Exception {

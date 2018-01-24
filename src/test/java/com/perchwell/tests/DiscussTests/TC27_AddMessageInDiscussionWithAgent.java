@@ -1,4 +1,4 @@
-package com.perchwell.tests;
+package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
 import org.junit.Test;

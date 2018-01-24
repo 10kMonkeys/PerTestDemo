@@ -3,7 +3,7 @@ package com.perchwell.tests;
 import com.perchwell.SampleTest;
 import org.junit.Test;
 
-public class ListViewTest  extends SampleTest {
+public class TC20_ListViewTest extends SampleTest {
 
 
 @Test

@@ -1,9 +1,9 @@
-package com.perchwell.tests;
+package com.perchwell.tests.AnalyticsTests;
 
 import com.perchwell.SampleTest;
 import org.junit.Test;
 
-public class ReportDetailsOpeningTest extends SampleTest {
+public class TC35_ReportDetailsOpeningTest extends SampleTest {
 
 	@Test
 	public void reportDetailsOpeningTest() {

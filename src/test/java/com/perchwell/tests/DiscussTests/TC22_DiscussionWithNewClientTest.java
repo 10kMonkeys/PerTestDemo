@@ -1,9 +1,9 @@
-package com.perchwell.tests;
+package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
 import org.junit.Test;
 
-public class DiscussionWithNewClientTest extends SampleTest {
+public class TC22_DiscussionWithNewClientTest extends SampleTest {
 
 	@Test
 	public void discussionWithNewClientTest() throws Exception {
