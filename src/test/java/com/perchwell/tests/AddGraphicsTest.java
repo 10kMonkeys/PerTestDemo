@@ -1,10 +1,11 @@
 package com.perchwell.tests;
 
 import com.perchwell.SampleTest;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class AddGraphicsTest extends SampleTest {
-
+@Ignore
     @Test
     public void addGraphics() throws Exception {
         loginSteps.loginAsBroker();
