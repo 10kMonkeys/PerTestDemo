@@ -35,7 +35,6 @@ public class PerchwellSteps extends ScenarioSteps {
         onPage.clickMagnifer();
     }
 
-
     @Step
     public void openFirstBuilding() {
         onPage.openFirstBuilding();

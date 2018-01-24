@@ -11,15 +11,11 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class AnalyticsPage extends BasePage {
-
-    WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-    WebDriver webDriver = webDriverFacade.getProxiedDriver();
-    AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-    TouchAction action = new TouchAction(appiumDriver);
 
     //region WebElements
 
@@ -102,7 +98,7 @@ public class AnalyticsPage extends BasePage {
     private WebElement upToOneMillionButton;
 
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[2]")
-    private WebElement firstBuildingInList;
+	private WebElement firstBuildingInList;
 
 
 	@iOSXCUITFindBy(accessibility = "generic_text_input_field")
@@ -118,6 +114,8 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MY EMAIL")
 	private WebElement myEmailOption;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
+	private WebElement buildingTable;
 	//endregion
 
 	public AnalyticsPage(WebDriver driver){
@@ -125,6 +123,10 @@ public class AnalyticsPage extends BasePage {
     }
 
     public void holdCharts(){
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+		TouchAction action = new TouchAction(appiumDriver);
         action.longPress(dealCountByTypeChart).release().perform();
     }
 
@@ -239,7 +241,6 @@ public class AnalyticsPage extends BasePage {
         element(firstBuildingInList).click();
     }
 
-
 	public void clickReportSentOkButton() {
 		reportSentOkButton.click();
 	}
@@ -284,8 +285,14 @@ public class AnalyticsPage extends BasePage {
 	public void shareButtonClick() {
 		element(shareButton).click();
 	}
+
 	public void clickMyEmailOption() {
 		element(myEmailOption).click();
+	}
+
+	public void selectSecondBuildingInList(){
+		element(buildingTable).findElement(By.className("XCUIElementTypeCell")).click();
+
 	}
 
 

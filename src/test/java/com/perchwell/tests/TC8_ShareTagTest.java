@@ -3,7 +3,7 @@ package com.perchwell.tests;
 import com.perchwell.SampleTest;
 import org.junit.Test;
 
-public class ShareTagTest extends SampleTest {
+public class TC8_ShareTagTest extends SampleTest {
 
 	@Test
 	public void shareTagTest() throws Exception {

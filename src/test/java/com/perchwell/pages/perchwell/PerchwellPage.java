@@ -44,7 +44,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[3]")
 	private WebElement thirdBuilding;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeButton")
+	@iOSXCUITFindBy(accessibility= "map_view_button")
 	private WebElement map;
 
 	@iOSXCUITFindBy(accessibility = "market report logo")

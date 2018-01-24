@@ -5,18 +5,20 @@ import org.junit.Test;
 
 public class ReportDetailsOpeningTest extends SampleTest {
 
-    @Test
-    public void reportDetailsOpeningTest(){
-        loginSteps.loginAsBroker();
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickAnalytics();
-        analyticsSteps.addChartFromREBNYSection();
-        analyticsSteps.skipHints();
-        analyticsSteps.askingPriceChartClick();
-        analyticsSteps.upToOneMillionButtonClick();
-        analyticsSteps.selectFirstBuildingInList();
-        openedBuildingSteps.isDiscussionWithMyClientDisplayed();
+	@Test
+	public void reportDetailsOpeningTest() {
+		loginSteps.loginAsBroker();
+		perchwellSteps.skipAllHints();
+		perchPopupSteps.clickNotNowButton();
+		perchwellSteps.clickAnalytics();
+		analyticsSteps.addChartFromREBNYSection();
+		analyticsSteps.skipHints();
+		analyticsSteps.askingPriceChartClick();
+		analyticsSteps.upToOneMillionButtonClick();
+		analyticsSteps.selectSecondBuildingInList();
+		openedBuildingSteps.clickDiscussWithMyClientHint();
+		openedBuildingSteps.isDiscussionWithMyClientDisplayed();
 
-    }
+
+	}
 }
