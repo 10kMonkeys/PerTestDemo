@@ -1,9 +1,9 @@
-package com.perchwell.tests;
+package com.perchwell.tests.CompareTests;
 
 import com.perchwell.SampleTest;
 import org.junit.Test;
 
-public class AddToCompareTest extends SampleTest {
+public class TC10_AddToCompareTest extends SampleTest {
 
 
 @Test

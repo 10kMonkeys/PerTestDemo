@@ -1,10 +1,10 @@
-package com.perchwell.tests;
+package com.perchwell.tests.TagsTests;
 
 import com.perchwell.SampleTest;
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class DeleteCreatedTagTest extends SampleTest {
+public class TC9_DeleteCreatedTagTest extends SampleTest {
 
 	@Ignore
 	@Test

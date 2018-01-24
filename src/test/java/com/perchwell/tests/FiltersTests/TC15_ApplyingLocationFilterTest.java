@@ -1,10 +1,10 @@
-package com.perchwell.tests;
+package com.perchwell.tests.FiltersTests;
 
 import com.perchwell.SampleTest;
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class ApplyingLocationFilterTest extends SampleTest {
+public class TC15_ApplyingLocationFilterTest extends SampleTest {
 
 
 @Ignore

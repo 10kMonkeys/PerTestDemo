@@ -1,4 +1,4 @@
-package com.perchwell.tests;
+package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
 import org.junit.Test;
@@ -7,7 +7,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AddMessageInDiscussionTest extends SampleTest {
+public class TC24_AddMessageInDiscussionTest extends SampleTest {
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 @Test
 public void addMessageInDiscussionTest() {

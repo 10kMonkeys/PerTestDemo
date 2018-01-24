@@ -1,33 +1,31 @@
-package com.perchwell.tests;
+package com.perchwell.tests.AnalyticsTests;
 
 import com.perchwell.SampleTest;
 import org.junit.Test;
 
-public class DeleteChartTest extends SampleTest {
+public class TC31_AddGraphicsTest extends SampleTest {
 
     @Test
-    public void deleteChart() throws Exception {
+    public void addGraphics() throws Exception {
         loginSteps.loginAsBroker();
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickAnalytics();
         analyticsSteps.addChartFromREBNYSection();
         analyticsSteps.skipHints();
+        analyticsSteps.isAskingPriseChartAdd();
         analyticsSteps.addButtonClick();
         analyticsSteps.addChartFromACRISSection();
+        analyticsSteps.isBuildingHeightCartAdd();
         analyticsSteps.addButtonClick();
         analyticsSteps.addChartFromNYCSection();
+        analyticsSteps.isDomByPriceCartAdd();
         analyticsSteps.addButtonClick();
         analyticsSteps.addChartFromManagementSection();
+        analyticsSteps.isDaysOnMarketAdd();
         analyticsSteps.addButtonClick();
         analyticsSteps.addTwoCharts();
         analyticsSteps.addButtonClick();
         analyticsSteps.isMessageMaximumSixChartsDisplayed();
-        analyticsSteps.okButtonClick();
-        analyticsSteps.holdCharts();
-        analyticsSteps.deleteChart();
-        analyticsSteps.doneMovingCharts();
-        analyticsSteps.isAddIconDisplayed();
-        analyticsSteps.isDealCountByTypeDeleted();
     }
 }

@@ -22,6 +22,9 @@ public class AccountPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "AGENTS")
     private WebElement agentsLabel;
 
+    @iOSXCUITFindBy(accessibility = "SERGEY BROKER")
+    private WebElement settingProfileButton;
+
     public AccountPage(WebDriver driver){
         super (driver);
     }
@@ -53,4 +56,8 @@ public class AccountPage extends BasePage {
     }
 
     public void clickDiscussionsLabel() { element(discussionsLabel).click();    }
+
+    public void settingProfileButtonClick(){
+        element(settingProfileButton).click();
+    }
 }

@@ -47,4 +47,9 @@ public class AccountSteps extends ScenarioSteps{
     }
     @Step
     public void clickDiscusionsLabel() { onPage.clickDiscussionsLabel();   }
+
+    @Step
+    public void openSettingsProfile(){
+        onPage.settingProfileButtonClick();
+    }
 }

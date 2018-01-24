@@ -1,10 +1,10 @@
-package com.perchwell.tests;
+package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class DiscussionWithExistingClient extends SampleTest {
+public class TC23_DiscussionWithExistingClient extends SampleTest {
 
 	@Test
 	public void discussionWithExistingClientTest() throws Exception {

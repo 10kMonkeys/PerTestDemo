@@ -1,9 +1,9 @@
-package com.perchwell.tests;
+package com.perchwell.tests.AnalyticsTests;
 
 import com.perchwell.SampleTest;
 import org.junit.Test;
 
-public class AddChartAsClientTest extends SampleTest {
+public class TC37_AddChartAsClientTest extends SampleTest {
 
     @Test
     public void addChartAsClient(){

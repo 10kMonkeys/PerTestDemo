@@ -1,9 +1,9 @@
-package com.perchwell.tests;
+package com.perchwell.tests.CompareTests;
 
 import com.perchwell.SampleTest;
 import org.junit.Test;
 
-public class DeleteFromCompareTest extends SampleTest {
+public class TC11_DeleteFromCompareTest extends SampleTest {
 
 
 
