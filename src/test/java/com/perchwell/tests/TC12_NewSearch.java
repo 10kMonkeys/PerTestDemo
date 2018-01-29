@@ -43,7 +43,7 @@ public class TC12_NewSearch extends SampleTest {
 		//Will be a check applying filter here
 		perchwellSteps.clickMap();
 
-		mapSteps.clickNotNowButton();
+		//mapSteps.clickNotNowButton();
 		//Will be a check applying filter here
 		perchwellSteps.clickAnalytics();
 

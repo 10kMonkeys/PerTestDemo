@@ -13,7 +13,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.clickMyEmailOption();
 	}
 
-	@Step
+	@Step("Create the report with name {0}")
 	public void createReportWithNameAndSave(String report_name) {
 
 		this.setReportName(report_name);
