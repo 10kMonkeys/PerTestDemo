@@ -1,6 +1,7 @@
 package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
 import java.text.DateFormat;
@@ -12,7 +13,8 @@ public class TC27_AddMessageInDiscussionWithAgent extends SampleTest {
 
 	@Test
 	public void addMessageInDiscussionWithAgent() throws Exception {
-		loginSteps.loginAsClient();
+		loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
+				AppProperties.INSTANCE.getProperty("client_password"));
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.openFirstBuilding();

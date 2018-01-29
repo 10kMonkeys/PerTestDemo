@@ -1,6 +1,7 @@
 package com.perchwell.tests.CompareTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
 public class TC11_DeleteFromCompareTest extends SampleTest {
@@ -10,7 +11,8 @@ public class TC11_DeleteFromCompareTest extends SampleTest {
 @Test
 public void deleteFromCompare() throws Exception {
 
-	loginSteps.loginAsBroker();
+	loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+			AppProperties.INSTANCE.getProperty("password"));
 	perchwellSteps.skipAllHints();
 	perchPopupSteps.clickNotNowButton();
 	perchwellSteps.openFirstBuilding();
