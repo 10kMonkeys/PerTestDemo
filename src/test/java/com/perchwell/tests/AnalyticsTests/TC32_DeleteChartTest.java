@@ -1,13 +1,15 @@
 package com.perchwell.tests.AnalyticsTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
 public class TC32_DeleteChartTest extends SampleTest {
 
     @Test
     public void deleteChart() throws Exception {
-        loginSteps.loginAsBroker();
+        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+                AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickAnalytics();

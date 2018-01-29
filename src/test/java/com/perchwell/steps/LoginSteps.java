@@ -21,10 +21,10 @@ public class LoginSteps extends ScenarioSteps {
         loginPage.clickLogin();
     }
 
-    @Step ("Log in as Client ")
-    public void loginAsClient(){
-      login(AppProperties.INSTANCE.getProperty("client_email"), AppProperties.INSTANCE.getProperty("client_password"));
-
+    @Step ("Log in as Client: {0}, {1}")
+    public void loginAsClient(String email,String password){
+      login(email,password);
+       // AppProperties.INSTANCE.getProperty("client_email"), AppProperties.INSTANCE.getProperty("client_password")
     }
 
 	@Step
@@ -32,12 +32,11 @@ public class LoginSteps extends ScenarioSteps {
 		welcomePage.clickLoginButton();
 	}
 
-    @Step ("Log in as Broker ")
-    public void loginAsBroker(){
-        login(AppProperties.INSTANCE.getProperty("email"), AppProperties.INSTANCE.getProperty("password"));
-
+    @Step ("Log in as Broker: {0}, {1}")
+    public void loginAsBroker(String email,String password){
+        login(email,password);
     }
-
+    // AppProperties.INSTANCE.getProperty("email"), AppProperties.INSTANCE.getProperty("password")
     @Step
     public void clickForgotPassword() { welcomePage.clickForgotPassword(); }
 

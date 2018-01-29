@@ -22,7 +22,7 @@ public class AccountPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "AGENTS")
     private WebElement agentsLabel;
 
-    @iOSXCUITFindBy(accessibility = "SERGEY BROKER")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]")
     private WebElement settingProfileButton;
 
     public AccountPage(WebDriver driver){

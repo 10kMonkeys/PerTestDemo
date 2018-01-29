@@ -16,7 +16,7 @@ public class SettingsProfileSteps {
     public void changeName(){
         Faker faker = new Faker();
         String name = faker.name().fullName();
-        AppProperties.INSTANCE.setProperty("broker_name",name);
+        AppProperties.INSTANCE.setProperty("name",name);
         onPage.fillInNameTextBox(name);
     }
 
@@ -24,7 +24,7 @@ public class SettingsProfileSteps {
     public void changeCompany(){
         Faker faker = new Faker();
         String company = faker.company().name();
-        AppProperties.INSTANCE.setProperty("broker_company",company);
+        AppProperties.INSTANCE.setProperty("company",company);
         onPage.fillInCompanyTextBox(company);
     }
 
@@ -35,10 +35,12 @@ public class SettingsProfileSteps {
 
     @Step
     public void isNameTextBoxChange(){
-        Assert.assertTrue(onPage.nameProfile().contains(AppProperties.INSTANCE.getProperty("broker_name")));
+        Assert.assertTrue(onPage.nameProfile().contains(AppProperties.INSTANCE.getProperty("name")));
     }
 
+    @Step
     public void isCompanyTextBoxChange(){
-        Assert.assertTrue(onPage.companyProfile().contains(AppProperties.INSTANCE.getProperty("broker_company")));
+        Assert.assertTrue(onPage.companyProfile().contains(AppProperties.INSTANCE.getProperty("company")));
     }
+
 }

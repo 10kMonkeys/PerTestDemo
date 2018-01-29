@@ -1,6 +1,7 @@
 package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.entity.AppProperties;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -8,7 +9,7 @@ public class TC23_DiscussionWithExistingClient extends SampleTest {
 
 	@Test
 	public void discussionWithExistingClientTest() throws Exception {
-		loginSteps.loginAsBroker();
+		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"), AppProperties.INSTANCE.getProperty("password"));
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.openFirstBuilding();
@@ -33,7 +34,8 @@ public class TC23_DiscussionWithExistingClient extends SampleTest {
 		clientSteps.closePage();
 		clientSteps.logOut();
 		clientSteps.clickYesButtonLogOutWindow();
-		loginSteps.loginAsClient();
+		loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
+				AppProperties.INSTANCE.getProperty("client_password"));
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickOpenAccountButton();
 		accountSteps.clickDiscusionsLabel();
