@@ -3,11 +3,11 @@ package com.perchwell.tests.EditProfileTests;
 import com.perchwell.SampleTest;
 import org.junit.Test;
 
-public class TC28_UpdateSettingsAsBroker extends SampleTest {
+public class TC29_UpdateSettingsAsClient extends SampleTest {
 
     @Test
     public void updateSettingAsBrokerTest() {
-        loginSteps.loginAsBroker();
+        loginSteps.loginAsClient();
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickOpenAccountButton();

@@ -55,7 +55,7 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "NYC TOWNHOUSES")
     private  WebElement nycTownhousesButton;
 
-    @iOSXCUITFindBy(accessibility = "DOM BY PRICE")
+    @iOSXCUITFindBy(accessibility = "DOM BY PRICE2")
     private  WebElement domByPriceButton;
 
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY PRICE")
@@ -194,19 +194,19 @@ public class AnalyticsPage extends BasePage {
     }
 
     public boolean isAskingPriseChartAdd(){
-        return element(askingPriceButton).isEnabled();
+        return element(askingPriceButton).isDisplayed();
     }
 
     public boolean isBuildingHeightCartAdd(){
-        return element(dealCountByHeightChart).isEnabled();
+        return element(dealCountByHeightChart).isDisplayed();
     }
 
     public boolean isDomByPriceCartAdd(){
-        return element(domByPriceButton).isEnabled();
+        return element(domByPriceButton).isDisplayed();
     }
 
     public boolean isDaysOnMarketAdd(){
-        return element(daysOnMarketButton).isEnabled();
+        return element(daysOnMarketButton).isDisplayed();
     }
 
     public boolean isDealCountByTypeDisplayed(){
@@ -260,6 +260,7 @@ public class AnalyticsPage extends BasePage {
 	public void setReportName(String reportName) {
 		element(nameThisReport).sendKeys(reportName);
 	}
+
 	public Boolean shouldFindSentEmail(String report_name) {
 		//Waiting while report was sent
 		try {

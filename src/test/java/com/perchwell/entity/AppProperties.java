@@ -2,6 +2,7 @@ package com.perchwell.entity;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.Serializable;
 import java.util.Properties;
 
@@ -32,6 +33,23 @@ private Properties props = null;
 			// сообщит о том, что свойство не найдено?
 		}
 		return value;
+	}
+
+	public synchronized void setProperty(String key, String value) {
+		if (props.containsKey(key)) {
+			props.setProperty(key, value);
+			try {
+				FileOutputStream file = new FileOutputStream(
+						new File("app.properties"));
+				props.store(file,"");
+				file.close();
+			} catch (Exception e) {
+				System.out.println("Can't store file app.properties");
+			}
+		}
+		else {
+			System.out.println(key +" is not found!!!");
+		}
 	}
 
 }
