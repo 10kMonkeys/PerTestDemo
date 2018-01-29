@@ -2,50 +2,47 @@ package com.perchwell.steps;
 
 import com.perchwell.pages.perchwell.MapPage;
 import com.perchwell.pages.perchwell.PerchwellPage;
-import io.appium.java_client.TouchAction;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-
-import java.time.Duration;
 
 public class MapSteps extends ScenarioSteps {
-MapPage mapPage;
+MapPage onPage;
 PerchwellPage perchwellPage;
 
 @Step
-public void ckickNotNowButton() {
-	mapPage.clickNotNowButton();
+public void clickNotNowButton() {
+	onPage.clickNotNowButton();
 }
 
 @Step
 public void countItemsInMapView() throws Exception {
 	//ZoomIn and ZoomOut is used for display all points
 	zoomIn();
-	mapPage.swipeRight();
+	onPage.swipeRight();
 	zoomOut();
-	mapPage.numberOfItemsInMapView = mapPage.countItemsInMapView();
+	onPage.numberOfItemsInMapView = onPage.countItemsInMapView();
 }
 
 @Step
 public void itemsInListAndMapViewIsSame(){
-	System.out.print("In map "+mapPage.numberOfItemsInMapView);
+	System.out.print("In map "+ onPage.numberOfItemsInMapView);
 	System.out.print("Count = "+perchwellPage.numberOfItemsInListView);
-	Assert.assertTrue(mapPage.numberOfItemsInMapView == perchwellPage.numberOfItemsInListView);
+	Assert.assertTrue(onPage.numberOfItemsInMapView == perchwellPage.numberOfItemsInListView);
 
 }
 
 private void zoomIn() {
-	mapPage.zoom("1.5","1.1");
+	onPage.zoom("1.5","1.1");
 
 }
 
 private void zoomOut() {
-	mapPage.zoom("0.5","-1.9");
+	onPage.zoom("0.5","-1.9");
 
 }
 
-
+	public void clickMyNewSearch() {
+	onPage.clickMyNewSearch();
+	}
 }

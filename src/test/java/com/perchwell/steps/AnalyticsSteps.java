@@ -8,116 +8,6 @@ import org.junit.Assert;
 
 public class AnalyticsSteps extends ScenarioSteps {
 	AnalyticsPage onPage;
-//
-//	@Step
-//	public void holdCharts() {
-//		onPage.holdCharts();
-//	}
-//
-//	@Step
-//	public void deleteChart() {
-//		onPage.deleteChart();
-//	}
-//
-//	@Step
-//	public void isAddIconDisplayed() {
-//		Assert.assertTrue(onPage.isAddIconDisplayed());
-//	}
-//
-//	@Step
-//	public void addChartFromREBNYSection() {
-//		onPage.addChartFromREBNYSection();
-//	}
-//
-//	@Step
-//	public void addButtonClick() {
-//		onPage.addButtonClick();
-//	}
-//
-//	@Step
-//	public void shareButtonClick() {
-//		onPage.shareButtonClick();
-//	}
-//
-//	@Step
-//	public void addChartFromACRISSection() {
-//		onPage.addChartFromACRISSection();
-//	}
-//
-//	@Step
-//	public void addChartFromNYCSection() {
-//		onPage.addChartFromNYCSection();
-//	}
-//
-//	@Step
-//	public void addChartFromManagementSection() {
-//		onPage.addChartFromManagementSection();
-//	}
-//
-//	@Step
-//	public void addTwoCharts() {
-//		onPage.addTwoCharts();
-//	}
-//
-//	@Step
-//	public void skipHints() {
-//		onPage.skipHints();
-//	}
-//
-//	@Step
-//	public void isMessageMaximumSixChartsDisplayed() {
-//		Assert.assertTrue(onPage.isMessageMaximumSixChartsDisplayed());
-//	}
-//
-//	@Step
-//	public void isAskingPriseChartAdd() {
-//		Assert.assertTrue(onPage.isAskingPriseChartAdd());
-//	}
-//
-//	@Step
-//	public void isBuildingHeightCartAdd() {
-//		Assert.assertTrue(onPage.isBuildingHeightCartAdd());
-//	}
-//
-//	@Step
-//	public void isDomByPriceCartAdd() {
-//		Assert.assertTrue(onPage.isDomByPriceCartAdd());
-//	}
-//
-//	@Step
-//	public void isDaysOnMarketAdd() {
-//		Assert.assertTrue(onPage.isDaysOnMarketAdd());
-//	}
-//
-//	@Step
-//	public void okButtonClick() {
-//		onPage.okButtonClick();
-//	}
-//
-//	@Step
-//	public void doneMovingCharts() {
-//		onPage.doneMovingChartsButtonClick();
-//	}
-//
-//	@Step
-//	public void isDealCountByTypeDeleted() {
-//		Assert.assertFalse(onPage.isDealCountByTypeDisplayed());
-//	}
-//
-//	@Step
-//	public void addAskingPriceChartWithMKTShare() {
-//		onPage.addAskingPriceChartWithMKTShare();
-//	}
-//
-//	@Step
-//	public void isThisIsAProOnlyFeatureMessageShow() {
-//		onPage.isThisIsAProOnlyFeatureMessageShow();
-//	}
-//
-//	@Step
-//	public void addBuildingHeightChartWithMKTShare() {
-//		onPage.addBuildingHeightChartWithMKTShare();
-//	}
 
 	public void clickMyEmailOption() {
 		onPage.clickMyEmailOption();
@@ -203,7 +93,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.daysOnMarketButtonClick();
 	}
 
-	@Step
+	@Step("Set up the filters: BEDROOMS and BUILDING TYPE (BY DEAL COUNT)")
 	public void addTwoCharts() {
 		onPage.rebnyListingsButtonClick();
 		onPage.bedroomsButtonClick();
@@ -290,8 +180,40 @@ public class AnalyticsSteps extends ScenarioSteps {
 	public void selectFirstBuildingInList() {
 		onPage.selectFirstBuildingInList();
 	}
+
 	@Step
 	public void selectSecondBuildingInList() {
 		onPage.selectSecondBuildingInList();
+	}
+
+	@Step
+	public void clickMyNewSearch() {
+		onPage.clickMyNewSearch();
+	}
+
+	@Step
+	public void shouldSeeDomByPrice2ChartWithSwipe() {
+		Assert.assertTrue(onPage.isDomByPrice2DisplayedWithSwipe());
+	}
+
+	@Step
+	public void shouldSeeBuildingHeightCartWithSwipe() {
+		Assert.assertTrue(onPage.isBuildingHeightCartDisplayedWithSwipe());
+	}
+
+	public void shouldSeeDomByPriceCartChart() {
+		Assert.assertTrue(onPage.isDomByPriceCartDisplayed());
+	}
+
+	public void shouldSeeDaysOnMarketChartWithSwipe() throws Exception {
+		Assert.assertTrue(onPage.isDaysOnMarketDisplayedWithSwipe());
+	}
+
+	public void isBuildingTypeChartDisplayed() {
+		Assert.assertTrue(onPage.isBuildingTypeDisplayed());
+	}
+
+	public void shouldSeeAscingPriceChartWithSwipe() throws Exception {
+		Assert.assertTrue(onPage.shouldSeeAscingPriceChartWithSwipe());
 	}
 }

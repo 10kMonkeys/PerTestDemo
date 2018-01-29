@@ -18,53 +18,62 @@ import java.util.Map;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class MapPage extends BasePage {
-public MapPage(WebDriver driver) {
-	super(driver);
-}
-public static Integer numberOfItemsInMapView;
+	public MapPage(WebDriver driver) {
+		super(driver);
+	}
 
-@iOSXCUITFindBy(accessibility = "WANT TO SEE NEARBY HOMES?")
-private WebElement seeNearbyHint;
+	public static Integer numberOfItemsInMapView;
 
-@iOSXCUITFindBy(accessibility = "NOT NOW")
-private WebElement notNowButton;
+	@iOSXCUITFindBy(accessibility = "WANT TO SEE NEARBY HOMES?")
+	private WebElement seeNearbyHint;
 
-@iOSXCUITFindBy( className = "cluster")
-private WebElement cluster;
+	@iOSXCUITFindBy(accessibility = "NOT NOW")
+	private WebElement notNowButton;
 
-@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeMap")
-private WebElement map;
+	@iOSXCUITFindBy(className = "cluster")
+	private WebElement cluster;
 
-public void clickNotNowButton() { element(notNowButton).click(); }
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeMap")
+	private WebElement map;
 
-public Integer countItemsInMapView() {
-	return getDriver().findElements(By.name("cluster")).size();
+	@iOSXCUITFindBy(accessibility= "MY NEW SEARCH")
+	private WebElement myNewSearch;
 
-}
+	public void clickNotNowButton() {
+		element(notNowButton).click();
+	}
 
-public void zoom(String scale,String velocity){
+	public Integer countItemsInMapView() {
+		return getDriver().findElements(By.name("cluster")).size();
 
-	AppiumDriver driver = getAppiumDriver();
+	}
 
-Map<String, Object> params = new HashMap<>();
+	public void zoom(String scale, String velocity) {
 
-	params.put("scale", scale);
-	params.put("velocity", velocity);
-	params.put("element", ((RemoteWebElement) map).getId());
-	driver.executeScript("mobile: pinch", params);
+		AppiumDriver driver = getAppiumDriver();
 
-}
+		Map<String, Object> params = new HashMap<>();
 
-private AppiumDriver getAppiumDriver() {
-	WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-	WebDriver webDriver = webDriverFacade.getProxiedDriver();
-	return (AppiumDriver) webDriver;
-}
+		params.put("scale", scale);
+		params.put("velocity", velocity);
+		params.put("element", ((RemoteWebElement) map).getId());
+		driver.executeScript("mobile: pinch", params);
 
-public void swipeRight() throws Exception {
-	AppiumDriver appiumDriver = getAppiumDriver();
+	}
 
-	Helper.swipeHorizontal(appiumDriver, 0.8, 0.7, 0.7, 1);
-}
+	private AppiumDriver getAppiumDriver() {
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		return (AppiumDriver) webDriver;
+	}
 
+	public void swipeRight() throws Exception {
+		AppiumDriver appiumDriver = getAppiumDriver();
+
+		Helper.swipeHorizontal(appiumDriver, 0.8, 0.7, 0.7, 1);
+	}
+
+	public void clickMyNewSearch() {
+		element(myNewSearch).click();
+	}
 }

@@ -93,23 +93,6 @@ public class ComparePage extends BasePage {
 		js.executeScript("mobile: scroll", scrollObject);
 		resetImplicitTimeout();
 	}
-//    @Deprecated
-//	public Boolean thirdBuildingIsDispayed() throws Exception {
-//		return isBuildingDisplayedWithSwipe(thirdBuildingsAddress);
-//
-//}
-
-//	public boolean isBuildingDisplayedWithSwipe(WebElement element) throws Exception {
-//
-//
-//			setImplicitTimeout(1, SECONDS);
-//			swipeRightUntilElementVisible(element);
-//			resetImplicitTimeout();
-//
-//		return element.isDisplayed();
-//
-//
-//	}
 
 	public boolean isBuildingDisplayedWithSwipe(String building) throws Exception {
 		boolean result = false;

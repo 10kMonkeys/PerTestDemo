@@ -5,8 +5,11 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.time.Duration;
+import java.util.HashMap;
+
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public abstract class  Helper {
@@ -15,8 +18,8 @@ public abstract class  Helper {
         Dimension size = driver.manage().window().getSize();
         int anchor = (int) (size.width * anchorPercentage);
         int startPoint = (int) (size.height * startPercentage);
-        int endPoint = (int) (size.height * finalPercentage);
-        new TouchAction(driver).press(anchor, startPoint).waitAction(Duration.ofSeconds(duration)).moveTo(10, endPoint).release().perform();
+        int endPoint = (int) (size.height * finalPercentage*(-1));
+        new TouchAction(driver).press(anchor, startPoint).waitAction(Duration.ofMillis(duration)).moveTo(10, endPoint).release().perform();
 
     }
 
@@ -70,9 +73,9 @@ public abstract class  Helper {
         By byElement = MobileBy.iOSNsPredicateString("name == '" + elementName + "' AND visible==1");
         boolean isFoundTheElement = getDriver().findElements(byElement).size() > 0;
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-        WebDriver webDriver = webDriverFacade.getProxiedDriver();
-        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
         while (!isFoundTheElement) {
 
             swipeVertical(appiumDriver, 0.9, 0.2, 0.5, 1);
@@ -87,11 +90,24 @@ public abstract class  Helper {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        while (!element.isDisplayed()) {
+        while (!isElementDisplayed(element)) {
 
             swipeVertical(appiumDriver, 0.9, 0.2, 0.5, 1);
 
         }
     }
+
+    public static void scrollToElement(WebElement elementForSearch)
+    {
+        RemoteWebElement element = (RemoteWebElement)elementForSearch;
+        //RemoteWebElement element = (RemoteWebElement)getDriver().findElement(By.name(name));
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        String elementID = element.getId();
+        HashMap<String, String> scrollObject = new HashMap<String, String>();
+        scrollObject.put("element", elementID);
+        scrollObject.put("toVisible", "not an empty string");
+        js.executeScript("mobile:scroll", scrollObject);
+    }
+
 
 }
