@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TC33_SendGraphicReportsToMyEmail extends SampleTest{
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
@@ -22,7 +23,7 @@ public class TC33_SendGraphicReportsToMyEmail extends SampleTest{
 		analyticsSteps.addButtonClick();
 		analyticsSteps.shareButtonClick();
 		analyticsSteps.clickMyEmailOption();
-		analyticsSteps.createReportWithNameAndSave("Analytics_report"+sdf);
+		analyticsSteps.createReportWithNameAndSave("Analytics_report"+sdf.format(new Date()));
 		analyticsSteps.shouldFindSentEmail();
 
 	}
