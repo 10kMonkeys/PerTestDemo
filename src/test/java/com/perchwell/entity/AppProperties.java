@@ -42,7 +42,6 @@ private Properties props = null;
 				FileOutputStream file = new FileOutputStream(
 						new File("app.properties"));
 				props.store(file,"");
-				file.close();
 			} catch (Exception e) {
 				System.out.println("Can't store file app.properties");
 			}

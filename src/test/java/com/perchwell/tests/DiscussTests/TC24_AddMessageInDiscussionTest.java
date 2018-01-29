@@ -1,6 +1,7 @@
 package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
 import java.text.DateFormat;
@@ -12,7 +13,8 @@ public class TC24_AddMessageInDiscussionTest extends SampleTest {
 @Test
 public void addMessageInDiscussionTest() {
 
-	loginSteps.loginAsBroker();
+	loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+			AppProperties.INSTANCE.getProperty("password"));
 	perchwellSteps.skipAllHints();
 	perchPopupSteps.clickNotNowButton();
 	perchwellSteps.openFirstBuilding();

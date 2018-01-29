@@ -8,7 +8,8 @@ public class TC31_AddGraphicsTest extends SampleTest {
 
     @Test
     public void addGraphics() throws Exception {
-        loginSteps.loginAsBroker();
+        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+                AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickAnalytics();
