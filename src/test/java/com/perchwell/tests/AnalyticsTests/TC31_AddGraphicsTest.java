@@ -1,6 +1,7 @@
 package com.perchwell.tests.AnalyticsTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
 public class TC31_AddGraphicsTest extends SampleTest {
