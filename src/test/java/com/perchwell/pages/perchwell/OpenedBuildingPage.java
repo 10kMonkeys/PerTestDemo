@@ -94,7 +94,6 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void openExistingDuscussion(String discussionName) {
-
 		WebElement discuss = getDriver().findElements(By.name(discussionName)).get(0);
 		discuss.click();
 	}
@@ -125,7 +124,7 @@ public class OpenedBuildingPage extends BasePage {
 		element(disccusWithMyAgentButton).click();
 	}
 
-	public boolean isDiscussionWithMyClientDisplayed(){
+	public boolean isDiscussionWithMyClientDisplayed() {
 		return Helper.isElementDisplayed(disccusWithClientButton);
 	}
 }

@@ -14,14 +14,14 @@ public void resultAfterApplyingLocationFilter() throws Exception {
 	perchwellSteps.skipAllHints();
 	perchPopupSteps.clickNotNowButton();
 	perchwellSteps.countItemsInListViewBeforApplyingFilter();
-    perchwellSteps.clickMagnifer();
+    perchwellSteps.clickMyNewSearch();
    // searchSteps.clickDeleteFirstLocation();
 	searchSteps.clickDeleteSecondLocation();
 	searchSteps.clickApplyButton();
 	perchPopupSteps.clickNotNowButton();
 	perchwellSteps.shoudSeeNoLessItemsInListViewAfterDeleteFilter();
 	perchwellSteps.clickMap();
-	mapSteps.ckickNotNowButton();
+	mapSteps.clickNotNowButton();
 	mapSteps.countItemsInMapView();
 	mapSteps.itemsInListAndMapViewIsSame();
 

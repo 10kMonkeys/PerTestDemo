@@ -31,7 +31,7 @@ public class PerchwellSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickMagnifer(){
+    public void clickMyNewSearch(){
         onPage.clickMagnifer();
     }
 

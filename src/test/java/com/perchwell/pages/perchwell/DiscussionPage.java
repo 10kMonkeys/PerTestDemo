@@ -35,6 +35,7 @@ private WebElement message;
 	public void clickBackButton() {
 		element(backButton).click();
 	}
+
 	public void typeMessage(String text) {
 		element(message).sendKeys(text);
 	}
