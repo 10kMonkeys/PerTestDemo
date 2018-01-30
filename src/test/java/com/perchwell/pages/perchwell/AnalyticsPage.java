@@ -57,7 +57,7 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "NYC TOWNHOUSES")
     private  WebElement nycTownhousesButton;
 
-    @iOSXCUITFindBy(accessibility = "DOM BY PRICE2")
+    @iOSXCUITFindBy(accessibility = "DOM BY PRICE")
     private  WebElement domByPriceButton;
 
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY PRICE")
@@ -222,7 +222,7 @@ public class AnalyticsPage extends BasePage {
     }
 
     public boolean isDomByPriceCartAdd(){
-        return element(domByPriceButton).isDisplayed();
+        return element(domByPrice2Chart).isDisplayed();
     }
 
     public boolean isDaysOnMarketAdd(){
