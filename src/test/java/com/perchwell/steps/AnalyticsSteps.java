@@ -13,7 +13,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.clickMyEmailOption();
 	}
 
-	@Step("Create the report with name {0}")
+	@Step("Create report with name {0}")
 	public void createReportWithNameAndSave(String report_name) {
 
 		this.setReportName(report_name);
@@ -201,19 +201,38 @@ public class AnalyticsSteps extends ScenarioSteps {
 		Assert.assertTrue(onPage.isBuildingHeightCartDisplayedWithSwipe());
 	}
 
+	@Step
 	public void shouldSeeDomByPriceCartChart() {
 		Assert.assertTrue(onPage.isDomByPriceCartDisplayed());
 	}
 
+	@Step
 	public void shouldSeeDaysOnMarketChartWithSwipe() throws Exception {
 		Assert.assertTrue(onPage.isDaysOnMarketDisplayedWithSwipe());
 	}
 
+	@Step
 	public void isBuildingTypeChartDisplayed() {
 		Assert.assertTrue(onPage.isBuildingTypeDisplayed());
 	}
 
+	@Step
 	public void shouldSeeAscingPriceChartWithSwipe() throws Exception {
 		Assert.assertTrue(onPage.shouldSeeAscingPriceChartWithSwipe());
+	}
+
+	@Step
+	public void clickSendButton() {
+		onPage.clickSendButton();
+	}
+
+	@Step
+	public void shouldFindPDFSummaryEmail() {
+		Assert.assertTrue(onPage.shouldFindPDFSummaryEmail());
+	}
+
+	@Step
+	public void upTo12MillionButtonClick() {
+		onPage.upTo12MillionButtonClick();
 	}
 }
