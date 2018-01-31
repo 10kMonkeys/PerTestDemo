@@ -7,7 +7,6 @@ import org.junit.Test;
 
 public class TC9_DeleteCreatedTagTest extends SampleTest {
 
-	@Ignore
 	@Test
 	public void deleteCreatedTag() throws Exception {
 
