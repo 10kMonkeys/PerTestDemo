@@ -24,7 +24,7 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void setUpFilter2Bads() {
+	public void setUpFilter2Beds() {
 		onPage.selectFilterFor2Beds();
 	}
 

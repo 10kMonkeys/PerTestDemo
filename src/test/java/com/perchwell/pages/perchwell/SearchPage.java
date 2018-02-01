@@ -3,9 +3,9 @@ package com.perchwell.pages.perchwell;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.base.BasePage;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -130,6 +130,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public boolean shouldSeePreviouslyCreatedSearch(String search) {
+
 		WebElement previouslyCreatedSearch =element(By.name(search.toUpperCase()));
 		//Helper.scrollToElement(previouslyCreatedSearch);
 		return previouslyCreatedSearch.isDisplayed();

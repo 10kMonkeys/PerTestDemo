@@ -39,8 +39,6 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "MY NEW SEARCH")
 	private WebElement myNewSearch;
 
-
-
 	@iOSXCUITFindBy(accessibility = "BUILDING HEIGHT (BY DEAL COUNT)")
     private  WebElement dealCountByHeightButton;
 
@@ -142,6 +140,11 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
     private List<WebElement> valueChartList;
 
+	@iOSXCUITFindBy(accessibility = "SEND")
+	private WebElement sendButton;
+
+	@iOSXCUITFindBy(accessibility = "$12M+")
+	private WebElement upTo12MillionButton;
 
 	public AnalyticsPage(WebDriver driver){
         super(driver);
@@ -297,7 +300,7 @@ public class AnalyticsPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		//Get last emails with HEADER_SHARE_TAGS
+		//Get last emails with HEADER_ANALYTICS
 		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_ANALYTICS"));
 		Boolean reportWasFound = false;
 		report_name = report_name + ".pdf";
@@ -367,7 +370,6 @@ public class AnalyticsPage extends BasePage {
 	public boolean isAskingPriseChartDisplayed() {
 		Helper.scrollToElement(askingPriceButton);
 		return element(askingPriceButton).isDisplayed();
-
 	}
 
 	public String getValueBedroomsChart(){
@@ -379,4 +381,35 @@ public class AnalyticsPage extends BasePage {
         Helper.scrollToElement(valueChartList.get(1));
 	    return element(valueChartList.get(1)).getText();
     }
+
+	public void clickSendButton() {
+			element(sendButton).click();
+	}
+
+	public boolean shouldFindPDFSummaryEmail() {
+		//Waiting while report was sent
+		try {
+			Thread.sleep(30000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		//Get last emails with HEADER_ANALYTICS
+		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_ANALYTICS"));
+		Boolean reportWasFound = false;
+
+		//Don't check report name - the report may not be
+		//String report_name = AppProperties.INSTANCE.getProperty("PDF_analitics_report") + ".pdf";
+
+		for (MailTrapResponse my_responce : mailTrapResponse) {
+			if (my_responce.getTo_email().equalsIgnoreCase(AppProperties.INSTANCE.getProperty("email"))) {
+				reportWasFound = true;
+				break;
+			}
+		}
+		return reportWasFound;
+	}
+
+	public void upTo12MillionButtonClick() {
+		element(upToOneMillionButton).click();
+	}
 }

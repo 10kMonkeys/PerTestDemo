@@ -2,16 +2,19 @@ package com.perchwell.tests.AnalyticsTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
+import org.junit.jupiter.api.Tags;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TC33_SendGraphicReportsToMyEmail extends SampleTest{
+public class T36_SendReportDetailsPDF extends SampleTest {
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+
 	@Test
-	public void sendGraphicReportsToMyEmail() throws Exception {
+	public void sendReportDetailsPDF() throws Exception {
 
 		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
@@ -20,14 +23,12 @@ public class TC33_SendGraphicReportsToMyEmail extends SampleTest{
 		perchwellSteps.clickAnalytics();
 		analyticsSteps.addChartFromREBNYSection();
 		analyticsSteps.skipHints();
-		analyticsSteps.addButtonClick();
-		analyticsSteps.addChartFromACRISSection();
-		analyticsSteps.addButtonClick();
+		analyticsSteps.askingPriceChartClick();
+		analyticsSteps.upTo12MillionButtonClick();
 		analyticsSteps.shareButtonClick();
-		analyticsSteps.clickMyEmailOption();
-		analyticsSteps.createReportWithNameAndSave("Analytics_report"+sdf.format(new Date()));
-		analyticsSteps.shouldFindSentEmail();
+		analyticsSteps.clickSendButton();
+		analyticsSteps.shouldFindPDFSummaryEmail();
+
 
 	}
-
 }
