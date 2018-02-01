@@ -32,11 +32,14 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell")
 	private WebElement itemListView;
 
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeCell[XCUIElementTypeStaticText[@name=\"BATHS\"]]/XCUIElementTypeButton[@name=\"3\"]")
+	@iOSXCUITFindBy(accessibility = "3BathsButton")
 	private WebElement filterFor3Baths;
 
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeCell[XCUIElementTypeStaticText[@name=\"BEDS\"]]/XCUIElementTypeButton[@name=\"2\"]")
-	private WebElement filterFor2Bads;
+	@iOSXCUITFindBy(accessibility = "2BedsButton")
+	private WebElement filterFor2Beds;
+
+	@iOSXCUITFindBy(accessibility = "StudioBedsButton")
+	private WebElement filterStudioBedsButton;
 
 	@iOSXCUITFindBy(accessibility = "BATHS")
 	private WebElement baths;
@@ -55,6 +58,9 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
+
+	@iOSXCUITFindBy(accessibility = "MinimumPriceField")
+	private WebElement minimumPriceTextBox;
 
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
@@ -76,8 +82,8 @@ public class SearchPage extends BasePage {
 		element(filterFor3Baths).click();
 	}
 
-	public void selectFilterFor2Bads() {
-		element(filterFor2Bads).click();
+	public void selectFilterFor2Beds() {
+		element(filterFor2Beds).click();
 
 	}
 
@@ -127,5 +133,13 @@ public class SearchPage extends BasePage {
 		WebElement previouslyCreatedSearch =element(By.name(search.toUpperCase()));
 		//Helper.scrollToElement(previouslyCreatedSearch);
 		return previouslyCreatedSearch.isDisplayed();
+	}
+
+	public void setMinimumPriceFilter(String price){
+		element(minimumPriceTextBox).typeAndEnter(price);
+	}
+
+	public void setFilterForStudioBeds(){
+		element(filterStudioBedsButton).click();
 	}
 }

@@ -8,10 +8,10 @@ import org.openqa.selenium.WebElement;
 
 public class SettingsProfilePage extends BasePage {
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeTextField[1]")
+    @iOSXCUITFindBy(accessibility = "UserNameTextField")
     private WebElement nameTextBox;
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeTextField[2]")
+    @iOSXCUITFindBy(accessibility = "UserCompanyTextField")
     private WebElement companyTextBox;
 
     @iOSXCUITFindBy(accessibility = "SAVE")

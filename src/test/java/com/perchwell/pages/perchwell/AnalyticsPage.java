@@ -15,6 +15,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class AnalyticsPage extends BasePage {
 
     //region WebElements
@@ -136,6 +138,9 @@ public class AnalyticsPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "share")
 	private WebElement shareButton;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
+    private List<WebElement> valueChartList;
 
 
 	public AnalyticsPage(WebDriver driver){
@@ -273,6 +278,10 @@ public class AnalyticsPage extends BasePage {
 		return Serenity.sessionVariableCalled(name);
 	}
 
+	public void setValueSessionVariable(String name,String value){
+	    Serenity.setSessionVariable(name).to(value);
+    }
+
 	public void clickSaveButton() {
 		element(saveButton).click();
 	}
@@ -361,8 +370,13 @@ public class AnalyticsPage extends BasePage {
 
 	}
 
+	public String getValueBedroomsChart(){
+	    Helper.scrollToElement(valueChartList.get(0));
+	  return element(valueChartList.get(0)).getText();
+    }
 
-
-
-
+    public String getValueAskingPriceChart(){
+        Helper.scrollToElement(valueChartList.get(1));
+	    return element(valueChartList.get(1)).getText();
+    }
 }
