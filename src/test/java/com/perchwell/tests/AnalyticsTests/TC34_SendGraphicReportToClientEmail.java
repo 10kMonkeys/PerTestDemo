@@ -8,10 +8,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TC33_SendGraphicReportsToMyEmail extends SampleTest{
-	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+public class TC34_SendGraphicReportToClientEmail extends SampleTest {
+private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+
 	@Test
-	public void sendGraphicReportsToMyEmail() throws Exception {
+	public void sendGraphicReportToClientEmail() throws Exception {
 
 		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
@@ -25,9 +26,8 @@ public class TC33_SendGraphicReportsToMyEmail extends SampleTest{
 		analyticsSteps.addButtonClick();
 		analyticsSteps.shareButtonClick();
 		analyticsSteps.clickMyEmailOption();
-		analyticsSteps.createReportWithNameAndSave("Analytics_report"+sdf.format(new Date()));
+		analyticsSteps.createReportWithNameAndSave("Analytics_client_report"+sdf.format(new Date()));
 		analyticsSteps.shouldFindSentEmail();
 
 	}
-
 }

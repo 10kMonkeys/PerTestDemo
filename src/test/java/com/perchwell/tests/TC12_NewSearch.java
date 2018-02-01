@@ -21,7 +21,7 @@ public class TC12_NewSearch extends SampleTest {
 		perchwellSteps.clickMap();
 		mapSteps.clickNotNowButton();
 		mapSteps.clickMyNewSearch();
-		searchSteps.setUpFilter2Bads();
+		searchSteps.setUpFilter2Beds();
 		searchSteps.clickApplyButton();
 		perchwellSteps.clickAnalytics();
 		analyticsSteps.addChartFromREBNYSection();
