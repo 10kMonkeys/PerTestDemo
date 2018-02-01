@@ -2,6 +2,7 @@ package com.perchwell.steps;
 
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.perchwell.AnalyticsPage;
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -85,6 +86,12 @@ public class AnalyticsSteps extends ScenarioSteps {
 	public void addChartFromNYCSection() {
 		onPage.nycTownHousesButtonClick();
 		onPage.domByPriceButtonClick();
+	}
+
+	@Step
+	public void addChartBedroomsFromManagementSection(){
+		onPage.managementButtonClick();
+		onPage.bedroomsButtonClick();
 	}
 
 	@Step
@@ -222,6 +229,27 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void getBedroomsChartValue(){
+		onPage.setValueSessionVariable("BedroomsChartValue",onPage.getValueBedroomsChart());
+	}
+
+	@Step
+	public void getAskingPriceChartValue(){
+		onPage.setValueSessionVariable("AskingPriceChartValue",onPage.getValueAskingPriceChart());
+	}
+
+	@Step
+	public void isBedroomsChartChange(){
+		Assert.assertFalse(onPage.getValueBedroomsChart()
+				.contains(onPage.getValueFromSessionVariable("BedroomsChartValue")));
+	}
+
+	@Step
+	public void isAskingPriceChartChange() {
+		Assert.assertFalse(onPage.getValueAskingPriceChart()
+				.contains(onPage.getValueFromSessionVariable("AskingPriceChartValue")));
+	}
+
 	public void clickSendButton() {
 		onPage.clickSendButton();
 	}

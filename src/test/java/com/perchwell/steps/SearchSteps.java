@@ -60,4 +60,14 @@ public class SearchSteps extends ScenarioSteps {
 	public void shouldSeePreviouslyCreatedSearch() {
 		Assert.assertTrue(onPage.shouldSeePreviouslyCreatedSearch(onPage.getValueFromSessionVariable("Search")));
 	}
+
+	@Step
+	public void setMinimumPriceFilter(){
+		onPage.setMinimumPriceFilter("600000");
+	}
+
+	@Step
+	public void setFilterForStudioBeds(){
+		onPage.setFilterForStudioBeds();
+	}
 }

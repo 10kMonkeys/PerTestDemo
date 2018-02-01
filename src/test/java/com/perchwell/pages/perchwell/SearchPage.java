@@ -38,6 +38,9 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "2BedsButton")
 	private WebElement filterFor2Beds;
 
+	@iOSXCUITFindBy(accessibility = "StudioBedsButton")
+	private WebElement filterStudioBedsButton;
+
 	@iOSXCUITFindBy(accessibility = "BATHS")
 	private WebElement baths;
 
@@ -55,6 +58,9 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
+
+	@iOSXCUITFindBy(accessibility = "MinimumPriceField")
+	private WebElement minimumPriceTextBox;
 
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
@@ -128,5 +134,13 @@ public class SearchPage extends BasePage {
 		WebElement previouslyCreatedSearch =element(By.name(search.toUpperCase()));
 		//Helper.scrollToElement(previouslyCreatedSearch);
 		return previouslyCreatedSearch.isDisplayed();
+	}
+
+	public void setMinimumPriceFilter(String price){
+		element(minimumPriceTextBox).typeAndEnter(price);
+	}
+
+	public void setFilterForStudioBeds(){
+		element(filterStudioBedsButton).click();
 	}
 }
