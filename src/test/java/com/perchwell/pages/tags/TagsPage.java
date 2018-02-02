@@ -67,7 +67,8 @@ public class TagsPage extends BasePage {
 	public boolean isTagDisplayedWithSwipe(String tagName) throws Exception {
 		if (getDriver().findElements(MobileBy.AccessibilityId(tagName)).size() > 0) {
 			setImplicitTimeout(1, SECONDS);
-			Helper.swipeDownUntilElementVisible(tagName);
+			//Helper.swipeDownUntilElementVisible(tagName);
+			Helper.scrollToElement(getDriver().findElements(MobileBy.AccessibilityId(tagName)).get(0));
 			resetImplicitTimeout();
 		}
 		return isElementVisible(MobileBy.AccessibilityId(tagName));

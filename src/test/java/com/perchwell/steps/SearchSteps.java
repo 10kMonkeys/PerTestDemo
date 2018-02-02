@@ -70,4 +70,10 @@ public class SearchSteps extends ScenarioSteps {
 	public void setFilterForStudioBeds(){
 		onPage.setFilterForStudioBeds();
 	}
+
+	@Step
+	public void setUpFilter1Bath() {
+		onPage.setFilterFor1Bath();
+	}
+
 }

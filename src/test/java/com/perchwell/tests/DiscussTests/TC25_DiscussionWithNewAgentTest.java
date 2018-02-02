@@ -2,6 +2,7 @@ package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.text.DateFormat;
@@ -25,6 +26,7 @@ public class TC25_DiscussionWithNewAgentTest extends SampleTest {
 		clientSteps.setAgentEmail("Not_existing_email@test.ru");
 		clientSteps.setMessageField("Hello. I'd like invite you on "+sdf.format(new Date()));
 		clientSteps.clickInviteButton();
+		clientSteps.clickAgentSuccessfullyAddedOkButton();
 		discussionSteps.clickBackButton();
 		clientSteps.clickBackButtonCreateAgent();
 		clientSteps.closePage();

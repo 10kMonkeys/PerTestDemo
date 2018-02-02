@@ -50,8 +50,13 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "market report logo")
 	private WebElement analyticsButton;
 
+	@iOSXCUITFindBy(accessibility = "list_view_button")
+	private WebElement listButton;
+
+
 	public static Integer numberOfItemsInListView;
 	// public String buildingAddress;
+
 
 	public WebElement getThirdBuilding() {
 		return thirdBuilding;
@@ -134,5 +139,9 @@ public class PerchwellPage extends BasePage {
 
 	public void openAnalytics() {
 		element(analyticsButton).click();
+	}
+
+	public void clickList() {
+		element(listButton).click();
 	}
 }

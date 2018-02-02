@@ -120,4 +120,12 @@ public class ClientSteps extends ScenarioSteps {
 		onPage.addValueInSessionVariable("Agent", onPage.getFirstClientOrAgentName());
 		onPage.clickFirstClientOrAgent();
 	}
+	@Step
+	public void clickClientSuccessfullyAddedOkButton() {
+		onPage.clickClientSuccessfullyAddedOkButton();
+	}
+	@Step
+	public void clickAgentSuccessfullyAddedOkButton() {
+		onPage.clickClientSuccessfullyAddedOkButton();
+	}
 }

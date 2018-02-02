@@ -69,6 +69,9 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "YES")
 	private WebElement yesButtonLogOutWindow;
 
+	@iOSXCUITFindBy(accessibility = "OK")
+	private WebElement okButton;
+
 	public WebElement getAddNewClientButton() {
 		return addNewClientButton;
 	}
@@ -178,5 +181,11 @@ public class ClientPage extends BasePage {
 
 	public void clickBackButtonCreateAgent() {
 		element(backButtonCreateAgent).click();
+	}
+
+	public void clickClientSuccessfullyAddedOkButton() {
+
+		element(okButton).click();
+
 	}
 }

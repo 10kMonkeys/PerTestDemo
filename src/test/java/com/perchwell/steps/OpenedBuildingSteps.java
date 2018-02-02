@@ -1,7 +1,6 @@
 package com.perchwell.steps;
 
 import com.perchwell.pages.perchwell.OpenedBuildingPage;
-import io.appium.java_client.MobileBy;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -82,6 +81,15 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void isDiscussionWithMyClientDisplayed() {
 		Assert.assertTrue(onPage.isDiscussionWithMyClientDisplayed());
 
+	}
+
+	public void isFilterStudioApplied() {
+
+		Assert.assertTrue(onPage.isTextStudioDisplayed());
+	}
+
+	public void isFilter1BathApplied() {
+		Assert.assertTrue(onPage.isText1BathDisplayed());
 	}
 }
 

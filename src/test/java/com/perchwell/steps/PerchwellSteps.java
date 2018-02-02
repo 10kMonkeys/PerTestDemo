@@ -78,4 +78,10 @@ public class PerchwellSteps extends ScenarioSteps {
     public void clickAnalytics(){
         onPage.openAnalytics();
     }
+
+	@Step
+	public void clickList() {
+
+   	onPage.clickList();
+	}
 }

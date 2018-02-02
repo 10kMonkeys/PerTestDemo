@@ -62,6 +62,10 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MinimumPriceField")
 	private WebElement minimumPriceTextBox;
 
+	@iOSXCUITFindBy(accessibility = "1BathButton")
+	private WebElement filterFor1Bath;
+
+
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
 	}
@@ -142,5 +146,9 @@ public class SearchPage extends BasePage {
 
 	public void setFilterForStudioBeds(){
 		element(filterStudioBedsButton).click();
+	}
+
+	public void setFilterFor1Bath(){
+		element(filterFor1Bath).click();
 	}
 }

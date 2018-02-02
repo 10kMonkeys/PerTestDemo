@@ -2,6 +2,7 @@ package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TC22_DiscussionWithNewClientTest extends SampleTest {
@@ -22,6 +23,7 @@ public class TC22_DiscussionWithNewClientTest extends SampleTest {
 		clientSteps.clickGroupLabel();
 		clientSteps.selectGroup("Actively Searching");
 		clientSteps.clickInviteButton();
+		clientSteps.clickClientSuccessfullyAddedOkButton();
 		discussionSteps.clickBackButton();
 		clientSteps.clickBackButton();
 		clientSteps.closePage();
