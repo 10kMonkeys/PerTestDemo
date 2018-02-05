@@ -91,5 +91,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void isFilter1BathApplied() {
 		Assert.assertTrue(onPage.isText1BathDisplayed());
 	}
+
+	public void isFilterFirepaceApplied() {
+		/*onPage.click
+		Assert.assertTrue(onPage.isText1BathDisplayed());*/
+	}
 }
 

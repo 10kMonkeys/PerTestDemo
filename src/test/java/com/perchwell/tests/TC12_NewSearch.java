@@ -2,10 +2,11 @@ package com.perchwell.tests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TC12_NewSearch extends SampleTest {
-
+	@Ignore
 	@Test
 	public void newSearch() throws Exception {
 
@@ -14,14 +15,14 @@ public class TC12_NewSearch extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickMyNewSearch();
-		searchSteps.setUpFilter3Baths();
+		searchSteps.setFilterForStudioBeds();
 		searchSteps.setUpFilterFirepace();
 		searchSteps.clickApplyButton();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickMap();
 		mapSteps.clickNotNowButton();
 		mapSteps.clickMyNewSearch();
-		searchSteps.setUpFilter2Beds();
+		searchSteps.setUpFilter1Bath();
 		searchSteps.clickApplyButton();
 		perchwellSteps.clickAnalytics();
 		analyticsSteps.addChartFromREBNYSection();
@@ -43,6 +44,11 @@ public class TC12_NewSearch extends SampleTest {
 		searchSteps.shouldSeePreviouslyCreatedSearch();
 		searchSteps.clickPreviouslyCreatedSearch();
 		//Will be a check applying filter here
+		perchwellSteps.clickList();
+		perchwellSteps.openFirstBuilding();
+		openedBuildingSteps.isFilterStudioApplied();
+		openedBuildingSteps.isFilter1BathApplied();
+		openedBuildingSteps.isFilterFirepaceApplied();
 		perchwellSteps.clickMap();
 
 		//mapSteps.clickNotNowButton();

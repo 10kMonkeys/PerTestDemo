@@ -54,6 +54,10 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeStaticText[@name=\"STUDIO\"][1]")
 	private WebElement textStudio;
 
+
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeOther[XCUIElementTypeStaticText[@name=\"BATH\"] and XCUIElementTypeStaticText[@name=\"1\"]]")
+	private WebElement bath1Text;
+
 	public void clickAddDiscus() {
 		element(addDiscus).click();
 	}
@@ -135,9 +139,6 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public boolean isText1BathDisplayed() {
-//		[XCUIElementTypeStaticText[@name="BATH"] and XCUIElementTypeStaticText[@name="1"]]
-//		author[last-name = "Bob" and first-name = "Joe"]
-//		return H
-// elper.isElementDisplayed(textStudio);
-	return true;}
+		return Helper.isElementDisplayed(bath1Text);
+	}
 }
