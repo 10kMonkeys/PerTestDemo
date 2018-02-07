@@ -43,4 +43,9 @@ public class SettingsProfileSteps {
         Assert.assertTrue(onPage.companyProfile().contains(AppProperties.INSTANCE.getProperty("company")));
     }
 
+    @Step
+    public void okButtonClick(){
+        onPage.okButtonClick();
+    }
+
 }
