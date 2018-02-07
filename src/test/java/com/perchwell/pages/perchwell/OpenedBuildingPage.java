@@ -42,8 +42,8 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "compare untinted")
 	private WebElement compareButton;
 
-	@iOSXCUITFindBy(accessibility = "DISCUSS WITH MY CLIENT")
-	private WebElement disccusWithClientButton;
+	@iOSXCUITFindBy(accessibility = "DISCUSS WITH CLIENT")
+	private WebElement disccusWithClientOption;
 
 	@iOSXCUITFindBy(accessibility = "DISCUSS WITH MY AGENT")
 	private WebElement disccusWithMyAgentButton;
@@ -58,12 +58,16 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeOther[XCUIElementTypeStaticText[@name=\"BATH\"] and XCUIElementTypeStaticText[@name=\"1\"]]")
 	private WebElement bath1Text;
 
+	@iOSXCUITFindBy(accessibility = "share")
+	private WebElement shareBitton;
+
+
 	public void clickAddDiscus() {
 		element(addDiscus).click();
 	}
 
-	public void clickDiscussWithClientButton() {
-		element(disccusWithClientButton).click();
+	public void clickDiscussWithClientOption() {
+		element(disccusWithClientOption).click();
 	}
 
 	public void clickDiscussWithMyClientHint() {
@@ -132,7 +136,7 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public boolean isDiscussionWithMyClientDisplayed() {
-		return Helper.isElementDisplayed(disccusWithClientButton);
+		return Helper.isElementDisplayed(disccusWithClientOption);
 	}
 
 	public boolean isTextStudioDisplayed() {return Helper.isElementDisplayed(textStudio);
@@ -140,5 +144,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	public boolean isText1BathDisplayed() {
 		return Helper.isElementDisplayed(bath1Text);
+	}
+
+	public void clickShareButton() {
+		element(shareBitton).click();
 	}
 }

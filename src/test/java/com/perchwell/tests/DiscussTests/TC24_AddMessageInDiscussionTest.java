@@ -10,6 +10,7 @@ import java.util.Date;
 
 public class TC24_AddMessageInDiscussionTest extends SampleTest {
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+
 @Test
 public void addMessageInDiscussionTest() {
 
@@ -19,7 +20,8 @@ public void addMessageInDiscussionTest() {
 	perchPopupSteps.clickNotNowButton();
 	perchwellSteps.openFirstBuilding();
 	openedBuildingSteps.clickDiscussWithMyClientHint();
-	openedBuildingSteps.clickDiscussWithMyClientButton();
+	openedBuildingSteps.clickShareButton();
+	openedBuildingSteps.clickDiscussWithMyClientOption();
 	openedBuildingSteps.clickAddDiscusButton();
 	clientSteps.selectClient();
 	discussionSteps.sendMessage("Hello");
