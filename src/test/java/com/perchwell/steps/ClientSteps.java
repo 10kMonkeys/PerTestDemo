@@ -89,6 +89,8 @@ public class ClientSteps extends ScenarioSteps {
 			onPage.clickDesiredClientOrAgent(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
 			onPage.addValueInSessionVariable("Client", AppProperties.INSTANCE.getProperty("client_name"));
 		}
+		else Assert.fail("Does not exist client with name '"+AppProperties.INSTANCE.getProperty("client_name")+"'. "
+								 + "The name and mail of the client, who associated with the current broker, must be specified in the app.properties.");
 	}
 
 	@Step

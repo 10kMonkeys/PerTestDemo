@@ -36,8 +36,8 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickDiscussWithMyClientButton() {
-		onPage.clickDiscussWithClientButton();
+	public void clickDiscussWithMyClientOption() {
+		onPage.clickDiscussWithClientOption();
 	}
 
 	@Step
@@ -93,8 +93,12 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	public void isFilterFirepaceApplied() {
-		/*onPage.click
-		Assert.assertTrue(onPage.isText1BathDisplayed());*/
+//		onPage.click
+//		Assert.assertTrue(onPage.isText1BathDisplayed());*/
+	}
+
+	public void clickShareButton() {
+		onPage.clickShareButton();
 	}
 }
 

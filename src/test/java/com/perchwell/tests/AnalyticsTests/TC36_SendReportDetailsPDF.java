@@ -13,7 +13,7 @@ import java.util.Date;
 
 public class TC36_SendReportDetailsPDF extends SampleTest {
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
-	@Ignore
+
 	@Test
 	public void sendReportDetailsPDF() throws Exception {
 
