@@ -3,7 +3,6 @@ package com.perchwell.pages.perchwell;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.By;
@@ -45,8 +44,8 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DISCUSS WITH CLIENT")
 	private WebElement disccusWithClientOption;
 
-	@iOSXCUITFindBy(accessibility = "DISCUSS WITH MY AGENT")
-	private WebElement disccusWithMyAgentButton;
+	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")
+	private WebElement sendWithinPerchwell;
 
 	@iOSXCUITFindBy(accessibility = "NEW")
 	private WebElement addDiscus;
@@ -131,8 +130,8 @@ public class OpenedBuildingPage extends BasePage {
 
 	}
 
-	public void clickDiscussWithMyAgentButton() {
-		element(disccusWithMyAgentButton).click();
+	public void clickSendWithinPerchwell() {
+		element(sendWithinPerchwell).click();
 	}
 
 	public boolean isDiscussionWithMyClientDisplayed() {

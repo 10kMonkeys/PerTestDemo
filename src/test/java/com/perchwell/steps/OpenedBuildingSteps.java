@@ -63,8 +63,8 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickDiscussWithMyAgentButton() {
-		onPage.clickDiscussWithMyAgentButton();
+	public void clickSendWithinPerchwell() {
+		onPage.clickSendWithinPerchwell();
 	}
 
 	@Step

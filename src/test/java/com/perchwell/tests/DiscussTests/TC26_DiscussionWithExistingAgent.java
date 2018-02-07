@@ -2,7 +2,6 @@ package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.text.DateFormat;
@@ -21,7 +20,7 @@ public class TC26_DiscussionWithExistingAgent extends SampleTest {
 		perchwellSteps.openFirstBuilding();
 		openedBuildingSteps.clickDiscussWithMyClientHint();
 		openedBuildingSteps.clickShareButton();
-		openedBuildingSteps.clickDiscussWithMyAgentButton();
+		openedBuildingSteps.clickSendWithinPerchwell();
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickExistingAgent();
 		discussionSteps.sendMessage("I'd like discuss with you " + sdf.format(new Date()));

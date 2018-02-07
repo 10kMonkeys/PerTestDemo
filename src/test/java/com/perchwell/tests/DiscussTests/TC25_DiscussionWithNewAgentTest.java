@@ -2,7 +2,6 @@ package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.text.DateFormat;
@@ -20,7 +19,8 @@ public class TC25_DiscussionWithNewAgentTest extends SampleTest {
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.openFirstBuilding();
 		openedBuildingSteps.clickDiscussWithMyClientHint();
-		openedBuildingSteps.clickDiscussWithMyAgentButton();
+		openedBuildingSteps.clickShareButton();
+		openedBuildingSteps.clickSendWithinPerchwell();
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickAddNewAgentButton();
 		clientSteps.setAgentEmail("Not_existing_email@test.ru");

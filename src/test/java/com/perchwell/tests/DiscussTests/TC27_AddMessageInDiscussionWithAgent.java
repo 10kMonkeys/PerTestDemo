@@ -19,7 +19,8 @@ public class TC27_AddMessageInDiscussionWithAgent extends SampleTest {
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.openFirstBuilding();
 		openedBuildingSteps.clickDiscussWithMyClientHint();
-		openedBuildingSteps.clickDiscussWithMyAgentButton();
+		openedBuildingSteps.clickShareButton();
+		openedBuildingSteps.clickSendWithinPerchwell();
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickExistingAgent();
 		discussionSteps.sendMessage("Hello");

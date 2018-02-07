@@ -2,6 +2,7 @@ package com.perchwell.tests.LogInTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TC1_LogInAsClientTest extends SampleTest {

@@ -48,7 +48,20 @@ public class TC12_NewSearch extends SampleTest {
 		perchwellSteps.openFirstBuilding();
 		openedBuildingSteps.isFilterStudioApplied();
 		openedBuildingSteps.isFilter1BathApplied();
-		openedBuildingSteps.isFilterFirepaceApplied();
+		openedBuildingSteps.clickBackButton();
+
+		perchwellSteps.openSecondBuilding();
+		openedBuildingSteps.isFilterStudioApplied();
+		openedBuildingSteps.isFilter1BathApplied();
+		openedBuildingSteps.clickBackButton();
+
+		perchwellSteps.openThirdBuilding();
+		openedBuildingSteps.isFilterStudioApplied();
+		openedBuildingSteps.isFilter1BathApplied();
+		openedBuildingSteps.clickBackButton();
+
+
+		//	openedBuildingSteps.isFilterFirepaceApplied();
 		perchwellSteps.clickMap();
 
 		//mapSteps.clickNotNowButton();
