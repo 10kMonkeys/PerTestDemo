@@ -146,6 +146,12 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "$12M+")
 	private WebElement upTo12MillionButton;
 
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"HAS GARDEN\"][1]")
+    private WebElement hasGardenButton;
+
+	@iOSXCUITFindBy(accessibility = "GARDEN")
+    private WebElement gardenChart;
+
 	public AnalyticsPage(WebDriver driver){
         super(driver);
     }
@@ -412,4 +418,14 @@ public class AnalyticsPage extends BasePage {
 	public void upTo12MillionButtonClick() {
 		element(upToOneMillionButton).click();
 	}
+
+	public void hasGardenButtonClick(){
+	    element(hasGardenButton).click();
+    }
+
+    public boolean isGardenChartDisplayed() {
+        Helper.scrollToElement(gardenChart);
+        return element(gardenChart).isDisplayed();
+    }
+
 }
