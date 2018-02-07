@@ -18,6 +18,7 @@ public class TC29_UpdateSettingsAsClient extends SampleTest {
         settingsProfileSteps.changeName();
         settingsProfileSteps.changeCompany();
         settingsProfileSteps.saveButtonClick();
+        settingsProfileSteps.okButtonClick();
         settingsProfileSteps.isNameTextBoxChange();
         settingsProfileSteps.isCompanyTextBoxChange();
 

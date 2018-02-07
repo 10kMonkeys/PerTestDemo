@@ -16,6 +16,9 @@ public class SettingsProfilePage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "SAVE")
     private WebElement saveButton;
+
+    @iOSXCUITFindBy(accessibility = "OK")
+    private WebElement okButton;
     
     public SettingsProfilePage(WebDriver driver) {
             super(driver);
@@ -39,5 +42,9 @@ public class SettingsProfilePage extends BasePage {
 
     public String companyProfile(){
         return element(companyTextBox).getText();
+    }
+
+    public void okButtonClick(){
+        element(okButton).click();
     }
 }
