@@ -2,6 +2,7 @@ package com.perchwell.tests.AnalyticsTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.text.DateFormat;
@@ -10,6 +11,7 @@ import java.util.Date;
 
 public class TC33_SendGraphicReportsToMyEmail extends SampleTest{
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+
 	@Test
 	public void sendGraphicReportsToMyEmail() throws Exception {
 
