@@ -21,7 +21,7 @@ public class TC31_AddGraphicsTest extends SampleTest {
         analyticsSteps.isBuildingHeightCartAdd();
         analyticsSteps.addButtonClick();
         analyticsSteps.addChartFromNYCSection();
-        analyticsSteps.isDomByPriceCartAdd();
+        analyticsSteps.isGardenChartDisplayed();
         analyticsSteps.addButtonClick();
         analyticsSteps.addChartFromManagementSection();
         analyticsSteps.isDaysOnMarketAdd();

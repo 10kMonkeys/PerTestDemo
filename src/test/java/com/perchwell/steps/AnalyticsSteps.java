@@ -85,7 +85,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void addChartFromNYCSection() {
 		onPage.nycTownHousesButtonClick();
-		onPage.domByPriceButtonClick();
+		onPage.hasGardenButtonClick();
 	}
 
 	@Step
@@ -262,5 +262,10 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void upTo12MillionButtonClick() {
 		onPage.upTo12MillionButtonClick();
+	}
+
+	@Step
+	public void isGardenChartDisplayed() {
+		Assert.assertTrue(onPage.isGardenChartDisplayed());
 	}
 }
