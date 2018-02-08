@@ -100,5 +100,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void clickShareButton() {
 		onPage.clickShareButton();
 	}
+
+	@Step
+	public void isBuildingOpen(){
+		Assert.assertTrue(onPage.isBuildingOpen());
+	}
 }
 

@@ -20,8 +20,7 @@ public class TC35_ReportDetailsOpeningTest extends SampleTest {
 		analyticsSteps.upToOneMillionButtonClick();
 		analyticsSteps.selectSecondBuildingInList();
 		openedBuildingSteps.clickDiscussWithMyClientHint();
-		openedBuildingSteps.clickShareButton();
-		openedBuildingSteps.isDiscussionWithMyClientDisplayed();
+		openedBuildingSteps.isBuildingOpen();
 
 
 	}
