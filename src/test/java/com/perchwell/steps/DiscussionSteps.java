@@ -40,5 +40,10 @@ public class DiscussionSteps extends ScenarioSteps {
 
 	}
 
+	@Step
+	public void closeButtonClick(){
+		onPage.closeButtonClick();
+	}
+
 }
 
