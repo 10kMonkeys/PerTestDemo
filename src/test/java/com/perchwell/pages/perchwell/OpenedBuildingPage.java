@@ -41,7 +41,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "compare untinted")
 	private WebElement compareButton;
 
-	@iOSXCUITFindBy(accessibility = "DISCUSS WITH CLIENT")
+	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")
 	private WebElement disccusWithClientOption;
 
 	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")

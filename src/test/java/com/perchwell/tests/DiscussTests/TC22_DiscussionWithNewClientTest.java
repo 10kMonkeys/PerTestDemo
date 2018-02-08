@@ -16,8 +16,7 @@ public class TC22_DiscussionWithNewClientTest extends SampleTest {
 		perchwellSteps.openFirstBuilding();
 		openedBuildingSteps.clickDiscussWithMyClientHint();
 		openedBuildingSteps.clickShareButton();
-
-		openedBuildingSteps.clickDiscussWithMyClientOption();
+		openedBuildingSteps.clickSendWithinPerchwell();
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickAddNewClientButton();
 		clientSteps.setRundomClientData();

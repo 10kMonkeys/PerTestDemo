@@ -14,7 +14,7 @@ public class TC23_DiscussionWithExistingClient extends SampleTest {
 		perchwellSteps.openFirstBuilding();
 		openedBuildingSteps.clickDiscussWithMyClientHint();
 		openedBuildingSteps.clickShareButton();
-		openedBuildingSteps.clickDiscussWithMyClientOption();
+		openedBuildingSteps.clickSendWithinPerchwell();
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickExistingClient();
 		discussionSteps.sendMessage("I'd_like_discuss_with_you");
