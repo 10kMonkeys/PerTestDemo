@@ -45,6 +45,7 @@ public class AccountSteps extends ScenarioSteps{
     public void shouldSeeOptionAgents() throws Exception {
         Assert.assertTrue(onPage.optionAgentsIsDispalyed());
     }
+
     @Step
     public void clickDiscusionsLabel() { onPage.clickDiscussionsLabel();   }
 
