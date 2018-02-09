@@ -9,8 +9,8 @@ public class TC28_UpdateSettingsAsBroker extends SampleTest {
 
     @Test
     public void updateSettingAsBrokerTest() {
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
-                AppProperties.INSTANCE.getProperty("password"));
+        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("broker_test_email"),
+                AppProperties.INSTANCE.getProperty("broker_test_password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickOpenAccountButton();

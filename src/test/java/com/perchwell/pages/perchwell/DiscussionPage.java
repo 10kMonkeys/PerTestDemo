@@ -31,6 +31,9 @@ public DiscussionPage(WebDriver driver) {
 	@iOSXCUITFindBy(accessibility = "x")
 	private WebElement closeButton;
 
+	@iOSXCUITFindBy(accessibility = "DiscussionsCancelButton")
+	private WebElement discussionsCancelButton;
+
 	public boolean ccMyEmailTextDispayed() {
 		return element(ccMyEmailText).isDisplayed();
 	}
@@ -61,5 +64,9 @@ public DiscussionPage(WebDriver driver) {
 
 	public void closeButtonClick(){
 		element(closeButton).click();
+	}
+
+	public void discussionsCancelButtonClick(){
+		element(discussionsCancelButton).click();
 	}
 }

@@ -31,7 +31,7 @@ public class TC23_DiscussionWithExistingClient extends SampleTest {
 		discussionsListSteps.clickFirstDiscusion();
 		discussionSteps.shouldSeeMessageInDiscussion();
 		discussionSteps.clickBackButton();
-		clientSteps.closePage();
+		discussionSteps.discussionsCancelButtonClick();
 		clientSteps.logOut();
 		clientSteps.clickYesButtonLogOutWindow();
 		loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
