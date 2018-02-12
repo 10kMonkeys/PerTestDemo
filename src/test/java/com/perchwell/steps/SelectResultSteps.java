@@ -54,4 +54,9 @@ public class SelectResultSteps extends ScenarioSteps {
 
 	}
 
+	@Step
+	public void selectShareTaggedItems(){
+		onPage.selectShareTaggedItems();
+	}
+
 }
