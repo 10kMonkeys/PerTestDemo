@@ -2,24 +2,25 @@ package com.perchwell.pages.tags;
 
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class ShareTaggedItemsPage extends BasePage {
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton")
+    @iOSXCUITFindBy(accessibility = "ShareTagsSendButton")
     private WebElement sendButton;
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTextField[1]")
+    @iOSXCUITFindBy(accessibility = "RecipientEmailTextField")
     private WebElement recipientTextBox;
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTextField[2]")
+    @iOSXCUITFindBy(accessibility = "TitleTextField")
     private WebElement titleTextBox;
 
-    @iOSXCUITFindBy(accessibility= "MESSAGE")
+    @iOSXCUITFindBy(accessibility= "MessageTextField")
     private WebElement messageTextBox;
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[2]")
+    @iOSXCUITFindBy(accessibility ="itech.perch.test@gmail.com")
     private WebElement secondClient;
 
     @iOSXCUITFindBy(accessibility = "Done")
@@ -52,5 +53,13 @@ public class ShareTaggedItemsPage extends BasePage {
 
     public void doneButtonClick(){
         element(doneButton).click();
+    }
+
+    public String getValueFromSessionVariable(String name) {
+        return Serenity.sessionVariableCalled(name);
+    }
+
+    public void addValueInSessionVariable(String name, String value) {
+        Serenity.setSessionVariable(name).to(value);
     }
 }

@@ -51,7 +51,6 @@ public class SelectResultSteps extends ScenarioSteps {
 			result = onPage.shouldFindSentEmail(onPage.getValueFromSessionVariable("Report name"));
 		}
 		Assert.assertTrue(result);
-
 	}
 
 	@Step

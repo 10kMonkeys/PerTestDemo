@@ -18,14 +18,21 @@ public class TC8_ShareTagTest extends SampleTest {
 		myTagsSteps.clickSeveralExistingTagLabel();
 		myTagsSteps.clickTagSearchButton();
 		selectResultStep.clickTagPDFExportButton();
-		selectResultStep.clickMyEmailOption();
-		selectResultStep.createReportWithNameAndSave("Test my email");
+		selectResultStep.selectShareTaggedItems();
+		shareTaggedItemsSteps.selectClientEmail();
+		shareTaggedItemsSteps.fillInTitle("Test client email");
+		shareTaggedItemsSteps.fillInMessage("Test message");
+		shareTaggedItemsSteps.doneButtonClick();
+		shareTaggedItemsSteps.sendButtonClick();
 		selectResultStep.shouldFindSentEmail();
-		selectResultStep.clickTagPDFExportButton();
-		selectResultStep.clickClientOption();
-		clientSteps.selectClient();
-		selectResultStep.createReportWithNameAndSave("Test client email");
-		selectResultStep.shouldFindSentEmail();
+//		selectResultStep.clickMyEmailOption();
+//		selectResultStep.createReportWithNameAndSave("Test my email");
+//		selectResultStep.shouldFindSentEmail();
+//		selectResultStep.clickTagPDFExportButton();
+//		selectResultStep.clickClientOption();
+//		clientSteps.selectClient();
+//		selectResultStep.createReportWithNameAndSave("Test client email");
+//		selectResultStep.shouldFindSentEmail();
 
 
 	}
