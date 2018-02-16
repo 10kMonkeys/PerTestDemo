@@ -20,7 +20,7 @@ public class TC8_ShareTagTest extends SampleTest {
 		selectResultStep.clickTagPDFExportButton();
 		selectResultStep.selectShareTaggedItems();
 		shareTaggedItemsSteps.selectClientEmail();
-		shareTaggedItemsSteps.fillInTitle("Test client email");
+		shareTaggedItemsSteps.fillInTitle("Test client");
 		shareTaggedItemsSteps.fillInMessage("Test message");
 		shareTaggedItemsSteps.doneButtonClick();
 		shareTaggedItemsSteps.sendButtonClick();

@@ -73,7 +73,7 @@ public class SelectResultPage extends BasePage {
 	public Boolean shouldFindSentEmail(String report_name) {
 		//Waiting while report was sent
 		try {
-			Thread.sleep(30000);
+			Thread.sleep(40000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
