@@ -23,7 +23,7 @@ public class TC23_DiscussionWithExistingClient extends SampleTest {
 		openedBuildingSteps.shouldSeeExistingDuscussion();
 		openedBuildingSteps.openExistingDuscussion();
 		discussionSteps.shouldSeeMessageInDiscussion();
-		clientSteps.cl
+	
 		openedBuildingSteps.clickBackButton();
 		perchwellSteps.clickOpenAccountButton();
 		accountSteps.clickDiscusionsLabel();
