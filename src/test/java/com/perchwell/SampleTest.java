@@ -68,6 +68,9 @@ public abstract class SampleTest {
     protected SettingsProfileSteps settingsProfileSteps;
 
     @Steps
+    protected ShareTaggedItemsSteps shareTaggedItemsSteps;
+
+    @Steps
     protected MyTagsSteps myTagsSteps;
 
         static TimerTask task = new TravisAlive();

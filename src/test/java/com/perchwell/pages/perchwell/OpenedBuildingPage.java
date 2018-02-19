@@ -60,7 +60,6 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "share")
 	private WebElement shareBitton;
 
-
 	public void clickAddDiscus() {
 		element(addDiscus).click();
 	}
@@ -147,5 +146,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void clickShareButton() {
 		element(shareBitton).click();
+	}
+
+	public boolean isBuildingOpen(){
+		return element(myTagsLabel).isDisplayed();
 	}
 }

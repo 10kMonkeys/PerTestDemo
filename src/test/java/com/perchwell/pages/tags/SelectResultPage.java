@@ -31,6 +31,9 @@ public class SelectResultPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
+	@iOSXCUITFindBy(accessibility = "SHARE TAGGED ITEMS")
+	private WebElement shareTaggedItems;
+
 	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
 	@iOSXCUITFindBy(accessibility = "generic_text_input_field")
 	private WebElement nameThisReport;
@@ -70,7 +73,7 @@ public class SelectResultPage extends BasePage {
 	public Boolean shouldFindSentEmail(String report_name) {
 		//Waiting while report was sent
 		try {
-			Thread.sleep(30000);
+			Thread.sleep(40000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -89,5 +92,9 @@ public class SelectResultPage extends BasePage {
 		}
 
 		return reportWasFound;
+	}
+
+	public void selectShareTaggedItems(){
+		element(shareTaggedItems).click();
 	}
 }

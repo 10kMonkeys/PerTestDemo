@@ -14,19 +14,25 @@ public DiscussionPage(WebDriver driver) {
 	super(driver);
 }
 
-@iOSXCUITFindBy(accessibility = "CC my email on this conversation")
-private WebElement ccMyEmailText;
+	@iOSXCUITFindBy(accessibility = "CC my email on this conversation")
+	private WebElement ccMyEmailText;
 
-//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
-@FindBy(xpath = "//XCUIElementTypeNavigationBar[@name=\"Perchwell_Staging.ChatView\"]/XCUIElementTypeButton")
-private WebElement backButton;
+	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+	@iOSXCUITFindBy(accessibility = "ChatViewBackButton")
+	private WebElement backButton;
 
-@iOSXCUITFindBy(accessibility = "SEND")
-private WebElement sendButton;
+	@iOSXCUITFindBy(accessibility = "SEND")
+	private WebElement sendButton;
 
-//iosClassChain change and depends on numder of message
-@iOSXCUITFindBy(className= "XCUIElementTypeTextView")
-private WebElement message;
+	//iosClassChain change and depends on numder of message
+	@iOSXCUITFindBy(className= "XCUIElementTypeTextView")
+	private WebElement message;
+
+	@iOSXCUITFindBy(accessibility = "x")
+	private WebElement closeButton;
+
+	@iOSXCUITFindBy(accessibility = "DiscussionsCancelButton")
+	private WebElement discussionsCancelButton;
 
 	public boolean ccMyEmailTextDispayed() {
 		return element(ccMyEmailText).isDisplayed();
@@ -54,5 +60,13 @@ private WebElement message;
 
 	public boolean messageIsDispayed(String message) {
 		return Helper.isElementDisplayed(element(By.name(message)));
+	}
+
+	public void closeButtonClick(){
+		element(closeButton).click();
+	}
+
+	public void discussionsCancelButtonClick(){
+		element(discussionsCancelButton).click();
 	}
 }
