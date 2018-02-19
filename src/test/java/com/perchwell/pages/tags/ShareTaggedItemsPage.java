@@ -20,7 +20,7 @@ public class ShareTaggedItemsPage extends BasePage {
     @iOSXCUITFindBy(accessibility= "MessageTextField")
     private WebElement messageTextBox;
 
-    @iOSXCUITFindBy(accessibility ="itech.perch.test@gmail.com")
+    @iOSXCUITFindBy(accessibility ="itech.perchwell@gmail.com")
     private WebElement secondClient;
 
     @iOSXCUITFindBy(accessibility = "Done")
