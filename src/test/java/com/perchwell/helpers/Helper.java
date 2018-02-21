@@ -92,7 +92,7 @@ public abstract class  Helper {
 
         while (!isElementDisplayed(element)) {
 
-            swipeVertical(appiumDriver, 0.9, 0.2, 0.5, 1);
+            swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
 
         }
     }
