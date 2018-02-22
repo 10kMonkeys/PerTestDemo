@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.WithTag;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTag(type = "SmokeTestSuit", name = "LogInTests")
+@WithTag(type = "SmokeTestSuit1", name = "LogInTests")
 public class TC1_LogInAsClientTest extends SampleTest {
 
 	@Test
@@ -14,12 +14,12 @@ public class TC1_LogInAsClientTest extends SampleTest {
 
 		loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOpenAccountButton();
-		accountSteps.shouldSeeOptionAgents();
-		accountSteps.shouldSeeOptionDisscussions();
-		accountSteps.shouldSeeOptionTags();
-		accountSteps.shouldSeeOptionCompare();
+//		perchwellSteps.skipAllHints();
+//		perchPopupSteps.clickNotNowButton();
+//		perchwellSteps.clickOpenAccountButton();
+//		accountSteps.shouldSeeOptionAgents();
+//		accountSteps.shouldSeeOptionDisscussions();
+//		accountSteps.shouldSeeOptionTags();
+//		accountSteps.shouldSeeOptionCompare();
 	}
 }

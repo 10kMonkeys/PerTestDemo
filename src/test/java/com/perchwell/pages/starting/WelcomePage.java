@@ -1,5 +1,6 @@
 package com.perchwell.pages.starting;
 
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 import org.openqa.selenium.NoSuchElementException;
@@ -13,6 +14,7 @@ public class WelcomePage extends BasePage {
         super (driver);
     }
 
+    @AndroidFindBy(id = "com.perchwell.perchwellapp:id/log_in")
     @iOSXCUITFindBy(accessibility = "LOG IN")
     private WebElement loginButton;
 
