@@ -2,12 +2,14 @@ package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@WithTag(type = "SmokeTestSuit", name = "DiscussTests")
 public class TC25_DiscussionWithNewAgentTest extends SampleTest {
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
@@ -34,6 +36,5 @@ public class TC25_DiscussionWithNewAgentTest extends SampleTest {
 		perchwellSteps.clickOpenAccountButton();
 		accountSteps.clickDiscusionsLabel();
 		discussionsListSteps.discussionWithMessageNotDisplayed();
-
 	}
 }
