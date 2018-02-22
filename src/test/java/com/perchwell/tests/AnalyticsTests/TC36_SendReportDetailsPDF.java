@@ -11,6 +11,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@WithTag(type = "SmokeTestSuit", name = "Analytics")
 public class TC36_SendReportDetailsPDF extends SampleTest {
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
