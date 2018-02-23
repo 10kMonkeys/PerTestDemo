@@ -5,9 +5,13 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @WithTag(type = "SmokeTestSuit", name = "DiscussTests")
 public class TC23_DiscussionWithExistingClient extends SampleTest {
-
+	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 	@Test
 	public void discussionWithExistingClientTest() throws Exception {
 		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"), AppProperties.INSTANCE.getProperty("password"));
@@ -19,7 +23,7 @@ public class TC23_DiscussionWithExistingClient extends SampleTest {
 		openedBuildingSteps.clickSendWithinPerchwell();
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickExistingClient();
-		discussionSteps.sendMessage("I'd_like_discuss_with_you");
+		discussionSteps.sendMessage("I'd_like_discuss_with_you " + sdf.format(new Date()));
 		discussionSteps.clickBackButton();
 		clientSteps.closePage();
 		openedBuildingSteps.shouldSeeExistingDuscussion();
@@ -27,6 +31,7 @@ public class TC23_DiscussionWithExistingClient extends SampleTest {
 		discussionSteps.shouldSeeMessageInDiscussion();
 		discussionSteps.closeButtonClick();
 		openedBuildingSteps.clickBackButton();
+		discussionsListSteps.shouldFindDiscussionsEmailForExistingClient();
 		perchwellSteps.clickOpenAccountButton();
 		accountSteps.clickDiscusionsLabel();
 		discussionsListSteps.createdDiscussionIsFirst();
