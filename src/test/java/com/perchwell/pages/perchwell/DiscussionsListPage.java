@@ -1,6 +1,7 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.email.MailTrap;
+import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
@@ -47,10 +48,11 @@ public class DiscussionsListPage extends BasePage {
 	public Boolean discussionsEmailSent(String emailText, String client_email) {
 			//if string containcs of ' ' then must use - .replaceAll("[\\s]", "%20"));
 		Boolean reportWasFound =false;
-		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(emailText);
+		//MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(emailText);
+		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_DISCUSS"));
 		if (mailTrapResponse.length > 0) {
 			for (MailTrapResponse my_responce : mailTrapResponse) {
-				if (my_responce.getTo_email().equalsIgnoreCase(client_email)) {
+				if (my_responce.getHtml_body().contains(emailText)) {
 					reportWasFound = true;
 					break;
 				}
