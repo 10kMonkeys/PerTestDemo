@@ -19,6 +19,7 @@ public class LoginSteps extends ScenarioSteps {
         loginPage.setEmail(email);
         loginPage.setPassword(password);
         loginPage.clickLogin();
+
     }
 
     @Step ("Log in as Client: {0}, {1}")
