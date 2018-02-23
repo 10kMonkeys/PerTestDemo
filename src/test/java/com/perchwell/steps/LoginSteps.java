@@ -5,6 +5,7 @@ import com.perchwell.pages.starting.GoogleLoginPage;
 import com.perchwell.pages.starting.LoginPage;
 import com.perchwell.pages.starting.WelcomePage;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 
 public class LoginSteps extends ScenarioSteps {
@@ -46,18 +47,19 @@ public class LoginSteps extends ScenarioSteps {
         welcomePage.clickConnectWith();
         if (welcomePage.isElementDisplayed(welcomePage.getUseGoogleComMsg())){
             welcomePage.clickContinueButton();
-         };
-        if (googleLoginPage.isElementDisplayed(googleLoginPage.getExistingAccount())){
+        };
+        if (googleLoginPage.isElementDisplayed(googleLoginPage.getExistingAccount())) {
             googleLoginPage.clickExistingAccountDisplayed();
-			//welcomePage.clickConnectWith();
+            googleLoginPage.selectNativeView();
+            //welcomePage.clickConnectWith();
         }
         else {
+            googleLoginPage.selectWebView();
             googleLoginPage.setEmail(AppProperties.INSTANCE.getProperty("client_email"));
             googleLoginPage.clickLogin();
             googleLoginPage.setPassword(AppProperties.INSTANCE.getProperty("client_password"));
-            googleLoginPage.clickLogin();
+            googleLoginPage.clickNextButton();
+            googleLoginPage.selectNativeView();
         };
-
     }
-
 }

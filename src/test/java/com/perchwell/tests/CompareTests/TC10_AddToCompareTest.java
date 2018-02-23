@@ -2,9 +2,11 @@ package com.perchwell.tests.CompareTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Ignore;
 import org.junit.Test;
 
+@WithTag(type = "SmokeTestSuit", name = "CompareTests")
 public class TC10_AddToCompareTest extends SampleTest {
 
 	@Test
@@ -32,7 +34,5 @@ public class TC10_AddToCompareTest extends SampleTest {
 		//compareSteps.secondBuildingIsDispayed();
 		compareSteps.shoudSeeSecondBuildingInCompare("the second building");
 		compareSteps.thirdBuildingIsDispayed("the third building");
-
-
 	}
 }

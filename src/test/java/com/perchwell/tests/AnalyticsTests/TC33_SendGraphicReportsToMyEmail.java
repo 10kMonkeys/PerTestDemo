@@ -2,6 +2,7 @@ package com.perchwell.tests.AnalyticsTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -9,6 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@WithTag(type = "SmokeTestSuit", name = "Analytics")
 public class TC33_SendGraphicReportsToMyEmail extends SampleTest{
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 

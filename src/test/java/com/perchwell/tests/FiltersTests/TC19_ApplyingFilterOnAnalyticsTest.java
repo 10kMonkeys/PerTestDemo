@@ -2,9 +2,11 @@ package com.perchwell.tests.FiltersTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Ignore;
 import org.junit.Test;
 
+@WithTag(type = "SmokeTestSuit", name = "FiltersTests")
 public class TC19_ApplyingFilterOnAnalyticsTest extends SampleTest {
 
     @Test
@@ -26,6 +28,5 @@ public class TC19_ApplyingFilterOnAnalyticsTest extends SampleTest {
         searchSteps.clickApplyButton();
         analyticsSteps.isBedroomsChartChange();
         analyticsSteps.isAskingPriceChartChange();
-
     }
 }

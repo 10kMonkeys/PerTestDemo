@@ -2,9 +2,11 @@ package com.perchwell.tests.FiltersTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Ignore;
 import org.junit.Test;
 
+@WithTag(type = "SmokeTestSuit", name = "FiltersTests")
 public class TC15_ApplyingLocationFilterTest extends SampleTest {
 
 	@Ignore
@@ -25,6 +27,5 @@ public class TC15_ApplyingLocationFilterTest extends SampleTest {
 		mapSteps.clickNotNowButton();
 		mapSteps.countItemsInMapView();
 		mapSteps.itemsInListAndMapViewIsSame();
-
 	}
 }

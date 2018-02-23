@@ -2,8 +2,10 @@ package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 
+@WithTag(type = "SmokeTestSuit", name = "DiscussTests")
 public class TC23_DiscussionWithExistingClient extends SampleTest {
 
 	@Test
