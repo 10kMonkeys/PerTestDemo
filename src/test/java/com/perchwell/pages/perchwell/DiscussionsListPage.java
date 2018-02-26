@@ -45,10 +45,9 @@ public class DiscussionsListPage extends BasePage {
 		element(firstItem).click();
 	}
 
-	public Boolean discussionsEmailSent(String emailText, String client_email) {
+	public Boolean discussionsEmailSent(String emailText) {
 			//if string containcs of ' ' then must use - .replaceAll("[\\s]", "%20"));
 		Boolean reportWasFound =false;
-		//MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(emailText);
 		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_DISCUSS"));
 		if (mailTrapResponse.length > 0) {
 			for (MailTrapResponse my_responce : mailTrapResponse) {

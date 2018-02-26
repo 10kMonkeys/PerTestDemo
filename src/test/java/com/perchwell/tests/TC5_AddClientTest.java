@@ -3,9 +3,10 @@ package com.perchwell.tests;
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTag;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTag(type = "SmokeTestSuit", name = "ClientsTests")
+@WithTagValuesOf({"SmokeTestSuit", "ClientsTests"})
 public class TC5_AddClientTest extends SampleTest {
 
 	@Test
