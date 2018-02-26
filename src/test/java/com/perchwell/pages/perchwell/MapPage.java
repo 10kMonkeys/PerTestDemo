@@ -13,11 +13,13 @@ import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class MapPage extends BasePage {
+
 	public MapPage(WebDriver driver) {
 		super(driver);
 	}
@@ -38,6 +40,9 @@ public class MapPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility= "MY NEW SEARCH")
 	private WebElement myNewSearch;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther")
+	private List<WebElement> clusterList;
 
 	public void clickNotNowButton() {
 		element(notNowButton).click();
@@ -75,5 +80,10 @@ public class MapPage extends BasePage {
 
 	public void clickMyNewSearch() {
 		element(myNewSearch).click();
+	}
+
+	public void checkForChangesAfterApplyingTheFilter(){
+		WebElement cluster;
+		for(int i=0;(i<10 || );i++)
 	}
 }
