@@ -3,10 +3,11 @@ package com.perchwell.tests.CompareTests;
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTag;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTag(type = "SmokeTestSuit", name = "CompareTests")
+@WithTagValuesOf({"SmokeTestSuit", "CompareTests"})
 public class TC11_DeleteFromCompareTest extends SampleTest {
 
 	@Test
