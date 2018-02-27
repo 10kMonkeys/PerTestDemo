@@ -48,6 +48,6 @@ public class MapSteps extends ScenarioSteps {
 
 	@Step
 	public void checkForChangesAfterApplyingTheFilter(){
-		onPage.checkForChangesAfterApplyingTheFilter();
+		Assert.assertTrue(onPage.checkForChangesAfterApplyingTheFilter());
 	}
 }
