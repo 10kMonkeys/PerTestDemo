@@ -84,4 +84,19 @@ public class PerchwellSteps extends ScenarioSteps {
 
    	onPage.clickList();
 	}
+
+	@Step("Should see listings only from selected district {0}")
+	public void shouldSeeListingsOnlyFromSelectedDistrict(String city) {
+
+   	Assert.assertTrue(onPage.isElementExistsInEachCell(city));
+	}
+
+	@Step("Should see listing with filters are applyed {0}")
+	public void isFilter1Bath1BedApplied(String search) {
+
+		Assert.assertTrue(onPage.isElementExistsInEachCell(search));
+
+
+
+	}
 }

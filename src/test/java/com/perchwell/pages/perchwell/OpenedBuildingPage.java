@@ -60,6 +60,16 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "share")
 	private WebElement shareBitton;
 
+
+	//XCUIElementTypeStaticText[@name="FEATURES & AMENITIES"
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeOther[@name=\"FEATURES & AMENITIES\"]")
+	private WebElement featuresAmenities;
+
+	@iOSXCUITFindBy(accessibility = "FIREPLACE")
+	private WebElement fireplace;
+
+
+
 	public void clickAddDiscus() {
 		element(addDiscus).click();
 	}
@@ -150,5 +160,15 @@ public class OpenedBuildingPage extends BasePage {
 
 	public boolean isBuildingOpen(){
 		return element(myTagsLabel).isDisplayed();
+	}
+
+	public void clickFeaturesAmenities() throws Exception {
+		Helper.swipeDownUntilElementVisible(featuresAmenities);
+		//Helper.scrollToElement(element(featuresAmenities));
+		featuresAmenities.click();
+	}
+
+	public boolean isFireplaceDisplayed() {
+		return Helper.isElementDisplayed(fireplace);
 	}
 }

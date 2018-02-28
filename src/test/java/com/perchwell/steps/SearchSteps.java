@@ -76,4 +76,19 @@ public class SearchSteps extends ScenarioSteps {
 		onPage.setFilterFor1Bath();
 	}
 
+	@Step
+	public void deleteDefaultLocationInFilter() {
+		onPage.clickDeleteTagButtonBROOKLYN();
+		onPage.clickDeleteTagButtonQUEENS();
+		onPage.clickDeleteTagButtonMANHATTAN();
+	}
+	@Step
+	public void addLocationFilter() {
+		onPage.clickOnLocationFilter();
+		//onPage.addLocationFilterAlphabetCity();
+	}
+	@Step
+	public void clickThirdSearchInList() {
+		onPage.clickThirdSearchInList();
+	}
 }

@@ -3,12 +3,16 @@ package com.perchwell.pages.perchwell;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class SearchPage extends BasePage {
 
@@ -65,6 +69,20 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "1BathButton")
 	private WebElement filterFor1Bath;
 
+	@iOSXCUITFindBy(accessibility = "deleteTagButtonBROOKLYN")
+	private WebElement deleteTagButtonBROOKLYN;
+
+	@iOSXCUITFindBy(accessibility = "deleteTagButtonMANHATTAN")
+	private WebElement deleteTagButtonMANHATTAN;
+
+	@iOSXCUITFindBy(accessibility = "deleteTagButtonQUEENS")
+	private WebElement deleteTagButtonQUEENS;
+
+	@iOSXCUITFindBy(accessibility= "SearchNeighborhoods")
+	private WebElement searchNeihborhoods;
+
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[3]")
+	private WebElement thirdSearchInList;
 
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
@@ -75,6 +93,10 @@ public class SearchPage extends BasePage {
 	}
 
 	public void clickApplyButton() {
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+			appiumDriver.hideKeyboard();
 		applySearchButton.click();
 	}
 
@@ -150,5 +172,29 @@ public class SearchPage extends BasePage {
 
 	public void setFilterFor1Bath(){
 		element(filterFor1Bath).click();
+	}
+
+	public void clickDeleteTagButtonQUEENS() {
+		element(deleteTagButtonQUEENS).click();
+	}
+
+	public void clickDeleteTagButtonBROOKLYN() {
+		element(deleteTagButtonBROOKLYN).click();
+	}
+
+	public void clickDeleteTagButtonMANHATTAN() {
+		element(deleteTagButtonMANHATTAN).click();
+	}
+
+	public void addLocationFilterAlphabetCity() {
+
+	}
+
+	public void clickOnLocationFilter() {
+		element(searchNeihborhoods).click();
+	}
+
+	public void clickThirdSearchInList() {
+		element(thirdSearchInList).click();
 	}
 }
