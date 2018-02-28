@@ -5,6 +5,7 @@ import com.perchwell.pages.perchwell.DiscussionsListPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
+import org.seleniumhq.jetty9.util.PathWatcher;
 
 public class DiscussionsListSteps extends ScenarioSteps {
 DiscussionsListPage onPage;
@@ -24,7 +25,7 @@ DiscussionsListPage onPage;
 	}
 
 	public void shouldFindDiscussionsEmailForExistingClient() {
-		Assert.assertTrue(onPage.discussionsEmailSent(onPage.getValueFromSessionVariable("message"), AppProperties.INSTANCE.getProperty("client_email")));
+		Assert.assertTrue(onPage.discussionsEmailSent(onPage.getValueFromSessionVariable("message")));
 	}
 
 	@Step("Discussion with new agent is not created")
