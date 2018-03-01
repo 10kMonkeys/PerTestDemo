@@ -17,7 +17,7 @@ import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver
 
 public abstract class Helper {
 
-    private static void swipeVertical(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage, int duration) {
+   public static void swipeVertical(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage, int duration) {
         Dimension size = driver.manage().window().getSize();
         int anchor = (int) (size.width * anchorPercentage);
         int startPoint = (int) (size.height * startPercentage);

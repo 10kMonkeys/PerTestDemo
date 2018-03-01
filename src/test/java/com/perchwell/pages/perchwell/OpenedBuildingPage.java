@@ -2,9 +2,11 @@ package com.perchwell.pages.perchwell;
 
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -62,11 +64,14 @@ public class OpenedBuildingPage extends BasePage {
 
 
 	//XCUIElementTypeStaticText[@name="FEATURES & AMENITIES"
+//	@iOSXCUITFindBy(tagname= "FEATURES & AMENITIES")
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeOther[@name=\"FEATURES & AMENITIES\"]")
 	private WebElement featuresAmenities;
 
-	@iOSXCUITFindBy(accessibility = "FIREPLACE")
-	private WebElement fireplace;
+	//@iOSXCUITFindBy(accessibility = "FIREPLACE")
+	//@iOSXCUITFindBy(iOSNsPredicate =("type == 'XCUIElementTypeStaticText' AND name == \"FIREPLACE\"")
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeStaticText[@name=\"FIREPLACE\"]")
+private WebElement FIREPLACE;
 
 
 
@@ -163,12 +168,18 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void clickFeaturesAmenities() throws Exception {
-		Helper.swipeDownUntilElementVisible(featuresAmenities);
-		//Helper.scrollToElement(element(featuresAmenities));
-		featuresAmenities.click();
+	//	Helper.swipeDownUntilElementVisible(featuresAmenities);
+	//Helper.scrollToElement(featuresAmenities);
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+		Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+		element(featuresAmenities).click();
 	}
 
 	public boolean isFireplaceDisplayed() {
-		return Helper.isElementDisplayed(fireplace);
+		Helper.scrollToElement(FIREPLACE);
+		return Helper.isElementDisplayed(FIREPLACE);
+
 	}
 }

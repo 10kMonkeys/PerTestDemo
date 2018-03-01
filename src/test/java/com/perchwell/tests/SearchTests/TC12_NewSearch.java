@@ -9,7 +9,7 @@ import org.junit.Test;
 
 @WithTagValuesOf({"SmokeTestSuit", "SearchTests"})
 public class TC12_NewSearch extends SampleTest {
-@Ignore
+
 	@Test
 	public void newSearch() throws Exception {
 
@@ -22,36 +22,33 @@ public class TC12_NewSearch extends SampleTest {
 		searchSteps.setUpFilterFirepace();
 		searchSteps.clickApplyButton();
 		//perchPopupSteps.clickNotNowButton();
-//		perchwellSteps.clickMap();
-//		mapSteps.clickNotNowButton();
-//		mapSteps.clickMyNewSearch();
-//		searchSteps.setUpFilter1Bath();
-//		searchSteps.clickApplyButton();
-//		perchwellSteps.clickAnalytics();
-//		analyticsSteps.addChartFromREBNYSection();
-//		analyticsSteps.skipHints();
-//		analyticsSteps.addButtonClick();
-//		analyticsSteps.addChartFromACRISSection();
-//		analyticsSteps.addButtonClick();
-//		analyticsSteps.addChartFromNYCSection();
-//		analyticsSteps.addButtonClick();
-//		analyticsSteps.addChartFromManagementSection();
-//		analyticsSteps.addButtonClick();
-//		analyticsSteps.addTwoCharts();
-//		analyticsSteps.clickMyNewSearch();
-//		searchSteps.clickTapToSaveChanges();
-//		searchSteps.setSearchName();
-//		searchSteps.clickSaveButton();
-//
-//		perchwellSteps.clickMyNewSearch();
-//		searchSteps.clickLoadSavedSearchButton();
-//		searchSteps.clickThirdSearchInList();
-//
-//		perchwellSteps.clickMyNewSearch();
-//		searchSteps.clickLoadSavedSearchButton();
-//		searchSteps.shouldSeePreviouslyCreatedSearch();
-//		searchSteps.clickPreviouslyCreatedSearch();
-
+		perchwellSteps.clickMap();
+		mapSteps.clickNotNowButton();
+		mapSteps.clickMyNewSearch();
+		searchSteps.setUpFilter1Bath();
+		searchSteps.clickApplyButton();
+		perchwellSteps.clickAnalytics();
+		analyticsSteps.addChartFromREBNYSection();
+		analyticsSteps.skipHints();
+		analyticsSteps.addButtonClick();
+		analyticsSteps.addChartFromACRISSection();
+		analyticsSteps.addButtonClick();
+		analyticsSteps.addChartFromNYCSection();
+		analyticsSteps.addButtonClick();
+		analyticsSteps.addChartFromManagementSection();
+		analyticsSteps.addButtonClick();
+		analyticsSteps.addTwoCharts();
+		analyticsSteps.clickMyNewSearch();
+		searchSteps.clickTapToSaveChanges();
+		searchSteps.setSearchName();
+		searchSteps.clickSaveButton();
+		perchwellSteps.clickMyNewSearch();
+		searchSteps.clickLoadSavedSearchButton();
+		searchSteps.clickThirdSearchInList();
+		perchwellSteps.clickMyNewSearch();
+		searchSteps.clickLoadSavedSearchButton();
+		searchSteps.shouldSeePreviouslyCreatedSearch();
+		searchSteps.clickPreviouslyCreatedSearch();
 		//Will be a check applying filter here
 		perchwellSteps.clickList();
 		//Don't work now -  perchwellSteps.isFilter1Bath1BedApplied("STUDIO | 1 BA");
@@ -62,7 +59,6 @@ public class TC12_NewSearch extends SampleTest {
 		openedBuildingSteps.clickBackButton();
 
 		perchwellSteps.openSecondBuilding();
-
 		openedBuildingSteps.isFilterFirepaceApplied();
 		openedBuildingSteps.clickBackButton();
 
@@ -71,15 +67,14 @@ public class TC12_NewSearch extends SampleTest {
 		openedBuildingSteps.clickBackButton();
 
 		perchwellSteps.clickMap();
-
-		//mapSteps.clickNotNowButton();
+	//	mapSteps.clickNotNowButton();
+		//Don't work now Broked filter for 1 BA - 	mapSteps.checkForChangesAfterApplyingTheFilter();
 		//Will be a check applying filter here
 		perchwellSteps.clickAnalytics();
-
 		analyticsSteps.isBuildingTypeChartDisplayed();
 		analyticsSteps.shouldSeeDomByPriceCartChart();
 		analyticsSteps.shouldSeeDaysOnMarketChartWithSwipe();
-		analyticsSteps.shouldSeeDomByPrice2ChartWithSwipe();
+		analyticsSteps.isGardenChartDisplayed();
 		analyticsSteps.shouldSeeBuildingHeightCartWithSwipe();
 		analyticsSteps.shouldSeeAscingPriceChartWithSwipe();
 
