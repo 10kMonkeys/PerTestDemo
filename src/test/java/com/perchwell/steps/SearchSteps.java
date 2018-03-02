@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.Helper;
 import com.perchwell.pages.perchwell.SearchPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -77,6 +78,10 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void selectRandomStatusFilter() throws Exception {
+		onPage.selectRandomStatusFilter();
+	}
+
 	public void deleteDefaultLocationInFilter() {
 		onPage.clickDeleteTagButtonBROOKLYN();
 		onPage.clickDeleteTagButtonQUEENS();
@@ -124,5 +129,15 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void saveAsOptionSelect() {
 		onPage.saveAsOptionSelect();
+	}
+
+	@Step
+	public void clickActiveFilter(){
+		onPage.setFilterActive();
+	}
+
+	@Step
+	public void isBuildingsFilteredAfterApplyingStatusFilter() throws Exception {
+		Assert.assertTrue(onPage.isElementExistsInEachCell());
 	}
 }

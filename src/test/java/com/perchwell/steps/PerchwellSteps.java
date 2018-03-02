@@ -46,17 +46,21 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void openThirdBuilding() throws Exception {
-		onPage.isBuildingDisplayedWithSwipe(onPage.getThirdBuilding());
-		onPage.openThirdBuilding();
-	}
-
-	@Step
 	public void countItemsInListView(String notice) {
 
 		onPage.addValueInSessionVariable(notice, String.valueOf(onPage.countItemsInListView()));
 		//onPage.numberOfItemsInListView= onPage.countItemsInListView();
+	}
 
+    @Step
+    public void openThirdBuilding() throws Exception {
+       onPage.isBuildingDisplayedWithSwipe(onPage.getThirdBuilding());
+       onPage.openThirdBuilding();
+    }
+
+	@Step
+	public void countItemsInListViewBeforApplyingFilter(){
+	onPage.numberOfItemsInListView= onPage.countItemsInListView();
 	}
 
 	@Step(" '{0}' and '{1}' should be different")
@@ -88,13 +92,11 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void clickList() {
-
 		onPage.clickList();
 	}
 
 	@Step("Should see listings only from selected district {0}")
 	public void shouldSeeListingsOnlyFromSelectedDistrict(String city) {
-
 		Assert.assertTrue(onPage.isElementExistsInEachCell(city));
 	}
 
@@ -123,4 +125,5 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void shouldSeePreviouslyCreatedNameOfSearch() {
 		Assert.assertTrue(onPage.getCurrentSearchName().equalsIgnoreCase( onPage.getValueFromSessionVariable("Search")));
 	}
+
 }

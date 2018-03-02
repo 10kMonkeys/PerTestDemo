@@ -12,6 +12,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class SearchPage extends BasePage {
@@ -69,6 +72,24 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "1BathButton")
 	private WebElement filterFor1Bath;
 
+	@iOSXCUITFindBy(accessibility = "CONTRACT")
+	private WebElement contractButton;
+
+	@iOSXCUITFindBy(accessibility = "OFF MKT")
+	private WebElement offMKTButton;
+
+	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"SOLD/RENTED\"])[1]")
+	private WebElement soldOrRentedButton;
+
+	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"EXPIRED\"])[1]")
+	private WebElement expiredButton;
+
+	@iOSXCUITFindBy(accessibility = "ACTIVE")
+	private WebElement activeButton;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeStaticText[not(contains(@name,'LISTING STATUS'))]")
+	private List<WebElement> statusFilterList;
+
 	@iOSXCUITFindBy(accessibility = "deleteTagButtonBROOKLYN")
 	private WebElement deleteTagButtonBROOKLYN;
 
@@ -95,6 +116,8 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "SAVE AS...")
 	private WebElement save;
+
+	private List<String> statusFilterNameList = new ArrayList<String>();
 
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
@@ -185,6 +208,41 @@ public class SearchPage extends BasePage {
 		element(filterFor1Bath).click();
 	}
 
+	public void setFilterActive(){
+		element(activeButton).click();
+	}
+
+	public void setFilterForExpired(){
+		element(expiredButton).click();
+	}
+
+	public void setFilterForSoldOrRented(){
+		element(soldOrRentedButton).click();
+	}
+
+	public void setFilterForContract(){
+		element(contractButton).click();
+	}
+
+	public void selectRandomStatusFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(expiredButton);
+		element(activeButton).click();
+		WebElement filter = statusFilterList.get(new Random().nextInt(statusFilterList.size()));
+		switch (element(filter).getValue()){
+			case "CONTRACT":statusFilterNameList.add("InContractBanner");
+								break;
+			case "OFF MKT":statusFilterNameList.add("OffMarketBanner");
+								break;
+			case "SOLD/RENTED":statusFilterNameList.add("SoldBanner");
+								statusFilterNameList.add("RentedBanner");
+								break;
+			case "EXPIRED":statusFilterNameList.add("OffMarketBanner");
+								break;
+			case "ACTIVE":statusFilterNameList.add("Active");
+								break;
+		}
+		element(filter).click();
+	}
 	public void clickDeleteTagButtonQUEENS() {
 		element(deleteTagButtonQUEENS).click();
 	}
@@ -230,4 +288,33 @@ public class SearchPage extends BasePage {
 	public void saveAsOptionSelect() {
 		element(save).click();
 	}
+
+	public boolean isElementExistsInEachCell() {
+		boolean isAllCellsContain = true;
+		WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
+		List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
+		if (listCells.size() > 0) {
+			for(String filterName: statusFilterNameList){
+				if(!filterName.contains("Active")) {
+					for (int i = 0; (i < 10 || i < listCells.size()); i++) {
+						if (listCells.get(i).findElements(By.name(filterName)).size() == 0) {
+							isAllCellsContain = false;
+							break;
+						}
+					}
+				}
+				else{
+					for (int i = 0; (i < 10 || i < listCells.size()); i++) {
+						if (listCells.get(i).findElements(By.name(filterName)).size() > 0) {
+							isAllCellsContain = false;
+							break;
+						}
+					}
+				}
+			}
+
+		}
+		return isAllCellsContain;
+	}
 }
+

@@ -4,6 +4,7 @@ import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -161,7 +162,6 @@ public class PerchwellPage extends BasePage {
 			}
 		}
 		return isAllCellsContain;
-
 	}
 
 	public void addValueInSessionVariable(String name, String value) {
