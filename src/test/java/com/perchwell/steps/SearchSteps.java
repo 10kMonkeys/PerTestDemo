@@ -76,4 +76,8 @@ public class SearchSteps extends ScenarioSteps {
 		onPage.setFilterFor1Bath();
 	}
 
+	@Step
+	public void selectRandomStatusFilter() throws Exception {
+		onPage.selectRandomStatusFilter();
+	}
 }

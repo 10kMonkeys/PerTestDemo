@@ -10,6 +10,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+import java.util.Random;
+
 public class SearchPage extends BasePage {
 
 	public SearchPage(WebDriver driver) {
@@ -65,6 +68,23 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "1BathButton")
 	private WebElement filterFor1Bath;
 
+	@iOSXCUITFindBy(accessibility = "CONTRACT")
+	private WebElement contractButton;
+
+	@iOSXCUITFindBy(accessibility = "OFF MKT")
+	private WebElement offMKTButton;
+
+	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"SOLD/RENTED\"])[1]")
+	private WebElement soldOrRentedButton;
+
+	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"EXPIRED\"])[1]")
+	private WebElement expiredButton;
+
+	@iOSXCUITFindBy(accessibility = "ACTIVE")
+	private WebElement activeButton;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeStaticText[not(contains(@name,'LISTING STATUS'))]")
+	private List<WebElement> statusFilterList;
 
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
@@ -150,5 +170,29 @@ public class SearchPage extends BasePage {
 
 	public void setFilterFor1Bath(){
 		element(filterFor1Bath).click();
+	}
+
+	public void setFilterActive(){
+		element(activeButton).click();
+	}
+
+	public void setFilterForExpired(){
+		element(expiredButton).click();
+	}
+
+	public void setFilterForSoldOrRented(){
+		element(soldOrRentedButton).click();
+	}
+
+	public void setFilterForContract(){
+		element(contractButton).click();
+	}
+
+	public void selectRandomStatusFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(expiredButton);
+		element(activeButton).click();
+		WebElement filter = statusFilterList.get(new Random().nextInt(statusFilterList.size()));
+		Helper.addValueInSessionVariable("filterName",element(filter).getValue());
+		element(filter).click();
 	}
 }

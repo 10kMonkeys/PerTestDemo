@@ -3,6 +3,7 @@ package com.perchwell.helpers;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.util.SystemEnvironmentVariables;
 import net.thucydides.core.webdriver.WebDriverFacade;
@@ -112,5 +113,13 @@ public abstract class Helper {
     public static String getDriverFromProperty() {
         EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
         return variables.getProperty("appium.platformName");
+    }
+
+    public static void addValueInSessionVariable(String name, String value) {
+        Serenity.setSessionVariable(name).to(value);
+    }
+
+    public static String getValueFromSessionVariable(String name) {
+        return Serenity.sessionVariableCalled(name);
     }
 }
