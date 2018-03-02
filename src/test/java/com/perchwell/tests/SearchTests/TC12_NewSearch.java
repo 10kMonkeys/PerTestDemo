@@ -70,6 +70,8 @@ public class TC12_NewSearch extends SampleTest {
 	//	mapSteps.clickNotNowButton();
 		//Don't work now Broked filter for 1 BA - 	mapSteps.checkForChangesAfterApplyingTheFilter();
 		//Will be a check applying filter here
+
+
 		perchwellSteps.clickAnalytics();
 		analyticsSteps.isBuildingTypeChartDisplayed();
 		analyticsSteps.shouldSeeDomByPriceCartChart();

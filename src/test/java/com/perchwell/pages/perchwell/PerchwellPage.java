@@ -55,6 +55,9 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "list_view_button")
 	private WebElement listButton;
 
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]")
+	private WebElement currentSearchInTitle;
+
 	public static Integer numberOfItemsInListView;
 	// public String buildingAddress;
 
@@ -160,4 +163,21 @@ public class PerchwellPage extends BasePage {
 		return isAllCellsContain;
 
 	}
+
+	public void addValueInSessionVariable(String name, String value) {
+		Serenity.setSessionVariable(name).to(value);
+	}
+
+	public String getValueFromSessionVariable(String name) {
+		return Serenity.sessionVariableCalled(name);
+	}
+
+	public String getCurrentSearchName() {
+		//	String currentName=withTimeoutOf(3,SECONDS).getDriver().findElement(By.xpath ("*//XCUIElementTypeNavigationBar[1]")).getAttribute("name");
+
+		String currentName = currentSearchInTitle.getAttribute("name");
+		return currentName;
+	}
+
+
 }

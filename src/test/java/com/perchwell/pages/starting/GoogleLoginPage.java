@@ -53,10 +53,8 @@ public class GoogleLoginPage  extends BasePage {
 	}
 
 	public void setEmail(String email) {
-
+    //  waitFor(emailTextBox);
 		emailTextBox.sendKeys(email);
-
-
     }
 
     public void clickLogin() { element(identifierNextButton).click(); }

@@ -78,11 +78,23 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "deleteTagButtonQUEENS")
 	private WebElement deleteTagButtonQUEENS;
 
-	@iOSXCUITFindBy(accessibility= "SearchNeighborhoods")
+	@iOSXCUITFindBy(accessibility = "SearchNeighborhoods")
 	private WebElement searchNeihborhoods;
 
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[3]")
 	private WebElement thirdSearchInList;
+
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
+	private WebElement firstSearchInList;
+
+	@iOSXCUITFindBy(accessibility = "SavedSearchCancelButton")
+	private WebElement savedSearchCancelButton;
+
+	@iOSXCUITFindBy(accessibility = "OVERWRITE")
+	private WebElement overwrite;
+
+	@iOSXCUITFindBy(accessibility = "SAVE AS...")
+	private WebElement save;
 
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
@@ -96,7 +108,7 @@ public class SearchPage extends BasePage {
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-			appiumDriver.hideKeyboard();
+		appiumDriver.hideKeyboard();
 		applySearchButton.click();
 	}
 
@@ -110,7 +122,6 @@ public class SearchPage extends BasePage {
 
 	public void selectFilterFor2Beds() {
 		element(filterFor2Beds).click();
-
 	}
 
 	public void selectFilterFireplace() {
@@ -157,20 +168,20 @@ public class SearchPage extends BasePage {
 
 	public boolean shouldSeePreviouslyCreatedSearch(String search) {
 
-		WebElement previouslyCreatedSearch =element(By.name(search.toUpperCase()));
+		WebElement previouslyCreatedSearch = element(By.name(search.toUpperCase()));
 		//Helper.scrollToElement(previouslyCreatedSearch);
 		return previouslyCreatedSearch.isDisplayed();
 	}
 
-	public void setMinimumPriceFilter(String price){
+	public void setMinimumPriceFilter(String price) {
 		element(minimumPriceTextBox).typeAndEnter(price);
 	}
 
-	public void setFilterForStudioBeds(){
+	public void setFilterForStudioBeds() {
 		element(filterStudioBedsButton).click();
 	}
 
-	public void setFilterFor1Bath(){
+	public void setFilterFor1Bath() {
 		element(filterFor1Bath).click();
 	}
 
@@ -187,7 +198,6 @@ public class SearchPage extends BasePage {
 	}
 
 	public void addLocationFilterAlphabetCity() {
-
 	}
 
 	public void clickOnLocationFilter() {
@@ -196,5 +206,28 @@ public class SearchPage extends BasePage {
 
 	public void clickThirdSearchInList() {
 		element(thirdSearchInList).click();
+	}
+
+	public boolean isAnySearchExist() {
+		return Helper.isElementDisplayed(firstSearchInList);
+	}
+
+	public void selectFirstSearchAndSaveName() {
+		String searchName = firstSearchInList.getAttribute("name");
+		System.out.print("Search name" + searchName);
+		addValueInSessionVariable("SearchName", searchName);
+		firstSearchInList.click();
+	}
+
+	public void savedSearchCancelButtonClick() {
+		element(savedSearchCancelButton).click();
+	}
+
+	public void overwriteOptionSelect() {
+		element(overwrite).click();
+	}
+
+	public void saveAsOptionSelect() {
+		element(save).click();
 	}
 }

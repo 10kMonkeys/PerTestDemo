@@ -24,7 +24,7 @@ public class TC19_ApplyingFilterOnAnalyticsTest extends SampleTest {
         analyticsSteps.getBedroomsChartValue();
         analyticsSteps.getAskingPriceChartValue();
         analyticsSteps.clickMyNewSearch();
-        searchSteps.setMinimumPriceFilter();
+        searchSteps.setMinimumPriceFilter("600000");
         searchSteps.setFilterForStudioBeds();
         searchSteps.clickApplyButton();
         analyticsSteps.isBedroomsChartChange();
