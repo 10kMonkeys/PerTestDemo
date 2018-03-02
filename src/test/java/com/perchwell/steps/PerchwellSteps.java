@@ -48,13 +48,13 @@ public class PerchwellSteps extends ScenarioSteps {
     @Step
     public void openThirdBuilding() throws Exception {
        onPage.isBuildingDisplayedWithSwipe(onPage.getThirdBuilding());
-       onPage.openThirdBuilding(); }
+       onPage.openThirdBuilding();
+    }
 
 	@Step
 	public void countItemsInListViewBeforApplyingFilter(){
 	onPage.numberOfItemsInListView= onPage.countItemsInListView();
-
-   }
+	}
 
 	@Step
 	public void shoudSeeNoLessItemsInListViewAfterDeleteFilter(){
@@ -73,7 +73,8 @@ public class PerchwellSteps extends ScenarioSteps {
     @Step
     public void getFirstBuildingAddress() {
             onPage.addBuildingAddressInSessionVariable("buidingAddress", onPage.getFistBuildingAddress());
-       }
+    }
+
     @Step
     public void clickAnalytics(){
         onPage.openAnalytics();
@@ -81,22 +82,17 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void clickList() {
-
-   	onPage.clickList();
+   	    onPage.clickList();
 	}
 
 	@Step("Should see listings only from selected district {0}")
 	public void shouldSeeListingsOnlyFromSelectedDistrict(String city) {
-
    	Assert.assertTrue(onPage.isElementExistsInEachCell(city));
 	}
 
 	@Step("Should see listing with filters are applyed {0}")
 	public void isFilter1Bath1BedApplied(String search) {
-
 		Assert.assertTrue(onPage.isElementExistsInEachCell(search));
-
-
-
 	}
+
 }

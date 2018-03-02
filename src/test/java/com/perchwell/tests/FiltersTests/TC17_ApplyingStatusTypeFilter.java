@@ -16,5 +16,7 @@ public class TC17_ApplyingStatusTypeFilter extends SampleTest {
             perchPopupSteps.clickNotNowButton();
             perchwellSteps.clickMyNewSearch();
             searchSteps.selectRandomStatusFilter();
+            searchSteps.clickApplyButton();
+            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter();
     }
 }

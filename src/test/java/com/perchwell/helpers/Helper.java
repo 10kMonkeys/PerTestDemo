@@ -114,12 +114,4 @@ public abstract class Helper {
         EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
         return variables.getProperty("appium.platformName");
     }
-
-    public static void addValueInSessionVariable(String name, String value) {
-        Serenity.setSessionVariable(name).to(value);
-    }
-
-    public static String getValueFromSessionVariable(String name) {
-        return Serenity.sessionVariableCalled(name);
-    }
 }

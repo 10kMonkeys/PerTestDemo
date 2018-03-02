@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
@@ -103,6 +104,8 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[3]")
 	private WebElement thirdSearchInList;
+
+	private List<String> statusFilterNameList = new ArrayList<String>();
 
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
@@ -214,7 +217,19 @@ public class SearchPage extends BasePage {
 		Helper.swipeDownUntilElementVisible(expiredButton);
 		element(activeButton).click();
 		WebElement filter = statusFilterList.get(new Random().nextInt(statusFilterList.size()));
-		Helper.addValueInSessionVariable("filterName", element(filter).getValue());
+		switch (element(filter).getValue()){
+			case "CONTRACT":statusFilterNameList.add("InContractBanner");
+								break;
+			case "OFF MKT":statusFilterNameList.add("OffMarketBanner");
+								break;
+			case "SOLD/RENTED":statusFilterNameList.add("SoldBanner");
+								statusFilterNameList.add("RentedBanner");
+								break;
+			case "EXPIRED":statusFilterNameList.add("OffMarketBanner");
+								break;
+			case "ACTIVE":statusFilterNameList.add("Active");
+								break;
+		}
 		element(filter).click();
 	}
 	public void clickDeleteTagButtonQUEENS() {
@@ -240,4 +255,33 @@ public class SearchPage extends BasePage {
 	public void clickThirdSearchInList() {
 		element(thirdSearchInList).click();
 	}
+
+	public boolean isElementExistsInEachCell() {
+		boolean isAllCellsContain = true;
+		WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
+		List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
+		if (listCells.size() > 0) {
+			for(String filterName: statusFilterNameList){
+				if(!filterName.contains("Active")) {
+					for (int i = 0; (i < 10 || i < listCells.size()); i++) {
+						if (listCells.get(i).findElements(By.name(filterName)).size() == 0) {
+							isAllCellsContain = false;
+							break;
+						}
+					}
+				}
+				else{
+					for (int i = 0; (i < 10 || i < listCells.size()); i++) {
+						if (listCells.get(i).findElements(By.name(filterName)).size() > 0) {
+							isAllCellsContain = false;
+							break;
+						}
+					}
+				}
+			}
+
+		}
+		return isAllCellsContain;
+	}
 }
+
