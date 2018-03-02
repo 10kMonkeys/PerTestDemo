@@ -80,4 +80,19 @@ public class SearchSteps extends ScenarioSteps {
 	public void selectRandomStatusFilter() throws Exception {
 		onPage.selectRandomStatusFilter();
 	}
+
+	public void deleteDefaultLocationInFilter() {
+		onPage.clickDeleteTagButtonBROOKLYN();
+		onPage.clickDeleteTagButtonQUEENS();
+		onPage.clickDeleteTagButtonMANHATTAN();
+	}
+	@Step
+	public void addLocationFilter() {
+		onPage.clickOnLocationFilter();
+		//onPage.addLocationFilterAlphabetCity();
+	}
+	@Step
+	public void clickThirdSearchInList() {
+		onPage.clickThirdSearchInList();
+	}
 }

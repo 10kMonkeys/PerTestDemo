@@ -268,4 +268,6 @@ public class AnalyticsSteps extends ScenarioSteps {
 	public void isGardenChartDisplayed() {
 		Assert.assertTrue(onPage.isGardenChartDisplayed());
 	}
+
+
 }
