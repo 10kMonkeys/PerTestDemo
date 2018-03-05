@@ -9,6 +9,7 @@ import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -78,10 +79,10 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "OFF MKT")
 	private WebElement offMKTButton;
 
-	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"SOLD/RENTED\"])[1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SOLD/RENTED\"`][1]")
 	private WebElement soldOrRentedButton;
 
-	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"EXPIRED\"])[1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"EXPIRED\"`][1]")
 	private WebElement expiredButton;
 
 	@iOSXCUITFindBy(accessibility = "ACTIVE")
@@ -198,6 +199,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void setFilterActive(){
+		statusFilterNameList.add("Active");
 		element(activeButton).click();
 	}
 
@@ -272,10 +274,15 @@ public class SearchPage extends BasePage {
 				}
 				else{
 					for (int i = 0; (i < 10 || i < listCells.size()); i++) {
-						if (listCells.get(i).findElements(By.name(filterName)).size() > 0) {
-							isAllCellsContain = false;
-							break;
+						try {
+							if (listCells.get(i).findElement(By.name(filterName)).isDisplayed()) {
+								isAllCellsContain = false;
+								break;
+							}
+						} catch (NoSuchElementException e) {
+							return isAllCellsContain;
 						}
+
 					}
 				}
 			}
