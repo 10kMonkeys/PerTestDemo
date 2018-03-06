@@ -4,10 +4,13 @@ import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 //import sun.jvm.hotspot.memory.HeapBlock;
+
+import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -44,7 +47,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[3]")
 	private WebElement thirdBuilding;
 
-	@iOSXCUITFindBy(accessibility= "map_view_button")
+	@iOSXCUITFindBy(accessibility = "map_view_button")
 	private WebElement map;
 
 	@iOSXCUITFindBy(accessibility = "market report logo")
@@ -53,10 +56,11 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "list_view_button")
 	private WebElement listButton;
 
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]")
+	private WebElement currentSearchInTitle;
 
 	public static Integer numberOfItemsInListView;
 	// public String buildingAddress;
-
 
 	public WebElement getThirdBuilding() {
 		return thirdBuilding;
@@ -144,4 +148,36 @@ public class PerchwellPage extends BasePage {
 	public void clickList() {
 		element(listButton).click();
 	}
+
+	public boolean isElementExistsInEachCell(String element) {
+		boolean isAllCellsContain = true;
+		WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
+		List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
+		if (listCells.size() > 0) {
+			for (int i = 0; (i < 10 || i < listCells.size()); i++) {
+				if (listCells.get(i).findElements(By.name(element)).size() == 0) {
+					isAllCellsContain = false;
+					break;
+				}
+			}
+		}
+		return isAllCellsContain;
+	}
+
+	public void addValueInSessionVariable(String name, String value) {
+		Serenity.setSessionVariable(name).to(value);
+	}
+
+	public String getValueFromSessionVariable(String name) {
+		return Serenity.sessionVariableCalled(name);
+	}
+
+	public String getCurrentSearchName() {
+		//	String currentName=withTimeoutOf(3,SECONDS).getDriver().findElement(By.xpath ("*//XCUIElementTypeNavigationBar[1]")).getAttribute("name");
+
+		String currentName = currentSearchInTitle.getAttribute("name");
+		return currentName;
+	}
+
+
 }

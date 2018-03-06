@@ -3,10 +3,12 @@ package com.perchwell;
 
 import com.perchwell.helpers.TravisAlive;
 import com.perchwell.steps.*;
+
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.junit.BeforeClass;
+
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 

@@ -14,7 +14,7 @@ public class WelcomePage extends BasePage {
         super (driver);
     }
 
-    @AndroidFindBy(id = "com.perchwell.perchwellapp:id/log_in")
+    @AndroidFindBy(id="com.perchwell.perchwellapp:id/log_in" )
     @iOSXCUITFindBy(accessibility = "LOG IN")
     private WebElement loginButton;
 

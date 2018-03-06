@@ -3,12 +3,20 @@ package com.perchwell.pages.perchwell;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class SearchPage extends BasePage {
 
@@ -65,6 +73,52 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "1BathButton")
 	private WebElement filterFor1Bath;
 
+	@iOSXCUITFindBy(accessibility = "CONTRACT")
+	private WebElement contractButton;
+
+	@iOSXCUITFindBy(accessibility = "OFF MKT")
+	private WebElement offMKTButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SOLD/RENTED\"`][1]")
+	private WebElement soldOrRentedButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"EXPIRED\"`][1]")
+	private WebElement expiredButton;
+
+	@iOSXCUITFindBy(accessibility = "ACTIVE")
+	private WebElement activeButton;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeStaticText[not(contains(@name,'LISTING STATUS'))]")
+	private List<WebElement> statusFilterList;
+
+	@iOSXCUITFindBy(accessibility = "deleteTagButtonBROOKLYN")
+	private WebElement deleteTagButtonBROOKLYN;
+
+	@iOSXCUITFindBy(accessibility = "deleteTagButtonMANHATTAN")
+	private WebElement deleteTagButtonMANHATTAN;
+
+	@iOSXCUITFindBy(accessibility = "deleteTagButtonQUEENS")
+	private WebElement deleteTagButtonQUEENS;
+
+	@iOSXCUITFindBy(accessibility = "SearchNeighborhoods")
+	private WebElement searchNeihborhoods;
+
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[3]")
+	private WebElement thirdSearchInList;
+
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
+	private WebElement firstSearchInList;
+
+	@iOSXCUITFindBy(accessibility = "SavedSearchCancelButton")
+	private WebElement savedSearchCancelButton;
+
+	@iOSXCUITFindBy(accessibility = "OVERWRITE")
+	private WebElement overwrite;
+
+	@iOSXCUITFindBy(accessibility = "SAVE AS...")
+	private WebElement save;
+
+	private List<String> statusFilterNameList = new ArrayList<String>();
 
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
@@ -75,6 +129,10 @@ public class SearchPage extends BasePage {
 	}
 
 	public void clickApplyButton() {
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+		appiumDriver.hideKeyboard();
 		applySearchButton.click();
 	}
 
@@ -88,7 +146,6 @@ public class SearchPage extends BasePage {
 
 	public void selectFilterFor2Beds() {
 		element(filterFor2Beds).click();
-
 	}
 
 	public void selectFilterFireplace() {
@@ -135,20 +192,136 @@ public class SearchPage extends BasePage {
 
 	public boolean shouldSeePreviouslyCreatedSearch(String search) {
 
-		WebElement previouslyCreatedSearch =element(By.name(search.toUpperCase()));
+		WebElement previouslyCreatedSearch = element(By.name(search.toUpperCase()));
 		//Helper.scrollToElement(previouslyCreatedSearch);
 		return previouslyCreatedSearch.isDisplayed();
 	}
 
-	public void setMinimumPriceFilter(String price){
+	public void setMinimumPriceFilter(String price) {
 		element(minimumPriceTextBox).typeAndEnter(price);
 	}
 
-	public void setFilterForStudioBeds(){
+	public void setFilterForStudioBeds() {
 		element(filterStudioBedsButton).click();
 	}
 
-	public void setFilterFor1Bath(){
+	public void setFilterFor1Bath() {
 		element(filterFor1Bath).click();
 	}
+
+	public void setFilterActive(){
+		statusFilterNameList.add("Active");
+		element(activeButton).click();
+	}
+
+	public void setFilterForExpired(){
+		element(expiredButton).click();
+	}
+
+	public void setFilterForSoldOrRented(){
+		element(soldOrRentedButton).click();
+	}
+
+	public void setFilterForContract(){
+		element(contractButton).click();
+	}
+
+	public void selectRandomStatusFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(expiredButton);
+		element(activeButton).click();
+		WebElement filter = statusFilterList.get(new Random().nextInt(statusFilterList.size()));
+		switch (element(filter).getValue()){
+			case "CONTRACT":statusFilterNameList.add("InContractBanner");
+								break;
+			case "OFF MKT":statusFilterNameList.add("OffMarketBanner");
+								break;
+			case "SOLD/RENTED":statusFilterNameList.add("SoldBanner");
+								statusFilterNameList.add("RentedBanner");
+								break;
+			case "EXPIRED":statusFilterNameList.add("OffMarketBanner");
+								break;
+			case "ACTIVE":statusFilterNameList.add("Active");
+								break;
+		}
+		element(filter).click();
+	}
+	public void clickDeleteTagButtonQUEENS() {
+		element(deleteTagButtonQUEENS).click();
+	}
+
+	public void clickDeleteTagButtonBROOKLYN() {
+		element(deleteTagButtonBROOKLYN).click();
+	}
+
+	public void clickDeleteTagButtonMANHATTAN() {
+		element(deleteTagButtonMANHATTAN).click();
+	}
+
+	public void addLocationFilterAlphabetCity() {
+	}
+
+	public void clickOnLocationFilter() {
+		element(searchNeihborhoods).click();
+	}
+
+	public void clickThirdSearchInList() {
+		element(thirdSearchInList).click();
+	}
+
+	public boolean isAnySearchExist() {
+		return Helper.isElementDisplayed(firstSearchInList);
+	}
+
+	public void selectFirstSearchAndSaveName() {
+		String searchName = firstSearchInList.getAttribute("name");
+		System.out.print("Search name" + searchName);
+		addValueInSessionVariable("SearchName", searchName);
+		firstSearchInList.click();
+	}
+
+	public void savedSearchCancelButtonClick() {
+		element(savedSearchCancelButton).click();
+	}
+
+	public void overwriteOptionSelect() {
+		element(overwrite).click();
+	}
+
+	public void saveAsOptionSelect() {
+		element(save).click();
+	}
+
+	public boolean isElementExistsInEachCell() {
+		boolean isAllCellsContain = true;
+		WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
+		List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
+		if (listCells.size() > 0) {
+			for(String filterName: statusFilterNameList){
+				if(!filterName.contains("Active")) {
+					for (int i = 0; (i < 10 || i < listCells.size()); i++) {
+						if (listCells.get(i).findElements(By.name(filterName)).size() == 0) {
+							isAllCellsContain = false;
+							break;
+						}
+					}
+				}
+				else{
+					for (int i = 0; (i < 10 || i < listCells.size()); i++) {
+						try {
+							if (listCells.get(i).findElement(By.name(filterName)).isDisplayed()) {
+								isAllCellsContain = false;
+								break;
+							}
+						} catch (NoSuchElementException e) {
+							return isAllCellsContain;
+						}
+
+					}
+				}
+			}
+
+		}
+		return isAllCellsContain;
+	}
 }
+

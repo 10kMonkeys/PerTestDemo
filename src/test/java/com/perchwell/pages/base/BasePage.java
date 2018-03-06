@@ -12,7 +12,6 @@ package com.perchwell.pages.base;
         import java.util.concurrent.TimeUnit;
 
 public abstract class BasePage extends PageObject {
-
     public BasePage(final WebDriver driver) {
         super(driver, new Predicate<PageObject>() {
             @Override
@@ -21,8 +20,10 @@ public abstract class BasePage extends PageObject {
                 PageFactory
                         .initElements(new AppiumFieldDecorator(((WebDriverFacade) page.getDriver()).getProxiedDriver(),
                                 page.getImplicitWaitTimeout().in(TimeUnit.SECONDS), TimeUnit.SECONDS), page);
+
                 return true;
-            }
+                            }
+
 
         });
     }

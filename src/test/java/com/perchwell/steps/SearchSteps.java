@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.Helper;
 import com.perchwell.pages.perchwell.SearchPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -62,12 +63,12 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void setMinimumPriceFilter(){
-		onPage.setMinimumPriceFilter("600000");
+	public void setMinimumPriceFilter(String amount) {
+		onPage.setMinimumPriceFilter(amount);
 	}
 
 	@Step
-	public void setFilterForStudioBeds(){
+	public void setFilterForStudioBeds() {
 		onPage.setFilterForStudioBeds();
 	}
 
@@ -76,4 +77,67 @@ public class SearchSteps extends ScenarioSteps {
 		onPage.setFilterFor1Bath();
 	}
 
+	@Step
+	public void selectRandomStatusFilter() throws Exception {
+		onPage.selectRandomStatusFilter();
+	}
+
+	public void deleteDefaultLocationInFilter() {
+		onPage.clickDeleteTagButtonBROOKLYN();
+		onPage.clickDeleteTagButtonQUEENS();
+		onPage.clickDeleteTagButtonMANHATTAN();
+	}
+
+	@Step
+	public void addLocationFilter() {
+		onPage.clickOnLocationFilter();
+		//onPage.addLocationFilterAlphabetCity();
+	}
+
+	@Step
+	public void clickThirdSearchInList() {
+		onPage.clickThirdSearchInList();
+	}
+
+	private void createNewSearchStudioBeds() {
+		onPage.setFilterForStudioBeds();
+		this.clickTapToSaveChanges();
+		this.setSearchName();
+		this.clickSaveButton();
+	}
+
+	@Step
+	public void clickExistingSearchInList() {
+
+		if (!onPage.isAnySearchExist()) {
+
+			PerchwellSteps perchwellSteps=new PerchwellSteps();
+			onPage.savedSearchCancelButtonClick();
+			createNewSearchStudioBeds();
+			perchwellSteps.clickMyNewSearch();
+			this.clickLoadSavedSearchButton();
+		}
+		onPage.selectFirstSearchAndSaveName();
+
+	}
+
+	@Step
+	public void overwriteOptionSelect() {
+		onPage.overwriteOptionSelect();
+	}
+
+	@Step
+	public void saveAsOptionSelect() {
+		onPage.saveAsOptionSelect();
+	}
+
+	@Step
+	public void clickActiveFilter(){
+		onPage.setFilterActive();
+	}
+
+	@Step
+	public void isBuildingsFilteredAfterApplyingStatusFilter() throws Exception {
+		Assert.assertTrue(onPage.isElementExistsInEachCell());
+	}
 }

@@ -24,7 +24,7 @@ public class CompareSteps extends ScenarioSteps {
 		Assert.assertTrue(onPage.getSecondBuildingAddress().equalsIgnoreCase(onPage.getBuildingAddressFromSessionVariable(building)));
 	}
 
-	@Step(("The third buildingAddressList is displayed with swipe"))
+	@Step("The third buildingAddressList is displayed with swipe")
 	public void thirdBuildingIsDispayed(String building) throws Exception {
 		Assert.assertTrue(onPage.isBuildingDisplayedWithSwipe(onPage.getBuildingAddressFromSessionVariable(building)));
 	}

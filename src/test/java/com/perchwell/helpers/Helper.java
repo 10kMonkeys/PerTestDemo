@@ -3,22 +3,25 @@ package com.perchwell.helpers;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
+import net.thucydides.core.util.EnvironmentVariables;
+import net.thucydides.core.util.SystemEnvironmentVariables;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.yecht.Data;
 
 import java.time.Duration;
 import java.util.HashMap;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public abstract class  Helper {
+public abstract class Helper {
 
-    private static void swipeVertical(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage, int duration) {
+   public static void swipeVertical(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage, int duration) {
         Dimension size = driver.manage().window().getSize();
         int anchor = (int) (size.width * anchorPercentage);
         int startPoint = (int) (size.height * startPercentage);
-        int endPoint = (int) (size.height * finalPercentage*(-1));
+        int endPoint = (int) (size.height * finalPercentage * (-1));
         new TouchAction(driver).press(anchor, startPoint).waitAction(Duration.ofMillis(duration)).moveTo(10, endPoint).release().perform();
 
     }
@@ -27,8 +30,8 @@ public abstract class  Helper {
         Dimension size = driver.manage().window().getSize();
         int anchor = (int) (size.height * anchorPercentage);
         int startPoint = (int) (size.width * startPercentage);
-        int endPoint = (int) (size.width * finalPercentage*(-1));
-        new TouchAction(driver).press(startPoint, anchor).waitAction(Duration.ofSeconds(duration)).moveTo(endPoint,0).release().perform();
+        int endPoint = (int) (size.width * finalPercentage * (-1));
+        new TouchAction(driver).press(startPoint, anchor).waitAction(Duration.ofSeconds(duration)).moveTo(endPoint, 0).release().perform();
     }
 
     @Deprecated
@@ -61,7 +64,7 @@ public abstract class  Helper {
     }
 
     public static boolean isElementDisplayed(WebElement element) {
-              try {
+        try {
             return element.isDisplayed();
         } catch (NoSuchElementException e) {
             return false;
@@ -75,7 +78,7 @@ public abstract class  Helper {
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
-         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
         while (!isFoundTheElement) {
 
             swipeVertical(appiumDriver, 0.9, 0.2, 0.5, 1);
@@ -91,15 +94,12 @@ public abstract class  Helper {
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
         while (!isElementDisplayed(element)) {
-
             swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
-
         }
     }
 
-    public static void scrollToElement(WebElement elementForSearch)
-    {
-        RemoteWebElement element = (RemoteWebElement)elementForSearch;
+    public static void scrollToElement(WebElement elementForSearch) {
+        RemoteWebElement element = (RemoteWebElement) elementForSearch;
         //RemoteWebElement element = (RemoteWebElement)getDriver().findElement(By.name(name));
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         String elementID = element.getId();
@@ -109,5 +109,8 @@ public abstract class  Helper {
         js.executeScript("mobile:scroll", scrollObject);
     }
 
-
+    public static String getDriverFromProperty() {
+        EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
+        return variables.getProperty("appium.platformName");
+    }
 }

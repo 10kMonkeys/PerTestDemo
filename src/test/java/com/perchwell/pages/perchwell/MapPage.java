@@ -13,11 +13,13 @@ import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class MapPage extends BasePage {
+
 	public MapPage(WebDriver driver) {
 		super(driver);
 	}
@@ -30,14 +32,17 @@ public class MapPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "NOT NOW")
 	private WebElement notNowButton;
 
-	@iOSXCUITFindBy(className = "cluster")
-	private WebElement cluster;
-
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeMap")
 	private WebElement map;
 
 	@iOSXCUITFindBy(accessibility= "MY NEW SEARCH")
 	private WebElement myNewSearch;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[@name=\"cluster\"]")
+	private List<WebElement> clusterList;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"1 BA\"]")
+	private WebElement oneBaths;
 
 	public void clickNotNowButton() {
 		element(notNowButton).click();
@@ -75,5 +80,18 @@ public class MapPage extends BasePage {
 
 	public void clickMyNewSearch() {
 		element(myNewSearch).click();
+	}
+
+	public boolean checkForChangesAfterApplyingTheFilter(){
+		Boolean isCheckPassed = true;
+		for(int i=0;(i<10 ||i< clusterList.size() );i++){
+			WebElement cluster = clusterList.get(i);
+			cluster.click();
+			if (!Helper.isElementDisplayed(oneBaths)){
+				isCheckPassed = false;
+				break;
+			}
+		}
+		return isCheckPassed;
 	}
 }

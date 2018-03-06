@@ -44,7 +44,7 @@ public class SelectResultSteps extends ScenarioSteps {
 		onPage.setReportName(onPage.getValueFromSessionVariable("Report name"));
 	}
 
-	@Step("Should see sent email. Mail is checked twice with a four minute waiting")
+	@Step("Should see sent email. Mail is checked twice with a five minute waiting")
 	public void shouldFindSentEmail() {
 		Boolean result = onPage.shouldFindSentEmail(onPage.getValueFromSessionVariable("Report name"));
 		if (!result) {

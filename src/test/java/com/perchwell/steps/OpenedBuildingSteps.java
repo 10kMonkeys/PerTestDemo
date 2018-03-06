@@ -92,9 +92,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 		Assert.assertTrue(onPage.isText1BathDisplayed());
 	}
 
-	public void isFilterFirepaceApplied() {
-//		onPage.click
-//		Assert.assertTrue(onPage.isText1BathDisplayed());*/
+	@Step
+	public void isFilterFirepaceApplied() throws Exception {
+		onPage.clickFeaturesAmenities();
+		Assert.assertTrue(onPage.isFireplaceDisplayed());
 	}
 
 	public void clickShareButton() {
