@@ -40,15 +40,17 @@ public class GoogleLoginPage  extends BasePage {
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-		Set<String> contextNames = appiumDriver.getContextHandles();
-		appiumDriver.context((String) contextNames.toArray()[1]); // set context to WEBVIEW_1
+		Set contextNames = appiumDriver.getContextHandles();
+		if (contextNames.size() > 1) {
+			appiumDriver.context((String) contextNames.toArray()[1]); // set context to WEBVIEW_1
+		}
 	}
 
 	public void selectNativeView(){
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-		Set<String> contextNames = appiumDriver.getContextHandles();
+		Set contextNames = appiumDriver.getContextHandles();
 		appiumDriver.context("NATIVE_APP");
 	}
 

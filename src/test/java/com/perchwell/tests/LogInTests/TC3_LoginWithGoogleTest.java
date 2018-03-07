@@ -2,7 +2,6 @@ package com.perchwell.tests.LogInTests;
 
 import com.perchwell.SampleTest;
 import net.thucydides.core.annotations.WithTag;
-import org.junit.Ignore;
 import org.junit.Test;
 
 @WithTag(type = "SmokeTestSuit", name = "LogInTests")

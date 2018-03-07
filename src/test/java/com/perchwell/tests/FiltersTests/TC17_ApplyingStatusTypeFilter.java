@@ -2,10 +2,10 @@ package com.perchwell.tests.FiltersTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
-import net.thucydides.core.annotations.WithTag;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTag(type = "SmokeTestSuit", name = "FiltersTests")
+@WithTagValuesOf({"SmokeTestSuit", "FiltersTests"})
 public class TC17_ApplyingStatusTypeFilter extends SampleTest {
 
     @Test
@@ -15,8 +15,33 @@ public class TC17_ApplyingStatusTypeFilter extends SampleTest {
             perchwellSteps.skipAllHints();
             perchPopupSteps.clickNotNowButton();
             perchwellSteps.clickMyNewSearch();
-            searchSteps.selectRandomStatusFilter();
+            searchSteps.clickActiveFilter();
+            searchSteps.setUpFilterContract();
             searchSteps.clickApplyButton();
             searchSteps.isBuildingsFilteredAfterApplyingStatusFilter();
+            perchwellSteps.clickMyNewSearch();
+            searchSteps.setUpFilterContract();
+            searchSteps.setUpFilterOffMkt();
+            searchSteps.clickApplyButton();
+            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter();
+            perchwellSteps.clickMyNewSearch();
+            searchSteps.setUpFilterOffMkt();
+            searchSteps.setUpFilterSold();
+            searchSteps.clickApplyButton();
+            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter();
+            perchwellSteps.clickMyNewSearch();
+            searchSteps.setUpFilterRented();
+            searchSteps.clickApplyButton();
+            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter();
+            perchwellSteps.clickMyNewSearch();
+            searchSteps.clickTapToSaveChanges();
+            searchSteps.setSearchName();
+            searchSteps.clickSaveButton();
+            perchwellSteps.clickMyNewSearch();
+            searchSteps.clickLoadSavedSearchButton();
+            searchSteps.createNewSearchClick();
+            searchSteps.clickApplyButton();
+
+
     }
 }
