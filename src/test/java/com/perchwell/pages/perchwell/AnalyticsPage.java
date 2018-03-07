@@ -5,6 +5,7 @@ import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
@@ -295,8 +296,10 @@ public class AnalyticsPage extends BasePage {
 		element(saveButton).click();
 	}
 
-	public void setReportName(String reportName) {
-		element(nameThisReport).sendKeys(reportName);
+	public void setAndSaveReportName(String reportName) {
+		addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
+
+		element(nameThisReport).sendKeys(getValueFromSessionVariable("Report name"));
 	}
 
 	public Boolean shouldFindSentEmail(String report_name) {

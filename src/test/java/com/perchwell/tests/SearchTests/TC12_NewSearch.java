@@ -51,7 +51,7 @@ public class TC12_NewSearch extends SampleTest {
 		searchSteps.clickPreviouslyCreatedSearch();
 		//Will be a check applying filter here
 		perchwellSteps.clickList();
-		//Don't work now -  perchwellSteps.isFilter1Bath1BedApplied("STUDIO | 1 BA");
+		// perchwellSteps.isFilter1Bath1BedApplied("STUDIO | 1 BA");
 
 		perchwellSteps.openFirstBuilding();
 		openedBuildingSteps.clickDiscussWithMyClientHint();
