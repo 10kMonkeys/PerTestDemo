@@ -77,11 +77,6 @@ public class SearchSteps extends ScenarioSteps {
 		onPage.setFilterFor1Bath();
 	}
 
-	@Step
-	public void selectRandomStatusFilter() throws Exception {
-		onPage.selectRandomStatusFilter();
-	}
-
 	public void deleteDefaultLocationInFilter() {
 		onPage.clickDeleteTagButtonBROOKLYN();
 		onPage.clickDeleteTagButtonQUEENS();
@@ -106,6 +101,35 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void isBuildingsFilteredAfterApplyingStatusFilter() throws Exception {
-		Assert.assertTrue(onPage.isElementExistsInEachCell());
+		Assert.assertTrue(onPage.isElementExistsInEachCell(onPage.getValueFromSessionVariable("filterName")));
+	}
+
+	@Step
+	public void setUpFilterContract() {
+		onPage.addValueInSessionVariable("filterName","InContractBanner");
+		onPage.setFilterForContract();
+	}
+
+	@Step
+	public void setUpFilterOffMkt(){
+		onPage.addValueInSessionVariable("filterName","OffMarketBanner");
+		onPage.setFilterForOffMkt();
+	}
+
+	@Step
+	public void setUpFilterSold(){
+		onPage.addValueInSessionVariable("filterName","SoldBanner");
+		onPage.setFilterForSoldOrRented();
+	}
+
+	@Step
+	public void setUpFilterRented(){
+		onPage.addValueInSessionVariable("filterName","RentedBanner");
+		onPage.setFilterForRentals();
+	}
+
+	@Step
+	public void createNewSearchClick(){
+		onPage.createNewSearchButtonClick();
 	}
 }

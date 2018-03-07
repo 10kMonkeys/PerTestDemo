@@ -102,10 +102,8 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[2]")
 	private WebElement firstBuildingInList;
 
-
 	@iOSXCUITFindBy(accessibility = "generic_text_input_field")
 	private WebElement nameThisReport;
-
 
 	@iOSXCUITFindBy(accessibility = "OK")
 	private WebElement reportSentOkButton;
@@ -122,11 +120,9 @@ public class AnalyticsPage extends BasePage {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
 	private WebElement buildingTable;
-	//endregion
 
 	@iOSXCUITFindBy(accessibility = "BEDROOM COUNT")
 	private WebElement bedroomChart;
-
 
 	@iOSXCUITFindBy(accessibility = "BUILDING TYPE")
 	private WebElement buildingTypeChart;
@@ -151,6 +147,17 @@ public class AnalyticsPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "GARDEN")
     private WebElement gardenChart;
+
+	@iOSXCUITFindBy(accessibility = "LOCATION")
+    private WebElement locationButton;
+
+	@iOSXCUITFindBy(accessibility = "MEDIAN")
+    private WebElement medianButton;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"MEDIAN ASKING PRICE\"]")
+    private WebElement medianAskingPriceChart;
+
+    //endregion
 
 	public AnalyticsPage(WebDriver driver){
         super(driver);
@@ -352,6 +359,11 @@ public class AnalyticsPage extends BasePage {
 		return element(bedroomChart).isDisplayed();
 	}
 
+	public boolean isMedianAskingPriceChartDisplayed(){
+	    Helper.scrollToElement(medianAskingPriceChart);
+	    return element(medianAskingPriceChart).isDisplayed();
+    }
+
 	public boolean isDaysOnMarketDisplayedWithSwipe() throws Exception {
 		Helper.swipeDownUntilElementVisible(daysOnMarketButton);
 		//Helper.scrollToElement(daysOnMarketButton);
@@ -428,4 +440,11 @@ public class AnalyticsPage extends BasePage {
         return element(gardenChart).isDisplayed();
     }
 
+    public void medianButtonClick(){
+	    element(medianButton).click();
+    }
+
+    public void locationButtonClick(){
+	    element(locationButton).click();
+    }
 }

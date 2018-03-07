@@ -174,6 +174,11 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void rebnyListingsButtonClick(){
+		onPage.rebnyListingsButtonClick();
+	}
+
+	@Step
 	public void askingPriceChartClick() {
 		onPage.askingPriceChartClick();
 	}
@@ -269,5 +274,23 @@ public class AnalyticsSteps extends ScenarioSteps {
 		Assert.assertTrue(onPage.isGardenChartDisplayed());
 	}
 
+	@Step
+	public void locationButtonClick(){
+		onPage.locationButtonClick();
+	}
 
+	@Step
+	public void medianButtonClick(){
+		onPage.medianButtonClick();
+	}
+
+	@Step
+	public void mktShareButtonClick(){
+		onPage.mktShareButtonClick();
+	}
+
+	@Step
+	public void isMedianAskingPriceChartDisplayed(){
+		Assert.assertTrue(onPage.isMedianAskingPriceChartDisplayed());
+	}
 }
