@@ -30,7 +30,7 @@ public class TC33_SendGraphicReportsToMyEmail extends SampleTest{
 		analyticsSteps.addButtonClick();
 		analyticsSteps.shareButtonClick();
 		analyticsSteps.clickMyEmailOption();
-		analyticsSteps.createReportWithNameAndSave("Analytics_report"+sdf.format(new Date()));
+		analyticsSteps.createReportWithNameAndSave("Analytics_report");
 		analyticsSteps.shouldFindSentEmail();
 
 	}

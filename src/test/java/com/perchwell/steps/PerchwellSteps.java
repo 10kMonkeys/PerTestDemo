@@ -110,8 +110,6 @@ public class PerchwellSteps extends ScenarioSteps {
 
 		int number1 = Integer.parseInt(onPage.getValueFromSessionVariable(s1));
 		int number2 = Integer.parseInt(onPage.getValueFromSessionVariable(s2));
-		System.out.println("Count after filter " + number1);
-		System.out.println("Count owerwite" + number2);
 		Assert.assertTrue(number1 == number2);
 
 	}

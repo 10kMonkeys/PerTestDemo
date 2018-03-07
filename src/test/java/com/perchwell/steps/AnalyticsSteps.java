@@ -1,8 +1,6 @@
 package com.perchwell.steps;
 
-import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.perchwell.AnalyticsPage;
-import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -32,8 +30,8 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	private void setReportName(String reportName) {
-		onPage.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
-		onPage.setReportName(onPage.getValueFromSessionVariable("Report name"));
+		//onPage.addValueInSessionVariable("Report name",reportName);
+		onPage.setAndSaveReportName(reportName);
 	}
 
 	@Step
