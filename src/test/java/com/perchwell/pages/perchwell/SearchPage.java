@@ -118,7 +118,11 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE AS...")
 	private WebElement save;
 
-	private List<String> statusFilterNameList = new ArrayList<String>();
+	@iOSXCUITFindBy(accessibility = "RENTALS")
+	private WebElement rentalsButton;
+
+	@iOSXCUITFindBy(accessibility = "CreateNewSearchButton")
+	private WebElement createNewSearchButton;
 
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
@@ -210,12 +214,11 @@ public class SearchPage extends BasePage {
 	}
 
 	public void setFilterActive(){
-		statusFilterNameList.add("Active");
 		element(activeButton).click();
 	}
 
-	public void setFilterForExpired(){
-		element(expiredButton).click();
+	public void setFilterForOffMkt(){
+		element(offMKTButton).click();
 	}
 
 	public void setFilterForSoldOrRented(){
@@ -226,25 +229,6 @@ public class SearchPage extends BasePage {
 		element(contractButton).click();
 	}
 
-	public void selectRandomStatusFilter() throws Exception {
-		Helper.swipeDownUntilElementVisible(expiredButton);
-		element(activeButton).click();
-		WebElement filter = statusFilterList.get(new Random().nextInt(statusFilterList.size()));
-		switch (element(filter).getValue()){
-			case "CONTRACT":statusFilterNameList.add("InContractBanner");
-								break;
-			case "OFF MKT":statusFilterNameList.add("OffMarketBanner");
-								break;
-			case "SOLD/RENTED":statusFilterNameList.add("SoldBanner");
-								statusFilterNameList.add("RentedBanner");
-								break;
-			case "EXPIRED":statusFilterNameList.add("OffMarketBanner");
-								break;
-			case "ACTIVE":statusFilterNameList.add("Active");
-								break;
-		}
-		element(filter).click();
-	}
 	public void clickDeleteTagButtonQUEENS() {
 		element(deleteTagButtonQUEENS).click();
 	}
@@ -291,37 +275,28 @@ public class SearchPage extends BasePage {
 		element(save).click();
 	}
 
-	public boolean isElementExistsInEachCell() {
+	public boolean isElementExistsInEachCell(String filterName) {
 		boolean isAllCellsContain = true;
 		WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
 		List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
 		if (listCells.size() > 0) {
-			for(String filterName: statusFilterNameList){
-				if(!filterName.contains("Active")) {
-					for (int i = 0; (i < 10 || i < listCells.size()); i++) {
-						if (listCells.get(i).findElements(By.name(filterName)).size() == 0) {
-							isAllCellsContain = false;
-							break;
-						}
-					}
-				}
-				else{
-					for (int i = 0; (i < 10 || i < listCells.size()); i++) {
-						try {
-							if (listCells.get(i).findElement(By.name(filterName)).isDisplayed()) {
-								isAllCellsContain = false;
-								break;
-							}
-						} catch (NoSuchElementException e) {
-							return isAllCellsContain;
-						}
-
-					}
+			for (int i = 0; (i < 10 || i < listCells.size()); i++) {
+				if (listCells.get(i).findElements(By.name(filterName)).size() == 0) {
+					isAllCellsContain = false;
+					break;
 				}
 			}
-
 		}
 		return isAllCellsContain;
+	}
+
+	public void setFilterForRentals(){
+		Helper.scrollToElement(rentalsButton);
+		element(rentalsButton).click();
+	}
+
+	public void createNewSearchButtonClick(){
+		element(createNewSearchButton).click();
 	}
 }
 
