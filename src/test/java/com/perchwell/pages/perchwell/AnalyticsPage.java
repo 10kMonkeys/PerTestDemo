@@ -158,6 +158,18 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"MEDIAN ASKING PRICE\"]")
     private WebElement medianAskingPriceChart;
 
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeTable/XCUIElementTypeCell[2]")
+    private WebElement inHistoryDistButton;
+
+	@iOSXCUITFindBy(accessibility = "FEATURES")
+    private WebElement featuresButton;
+
+	@iOSXCUITFindBy(accessibility = "HISTORIC DIST.")
+    private WebElement historyDistChart;
+
+	@iOSXCUITFindBy(accessibility = "GARDEN PREMIUM")
+    private WebElement gardenPremiumChart;
+
     //endregion
 
 	public AnalyticsPage(WebDriver driver){
@@ -449,5 +461,25 @@ public class AnalyticsPage extends BasePage {
 
     public void locationButtonClick(){
 	    element(locationButton).click();
+    }
+
+    public void inDHistoryDistButtonClick(){
+	    element(inHistoryDistButton).click();
+    }
+
+    public void featuresButtonClick(){
+	    element(featuresButton).click();
+    }
+
+    public void selectGardenChart(){
+	    element(gardenChart).click();
+    }
+
+    public boolean isHistoryDistChartAdd(){
+	    return element(historyDistChart).isDisplayed();
+    }
+
+    public boolean isGardenPremiumChartDisplayed(){
+	    return element(gardenPremiumChart).isDisplayed();
     }
 }

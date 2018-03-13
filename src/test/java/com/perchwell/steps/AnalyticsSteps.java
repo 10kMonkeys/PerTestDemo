@@ -291,4 +291,34 @@ public class AnalyticsSteps extends ScenarioSteps {
 	public void isMedianAskingPriceChartDisplayed(){
 		Assert.assertTrue(onPage.isMedianAskingPriceChartDisplayed());
 	}
+
+	@Step
+	public void selectNYCTownhousesSection(){
+		onPage.nycTownHousesButtonClick();
+	}
+
+	@Step
+	public void inHistoryDistClick(){
+		onPage.inDHistoryDistButtonClick();
+	}
+
+	@Step
+	public void featureButtonClick(){
+		onPage.featuresButtonClick();
+	}
+
+	@Step
+	public void selectGardenChart(){
+		onPage.selectGardenChart();
+	}
+
+	@Step
+	public void isHistoryDistChartDisplayed(){
+		Assert.assertTrue(onPage.isHistoryDistChartAdd());
+	}
+
+	@Step
+	public void isGardenPremiumChartDisplayed(){
+		Assert.assertTrue(onPage.isGardenPremiumChartDisplayed());
+	}
 }
