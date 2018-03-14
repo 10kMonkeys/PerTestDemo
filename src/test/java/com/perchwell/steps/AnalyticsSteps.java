@@ -321,4 +321,24 @@ public class AnalyticsSteps extends ScenarioSteps {
 	public void isGardenPremiumChartDisplayed(){
 		Assert.assertTrue(onPage.isGardenPremiumChartDisplayed());
 	}
+
+	@Step
+	public void selectManagementSection(){
+		onPage.managementButtonClick();
+	}
+
+	@Step
+	public void distributionButtonClick(){
+		onPage.distributionButtonClick();
+	}
+
+	@Step
+	public void selectFirmListingCountChart(){
+		onPage.firmListingCountButtonClick();
+	}
+
+	@Step
+	public void isFirmListingCountChartDisplayed(){
+		Assert.assertTrue(onPage.isFirmListingCountChartDisplayed());
+	}
 }

@@ -118,7 +118,6 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "CLIENT")
 	private WebElement clientOption;
 
-
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
 	private WebElement buildingTable;
 
@@ -169,6 +168,12 @@ public class AnalyticsPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "GARDEN PREMIUM")
     private WebElement gardenPremiumChart;
+
+	@iOSXCUITFindBy(accessibility = "DISTRIBUTION")
+    private WebElement distributionButton;
+
+	@iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT")
+    private WebElement firmListingCountButton;
 
     //endregion
 
@@ -481,5 +486,17 @@ public class AnalyticsPage extends BasePage {
 
     public boolean isGardenPremiumChartDisplayed(){
 	    return element(gardenPremiumChart).isDisplayed();
+    }
+
+    public void firmListingCountButtonClick(){
+	    element(firmListingCountButton).click();
+    }
+
+    public boolean isFirmListingCountChartDisplayed(){
+	    return element(firmListingCountButton).isDisplayed();
+    }
+
+    public void distributionButtonClick(){
+	    element(distributionButton).click();
     }
 }
