@@ -72,6 +72,9 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "OK")
 	private WebElement okButton;
 
+	@iOSXCUITFindBy(xpath =  "//XCUIElementTypeCell/XCUIElementTypeButton")
+	private WebElement deleteButton;
+
 	public WebElement getAddNewClientButton() {
 		return addNewClientButton;
 	}
@@ -117,12 +120,16 @@ public class ClientPage extends BasePage {
 		this.getGroupLabelName(groupName).click();
 	}
 
-	public boolean isClientOrAgentDisplayed(String name) throws Exception {
+	private void swipeDownUntilElementVisible(String name) throws Exception {
 		if (getDriver().findElements(MobileBy.AccessibilityId(name)).size() > 0) {
 			setImplicitTimeout(1, SECONDS);
 			Helper.swipeDownUntilElementVisible(name);
 			resetImplicitTimeout();
 		}
+	}
+
+	public boolean isClientOrAgentDisplayed(String name) throws Exception {
+		swipeDownUntilElementVisible(name);
 		return isElementVisible(MobileBy.AccessibilityId(name));
 	}
 
@@ -184,8 +191,21 @@ public class ClientPage extends BasePage {
 	}
 
 	public void clickClientSuccessfullyAddedOkButton() {
-
 		element(okButton).click();
+	}
 
+	public void swipeCreatedClientName(String name) throws Exception{
+		swipeDownUntilElementVisible(name);
+		WebElement client = getDriver().findElement(MobileBy.AccessibilityId(name));
+		int y = client.getLocation().getY();
+		Helper.swipeRightElementWithSetY(name, y+1);
+	}
+
+	public void clickOnDeleteButton() {
+		element(deleteButton).click();
+	}
+
+	public boolean isDeletedClientNotPresentInClientsList(String name) {
+		return !element(MobileBy.AccessibilityId(name)).isPresent();
 	}
 }

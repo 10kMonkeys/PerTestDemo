@@ -1,8 +1,6 @@
 package com.perchwell.steps;
 
-import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.perchwell.AnalyticsPage;
-import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -32,8 +30,8 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	private void setReportName(String reportName) {
-		onPage.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
-		onPage.setReportName(onPage.getValueFromSessionVariable("Report name"));
+		//onPage.addValueInSessionVariable("Report name",reportName);
+		onPage.setAndSaveReportName(reportName);
 	}
 
 	@Step
@@ -174,6 +172,11 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void rebnyListingsButtonClick(){
+		onPage.rebnyListingsButtonClick();
+	}
+
+	@Step
 	public void askingPriceChartClick() {
 		onPage.askingPriceChartClick();
 	}
@@ -269,5 +272,73 @@ public class AnalyticsSteps extends ScenarioSteps {
 		Assert.assertTrue(onPage.isGardenChartDisplayed());
 	}
 
+	@Step
+	public void locationButtonClick(){
+		onPage.locationButtonClick();
+	}
 
+	@Step
+	public void medianButtonClick(){
+		onPage.medianButtonClick();
+	}
+
+	@Step
+	public void mktShareButtonClick(){
+		onPage.mktShareButtonClick();
+	}
+
+	@Step
+	public void isMedianAskingPriceChartDisplayed(){
+		Assert.assertTrue(onPage.isMedianAskingPriceChartDisplayed());
+	}
+
+	@Step
+	public void selectNYCTownhousesSection(){
+		onPage.nycTownHousesButtonClick();
+	}
+
+	@Step
+	public void inHistoryDistClick(){
+		onPage.inDHistoryDistButtonClick();
+	}
+
+	@Step
+	public void featureButtonClick(){
+		onPage.featuresButtonClick();
+	}
+
+	@Step
+	public void selectGardenChart(){
+		onPage.selectGardenChart();
+	}
+
+	@Step
+	public void isHistoryDistChartDisplayed(){
+		Assert.assertTrue(onPage.isHistoryDistChartAdd());
+	}
+
+	@Step
+	public void isGardenPremiumChartDisplayed(){
+		Assert.assertTrue(onPage.isGardenPremiumChartDisplayed());
+	}
+
+	@Step
+	public void selectManagementSection(){
+		onPage.managementButtonClick();
+	}
+
+	@Step
+	public void distributionButtonClick(){
+		onPage.distributionButtonClick();
+	}
+
+	@Step
+	public void selectFirmListingCountChart(){
+		onPage.firmListingCountButtonClick();
+	}
+
+	@Step
+	public void isFirmListingCountChartDisplayed(){
+		Assert.assertTrue(onPage.isFirmListingCountChartDisplayed());
+	}
 }

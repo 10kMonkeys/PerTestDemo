@@ -20,13 +20,10 @@ public class TC14_ChangeExistingSearch extends SampleTest {
 		searchSteps.clickLoadSavedSearchButton();
 		searchSteps.clickExistingSearchInList();
 		perchwellSteps.countItemsInListView("The number of elements before search changing");
-
-
 		perchwellSteps.clickMyNewSearch();
 		searchSteps.setMinimumPriceFilter("700000");
 		searchSteps.clickFilter1Bath();
 		searchSteps.clickApplyButton();
-
 		perchwellSteps.countItemsInListView("The number of elements after search changing");
 		perchwellSteps.resultsCountIsChanged("The number of elements before search changing","The number of elements after search changing");
 		perchwellSteps.clickMyNewSearch();
@@ -37,6 +34,7 @@ public class TC14_ChangeExistingSearch extends SampleTest {
 		perchwellSteps.shouldSeeTheSameSearchName();
 		perchwellSteps.clickMyNewSearch();
 
+//add checks for existing filters
 	}
 
 }

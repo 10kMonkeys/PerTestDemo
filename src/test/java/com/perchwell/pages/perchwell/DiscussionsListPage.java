@@ -25,6 +25,12 @@ public class DiscussionsListPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[3]")
 	private WebElement firstDiscussionMessage;
 
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeCell/XCUIElementTypeButton")
+	private WebElement deleteButton;
+
+	@iOSXCUITFindBy(accessibility = "DiscussionsCancelButton")
+	private WebElement closeButton;
+
 	public String getFistDiscussionClient() {
 		return element(firstDiscussionClient).getAttribute("name");
 	}
@@ -63,5 +69,26 @@ public class DiscussionsListPage extends BasePage {
 
 	public boolean discusionWithMsgIsDispayed(String message) {
 		return Helper.isElementDisplayed(element(MobileBy.name(message)));
+	}
+
+	public WebElement getFirstItemValue() {
+		return firstItem;
+	}
+
+	public void swipeFirstDiscussionName(WebElement name) throws Exception{
+		int y = firstItem.getLocation().getY();
+		Helper.swipeRightElementWithSetY(name, y+1);
+	}
+
+	public void clickOnDeleteButton() {
+		element(deleteButton).click();
+	}
+
+	public boolean isDeletedDiscussionNotPresentInDiscussionsList(String name) {
+		return !element(MobileBy.AccessibilityId(name)).isPresent();
+	}
+
+	public void closePage() {
+		element(closeButton).click();
 	}
 }
