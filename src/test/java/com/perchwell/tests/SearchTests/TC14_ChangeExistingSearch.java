@@ -24,7 +24,7 @@ public class TC14_ChangeExistingSearch extends SampleTest {
 
 		perchwellSteps.clickMyNewSearch();
 		searchSteps.setMinimumPriceFilter("700000");
-		searchSteps.setUpFilter1Bath();
+		searchSteps.clickFilter1Bath();
 		searchSteps.clickApplyButton();
 
 		perchwellSteps.countItemsInListView("The number of elements after search changing");

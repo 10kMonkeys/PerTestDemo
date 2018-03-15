@@ -15,7 +15,7 @@ public class TC18_ApplyingFilterOnMapView extends SampleTest {
         perchwellSteps.clickMap();
         mapSteps.clickNotNowButton();
         mapSteps.clickMyNewSearch();
-        searchSteps.setUpFilter1Bath();
+        searchSteps.clickFilter1Bath();
         searchSteps.clickApplyButton();
         mapSteps.checkForChangesAfterApplyingTheFilter();
     }

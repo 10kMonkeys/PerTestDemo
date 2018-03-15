@@ -126,4 +126,28 @@ public class PerchwellSteps extends ScenarioSteps {
 		Assert.assertTrue(onPage.getCurrentSearchName().equalsIgnoreCase( onPage.getValueFromSessionVariable("Search")));
 	}
 
+	@Step
+	public void shouldSeeListingOnlyWithSelectedRooms(String rooms) {
+		Assert.assertTrue(onPage.isElementContainParticularBdBa(rooms));
+	}
+
+	@Step
+	public void shouldSeeListing4AndMoreRooms() {
+		Assert.assertTrue(onPage.isContains4PlusParticularBeds());
+
+	}
+
+	@Step
+	public void shouldSeeListingOnlyWithStudios() {
+		Assert.assertTrue(onPage.isContainsStudios());
+	}
+
+	@Step
+	public void isTotalCellsQuantity() {
+		onPage.setTotalCellsQuantity();
+	}
+
+	@Step
+	public void checkTotalCellQuantity() {
+	}
 }

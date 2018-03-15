@@ -1,6 +1,5 @@
 package com.perchwell.steps;
 
-import com.perchwell.helpers.Helper;
 import com.perchwell.pages.perchwell.SearchPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -25,7 +24,7 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void setUpFilter2Beds() {
+	public void clickFilter2Beds() {
 		onPage.selectFilterFor2Beds();
 	}
 
@@ -68,13 +67,13 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void setFilterForStudioBeds() {
-		onPage.setFilterForStudioBeds();
+	public void clickFilterStudioBeds() {
+		onPage.clickOnFilterStudioBeds();
 	}
 
 	@Step
-	public void setUpFilter1Bath() {
-		onPage.setFilterFor1Bath();
+	public void clickFilter1Bath() {
+		onPage.clickOnFilter1Bath();
 	}
 
 	@Step
@@ -100,7 +99,7 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	private void createNewSearchStudioBeds() {
-		onPage.setFilterForStudioBeds();
+		onPage.clickOnFilterStudioBeds();
 		this.clickTapToSaveChanges();
 		this.setSearchName();
 		this.clickSaveButton();
@@ -139,5 +138,41 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void isBuildingsFilteredAfterApplyingStatusFilter() throws Exception {
 		Assert.assertTrue(onPage.isElementExistsInEachCell());
+	}
+
+	@Step
+    public void clickFilter1Bed() {
+		onPage.clickOnFilter1Bed();
+    }
+
+    @Step
+	public void clickFilter3Beds() {
+		onPage.clickOnFilter3Beds();
+	}
+
+	@Step
+	public void clickFilter4PlusBeds() {
+		onPage.clickOnFilter4PlusBeds();
+	}
+
+	@Step
+	public void saveCurrentSearch() {
+		this.clickTapToSaveChanges();
+		this.setSearchName();
+		this.clickSaveButton();
+	}
+
+	@Step
+	public void clickCreateNewSearch() {
+		onPage.clickCreateNewSearchButton();
+	}
+
+	@Step
+	public void checkNoOneFilterSelected() {
+	}
+
+	@Step
+	public void clickResetFilter() {
+		onPage.clickOnResetFilters();
 	}
 }

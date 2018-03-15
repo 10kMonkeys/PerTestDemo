@@ -2,9 +2,7 @@ package com.perchwell.tests.FiltersTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
-import net.thucydides.core.annotations.WithTag;
 import net.thucydides.core.annotations.WithTagValuesOf;
-import org.junit.Ignore;
 import org.junit.Test;
 
 @WithTagValuesOf({"SmokeTestSuit", "FiltersTests"})
@@ -25,7 +23,7 @@ public class TC19_ApplyingFilterOnAnalyticsTest extends SampleTest {
         analyticsSteps.getAskingPriceChartValue();
         analyticsSteps.clickMyNewSearch();
         searchSteps.setMinimumPriceFilter("600000");
-        searchSteps.setFilterForStudioBeds();
+        searchSteps.clickFilterStudioBeds();
         searchSteps.clickApplyButton();
         analyticsSteps.isBedroomsChartChange();
         analyticsSteps.isAskingPriceChartChange();

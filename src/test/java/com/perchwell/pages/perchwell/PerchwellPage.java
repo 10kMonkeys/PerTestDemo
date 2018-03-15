@@ -2,9 +2,11 @@ package com.perchwell.pages.perchwell;
 
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
-import net.thucydides.core.annotations.Step;
+import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +17,9 @@ import java.util.List;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class PerchwellPage extends BasePage {
+
+	private int totalCellAmmount;
+	private String bedroomsTitle = " BD";
 
 	public PerchwellPage(WebDriver driver) {
 		super(driver);
@@ -58,6 +63,9 @@ public class PerchwellPage extends BasePage {
 
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]")
 	private WebElement currentSearchInTitle;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "**//XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeStaticText[1]")
+	private List<WebElement> aa;
 
 	public static Integer numberOfItemsInListView;
 	// public String buildingAddress;
@@ -179,5 +187,74 @@ public class PerchwellPage extends BasePage {
 		return currentName;
 	}
 
+	public boolean isElementContainParticularBdBa(String rooms) {
+		WebElement table = getDriver().findElement(By.className("XCUIElementTypeTable"));
+		List<WebElement> listCells = table.findElements(By.xpath("//XCUIElementTypeCell/XCUIElementTypeStaticText[1]"));
 
+		if (listCells.size() > 0) {
+			for (int i = 0; (i < 10 && i < listCells.size()); i++) {
+
+//				String roomsString = listCells.get(i).findElement(element(roomsValue)).getAttribute("value");
+				String roomsString = listCells.get(i).getAttribute("value");
+
+				if (!roomsString.contains(rooms)) {
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public boolean isContains4PlusParticularBeds() {
+		WebElement table = getDriver().findElement(By.className("XCUIElementTypeTable"));
+		List<WebElement> listCells = table.findElements(By.xpath("//XCUIElementTypeCell/XCUIElementTypeStaticText[1]"));
+
+
+		if (listCells.size() > 0) {
+			for (int i = 0; (i < 10 && i < listCells.size()); i++) {
+
+//				String roomsString = listCells.get(i).findElement(element(roomsValue)).getAttribute("value");
+				String roomsString = listCells.get(i).getAttribute("value");
+				int roomsNumber;
+
+				if (roomsString.substring(2, 4).equals(bedroomsTitle)) {
+					roomsNumber = Integer.parseInt(roomsString.substring(0, 1));
+				} else if (roomsString.substring(3, 5).equals(bedroomsTitle)) {
+					roomsNumber = Integer.parseInt(roomsString.substring(0, 2));
+				} else {
+					return false;
+				}
+
+				if (roomsNumber < 4) {
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public boolean isContainsStudios() {
+		WebElement table = getDriver().findElement(By.className("XCUIElementTypeTable"));
+		List<WebElement> listCells = table.findElements(By.xpath("//XCUIElementTypeCell/XCUIElementTypeStaticText[1]"));
+
+		if (listCells.size() > 0) {
+			for (int i = 0; (i < 10 && i < listCells.size()); i++) {
+
+//				String studioString = listCells.get(i).findElement(element(roomsValue)).getAttribute("value");
+				String studioString = listCells.get(i).getAttribute("value");
+
+					if (studioString.contains(bedroomsTitle)) {
+						return false;
+					}
+				}
+				return true;
+		}
+		return false;
+	}
+
+	public void setTotalCellsQuantity() {
+//		totalCellAmmount = getDriver().findElement();
+	}
 }

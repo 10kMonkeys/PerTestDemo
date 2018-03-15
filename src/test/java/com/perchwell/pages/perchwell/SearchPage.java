@@ -118,6 +118,21 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE AS...")
 	private WebElement save;
 
+	@iOSXCUITFindBy(accessibility = "1BedButton")
+	private WebElement filterFor1Bed;
+
+	@iOSXCUITFindBy(accessibility = "3BedsButton")
+	private WebElement filterFor3Beds;
+
+	@iOSXCUITFindBy(accessibility = "4PlusBedsButton")
+	private WebElement filterFor4PlusBeds;
+
+	@iOSXCUITFindBy(accessibility = "CreateNewSearchButton")
+	private WebElement createNewSearchButton;
+
+	@iOSXCUITFindBy(accessibility = "RESET FILTERS")
+	private WebElement resetFiltersButton;
+
 	private List<String> statusFilterNameList = new ArrayList<String>();
 
 	private String getFirstLocationName() {
@@ -201,11 +216,11 @@ public class SearchPage extends BasePage {
 		element(minimumPriceTextBox).typeAndEnter(price);
 	}
 
-	public void setFilterForStudioBeds() {
+	public void clickOnFilterStudioBeds() {
 		element(filterStudioBedsButton).click();
 	}
 
-	public void setFilterFor1Bath() {
+	public void clickOnFilter1Bath() {
 		element(filterFor1Bath).click();
 	}
 
@@ -322,6 +337,26 @@ public class SearchPage extends BasePage {
 
 		}
 		return isAllCellsContain;
+	}
+
+    public void clickOnFilter1Bed() {
+		element(filterFor1Bed).click();
+    }
+
+	public void clickOnFilter3Beds() {
+		element(filterFor3Beds).click();
+	}
+
+	public void clickOnFilter4PlusBeds() {
+		element(filterFor4PlusBeds);
+	}
+
+	public void clickCreateNewSearchButton() {
+		element(createNewSearchButton).click();
+	}
+
+	public void clickOnResetFilters() {
+		element(resetFiltersButton).click();
 	}
 }
 
