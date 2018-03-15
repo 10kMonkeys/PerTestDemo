@@ -9,7 +9,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests"})
+@WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "First"})
 public class TC33_SendGraphicReportsToMyEmail extends SampleTest{
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 

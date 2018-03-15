@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "FiltersTests"})
+@WithTagValuesOf({"SmokeTestSuit", "FiltersTests", "Second"})
 public class TC15_ApplyingLocationFilterTest extends SampleTest {
 
 @Ignore

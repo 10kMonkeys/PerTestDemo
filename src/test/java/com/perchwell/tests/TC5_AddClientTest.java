@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.WithTag;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "ClientsTests"})
+@WithTagValuesOf({"SmokeTestSuit", "ClientsTests", "Second"})
 public class TC5_AddClientTest extends SampleTest {
 
 	@Test

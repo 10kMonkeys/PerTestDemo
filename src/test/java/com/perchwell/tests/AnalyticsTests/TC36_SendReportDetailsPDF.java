@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-@WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests"})
+@WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "First"})
 public class TC36_SendReportDetailsPDF extends SampleTest {
 	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 

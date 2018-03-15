@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "CompareTests"})
+@WithTagValuesOf({"SmokeTestSuit", "CompareTests", "First"})
 public class TC10_AddToCompareTest extends SampleTest {
 
 	@Test

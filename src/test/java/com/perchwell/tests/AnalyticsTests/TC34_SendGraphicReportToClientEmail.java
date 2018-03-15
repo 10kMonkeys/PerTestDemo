@@ -9,9 +9,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests"})
+@WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "First"})
 public class TC34_SendGraphicReportToClientEmail extends SampleTest {
-private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
 	@Test
 	public void sendGraphicReportToClientEmail() throws Exception {
@@ -28,7 +27,7 @@ private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 		analyticsSteps.addButtonClick();
 		analyticsSteps.shareButtonClick();
 		analyticsSteps.clickMyEmailOption();
-		analyticsSteps.createReportWithNameAndSave("Analytics_client_report"+sdf.format(new Date()));
+		analyticsSteps.createReportWithNameAndSave("Analytics_client_report");
 		analyticsSteps.shouldFindSentEmail();
 
 	}

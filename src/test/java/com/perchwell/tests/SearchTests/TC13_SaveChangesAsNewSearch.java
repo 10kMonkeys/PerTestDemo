@@ -5,9 +5,8 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "SearchTests"})
+@WithTagValuesOf({"SmokeTestSuit", "SearchTests", "Second"})
 public class TC13_SaveChangesAsNewSearch  extends SampleTest {
-
 
 	@Test
 	public void changeExistingSearch(){
