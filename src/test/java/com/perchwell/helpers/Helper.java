@@ -56,6 +56,16 @@ public abstract class Helper {
         }
     }
 
+    public static void swipeRightElementWithSetY(WebElement element, int y) throws Exception {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        if (element.isDisplayed()) {
+            swipeHorizontalWithSetY(appiumDriver, 0.9, 0.5, y, 1);
+        }
+    }
+
     public static boolean swipeRightElementWithSetY(String elementName, int y) throws Exception {
 
         By byElement = MobileBy.iOSNsPredicateString("name == '" + elementName + "' AND visible==1");

@@ -33,5 +33,29 @@ DiscussionsListPage onPage;
 		Assert.assertFalse(onPage.discusionWithMsgIsDispayed(onPage.getValueFromSessionVariable("Msg for agent")));
 	}
 
+	@Step
+	public void swipeFirstDiscussionName() throws Exception {
+		onPage.swipeFirstDiscussionName(onPage.getFirstItemValue());
+	}
+
+	@Step
+	public void clickOnDeleteButton() {
+		onPage.clickOnDeleteButton();
+	}
+
+	@Step
+	public void shouldDeleteDiscussionFromDiscussionsList() {
+		Assert.assertTrue(onPage.isDeletedDiscussionNotPresentInDiscussionsList(onPage.getValueFromSessionVariable("message")));
+	}
+
+	@Step
+	public void shouldNotContainPreviouslyDeletedDiscussion() {
+		Assert.assertTrue(onPage.isDeletedDiscussionNotPresentInDiscussionsList(onPage.getValueFromSessionVariable("message")));
+	}
+
+	@Step
+	public void closePage() {
+		onPage.closePage();
+	}
 }
 
