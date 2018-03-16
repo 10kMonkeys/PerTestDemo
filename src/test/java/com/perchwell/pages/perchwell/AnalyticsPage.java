@@ -322,7 +322,6 @@ public class AnalyticsPage extends BasePage {
 
 	public void setAndSaveReportName(String reportName) {
 		addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
-
 		element(nameThisReport).sendKeys(getValueFromSessionVariable("Report name"));
 	}
 

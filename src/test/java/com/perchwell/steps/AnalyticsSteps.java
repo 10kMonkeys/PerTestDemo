@@ -18,7 +18,6 @@ public class AnalyticsSteps extends ScenarioSteps {
 		this.setReportName(report_name);
 		this.clickSaveButton();
 		this.clickReportSentOkButton();
-
 	}
 
 	public void clickReportSentOkButton() {
