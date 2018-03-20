@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "LogInTests", "Second"})
+@WithTagValuesOf({"SmokeTestSuit", "LogInTests", "First"})
 public class ST2_LoginAsBrokerTest extends SampleTest {
 	@Test
 	public void logInAsBroker() throws Exception {

@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "First"})
+@WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "Third"})
 public class ST37_AddChartAsClientTest extends SampleTest {
 
     @Test
