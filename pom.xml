@@ -15,7 +15,6 @@
             <serenity.version>1.7.4</serenity.version>
             <serenity.cucumber.version>1.6.3</serenity.cucumber.version>
             <serenity.maven.version>1.7.4</serenity.maven.version>
-            <testEnvironment>local</testEnvironment>
         </properties>
 
 
@@ -153,11 +152,6 @@
                     <includes>
                         <include>**/tests/*/*.java</include>
                     </includes>
-                    <systemPropertyVariables>
-                        <properties>./serenity.${testEnvironment}.properties</properties>
-                        <testEnvironment>${testEnvironment}</testEnvironment>
-                        <enableSerenity>true</enableSerenity>
-                    </systemPropertyVariables>
                     <!--<reuseForks>true</reuseForks>-->
                     <!--<forkCount>1</forkCount>-->
                     <!--<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>-->
