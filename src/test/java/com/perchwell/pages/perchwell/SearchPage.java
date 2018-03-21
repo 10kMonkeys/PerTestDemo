@@ -1,9 +1,11 @@
 package com.perchwell.pages.perchwell;
 
+import com.google.gson.annotations.Until;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -135,6 +137,19 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "4PlusBedsButton")
 	private WebElement filterFor4PlusBeds;
+
+	@iOSXCUITFindBy(accessibility = "1.5BathsButton")
+	private WebElement filterFor1AndHalfBath;
+
+	@iOSXCUITFindBy(accessibility = "2BathsButton")
+	private WebElement filterFor2Baths;
+
+	@iOSXCUITFindBy(accessibility = "4PlusBathsButton")
+	private WebElement filterFor4PlusBaths;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton[2]")
+	private WebElement deleteSearchButton;
+
 
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
@@ -327,5 +342,34 @@ public class SearchPage extends BasePage {
 		element(resetFiltersButton).click();
 	}
 
+	public void clickOnFilter1AndHalfBath() {
+		element(filterFor1AndHalfBath).click();
+	}
+
+	public void clickOnFilter2Baths() {
+		element(filterFor2Baths).click();
+	}
+
+	public void clickOnFilter3Baths() {
+		element(filterFor3Baths).click();
+	}
+
+	public void clickOnFilter4PlusBaths() {
+		element(filterFor4PlusBaths).click();
+	}
+
+	public void swipeCreatedSearch(String name) throws Exception {
+		WebElement search = getDriver().findElement(MobileBy.AccessibilityId(name));
+		int y = search.getLocation().getY();
+		Helper.swipeRightElementWithSetY(search, y+1);
+	}
+
+	public void clickOnDeleteSearchButton() {
+		element(deleteSearchButton).click();
+	}
+
+	public boolean isDeletedSearch(String name) {
+		return Helper.isElementDisplayed(element(MobileBy.AccessibilityId(name)));
+	}
 }
 

@@ -126,26 +126,17 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeListingOnlyWithSelectedRooms(String rooms) {
-		Assert.assertTrue(onPage.isElementContainParticularBdBa(rooms));
+		Assert.assertTrue(onPage.isContainParticularRooms(rooms));
 	}
 
 	@Step
-	public void shouldSeeListing4AndMoreRooms() {
-		Assert.assertTrue(onPage.isContains4PlusParticularBeds());
+	public void shouldSeeListing4AndMoreRooms(String roomType) {
+		Assert.assertTrue(onPage.isContains4PlusParticularRooms(roomType));
 
 	}
 
 	@Step
 	public void shouldSeeListingOnlyWithStudios() {
 		Assert.assertTrue(onPage.isContainsStudios());
-	}
-
-	@Step
-	public void isTotalCellsQuantity() {
-		onPage.setTotalCellsQuantity();
-	}
-
-	@Step
-	public void checkTotalCellQuantity() {
 	}
 }

@@ -45,7 +45,7 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	public void setSearchName() {
-		onPage.addValueInSessionVariable("Search", onPage.generateRandomString("Search"));
+		onPage.addValueInSessionVariable("Search", onPage.generateRandomString("SEARCH"));
 		onPage.setSearchName(onPage.getValueFromSessionVariable("Search"));
 	}
 
@@ -187,16 +187,44 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickCreateNewSearch() {
-		onPage.clickCreateNewSearchButton();
-	}
-
-	@Step
-	public void checkNoOneFilterSelected() {
+	public void checkNoOneBedsFilterSelected() {
 	}
 
 	@Step
 	public void clickResetFilter() {
 		onPage.clickOnResetFilters();
+	}
+
+	@Step
+	public void clickFilter1AndHalfBath() {
+		onPage.clickOnFilter1AndHalfBath();
+	}
+	@Step
+	public void clickFilter2Baths() {
+		onPage.clickOnFilter2Baths();
+	}
+
+	@Step
+	public void clickFilter3Baths() {
+		onPage.clickOnFilter3Baths();
+	}
+
+	@Step
+	public void clickFilter4PlusBaths() {
+		onPage.clickOnFilter4PlusBaths();
+	}
+
+	@Step
+	public void swipeCreatedSearch() throws Exception {
+		onPage.swipeCreatedSearch(onPage.getValueFromSessionVariable("Search"));
+	}
+
+	@Step
+	public void clickOnDeleteSearchButton() {
+		onPage.clickOnDeleteSearchButton();
+	}
+	@Step
+	public void shouldDeleteSearch() {
+		Assert.assertFalse(onPage.isDeletedSearch(onPage.getValueFromSessionVariable("Search")));
 	}
 }
