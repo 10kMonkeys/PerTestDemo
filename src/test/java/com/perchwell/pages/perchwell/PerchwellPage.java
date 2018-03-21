@@ -65,6 +65,11 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "**//XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeStaticText[1]")
 	private List<WebElement> aa;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[`visible==1`][-1]")
+	private WebElement lastVisibleBuilding;
+
+	private By nextBuildingToSwipeDown = By.xpath("//XCUIElementTypeCell[@visible=\"true\"][last()]/following::XCUIElementTypeCell[1]");
+
 	public static Integer numberOfItemsInListView;
 	// public String buildingAddress;
 
@@ -256,5 +261,15 @@ public class PerchwellPage extends BasePage {
 			return true;
 		}
 		return false;
+	}
+
+	public void swipeDownUntillNextBuildingVisible() throws Exception {
+		setImplicitTimeout(1, SECONDS);
+		Helper.swipeDownUntilElementVisible(getDriver().findElement(nextBuildingToSwipeDown));
+		resetImplicitTimeout();
+	}
+
+	public void clickLastVisibleBuilding() {
+		element(lastVisibleBuilding).click();
 	}
 }
