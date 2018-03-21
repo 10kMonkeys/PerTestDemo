@@ -1,4 +1,4 @@
-package com.perchwell.tests;
+package com.perchwell.tests.SearchTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
