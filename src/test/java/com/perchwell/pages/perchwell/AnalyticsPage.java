@@ -157,7 +157,7 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"MEDIAN ASKING PRICE\"]")
     private WebElement medianAskingPriceChart;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeTable/XCUIElementTypeCell[2]")
+	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"IN HISTORIC DIST.\"])[1]\n")
     private WebElement inHistoryDistButton;
 
 	@iOSXCUITFindBy(accessibility = "FEATURES")
@@ -175,6 +175,29 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT")
     private WebElement firmListingCountButton;
 
+	@iOSXCUITFindBy(accessibility = "TRENDS")
+    private WebElement trendsButton;
+
+	@iOSXCUITFindBy(accessibility = "DEAL VOLUME (ANNUAL)")
+    private WebElement dealVolumeAnnualButton;
+
+	@iOSXCUITFindBy(accessibility = "DEAL VOLUME (QUARTERLY)")
+    private WebElement dealVolumeQuarterlyButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[1]")
+    private WebElement yearsRange;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypePicker/XCUIElementTypePickerWheel")
+    private WebElement beginningPickerWheel;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypePicker/XCUIElementTypePickerWheel")
+    private WebElement endingPickerWheel;
+
+	@iOSXCUITFindBy(accessibility = "SET RANGE")
+    private WebElement setRangeButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeStaticText")
+    private List<WebElement> valueColumnYearsList;
     //endregion
 
 	public AnalyticsPage(WebDriver driver){
@@ -322,7 +345,6 @@ public class AnalyticsPage extends BasePage {
 
 	public void setAndSaveReportName(String reportName) {
 		addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
-
 		element(nameThisReport).sendKeys(getValueFromSessionVariable("Report name"));
 	}
 
@@ -499,4 +521,56 @@ public class AnalyticsPage extends BasePage {
     public void distributionButtonClick(){
 	    element(distributionButton).click();
     }
+
+    public void trendsButtonClick(){
+	    element(trendsButton).click();
+    }
+
+    public void dealVolumeAnnualButtonClick(){
+	    element(dealVolumeAnnualButton).click();
+    }
+
+    public void dealVolumeQuarterlyButtonClick(){
+	    element(dealVolumeQuarterlyButton).click();
+    }
+
+    public void yearsRangeButtonClick(){
+	    element(yearsRange).click();
+    }
+
+    public int getDefaultMinValueYear(){
+        return Integer.parseInt(element(beginningPickerWheel).getValue());
+    }
+
+    public int getDefaultMaxValueYear(){
+        return Integer.parseInt(element(endingPickerWheel).getValue());
+    }
+
+    public void setMinValueYear(String value){
+	    element(beginningPickerWheel).type(value);
+    }
+
+    public void setMaxValueYears(String value){
+	    element(endingPickerWheel).type(value);
+    }
+
+    public void setRangeButtonClick(){
+	    element(setRangeButton).click();
+    }
+
+    public boolean isColumnForPreviousMinDefaultYearAdd(){
+	    boolean isFound = false;
+	    String shortenedYear = getValueFromSessionVariable("MinRangeYear").substring(2);
+        for(WebElement e : valueColumnYearsList) {
+            if((e.getText().equals(getValueFromSessionVariable("MinRangeYear")))||(e.getText().equals(shortenedYear))) {
+                isFound = true;
+                break;
+            }
+        }
+	    return isFound;
+    }
+
+//    public boolean isColumnForNextMaxDefaultYearRemove(){
+//
+//    }
 }

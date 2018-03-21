@@ -18,7 +18,6 @@ public class AnalyticsSteps extends ScenarioSteps {
 		this.setReportName(report_name);
 		this.clickSaveButton();
 		this.clickReportSentOkButton();
-
 	}
 
 	public void clickReportSentOkButton() {
@@ -340,5 +339,52 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void isFirmListingCountChartDisplayed(){
 		Assert.assertTrue(onPage.isFirmListingCountChartDisplayed());
+	}
+
+	@Step
+	public void trendsButtonClick(){
+		onPage.trendsButtonClick();
+	}
+
+	@Step
+	public void selectACRISClosingSection(){
+		onPage.acrisClosingsButtonClick();
+	}
+
+	@Step
+	public void dealVolumeAnnualButtonClick(){
+		onPage.dealVolumeAnnualButtonClick();
+	}
+
+	@Step
+	public void dealVolumeQuarterlyButtonClick(){
+		onPage.dealVolumeQuarterlyButtonClick();
+	}
+
+	@Step
+	public void setMinRangeYearDefaultMinusOne(){
+		onPage.addValueInSessionVariable("MinRangeYear",String.valueOf(onPage.getDefaultMinValueYear() - 1));
+		onPage.setMinValueYear(onPage.getValueFromSessionVariable("MinRangeYear"));
+	}
+
+	@Step
+	public void setMaxRangeYearDefaultMinusOne(){
+		onPage.addValueInSessionVariable("MaxRangeYear",String.valueOf(onPage.getDefaultMaxValueYear() - 1));
+		onPage.setMaxValueYears(onPage.getValueFromSessionVariable("MaxRangeYear"));
+	}
+
+	@Step
+	public void yearsRangeButtonClick(){
+		onPage.yearsRangeButtonClick();
+	}
+
+	@Step
+	public void setYearsRangeButtonClick(){
+		onPage.setRangeButtonClick();
+	}
+
+	@Step
+	public void isColumnForPreviousMinDefaultYearAdd(){
+		Assert.assertTrue(onPage.isColumnForPreviousMinDefaultYearAdd());
 	}
 }

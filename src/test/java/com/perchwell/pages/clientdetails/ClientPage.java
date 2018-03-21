@@ -72,7 +72,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "OK")
 	private WebElement okButton;
 
-	@iOSXCUITFindBy(xpath =  "//XCUIElementTypeCell/XCUIElementTypeButton")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton")
 	private WebElement deleteButton;
 
 	public WebElement getAddNewClientButton() {
