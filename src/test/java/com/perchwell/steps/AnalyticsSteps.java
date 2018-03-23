@@ -5,6 +5,9 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AnalyticsSteps extends ScenarioSteps {
 	AnalyticsPage onPage;
 
@@ -369,6 +372,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void setMaxRangeYearDefaultMinusOne(){
+		onPage.addValueInSessionVariable("MaxDefaultRangeYear",String.valueOf(onPage.getDefaultMaxValueYear()));
 		onPage.addValueInSessionVariable("MaxRangeYear",String.valueOf(onPage.getDefaultMaxValueYear() - 1));
 		onPage.setMaxValueYears(onPage.getValueFromSessionVariable("MaxRangeYear"));
 	}
@@ -385,6 +389,42 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void isColumnForPreviousMinDefaultYearAdd(){
-		Assert.assertTrue(onPage.isColumnForPreviousMinDefaultYearAdd());
+		Assert.assertTrue(onPage.isColumnForPreviousMinDefaultYearAdd(onPage.getValueFromSessionVariable("MinRangeYear")));
+	}
+
+	@Step
+	public void isColumnForNextMaxDefaultYearRemove(){
+		Assert.assertTrue(onPage.isColumnForNextMaxDefaultYearRemove(onPage.getValueFromSessionVariable("MaxDefaultRangeYear")));
+	}
+
+	@Step
+	public void isOnlyThreeYearsInChartDisplayed(){
+		Assert.assertTrue(onPage.isOnlyThreeYearsDisplayed());
+	}
+
+	@Step
+	public void getValueYearsRangeButton(){
+		onPage.addValueInSessionVariable("RangeButton",onPage.yearsRangeButtonValue());
+	}
+
+	@Step
+	public void isYearsRangeChange(){
+		Assert.assertTrue(onPage.isYearsRangeChange(onPage.getValueFromSessionVariable("RangeButton")
+				,onPage.getValueFromSessionVariable("MaxRangeYear")));
+	}
+
+	@Step
+	public void isOnChartUpdateYearsFromTop(){
+		Assert.assertTrue(onPage.isOnChartUpdateYearsFromTop());
+	}
+
+	@Step
+	public void getPresentYearsInFromTopList(){
+		onPage.getPresentYearsInFromTopList();
+	}
+
+	@Step
+	public void getPreviousYearsInFromTopList(){
+		onPage.getPreviousYearsInFromTopList();
 	}
 }

@@ -8,6 +8,7 @@ import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
@@ -16,6 +17,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AnalyticsPage extends BasePage {
@@ -41,37 +43,37 @@ public class AnalyticsPage extends BasePage {
 	private WebElement myNewSearch;
 
 	@iOSXCUITFindBy(accessibility = "BUILDING HEIGHT (BY DEAL COUNT)")
-    private  WebElement dealCountByHeightButton;
+    private WebElement dealCountByHeightButton;
 
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT")
-    private  WebElement buildingHeightButton;
+    private WebElement buildingHeightButton;
 
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY HEIGHT")
     private  WebElement dealCountByHeightChart;
 
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE (BY DEAL COUNT)")
-    private  WebElement buildingTypeButton;
+    private WebElement buildingTypeButton;
 
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY TYPE")
-    private  WebElement dealCountByTypeChart;
+    private WebElement dealCountByTypeChart;
 
     @iOSXCUITFindBy(accessibility = "NYC TOWNHOUSES")
-    private  WebElement nycTownhousesButton;
+    private WebElement nycTownhousesButton;
 
     @iOSXCUITFindBy(accessibility = "DOM BY PRICE")
-    private  WebElement domByPriceButton;
+    private WebElement domByPriceButton;
 
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY PRICE")
-    private  WebElement dealCountByPriceButton;
+    private WebElement dealCountByPriceButton;
 
     @iOSXCUITFindBy(accessibility = "MANAGEMENT")
-    private  WebElement managementButton;
+    private WebElement managementButton;
 
     @iOSXCUITFindBy(accessibility = "DAYS ON MARKET")
-    private  WebElement daysOnMarketButton;
+    private WebElement daysOnMarketButton;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[3]")
-    private  WebElement deleteChartButton;
+    private WebElement deleteChartButton;
 
     @iOSXCUITFindBy(accessibility = "DONE MOVING CHARTS")
     private WebElement doneMovingChartsButton;
@@ -184,19 +186,23 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DEAL VOLUME (QUARTERLY)")
     private WebElement dealVolumeQuarterlyButton;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[1]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeButton[1]")
+    //@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[1]")
     private WebElement yearsRange;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypePicker/XCUIElementTypePickerWheel")
+    @iOSXCUITFindBy(xpath ="//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypePicker/XCUIElementTypePickerWheel")
+    //@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypePicker/XCUIElementTypePickerWheel")
     private WebElement beginningPickerWheel;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypePicker/XCUIElementTypePickerWheel")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypePicker/XCUIElementTypePickerWheel")
+	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypePicker/XCUIElementTypePickerWheel")
     private WebElement endingPickerWheel;
 
 	@iOSXCUITFindBy(accessibility = "SET RANGE")
     private WebElement setRangeButton;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeStaticText")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeStaticText")
+	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeStaticText")
     private List<WebElement> valueColumnYearsList;
     //endregion
 
@@ -547,22 +553,22 @@ public class AnalyticsPage extends BasePage {
     }
 
     public void setMinValueYear(String value){
-	    element(beginningPickerWheel).type(value);
+	    element(beginningPickerWheel).sendKeys(value);
     }
 
     public void setMaxValueYears(String value){
-	    element(endingPickerWheel).type(value);
+	    element(endingPickerWheel).sendKeys(value);
     }
 
     public void setRangeButtonClick(){
 	    element(setRangeButton).click();
     }
 
-    public boolean isColumnForPreviousMinDefaultYearAdd(){
+    public boolean isColumnForPreviousMinDefaultYearAdd(String year){
 	    boolean isFound = false;
-	    String shortenedYear = getValueFromSessionVariable("MinRangeYear").substring(2);
+	    String shortenedYear = year.substring(2);
         for(WebElement e : valueColumnYearsList) {
-            if((e.getText().equals(getValueFromSessionVariable("MinRangeYear")))||(e.getText().equals(shortenedYear))) {
+            if((e.getText().equals(year))||(e.getText().equals(shortenedYear))) {
                 isFound = true;
                 break;
             }
@@ -570,7 +576,60 @@ public class AnalyticsPage extends BasePage {
 	    return isFound;
     }
 
-//    public boolean isColumnForNextMaxDefaultYearRemove(){
-//
-//    }
+    public boolean isColumnForNextMaxDefaultYearRemove(String year){
+        boolean isRemove = true;
+        String shortenedYear = year.substring(2);
+        for(WebElement e : valueColumnYearsList) {
+            if((e.getText().equals(year))||(e.getText().equals(shortenedYear))) {
+                isRemove = false;
+                break;
+            }
+        }
+        return isRemove;
+	}
+
+	public boolean isOnlyThreeYearsDisplayed(){
+        return valueColumnYearsList.size() == 3;
+    }
+
+    public String yearsRangeButtonValue(){
+	    return element(yearsRange).getText();
+    }
+
+    public boolean isYearsRangeChange(String previous,String present){
+	    present = previous.substring(2);
+	    if(previous.contains(present)) return true;
+	    else return false;
+    }
+
+    private List<Integer> previousYearsList ;
+
+	private List<Integer> presentYearsList;
+
+    public void  getPreviousYearsInFromTopList() {
+        List<Integer> yearsList = new ArrayList<>();
+        for (WebElement e : valueColumnYearsList) {
+            yearsList.add(Integer.parseInt(e.getText()));
+        }
+        previousYearsList = yearsList;
+    }
+    public void getPresentYearsInFromTopList(){
+        List<Integer> yearsList = new ArrayList<>();
+        for (WebElement e : valueColumnYearsList) {
+            yearsList.add(Integer.parseInt(e.getText()));
+        }
+        presentYearsList = yearsList;
+    }
+
+    public boolean isOnChartUpdateYearsFromTop(){
+        boolean isChartUpdateYearsFromTop = false;
+        for (int i = 0;i<presentYearsList.size();i++){
+            if(presentYearsList.get(i) == previousYearsList.get(i) - 1) isChartUpdateYearsFromTop = true;
+            else{
+                isChartUpdateYearsFromTop = false;
+                break;
+            }
+        }
+        return isChartUpdateYearsFromTop;
+    }
 }
