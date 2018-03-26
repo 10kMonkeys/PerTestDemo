@@ -3,6 +3,7 @@ package com.perchwell.pages.perchwell;
 import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import org.junit.Assert;
@@ -82,6 +83,9 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[`visible==1`][-1]")
 	private WebElement lastVisibleBuilding;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS'")
+	private WebElement firstBuildingAddress;
+
 	private By nextBuildingToSwipeDown = By.xpath("//XCUIElementTypeCell[@visible=\"true\"][last()]/following::XCUIElementTypeCell[1]");
 
 	public static Integer numberOfItemsInListView;
@@ -159,7 +163,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public String getFistBuildingAddress() {
-		return firstBuilding.findElements(By.className("XCUIElementTypeStaticText")).get(1).getAttribute("name");
+		return firstBuildingAddress.getAttribute("value");
 	}
 
 	public void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
