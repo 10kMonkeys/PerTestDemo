@@ -77,6 +77,15 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'INFO'")
 	private List<WebElement> roomsInfoList;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name CONTAINS 'PRICE'")
+    private List<WebElement> pricesList;
+
+    @iOSXCUITFindBy(accessibility = "LEAST EXPENSIVE")
+    private WebElement leastExpensiveButton;
+
+    @iOSXCUITFindBy(accessibility = "MOST EXPENSIVE")
+    private WebElement mostExpensiveButton;
+
 	@iOSXCUITFindBy(accessibility = "BATHROOMS")
 	private WebElement bathroomsSortButton;
 
@@ -313,4 +322,28 @@ public class PerchwellPage extends BasePage {
 	public void clickLastVisibleBuilding () {
 		element(lastVisibleBuilding).click();
 	}
+
+	public void clickOnLeastExpensiveButton() {
+	    element(leastExpensiveButton).click();
+    }
+
+    public void clickOnMostExpensiveButton() {
+	    element(mostExpensiveButton).click();
+    }
+
+    public boolean isListingSortedByLeastExpensive() {
+        return (FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
+    }
+
+    public boolean isListingSortedByMostExpensive() {
+        return (FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
+    }
+
+    public boolean isListingSortedByBedrooms() {
+	    return (FilteringAndSortingBuildings.getCounterInSorting("bedrooms", roomsInfoList) == 1);
+    }
+
+    public boolean isListingSortedByBathrooms() {
+        return (FilteringAndSortingBuildings.getCounterInSorting("bathrooms", roomsInfoList) == 1);
+    }
 }
