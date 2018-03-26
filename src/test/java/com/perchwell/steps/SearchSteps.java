@@ -223,6 +223,7 @@ public class SearchSteps extends ScenarioSteps {
 	public void clickOnDeleteSearchButton() {
 		onPage.clickOnDeleteSearchButton();
 	}
+
 	@Step
 	public void shouldDeleteSearch() {
 		Assert.assertFalse(onPage.isDeletedSearch(onPage.getValueFromSessionVariable("Search")));
