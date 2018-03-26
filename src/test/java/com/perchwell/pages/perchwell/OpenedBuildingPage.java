@@ -73,7 +73,11 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeStaticText[@name=\"FIREPLACE\"]")
 private WebElement FIREPLACE;
 
+	@iOSXCUITFindBy(accessibility = "SELLER'S AGENTS")
+	private WebElement severalSellersAgentsSection;
 
+	@iOSXCUITFindBy(accessibility = "SELLER'S AGENT")
+	private WebElement oneSellerAgentSection;
 
 	public void clickAddDiscus() {
 		element(addDiscus).click();
@@ -181,5 +185,25 @@ private WebElement FIREPLACE;
 		Helper.scrollToElement(FIREPLACE);
 		return Helper.isElementDisplayed(FIREPLACE);
 
+	}
+
+	public WebElement getOneSellersAgentElement() {
+		return oneSellerAgentSection;
+	}
+
+	public void swipeDownUntilElementVisible(WebElement name) throws Exception {
+		Helper.swipeDownUntilElementVisible(name);
+	}
+
+	public boolean isSeveralSellersAgents() {
+		return element(severalSellersAgentsSection).isPresent();
+	}
+
+	public boolean isOneSellersAgent() {
+		return element(oneSellerAgentSection).isPresent();
+	}
+
+	public void clickOneSellersAgentSection() {
+		element(oneSellerAgentSection).click();
 	}
 }

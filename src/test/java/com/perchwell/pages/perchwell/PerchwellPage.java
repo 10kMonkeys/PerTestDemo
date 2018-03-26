@@ -79,6 +79,11 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS")
 	private WebElement bathroomsSortButton;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[`visible==1`][-1]")
+	private WebElement lastVisibleBuilding;
+
+	private By nextBuildingToSwipeDown = By.xpath("//XCUIElementTypeCell[@visible=\"true\"][last()]/following::XCUIElementTypeCell[1]");
+
 	public static Integer numberOfItemsInListView;
 	// public String buildingAddress;
 
@@ -282,44 +287,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void isListingsSortedByRooms(String roomType) {
-//		List<WebElement> listCells = Collections.singletonList(iOSDriver().findElementsByIosNsPredicate("type == 'XCUIElementTypeStaticText' AND name CONTAINS 'INFO'"));
-
 		Assert.assertTrue(FilteringAndSortingBuildings.isSortedByRooms(roomsInfoList, roomType));
-
-//		String[] roomsData = new String[10];
-//		int[] roomsNumbers = new int[10];
-//
-//		if (listCells.size() > 0) {
-//			for (int i = 0; (i < 10 && i < listCells.size()); i++) {
-//				baQty = new StringBuilder();
-//				String[] roomsValues = listCells.get(i).getAttribute("value").split("\\|");
-//
-//				for (int j = 0; j < roomsValues.length; j++) {
-//					if (roomsValues[j].contains(roomType)) {
-//						roomsData[i] = roomsValues[j];
-//					} else if ((roomsData[i] == null) && j == (roomsValues.length - 1)) {
-//						return false;
-//					}
-//				}
-//
-//				for (int k = 0; k < roomsData[i].length(); k++) {
-//					if (Character.isDigit(roomsData[i].charAt(k))) {
-//						baQty.append(String.valueOf(roomsData[i].charAt(k)));
-//					}
-//				}
-//
-//				roomsNumbers[i] = Integer.parseInt(String.valueOf(baQty));
-//				System.out.println(roomsNumbers[i]);
-//			}
-//
-//			for (int d = 0; (d < 9 && d < (listCells.size() - 1)); d++) {
-//				if (roomsNumbers[d] < roomsNumbers[d + 1]) {
-//					return false;
-//				}
-//			}
-//			return true;
-//		}
-//		return false;
 	}
 
 	public void checkSortLabel(String sortType) {
@@ -330,5 +298,15 @@ public class PerchwellPage extends BasePage {
 
 	public void clickOnBathroomsSortButton() {
 		element(bathroomsSortButton).click();
+	}
+
+	public void swipeDownUntillNextBuildingVisible () throws Exception {
+		setImplicitTimeout(1, SECONDS);
+		Helper.swipeDownUntilElementVisible(getDriver().findElement(nextBuildingToSwipeDown));
+		resetImplicitTimeout();
+	}
+
+	public void clickLastVisibleBuilding () {
+		element(lastVisibleBuilding).click();
 	}
 }
