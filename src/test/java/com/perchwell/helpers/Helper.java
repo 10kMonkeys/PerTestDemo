@@ -147,4 +147,14 @@ public abstract class Helper {
         EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
         return variables.getProperty("appium.platformName");
     }
+
+    public static String removeChar(String s, char charToRemove) {
+        String newString = "";
+        for (int i = 0; i < s.length(); i ++) {
+            if (s.charAt(i) != charToRemove) {
+                newString += s.charAt(i);
+            }
+        }
+        return newString;
+    }
 }
