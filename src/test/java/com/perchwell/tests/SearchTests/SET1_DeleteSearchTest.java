@@ -2,9 +2,11 @@ package com.perchwell.tests.SearchTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-public class ST1_DeleteSearchTest extends SampleTest {
+@WithTagValuesOf({"SearchTests"})
+public class SET1_DeleteSearchTest extends SampleTest {
 
     @Test
     public void deleteSearch() throws Exception {

@@ -139,4 +139,29 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void shouldSeeListingOnlyWithStudios() {
 		Assert.assertTrue(onPage.isContainsStudios());
 	}
+
+	@Step
+	public void clickListingsByButton() {
+		onPage.clickOnListingsByButton();
+	}
+
+	@Step
+	public void clickBedroomsSortButton() {
+		onPage.clickOnBedroomsSortButton();
+	}
+
+	@Step
+	public void shouldListingsSortedByRooms(String roomType) {
+		onPage.isListingsSortedByRooms(roomType);
+	}
+
+	@Step
+	public void checkSortLabel(String sortType) {
+		onPage.checkSortLabel(sortType);
+	}
+
+	@Step
+	public void clickBathroomsSortButton() {
+		onPage.clickOnBathroomsSortButton();
+	}
 }

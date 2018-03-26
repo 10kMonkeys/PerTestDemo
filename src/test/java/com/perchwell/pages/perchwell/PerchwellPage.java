@@ -1,14 +1,16 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-//import sun.jvm.hotspot.memory.HeapBlock;
 
+import java.util.Collections;
 import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -17,7 +19,7 @@ public class PerchwellPage extends BasePage {
 
 	private int totalCellAmmount;
 	private final String BD = " BD";
-	private StringBuilder baQty = new StringBuilder();
+	private StringBuilder baQty;
 
 	public PerchwellPage(WebDriver driver) {
 		super(driver);
@@ -36,7 +38,7 @@ public class PerchwellPage extends BasePage {
 	private WebElement exploreSearchResultHint;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
-	private WebElement magniferIcon;
+	private WebElement magnifierIcon;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
 	private WebElement openAccountButton;
@@ -65,6 +67,23 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "**//XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeStaticText[1]")
 	private List<WebElement> aa;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'LISTINGS'")
+	private WebElement listingsByButton;
+
+	@iOSXCUITFindBy(accessibility = "BEDROOMS")
+	private WebElement bedroomsSortButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'INFO'")
+	private List<WebElement> roomsInfoList;
+
+	@iOSXCUITFindBy(accessibility = "BATHROOMS")
+	private WebElement bathroomsSortButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[`visible==1`][-1]")
+	private WebElement lastVisibleBuilding;
+
+	private By nextBuildingToSwipeDown = By.xpath("//XCUIElementTypeCell[@visible=\"true\"][last()]/following::XCUIElementTypeCell[1]");
+
 	public static Integer numberOfItemsInListView;
 	// public String buildingAddress;
 
@@ -77,7 +96,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void clickMagnifer() {
-		element(magniferIcon).click();
+		element(magnifierIcon).click();
 	}
 
 	public void clickEditSearchFiltersHint() {
@@ -227,6 +246,7 @@ public class PerchwellPage extends BasePage {
 
 		if (listCells.size() > 0) {
 			for (int i = 0; (i < 10 && i < listCells.size()); i++) {
+				baQty = new StringBuilder();
 				String[] roomsValues = listCells.get(i).getAttribute("value").split("\\|");
 				String particularRoomsValue = null;
 				int counter = 0;
@@ -256,5 +276,37 @@ public class PerchwellPage extends BasePage {
 			return true;
 		}
 		return false;
+	}
+
+    public void clickOnListingsByButton() {
+		element(listingsByButton).click();
+    }
+
+	public void clickOnBedroomsSortButton() {
+		element(bedroomsSortButton).click();
+	}
+
+	public void isListingsSortedByRooms(String roomType) {
+		Assert.assertTrue(FilteringAndSortingBuildings.isSortedByRooms(roomsInfoList, roomType));
+	}
+
+	public void checkSortLabel(String sortType) {
+		if (!(element(listingsByButton).getAttribute("label").contains(sortType))) {
+			Assert.assertTrue(false);
+		}
+	}
+
+	public void clickOnBathroomsSortButton() {
+		element(bathroomsSortButton).click();
+	}
+
+	public void swipeDownUntillNextBuildingVisible () throws Exception {
+		setImplicitTimeout(1, SECONDS);
+		Helper.swipeDownUntilElementVisible(getDriver().findElement(nextBuildingToSwipeDown));
+		resetImplicitTimeout();
+	}
+
+	public void clickLastVisibleBuilding () {
+		element(lastVisibleBuilding).click();
 	}
 }
