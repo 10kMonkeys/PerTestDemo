@@ -26,9 +26,10 @@ public class ST34_SendGraphicReportToClientEmail extends SampleTest {
 		analyticsSteps.addChartFromACRISSection();
 		analyticsSteps.addButtonClick();
 		analyticsSteps.shareButtonClick();
-		analyticsSteps.clickMyEmailOption();
+		analyticsSteps.clickClientEmailOption();
 		analyticsSteps.createReportWithNameAndSave("Analytics_client_report");
+		analyticsSteps.setClientAddress();
+		analyticsSteps.clickReportSentOkButton();
 		analyticsSteps.shouldFindSentEmail();
-
 	}
 }

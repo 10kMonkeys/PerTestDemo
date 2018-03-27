@@ -117,7 +117,7 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MY EMAIL")
 	private WebElement myEmailOption;
 
-	@iOSXCUITFindBy(accessibility = "CLIENT")
+	@iOSXCUITFindBy(accessibility = "CLIENT EMAIL")
 	private WebElement clientOption;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
@@ -631,5 +631,9 @@ public class AnalyticsPage extends BasePage {
             }
         }
         return isChartUpdateYearsFromTop;
+    }
+
+    public void setClientAddress(String client_email) {
+        element(nameThisReport).sendKeys(client_email);
     }
 }

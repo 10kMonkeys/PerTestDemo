@@ -57,7 +57,7 @@ public class MailTrap {
 		MailTrapAttachment[] mailTrapResponse = new MailTrapAttachment[0];
 		HttpClient client = HttpClientBuilder.create().build();
 		//Rest (get)
-		HttpGet request = new HttpGet("https://private-anon-7b61566ab2-mailtrap.apiary-proxy.com/api/v1/inboxes/239589/messages/" + message_id + "/attachments");
+		HttpGet request = new HttpGet("https://mailtrap.io/api/v1/inboxes/239589/messages/" + message_id + "/attachments");
 		//Token is provided MailTrap
 		request.addHeader("Api-Token", AppProperties.INSTANCE.getProperty("API_TOKEN"));
 		try {

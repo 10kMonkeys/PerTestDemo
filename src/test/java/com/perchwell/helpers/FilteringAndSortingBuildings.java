@@ -33,7 +33,6 @@ public abstract class FilteringAndSortingBuildings {
                 }
 
                 roomsNumbers[i] = Integer.parseInt(String.valueOf(baQty));
-                System.out.println(roomsNumbers[i]); //REMOVE
             }
 
             for (int d = 0; (d < 4 && d < (roomsInfoList.size() - 1)); d++) {

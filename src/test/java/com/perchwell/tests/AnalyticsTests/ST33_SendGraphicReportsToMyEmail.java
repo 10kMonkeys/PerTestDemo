@@ -29,8 +29,7 @@ public class ST33_SendGraphicReportsToMyEmail extends SampleTest{
 		analyticsSteps.shareButtonClick();
 		analyticsSteps.clickMyEmailOption();
 		analyticsSteps.createReportWithNameAndSave("Analytics_report");
+		analyticsSteps.clickReportSentOkButton();
 		analyticsSteps.shouldFindSentEmail();
-
 	}
-
 }
