@@ -194,4 +194,9 @@ public class PerchwellSteps extends ScenarioSteps {
     public void shouldListingBeSortedByBathrooms() {
         Assert.assertTrue(onPage.isListingSortedByBathrooms());
     }
+
+    @Step
+	public void clickTotalRoomsSortButton() {
+		onPage.clickOnTotalRoomsButton();
+	}
 }

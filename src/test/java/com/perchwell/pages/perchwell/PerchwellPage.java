@@ -89,6 +89,9 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS")
 	private WebElement bathroomsSortButton;
 
+	@iOSXCUITFindBy(accessibility = "TOTAL ROOMS")
+    private WebElement totalRoomsSortButton;
+
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[`visible==1`][-1]")
 	private WebElement lastVisibleBuilding;
 
@@ -329,6 +332,10 @@ public class PerchwellPage extends BasePage {
 
     public void clickOnMostExpensiveButton() {
 	    element(mostExpensiveButton).click();
+    }
+
+    public void clickOnTotalRoomsButton() {
+	    element(totalRoomsSortButton).click();
     }
 
     public boolean isListingSortedByLeastExpensive() {
