@@ -548,13 +548,9 @@ public class AnalyticsPage extends BasePage {
         return element(beginningPickerWheel).getText();
     }
 
-    public String maxDefaultRangeYear;
-
-    public String maxRangeYear;
-
     public void getDefaultMaxValueYear(){
-        maxDefaultRangeYear = endingPickerWheel.getAttribute("value");
-        maxRangeYear = String.valueOf(Integer.parseInt(maxDefaultRangeYear) - 1);
+        addValueInSessionVariable("MaxDefaultRangeYear",String.valueOf(endingPickerWheel.getAttribute("value")));
+        addValueInSessionVariable("MaxRangeYear",String.valueOf(Integer.parseInt(getValueFromSessionVariable("MaxDefaultRangeYear")) - 1));
     }
 
     public void setMinValueYear(String value){

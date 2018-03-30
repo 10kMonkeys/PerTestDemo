@@ -372,12 +372,10 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.setMinValueYear(onPage.getValueFromSessionVariable("MinRangeYear"));
 	}
 
-
-
 	@Step
 	public void setMaxRangeYearDefaultMinusOne(){
 		onPage.getDefaultMaxValueYear();
-		onPage.setMaxValueYears(onPage.maxRangeYear);
+		onPage.setMaxValueYears(onPage.getValueFromSessionVariable("MaxRangeYear"));
 	}
 
 	@Step
@@ -397,7 +395,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void isColumnForNextMaxDefaultYearRemove(){
-		Assert.assertTrue(onPage.isColumnForNextMaxDefaultYearRemove(onPage.maxDefaultRangeYear));
+		Assert.assertTrue(onPage.isColumnForNextMaxDefaultYearRemove(onPage.getValueFromSessionVariable("MaxDefaultRangeYear")));
 	}
 
 	@Step
@@ -412,7 +410,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void isYearsRangeChange(){
-		Assert.assertTrue(onPage.isYearsRangeChange(onPage.getValueFromSessionVariable("RangeButton"),onPage.maxRangeYear));
+		Assert.assertTrue(onPage.isYearsRangeChange(onPage.getValueFromSessionVariable("RangeButton"),onPage.getValueFromSessionVariable("MaxRangeYear")));
 	}
 
 	@Step
