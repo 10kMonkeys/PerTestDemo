@@ -64,6 +64,7 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void setMinimumPriceFilter(String amount) {
 		onPage.setMinimumPriceFilter(amount);
+		onPage.addValueInSessionVariable("min price", amount);
 	}
 
 	@Step
@@ -167,6 +168,7 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
     public void clickFilter1Bed() {
 		onPage.clickOnFilter1Bed();
+		onPage.setUpSessionVariableForStatusFilter(onPage.getFilterFor1Bed());
     }
 
     @Step
@@ -227,5 +229,15 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void shouldDeleteSearch() {
 		Assert.assertFalse(onPage.isDeletedSearch(onPage.getValueFromSessionVariable("Search")));
+	}
+
+	@Step
+	public void shouldMinPriceHaveTheSameValue() {
+		Assert.assertTrue(onPage.isMinPriceSaved());
+	}
+
+	@Step
+	public void shouldFilter1BedBeOfTheSameStatus() {
+		Assert.assertTrue(onPage.isFilterFor1BedSaved());
 	}
 }

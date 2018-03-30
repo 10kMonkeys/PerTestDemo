@@ -13,6 +13,8 @@ import org.openqa.selenium.WebElement;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -171,7 +173,15 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public Integer countItemsInListView() {
-		return getDriver().findElements(By.className("XCUIElementTypeCell")).size();
+		String newString = "";
+        String s = listingsByButton.getAttribute("value");
+        s = Helper.removeChar(s, ',');
+        Pattern p = Pattern.compile("^\\d+\\s+");
+        Matcher m = p.matcher(s);
+        while (m.find()) {
+            newString = m.group();
+        }
+        return Integer.parseInt(newString.trim());
 	}
 
 	public String getFistBuildingAddress() {

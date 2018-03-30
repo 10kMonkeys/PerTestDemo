@@ -14,6 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,7 +109,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[3]")
 	private WebElement thirdSearchInList;
 
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
 	private WebElement firstSearchInList;
 
 	@iOSXCUITFindBy(accessibility = "SavedSearchCancelButton")
@@ -129,7 +130,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "RESET FILTERS")
 	private WebElement resetFiltersButton;
 
-	@iOSXCUITFindBy(accessibility = "1BedButton")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1BedButton'")
 	private WebElement filterFor1Bed;
 
 	@iOSXCUITFindBy(accessibility = "3BedsButton")
@@ -371,5 +372,50 @@ public class SearchPage extends BasePage {
 	public boolean isDeletedSearch(String name) {
 		return Helper.isElementDisplayed(element(MobileBy.AccessibilityId(name)));
 	}
+
+	public void setUpSessionVariableForStatusFilter(WebElement name) {
+		String selected = name.getAttribute("name");
+
+		if (!selected.contains("selected")) {
+			addValueInSessionVariable("status filter", "not selected");
+			return;
+		}
+		addValueInSessionVariable("status filter", "selected");
+	}
+
+	public WebElement getFilterFor1Bed() {
+		return filterFor1Bed;
+	}
+
+	private String getValueFromMinPriceFilter() {
+	    String minPrice = minimumPriceTextBox.getAttribute("value");
+	    minPrice = Helper.removeChar(minPrice, '$');
+        minPrice = Helper.removeChar(minPrice, ',');
+	    return minPrice;
+    }
+
+    public boolean isMinPriceSaved() {
+	    boolean minPriceSaved = false;
+	    String minPriceEnteredPreviously = getValueFromSessionVariable("min price");
+	    String minPriceInFilter = getValueFromMinPriceFilter();
+
+	    if (minPriceEnteredPreviously.equalsIgnoreCase(minPriceInFilter)) {
+	        minPriceSaved = true;
+        }
+	    return minPriceSaved;
+    }
+
+    public boolean isFilterFor1BedSaved() {
+		boolean filterFor1BedSaved = false;
+		String statusFilterPreviously = getValueFromSessionVariable("status filter");
+		String statusFilter = filterFor1Bed.getAttribute("name");
+
+		if ((statusFilterPreviously.equals("selected") && statusFilter.contains("selected"))
+				|| (statusFilterPreviously.equals("not selected") && !statusFilter.contains("selected"))) {
+			filterFor1BedSaved = true;
+		}
+
+	    return filterFor1BedSaved;
+    }
 }
 
