@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.entity.AppProperties;
 import com.perchwell.pages.perchwell.AnalyticsPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -11,6 +12,7 @@ import java.util.List;
 public class AnalyticsSteps extends ScenarioSteps {
 	AnalyticsPage onPage;
 
+	@Step
 	public void clickMyEmailOption() {
 		onPage.clickMyEmailOption();
 	}
@@ -20,9 +22,9 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 		this.setReportName(report_name);
 		this.clickSaveButton();
-		this.clickReportSentOkButton();
 	}
 
+	@Step
 	public void clickReportSentOkButton() {
 		onPage.clickReportSentOkButton();
 	}
@@ -426,5 +428,16 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void getPreviousYearsInFromTopList(){
 		onPage.getPreviousYearsInFromTopList();
+	}
+
+	@Step
+	public void clickClientEmailOption() {
+		onPage.clickClientEmailOption();
+	}
+
+	@Step
+	public void setClientAddress() {
+		onPage.setClientAddress(AppProperties.INSTANCE.getProperty("client_email"));
+		this.clickSaveButton();
 	}
 }

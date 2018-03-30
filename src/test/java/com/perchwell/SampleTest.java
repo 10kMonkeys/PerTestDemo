@@ -74,6 +74,9 @@ public abstract class SampleTest {
     protected SellersAgentSteps sellersAgentSteps;
 
     @Steps
+    protected DiscussThisListingSteps discussThisListingSteps;
+
+    @Steps
     protected MyTagsSteps myTagsSteps;
 
         static TimerTask task = new TravisAlive();

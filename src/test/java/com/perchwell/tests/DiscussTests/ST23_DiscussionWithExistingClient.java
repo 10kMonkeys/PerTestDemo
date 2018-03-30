@@ -21,6 +21,7 @@ public class ST23_DiscussionWithExistingClient extends SampleTest {
 		openedBuildingSteps.clickDiscussWithMyClientHint();
 		openedBuildingSteps.clickShareButton();
 		openedBuildingSteps.clickSendWithinPerchwell();
+		discussThisListingSteps.deleteDiscussionWithClientIfExist();
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickExistingClient();
 		discussionSteps.sendMessage("I'd_like_discuss_with_you " + sdf.format(new Date()));

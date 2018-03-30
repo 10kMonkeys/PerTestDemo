@@ -3,6 +3,7 @@ package com.perchwell.pages.perchwell;
 import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import org.junit.Assert;
@@ -76,11 +77,26 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'INFO'")
 	private List<WebElement> roomsInfoList;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name CONTAINS 'PRICE'")
+    private List<WebElement> pricesList;
+
+    @iOSXCUITFindBy(accessibility = "LEAST EXPENSIVE")
+    private WebElement leastExpensiveButton;
+
+    @iOSXCUITFindBy(accessibility = "MOST EXPENSIVE")
+    private WebElement mostExpensiveButton;
+
 	@iOSXCUITFindBy(accessibility = "BATHROOMS")
 	private WebElement bathroomsSortButton;
 
+	@iOSXCUITFindBy(accessibility = "TOTAL ROOMS")
+    private WebElement totalRoomsSortButton;
+
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[`visible==1`][-1]")
 	private WebElement lastVisibleBuilding;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS'")
+	private WebElement firstBuildingAddress;
 
 	private By nextBuildingToSwipeDown = By.xpath("//XCUIElementTypeCell[@visible=\"true\"][last()]/following::XCUIElementTypeCell[1]");
 
@@ -159,7 +175,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public String getFistBuildingAddress() {
-		return firstBuilding.findElements(By.className("XCUIElementTypeStaticText")).get(1).getAttribute("name");
+		return firstBuildingAddress.getAttribute("value");
 	}
 
 	public void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
@@ -309,4 +325,32 @@ public class PerchwellPage extends BasePage {
 	public void clickLastVisibleBuilding () {
 		element(lastVisibleBuilding).click();
 	}
+
+	public void clickOnLeastExpensiveButton() {
+	    element(leastExpensiveButton).click();
+    }
+
+    public void clickOnMostExpensiveButton() {
+	    element(mostExpensiveButton).click();
+    }
+
+    public void clickOnTotalRoomsButton() {
+	    element(totalRoomsSortButton).click();
+    }
+
+    public boolean isListingSortedByLeastExpensive() {
+        return (FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
+    }
+
+    public boolean isListingSortedByMostExpensive() {
+        return (FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
+    }
+
+    public boolean isListingSortedByBedrooms() {
+	    return (FilteringAndSortingBuildings.getCounterInSorting("bedrooms", roomsInfoList) == 1);
+    }
+
+    public boolean isListingSortedByBathrooms() {
+        return (FilteringAndSortingBuildings.getCounterInSorting("bathrooms", roomsInfoList) == 1);
+    }
 }

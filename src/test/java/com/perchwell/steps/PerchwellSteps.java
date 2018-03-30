@@ -164,4 +164,39 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void clickBathroomsSortButton() {
 		onPage.clickOnBathroomsSortButton();
 	}
+
+	@Step
+    public void clickLeastExpensiveButton() {
+	    onPage.clickOnLeastExpensiveButton();
+    }
+
+    @Step
+    public void clickMostExpensiveButton() {
+        onPage.clickOnMostExpensiveButton();
+    }
+
+    @Step
+    public void shouldListingBeSortedByLeastExpensive() {
+        Assert.assertTrue(onPage.isListingSortedByLeastExpensive());
+    }
+
+    @Step
+    public void shouldListingBeSortedByMostExpensive() {
+        Assert.assertTrue(onPage.isListingSortedByMostExpensive());
+    }
+
+    @Step
+    public void shouldListingBeSortedByBedrooms() {
+        Assert.assertTrue(onPage.isListingSortedByBedrooms());
+    }
+
+    @Step
+    public void shouldListingBeSortedByBathrooms() {
+        Assert.assertTrue(onPage.isListingSortedByBathrooms());
+    }
+
+    @Step
+	public void clickTotalRoomsSortButton() {
+		onPage.clickOnTotalRoomsButton();
+	}
 }

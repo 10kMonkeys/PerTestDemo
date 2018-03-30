@@ -79,6 +79,12 @@ private WebElement FIREPLACE;
 	@iOSXCUITFindBy(accessibility = "SELLER'S AGENT")
 	private WebElement oneSellerAgentSection;
 
+	@iOSXCUITFindBy(accessibility = "Constant client")
+    private WebElement clientWithDiscussion;
+
+	@iOSXCUITFindBy(accessibility = "VIEW ALL DISCUSSIONS FOR THIS LISTING")
+    private WebElement viewAllDiscussionsButton;
+
 	public void clickAddDiscus() {
 		element(addDiscus).click();
 	}
@@ -206,4 +212,17 @@ private WebElement FIREPLACE;
 	public void clickOneSellersAgentSection() {
 		element(oneSellerAgentSection).click();
 	}
+
+	public boolean isClientWithDiscussionExist() {
+	    boolean isClientWithDiscussion = false;
+
+	    if (element(clientWithDiscussion).isVisible()) {
+	        isClientWithDiscussion = true;
+        }
+        return isClientWithDiscussion;
+    }
+
+	public void clickViewAllDiscussionsButton() {
+	    element(viewAllDiscussionsButton).click();
+    }
 }
