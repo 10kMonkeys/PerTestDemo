@@ -31,12 +31,12 @@ public class AT6_ACRISClosingChartsYearsRangeChangeTest extends SampleTest {
         analyticsSteps.selectACRISClosingSection();
         analyticsSteps.trendsButtonClick();
         analyticsSteps.dealVolumeQuarterlyButtonClick();
-        analyticsSteps.getValueYearsRangeButton();
         analyticsSteps.getPreviousYearsInFromTopList();
         analyticsSteps.isOnlyThreeYearsInChartDisplayed();
         analyticsSteps.yearsRangeButtonClick();
         analyticsSteps.setMaxRangeYearDefaultMinusOne();
         analyticsSteps.setYearsRangeButtonClick();
+        analyticsSteps.getValueYearsRangeButton();
         analyticsSteps.isYearsRangeChange();
         analyticsSteps.getPresentYearsInFromTopList();
         analyticsSteps.isOnChartUpdateYearsFromTop();

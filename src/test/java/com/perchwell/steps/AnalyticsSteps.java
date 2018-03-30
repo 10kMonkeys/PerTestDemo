@@ -163,7 +163,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void isThisIsAProOnlyFeatureMessageShow() {
-		onPage.isThisIsAProOnlyFeatureMessageShow();
+		Assert.assertTrue(onPage.isThisIsAProOnlyFeatureMessageShow());
 	}
 
 	@Step
@@ -366,15 +366,16 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void setMinRangeYearDefaultMinusOne(){
-		onPage.addValueInSessionVariable("MinRangeYear",String.valueOf(onPage.getDefaultMinValueYear() - 1));
+		onPage.addValueInSessionVariable("MinRangeYear",String.valueOf(Integer.parseInt(onPage.getDefaultMinValueYear()) - 1));
 		onPage.setMinValueYear(onPage.getValueFromSessionVariable("MinRangeYear"));
 	}
 
+
+
 	@Step
 	public void setMaxRangeYearDefaultMinusOne(){
-		onPage.addValueInSessionVariable("MaxDefaultRangeYear",String.valueOf(onPage.getDefaultMaxValueYear()));
-		onPage.addValueInSessionVariable("MaxRangeYear",String.valueOf(onPage.getDefaultMaxValueYear() - 1));
-		onPage.setMaxValueYears(onPage.getValueFromSessionVariable("MaxRangeYear"));
+		onPage.getDefaultMaxValueYear();
+		onPage.setMaxValueYears(onPage.maxRangeYear);
 	}
 
 	@Step
@@ -394,7 +395,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void isColumnForNextMaxDefaultYearRemove(){
-		Assert.assertTrue(onPage.isColumnForNextMaxDefaultYearRemove(onPage.getValueFromSessionVariable("MaxDefaultRangeYear")));
+		Assert.assertTrue(onPage.isColumnForNextMaxDefaultYearRemove(onPage.maxDefaultRangeYear));
 	}
 
 	@Step
@@ -409,8 +410,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void isYearsRangeChange(){
-		Assert.assertTrue(onPage.isYearsRangeChange(onPage.getValueFromSessionVariable("RangeButton")
-				,onPage.getValueFromSessionVariable("MaxRangeYear")));
+		Assert.assertTrue(onPage.isYearsRangeChange(onPage.getValueFromSessionVariable("RangeButton"),onPage.maxRangeYear));
 	}
 
 	@Step

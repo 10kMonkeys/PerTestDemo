@@ -186,24 +186,24 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DEAL VOLUME (QUARTERLY)")
     private WebElement dealVolumeQuarterlyButton;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeButton[1]")
-    //@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[1]")
+	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeButton[1])[1]")
     private WebElement yearsRange;
 
-    @iOSXCUITFindBy(xpath ="//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypePicker/XCUIElementTypePickerWheel")
-    //@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypePicker/XCUIElementTypePickerWheel")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypePickerWheel[1]")
     private WebElement beginningPickerWheel;
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypePicker/XCUIElementTypePickerWheel")
-	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypePicker/XCUIElementTypePickerWheel")
-    private WebElement endingPickerWheel;
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypePickerWheel[2]")
+    private MobileElement  endingPickerWheel;
 
-	@iOSXCUITFindBy(accessibility = "SET RANGE")
+    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'SET RANGE'")
+	//@iOSXCUITFindBy(accessibility = "SET RANGE")
     private WebElement setRangeButton;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeStaticText")
-	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeStaticText")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeStaticText")
     private List<WebElement> valueColumnYearsList;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther")
+    private WebElement headerOfFirstChart;
     //endregion
 
 	public AnalyticsPage(WebDriver driver){
@@ -215,7 +215,7 @@ public class AnalyticsPage extends BasePage {
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 		TouchAction action = new TouchAction(appiumDriver);
-        action.longPress(dealCountByTypeChart).release().perform();
+        action.longPress(headerOfFirstChart).release().perform();
     }
 
     public void deleteChart(){
@@ -544,24 +544,29 @@ public class AnalyticsPage extends BasePage {
 	    element(yearsRange).click();
     }
 
-    public int getDefaultMinValueYear(){
-        return Integer.parseInt(element(beginningPickerWheel).getValue());
+    public String getDefaultMinValueYear(){
+        return element(beginningPickerWheel).getText();
     }
 
-    public int getDefaultMaxValueYear(){
-        return Integer.parseInt(element(endingPickerWheel).getValue());
+    public String maxDefaultRangeYear;
+
+    public String maxRangeYear;
+
+    public void getDefaultMaxValueYear(){
+        maxDefaultRangeYear = endingPickerWheel.getAttribute("value");
+        maxRangeYear = String.valueOf(Integer.parseInt(maxDefaultRangeYear) - 1);
     }
 
     public void setMinValueYear(String value){
-	    element(beginningPickerWheel).sendKeys(value);
+	    beginningPickerWheel.sendKeys(value);
     }
 
     public void setMaxValueYears(String value){
-	    element(endingPickerWheel).sendKeys(value);
+        endingPickerWheel.setValue(value);
     }
 
     public void setRangeButtonClick(){
-	    element(setRangeButton).click();
+	    setRangeButton.click();
     }
 
     public boolean isColumnForPreviousMinDefaultYearAdd(String year){
@@ -593,13 +598,12 @@ public class AnalyticsPage extends BasePage {
     }
 
     public String yearsRangeButtonValue(){
-	    return element(yearsRange).getText();
+	    return yearsRange.getText();
     }
 
     public boolean isYearsRangeChange(String previous,String present){
-	    present = previous.substring(2);
-	    if(previous.contains(present)) return true;
-	    else return false;
+	    present = present.substring(2);
+        return previous.contains(present);
     }
 
     private List<Integer> previousYearsList ;
@@ -609,14 +613,18 @@ public class AnalyticsPage extends BasePage {
     public void  getPreviousYearsInFromTopList() {
         List<Integer> yearsList = new ArrayList<>();
         for (WebElement e : valueColumnYearsList) {
-            yearsList.add(Integer.parseInt(e.getText()));
+            String year = e.getText();
+            year = year.substring(0,year.length() - 1);
+            yearsList.add(Integer.parseInt(year));
         }
         previousYearsList = yearsList;
     }
     public void getPresentYearsInFromTopList(){
         List<Integer> yearsList = new ArrayList<>();
         for (WebElement e : valueColumnYearsList) {
-            yearsList.add(Integer.parseInt(e.getText()));
+            String year = e.getText();
+            year = year.substring(0,year.length() - 1);
+            yearsList.add(Integer.parseInt(year));
         }
         presentYearsList = yearsList;
     }
