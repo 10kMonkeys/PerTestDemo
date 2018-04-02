@@ -363,4 +363,8 @@ public class PerchwellPage extends BasePage {
     public boolean isListingSortedByBathrooms() {
         return (FilteringAndSortingBuildings.getCounterInSorting("bathrooms", roomsInfoList) == 1);
     }
+
+    public boolean isInfoRoomsPresent(String info) {
+		return FilteringAndSortingBuildings.isSomeInfoPresentInBuildings(info, roomsInfoList);
+	}
 }
