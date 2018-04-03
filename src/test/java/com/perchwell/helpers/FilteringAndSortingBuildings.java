@@ -9,42 +9,6 @@ import java.util.regex.Pattern;
 
 public abstract class FilteringAndSortingBuildings {
 
-    public static boolean isSortedByRooms(List<WebElement> roomsInfoList, String roomType) {
-        String[] roomsData = new String[5];
-        int[] roomsNumbers = new int[5];
-
-        if (roomsInfoList.size() > 0) {
-            for (int i = 0; (i < 5 && i < roomsInfoList.size()); i++) {
-                StringBuilder baQty = new StringBuilder();
-                String[] roomsValues = roomsInfoList.get(i).getAttribute("value").split("\\|");
-
-                for (int j = 0; j < roomsValues.length; j++) {
-                    if (roomsValues[j].contains(roomType)) {
-                        roomsData[i] = roomsValues[j];
-                    } else if ((roomsData[i] == null) && j == (roomsValues.length - 1)) {
-                        return false;
-                    }
-                }
-
-                for (int k = 0; k < roomsData[i].length(); k++) {
-                    if (Character.isDigit(roomsData[i].charAt(k))) {
-                        baQty.append(String.valueOf(roomsData[i].charAt(k)));
-                    }
-                }
-
-                roomsNumbers[i] = Integer.parseInt(String.valueOf(baQty));
-            }
-
-            for (int d = 0; (d < 4 && d < (roomsInfoList.size() - 1)); d++) {
-                if (roomsNumbers[d] < roomsNumbers[d + 1]) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-
     public static float getNumberFromString(String typeSorting, String input) {
         float output;
         String price = "^\\$\\d+.*$";
@@ -146,5 +110,48 @@ public abstract class FilteringAndSortingBuildings {
             }
         }
         return k;
+    }
+
+    public static boolean isContainsStudios(List<WebElement> roomsInfoList) {
+        if (roomsInfoList.size() > 0) {
+            for(WebElement element: roomsInfoList) {
+                String studioString = element.getAttribute("value");
+
+                if (studioString.contains(" BD")) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isContains4PlusParticularRooms(List<WebElement> roomsInfoList, String roomType) {
+        float currentNumber;
+        if (roomsInfoList.size() > 0) {
+
+            for (WebElement element : roomsInfoList) {
+                String s = element.getAttribute("value");
+
+                currentNumber = getNumberFromString(roomType, s);
+                    if (currentNumber < 4) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static boolean isContainParticularRooms(List<WebElement> roomsInfoList, String rooms) {
+        if (roomsInfoList.size() > 0) {
+            for(WebElement element: roomsInfoList) {
+                String roomsString = element.getAttribute("value");
+                if (!roomsString.contains(rooms)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 }

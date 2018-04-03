@@ -24,7 +24,7 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickFilter2Beds() {
+	public void selectFilter2Beds() {
 		onPage.selectFilterFor2Beds();
 	}
 
@@ -67,8 +67,8 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickFilterStudioBeds() {
-		onPage.clickOnFilterStudioBeds();
+	public void selectFilterStudioBeds() {
+		onPage.selectFilterStudioBeds();
 	}
 
 	@Step
@@ -85,7 +85,7 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void addLocationFilter() {
 		onPage.clickOnLocationFilter();
-		//onPage.addLocationFilterAlphabetCity();
+//		onPage.addLocationFilterAlphabetCity();
 	}
 
 	@Step
@@ -94,7 +94,7 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	private void createNewSearchStudioBeds() {
-		onPage.clickOnFilterStudioBeds();
+		onPage.selectFilterStudioBeds();
 		this.clickTapToSaveChanges();
 		this.setSearchName();
 		this.clickSaveButton();
@@ -165,18 +165,18 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-    public void clickFilter1Bed() {
-		onPage.clickOnFilter1Bed();
+    public void selectFilter1Bed() {
+		onPage.selectFilter1Bed();
     }
 
     @Step
-	public void clickFilter3Beds() {
-		onPage.clickOnFilter3Beds();
+	public void selectFilter3Beds() {
+		onPage.selectFilter3Beds();
 	}
 
 	@Step
-	public void clickFilter4PlusBeds() {
-		onPage.clickOnFilter4PlusBeds();
+	public void selectFilter4PlusBeds() {
+		onPage.selectFilter4PlusBeds();
 	}
 
 	@Step
@@ -188,6 +188,7 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void checkNoOneBedsFilterSelected() {
+		onPage.checkNoOneBedsFilterSelected();
 	}
 
 	@Step
@@ -227,5 +228,21 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void shouldDeleteSearch() {
 		Assert.assertFalse(onPage.isDeletedSearch(onPage.getValueFromSessionVariable("Search")));
+	}
+
+	public void deselectFilterStudioBeds() {
+		onPage.deselectFilterStudioBeds();
+	}
+
+	public void deselectFilter1Bed() {
+		onPage.deselectFilter1Bed();
+	}
+
+	public void deselectFilter2Beds() {
+		onPage.deselectFilter2Beds();
+	}
+
+	public void deselectFilter3Beds() {
+		onPage.deselectFilter3Beds();
 	}
 }

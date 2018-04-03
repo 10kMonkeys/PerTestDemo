@@ -21,6 +21,5 @@ public class ST15_ApplyingLocationFilterTest extends SampleTest {
 		searchSteps.addLocationFilter();
 		searchSteps.clickApplyButton();
 		perchwellSteps.shouldSeeListingsOnlyFromSelectedDistrict("ALPHABET CITY");
-
 	}
 }

@@ -1,6 +1,5 @@
 package com.perchwell.pages.perchwell;
 
-import com.google.gson.annotations.Until;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.base.BasePage;
@@ -8,17 +7,14 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.assertj.core.api.SoftAssertions;
+import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class SearchPage extends BasePage {
 
@@ -49,7 +45,7 @@ public class SearchPage extends BasePage {
 	private WebElement filterFor2Beds;
 
 	@iOSXCUITFindBy(accessibility = "StudioBedsButton")
-	private WebElement filterStudioBedsButton;
+	private WebElement filterForStudioBeds;
 
 	@iOSXCUITFindBy(accessibility = "BATHS")
 	private WebElement baths;
@@ -150,6 +146,20 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton[2]")
 	private WebElement deleteSearchButton;
 
+	@iOSXCUITFindBy(accessibility = "StudioBedsButton-selected")
+	private WebElement selectedFilterForStudioBeds;
+
+	@iOSXCUITFindBy(accessibility = "1BedButton-selected")
+	private WebElement selectedFilterFor1Bed;
+
+	@iOSXCUITFindBy(accessibility = "2BedsButton-selected")
+	private WebElement selectedFilterFor2Beds;
+
+	@iOSXCUITFindBy(accessibility = "3BedsButton-selected")
+	private WebElement selectedFilterFor3Beds;
+
+	@iOSXCUITFindBy(accessibility = "4PlusBedsButton-selected")
+	private WebElement selectedFilterFor4PlusBeds;
 
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
@@ -232,8 +242,8 @@ public class SearchPage extends BasePage {
 		element(minimumPriceTextBox).typeAndEnter(price);
 	}
 
-	public void clickOnFilterStudioBeds() {
-		element(filterStudioBedsButton).click();
+	public void selectFilterStudioBeds() {
+		element(filterForStudioBeds).click();
 	}
 
 	public void clickOnFilter1Bath() {
@@ -326,16 +336,16 @@ public class SearchPage extends BasePage {
 		element(createNewSearchButton).click();
 	}
 
-	public void clickOnFilter1Bed() {
+	public void selectFilter1Bed() {
 		element(filterFor1Bed).click();
 	}
 
-	public void clickOnFilter3Beds() {
+	public void selectFilter3Beds() {
 		element(filterFor3Beds).click();
 	}
 
-	public void clickOnFilter4PlusBeds() {
-		element(filterFor4PlusBeds);
+	public void selectFilter4PlusBeds() {
+		element(filterFor4PlusBeds).click();
 	}
 
 	public void clickOnResetFilters() {
@@ -370,6 +380,33 @@ public class SearchPage extends BasePage {
 
 	public boolean isDeletedSearch(String name) {
 		return Helper.isElementDisplayed(element(MobileBy.AccessibilityId(name)));
+	}
+
+	public void deselectFilterStudioBeds() {
+		element(selectedFilterForStudioBeds).click();
+	}
+
+	public void deselectFilter1Bed() {
+		element(selectedFilterFor1Bed).click();
+	}
+
+	public void deselectFilter2Beds() {
+		element(selectedFilterFor2Beds).click();
+	}
+
+	public void deselectFilter3Beds() {
+		element(selectedFilterFor3Beds).click();
+	}
+
+	public void checkNoOneBedsFilterSelected() {
+		SoftAssertions softAssert = new SoftAssertions();
+
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterForStudioBeds))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor1Bed))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor2Beds))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor3Beds))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor4PlusBeds))).isTrue();
+		softAssert.assertAll();
 	}
 }
 

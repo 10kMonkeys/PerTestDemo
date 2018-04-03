@@ -126,18 +126,18 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeListingOnlyWithSelectedRooms(String rooms) {
-		Assert.assertTrue(onPage.isContainParticularRooms(rooms));
+		onPage.isContainParticularRooms(rooms);
 	}
 
 	@Step
 	public void shouldSeeListing4AndMoreRooms(String roomType) {
-		Assert.assertTrue(onPage.isContains4PlusParticularRooms(roomType));
+		onPage.isContains4PlusParticularRooms(roomType);
 
 	}
 
 	@Step
 	public void shouldSeeListingOnlyWithStudios() {
-		Assert.assertTrue(onPage.isContainsStudios());
+		onPage.isContainsStudios();
 	}
 
 	@Step
@@ -148,11 +148,6 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void clickBedroomsSortButton() {
 		onPage.clickOnBedroomsSortButton();
-	}
-
-	@Step
-	public void shouldListingsSortedByRooms(String roomType) {
-		onPage.isListingsSortedByRooms(roomType);
 	}
 
 	@Step
@@ -198,5 +193,25 @@ public class PerchwellSteps extends ScenarioSteps {
     @Step
 	public void clickTotalRoomsSortButton() {
 		onPage.clickOnTotalRoomsButton();
+	}
+
+	@Step
+	public void clickInitials() {
+		onPage.clickOnInitials();
+	}
+
+	@Step
+	public void clickResetPassword() {
+		onPage.clickOnResetPassword();
+	}
+
+	@Step
+    public void isListingsQuantity() {
+		onPage.isListingsQuantity();
+    }
+
+    @Step
+	public void checkListingsQuantity() {
+		Assert.assertTrue(onPage.checkListingsQuantity());
 	}
 }
