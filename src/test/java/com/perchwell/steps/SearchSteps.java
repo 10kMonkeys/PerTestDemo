@@ -64,6 +64,7 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void setMinimumPriceFilter(String amount) {
 		onPage.setMinimumPriceFilter(amount);
+		onPage.addValueInSessionVariable("min price", amount);
 	}
 
 	@Step
@@ -171,7 +172,7 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void clickFilter1Bed() {
-		onPage.selectFilter1Bed();
+		onPage.clickFilter1Bed();
 		onPage.setUpSessionVariableForStatusFilter(onPage.getFilterFor1Bed());
 	}
 
