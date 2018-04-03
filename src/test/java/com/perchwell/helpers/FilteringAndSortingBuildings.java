@@ -109,11 +109,12 @@ public abstract class FilteringAndSortingBuildings {
         int k = 0;
         float numberToCompare = 0.f;
         boolean buildingSort = false;
+        int numberCheckedBuildings = 0;
 
         if (buildingList.size() > 0) {
             Iterator<WebElement> iterator = buildingList.iterator();
 
-            while (iterator.hasNext()) {
+            while (iterator.hasNext() && (numberCheckedBuildings < 10)) {
                 String s = iterator.next().getAttribute("value");
 
                 switch (typeSorting) {
@@ -143,6 +144,7 @@ public abstract class FilteringAndSortingBuildings {
                 }
 
                 numberToCompare = currentNumber;
+                numberCheckedBuildings++;
             }
         }
         return k;
