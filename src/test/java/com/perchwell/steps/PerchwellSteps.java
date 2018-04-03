@@ -105,6 +105,11 @@ public class PerchwellSteps extends ScenarioSteps {
 		Assert.assertTrue(onPage.isElementExistsInEachCell(search));
 	}
 
+    @Step("Should see listing with filters are applyed {0}")
+    public void isFilter1Bed1AndHalfBathApplied(String search) {
+        Assert.assertTrue(onPage.isInfoRoomsPresent(search));
+    }
+
 	@Step("'{0}' and '{1}' should be equal")
 	public void resultsCountIsEqual(String s2, String s1) {
 

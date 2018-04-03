@@ -44,6 +44,12 @@ public class MapPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"1 BA\"]")
 	private WebElement oneBaths;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1½ BA'")
+	private WebElement oneAndHalfBaths;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1 BD'")
+    private WebElement oneBed;
+
 	public void clickNotNowButton() {
 		element(notNowButton).click();
 	}
@@ -84,10 +90,13 @@ public class MapPage extends BasePage {
 
 	public boolean checkForChangesAfterApplyingTheFilter(){
 		Boolean isCheckPassed = true;
-		for(int i=0;(i<10 ||i< clusterList.size() );i++){
+		int numberPins = clusterList.size() < 10 ? clusterList.size() : 10;
+
+		for (int i = 0; i < numberPins; i++) {
 			WebElement cluster = clusterList.get(i);
 			cluster.click();
-			if (!Helper.isElementDisplayed(oneBaths)){
+
+			if (!Helper.isElementDisplayed(oneAndHalfBaths) || (!Helper.isElementDisplayed(oneBed))){
 				isCheckPassed = false;
 				break;
 			}

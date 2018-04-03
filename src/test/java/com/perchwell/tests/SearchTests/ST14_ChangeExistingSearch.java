@@ -3,28 +3,25 @@ package com.perchwell.tests.SearchTests;
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
-import org.junit.Ignore;
 import org.junit.Test;
 
 @WithTagValuesOf({"SmokeTestSuit", "SearchTests", "Second"})
 public class ST14_ChangeExistingSearch extends SampleTest {
 
-	@Ignore
 	@Test
-	public void changeExistingSearch() throws Exception {
+	public void changeExistingSearch() {
 
 		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickMyNewSearch();
-
 		searchSteps.clickLoadSavedSearchButton();
 		searchSteps.clickExistingSearchInList();
 		perchwellSteps.countItemsInListView("The number of elements before search changing");
 		perchwellSteps.clickMyNewSearch();
 		searchSteps.setMinimumPriceFilter("700000");
-		searchSteps.clickFilter1Bath();
+		searchSteps.clickFilter1Bed();
 		searchSteps.clickApplyButton();
 		perchwellSteps.countItemsInListView("The number of elements after search changing");
 		perchwellSteps.resultsCountIsChanged("The number of elements before search changing","The number of elements after search changing");
@@ -35,8 +32,8 @@ public class ST14_ChangeExistingSearch extends SampleTest {
 		perchwellSteps.resultsCountIsEqual("The number of elements after overwrite","The number of elements after search changing");
 		perchwellSteps.shouldSeeTheSameSearchName();
 		perchwellSteps.clickMyNewSearch();
-
-//add checks for existing filters
+        searchSteps.shouldMinPriceHaveTheSameValue();
+        searchSteps.shouldFilter1BedBeOfTheSameStatus();
 	}
 
 }

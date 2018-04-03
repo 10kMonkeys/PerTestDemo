@@ -10,8 +10,6 @@ import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-
 public class SellersAgentPage extends BasePage {
 
     public SellersAgentPage(WebDriver driver) {
@@ -23,9 +21,6 @@ public class SellersAgentPage extends BasePage {
 
     @iOSFindBy(accessibility = "CONFIRM")
     private WebElement confirmButton;
-
-    @iOSFindBy(accessibility = "OK")
-    private WebElement oKButtonForSuccessfullySentMessage;
 
     public void clickSendEmailButton() {
         element(sendEmailButton).click();
@@ -44,11 +39,16 @@ public class SellersAgentPage extends BasePage {
     }
 
     private int countNumberEmailsSentToSellersAgents() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         int k = 0;
         String subjectName = "New interest in your listing " + getValueFromSessionVariable("building address");
         subjectName = Helper.removeChar(subjectName, '#');
 
-        if (element(oKButtonForSuccessfullySentMessage).isVisible()) {
             String emailHeaderToSellersAgent = AppProperties.INSTANCE.getProperty("HEADER_SELLERS_AGENT");
             MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(emailHeaderToSellersAgent);
 
@@ -57,7 +57,6 @@ public class SellersAgentPage extends BasePage {
                     k++;
                 }
             }
-        }
         return k;
     }
 
