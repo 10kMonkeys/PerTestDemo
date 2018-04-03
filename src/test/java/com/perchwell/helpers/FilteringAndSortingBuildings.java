@@ -154,4 +154,22 @@ public abstract class FilteringAndSortingBuildings {
         }
         return false;
     }
+
+    public static boolean isSomeInfoPresentInBuildings(String info, List<WebElement> roomsInfoList) {
+        boolean infoRoomPresent = true;
+        int numberCheckedBuildings = 0;
+        int numberBuildingToCheck = roomsInfoList.size() < 10 ? roomsInfoList.size() : 10;
+
+        Iterator<WebElement> iterator = roomsInfoList.iterator();
+
+        while (iterator.hasNext() && (numberCheckedBuildings < numberBuildingToCheck)) {
+            String infoRoom = iterator.next().getAttribute("value");
+            if (!infoRoom.contains(info)) {
+                infoRoomPresent = false;
+                break;
+            }
+            numberCheckedBuildings++;
+        }
+        return infoRoomPresent;
+    }
 }

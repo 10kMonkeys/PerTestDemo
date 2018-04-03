@@ -382,6 +382,51 @@ public class SearchPage extends BasePage {
 		return Helper.isElementDisplayed(element(MobileBy.AccessibilityId(name)));
 	}
 
+	public void setUpSessionVariableForStatusFilter(WebElement name) {
+		String selected = name.getAttribute("name");
+
+		if (!selected.contains("selected")) {
+			addValueInSessionVariable("status filter", "not selected");
+			return;
+		}
+		addValueInSessionVariable("status filter", "selected");
+	}
+
+	public WebElement getFilterFor1Bed() {
+		return filterFor1Bed;
+	}
+
+	private String getValueFromMinPriceFilter() {
+		String minPrice = minimumPriceTextBox.getAttribute("value");
+		minPrice = Helper.removeChar(minPrice, '$');
+		minPrice = Helper.removeChar(minPrice, ',');
+		return minPrice;
+	}
+
+	public boolean isMinPriceSaved() {
+		boolean minPriceSaved = false;
+		String minPriceEnteredPreviously = getValueFromSessionVariable("min price");
+		String minPriceInFilter = getValueFromMinPriceFilter();
+
+		if (minPriceEnteredPreviously.equalsIgnoreCase(minPriceInFilter)) {
+			minPriceSaved = true;
+		}
+		return minPriceSaved;
+	}
+
+	public boolean isFilterFor1BedSaved() {
+		boolean filterFor1BedSaved = false;
+		String statusFilterPreviously = getValueFromSessionVariable("status filter");
+		String statusFilter = filterFor1Bed.getAttribute("name");
+
+		if ((statusFilterPreviously.equals("selected") && statusFilter.contains("selected"))
+				|| (statusFilterPreviously.equals("not selected") && !statusFilter.contains("selected"))) {
+			filterFor1BedSaved = true;
+		}
+
+		return filterFor1BedSaved;
+	}
+
 	public void deselectFilterStudioBeds() {
 		element(selectedFilterForStudioBeds).click();
 	}
