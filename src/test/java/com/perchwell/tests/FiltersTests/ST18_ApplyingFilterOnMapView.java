@@ -17,7 +17,7 @@ public class ST18_ApplyingFilterOnMapView extends SampleTest {
         perchwellSteps.clickMap();
         mapSteps.clickNotNowButton();
         mapSteps.clickMyNewSearch();
-        searchSteps.clickFilter1AndHalfBath();
+        searchSteps.selectFilter1AndHalfBath();
         searchSteps.clickFilter1Bed();
         searchSteps.clickApplyButton();
         mapSteps.checkForChangesAfterApplyingTheFilter();

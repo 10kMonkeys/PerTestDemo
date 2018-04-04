@@ -1,44 +1,42 @@
-package com.perchwell.tests;
+package com.perchwell.tests.FiltersTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
-import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"FiltersTests"})
-public class FT4_ApplyingBedroomsFilterTest extends SampleTest {
+public class FT3_ApplyingBathroomsFilterTest extends SampleTest {
 
     @Test
-    public void resultAfterApplyingBedroomFilter() {
+    public void resultAfterApplyingBathroomFilter() {
         loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_test_email"),
                 AppProperties.INSTANCE.getProperty("client_test_password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.isListingsQuantity();
         perchwellSteps.clickMyNewSearch();
-        searchSteps.selectFilterStudioBeds();
+        searchSteps.selectFilter1Bath();
         searchSteps.clickApplyButton();
-        perchwellSteps.shouldSeeListingOnlyWithStudios();
+        perchwellSteps.shouldSeeListingOnlyWithSelectedRooms("1 BA");
         perchwellSteps.clickMyNewSearch();
-        searchSteps.deselectFilterStudioBeds();
-        searchSteps.selectFilter1Bed();
+        searchSteps.deselectFilter1Bath();
+        searchSteps.selectFilter1AndHalfBath();
         searchSteps.clickApplyButton();
-        perchwellSteps.shouldSeeListingOnlyWithSelectedRooms("1 BD");
+        perchwellSteps.shouldSeeListingOnlyWithSelectedRooms("1½ BA");
         perchwellSteps.clickMyNewSearch();
-        searchSteps.deselectFilter1Bed();
-        searchSteps.selectFilter2Beds();
+        searchSteps.deselectFilter1AndHalfBath();
+        searchSteps.selectFilter2Baths();
         searchSteps.clickApplyButton();
-        perchwellSteps.shouldSeeListingOnlyWithSelectedRooms("2 BD");
+        perchwellSteps.shouldSeeListingOnlyWithSelectedRooms("2 BA");
         perchwellSteps.clickMyNewSearch();
-        searchSteps.deselectFilter2Beds();
-        searchSteps.selectFilter3Beds();
+        searchSteps.deselectFilter2Baths();
+        searchSteps.selectFilter3Baths();
         searchSteps.clickApplyButton();
-        perchwellSteps.shouldSeeListingOnlyWithSelectedRooms("3 BD");
+        perchwellSteps.shouldSeeListingOnlyWithSelectedRooms("3 BA");
         perchwellSteps.clickMyNewSearch();
-        searchSteps.deselectFilter3Beds();
-        searchSteps.selectFilter4PlusBeds();
+        searchSteps.deselectFilter3Baths();
+        searchSteps.selectFilter4PlusBaths();
         searchSteps.clickApplyButton();
-        perchwellSteps.shouldSeeListing4AndMoreRooms("bedrooms");
+        perchwellSteps.shouldSeeListing4AndMoreRooms("bathrooms");
         perchwellSteps.clickMyNewSearch();
         searchSteps.saveCurrentSearch();
         perchwellSteps.clickMyNewSearch();
@@ -47,13 +45,13 @@ public class FT4_ApplyingBedroomsFilterTest extends SampleTest {
         searchSteps.clickApplyButton();
         perchwellSteps.checkListingsQuantity();
         perchwellSteps.clickMyNewSearch();
-        searchSteps.checkNoOneBedsFilterSelected();
+        searchSteps.checkNoOneBathsFilterSelected();
         searchSteps.clickLoadSavedSearchButton();
         searchSteps.clickPreviouslyCreatedSearch();
-        perchwellSteps.shouldSeeListing4AndMoreRooms("bedrooms");
+        perchwellSteps.shouldSeeListing4AndMoreRooms("bathrooms");
         perchwellSteps.clickMyNewSearch();
         searchSteps.clickResetFilter();
-        searchSteps.checkNoOneBedsFilterSelected();
+        searchSteps.checkNoOneBathsFilterSelected();
         searchSteps.clickApplyButton();
         perchwellSteps.checkListingsQuantity();
     }

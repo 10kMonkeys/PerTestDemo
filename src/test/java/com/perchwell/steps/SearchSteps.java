@@ -72,8 +72,8 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickFilter1Bath() {
-		onPage.clickOnFilter1Bath();
+	public void selectFilter1Bath() {
+		onPage.selectFilter1Bath();
 	}
 
 	public void deleteDefaultLocationInFilter() {
@@ -203,22 +203,22 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickFilter1AndHalfBath() {
-		onPage.clickOnFilter1AndHalfBath();
+	public void selectFilter1AndHalfBath() {
+		onPage.selectFilter1AndHalfBath();
 	}
 	@Step
-	public void clickFilter2Baths() {
-		onPage.clickOnFilter2Baths();
-	}
-
-	@Step
-	public void clickFilter3Baths() {
-		onPage.clickOnFilter3Baths();
+	public void selectFilter2Baths() {
+		onPage.selectFilter2Baths();
 	}
 
 	@Step
-	public void clickFilter4PlusBaths() {
-		onPage.clickOnFilter4PlusBaths();
+	public void selectFilter3Baths() {
+		onPage.selectFilter3Baths();
+	}
+
+	@Step
+	public void selectFilter4PlusBaths() {
+		onPage.selectFilter4PlusBaths();
 	}
 
 	@Step
@@ -246,19 +246,48 @@ public class SearchSteps extends ScenarioSteps {
 		Assert.assertTrue(onPage.isFilterFor1BedSaved());
 	}
 
+	@Step
 	public void deselectFilterStudioBeds() {
 		onPage.deselectFilterStudioBeds();
 	}
 
+	@Step
 	public void deselectFilter1Bed() {
 		onPage.deselectFilter1Bed();
 	}
 
+	@Step
 	public void deselectFilter2Beds() {
 		onPage.deselectFilter2Beds();
 	}
 
+	@Step
 	public void deselectFilter3Beds() {
 		onPage.deselectFilter3Beds();
+	}
+
+	@Step
+	public void deselectFilter1Bath() {
+		onPage.deselectFilter1Bath();
+	}
+
+	@Step
+	public void deselectFilter1AndHalfBath() {
+		onPage.deselectFilter1AndHalfBath();
+	}
+
+	@Step
+	public void deselectFilter2Baths() {
+		onPage.deselectFilter2Baths();
+	}
+
+	@Step
+	public void deselectFilter3Baths() {
+		onPage.deselectFilter3Baths();
+	}
+
+	@Step
+	public void checkNoOneBathsFilterSelected() {
+		onPage.checkNoOneBathsFilterSelected();
 	}
 }

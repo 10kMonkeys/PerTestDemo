@@ -161,6 +161,18 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "4PlusBedsButton-selected")
 	private WebElement selectedFilterFor4PlusBeds;
 
+	@iOSXCUITFindBy(accessibility = "1BathButton-selected")
+	private WebElement selectedFilterFor1Bath;
+
+	@iOSXCUITFindBy(accessibility = "1.5BathsButton-selected")
+	private WebElement selectedFilterFor1AndHalfBath;
+
+	@iOSXCUITFindBy(accessibility = "2BathsButton-selected")
+	private WebElement selectedFilter2Baths;
+
+	@iOSXCUITFindBy(accessibility = "3BathsButton-selected")
+	private WebElement selectedFilterFor3Baths;
+
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
 	}
@@ -246,7 +258,7 @@ public class SearchPage extends BasePage {
 		element(filterForStudioBeds).click();
 	}
 
-	public void clickOnFilter1Bath() {
+	public void selectFilter1Bath() {
 		element(filterFor1Bath).click();
 	}
 
@@ -352,19 +364,19 @@ public class SearchPage extends BasePage {
 		element(resetFiltersButton).click();
 	}
 
-	public void clickOnFilter1AndHalfBath() {
+	public void selectFilter1AndHalfBath() {
 		element(filterFor1AndHalfBath).click();
 	}
 
-	public void clickOnFilter2Baths() {
+	public void selectFilter2Baths() {
 		element(filterFor2Baths).click();
 	}
 
-	public void clickOnFilter3Baths() {
+	public void selectFilter3Baths() {
 		element(filterFor3Baths).click();
 	}
 
-	public void clickOnFilter4PlusBaths() {
+	public void selectFilter4PlusBaths() {
 		element(filterFor4PlusBaths).click();
 	}
 
@@ -453,5 +465,31 @@ public class SearchPage extends BasePage {
 		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor4PlusBeds))).isTrue();
 		softAssert.assertAll();
 	}
-}
 
+	public void deselectFilter1Bath() {
+		element(selectedFilterFor1Bath).click();
+	}
+
+	public void deselectFilter1AndHalfBath() {
+		element(selectedFilterFor1AndHalfBath).click();
+	}
+
+	public void deselectFilter2Baths() {
+		element(selectedFilter2Baths).click();
+	}
+
+	public void deselectFilter3Baths() {
+		element(selectedFilterFor3Baths).click();
+	}
+
+	public void checkNoOneBathsFilterSelected() {
+		SoftAssertions softAssert = new SoftAssertions();
+
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor1Bath))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor1AndHalfBath))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor2Baths))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor3Baths))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor4PlusBaths))).isTrue();
+		softAssert.assertAll();
+	}
+}

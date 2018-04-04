@@ -22,7 +22,7 @@ public class ST12_NewSearch extends SampleTest {
 		perchwellSteps.clickMap();
 		mapSteps.clickNotNowButton();
 		mapSteps.clickMyNewSearch();
-		searchSteps.clickFilter1AndHalfBath();
+		searchSteps.selectFilter1AndHalfBath();
 		searchSteps.clickApplyButton();
 		perchwellSteps.clickAnalytics();
 		analyticsSteps.addChartFromREBNYSection();
