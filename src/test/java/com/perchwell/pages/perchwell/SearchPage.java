@@ -128,6 +128,9 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "1BedButton")
 	private WebElement filterFor1Bed;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1BedButton'")
+	private WebElement filter1BedSelectedOrNot;
+
 	@iOSXCUITFindBy(accessibility = "3BedsButton")
 	private WebElement filterFor3Beds;
 
@@ -352,6 +355,10 @@ public class SearchPage extends BasePage {
 		element(filterFor1Bed).click();
 	}
 
+	public void clickFilter1Bed() {
+		element(filter1BedSelectedOrNot).click();
+	}
+
 	public void selectFilter3Beds() {
 		element(filterFor3Beds).click();
 	}
@@ -405,7 +412,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public WebElement getFilterFor1Bed() {
-		return filterFor1Bed;
+		return filter1BedSelectedOrNot;
 	}
 
 	private String getValueFromMinPriceFilter() {
@@ -429,7 +436,7 @@ public class SearchPage extends BasePage {
 	public boolean isFilterFor1BedSaved() {
 		boolean filterFor1BedSaved = false;
 		String statusFilterPreviously = getValueFromSessionVariable("status filter");
-		String statusFilter = filterFor1Bed.getAttribute("name");
+		String statusFilter = filter1BedSelectedOrNot.getAttribute("name");
 
 		if ((statusFilterPreviously.equals("selected") && statusFilter.contains("selected"))
 				|| (statusFilterPreviously.equals("not selected") && !statusFilter.contains("selected"))) {
