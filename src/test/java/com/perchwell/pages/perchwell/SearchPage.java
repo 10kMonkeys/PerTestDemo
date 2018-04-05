@@ -68,6 +68,9 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MinimumPriceField")
 	private WebElement minimumPriceTextBox;
 
+	@iOSXCUITFindBy(accessibility = "MaximumPriceField")
+	private WebElement maximumPriceTextBox;
+
 	@iOSXCUITFindBy(accessibility = "1BathButton")
 	private WebElement filterFor1Bath;
 
@@ -498,5 +501,32 @@ public class SearchPage extends BasePage {
 		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor3Baths))).isTrue();
 		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor4PlusBaths))).isTrue();
 		softAssert.assertAll();
+	}
+
+	public void setMaximumPriceFilter(String price) {
+		element(maximumPriceTextBox).typeAndEnter(price);
+	}
+
+	public void clearPriceFilterValue(String typePrice) {
+		switch (typePrice) {
+			case "minPrice" :
+				element(minimumPriceTextBox).clear();
+				break;
+
+			case "maxPrice" :
+				element(maximumPriceTextBox).clear();
+				break;
+		}
+	}
+
+	public boolean isMinAndMaxPricesNotSet() {
+		boolean emptyPricesFilters = true;
+		String maxPriceFilter = element(maximumPriceTextBox).getAttribute("value");
+		String minPriceFilter = element(minimumPriceTextBox).getAttribute("value");
+
+		if (!maxPriceFilter.contains("NO MAX") || !minPriceFilter.contains("NO MIN")) {
+			emptyPricesFilters = false;
+		}
+		return emptyPricesFilters;
 	}
 }
