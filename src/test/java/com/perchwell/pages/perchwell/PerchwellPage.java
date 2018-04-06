@@ -175,7 +175,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public Integer countItemsInListView() {
-        String newString = "";
+        String newString = "0";
         String s = listingsByButton.getAttribute("value");
         s = Helper.removeChar(s, ',');
         Pattern p = Pattern.compile("^\\d+\\s+");
