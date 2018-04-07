@@ -19,6 +19,15 @@ public class SettingsProfilePage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "OK")
     private WebElement okButton;
+
+    @iOSXCUITFindBy(accessibility = "RESET PASSWORD")
+    private WebElement resetPasswordButton;
+
+    @iOSXCUITFindBy(accessibility = "AccountDetailsCancelButton")
+    private WebElement cancelButton;
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name='SettingsViewController']/XCUIElementTypeButton")
+    private WebElement backButton;
     
     public SettingsProfilePage(WebDriver driver) {
             super(driver);
@@ -46,5 +55,17 @@ public class SettingsProfilePage extends BasePage {
 
     public void okButtonClick(){
         element(okButton).click();
+    }
+
+    public void resetPasswordButtonClick(){
+        element(resetPasswordButton).click();
+    }
+
+    public void cancelButtonClick(){
+        element(cancelButton).click();
+    }
+
+    public void backButtonClick(){
+        element(backButton).click();
     }
 }

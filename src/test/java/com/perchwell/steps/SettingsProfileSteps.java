@@ -48,4 +48,18 @@ public class SettingsProfileSteps {
         onPage.okButtonClick();
     }
 
+    @Step
+    public void resetPasswordClick(){
+        onPage.resetPasswordButtonClick();
+    }
+
+    @Step
+    public void cancelButtonClick(){
+        onPage.cancelButtonClick();
+    }
+
+    @Step
+    public void backButtonClick(){
+        onPage.backButtonClick();
+    }
 }

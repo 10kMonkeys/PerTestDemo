@@ -7,6 +7,7 @@ import com.perchwell.pages.starting.WelcomePage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 
 public class LoginSteps extends ScenarioSteps {
 
@@ -39,8 +40,6 @@ public class LoginSteps extends ScenarioSteps {
         login(email,password);
     }
     // AppProperties.INSTANCE.getProperty("email"), AppProperties.INSTANCE.getProperty("password")
-    @Step
-    public void clickForgotPassword() { welcomePage.clickForgotPassword(); }
 
     @Step ("Log in with Google ")
     public void loginWithGoogle() {
@@ -62,4 +61,5 @@ public class LoginSteps extends ScenarioSteps {
             googleLoginPage.selectNativeView();
         };
     }
+
 }

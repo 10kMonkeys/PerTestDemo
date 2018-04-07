@@ -169,7 +169,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public boolean editSearchFiltersHintIsDispalyed() {
-		return editSearchFiltersHint.isDisplayed();
+		return element(editSearchFiltersHint).isDisplayed();
 	}
 
 	public Integer countItemsInListView() {
