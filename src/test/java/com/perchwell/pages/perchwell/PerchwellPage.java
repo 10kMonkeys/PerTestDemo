@@ -3,7 +3,6 @@ package com.perchwell.pages.perchwell;
 import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import org.junit.Assert;
@@ -11,7 +10,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,9 +18,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class PerchwellPage extends BasePage {
 
-	private int totalCellAmmount;
-	private final String BD = " BD";
-	private StringBuilder baQty;
+	private int listningsAmmount;
 
 	public PerchwellPage(WebDriver driver) {
 		super(driver);
@@ -70,7 +66,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "**//XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeStaticText[1]")
 	private List<WebElement> aa;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'LISTINGS'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'LISTINGS BY'")
 	private WebElement listingsByButton;
 
 	@iOSXCUITFindBy(accessibility = "BEDROOMS")
@@ -101,6 +97,12 @@ public class PerchwellPage extends BasePage {
 	private WebElement firstBuildingAddress;
 
 	private By nextBuildingToSwipeDown = By.xpath("//XCUIElementTypeCell[@visible=\"true\"][last()]/following::XCUIElementTypeCell[1]");
+
+	@iOSXCUITFindBy(accessibility = "AccountDetailsHeader")
+	private WebElement initials;
+
+	@iOSXCUITFindBy(accessibility = "RESET PASSWORD")
+	private WebElement resetPassword;
 
 	public static Integer numberOfItemsInListView;
 	// public String buildingAddress;
@@ -173,7 +175,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public Integer countItemsInListView() {
-		String newString = "";
+        String newString = "0";
         String s = listingsByButton.getAttribute("value");
         s = Helper.removeChar(s, ',');
         Pattern p = Pattern.compile("^\\d+\\s+");
@@ -230,78 +232,16 @@ public class PerchwellPage extends BasePage {
 		return currentName;
 	}
 
-	public boolean isContainParticularRooms(String rooms) {
-		WebElement table = getDriver().findElement(By.className("XCUIElementTypeTable"));
-		List<WebElement> listCells = table.findElements(By.xpath("//XCUIElementTypeCell/XCUIElementTypeStaticText[1]"));
-
-		if (listCells.size() > 0) {
-			for (int i = 0; (i < 10 && i < listCells.size()); i++) {
-
-//				String roomsString = listCells.get(i).findElement(element(roomsValue)).getAttribute("value");
-				String roomsString = listCells.get(i).getAttribute("value");
-
-				if (!roomsString.contains(rooms)) {
-					return false;
-				}
-			}
-			return true;
-		}
-		return false;
+	public void isContainParticularRooms(String rooms) {
+		Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRooms(roomsInfoList, rooms));
 	}
 
-	public boolean isContainsStudios() {
-		WebElement table = getDriver().findElement(By.className("XCUIElementTypeTable"));
-		List<WebElement> listCells = table.findElements(By.xpath("//XCUIElementTypeCell/XCUIElementTypeStaticText[1]"));
-
-		if (listCells.size() > 0) {
-			for (int i = 0; (i < 10 && i < listCells.size()); i++) {
-				String studioString = listCells.get(i).getAttribute("value");
-
-					if (studioString.contains(BD)) {
-						return false;
-					}
-				}
-				return true;
-		}
-		return false;
+	public void isContainsStudios() {
+		Assert.assertTrue(FilteringAndSortingBuildings.isContainsStudios(roomsInfoList));
 	}
 
-	public boolean isContains4PlusParticularRooms(String roomType) {
-		WebElement table = getDriver().findElement(By.className("XCUIElementTypeTable"));
-		List<WebElement> listCells = table.findElements(By.xpath("//XCUIElementTypeCell/XCUIElementTypeStaticText[1]"));
-
-		if (listCells.size() > 0) {
-			for (int i = 0; (i < 10 && i < listCells.size()); i++) {
-				baQty = new StringBuilder();
-				String[] roomsValues = listCells.get(i).getAttribute("value").split("\\|");
-				String particularRoomsValue = null;
-				int counter = 0;
-
-				while (counter < roomsValues.length) {
-					if(roomsValues[counter].contains(roomType)) {
-						particularRoomsValue = roomsValues[counter];
-					} else if ((particularRoomsValue == null) && counter == (roomsValues.length - 1)) {
-						return false;
-					}
-					counter++;
-				}
-
-				for (int j = 0; j < particularRoomsValue.length(); j++) {
-					if (Character.isDigit(particularRoomsValue.charAt(j))) {
-						baQty.append(String.valueOf(particularRoomsValue.charAt(j)));
-					}
-				}
-
-				int roomsNumbers = Integer.parseInt(String.valueOf(baQty));
-
-				if (roomsNumbers < 4) {
-					return false;
-				}
-
-			}
-			return true;
-		}
-		return false;
+	public void isContains4PlusParticularRooms(String roomType) {
+		Assert.assertTrue(FilteringAndSortingBuildings.isContains4PlusParticularRooms(roomsInfoList, roomType));
 	}
 
     public void clickOnListingsByButton() {
@@ -310,10 +250,6 @@ public class PerchwellPage extends BasePage {
 
 	public void clickOnBedroomsSortButton() {
 		element(bedroomsSortButton).click();
-	}
-
-	public void isListingsSortedByRooms(String roomType) {
-		Assert.assertTrue(FilteringAndSortingBuildings.isSortedByRooms(roomsInfoList, roomType));
 	}
 
 	public void checkSortLabel(String sortType) {
@@ -367,4 +303,51 @@ public class PerchwellPage extends BasePage {
     public boolean isInitialIconDispalyed(){
 		return element(openAccountButton).isDisplayed();
 	}
+
+	public boolean isInfoRoomsPresent(String info) {
+		return FilteringAndSortingBuildings.isSomeInfoPresentInBuildings(info, roomsInfoList);
+	}
+
+	public void clickOnInitials() {
+		element(initials).click();
+	}
+
+	public void clickOnResetPassword() {
+		element(resetPassword).click();
+	}
+
+	public void isListingsQuantity() {
+		listningsAmmount = getNumberOfListings(listingsByButton);
+	}
+
+	public boolean checkListingsQuantity() {
+		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
+		return ((listingsAmountToCheck > (listningsAmmount - 50)) && ((listningsAmmount + 50) > listingsAmountToCheck));
+	}
+	
+	private int getNumberOfListings(WebElement listingsByButton) {
+		String listingsByText = element(listingsByButton).getAttribute("value");
+		StringBuilder listingsQty = new StringBuilder();
+
+		for (int i = 0; i < listingsByText.length(); i++) {
+			if (Character.isDigit(listingsByText.charAt(i))) {
+				listingsQty.append(String.valueOf(listingsByText.charAt(i)));
+			}
+		}
+		return Integer.parseInt(String.valueOf(listingsQty));
+	}
+
+    public boolean isPriceFilterAppliedOnListings(String typePriceFilter) {
+	    String min = "0";
+	    String max = "1000000";
+
+	    if (Serenity.hasASessionVariableCalled("min price")) {
+            min = getValueFromSessionVariable("min price");
+        }
+
+        if (Serenity.hasASessionVariableCalled("max price")) {
+            max = getValueFromSessionVariable("max price");
+        }
+        return FilteringAndSortingBuildings.isPriceFilterAppliedOnListings(typePriceFilter, pricesList, min, max);
+    }
 }

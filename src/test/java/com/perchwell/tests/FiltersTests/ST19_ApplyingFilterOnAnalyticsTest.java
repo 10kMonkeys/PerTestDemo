@@ -23,7 +23,7 @@ public class ST19_ApplyingFilterOnAnalyticsTest extends SampleTest {
         analyticsSteps.getAskingPriceChartValue();
         analyticsSteps.clickMyNewSearch();
         searchSteps.setMinimumPriceFilter("600000");
-        searchSteps.clickFilterStudioBeds();
+        searchSteps.selectFilterStudioBeds();
         searchSteps.clickApplyButton();
         analyticsSteps.isBedroomsChartChange();
         analyticsSteps.isAskingPriceChartChange();

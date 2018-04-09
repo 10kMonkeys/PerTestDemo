@@ -105,6 +105,11 @@ public class PerchwellSteps extends ScenarioSteps {
 		Assert.assertTrue(onPage.isElementExistsInEachCell(search));
 	}
 
+    @Step("Should see listing with filters are applyed {0}")
+    public void isFilter1Bed1AndHalfBathApplied(String search) {
+        Assert.assertTrue(onPage.isInfoRoomsPresent(search));
+    }
+
 	@Step("'{0}' and '{1}' should be equal")
 	public void resultsCountIsEqual(String s2, String s1) {
 
@@ -126,18 +131,18 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeListingOnlyWithSelectedRooms(String rooms) {
-		Assert.assertTrue(onPage.isContainParticularRooms(rooms));
+		onPage.isContainParticularRooms(rooms);
 	}
 
 	@Step
 	public void shouldSeeListing4AndMoreRooms(String roomType) {
-		Assert.assertTrue(onPage.isContains4PlusParticularRooms(roomType));
+		onPage.isContains4PlusParticularRooms(roomType);
 
 	}
 
 	@Step
 	public void shouldSeeListingOnlyWithStudios() {
-		Assert.assertTrue(onPage.isContainsStudios());
+		onPage.isContainsStudios();
 	}
 
 	@Step
@@ -148,11 +153,6 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void clickBedroomsSortButton() {
 		onPage.clickOnBedroomsSortButton();
-	}
-
-	@Step
-	public void shouldListingsSortedByRooms(String roomType) {
-		onPage.isListingsSortedByRooms(roomType);
 	}
 
 	@Step
@@ -201,7 +201,42 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldSeeInitialIcon(){
+	public void shouldSeeInitialIcon() {
 		Assert.assertTrue(onPage.isInitialIconDispalyed());
+	}
+
+	@Step
+	public void clickInitials() {
+		onPage.clickOnInitials();
+	}
+
+	@Step
+	public void clickResetPassword() {
+		onPage.clickOnResetPassword();
+	}
+
+	@Step
+    public void isListingsQuantity() {
+		onPage.isListingsQuantity();
+    }
+
+    @Step
+	public void checkListingsQuantity() {
+		Assert.assertTrue(onPage.checkListingsQuantity());
+	}
+
+	@Step
+	public void shouldSeeListingsEqualOrMoreMinPrice() {
+		Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
+	}
+
+	@Step
+	public void shouldSeeListingsEqualOrLessMaxPrice() {
+		Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("max"));
+	}
+
+	@Step
+	public void shouldSeeListingsBetweenMinAndMaxPrices() {
+		Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("between min and max"));
 	}
 }

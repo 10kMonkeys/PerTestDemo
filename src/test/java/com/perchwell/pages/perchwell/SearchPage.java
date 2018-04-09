@@ -1,6 +1,5 @@
 package com.perchwell.pages.perchwell;
 
-import com.google.gson.annotations.Until;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.base.BasePage;
@@ -8,18 +7,14 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.assertj.core.api.SoftAssertions;
+import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class SearchPage extends BasePage {
 
@@ -50,7 +45,7 @@ public class SearchPage extends BasePage {
 	private WebElement filterFor2Beds;
 
 	@iOSXCUITFindBy(accessibility = "StudioBedsButton")
-	private WebElement filterStudioBedsButton;
+	private WebElement filterForStudioBeds;
 
 	@iOSXCUITFindBy(accessibility = "BATHS")
 	private WebElement baths;
@@ -72,6 +67,9 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "MinimumPriceField")
 	private WebElement minimumPriceTextBox;
+
+	@iOSXCUITFindBy(accessibility = "MaximumPriceField")
+	private WebElement maximumPriceTextBox;
 
 	@iOSXCUITFindBy(accessibility = "1BathButton")
 	private WebElement filterFor1Bath;
@@ -109,7 +107,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[3]")
 	private WebElement thirdSearchInList;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
 	private WebElement firstSearchInList;
 
 	@iOSXCUITFindBy(accessibility = "SavedSearchCancelButton")
@@ -130,8 +128,11 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "RESET FILTERS")
 	private WebElement resetFiltersButton;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1BedButton'")
+	@iOSXCUITFindBy(accessibility = "1BedButton")
 	private WebElement filterFor1Bed;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1BedButton'")
+	private WebElement filter1BedSelectedOrNot;
 
 	@iOSXCUITFindBy(accessibility = "3BedsButton")
 	private WebElement filterFor3Beds;
@@ -151,6 +152,32 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton[2]")
 	private WebElement deleteSearchButton;
 
+	@iOSXCUITFindBy(accessibility = "StudioBedsButton-selected")
+	private WebElement selectedFilterForStudioBeds;
+
+	@iOSXCUITFindBy(accessibility = "1BedButton-selected")
+	private WebElement selectedFilterFor1Bed;
+
+	@iOSXCUITFindBy(accessibility = "2BedsButton-selected")
+	private WebElement selectedFilterFor2Beds;
+
+	@iOSXCUITFindBy(accessibility = "3BedsButton-selected")
+	private WebElement selectedFilterFor3Beds;
+
+	@iOSXCUITFindBy(accessibility = "4PlusBedsButton-selected")
+	private WebElement selectedFilterFor4PlusBeds;
+
+	@iOSXCUITFindBy(accessibility = "1BathButton-selected")
+	private WebElement selectedFilterFor1Bath;
+
+	@iOSXCUITFindBy(accessibility = "1.5BathsButton-selected")
+	private WebElement selectedFilterFor1AndHalfBath;
+
+	@iOSXCUITFindBy(accessibility = "2BathsButton-selected")
+	private WebElement selectedFilter2Baths;
+
+	@iOSXCUITFindBy(accessibility = "3BathsButton-selected")
+	private WebElement selectedFilterFor3Baths;
 
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
@@ -233,11 +260,11 @@ public class SearchPage extends BasePage {
 		element(minimumPriceTextBox).typeAndEnter(price);
 	}
 
-	public void clickOnFilterStudioBeds() {
-		element(filterStudioBedsButton).click();
+	public void selectFilterStudioBeds() {
+		element(filterForStudioBeds).click();
 	}
 
-	public void clickOnFilter1Bath() {
+	public void selectFilter1Bath() {
 		element(filterFor1Bath).click();
 	}
 
@@ -327,35 +354,39 @@ public class SearchPage extends BasePage {
 		element(createNewSearchButton).click();
 	}
 
-	public void clickOnFilter1Bed() {
+	public void selectFilter1Bed() {
 		element(filterFor1Bed).click();
 	}
 
-	public void clickOnFilter3Beds() {
+	public void clickFilter1Bed() {
+		element(filter1BedSelectedOrNot).click();
+	}
+
+	public void selectFilter3Beds() {
 		element(filterFor3Beds).click();
 	}
 
-	public void clickOnFilter4PlusBeds() {
-		element(filterFor4PlusBeds);
+	public void selectFilter4PlusBeds() {
+		element(filterFor4PlusBeds).click();
 	}
 
 	public void clickOnResetFilters() {
 		element(resetFiltersButton).click();
 	}
 
-	public void clickOnFilter1AndHalfBath() {
+	public void selectFilter1AndHalfBath() {
 		element(filterFor1AndHalfBath).click();
 	}
 
-	public void clickOnFilter2Baths() {
+	public void selectFilter2Baths() {
 		element(filterFor2Baths).click();
 	}
 
-	public void clickOnFilter3Baths() {
+	public void selectFilter3Baths() {
 		element(filterFor3Baths).click();
 	}
 
-	public void clickOnFilter4PlusBaths() {
+	public void selectFilter4PlusBaths() {
 		element(filterFor4PlusBaths).click();
 	}
 
@@ -384,38 +415,118 @@ public class SearchPage extends BasePage {
 	}
 
 	public WebElement getFilterFor1Bed() {
-		return filterFor1Bed;
+		return filter1BedSelectedOrNot;
 	}
 
 	private String getValueFromMinPriceFilter() {
-	    String minPrice = minimumPriceTextBox.getAttribute("value");
-	    minPrice = Helper.removeChar(minPrice, '$');
-        minPrice = Helper.removeChar(minPrice, ',');
-	    return minPrice;
-    }
+		String minPrice = minimumPriceTextBox.getAttribute("value");
+		minPrice = Helper.removeChar(minPrice, '$');
+		minPrice = Helper.removeChar(minPrice, ',');
+		return minPrice;
+	}
 
-    public boolean isMinPriceSaved() {
-	    boolean minPriceSaved = false;
-	    String minPriceEnteredPreviously = getValueFromSessionVariable("min price");
-	    String minPriceInFilter = getValueFromMinPriceFilter();
+	public boolean isMinPriceSaved() {
+		boolean minPriceSaved = false;
+		String minPriceEnteredPreviously = getValueFromSessionVariable("min price");
+		String minPriceInFilter = getValueFromMinPriceFilter();
 
-	    if (minPriceEnteredPreviously.equalsIgnoreCase(minPriceInFilter)) {
-	        minPriceSaved = true;
-        }
-	    return minPriceSaved;
-    }
+		if (minPriceEnteredPreviously.equalsIgnoreCase(minPriceInFilter)) {
+			minPriceSaved = true;
+		}
+		return minPriceSaved;
+	}
 
-    public boolean isFilterFor1BedSaved() {
+	public boolean isFilterFor1BedSaved() {
 		boolean filterFor1BedSaved = false;
 		String statusFilterPreviously = getValueFromSessionVariable("status filter");
-		String statusFilter = filterFor1Bed.getAttribute("name");
+		String statusFilter = filter1BedSelectedOrNot.getAttribute("name");
 
 		if ((statusFilterPreviously.equals("selected") && statusFilter.contains("selected"))
 				|| (statusFilterPreviously.equals("not selected") && !statusFilter.contains("selected"))) {
 			filterFor1BedSaved = true;
 		}
 
-	    return filterFor1BedSaved;
-    }
-}
+		return filterFor1BedSaved;
+	}
 
+	public void deselectFilterStudioBeds() {
+		element(selectedFilterForStudioBeds).click();
+	}
+
+	public void deselectFilter1Bed() {
+		element(selectedFilterFor1Bed).click();
+	}
+
+	public void deselectFilter2Beds() {
+		element(selectedFilterFor2Beds).click();
+	}
+
+	public void deselectFilter3Beds() {
+		element(selectedFilterFor3Beds).click();
+	}
+
+	public void checkNoOneBedsFilterSelected() {
+		SoftAssertions softAssert = new SoftAssertions();
+
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterForStudioBeds))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor1Bed))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor2Beds))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor3Beds))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor4PlusBeds))).isTrue();
+		softAssert.assertAll();
+	}
+
+	public void deselectFilter1Bath() {
+		element(selectedFilterFor1Bath).click();
+	}
+
+	public void deselectFilter1AndHalfBath() {
+		element(selectedFilterFor1AndHalfBath).click();
+	}
+
+	public void deselectFilter2Baths() {
+		element(selectedFilter2Baths).click();
+	}
+
+	public void deselectFilter3Baths() {
+		element(selectedFilterFor3Baths).click();
+	}
+
+	public void checkNoOneBathsFilterSelected() {
+		SoftAssertions softAssert = new SoftAssertions();
+
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor1Bath))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor1AndHalfBath))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor2Baths))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor3Baths))).isTrue();
+		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor4PlusBaths))).isTrue();
+		softAssert.assertAll();
+	}
+
+	public void setMaximumPriceFilter(String price) {
+		element(maximumPriceTextBox).typeAndEnter(price);
+	}
+
+	public void clearPriceFilterValue(String typePrice) {
+		switch (typePrice) {
+			case "minPrice" :
+				element(minimumPriceTextBox).clear();
+				break;
+
+			case "maxPrice" :
+				element(maximumPriceTextBox).clear();
+				break;
+		}
+	}
+
+	public boolean isMinAndMaxPricesNotSet() {
+		boolean emptyPricesFilters = true;
+		String maxPriceFilter = element(maximumPriceTextBox).getAttribute("value");
+		String minPriceFilter = element(minimumPriceTextBox).getAttribute("value");
+
+		if (!maxPriceFilter.contains("NO MAX") || !minPriceFilter.contains("NO MIN")) {
+			emptyPricesFilters = false;
+		}
+		return emptyPricesFilters;
+	}
+}

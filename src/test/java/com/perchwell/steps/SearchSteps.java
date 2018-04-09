@@ -24,7 +24,7 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickFilter2Beds() {
+	public void selectFilter2Beds() {
 		onPage.selectFilterFor2Beds();
 	}
 
@@ -68,13 +68,13 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickFilterStudioBeds() {
-		onPage.clickOnFilterStudioBeds();
+	public void selectFilterStudioBeds() {
+		onPage.selectFilterStudioBeds();
 	}
 
 	@Step
-	public void clickFilter1Bath() {
-		onPage.clickOnFilter1Bath();
+	public void selectFilter1Bath() {
+		onPage.selectFilter1Bath();
 	}
 
 	public void deleteDefaultLocationInFilter() {
@@ -86,7 +86,7 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void addLocationFilter() {
 		onPage.clickOnLocationFilter();
-		//onPage.addLocationFilterAlphabetCity();
+//		onPage.addLocationFilterAlphabetCity();
 	}
 
 	@Step
@@ -95,7 +95,7 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	private void createNewSearchStudioBeds() {
-		onPage.clickOnFilterStudioBeds();
+		onPage.selectFilterStudioBeds();
 		this.clickTapToSaveChanges();
 		this.setSearchName();
 		this.clickSaveButton();
@@ -166,19 +166,24 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-    public void clickFilter1Bed() {
-		onPage.clickOnFilter1Bed();
-		onPage.setUpSessionVariableForStatusFilter(onPage.getFilterFor1Bed());
+    public void selectFilter1Bed() {
+		onPage.selectFilter1Bed();
     }
 
+	@Step
+	public void clickFilter1Bed() {
+		onPage.clickFilter1Bed();
+		onPage.setUpSessionVariableForStatusFilter(onPage.getFilterFor1Bed());
+	}
+
     @Step
-	public void clickFilter3Beds() {
-		onPage.clickOnFilter3Beds();
+	public void selectFilter3Beds() {
+		onPage.selectFilter3Beds();
 	}
 
 	@Step
-	public void clickFilter4PlusBeds() {
-		onPage.clickOnFilter4PlusBeds();
+	public void selectFilter4PlusBeds() {
+		onPage.selectFilter4PlusBeds();
 	}
 
 	@Step
@@ -190,6 +195,7 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void checkNoOneBedsFilterSelected() {
+		onPage.checkNoOneBedsFilterSelected();
 	}
 
 	@Step
@@ -198,22 +204,22 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickFilter1AndHalfBath() {
-		onPage.clickOnFilter1AndHalfBath();
+	public void selectFilter1AndHalfBath() {
+		onPage.selectFilter1AndHalfBath();
 	}
 	@Step
-	public void clickFilter2Baths() {
-		onPage.clickOnFilter2Baths();
-	}
-
-	@Step
-	public void clickFilter3Baths() {
-		onPage.clickOnFilter3Baths();
+	public void selectFilter2Baths() {
+		onPage.selectFilter2Baths();
 	}
 
 	@Step
-	public void clickFilter4PlusBaths() {
-		onPage.clickOnFilter4PlusBaths();
+	public void selectFilter3Baths() {
+		onPage.selectFilter3Baths();
+	}
+
+	@Step
+	public void selectFilter4PlusBaths() {
+		onPage.selectFilter4PlusBaths();
 	}
 
 	@Step
@@ -239,5 +245,66 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void shouldFilter1BedBeOfTheSameStatus() {
 		Assert.assertTrue(onPage.isFilterFor1BedSaved());
+	}
+
+	@Step
+	public void deselectFilterStudioBeds() {
+		onPage.deselectFilterStudioBeds();
+	}
+
+	@Step
+	public void deselectFilter1Bed() {
+		onPage.deselectFilter1Bed();
+	}
+
+	@Step
+	public void deselectFilter2Beds() {
+		onPage.deselectFilter2Beds();
+	}
+
+	@Step
+	public void deselectFilter3Beds() {
+		onPage.deselectFilter3Beds();
+	}
+
+	@Step
+	public void deselectFilter1Bath() {
+		onPage.deselectFilter1Bath();
+	}
+
+	@Step
+	public void deselectFilter1AndHalfBath() {
+		onPage.deselectFilter1AndHalfBath();
+	}
+
+	@Step
+	public void deselectFilter2Baths() {
+		onPage.deselectFilter2Baths();
+	}
+
+	@Step
+	public void deselectFilter3Baths() {
+		onPage.deselectFilter3Baths();
+	}
+
+	@Step
+	public void checkNoOneBathsFilterSelected() {
+		onPage.checkNoOneBathsFilterSelected();
+	}
+
+	@Step
+	public void eraseMinValueOfPriceFilter() {
+		onPage.clearPriceFilterValue("minPrice");
+	}
+
+	@Step
+	public void setMaximumPriceFilter(String amount) {
+		onPage.setMaximumPriceFilter(amount);
+		onPage.addValueInSessionVariable("max price", amount);
+	}
+
+	@Step
+	public void checkNoOnePriceFilterSelected() {
+		Assert.assertTrue(onPage.isMinAndMaxPricesNotSet());
 	}
 }

@@ -9,42 +9,6 @@ import java.util.regex.Pattern;
 
 public abstract class FilteringAndSortingBuildings {
 
-    public static boolean isSortedByRooms(List<WebElement> roomsInfoList, String roomType) {
-        String[] roomsData = new String[5];
-        int[] roomsNumbers = new int[5];
-
-        if (roomsInfoList.size() > 0) {
-            for (int i = 0; (i < 5 && i < roomsInfoList.size()); i++) {
-                StringBuilder baQty = new StringBuilder();
-                String[] roomsValues = roomsInfoList.get(i).getAttribute("value").split("\\|");
-
-                for (int j = 0; j < roomsValues.length; j++) {
-                    if (roomsValues[j].contains(roomType)) {
-                        roomsData[i] = roomsValues[j];
-                    } else if ((roomsData[i] == null) && j == (roomsValues.length - 1)) {
-                        return false;
-                    }
-                }
-
-                for (int k = 0; k < roomsData[i].length(); k++) {
-                    if (Character.isDigit(roomsData[i].charAt(k))) {
-                        baQty.append(String.valueOf(roomsData[i].charAt(k)));
-                    }
-                }
-
-                roomsNumbers[i] = Integer.parseInt(String.valueOf(baQty));
-            }
-
-            for (int d = 0; (d < 4 && d < (roomsInfoList.size() - 1)); d++) {
-                if (roomsNumbers[d] < roomsNumbers[d + 1]) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-
     public static float getNumberFromString(String typeSorting, String input) {
         float output;
         String price = "^\\$\\d+.*$";
@@ -146,5 +110,132 @@ public abstract class FilteringAndSortingBuildings {
             }
         }
         return k;
+    }
+
+    public static boolean isContainsStudios(List<WebElement> roomsInfoList) {
+        if (roomsInfoList.size() > 0) {
+            for(WebElement element: roomsInfoList) {
+                String studioString = element.getAttribute("value");
+
+                if (studioString.contains(" BD")) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isContains4PlusParticularRooms(List<WebElement> roomsInfoList, String roomType) {
+        float currentNumber;
+        if (roomsInfoList.size() > 0) {
+
+            for (WebElement element : roomsInfoList) {
+                String s = element.getAttribute("value");
+                System.out.println(s);
+                currentNumber = getNumberFromString(roomType, s);
+                    if (currentNumber < 4) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static boolean isContainParticularRooms(List<WebElement> roomsInfoList, String rooms) {
+        if (roomsInfoList.size() > 0) {
+            for(WebElement element: roomsInfoList) {
+                String roomsString = element.getAttribute("value");
+                if (!roomsString.contains(rooms)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isSomeInfoPresentInBuildings(String info, List<WebElement> roomsInfoList) {
+        boolean infoRoomPresent = true;
+        int numberCheckedBuildings = 0;
+        int numberBuildingToCheck = roomsInfoList.size() < 10 ? roomsInfoList.size() : 10;
+
+        Iterator<WebElement> iterator = roomsInfoList.iterator();
+
+        while (iterator.hasNext() && (numberCheckedBuildings < numberBuildingToCheck)) {
+            String infoRoom = iterator.next().getAttribute("value");
+            if (!infoRoom.contains(info)) {
+                infoRoomPresent = false;
+                break;
+            }
+            numberCheckedBuildings++;
+        }
+        return infoRoomPresent;
+    }
+
+    private static boolean checkBuildingOnMinFilterApplied(float currentPrice, String min) {
+        boolean listingWithPriceFilter = true;
+
+        float minPrice = Float.parseFloat(min);
+        if (currentPrice < minPrice) {
+            listingWithPriceFilter = false;
+        }
+        return listingWithPriceFilter;
+    }
+
+    private static boolean checkBuildingOnMaxFilterApplied(float currentPrice, String max) {
+        boolean listingWithPriceFilter = true;
+        float maxPrice = Float.parseFloat(max);
+
+        if (currentPrice > maxPrice) {
+            listingWithPriceFilter = false;
+        }
+        return listingWithPriceFilter;
+    }
+
+    private static boolean checkBuildingOnBetweenMinAndMaxFilterApplied(float currentPrice, String min, String max) {
+        boolean listingWithPriceFilter = true;
+        float minPrice = Float.parseFloat(min);
+        float maxPrice = Float.parseFloat(max);
+
+        if (currentPrice > maxPrice || currentPrice < minPrice) {
+            listingWithPriceFilter = false;
+        }
+        return listingWithPriceFilter;
+    }
+
+    public static boolean isPriceFilterAppliedOnListings(String typePriceFilter, List<WebElement> pricesList, String min, String max) {
+        boolean listingWithPriceFilter = true;
+        int numberCheckedPrices = 0;
+        int numberPricesToCheck = pricesList.size() < 10 ? pricesList.size() : 10;
+
+        if (pricesList.size() > 0) {
+            Iterator<WebElement> iterator = pricesList.iterator();
+
+            while (iterator.hasNext() && (numberCheckedPrices < numberPricesToCheck)) {
+                String s = iterator.next().getAttribute("value");
+                float currentPrice = FilteringAndSortingBuildings.getNumberFromString("price", s);
+
+                switch (typePriceFilter) {
+                    case "min" :
+                        listingWithPriceFilter = checkBuildingOnMinFilterApplied(currentPrice, min);
+                        break;
+
+                    case "max" :
+                        listingWithPriceFilter = checkBuildingOnMaxFilterApplied(currentPrice, max);
+                        break;
+
+                    case "between min and max" :
+                        listingWithPriceFilter = checkBuildingOnBetweenMinAndMaxFilterApplied(currentPrice, min, max);
+                        break;
+                }
+
+                if (!listingWithPriceFilter) {
+                    return listingWithPriceFilter;
+                }
+                numberCheckedPrices++;
+            }
+        }
+        return listingWithPriceFilter;
     }
 }

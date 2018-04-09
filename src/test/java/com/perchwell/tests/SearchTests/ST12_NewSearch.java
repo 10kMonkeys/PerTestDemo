@@ -3,13 +3,11 @@ package com.perchwell.tests.SearchTests;
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
-import org.junit.Ignore;
 import org.junit.Test;
 
 @WithTagValuesOf({"SmokeTestSuit", "SearchTests", "First"})
 public class ST12_NewSearch extends SampleTest {
 
-	@Ignore
 	@Test
 	public void newSearch() throws Exception {
 
@@ -18,14 +16,13 @@ public class ST12_NewSearch extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickMyNewSearch();
-		searchSteps.clickFilterStudioBeds();
+		searchSteps.clickFilter1Bed();
 		searchSteps.setUpFilterFirepace();
 		searchSteps.clickApplyButton();
-		//perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickMap();
 		mapSteps.clickNotNowButton();
 		mapSteps.clickMyNewSearch();
-		searchSteps.clickFilter1Bath();
+		searchSteps.selectFilter1AndHalfBath();
 		searchSteps.clickApplyButton();
 		perchwellSteps.clickAnalytics();
 		analyticsSteps.addChartFromREBNYSection();
@@ -49,29 +46,20 @@ public class ST12_NewSearch extends SampleTest {
 		searchSteps.clickLoadSavedSearchButton();
 		searchSteps.shouldSeePreviouslyCreatedSearch();
 		searchSteps.clickPreviouslyCreatedSearch();
-		//Will be a check applying filter here
 		perchwellSteps.clickList();
-		// perchwellSteps.isFilter1Bath1BedApplied("STUDIO | 1 BA");
-
+		perchwellSteps.isFilter1Bed1AndHalfBathApplied("1 BD  |  1½ BA");
 		perchwellSteps.openFirstBuilding();
 		openedBuildingSteps.clickDiscussWithMyClientHint();
 		openedBuildingSteps.isFilterFirepaceApplied();
 		openedBuildingSteps.clickBackButton();
-
 		perchwellSteps.openSecondBuilding();
 		openedBuildingSteps.isFilterFirepaceApplied();
 		openedBuildingSteps.clickBackButton();
-
 		perchwellSteps.openThirdBuilding();
 		openedBuildingSteps.isFilterFirepaceApplied();
 		openedBuildingSteps.clickBackButton();
-
 		perchwellSteps.clickMap();
-	//	mapSteps.clickNotNowButton();
-		//Don't work now Broked filter for 1 BA - 	mapSteps.checkForChangesAfterApplyingTheFilter();
-		//Will be a check applying filter here
-
-
+		mapSteps.checkForChangesAfterApplyingTheFilter();
 		perchwellSteps.clickAnalytics();
 		analyticsSteps.isBuildingTypeChartDisplayed();
 		analyticsSteps.shouldSeeDomByPriceCartChart();
