@@ -239,4 +239,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void shouldSeeListingsBetweenMinAndMaxPrices() {
 		Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("between min and max"));
 	}
+
+	@Step
+	public void shouldSeeListingOnlyWithLabel(String label) {
+		onPage.isContainListingOnlyWithParticularLabel(label);
+	}
 }

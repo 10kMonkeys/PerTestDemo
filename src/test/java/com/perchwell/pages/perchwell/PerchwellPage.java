@@ -104,6 +104,9 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "RESET PASSWORD")
 	private WebElement resetPassword;
 
+	@iOSXCUITFindBy(accessibility = "") //TBI
+	private List<WebElement> buildingsLabels;
+
 	public static Integer numberOfItemsInListView;
 	// public String buildingAddress;
 
@@ -233,7 +236,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void isContainParticularRooms(String rooms) {
-		Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRooms(roomsInfoList, rooms));
+		Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRoomsOrLabels(roomsInfoList, rooms));
 	}
 
 	public void isContainsStudios() {
@@ -300,7 +303,7 @@ public class PerchwellPage extends BasePage {
         return (FilteringAndSortingBuildings.getCounterInSorting("bathrooms", roomsInfoList) == 1);
     }
 
-    public boolean isInitialIconDispalyed(){
+	public boolean isInitialIconDispalyed(){
 		return element(openAccountButton).isDisplayed();
 	}
 
@@ -337,17 +340,21 @@ public class PerchwellPage extends BasePage {
 		return Integer.parseInt(String.valueOf(listingsQty));
 	}
 
-    public boolean isPriceFilterAppliedOnListings(String typePriceFilter) {
-	    String min = "0";
-	    String max = "1000000";
+	public boolean isPriceFilterAppliedOnListings(String typePriceFilter) {
+		String min = "0";
+		String max = "1000000";
 
-	    if (Serenity.hasASessionVariableCalled("min price")) {
-            min = getValueFromSessionVariable("min price");
-        }
+		if (Serenity.hasASessionVariableCalled("min price")) {
+			min = getValueFromSessionVariable("min price");
+		}
 
-        if (Serenity.hasASessionVariableCalled("max price")) {
-            max = getValueFromSessionVariable("max price");
-        }
-        return FilteringAndSortingBuildings.isPriceFilterAppliedOnListings(typePriceFilter, pricesList, min, max);
+		if (Serenity.hasASessionVariableCalled("max price")) {
+			max = getValueFromSessionVariable("max price");
+		}
+		return FilteringAndSortingBuildings.isPriceFilterAppliedOnListings(typePriceFilter, pricesList, min, max);
+	}
+
+    public void isContainListingOnlyWithParticularLabel(String label) {
+		Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRoomsOrLabels(buildingsLabels, label));
     }
 }
