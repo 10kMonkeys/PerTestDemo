@@ -10,7 +10,6 @@ import java.text.SimpleDateFormat;
 
 @WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "Third"})
 public class ST36_SendReportDetailsPDF extends SampleTest {
-	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
 	@Test
 	public void sendReportDetailsPDF() throws Exception {

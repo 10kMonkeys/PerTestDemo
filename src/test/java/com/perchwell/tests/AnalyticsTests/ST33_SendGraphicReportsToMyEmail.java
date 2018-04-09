@@ -11,7 +11,6 @@ import java.util.Date;
 
 @WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "Third"})
 public class ST33_SendGraphicReportsToMyEmail extends SampleTest{
-	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
 	@Test
 	public void sendGraphicReportsToMyEmail() throws Exception {

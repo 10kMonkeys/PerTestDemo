@@ -11,7 +11,7 @@ import java.util.Date;
 
 @WithTagValuesOf({"SmokeTestSuit", "DiscussTests", "Third"})
 public class ST26_DiscussionWithExistingAgent extends SampleTest {
-	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+	private DateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
 	@Test
 	public void discussionWithExistingAgent() throws Exception {
@@ -25,7 +25,7 @@ public class ST26_DiscussionWithExistingAgent extends SampleTest {
 		openedBuildingSteps.clickSendWithinPerchwell();
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickExistingAgent();
-		discussionSteps.sendMessage("I'd like discuss with you " + sdf.format(new Date()));
+		discussionSteps.sendMessage("I'd like discuss with you " + simpleDateFormat.format(new Date()));
 		discussionSteps.clickBackButton();
 		clientSteps.closePage();
 		openedBuildingSteps.shouldSeeExistingDuscussionWithAgent();

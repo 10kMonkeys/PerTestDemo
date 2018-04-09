@@ -11,7 +11,7 @@ import java.util.Date;
 
 @WithTagValuesOf({"SmokeTestSuit", "DiscussTests", "Third"})
 public class ST27_AddMessageInDiscussionWithAgent extends SampleTest {
-	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	private DateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
 	@Test
 	public void addMessageInDiscussionWithAgent() throws Exception {
@@ -30,7 +30,7 @@ public class ST27_AddMessageInDiscussionWithAgent extends SampleTest {
 		clientSteps.closePage();
 		openedBuildingSteps.shouldSeeExistingDuscussionWithAgent();
 		openedBuildingSteps.openExistingDuscussionWithAgent();
-		discussionSteps.sendMessage("Add message " + sdf.format(new Date()));
+		discussionSteps.sendMessage("Add message " + simpleDateFormat.format(new Date()));
 		discussionSteps.shouldSeeMessageInDiscussion();
 	}
 }

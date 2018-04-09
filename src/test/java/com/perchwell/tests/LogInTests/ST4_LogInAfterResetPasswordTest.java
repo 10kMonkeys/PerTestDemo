@@ -3,8 +3,10 @@ package com.perchwell.tests.LogInTests;
 import com.perchwell.SampleTest;
 import com.perchwell.email.NewInstanceDriverForCheckEmail;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"SmokeTestSuit", "LogInTests", "First"})
 public class ST4_LogInAfterResetPasswordTest extends SampleTest {
 
     @Test

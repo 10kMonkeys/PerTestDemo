@@ -11,7 +11,7 @@ import java.util.Date;
 
 @WithTagValuesOf({"SmokeTestSuit", "DiscussTests", "Second"})
 public class ST23_DiscussionWithExistingClient extends SampleTest {
-	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+	private DateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 	@Test
 	public void discussionWithExistingClientTest() throws Exception {
 		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"), AppProperties.INSTANCE.getProperty("password"));
@@ -24,7 +24,7 @@ public class ST23_DiscussionWithExistingClient extends SampleTest {
 		discussThisListingSteps.deleteDiscussionWithClientIfExist();
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickExistingClient();
-		discussionSteps.sendMessage("I'd_like_discuss_with_you " + sdf.format(new Date()));
+		discussionSteps.sendMessage("I'd_like_discuss_with_you " + simpleDateFormat.format(new Date()));
 		discussionSteps.clickBackButton();
 		clientSteps.closePage();
 		openedBuildingSteps.shouldSeeExistingDuscussion();
