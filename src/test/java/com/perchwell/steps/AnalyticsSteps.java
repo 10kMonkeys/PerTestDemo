@@ -438,4 +438,34 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.setClientAddress(AppProperties.INSTANCE.getProperty("client_email"));
 		this.clickSaveButton();
 	}
+
+	@Step
+	public void addAskingPricePerBedChart(){
+		onPage.askingPricePerBedButtonClick();
+	}
+
+	@Step
+	public void addAskingPricePerFTChart(){
+		onPage.askingPricePerFTButtonClick();
+	}
+
+	@Step
+	public void addListingCountChart(){
+		onPage.listingCountButtonClick();
+	}
+
+	@Step
+	public void addMonthliesChart(){
+		onPage.monthliesButtonClick();
+	}
+
+	@Step
+	public void addPropertyTaxesChart(){
+		onPage.propertyTaxesButtonClick();
+	}
+
+	@Step
+	public void shouldSeeAskingPricePerBedChart(){
+		onPage.shouldSeeAskingPricePerBedChart();
+	}
 }

@@ -204,6 +204,33 @@ public class AnalyticsPage extends BasePage {
 
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther")
     private WebElement headerOfFirstChart;
+
+	@iOSXCUITFindBy(accessibility = "ASKING PRICE PER BED")
+    private WebElement askingPricePerBedButton;
+
+	@iOSXCUITFindBy(accessibility = "ASKING PRICE PER FT²")
+    private WebElement askingPricePerFTButton;
+
+	@iOSXCUITFindBy(accessibility = "LISTING COUNT")
+    private WebElement listingCountButton;
+
+	@iOSXCUITFindBy(accessibility = "MONTHLIES")
+    private WebElement monthliesButton;
+
+	@iOSXCUITFindBy(accessibility = "PROPERTY TAXES")
+    private WebElement propertyTaxesButton;
+
+	@iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/BED")
+    private WebElement askingPricePerBedChart;
+
+	@iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/FT²")
+    private WebElement askingPricePerFTChart;
+
+	@iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES")
+    private WebElement monthliesChart;
+
+	@iOSXCUITFindBy(accessibility = "MEDIAN PROPERTY TAXES")
+    private WebElement propertyTaxesChart;
     //endregion
 
 	public AnalyticsPage(WebDriver driver){
@@ -639,5 +666,34 @@ public class AnalyticsPage extends BasePage {
 
     public void setClientAddress(String client_email) {
         element(nameThisReport).sendKeys(client_email);
+    }
+
+    public void askingPricePerBedButtonClick(){
+        element(askingPricePerBedButton).click();
+
+    }
+
+    public void askingPricePerFTButtonClick(){
+        element(askingPricePerFTButton).click();
+        element(askingPricePerFTChart).shouldBeVisible();
+    }
+
+    public void listingCountButtonClick(){
+        element(listingCountButton).click();
+        element(listingCountButton).shouldBeVisible();
+    }
+
+    public void monthliesButtonClick(){
+        element(monthliesButton).click();
+        element(monthliesChart).shouldBeVisible();
+    }
+
+    public void propertyTaxesButtonClick(){
+        element(propertyTaxesButton).click();
+        element(propertyTaxesChart).shouldBeVisible();
+    }
+
+    public void shouldSeeAskingPricePerBedChart(){
+        element(askingPricePerBedChart).shouldBeVisible();
     }
 }
