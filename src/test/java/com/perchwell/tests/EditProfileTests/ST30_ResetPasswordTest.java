@@ -29,7 +29,7 @@ public class ST30_ResetPasswordTest extends SampleTest {
         resetPasswordSteps.okButtonClick();
         resetPasswordSteps.login(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("new_reset_password"));
-        perchwellSteps.shouldSeeEditSearchFiltersHint();
+        perchwellSteps.shouldSeeInitialIcon();
         resetPasswordSteps.overwritingOldPassword();
     }
 }

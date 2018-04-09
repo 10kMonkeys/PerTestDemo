@@ -199,4 +199,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void clickTotalRoomsSortButton() {
 		onPage.clickOnTotalRoomsButton();
 	}
+
+	@Step
+	public void shouldSeeInitialIcon(){
+		Assert.assertTrue(onPage.isInitialIconDispalyed());
+	}
 }
