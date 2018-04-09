@@ -142,9 +142,9 @@ public abstract class FilteringAndSortingBuildings {
         return true;
     }
 
-    public static boolean isContainParticularRooms(List<WebElement> roomsInfoList, String rooms) {
-        if (roomsInfoList.size() > 0) {
-            for(WebElement element: roomsInfoList) {
+    public static boolean isContainParticularRoomsOrLabels(List<WebElement> buildingsElementsList, String rooms) {
+        if (buildingsElementsList.size() > 0) {
+            for(WebElement element: buildingsElementsList) {
                 String roomsString = element.getAttribute("value");
                 if (!roomsString.contains(rooms)) {
                     return false;

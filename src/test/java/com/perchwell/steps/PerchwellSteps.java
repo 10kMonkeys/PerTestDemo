@@ -219,4 +219,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void checkListingsQuantity() {
 		Assert.assertTrue(onPage.checkListingsQuantity());
 	}
+
+	@Step
+	public void shouldSeeListingOnlyWithLabel(String label) {
+		onPage.isContainListingOnlyWithParticularLabel(label);
+	}
 }

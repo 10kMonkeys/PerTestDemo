@@ -104,6 +104,9 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "RESET PASSWORD")
 	private WebElement resetPassword;
 
+	@iOSXCUITFindBy(accessibility = "") //TBI
+	private List<WebElement> buildingsLabels;
+
 	public static Integer numberOfItemsInListView;
 	// public String buildingAddress;
 
@@ -233,7 +236,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void isContainParticularRooms(String rooms) {
-		Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRooms(roomsInfoList, rooms));
+		Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRoomsOrLabels(roomsInfoList, rooms));
 	}
 
 	public void isContainsStudios() {
@@ -332,4 +335,8 @@ public class PerchwellPage extends BasePage {
 		}
 		return Integer.parseInt(String.valueOf(listingsQty));
 	}
+
+    public void isContainListingOnlyWithParticularLabel(String label) {
+		Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRoomsOrLabels(buildingsLabels, label));
+    }
 }

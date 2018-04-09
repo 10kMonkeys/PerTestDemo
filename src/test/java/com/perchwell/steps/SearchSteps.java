@@ -137,27 +137,23 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void setUpFilterContract() {
-		onPage.addValueInSessionVariable("filterName","InContractBanner");
-		onPage.setFilterForContract();
+	public void selectContractFilter() {
+		onPage.selectContractFilter();
 	}
 
 	@Step
-	public void setUpFilterOffMkt(){
-		onPage.addValueInSessionVariable("filterName","OffMarketBanner");
-		onPage.setFilterForOffMkt();
+	public void selectOffMktFilter() {
+		onPage.selectOffMktFilter();
 	}
 
 	@Step
-	public void setUpFilterSold(){
-		onPage.addValueInSessionVariable("filterName","SoldBanner");
-		onPage.setFilterForSoldOrRented();
+	public void selectSoldOrRentFilter() throws Exception {
+		onPage.selectSoldOrRentFilter();
 	}
 
 	@Step
-	public void setUpFilterRented(){
-		onPage.addValueInSessionVariable("filterName","RentedBanner");
-		onPage.setFilterForRentals();
+	public void selectRentedFilter() {
+		onPage.selectRentedFilter();
 	}
 
 	@Step
@@ -290,5 +286,25 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void checkNoOneBathsFilterSelected() {
 		onPage.checkNoOneBathsFilterSelected();
+	}
+
+	@Step
+	public void deselectActiveFilter() {
+		onPage.deselectActiveFilter();
+	}
+
+	@Step
+	public void deselectContractFilter() {
+		onPage.deselectContractFilter();
+	}
+
+	@Step
+	public void deselectOffMktFilter() {
+		onPage.deselectOffMktFilter();
+	}
+
+	@Step
+	public void checkSalesAndActiveFiltersSelected() {
+		onPage.checkSalesAndActiveFiltersSelected();
 	}
 }

@@ -176,6 +176,18 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "3BathsButton-selected")
 	private WebElement selectedFilterFor3Baths;
 
+    @iOSXCUITFindBy(accessibility = "Active-selected")
+    private WebElement selectedActiveFilter;
+
+    @iOSXCUITFindBy(accessibility = "Contract-selected")
+    private WebElement selectedContractFilter;
+
+    @iOSXCUITFindBy(accessibility = "Off Mkt-selected")
+    private WebElement selectedOffMktFilter;
+
+    @iOSXCUITFindBy(accessibility = "Sales-selected")
+    private WebElement selectedSalesFilter;
+
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
 	}
@@ -269,15 +281,20 @@ public class SearchPage extends BasePage {
 		element(activeButton).click();
 	}
 
-	public void setFilterForOffMkt() {
+	public void selectOffMktFilter() {
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+		Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
 		element(offMKTButton).click();
 	}
 
-	public void setFilterForSoldOrRented() {
+	public void selectSoldOrRentFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(soldOrRentedButton);
 		element(soldOrRentedButton).click();
 	}
 
-	public void setFilterForContract() {
+	public void selectContractFilter() {
 		element(contractButton).click();
 	}
 
@@ -342,7 +359,7 @@ public class SearchPage extends BasePage {
 		return isAllCellsContain;
 	}
 
-	public void setFilterForRentals() {
+	public void selectRentedFilter() {
 		Helper.scrollToElement(rentalsButton);
 		element(rentalsButton).click();
 	}
@@ -499,4 +516,32 @@ public class SearchPage extends BasePage {
 		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor4PlusBaths))).isTrue();
 		softAssert.assertAll();
 	}
+
+    public void deselectActiveFilter() {
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+		Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+	    element(selectedActiveFilter).click();
+    }
+
+    public void deselectContractFilter() {
+	    element(selectedContractFilter).click();
+    }
+
+    public void deselectOffMktFilter() {
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+		Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+	    element(selectedOffMktFilter).click();
+    }
+
+    public void checkSalesAndActiveFiltersSelected() {
+        SoftAssertions softAssert = new SoftAssertions();
+
+        softAssert.assertThat(Helper.isElementDisplayed(element(selectedActiveFilter))).isTrue();
+        softAssert.assertThat(Helper.isElementDisplayed(element(selectedSalesFilter))).isTrue();
+        softAssert.assertAll();
+    }
 }
