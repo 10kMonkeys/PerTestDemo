@@ -11,7 +11,7 @@ import java.util.Date;
 
 @WithTagValuesOf({"DiscussTests"})
 public class DT7_DeleteDiscussionTest extends SampleTest {
-    private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+    private DateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
     @Test
     public void deleteDiscussion() throws Exception {
@@ -25,7 +25,7 @@ public class DT7_DeleteDiscussionTest extends SampleTest {
         openedBuildingSteps.clickSendWithinPerchwell();
         openedBuildingSteps.clickAddDiscusButton();
         clientSteps.selectClient();
-        discussionSteps.sendMessage("I'd_like_discuss_with_you " + sdf.format(new Date()));
+        discussionSteps.sendMessage("I'd_like_discuss_with_you " + simpleDateFormat.format(new Date()));
         discussionSteps.clickBackButton();
         clientSteps.closePage();
         openedBuildingSteps.clickBackButton();

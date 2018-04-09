@@ -11,7 +11,7 @@ import java.util.Date;
 
 @WithTagValuesOf({"SmokeTestSuit", "DiscussTests", "Second"})
 public class ST24_AddMessageInDiscussionTest extends SampleTest {
-	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+	private DateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
 	@Test
 	public void addMessageInDiscussionTest() {
@@ -30,7 +30,7 @@ public class ST24_AddMessageInDiscussionTest extends SampleTest {
 		discussionSteps.clickBackButton();
 		clientSteps.closePage();
 		openedBuildingSteps.openExistingDuscussion();
-		discussionSteps.sendMessage("Let's start discussion "+ sdf.format(new Date()));
+		discussionSteps.sendMessage("Let's start discussion "+ simpleDateFormat.format(new Date()));
 		discussionSteps.shouldSeeMessageInDiscussion();
 	}
 }

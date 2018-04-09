@@ -172,4 +172,70 @@ public abstract class FilteringAndSortingBuildings {
         }
         return infoRoomPresent;
     }
+
+    private static boolean checkBuildingOnMinFilterApplied(float currentPrice, String min) {
+        boolean listingWithPriceFilter = true;
+
+        float minPrice = Float.parseFloat(min);
+        if (currentPrice < minPrice) {
+            listingWithPriceFilter = false;
+        }
+        return listingWithPriceFilter;
+    }
+
+    private static boolean checkBuildingOnMaxFilterApplied(float currentPrice, String max) {
+        boolean listingWithPriceFilter = true;
+        float maxPrice = Float.parseFloat(max);
+
+        if (currentPrice > maxPrice) {
+            listingWithPriceFilter = false;
+        }
+        return listingWithPriceFilter;
+    }
+
+    private static boolean checkBuildingOnBetweenMinAndMaxFilterApplied(float currentPrice, String min, String max) {
+        boolean listingWithPriceFilter = true;
+        float minPrice = Float.parseFloat(min);
+        float maxPrice = Float.parseFloat(max);
+
+        if (currentPrice > maxPrice || currentPrice < minPrice) {
+            listingWithPriceFilter = false;
+        }
+        return listingWithPriceFilter;
+    }
+
+    public static boolean isPriceFilterAppliedOnListings(String typePriceFilter, List<WebElement> pricesList, String min, String max) {
+        boolean listingWithPriceFilter = true;
+        int numberCheckedPrices = 0;
+        int numberPricesToCheck = pricesList.size() < 10 ? pricesList.size() : 10;
+
+        if (pricesList.size() > 0) {
+            Iterator<WebElement> iterator = pricesList.iterator();
+
+            while (iterator.hasNext() && (numberCheckedPrices < numberPricesToCheck)) {
+                String s = iterator.next().getAttribute("value");
+                float currentPrice = FilteringAndSortingBuildings.getNumberFromString("price", s);
+
+                switch (typePriceFilter) {
+                    case "min" :
+                        listingWithPriceFilter = checkBuildingOnMinFilterApplied(currentPrice, min);
+                        break;
+
+                    case "max" :
+                        listingWithPriceFilter = checkBuildingOnMaxFilterApplied(currentPrice, max);
+                        break;
+
+                    case "between min and max" :
+                        listingWithPriceFilter = checkBuildingOnBetweenMinAndMaxFilterApplied(currentPrice, min, max);
+                        break;
+                }
+
+                if (!listingWithPriceFilter) {
+                    return listingWithPriceFilter;
+                }
+                numberCheckedPrices++;
+            }
+        }
+        return listingWithPriceFilter;
+    }
 }

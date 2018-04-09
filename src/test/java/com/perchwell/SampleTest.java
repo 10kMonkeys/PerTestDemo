@@ -79,6 +79,9 @@ public abstract class SampleTest {
     @Steps
     protected MyTagsSteps myTagsSteps;
 
+    @Steps
+    protected ResetPasswordSteps resetPasswordSteps;
+
         static TimerTask task = new TravisAlive();
         static Timer timer;
 

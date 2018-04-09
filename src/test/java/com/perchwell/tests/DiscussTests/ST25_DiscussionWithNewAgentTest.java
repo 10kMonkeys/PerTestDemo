@@ -11,7 +11,7 @@ import java.util.Date;
 
 @WithTagValuesOf({"SmokeTestSuit", "DiscussTests", "Third"})
 public class ST25_DiscussionWithNewAgentTest extends SampleTest {
-	private DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+	private DateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
 	@Test
 	public void discussionWithNewAgentTest() {
@@ -26,7 +26,7 @@ public class ST25_DiscussionWithNewAgentTest extends SampleTest {
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickAddNewAgentButton();
 		clientSteps.setAgentEmail("Not_existing_email@test.ru");
-		clientSteps.setMessageField("Hello. I'd like invite you on "+sdf.format(new Date()));
+		clientSteps.setMessageField("Hello. I'd like invite you on "+simpleDateFormat.format(new Date()));
 		clientSteps.clickInviteButton();
 		clientSteps.clickAgentSuccessfullyAddedOkButton();
 		discussionSteps.clickBackButton();

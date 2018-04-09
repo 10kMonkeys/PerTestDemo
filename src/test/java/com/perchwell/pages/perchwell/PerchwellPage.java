@@ -174,11 +174,11 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public boolean editSearchFiltersHintIsDispalyed() {
-		return editSearchFiltersHint.isDisplayed();
+		return element(editSearchFiltersHint).isDisplayed();
 	}
 
 	public Integer countItemsInListView() {
-        String newString = "";
+        String newString = "0";
         String s = listingsByButton.getAttribute("value");
         s = Helper.removeChar(s, ',');
         Pattern p = Pattern.compile("^\\d+\\s+");
@@ -303,6 +303,10 @@ public class PerchwellPage extends BasePage {
         return (FilteringAndSortingBuildings.getCounterInSorting("bathrooms", roomsInfoList) == 1);
     }
 
+	public boolean isInitialIconDispalyed(){
+		return element(openAccountButton).isDisplayed();
+	}
+
 	public boolean isInfoRoomsPresent(String info) {
 		return FilteringAndSortingBuildings.isSomeInfoPresentInBuildings(info, roomsInfoList);
 	}
@@ -334,6 +338,20 @@ public class PerchwellPage extends BasePage {
 			}
 		}
 		return Integer.parseInt(String.valueOf(listingsQty));
+	}
+
+	public boolean isPriceFilterAppliedOnListings(String typePriceFilter) {
+		String min = "0";
+		String max = "1000000";
+
+		if (Serenity.hasASessionVariableCalled("min price")) {
+			min = getValueFromSessionVariable("min price");
+		}
+
+		if (Serenity.hasASessionVariableCalled("max price")) {
+			max = getValueFromSessionVariable("max price");
+		}
+		return FilteringAndSortingBuildings.isPriceFilterAppliedOnListings(typePriceFilter, pricesList, min, max);
 	}
 
     public void isContainListingOnlyWithParticularLabel(String label) {

@@ -201,6 +201,11 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void shouldSeeInitialIcon() {
+		Assert.assertTrue(onPage.isInitialIconDispalyed());
+	}
+
+	@Step
 	public void clickInitials() {
 		onPage.clickOnInitials();
 	}
@@ -218,6 +223,21 @@ public class PerchwellSteps extends ScenarioSteps {
     @Step
 	public void checkListingsQuantity() {
 		Assert.assertTrue(onPage.checkListingsQuantity());
+	}
+
+	@Step
+	public void shouldSeeListingsEqualOrMoreMinPrice() {
+		Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
+	}
+
+	@Step
+	public void shouldSeeListingsEqualOrLessMaxPrice() {
+		Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("max"));
+	}
+
+	@Step
+	public void shouldSeeListingsBetweenMinAndMaxPrices() {
+		Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("between min and max"));
 	}
 
 	@Step

@@ -289,6 +289,22 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void eraseMinValueOfPriceFilter() {
+		onPage.clearPriceFilterValue("minPrice");
+	}
+
+	@Step
+	public void setMaximumPriceFilter(String amount) {
+		onPage.setMaximumPriceFilter(amount);
+		onPage.addValueInSessionVariable("max price", amount);
+	}
+
+	@Step
+	public void checkNoOnePriceFilterSelected() {
+		Assert.assertTrue(onPage.isMinAndMaxPricesNotSet());
+	}
+
+	@Step
 	public void deselectActiveFilter() {
 		onPage.deselectActiveFilter();
 	}
