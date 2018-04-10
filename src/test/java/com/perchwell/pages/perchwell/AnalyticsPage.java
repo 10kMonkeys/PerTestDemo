@@ -52,7 +52,7 @@ public class AnalyticsPage extends BasePage {
     private  WebElement dealCountByHeightChart;
 
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE (BY DEAL COUNT)")
-    private WebElement buildingTypeButton;
+    private WebElement buildingTypeByDealCountButton;
 
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY TYPE")
     private WebElement dealCountByTypeChart;
@@ -232,7 +232,38 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MEDIAN PROPERTY TAXES")
     private WebElement propertyTaxesChart;
 
+    @iOSXCUITFindBy(accessibility = "DOORMAN")
+    private WebElement doormanButton;
 
+    @iOSXCUITFindBy(accessibility = "ELEVATOR")
+    private WebElement elevatorButton;
+
+    @iOSXCUITFindBy(accessibility = "WORKING FIREPLACE")
+    private WebElement fireplaceButton;
+
+    @iOSXCUITFindBy(accessibility = "GARAGE")
+    private WebElement garageButton;
+
+    @iOSXCUITFindBy(accessibility = "GYM")
+    private WebElement gymButton;
+
+    @iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING")
+    private WebElement laundryBuildingsButton;
+
+    @iOSXCUITFindBy(accessibility = "OUTDOOR SPACE")
+    private WebElement outdoorSpaceButton;
+
+    @iOSXCUITFindBy(accessibility = "PETS")
+    private WebElement petsButton;
+
+    @iOSXCUITFindBy(accessibility = "POOL")
+    private WebElement poolButton;
+
+    @iOSXCUITFindBy(accessibility = "PREWAR")
+    private WebElement prewarButton;
+
+    @iOSXCUITFindBy(accessibility = "WASHER/DRYER")
+    private WebElement washerDryerButton;
     //endregion
 
 	public AnalyticsPage(WebDriver driver){
@@ -295,8 +326,8 @@ public class AnalyticsPage extends BasePage {
         element(acrisClosingsButton).click();
     }
 
-    public void buildingTypeButtonClick(){
-        element(buildingTypeButton).click();
+    public void buildingTypeByDealCountButtonClick(){
+        element(buildingTypeByDealCountButton).click();
     }
 
     public boolean isMessageMaximumSixChartsDisplayed(){
@@ -314,7 +345,7 @@ public class AnalyticsPage extends BasePage {
         return element(askingPriceButton).isDisplayed();
     }
 
-    public boolean isBuildingHeightCartAdd(){
+    public boolean isDealCountByHeightChartAdd(){
         return element(dealCountByHeightChart).isDisplayed();
     }
 
@@ -340,6 +371,10 @@ public class AnalyticsPage extends BasePage {
 
     public void buildingHeightButton(){
         element(buildingHeightButton).click();
+    }
+
+    public boolean isBuildingHeightChartAdd(){
+        return element(buildingHeightButton).isDisplayed();
     }
 
     public void mktShareButtonClick(){
@@ -701,5 +736,70 @@ public class AnalyticsPage extends BasePage {
 
     public void shouldSeeBedroomsChart(){
         element(bedroomChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyDoormanChart(){
+        element(doormanButton).click();
+        element(doormanButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyElevatorChart(){
+        element(elevatorButton).click();
+        element(elevatorButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyFireplaceChart(){
+        Helper.scrollToElement(fireplaceButton);
+        element(fireplaceButton).click();
+        element(fireplaceButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyGarageChart(){
+        element(garageButton).click();
+        element(garageButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyGymChart(){
+        element(gymButton).click();
+        element(gymButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyLaundryBuildingChart(){
+        element(laundryBuildingsButton).click();
+        element(laundryBuildingsButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyOutdoorSpaceChart(){
+        element(outdoorSpaceButton).click();
+        element(outdoorSpaceButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyPetsChart(){
+        Helper.scrollToElement(petsButton);
+        element(petsButton).click();
+        element(petsButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyPoolChart(){
+        Helper.scrollToElement(poolButton);
+        element(poolButton).click();
+        element(poolButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyPrewarChart(){
+        Helper.scrollToElement(prewarButton);
+        element(prewarButton).click();
+        element(prewarButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyWasherDryerChart(){
+        Helper.scrollToElement(washerDryerButton);
+        element(washerDryerButton).click();
+        element(washerDryerButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyBuildingTypeChart(){
+        element(buildingTypeChart).click();
+        element(buildingTypeChart).shouldBeVisible();
     }
 }

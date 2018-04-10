@@ -22,12 +22,41 @@ public class ATS1_AddREBNYListingsMKTShareChartsTest extends SampleTest {
         analyticsSteps.shouldSeeBedroomsChart();
         analyticsSteps.addButtonClick();
         analyticsSteps.addBuildingHeightChartWithMKTShare();
-        analyticsSteps.isBuildingHeightCartAdd();
-        analyticsSteps.addButtonClick();
+        analyticsSteps.isBuildingHeightChartAdd();
+        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.addAndVerifyBuildingTypeChart();
+        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.addAndVerifyDoormanChart();
+        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.addAndVerifyElevatorChart();
+        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.addAndVerifyFireplaceChart();
+        analyticsSteps.clickMyNewSearch();
+        searchSteps.clickLoadSavedSearchButton();
+        searchSteps.createNewSearchClick();
+        searchSteps.clickApplyButton();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.mktShareButtonClick();
-        analyticsSteps.addBuildingTypeChart();
-        analyticsSteps.isBuildingTypeChartDisplayed();
-        analyticsSteps.addButtonClick();
+        analyticsSteps.addAndVerifyGarageChart();
+        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.addAndVerifyGymChart();
+        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.addAndVerifyLaundryBuildingChart();
+        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.addAndVerifyOutdoorSpaceChart();
+        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.addAndVerifyPetsChart();
+        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.addAndVerifyPoolChart();
+        analyticsSteps.clickMyNewSearch();
+        searchSteps.clickLoadSavedSearchButton();
+        searchSteps.createNewSearchClick();
+        searchSteps.clickApplyButton();
+        analyticsSteps.rebnyListingsButtonClick();
+        analyticsSteps.mktShareButtonClick();
+        analyticsSteps.addAndVerifyPrewarChart();
+        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.addAndVerifyWasherDryerChart();
+
     }
 }

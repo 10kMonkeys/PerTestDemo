@@ -108,7 +108,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.bedroomsButtonClick();
 		onPage.addButtonClick();
 		onPage.acrisClosingsButtonClick();
-		onPage.buildingTypeButtonClick();
+		onPage.buildingTypeByDealCountButtonClick();
 	}
 
 	@Step
@@ -127,8 +127,13 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void isBuildingHeightCartAdd() {
-		Assert.assertTrue(onPage.isBuildingHeightCartAdd());
+	public void isDealCountByHeightAdd() {
+		Assert.assertTrue(onPage.isDealCountByHeightChartAdd());
+	}
+
+	@Step
+	public void isBuildingHeightChartAdd(){
+		Assert.assertTrue(onPage.isBuildingHeightChartAdd());
 	}
 
 	@Step
@@ -480,7 +485,74 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void addBuildingTypeChart(){
-		onPage.buildingTypeButtonClick();
+	public void addBuildingTypeByDealCountChart(){
+		onPage.buildingTypeByDealCountButtonClick();
+	}
+
+	@Step
+	public void addAndVerifyDoormanChart(){
+		onPage.addAndVerifyDoormanChart();
+	}
+
+	@Step
+	public void addAndVerifyElevatorChart(){
+		onPage.addAndVerifyElevatorChart();
+	}
+
+	@Step
+	public void addAndVerifyFireplaceChart(){
+		onPage.addAndVerifyFireplaceChart();
+	}
+
+	@Step
+	public void selectREBNYListingsWithMKTChare(){
+		onPage.addButtonClick();
+		onPage.rebnyListingsButtonClick();
+		onPage.mktShareButtonClick();
+	}
+
+	@Step
+	public void addAndVerifyGarageChart(){
+		onPage.addAndVerifyGarageChart();
+	}
+
+	@Step
+	public void addAndVerifyGymChart(){
+		onPage.addAndVerifyGymChart();
+	}
+
+	@Step
+	public void addAndVerifyLaundryBuildingChart(){
+		onPage.addAndVerifyLaundryBuildingChart();
+	}
+
+	@Step
+	public void addAndVerifyOutdoorSpaceChart(){
+		onPage.addAndVerifyOutdoorSpaceChart();
+	}
+
+	@Step
+	public void addAndVerifyPetsChart(){
+		onPage.addAndVerifyPetsChart();
+	}
+
+	@Step
+	public void addAndVerifyPoolChart(){
+		onPage.addAndVerifyPoolChart();
+	}
+
+	@Step
+	public void addAndVerifyPrewarChart(){
+		onPage.addAndVerifyPrewarChart();
+	}
+
+	@Step
+	public void addAndVerifyWasherDryerChart(){
+		onPage.addAndVerifyWasherDryerChart();
+	}
+
+	@Step
+	public void addAndVerifyBuildingTypeChart(){
+		onPage.addAndVerifyBuildingTypeChart();
 	}
 }
