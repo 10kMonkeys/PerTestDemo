@@ -14,6 +14,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class ClientPage extends BasePage {
@@ -74,6 +76,18 @@ public class ClientPage extends BasePage {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton")
 	private WebElement deleteButton;
+
+	@iOSXCUITFindBy(accessibility = "ContactsSearchBar")
+	private WebElement contactsSearchBar;
+
+	@iOSXCUITFindBy(accessibility = "Clear text")
+	private WebElement clearTextButton;
+
+	@iOSXCUITFindBy(accessibility = "TEST CLIENT")
+	private WebElement testClient;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[`visible==1`]/XCUIElementTypeCell")
+	private List<WebElement> clients;
 
 	public WebElement getAddNewClientButton() {
 		return addNewClientButton;
@@ -207,5 +221,29 @@ public class ClientPage extends BasePage {
 
 	public boolean isDeletedClientNotPresentInClientsList(String name) {
 		return !element(MobileBy.AccessibilityId(name)).isPresent();
+	}
+
+	public void enterValueInSearchField(String text) {
+		element(contactsSearchBar).sendKeys(text);
+	}
+
+	public void clickOutsideSearchField() {
+		getDriver().findElements(By.className("XCUIElementTypeTable")).get(0).click();
+	}
+
+	public void clickClearTextButton() {
+		element(clearTextButton).click();
+	}
+
+	public boolean isSearchFieldCleared() {
+		return String.valueOf(clients.size()).equals(getValueFromSessionVariable("clients before search"));
+	}
+
+	public void noteNumberClientsBeforeSearch() {
+		addValueInSessionVariable("clients before search", String.valueOf(clients.size()));
+	}
+
+	public boolean isTestClientPresent() {
+		return element(testClient).isPresent();
 	}
 }

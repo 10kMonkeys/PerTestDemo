@@ -151,4 +151,34 @@ public class ClientSteps extends ScenarioSteps {
 	public void shouldNotContainPreviouslyDeletedClient() {
 		Assert.assertTrue(onPage.isDeletedClientNotPresentInClientsList(onPage.getValueFromSessionVariable("User name")));
 	}
+
+	@Step
+	public void enterValueInSearchField(String someText) {
+		onPage.enterValueInSearchField(someText);
+	}
+
+	@Step
+	public void clickOutsideSearchSection() {
+		onPage.clickOutsideSearchField();
+	}
+
+	@Step
+	public void clickDeleteIconNextToSearchText() {
+		onPage.clickClearTextButton();
+	}
+
+	@Step
+	public void shouldTestClientPresentInClientsList() {
+		Assert.assertTrue(onPage.isTestClientPresent());
+	}
+
+	@Step
+	public void noteNumberClientsBeforeSearch() {
+		onPage.noteNumberClientsBeforeSearch();
+	}
+
+	@Step
+	public void shouldSearchBeCleared() {
+		Assert.assertTrue(onPage.isSearchFieldCleared());
+	}
 }
