@@ -231,6 +231,8 @@ public class AnalyticsPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "MEDIAN PROPERTY TAXES")
     private WebElement propertyTaxesChart;
+
+
     //endregion
 
 	public AnalyticsPage(WebDriver driver){
@@ -695,5 +697,9 @@ public class AnalyticsPage extends BasePage {
 
     public void shouldSeeAskingPricePerBedChart(){
         element(askingPricePerBedChart).shouldBeVisible();
+    }
+
+    public void shouldSeeBedroomsChart(){
+        element(bedroomChart).shouldBeVisible();
     }
 }

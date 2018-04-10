@@ -468,4 +468,19 @@ public class AnalyticsSteps extends ScenarioSteps {
 	public void shouldSeeAskingPricePerBedChart(){
 		onPage.shouldSeeAskingPricePerBedChart();
 	}
+
+	@Step
+	public void addBedroomsChart(){
+		onPage.bedroomsButtonClick();
+	}
+
+	@Step
+	public void shouldSeeBedroomsChart(){
+		onPage.shouldSeeBedroomsChart();
+	}
+
+	@Step
+	public void addBuildingTypeChart(){
+		onPage.buildingTypeButtonClick();
+	}
 }
