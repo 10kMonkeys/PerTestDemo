@@ -246,4 +246,11 @@ public class ClientPage extends BasePage {
 	public boolean isTestClientPresent() {
 		return element(testClient).isPresent();
 	}
+
+	public void clickTestClient() throws Exception {
+		if (!element(testClient).isVisible()) {
+			Helper.swipeDownUntilElementVisible(testClient);
+		}
+		element(testClient).click();
+	}
 }

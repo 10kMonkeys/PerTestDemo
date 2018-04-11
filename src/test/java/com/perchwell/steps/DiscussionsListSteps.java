@@ -57,5 +57,35 @@ DiscussionsListPage onPage;
 	public void closePage() {
 		onPage.closePage();
 	}
+
+	@Step
+	public void enterValueInSearchField(String someText) {
+		onPage.enterValueInSearchField(someText);
+	}
+
+	@Step
+	public void shouldTestClientBePresentInFilterResult() {
+		Assert.assertTrue(onPage.isTestClientInFilterSearchResult());
+	}
+
+	@Step
+	public void shouldNothingBeDisplayedInFilterByPerson() {
+		Assert.assertTrue(onPage.isFilterByPersonEmpty());
+	}
+
+	@Step
+	public void clickDeleteIconNextToSearchText() {
+		onPage.clickOnClearTextButton();
+	}
+
+	@Step
+	public void selectTestClient() throws Exception {
+		onPage.clickOnTestClientInFilterSearch();
+	}
+
+	@Step
+	public void shouldOnlyDiscussionWithTestClientBeDisplayed() {
+		Assert.assertTrue(onPage.isOnlyDiscussionWithTestClientDisplayed());
+	}
 }
 

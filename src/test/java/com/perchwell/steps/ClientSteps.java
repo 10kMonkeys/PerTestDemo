@@ -181,4 +181,9 @@ public class ClientSteps extends ScenarioSteps {
 	public void shouldSearchBeCleared() {
 		Assert.assertTrue(onPage.isSearchFieldCleared());
 	}
+
+	@Step
+	public void selectTestClient() throws Exception {
+		onPage.clickTestClient();
+	}
 }
