@@ -108,7 +108,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.bedroomsButtonClick();
 		onPage.addButtonClick();
 		onPage.acrisClosingsButtonClick();
-		onPage.buildingTypeButtonClick();
+		onPage.buildingTypeByDealCountButtonClick();
 	}
 
 	@Step
@@ -127,8 +127,13 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void isBuildingHeightCartAdd() {
-		Assert.assertTrue(onPage.isBuildingHeightCartAdd());
+	public void isDealCountByHeightAdd() {
+		Assert.assertTrue(onPage.isDealCountByHeightChartAdd());
+	}
+
+	@Step
+	public void isBuildingHeightChartAdd(){
+		Assert.assertTrue(onPage.isBuildingHeightChartAdd());
 	}
 
 	@Step
@@ -437,5 +442,117 @@ public class AnalyticsSteps extends ScenarioSteps {
 	public void setClientAddress() {
 		onPage.setClientAddress(AppProperties.INSTANCE.getProperty("client_email"));
 		this.clickSaveButton();
+	}
+
+	@Step
+	public void addAskingPricePerBedChart(){
+		onPage.askingPricePerBedButtonClick();
+	}
+
+	@Step
+	public void addAskingPricePerFTChart(){
+		onPage.askingPricePerFTButtonClick();
+	}
+
+	@Step
+	public void addListingCountChart(){
+		onPage.listingCountButtonClick();
+	}
+
+	@Step
+	public void addMonthliesChart(){
+		onPage.monthliesButtonClick();
+	}
+
+	@Step
+	public void addPropertyTaxesChart(){
+		onPage.propertyTaxesButtonClick();
+	}
+
+	@Step
+	public void shouldSeeAskingPricePerBedChart(){
+		onPage.shouldSeeAskingPricePerBedChart();
+	}
+
+	@Step
+	public void addBedroomsChart(){
+		onPage.bedroomsButtonClick();
+	}
+
+	@Step
+	public void shouldSeeBedroomsChart(){
+		onPage.shouldSeeBedroomsChart();
+	}
+
+	@Step
+	public void addBuildingTypeByDealCountChart(){
+		onPage.buildingTypeByDealCountButtonClick();
+	}
+
+	@Step
+	public void addAndVerifyDoormanChart(){
+		onPage.addAndVerifyDoormanChart();
+	}
+
+	@Step
+	public void addAndVerifyElevatorChart(){
+		onPage.addAndVerifyElevatorChart();
+	}
+
+	@Step
+	public void addAndVerifyFireplaceChart(){
+		onPage.addAndVerifyFireplaceChart();
+	}
+
+	@Step
+	public void selectREBNYListingsWithMKTChare(){
+		onPage.addButtonClick();
+		onPage.rebnyListingsButtonClick();
+		onPage.mktShareButtonClick();
+	}
+
+	@Step
+	public void addAndVerifyGarageChart(){
+		onPage.addAndVerifyGarageChart();
+	}
+
+	@Step
+	public void addAndVerifyGymChart(){
+		onPage.addAndVerifyGymChart();
+	}
+
+	@Step
+	public void addAndVerifyLaundryBuildingChart(){
+		onPage.addAndVerifyLaundryBuildingChart();
+	}
+
+	@Step
+	public void addAndVerifyOutdoorSpaceChart(){
+		onPage.addAndVerifyOutdoorSpaceChart();
+	}
+
+	@Step
+	public void addAndVerifyPetsChart(){
+		onPage.addAndVerifyPetsChart();
+	}
+
+	@Step
+	public void addAndVerifyPoolChart(){
+		onPage.addAndVerifyPoolChart();
+	}
+
+	@Step
+	public void addAndVerifyPrewarChart(){
+		onPage.addAndVerifyPrewarChart();
+	}
+
+	@Step
+	public void addAndVerifyWasherDryerChart(){
+		onPage.addAndVerifyWasherDryerChart();
+	}
+
+	@Step
+	public void addAndVerifyBuildingTypeChart(){
+		onPage.addAndVerifyBuildingTypeChart();
 	}
 }

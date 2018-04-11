@@ -156,4 +156,38 @@ public class ClientSteps extends ScenarioSteps {
 		this.onPage.setClientName(onPage.getValueFromSessionVariable("User name"));
 		this.onPage.setClientEmail(onPage.getValueFromSessionVariable("User email"));
 	}
+
+	public void enterValueInSearchField(String someText) {
+		onPage.enterValueInSearchField(someText);
+	}
+
+	@Step
+	public void clickOutsideSearchSection() {
+		onPage.clickOutsideSearchField();
+	}
+
+	@Step
+	public void clickDeleteIconNextToSearchText() {
+		onPage.clickClearTextButton();
+	}
+
+	@Step
+	public void shouldTestClientPresentInClientsList() {
+		Assert.assertTrue(onPage.isTestClientPresent());
+	}
+
+	@Step
+	public void noteNumberClientsBeforeSearch() {
+		onPage.noteNumberClientsBeforeSearch();
+	}
+
+	@Step
+	public void shouldSearchBeCleared() {
+		Assert.assertTrue(onPage.isSearchFieldCleared());
+	}
+
+	@Step
+	public void selectTestClient() throws Exception {
+		onPage.clickTestClient();
+	}
 }

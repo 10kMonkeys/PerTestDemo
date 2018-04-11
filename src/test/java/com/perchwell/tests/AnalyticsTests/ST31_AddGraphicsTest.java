@@ -20,7 +20,7 @@ public class ST31_AddGraphicsTest extends SampleTest {
         analyticsSteps.isAskingPriseChartAdd();
         analyticsSteps.addButtonClick();
         analyticsSteps.addChartFromACRISSection();
-        analyticsSteps.isBuildingHeightCartAdd();
+        analyticsSteps.isDealCountByHeightAdd();
         analyticsSteps.addButtonClick();
         analyticsSteps.addChartFromNYCSection();
         analyticsSteps.isGardenChartDisplayed();

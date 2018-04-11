@@ -8,8 +8,14 @@ import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.util.Iterator;
+import java.util.List;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class DiscussionsListPage extends BasePage {
 	public DiscussionsListPage(WebDriver driver) {
@@ -32,6 +38,18 @@ public class DiscussionsListPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "DiscussionsCancelButton")
 	private WebElement closeButton;
+
+	@iOSXCUITFindBy(accessibility = "DiscussionsSearchBar")
+	private WebElement discussionsSearchBar;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'TEST CLIENT' AND visible==1")
+	private WebElement testClientInFilterByPersonResult;
+
+	@iOSXCUITFindBy(accessibility = "Clear text")
+	private WebElement clearTextButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[`visible == 1`]")
+	private List<WebElement> clientsListOrDiscussionsList;
 
 	public String getFistDiscussionClient() {
 		return element(firstDiscussionClient).getAttribute("name");
@@ -92,5 +110,50 @@ public class DiscussionsListPage extends BasePage {
 
 	public void closePage() {
 		element(closeButton).click();
+	}
+
+	public void enterValueInSearchField(String text) {
+		element(discussionsSearchBar).sendKeys(text);
+	}
+
+	public boolean isTestClientInFilterSearchResult() {
+		return element(testClientInFilterByPersonResult).isPresent();
+	}
+
+	public void clickOnClearTextButton() {
+		element(clearTextButton).click();
+	}
+
+	public boolean isFilterByPersonEmpty() {
+		return clientsListOrDiscussionsList.isEmpty();
+	}
+
+	public void clickOnTestClientInFilterSearch() throws Exception {
+		if (!element(testClientInFilterByPersonResult).isVisible()) {
+			Helper.swipeDownUntilElementVisible(testClientInFilterByPersonResult);
+		}
+		element(testClientInFilterByPersonResult).click();
+	}
+
+	public boolean isOnlyDiscussionWithTestClientDisplayed() {
+
+		for (WebElement item : clientsListOrDiscussionsList) {
+			int k = 0;
+			List<WebElement> oneDiscussion = item.findElements(By.xpath("//XCUIElementTypeStaticText[@name]"));
+			Iterator<WebElement> iterator = oneDiscussion.iterator();
+
+			while (iterator.hasNext()) {
+				String text = iterator.next().getText();
+				if (text.contains("TEST CLIENT")) {
+					k++;
+					break;
+				}
+			}
+
+			if (k != 1) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
