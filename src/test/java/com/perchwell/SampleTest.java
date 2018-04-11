@@ -96,4 +96,7 @@ public abstract class SampleTest {
 
         }
     }
+
+    @Steps
+    protected EmailSteps emailSteps;
 }

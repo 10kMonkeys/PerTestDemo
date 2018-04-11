@@ -1,5 +1,6 @@
 package com.perchwell.pages.clientdetails;
 
+import com.perchwell.email.Email;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.MailTrapResponse;
 
@@ -9,6 +10,7 @@ import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

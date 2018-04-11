@@ -12,7 +12,7 @@ public class ShareTaggedItemsSteps {
     @Step
     public void selectClientEmail(){
         onPage.fillInRecipientTextBox(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
-        onPage.selectSecondClient();
+        onPage.selectClient();
     }
 
     @Step

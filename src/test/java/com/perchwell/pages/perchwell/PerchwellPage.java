@@ -104,7 +104,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "RESET PASSWORD")
 	private WebElement resetPassword;
 
-	@iOSXCUITFindBy(accessibility = "") //TBI
+	@iOSXCUITFindBy(accessibility = "TBI") //TBI
 	private List<WebElement> buildingsLabels;
 
 	public static Integer numberOfItemsInListView;

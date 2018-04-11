@@ -1,7 +1,6 @@
 package com.perchwell.steps;
 
 import com.perchwell.entity.AppProperties;
-import com.perchwell.helpers.Helper;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -150,5 +149,11 @@ public class ClientSteps extends ScenarioSteps {
 	@Step
 	public void shouldNotContainPreviouslyDeletedClient() {
 		Assert.assertTrue(onPage.isDeletedClientNotPresentInClientsList(onPage.getValueFromSessionVariable("User name")));
+	}
+
+	@Step
+	public void setJustDeletedClientData() {
+		this.onPage.setClientName(onPage.getValueFromSessionVariable("User name"));
+		this.onPage.setClientEmail(onPage.getValueFromSessionVariable("User email"));
 	}
 }
