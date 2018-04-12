@@ -44,6 +44,14 @@ public abstract class FilteringAndSortingBuildings {
 
         String outputString = Helper.removeChar(input, '$');
         outputString = Helper.removeChar(outputString, ',');
+
+        if (outputString.contains("M")) {
+            outputString = Helper.removeChar(outputString, 'M');
+            return (Float.parseFloat(outputString) * 1000000);
+        } else if (outputString.contains("k")) {
+            outputString = Helper.removeChar(outputString, 'k');
+            return (Float.parseFloat(outputString) * 1000);
+        }
         output = Float.parseFloat(outputString);
         return output;
     }

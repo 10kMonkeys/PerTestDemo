@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
@@ -49,6 +50,31 @@ public class MapPage extends BasePage {
 
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1 BD'")
     private WebElement oneBed;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'SORTING'")
+	private WebElement sortingButton;
+
+	@iOSXCUITFindBy(accessibility = "LEAST EXPENSIVE")
+	private WebElement leastExpensiveOption;
+
+	@iOSXCUITFindBy(accessibility = "MOST EXPENSIVE")
+	private WebElement mostExpensiveOption;
+
+	@iOSXCUITFindBy(accessibility = "BEDROOMS")
+	private WebElement bedroomsOption;
+
+	@iOSXCUITFindBy(accessibility = "BATHROOMS")
+	private WebElement bathroomsOption;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '$'")
+	private List<WebElement> pricesList;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'BD'")
+	private List<WebElement> bedroomsList;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'BA'")
+	private List<WebElement> bathroomsList;
+
 
 	public void clickNotNowButton() {
 		element(notNowButton).click();
@@ -102,5 +128,54 @@ public class MapPage extends BasePage {
 			}
 		}
 		return isCheckPassed;
+	}
+
+	public void swipeBuilding() throws Exception {
+		int y = pricesList.get(0).getLocation().getY();
+		Helper.swipeRightElementWithSetY(pricesList.get(0), y+1);
+	}
+
+	public void clickSecondPin() {
+		clusterList.get(1).click();
+	}
+
+	public void clickOnSortingButton() {
+		element(sortingButton).click();
+	}
+
+	public void clickOnLeastExpensiveSection() {
+		element(leastExpensiveOption).click();
+	}
+
+	public void clickOnMostExpensiveSection() {
+		element(mostExpensiveOption).click();
+	}
+
+	public void clickOnBedroomsSection() {
+		element(bedroomsOption).click();
+	}
+
+	public void clickOnBathroomsSection() {
+		element(bathroomsOption).click();
+	}
+
+	public boolean isListingSortedByLeastExpensive() {
+		return (FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
+	}
+
+	public boolean isListingSortedByMostExpensive() {
+		return (FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
+	}
+
+	public boolean isListingSortedByBedrooms() {
+		return (FilteringAndSortingBuildings.getCounterInSorting("bedrooms", bedroomsList) == 1);
+	}
+
+	public boolean isListingSortedByBathrooms() {
+		return (FilteringAndSortingBuildings.getCounterInSorting("bathrooms", bathroomsList) == 1);
+	}
+
+	public boolean hasLabelSortType(String sortType) {
+		return element(sortingButton).getAttribute("label").contains(sortType);
 	}
 }
