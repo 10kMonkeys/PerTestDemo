@@ -307,8 +307,9 @@ public class PerchwellPage extends BasePage {
 		return element(openAccountButton).isDisplayed();
 	}
 
-	public boolean isInfoRoomsPresent(String info) {
-		return FilteringAndSortingBuildings.isSomeInfoPresentInBuildings(info, roomsInfoList);
+	public void shouldFilter1Bed1AndHalfBathApplied(String search) {
+		boolean roomInfo = FilteringAndSortingBuildings.isSomeInfoPresentInBuildings(search, roomsInfoList);
+		Assert.assertTrue(roomInfo);
 	}
 
 	public void clickOnInitials() {

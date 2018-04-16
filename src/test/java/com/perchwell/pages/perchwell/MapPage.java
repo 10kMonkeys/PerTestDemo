@@ -9,6 +9,7 @@ import io.appium.java_client.TouchAction;
 
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
 
@@ -118,16 +119,23 @@ public class MapPage extends BasePage {
 		Boolean isCheckPassed = true;
 		int numberPins = clusterList.size() < 10 ? clusterList.size() : 10;
 
-		for (int i = 0; i < numberPins; i++) {
-			WebElement cluster = clusterList.get(i);
-			cluster.click();
+		if (clusterList.size() > 0) {
 
-			if (!Helper.isElementDisplayed(oneAndHalfBaths) || (!Helper.isElementDisplayed(oneBed))){
-				isCheckPassed = false;
-				break;
+			for (int i = 0; i < numberPins; i++) {
+				WebElement cluster = clusterList.get(i);
+				cluster.click();
+
+				if (!Helper.isElementDisplayed(oneAndHalfBaths) || (!Helper.isElementDisplayed(oneBed))) {
+					isCheckPassed = false;
+					break;
+				}
 			}
 		}
 		return isCheckPassed;
+	}
+
+	public void shouldFiltersBeApplied() {
+		Assert.assertTrue(checkForChangesAfterApplyingTheFilter());
 	}
 
 	public void swipeBuilding() throws Exception {

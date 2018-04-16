@@ -6,8 +6,10 @@ import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -461,14 +463,14 @@ public class AnalyticsPage extends BasePage {
 	}
 
 
-	public boolean isBuildingHeightCartDisplayedWithSwipe() {
+	public void shouldBuildingHeightCartDisplayedWithSwipe() {
 		Helper.scrollToElement(dealCountByHeightChart);
-		return element(dealCountByHeightChart).isDisplayed();
+		element(dealCountByHeightChart).shouldBeVisible();
 	}
 
-	public boolean isDomByPriceCartDisplayed() {
+	public void shouldDomByPriceCartDisplayed() {
 		Helper.scrollToElement(bedroomChart);
-		return element(bedroomChart).isDisplayed();
+		element(bedroomChart).shouldBeVisible();
 	}
 
 	public boolean isMedianAskingPriceChartDisplayed(){
@@ -476,20 +478,20 @@ public class AnalyticsPage extends BasePage {
 	    return element(medianAskingPriceChart).isDisplayed();
     }
 
-	public boolean isDaysOnMarketDisplayedWithSwipe() throws Exception {
+	public void shouldDaysOnMarketDisplayedWithSwipe() throws Exception {
 		Helper.swipeDownUntilElementVisible(daysOnMarketButton);
 		//Helper.scrollToElement(daysOnMarketButton);
-		return element(daysOnMarketButton).isDisplayed();
+		element(daysOnMarketButton).shouldBeVisible();
 	}
 
-	public boolean isBuildingTypeDisplayed() {
-		return element(dealCountByTypeChart).isDisplayed();
+	public void shouldBuildingTypeDisplayed() {
+		element(dealCountByTypeChart).shouldBeVisible();
 	}
 
-	public boolean shouldSeeAscingPriceChartWithSwipe() throws Exception {
+	public void shouldSeeAscingPriceChartWithSwipe() throws Exception {
 		Helper.swipeDownUntilElementVisible(askingPriceButton);
 		//	Helper.scrollToElement(askingPriceButton);
-		return element(askingPriceButton).isDisplayed();
+		element(askingPriceButton).shouldBeVisible();
 
 	}
 	public boolean isDomByPrice2DisplayedWithSwipe() {
@@ -547,9 +549,9 @@ public class AnalyticsPage extends BasePage {
 	    element(hasGardenButton).click();
     }
 
-    public boolean isGardenChartDisplayed() {
+    public void shouldGardenChartDisplayed() {
         Helper.scrollToElement(gardenChart);
-        return element(gardenChart).isDisplayed();
+        element(gardenChart).shouldBeVisible();
     }
 
     public void medianButtonClick(){
@@ -801,5 +803,10 @@ public class AnalyticsPage extends BasePage {
     public void addAndVerifyBuildingTypeChart(){
         element(buildingTypeChart).click();
         element(buildingTypeChart).shouldBeVisible();
+    }
+
+    public void clickOnMagnifierIconWithPreviouslySavedSearch() {
+        String search = SessionVariables.getValueFromSessionVariable("Search");
+        getDriver().findElement(MobileBy.AccessibilityId(search)).click();
     }
 }

@@ -187,9 +187,9 @@ private WebElement FIREPLACE;
 		element(featuresAmenities).click();
 	}
 
-	public boolean isFireplaceDisplayed() {
+	public void shouldFireplaceDisplayed() {
 		Helper.scrollToElement(FIREPLACE);
-		return Helper.isElementDisplayed(FIREPLACE);
+		element(FIREPLACE).shouldBeVisible();
 
 	}
 
