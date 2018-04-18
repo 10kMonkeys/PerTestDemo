@@ -48,6 +48,69 @@ public class MapSteps extends ScenarioSteps {
 
 	@Step
 	public void checkForChangesAfterApplyingTheFilter(){
-		Assert.assertTrue(onPage.checkForChangesAfterApplyingTheFilter());
+		onPage.shouldFiltersBeApplied();
+	}
+
+	@Step
+	public void selectPinOnMap() {
+		onPage.clickSecondPin();
+	}
+
+	@Step
+	public void clickOnSortingSectionButton() {
+		onPage.clickOnSortingButton();
+	}
+
+	@Step
+	public void selectLeastExpensiveOption() throws Exception {
+		onPage.clickOnLeastExpensiveSection();
+		swipeBuilding();
+	}
+
+	@Step
+	public void selectMostExpensiveOption() throws Exception {
+		onPage.clickOnMostExpensiveSection();
+		swipeBuilding();
+	}
+
+	@Step
+	public void selectBedroomsOption() throws Exception {
+		onPage.clickOnBedroomsSection();
+		swipeBuilding();
+	}
+
+	@Step
+	public void selectBathroomsOption() throws Exception {
+		onPage.clickOnBathroomsSection();
+		swipeBuilding();
+	}
+
+	@Step
+	public void shouldListingBeSortedByLeastExpensive() {
+		Assert.assertTrue(onPage.isListingSortedByLeastExpensive());
+	}
+
+	@Step
+	public void shouldListingBeSortedByMostExpensive() {
+		Assert.assertTrue(onPage.isListingSortedByMostExpensive());
+	}
+
+	@Step
+	public void shouldListingBeSortedByBedrooms() {
+		Assert.assertTrue(onPage.isListingSortedByBedrooms());
+	}
+
+	@Step
+	public void shouldListingBeSortedByBathrooms() {
+		Assert.assertTrue(onPage.isListingSortedByBathrooms());
+	}
+
+	private void swipeBuilding() throws Exception {
+		onPage.swipeBuilding();
+	}
+
+	@Step
+	public void checkSortLabel(String sortType) {
+		Assert.assertTrue(onPage.hasLabelSortType(sortType));
 	}
 }
