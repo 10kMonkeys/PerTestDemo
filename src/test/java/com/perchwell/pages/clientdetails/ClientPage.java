@@ -91,6 +91,9 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[`visible==1`]/XCUIElementTypeCell")
 	private List<WebElement> clients;
 
+	@iOSXCUITFindBy(accessibility = "GROUPS")
+	private WebElement groupsButton;
+
 	public WebElement getAddNewClientButton() {
 		return addNewClientButton;
 	}
@@ -254,5 +257,9 @@ public class ClientPage extends BasePage {
 			Helper.swipeDownUntilElementVisible(testClient);
 		}
 		element(testClient).click();
+	}
+
+	public void clickOnGroupsButton() {
+		element(groupsButton).click();
 	}
 }

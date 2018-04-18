@@ -190,4 +190,18 @@ public class ClientSteps extends ScenarioSteps {
 	public void selectTestClient() throws Exception {
 		onPage.clickTestClient();
 	}
+
+	@Step
+	public void addNewClient(String groupName) {
+		this.clickAddNewClientButton();
+		this.setRundomClientData();
+		this.clickGroupLabel();
+		this.selectGroup(groupName);
+		this.clickInviteButton();
+	}
+
+	@Step
+	public void clickGroupsButton() {
+		onPage.clickOnGroupsButton();
+	}
 }
