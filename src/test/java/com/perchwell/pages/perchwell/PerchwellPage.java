@@ -36,7 +36,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "EXPLORE SEARCH RESULTS BY LOCATION")
 	private WebElement exploreSearchResultHint;
 
-	@iOSXCUITFindBy(accessibility = "MY NEW SEARCH")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement magnifierIcon;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
