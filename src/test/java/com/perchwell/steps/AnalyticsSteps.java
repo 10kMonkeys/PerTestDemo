@@ -124,16 +124,19 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void isAskingPriseChartAdd() {
 		Assert.assertTrue(onPage.isAskingPriseChartAdd());
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void isDealCountByHeightAdd() {
 		Assert.assertTrue(onPage.isDealCountByHeightChartAdd());
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void isBuildingHeightChartAdd(){
 		Assert.assertTrue(onPage.isBuildingHeightChartAdd());
+		this.isChartDisplayed();
 	}
 
 	@Step
@@ -144,6 +147,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void isDaysOnMarketAdd() {
 		Assert.assertTrue(onPage.isDaysOnMarketAdd());
+		this.isChartDisplayed();
 	}
 
 	@Step
@@ -213,31 +217,39 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeDomByPrice2ChartWithSwipe() {
 		Assert.assertTrue(onPage.isDomByPrice2DisplayedWithSwipe());
+		this.isChartDisplayed();
 	}
 
 	@Step
-	public void shouldSeeBuildingHeightCartWithSwipe() {
-		onPage.shouldBuildingHeightCartDisplayedWithSwipe();
+	public void shouldSeeBuildingHeightChartWithSwipe() {
+		onPage.shouldBuildingHeightChartDisplayedWithSwipe();
+		this.isChartDisplayed();
 	}
 
 	@Step
-	public void shouldSeeDomByPriceCartChart() {
-		onPage.shouldDomByPriceCartDisplayed();
+	public void shouldSeeBedroomCountChart() {
+		onPage.shouldBedroomCountChartDisplayed();
+		this.isChartDisplayed();
 	}
+
 
 	@Step
 	public void shouldSeeDaysOnMarketChartWithSwipe() throws Exception {
 		onPage.shouldDaysOnMarketDisplayedWithSwipe();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void shouldSeeAskingPriceChartWithSwipe() throws Exception {
+		onPage.shouldSeeAskingPriceChartWithSwipe();
+		this.isChartDisplayed();
+
 	}
 
 	@Step
 	public void shouldBuildingTypeChartDisplayed() {
 		onPage.shouldBuildingTypeDisplayed();
-	}
-
-	@Step
-	public void shouldSeeAscingPriceChartWithSwipe() throws Exception {
-		onPage.shouldSeeAscingPriceChartWithSwipe();
+		this.isChartDisplayed();
 	}
 
 	@Step
@@ -279,6 +291,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void isGardenChartDisplayed() {
 		onPage.shouldGardenChartDisplayed();
+		this.isChartDisplayed();
 	}
 
 	@Step
@@ -299,6 +312,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void isMedianAskingPriceChartDisplayed(){
 		Assert.assertTrue(onPage.isMedianAskingPriceChartDisplayed());
+		this.isChartDisplayed();
 	}
 
 	@Step
@@ -324,11 +338,13 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void isHistoryDistChartDisplayed(){
 		Assert.assertTrue(onPage.isHistoryDistChartAdd());
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void isGardenPremiumChartDisplayed(){
 		Assert.assertTrue(onPage.isGardenPremiumChartDisplayed());
+		this.isChartDisplayed();
 	}
 
 	@Step
@@ -349,6 +365,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void isFirmListingCountChartDisplayed(){
 		Assert.assertTrue(onPage.isFirmListingCountChartDisplayed());
+		this.isChartDisplayed();
 	}
 
 	@Step
@@ -450,28 +467,45 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void addAskingPricePerFTChart(){
-		onPage.askingPricePerFTButtonClick();
+	public void addMedianAskingPerFTChart(){
+		onPage.medianAskingPerFTButtonClick();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifyAskingPricePerFTChart(){
+		onPage.addAndVerifyAskingPricePerFTChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void addListingCountChart(){
 		onPage.listingCountButtonClick();
+		this.isChartDisplayed();
 	}
 
 	@Step
-	public void addMonthliesChart(){
-		onPage.monthliesButtonClick();
+	public void addMedianMonthliesChart(){
+		onPage.medianMonthliesButtonClick();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifyMonthliesChart(){
+		onPage.addAndVerifyMonthliesChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void addPropertyTaxesChart(){
 		onPage.propertyTaxesButtonClick();
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void shouldSeeAskingPricePerBedChart(){
 		onPage.shouldSeeAskingPricePerBedChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
@@ -482,6 +516,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeBedroomsChart(){
 		onPage.shouldSeeBedroomsChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
@@ -497,11 +532,13 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void addAndVerifyElevatorChart(){
 		onPage.addAndVerifyElevatorChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void addAndVerifyFireplaceChart(){
 		onPage.addAndVerifyFireplaceChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
@@ -514,46 +551,118 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void addAndVerifyGarageChart(){
 		onPage.addAndVerifyGarageChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void addAndVerifyGymChart(){
 		onPage.addAndVerifyGymChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void addAndVerifyLaundryBuildingChart(){
 		onPage.addAndVerifyLaundryBuildingChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void addAndVerifyOutdoorSpaceChart(){
 		onPage.addAndVerifyOutdoorSpaceChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void addAndVerifyPetsChart(){
 		onPage.addAndVerifyPetsChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void addAndVerifyPoolChart(){
 		onPage.addAndVerifyPoolChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void addAndVerifyPrewarChart(){
 		onPage.addAndVerifyPrewarChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void addAndVerifyWasherDryerChart(){
 		onPage.addAndVerifyWasherDryerChart();
+		this.isChartDisplayed();
 	}
 
 	@Step
 	public void addAndVerifyBuildingTypeChart(){
 		onPage.addAndVerifyBuildingTypeChart();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void dollarPerFTByPriceSegmentButtonClick(){
+		onPage.dollarPerFTByPriceSegmentButtonClick();
+	}
+
+	@Step
+	public void isDollarPerFTByPriceSegmentChartAdd(){
+		onPage.isDollarPerFTByPriceSegmentChartAdd();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void selectREBNYListingsWithDistribution(){
+		onPage.addButtonClick();
+		onPage.rebnyListingsButtonClick();
+		onPage.distributionButtonClick();
+	}
+
+	@Step
+	public void addAndVerifyAskingPriceByBedsChart(){
+		onPage.addAndVerifyAskingPriceByBedsChart();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifyAskingPriceByPriceSegmentChart(){
+		onPage.addAndVerifyAskingPriceByPriceSegmentChart();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifyAskingPriceByTypeChart(){
+		onPage.addAndVerifyAskingPriceByTypeChart();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifyAskingPricePerBedChart(){
+		onPage.addAndVerifyAskingPricePerBedChart();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifyDOMByNumberBedsChart(){
+		onPage.addAndVerifyDOMByNumberBedsChart();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifyDOMByPriceSegmentChart(){
+		onPage.addAndVerifyDOMByPriceSegmentChart();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifySquareFeetChart(){
+		onPage.addAndVerifySquareFeetChart();
+	}
+
+	public void isChartDisplayed(){
+		onPage.isChartDisplayed();
 	}
 
 	@Step

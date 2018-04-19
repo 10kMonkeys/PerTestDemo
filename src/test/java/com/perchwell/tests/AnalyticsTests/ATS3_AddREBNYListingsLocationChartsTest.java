@@ -23,7 +23,7 @@ public class ATS3_AddREBNYListingsLocationChartsTest extends SampleTest {
         analyticsSteps.addButtonClick();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.locationButtonClick();
-        analyticsSteps.addAskingPricePerFTChart();
+        analyticsSteps.addMedianAskingPerFTChart();
         analyticsSteps.addButtonClick();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.locationButtonClick();
@@ -31,7 +31,7 @@ public class ATS3_AddREBNYListingsLocationChartsTest extends SampleTest {
         analyticsSteps.addButtonClick();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.locationButtonClick();
-        analyticsSteps.addMonthliesChart();
+        analyticsSteps.addMedianMonthliesChart();
         analyticsSteps.addButtonClick();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.locationButtonClick();

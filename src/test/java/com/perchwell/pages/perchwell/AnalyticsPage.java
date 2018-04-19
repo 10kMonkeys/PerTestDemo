@@ -158,7 +158,7 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MEDIAN")
     private WebElement medianButton;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"MEDIAN ASKING PRICE\"]")
+	@iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE")
     private WebElement medianAskingPriceChart;
 
 	@iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"IN HISTORIC DIST.\"])[1]\n")
@@ -226,10 +226,13 @@ public class AnalyticsPage extends BasePage {
     private WebElement askingPricePerBedChart;
 
 	@iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/FT²")
+    private WebElement medianAskingPerFTChart;
+
+	@iOSXCUITFindBy(accessibility = "ASKING PRICE $/FT²")
     private WebElement askingPricePerFTChart;
 
 	@iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES")
-    private WebElement monthliesChart;
+    private WebElement medianMonthliesChart;
 
 	@iOSXCUITFindBy(accessibility = "MEDIAN PROPERTY TAXES")
     private WebElement propertyTaxesChart;
@@ -266,6 +269,39 @@ public class AnalyticsPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "WASHER/DRYER")
     private WebElement washerDryerButton;
+
+    @iOSXCUITFindBy(accessibility = "$/FT² BY PRICE SEGMENT")
+    private WebElement dollarPerFTByPriceSegmentButton;
+
+    @iOSXCUITFindBy(accessibility = "ASKING PRICE BY # BEDS")
+    private WebElement askingPriceByBedsButton;
+
+    @iOSXCUITFindBy(accessibility = "ASKING PRICE BY PRICE SEGMENT")
+    private WebElement askingPriceByPriceSegmentButton;
+
+    @iOSXCUITFindBy(accessibility = "ASKING PRICE BY TYPE")
+    private WebElement askingPriceByTypeButton;
+
+    @iOSXCUITFindBy(accessibility = "$/FT² BY SEGMENT")
+    private WebElement dollarPerFTByPriceSegmentChart;
+
+    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE BY SEGMENT")
+    private WebElement askingPriceByPriceSegmentChart;
+
+    @iOSXCUITFindBy(accessibility = "DOM BY # BEDS")
+    private WebElement domByNumberBedsButton;
+
+    @iOSXCUITFindBy(accessibility = "DOM BY PRICE SEGMENT")
+    private WebElement domByPriceSegmentButton;
+
+    @iOSXCUITFindBy(accessibility = "SQUARE FEET")
+    private WebElement squareFeetButton;
+
+    @iOSXCUITFindBy(accessibility = "DOM BY NUMBER BEDROOMS")
+    private WebElement domByNumberBedroomsChart;
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]")
+    private WebElement chart;
     //endregion
 
 	public AnalyticsPage(WebDriver driver){
@@ -462,13 +498,12 @@ public class AnalyticsPage extends BasePage {
 		element(clientOption).click();
 	}
 
-
-	public void shouldBuildingHeightCartDisplayedWithSwipe() {
+	public void shouldBuildingHeightChartDisplayedWithSwipe() {
 		Helper.scrollToElement(dealCountByHeightChart);
 		element(dealCountByHeightChart).shouldBeVisible();
 	}
 
-	public void shouldDomByPriceCartDisplayed() {
+	public void shouldBedroomCountChartDisplayed() {
 		Helper.scrollToElement(bedroomChart);
 		element(bedroomChart).shouldBeVisible();
 	}
@@ -488,11 +523,10 @@ public class AnalyticsPage extends BasePage {
 		element(dealCountByTypeChart).shouldBeVisible();
 	}
 
-	public void shouldSeeAscingPriceChartWithSwipe() throws Exception {
+	public void shouldSeeAskingPriceChartWithSwipe() throws Exception {
 		Helper.swipeDownUntilElementVisible(askingPriceButton);
 		//	Helper.scrollToElement(askingPriceButton);
 		element(askingPriceButton).shouldBeVisible();
-
 	}
 	public boolean isDomByPrice2DisplayedWithSwipe() {
 		Helper.scrollToElement(domByPrice2Chart);
@@ -712,7 +746,12 @@ public class AnalyticsPage extends BasePage {
 
     }
 
-    public void askingPricePerFTButtonClick(){
+    public void medianAskingPerFTButtonClick(){
+        element(askingPricePerFTButton).click();
+        element(medianAskingPerFTChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyAskingPricePerFTChart(){
         element(askingPricePerFTButton).click();
         element(askingPricePerFTChart).shouldBeVisible();
     }
@@ -722,9 +761,14 @@ public class AnalyticsPage extends BasePage {
         element(listingCountButton).shouldBeVisible();
     }
 
-    public void monthliesButtonClick(){
+    public void medianMonthliesButtonClick(){
         element(monthliesButton).click();
-        element(monthliesChart).shouldBeVisible();
+        element(medianMonthliesChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyMonthliesChart(){
+        element(monthliesButton).click();
+        element(monthliesButton).shouldBeVisible();
     }
 
     public void propertyTaxesButtonClick(){
@@ -803,6 +847,53 @@ public class AnalyticsPage extends BasePage {
     public void addAndVerifyBuildingTypeChart(){
         element(buildingTypeChart).click();
         element(buildingTypeChart).shouldBeVisible();
+    }
+
+    public void dollarPerFTByPriceSegmentButtonClick(){
+        element(dollarPerFTByPriceSegmentButton).click();
+    }
+
+    public void isDollarPerFTByPriceSegmentChartAdd(){
+        element(dollarPerFTByPriceSegmentChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyAskingPriceByBedsChart(){
+        element(askingPriceByBedsButton).click();
+        element(medianAskingPriceChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyAskingPriceByPriceSegmentChart(){
+        element(askingPriceByPriceSegmentButton).click();
+        element(askingPriceByPriceSegmentChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyAskingPriceByTypeChart(){
+        element(askingPriceByTypeButton).click();
+        element(medianAskingPriceChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyAskingPricePerBedChart(){
+        element(askingPricePerBedButton).click();
+        element(askingPricePerBedButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyDOMByNumberBedsChart(){
+        element(domByNumberBedsButton).click();
+        element(domByNumberBedroomsChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyDOMByPriceSegmentChart(){
+        element(domByPriceSegmentButton).click();
+        element(domByPriceSegmentButton).shouldBeVisible();
+    }
+
+    public void addAndVerifySquareFeetChart(){
+        element(squareFeetButton).click();
+        element(squareFeetButton).shouldBeVisible();
+    }
+
+    public void isChartDisplayed() {
+        element(chart).shouldBeVisible();
     }
 
     public void clickOnMagnifierIconWithPreviouslySavedSearch() {

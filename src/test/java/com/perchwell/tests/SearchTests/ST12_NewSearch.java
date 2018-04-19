@@ -62,11 +62,11 @@ public class ST12_NewSearch extends SampleTest {
 		mapSteps.checkForChangesAfterApplyingTheFilter();
 		perchwellSteps.clickAnalytics();
 		analyticsSteps.shouldBuildingTypeChartDisplayed();
-		analyticsSteps.shouldSeeDomByPriceCartChart();
+		analyticsSteps.shouldSeeBedroomCountChart();
 		analyticsSteps.shouldSeeDaysOnMarketChartWithSwipe();
 		analyticsSteps.isGardenChartDisplayed();
-		analyticsSteps.shouldSeeBuildingHeightCartWithSwipe();
-		analyticsSteps.shouldSeeAscingPriceChartWithSwipe();
+		analyticsSteps.shouldSeeBuildingHeightChartWithSwipe();
+		analyticsSteps.shouldSeeAskingPriceChartWithSwipe();
 		analyticsSteps.clickOnMagnifierIconWithPreviouslySavedSearch();
 		searchSteps.shouldFireplaceFilterBeApplied();
 		searchSteps.should1AndHalfBathFilterBeApplied();
