@@ -1,6 +1,7 @@
 package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.ClientGroups;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
@@ -16,16 +17,12 @@ public class DT1_DeleteClientTest extends SampleTest {
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickOpenAccountButton();
         accountSteps.clickClientsLabel();
-        clientSteps.clickAddNewClientButton();
-        clientSteps.setRundomClientData();
-        clientSteps.clickGroupLabel();
-        clientSteps.selectGroup("Actively Searching");
-        clientSteps.clickInviteButton();
+        clientSteps.addNewClient(ClientGroups.ACTIVELYSEARCHING);
         clientSteps.swipeCreatedClientName();
         clientSteps.clickOnDeleteButton();
-        clientSteps.shouldDeleteClientFromClientsList();
+        clientSteps.isClientNotPresented();
         clientSteps.closePage();
         accountSteps.clickClientsLabel();
-        clientSteps.shouldNotContainPreviouslyDeletedClient();
+        clientSteps.isClientNotPresented();
     }
 }
