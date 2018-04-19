@@ -6,35 +6,25 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"AnalyticsTestSuit", "AnalyticsTests"})
-public class ATS3_AddREBNYListingsLocationChartsTest extends SampleTest {
+public class ATS4_AddREBNYListingsMedianChartsTest extends SampleTest {
 
     @Test
-    public void addREBNYListingsLocationChartsTest() throws Exception {
+    public void addREBNYListingsMedianChartsTest(){
         loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickAnalytics();
         analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.locationButtonClick();
+        analyticsSteps.medianButtonClick();
         analyticsSteps.addAskingPricePerBedChart();
         analyticsSteps.skipHints();
         analyticsSteps.shouldSeeMedianAskingPricePerBedChart();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.locationButtonClick();
+        analyticsSteps.selectREBNYListingsWithMedian();
         analyticsSteps.addMedianAskingPerFTChart();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.locationButtonClick();
-        analyticsSteps.addListingCountChart();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.locationButtonClick();
+        analyticsSteps.selectREBNYListingsWithMedian();
         analyticsSteps.addMedianMonthliesChart();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.locationButtonClick();
+        analyticsSteps.selectREBNYListingsWithMedian();
         analyticsSteps.addMedianPropertyTaxesChart();
     }
 }

@@ -223,7 +223,7 @@ public class AnalyticsPage extends BasePage {
     private WebElement propertyTaxesButton;
 
 	@iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/BED")
-    private WebElement askingPricePerBedChart;
+    private WebElement medianAskingPricePerBedChart;
 
 	@iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/FT²")
     private WebElement medianAskingPerFTChart;
@@ -235,7 +235,7 @@ public class AnalyticsPage extends BasePage {
     private WebElement medianMonthliesChart;
 
 	@iOSXCUITFindBy(accessibility = "MEDIAN PROPERTY TAXES")
-    private WebElement propertyTaxesChart;
+    private WebElement medianPropertyTaxesChart;
 
     @iOSXCUITFindBy(accessibility = "DOORMAN")
     private WebElement doormanButton;
@@ -771,13 +771,13 @@ public class AnalyticsPage extends BasePage {
         element(monthliesButton).shouldBeVisible();
     }
 
-    public void propertyTaxesButtonClick(){
+    public void medianPropertyTaxesButtonClick(){
         element(propertyTaxesButton).click();
-        element(propertyTaxesChart).shouldBeVisible();
+        element(medianPropertyTaxesChart).shouldBeVisible();
     }
 
-    public void shouldSeeAskingPricePerBedChart(){
-        element(askingPricePerBedChart).shouldBeVisible();
+    public void shouldSeeMedianAskingPricePerBedChart(){
+        element(medianAskingPricePerBedChart).shouldBeVisible();
     }
 
     public void shouldSeeBedroomsChart(){

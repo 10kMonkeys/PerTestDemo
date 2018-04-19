@@ -497,14 +497,14 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void addPropertyTaxesChart(){
-		onPage.propertyTaxesButtonClick();
+	public void addMedianPropertyTaxesChart(){
+		onPage.medianPropertyTaxesButtonClick();
 		this.isChartDisplayed();
 	}
 
 	@Step
-	public void shouldSeeAskingPricePerBedChart(){
-		onPage.shouldSeeAskingPricePerBedChart();
+	public void shouldSeeMedianAskingPricePerBedChart(){
+		onPage.shouldSeeMedianAskingPricePerBedChart();
 		this.isChartDisplayed();
 	}
 
@@ -668,5 +668,13 @@ public class AnalyticsSteps extends ScenarioSteps {
 	@Step
 	public void clickOnMagnifierIconWithPreviouslySavedSearch() {
 		onPage.clickOnMagnifierIconWithPreviouslySavedSearch();
+	}
+
+	@Step
+	public void selectREBNYListingsWithMedian(){
+		onPage.addButtonClick();
+		onPage.rebnyListingsButtonClick();
+		onPage.medianButtonClick();
+
 	}
 }
