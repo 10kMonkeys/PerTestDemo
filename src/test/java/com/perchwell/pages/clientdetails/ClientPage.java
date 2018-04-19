@@ -262,4 +262,8 @@ public class ClientPage extends BasePage {
 	public void clickOnGroupsButton() {
 		element(groupsButton).click();
 	}
+
+	public void isClientNotPresented(String name) {
+		element(MobileBy.AccessibilityId(name)).shouldNotBePresent();
+	}
 }
