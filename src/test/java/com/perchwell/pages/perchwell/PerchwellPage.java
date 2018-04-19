@@ -256,6 +256,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void checkSortLabel(String sortType) {
+		waitFor(listingsByButton);
 		Assert.assertTrue(element(listingsByButton).getAttribute("value").contains(sortType));
 	}
 
