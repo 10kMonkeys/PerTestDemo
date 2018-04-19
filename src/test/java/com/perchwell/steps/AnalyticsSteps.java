@@ -248,7 +248,13 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldBuildingTypeChartDisplayed() {
-		onPage.shouldBuildingTypeDisplayed();
+		onPage.shouldBuildingTypeByDealCountDisplayed();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifyPriceByDealCountChart(){
+		onPage.addAndVerifyPriceByDealCountChart();
 		this.isChartDisplayed();
 	}
 

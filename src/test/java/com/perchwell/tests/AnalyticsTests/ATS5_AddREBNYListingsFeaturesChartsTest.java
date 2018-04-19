@@ -2,8 +2,10 @@ package com.perchwell.tests.AnalyticsTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"AnalyticsTestSuit", "AnalyticsTests"})
 public class ATS5_AddREBNYListingsFeaturesChartsTest extends SampleTest {
 
     @Test

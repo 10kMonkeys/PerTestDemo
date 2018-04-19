@@ -15,6 +15,7 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -67,6 +68,12 @@ public class AnalyticsPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY PRICE")
     private WebElement dealCountByPriceButton;
+
+    @iOSXCUITFindBy(accessibility = "PRICE (BY DEAL COUNT)")
+    private WebElement priceByDealCountButton;
+
+    @iOSXCUITFindBy(accessibility = "DEAL COUNT BY SEGMENT")
+    private WebElement dealCountBySegmentChart;
 
     @iOSXCUITFindBy(accessibility = "MANAGEMENT")
     private WebElement managementButton;
@@ -555,7 +562,7 @@ public class AnalyticsPage extends BasePage {
 		element(daysOnMarketButton).shouldBeVisible();
 	}
 
-	public void shouldBuildingTypeDisplayed() {
+	public void shouldBuildingTypeByDealCountDisplayed() {
 		element(dealCountByTypeChart).shouldBeVisible();
 	}
 
@@ -1003,5 +1010,10 @@ public class AnalyticsPage extends BasePage {
     public void addAndVerifyNewDevelopmentChart(){
         element(newDevelopmentButton).click();
         element(newDevelopmentButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyPriceByDealCountChart(){
+        element(priceByDealCountButton).click();
+        element(dealCountBySegmentChart).shouldBeVisible();
     }
 }
