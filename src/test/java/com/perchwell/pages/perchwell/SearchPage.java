@@ -280,6 +280,14 @@ public class SearchPage extends BasePage {
 		element(filterForStudioBeds).click();
 	}
 
+	public void clickFilterStudioBeds() {
+		if (element(selectedFilterForStudioBeds).isPresent()) {
+			element(selectedFilterForStudioBeds).click();
+		} else {
+			element(filterForStudioBeds).click();
+		}
+	}
+
 	public void selectFilter1Bath() {
 		element(filterFor1Bath).click();
 	}

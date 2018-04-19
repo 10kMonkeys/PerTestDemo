@@ -73,6 +73,11 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void clickFilterStudioBeds() {
+		onPage.clickFilterStudioBeds();
+	}
+
+	@Step
 	public void selectFilter1Bath() {
 		onPage.selectFilter1Bath();
 	}

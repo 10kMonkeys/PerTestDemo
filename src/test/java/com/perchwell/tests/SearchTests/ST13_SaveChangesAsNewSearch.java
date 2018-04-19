@@ -22,7 +22,7 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 		perchwellSteps.clickMyNewSearch();
 
 		searchSteps.setMinimumPriceFilter("150000");
-		searchSteps.selectFilterStudioBeds();
+		searchSteps.clickFilterStudioBeds();
 
 		searchSteps.clickTapToSaveChanges();
 		searchSteps.saveAsOptionSelect();
