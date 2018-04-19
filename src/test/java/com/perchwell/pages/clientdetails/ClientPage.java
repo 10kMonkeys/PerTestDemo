@@ -1,5 +1,6 @@
 package com.perchwell.pages.clientdetails;
 
+import com.perchwell.email.Email;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.MailTrapResponse;
 
@@ -9,6 +10,7 @@ import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -88,6 +90,9 @@ public class ClientPage extends BasePage {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[`visible==1`]/XCUIElementTypeCell")
 	private List<WebElement> clients;
+
+	@iOSXCUITFindBy(accessibility = "GROUPS")
+	private WebElement groupsButton;
 
 	public WebElement getAddNewClientButton() {
 		return addNewClientButton;
@@ -245,5 +250,16 @@ public class ClientPage extends BasePage {
 
 	public boolean isTestClientPresent() {
 		return element(testClient).isPresent();
+	}
+
+	public void clickTestClient() throws Exception {
+		if (!element(testClient).isVisible()) {
+			Helper.swipeDownUntilElementVisible(testClient);
+		}
+		element(testClient).click();
+	}
+
+	public void clickOnGroupsButton() {
+		element(groupsButton).click();
 	}
 }

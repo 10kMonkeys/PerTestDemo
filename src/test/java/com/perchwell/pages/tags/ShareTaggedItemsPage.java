@@ -47,7 +47,7 @@ public class ShareTaggedItemsPage extends BasePage {
         element(sendButton).click();
     }
 
-    public void selectSecondClient(){
+    public void selectClient(){
         element(secondClient).click();
     }
 

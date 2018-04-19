@@ -1,15 +1,12 @@
 package com.perchwell.steps;
 
-import com.perchwell.email.NewInstanceDriverForResetPassword;
+import com.perchwell.email.NewInstanceSafariDriver;
 import com.perchwell.entity.AppProperties;
-import com.perchwell.helpers.Helper;
 import com.perchwell.pages.starting.LoginPage;
 import com.perchwell.pages.starting.WelcomePage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
-
-import java.net.MalformedURLException;
 
 
 public class ResetPasswordSteps extends ScenarioSteps {
@@ -39,7 +36,7 @@ public class ResetPasswordSteps extends ScenarioSteps {
 
     @Step
     public void setNewPassword() throws InterruptedException {
-        NewInstanceDriverForResetPassword.resetPasswordInSafari(loginPage.generateNewPassword());
+        NewInstanceSafariDriver.resetPasswordInSafari(loginPage.generateNewPassword());
     }
 
     @Step

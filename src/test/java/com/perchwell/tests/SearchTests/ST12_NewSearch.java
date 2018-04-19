@@ -47,26 +47,29 @@ public class ST12_NewSearch extends SampleTest {
 		searchSteps.shouldSeePreviouslyCreatedSearch();
 		searchSteps.clickPreviouslyCreatedSearch();
 		perchwellSteps.clickList();
-		perchwellSteps.isFilter1Bed1AndHalfBathApplied("1 BD  |  1½ BA");
+		perchwellSteps.shouldFilter1Bed1AndHalfBathBeApplied();
 		perchwellSteps.openFirstBuilding();
 		openedBuildingSteps.clickDiscussWithMyClientHint();
-		openedBuildingSteps.isFilterFirepaceApplied();
+		openedBuildingSteps.shouldFilterFirepaceApplied();
 		openedBuildingSteps.clickBackButton();
 		perchwellSteps.openSecondBuilding();
-		openedBuildingSteps.isFilterFirepaceApplied();
+		openedBuildingSteps.shouldFilterFirepaceApplied();
 		openedBuildingSteps.clickBackButton();
 		perchwellSteps.openThirdBuilding();
-		openedBuildingSteps.isFilterFirepaceApplied();
+		openedBuildingSteps.shouldFilterFirepaceApplied();
 		openedBuildingSteps.clickBackButton();
 		perchwellSteps.clickMap();
 		mapSteps.checkForChangesAfterApplyingTheFilter();
 		perchwellSteps.clickAnalytics();
-		analyticsSteps.isBuildingTypeChartDisplayed();
+		analyticsSteps.shouldBuildingTypeChartDisplayed();
 		analyticsSteps.shouldSeeBedroomCountChart();
 		analyticsSteps.shouldSeeDaysOnMarketChartWithSwipe();
 		analyticsSteps.isGardenChartDisplayed();
 		analyticsSteps.shouldSeeBuildingHeightChartWithSwipe();
 		analyticsSteps.shouldSeeAskingPriceChartWithSwipe();
-
+		analyticsSteps.clickOnMagnifierIconWithPreviouslySavedSearch();
+		searchSteps.shouldFireplaceFilterBeApplied();
+		searchSteps.should1AndHalfBathFilterBeApplied();
+		searchSteps.should1BedFilterBeApplied();
 	}
 }

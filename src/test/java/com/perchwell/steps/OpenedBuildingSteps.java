@@ -93,9 +93,9 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void isFilterFirepaceApplied() throws Exception {
+	public void shouldFilterFirepaceApplied() throws Exception {
 		onPage.clickFeaturesAmenities();
-		Assert.assertTrue(onPage.isFireplaceDisplayed());
+		onPage.shouldFireplaceDisplayed();
 	}
 
 	public void clickShareButton() {

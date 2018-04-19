@@ -7,6 +7,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
@@ -191,6 +192,9 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Sales-selected")
     private WebElement selectedSalesFilter;
 
+	@iOSXCUITFindBy(accessibility = "Fireplace-SELECTED")
+	private WebElement selectedFireplaceFilter;
+
 	private String getFirstLocationName() {
 		return firstLocation.getAttribute("name");
 	}
@@ -261,11 +265,11 @@ public class SearchPage extends BasePage {
 		getDriver().findElement(By.name(search.toUpperCase())).click();
 	}
 
-	public boolean shouldSeePreviouslyCreatedSearch(String search) {
+	public void shouldSeePreviouslyCreatedSearch(String search) {
 
 		WebElement previouslyCreatedSearch = element(By.name(search.toUpperCase()));
 		//Helper.scrollToElement(previouslyCreatedSearch);
-		return previouslyCreatedSearch.isDisplayed();
+		element(previouslyCreatedSearch).shouldBeVisible();
 	}
 
 	public void setMinimumPriceFilter(String price) {
@@ -574,4 +578,16 @@ public class SearchPage extends BasePage {
         softAssert.assertThat(Helper.isElementDisplayed(element(selectedSalesFilter))).isTrue();
         softAssert.assertAll();
     }
+
+	public void shouldFireplaceFilterBeSelected() {
+		element(selectedFireplaceFilter).shouldBePresent();
+	}
+
+	public void should1BedFilterBeApplied() {
+		element(selectedFilterFor1Bed).shouldBePresent();
+	}
+
+	public void should1AndHalfBathFilterBeApplied() {
+		element(selectedFilterFor1AndHalfBath).shouldBePresent();
+	}
 }

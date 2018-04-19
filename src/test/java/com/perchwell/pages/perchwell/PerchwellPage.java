@@ -36,7 +36,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "EXPLORE SEARCH RESULTS BY LOCATION")
 	private WebElement exploreSearchResultHint;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
+	@iOSXCUITFindBy(accessibility = "MY NEW SEARCH")
 	private WebElement magnifierIcon;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
@@ -256,9 +256,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void checkSortLabel(String sortType) {
-		if (!(element(listingsByButton).getAttribute("label").contains(sortType))) {
-			Assert.assertTrue(false);
-		}
+		Assert.assertTrue(element(listingsByButton).getAttribute("value").contains(sortType));
 	}
 
 	public void clickOnBathroomsSortButton() {
@@ -307,8 +305,9 @@ public class PerchwellPage extends BasePage {
 		return element(openAccountButton).isDisplayed();
 	}
 
-	public boolean isInfoRoomsPresent(String info) {
-		return FilteringAndSortingBuildings.isSomeInfoPresentInBuildings(info, roomsInfoList);
+	public void shouldFilter1Bed1AndHalfBathApplied(String search) {
+		boolean roomInfo = FilteringAndSortingBuildings.isSomeInfoPresentInBuildings(search, roomsInfoList);
+		Assert.assertTrue(roomInfo);
 	}
 
 	public void clickOnInitials() {

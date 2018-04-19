@@ -222,31 +222,33 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeBuildingHeightChartWithSwipe() {
-		Assert.assertTrue(onPage.isBuildingHeightChartDisplayedWithSwipe());
+		onPage.shouldBuildingHeightChartDisplayedWithSwipe();
 		this.isChartDisplayed();
 	}
 
 	@Step
 	public void shouldSeeBedroomCountChart() {
-		Assert.assertTrue(onPage.isBedroomCountChartDisplayed());
+		onPage.shouldBedroomCountChartDisplayed();
 		this.isChartDisplayed();
 	}
+
 
 	@Step
 	public void shouldSeeDaysOnMarketChartWithSwipe() throws Exception {
-		Assert.assertTrue(onPage.isDaysOnMarketDisplayedWithSwipe());
-		this.isChartDisplayed();
-	}
-
-	@Step
-	public void isBuildingTypeChartDisplayed() {
-		Assert.assertTrue(onPage.isBuildingTypeDisplayed());
+		onPage.shouldDaysOnMarketDisplayedWithSwipe();
 		this.isChartDisplayed();
 	}
 
 	@Step
 	public void shouldSeeAskingPriceChartWithSwipe() throws Exception {
-		Assert.assertTrue(onPage.shouldSeeAskingPriceChartWithSwipe());
+		onPage.shouldSeeAskingPriceChartWithSwipe();
+		this.isChartDisplayed();
+
+	}
+
+	@Step
+	public void shouldBuildingTypeChartDisplayed() {
+		onPage.shouldBuildingTypeDisplayed();
 		this.isChartDisplayed();
 	}
 
@@ -288,7 +290,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void isGardenChartDisplayed() {
-		Assert.assertTrue(onPage.isGardenChartDisplayed());
+		onPage.shouldGardenChartDisplayed();
 		this.isChartDisplayed();
 	}
 
@@ -661,5 +663,10 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	public void isChartDisplayed(){
 		onPage.isChartDisplayed();
+	}
+
+	@Step
+	public void clickOnMagnifierIconWithPreviouslySavedSearch() {
+		onPage.clickOnMagnifierIconWithPreviouslySavedSearch();
 	}
 }

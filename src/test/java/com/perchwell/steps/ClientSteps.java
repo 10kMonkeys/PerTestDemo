@@ -1,7 +1,6 @@
 package com.perchwell.steps;
 
 import com.perchwell.entity.AppProperties;
-import com.perchwell.helpers.Helper;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -153,6 +152,11 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void setJustDeletedClientData() {
+		this.onPage.setClientName(onPage.getValueFromSessionVariable("User name"));
+		this.onPage.setClientEmail(onPage.getValueFromSessionVariable("User email"));
+	}
+
 	public void enterValueInSearchField(String someText) {
 		onPage.enterValueInSearchField(someText);
 	}
@@ -180,5 +184,24 @@ public class ClientSteps extends ScenarioSteps {
 	@Step
 	public void shouldSearchBeCleared() {
 		Assert.assertTrue(onPage.isSearchFieldCleared());
+	}
+
+	@Step
+	public void selectTestClient() throws Exception {
+		onPage.clickTestClient();
+	}
+
+	@Step
+	public void addNewClient(String groupName) {
+		this.clickAddNewClientButton();
+		this.setRundomClientData();
+		this.clickGroupLabel();
+		this.selectGroup(groupName);
+		this.clickInviteButton();
+	}
+
+	@Step
+	public void clickGroupsButton() {
+		onPage.clickOnGroupsButton();
 	}
 }

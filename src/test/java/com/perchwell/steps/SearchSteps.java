@@ -58,7 +58,7 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	public void shouldSeePreviouslyCreatedSearch() {
-		Assert.assertTrue(onPage.shouldSeePreviouslyCreatedSearch(onPage.getValueFromSessionVariable("Search")));
+		onPage.shouldSeePreviouslyCreatedSearch(onPage.getValueFromSessionVariable("Search"));
 	}
 
 	@Step
@@ -322,5 +322,20 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void checkSalesAndActiveFiltersSelected() {
 		onPage.checkSalesAndActiveFiltersSelected();
+	}
+
+	@Step
+	public void shouldFireplaceFilterBeApplied() {
+		onPage.shouldFireplaceFilterBeSelected();
+	}
+
+	@Step
+	public void should1BedFilterBeApplied() {
+		onPage.should1BedFilterBeApplied();
+	}
+
+	@Step
+	public void should1AndHalfBathFilterBeApplied() {
+		onPage.should1AndHalfBathFilterBeApplied();
 	}
 }
