@@ -536,10 +536,22 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
+    public void addAndVerifyElevatorPremiumChart(){
+	    onPage.addAndVerifyElevatorPremiumChart();
+	    this.isChartDisplayed();
+    }
+
+	@Step
 	public void addAndVerifyFireplaceChart(){
 		onPage.addAndVerifyFireplaceChart();
 		this.isChartDisplayed();
 	}
+
+	@Step
+    public void addAndVerifyWorkingFireplacePremiumChart(){
+	    onPage.addAndVerifyWorkingFireplacePremiumChart();
+	    this.isChartDisplayed();
+    }
 
 	@Step
 	public void selectREBNYListingsWithMKTChare(){
@@ -555,10 +567,22 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
+    public void addAndVerifyGaragePremiumChart(){
+	    onPage.addAndVerifyGaragePremiumChart();
+	    this.isChartDisplayed();
+    }
+
+	@Step
 	public void addAndVerifyGymChart(){
 		onPage.addAndVerifyGymChart();
-		this.isChartDisplayed();
+        this.isChartDisplayed();
 	}
+
+	@Step
+    public void addAndVerifyGymPremiumChart(){
+	    onPage.addAndVerifyGymPremiumChart();
+        this.isChartDisplayed();
+    }
 
 	@Step
 	public void addAndVerifyLaundryBuildingChart(){
@@ -566,17 +590,35 @@ public class AnalyticsSteps extends ScenarioSteps {
 		this.isChartDisplayed();
 	}
 
+    @Step
+    public void addAndVerifyLaundryBuildingPremiumChart(){
+        onPage.addAndVerifyLaundryBuildingPremiumChart();
+        this.isChartDisplayed();
+    }
+
 	@Step
 	public void addAndVerifyOutdoorSpaceChart(){
 		onPage.addAndVerifyOutdoorSpaceChart();
 		this.isChartDisplayed();
 	}
 
-	@Step
+    @Step
+    public void addAndVerifyOutdoorSpacePremiumChart(){
+        onPage.addAndVerifyOutdoorSpacePremiumChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
 	public void addAndVerifyPetsChart(){
 		onPage.addAndVerifyPetsChart();
 		this.isChartDisplayed();
 	}
+
+    @Step
+    public void addAndVerifyPetsPremiumChart(){
+        onPage.addAndVerifyPetsPremiumChart();
+        this.isChartDisplayed();
+    }
 
 	@Step
 	public void addAndVerifyPoolChart(){
@@ -584,17 +626,35 @@ public class AnalyticsSteps extends ScenarioSteps {
 		this.isChartDisplayed();
 	}
 
+    @Step
+    public void addAndVerifyPoolPremiumChart(){
+        onPage.addAndVerifyPoolPremiumChart();
+        this.isChartDisplayed();
+    }
+
 	@Step
 	public void addAndVerifyPrewarChart(){
 		onPage.addAndVerifyPrewarChart();
 		this.isChartDisplayed();
 	}
 
+    @Step
+    public void addAndVerifyPrewarPremiumChart(){
+        onPage.addAndVerifyPrewarPremiumChart();
+        this.isChartDisplayed();
+    }
+
 	@Step
 	public void addAndVerifyWasherDryerChart(){
 		onPage.addAndVerifyWasherDryerChart();
 		this.isChartDisplayed();
 	}
+
+    @Step
+    public void addAndVerifyWasherDryerPremiumChart(){
+        onPage.addAndVerifyWasherDryerPremiumChart();
+        this.isChartDisplayed();
+    }
 
 	@Step
 	public void addAndVerifyBuildingTypeChart(){
@@ -675,6 +735,29 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.addButtonClick();
 		onPage.rebnyListingsButtonClick();
 		onPage.medianButtonClick();
-
 	}
+
+	@Step
+    public void shouldSeePremiumDoormanChart(){
+	    onPage.shouldSeePremiumDoormanChart();
+	    this.isChartDisplayed();
+    }
+
+    @Step
+    public void doormanButtonClick(){
+	    onPage.doormanButtonClick();
+    }
+
+    @Step
+    public void selectREBNYListingsWithFeatures(){
+        onPage.addButtonClick();
+        onPage.rebnyListingsButtonClick();
+        onPage.featuresButtonClick();
+    }
+
+    @Step
+    public void addAndVerifyNewDevelopmentChart(){
+        onPage.addAndVerifyNewDevelopmentChart();
+        this.isChartDisplayed();
+    }
 }

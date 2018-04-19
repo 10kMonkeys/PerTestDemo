@@ -240,35 +240,68 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DOORMAN")
     private WebElement doormanButton;
 
+    @iOSXCUITFindBy(accessibility = "DOORMAN PREMIUM")
+    private WebElement premiumDoormanChart;
+
     @iOSXCUITFindBy(accessibility = "ELEVATOR")
     private WebElement elevatorButton;
+
+    @iOSXCUITFindBy(accessibility = "ELEVATOR PREMIUM")
+    private WebElement elevatorPremiumChart;
 
     @iOSXCUITFindBy(accessibility = "WORKING FIREPLACE")
     private WebElement fireplaceButton;
 
+    @iOSXCUITFindBy(accessibility = "WORKING FIREPLACE PREMIUM")
+    private WebElement fireplacePremiumChart;
+
     @iOSXCUITFindBy(accessibility = "GARAGE")
     private WebElement garageButton;
+
+    @iOSXCUITFindBy(accessibility = "GARAGE PREMIUM")
+    private WebElement garagePremiumChart;
 
     @iOSXCUITFindBy(accessibility = "GYM")
     private WebElement gymButton;
 
+    @iOSXCUITFindBy(accessibility = "GYM PREMIUM")
+    private WebElement gymPremiumChart;
+
     @iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING")
-    private WebElement laundryBuildingsButton;
+    private WebElement laundryBuildingButton;
+
+    @iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING PREMIUM")
+    private WebElement laundryBuildingPremiumChart;
 
     @iOSXCUITFindBy(accessibility = "OUTDOOR SPACE")
     private WebElement outdoorSpaceButton;
 
+    @iOSXCUITFindBy(accessibility = "OUTDOOR SPACE PREMIUM")
+    private WebElement outdoorSpacePremiumChart;
+
     @iOSXCUITFindBy(accessibility = "PETS")
     private WebElement petsButton;
+
+    @iOSXCUITFindBy(accessibility = "PETS PREMIUM")
+    private WebElement petsPremiumChart;
 
     @iOSXCUITFindBy(accessibility = "POOL")
     private WebElement poolButton;
 
+    @iOSXCUITFindBy(accessibility = "POOL PREMIUM")
+    private WebElement poolPremiumChart;
+
     @iOSXCUITFindBy(accessibility = "PREWAR")
     private WebElement prewarButton;
 
+    @iOSXCUITFindBy(accessibility = "PREWAR PREMIUM")
+    private WebElement prewarPremiumChart;
+
     @iOSXCUITFindBy(accessibility = "WASHER/DRYER")
     private WebElement washerDryerButton;
+
+    @iOSXCUITFindBy(accessibility = "W/D PREMIUM")
+    private WebElement washerDryerPremiumChart;
 
     @iOSXCUITFindBy(accessibility = "$/FT² BY PRICE SEGMENT")
     private WebElement dollarPerFTByPriceSegmentButton;
@@ -302,6 +335,9 @@ public class AnalyticsPage extends BasePage {
 
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]")
     private WebElement chart;
+
+    @iOSXCUITFindBy(accessibility = "NEW DEVELOPMENT")
+    private WebElement newDevelopmentButton;
     //endregion
 
 	public AnalyticsPage(WebDriver driver){
@@ -794,10 +830,21 @@ public class AnalyticsPage extends BasePage {
         element(elevatorButton).shouldBeVisible();
     }
 
+    public void addAndVerifyElevatorPremiumChart(){
+        element(elevatorButton).click();
+        element(elevatorPremiumChart).shouldBeVisible();
+    }
+
     public void addAndVerifyFireplaceChart(){
         Helper.scrollToElement(fireplaceButton);
         element(fireplaceButton).click();
         element(fireplaceButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyWorkingFireplacePremiumChart(){
+        Helper.scrollToElement(fireplaceButton);
+        element(fireplaceButton).click();
+        element(fireplacePremiumChart).shouldBeVisible();
     }
 
     public void addAndVerifyGarageChart(){
@@ -805,19 +852,39 @@ public class AnalyticsPage extends BasePage {
         element(garageButton).shouldBeVisible();
     }
 
+    public void addAndVerifyGaragePremiumChart(){
+        element(garageButton).click();
+        element(garagePremiumChart).shouldBeVisible();
+    }
+
     public void addAndVerifyGymChart(){
         element(gymButton).click();
         element(gymButton).shouldBeVisible();
     }
 
+    public void addAndVerifyGymPremiumChart(){
+        element(gymButton).click();
+        element(gymPremiumChart).shouldBeVisible();
+    }
+
     public void addAndVerifyLaundryBuildingChart(){
-        element(laundryBuildingsButton).click();
-        element(laundryBuildingsButton).shouldBeVisible();
+        element(laundryBuildingButton).click();
+        element(laundryBuildingButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyLaundryBuildingPremiumChart(){
+        element(laundryBuildingButton).click();
+        element(laundryBuildingPremiumChart).shouldBeVisible();
     }
 
     public void addAndVerifyOutdoorSpaceChart(){
         element(outdoorSpaceButton).click();
         element(outdoorSpaceButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyOutdoorSpacePremiumChart(){
+        element(outdoorSpaceButton).click();
+        element(outdoorSpacePremiumChart).shouldBeVisible();
     }
 
     public void addAndVerifyPetsChart(){
@@ -826,10 +893,22 @@ public class AnalyticsPage extends BasePage {
         element(petsButton).shouldBeVisible();
     }
 
+    public void addAndVerifyPetsPremiumChart(){
+        Helper.scrollToElement(petsButton);
+        element(petsButton).click();
+        element(petsPremiumChart).shouldBeVisible();
+    }
+
     public void addAndVerifyPoolChart(){
         Helper.scrollToElement(poolButton);
         element(poolButton).click();
         element(poolButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyPoolPremiumChart(){
+        Helper.scrollToElement(poolButton);
+        element(poolButton).click();
+        element(poolPremiumChart).shouldBeVisible();
     }
 
     public void addAndVerifyPrewarChart(){
@@ -838,10 +917,22 @@ public class AnalyticsPage extends BasePage {
         element(prewarButton).shouldBeVisible();
     }
 
+    public void addAndVerifyPrewarPremiumChart(){
+        Helper.scrollToElement(prewarButton);
+        element(prewarButton).click();
+        element(prewarPremiumChart).shouldBeVisible();
+    }
+
     public void addAndVerifyWasherDryerChart(){
         Helper.scrollToElement(washerDryerButton);
         element(washerDryerButton).click();
         element(washerDryerButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyWasherDryerPremiumChart(){
+        Helper.scrollToElement(washerDryerButton);
+        element(washerDryerButton).click();
+        element(washerDryerPremiumChart).shouldBeVisible();
     }
 
     public void addAndVerifyBuildingTypeChart(){
@@ -899,5 +990,18 @@ public class AnalyticsPage extends BasePage {
     public void clickOnMagnifierIconWithPreviouslySavedSearch() {
         String search = SessionVariables.getValueFromSessionVariable("Search");
         getDriver().findElement(MobileBy.AccessibilityId(search)).click();
+    }
+
+    public void shouldSeePremiumDoormanChart(){
+        element(premiumDoormanChart).shouldBeVisible();
+    }
+
+    public void doormanButtonClick(){
+        element(doormanButton).click();
+    }
+
+    public void addAndVerifyNewDevelopmentChart(){
+        element(newDevelopmentButton).click();
+        element(newDevelopmentButton).shouldBeVisible();
     }
 }
