@@ -1,6 +1,7 @@
 package com.perchwell.steps;
 
 import com.perchwell.entity.AppProperties;
+import com.perchwell.helpers.SessionVariables;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -203,5 +204,10 @@ public class ClientSteps extends ScenarioSteps {
 	@Step
 	public void clickGroupsButton() {
 		onPage.clickOnGroupsButton();
+	}
+
+	@Step
+	public void isClientNotPresented() {
+		onPage.isClientNotPresented(SessionVariables.getValueFromSessionVariable("User name"));
 	}
 }
