@@ -16,7 +16,7 @@ public class ST12_NewSearch extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickMyNewSearch();
-		searchSteps.clickFilter1Bed();
+		searchSteps.selectFilter1Bed();
 		searchSteps.setUpFilterFirepace();
 		searchSteps.clickApplyButton();
 		perchwellSteps.clickMap();
