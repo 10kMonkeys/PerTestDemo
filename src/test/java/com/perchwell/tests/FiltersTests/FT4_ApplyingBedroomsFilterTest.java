@@ -9,7 +9,7 @@ import org.junit.Test;
 public class FT4_ApplyingBedroomsFilterTest extends SampleTest {
 
     @Test
-    public void resultAfterApplyingBedroomFilter() {
+    public void resultAfterApplyingBedroomFilter() throws Exception {
         loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_test_email"),
                 AppProperties.INSTANCE.getProperty("client_test_password"));
         perchwellSteps.skipAllHints();

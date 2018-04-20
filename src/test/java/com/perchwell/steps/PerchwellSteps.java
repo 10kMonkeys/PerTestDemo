@@ -177,22 +177,22 @@ public class PerchwellSteps extends ScenarioSteps {
 
     @Step
     public void shouldListingBeSortedByLeastExpensive() {
-        Assert.assertTrue(onPage.isListingSortedByLeastExpensive());
+        onPage.isListingSortedByLeastExpensive();
     }
 
     @Step
     public void shouldListingBeSortedByMostExpensive() {
-        Assert.assertTrue(onPage.isListingSortedByMostExpensive());
+        onPage.isListingSortedByMostExpensive();
     }
 
     @Step
     public void shouldListingBeSortedByBedrooms() {
-        Assert.assertTrue(onPage.isListingSortedByBedrooms());
+        onPage.isListingSortedByBedrooms();
     }
 
     @Step
     public void shouldListingBeSortedByBathrooms() {
-        Assert.assertTrue(onPage.isListingSortedByBathrooms());
+        onPage.isListingSortedByBathrooms();
     }
 
     @Step
@@ -243,5 +243,10 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingOnlyWithLabel(String label) {
 		onPage.isContainListingOnlyWithParticularLabel(label);
+	}
+
+	@Step
+	public void clickAddressSortButton() {
+		onPage.clickOnAddressSortButton();
 	}
 }
