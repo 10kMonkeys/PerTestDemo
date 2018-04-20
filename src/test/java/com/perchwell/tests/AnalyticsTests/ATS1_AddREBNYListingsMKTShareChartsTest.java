@@ -23,13 +23,13 @@ public class ATS1_AddREBNYListingsMKTShareChartsTest extends SampleTest {
         analyticsSteps.addButtonClick();
         analyticsSteps.addBuildingHeightChartWithMKTShare();
         analyticsSteps.isBuildingHeightChartAdd();
-        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.selectREBNYListingsWithMKTShare();
         analyticsSteps.addAndVerifyBuildingTypeChart();
-        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.selectREBNYListingsWithMKTShare();
         analyticsSteps.addAndVerifyDoormanChart();
-        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.selectREBNYListingsWithMKTShare();
         analyticsSteps.addAndVerifyElevatorChart();
-        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.selectREBNYListingsWithMKTShare();
         analyticsSteps.addAndVerifyFireplaceChart();
         analyticsSteps.clickMyNewSearch();
         searchSteps.clickLoadSavedSearchButton();
@@ -38,15 +38,15 @@ public class ATS1_AddREBNYListingsMKTShareChartsTest extends SampleTest {
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.mktShareButtonClick();
         analyticsSteps.addAndVerifyGarageChart();
-        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.selectREBNYListingsWithMKTShare();
         analyticsSteps.addAndVerifyGymChart();
-        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.selectREBNYListingsWithMKTShare();
         analyticsSteps.addAndVerifyLaundryBuildingChart();
-        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.selectREBNYListingsWithMKTShare();
         analyticsSteps.addAndVerifyOutdoorSpaceChart();
-        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.selectREBNYListingsWithMKTShare();
         analyticsSteps.addAndVerifyPetsChart();
-        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.selectREBNYListingsWithMKTShare();
         analyticsSteps.addAndVerifyPoolChart();
         analyticsSteps.clickMyNewSearch();
         searchSteps.clickLoadSavedSearchButton();
@@ -55,7 +55,7 @@ public class ATS1_AddREBNYListingsMKTShareChartsTest extends SampleTest {
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.mktShareButtonClick();
         analyticsSteps.addAndVerifyPrewarChart();
-        analyticsSteps.selectREBNYListingsWithMKTChare();
+        analyticsSteps.selectREBNYListingsWithMKTShare();
         analyticsSteps.addAndVerifyWasherDryerChart();
 
     }

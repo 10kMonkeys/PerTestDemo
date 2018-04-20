@@ -15,7 +15,6 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -345,6 +344,34 @@ public class AnalyticsPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "NEW DEVELOPMENT")
     private WebElement newDevelopmentButton;
+
+    @iOSXCUITFindBy(accessibility = "$/FT² PERCENTILES")
+    private WebElement dollarPerFTPercentilesButton;
+
+    @iOSXCUITFindBy(accessibility = "SALE $/FT²")
+    private WebElement dollarPerFTPercentilesChart;
+
+    @iOSXCUITFindBy(accessibility = "PRICE PERCENTILES")
+    private WebElement pricePercentilesButton;
+
+    @iOSXCUITFindBy(accessibility = "SALE PRICE")
+    private WebElement salePriceChart;
+
+    @iOSXCUITFindBy(accessibility = "PRICE BY PRICE SEGMENT")
+    private WebElement priceByPriceSegmentButton;
+
+    @iOSXCUITFindBy(accessibility = "SALE PRICE BY SEGMENT")
+    private WebElement salePriceBySegmentChart;
+
+    @iOSXCUITFindBy(accessibility = "SQUARE FEET PERCENTILES")
+    private WebElement squareFeetPercentilesButton;
+
+    @iOSXCUITFindBy(accessibility = "PRICE BY TYPE")
+    private WebElement priceByTypeButton;
+
+    @iOSXCUITFindBy(accessibility = "MEDIAN SALE PRICE")
+    private WebElement medianSalePriceChart;
+
     //endregion
 
 	public AnalyticsPage(WebDriver driver){
@@ -1015,5 +1042,33 @@ public class AnalyticsPage extends BasePage {
     public void addAndVerifyPriceByDealCountChart(){
         element(priceByDealCountButton).click();
         element(dealCountBySegmentChart).shouldBeVisible();
+    }
+
+    public void addDollarPerFTPercentilesChart(){
+        element(dollarPerFTPercentilesButton).click();
+    }
+
+    public void shouldSeeDollarPerFTPercentiles(){
+        element(dollarPerFTPercentilesChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyPricePercentilesChart(){
+        element(pricePercentilesButton).click();
+        element(salePriceChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyPriceByPriceSegmentChart(){
+        element(priceByPriceSegmentButton).click();
+        element(salePriceBySegmentChart).shouldBeVisible();
+    }
+
+    public void addAndVerifySquareFeetPercentiles(){
+        element(squareFeetPercentilesButton).click();
+        element(squareFeetButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyPriceByTypeChart(){
+        element(priceByTypeButton).click();
+        element(medianSalePriceChart).shouldBeVisible();
     }
 }

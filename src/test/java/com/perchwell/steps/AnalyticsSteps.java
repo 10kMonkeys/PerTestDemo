@@ -6,9 +6,6 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class AnalyticsSteps extends ScenarioSteps {
 	AnalyticsPage onPage;
 
@@ -560,7 +557,7 @@ public class AnalyticsSteps extends ScenarioSteps {
     }
 
 	@Step
-	public void selectREBNYListingsWithMKTChare(){
+	public void selectREBNYListingsWithMKTShare(){
 		onPage.addButtonClick();
 		onPage.rebnyListingsButtonClick();
 		onPage.mktShareButtonClick();
@@ -766,4 +763,46 @@ public class AnalyticsSteps extends ScenarioSteps {
         onPage.addAndVerifyNewDevelopmentChart();
         this.isChartDisplayed();
     }
+
+    @Step
+	public void addDollarPerFTPercentilesChart(){
+		onPage.addDollarPerFTPercentilesChart();
+	}
+
+	@Step
+	public void shouldSeeDollarPerFTPercentiles(){
+		onPage.shouldSeeDollarPerFTPercentiles();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifyPricePercentilesChart(){
+		onPage.addAndVerifyPricePercentilesChart();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifyPriceByPriceSegmentChart(){
+		onPage.addAndVerifyPriceByPriceSegmentChart();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifySquareFeetPercentiles(){
+		onPage.addAndVerifySquareFeetPercentiles();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void addAndVerifyPriceByTypeChart(){
+		onPage.addAndVerifyPriceByTypeChart();
+		this.isChartDisplayed();
+	}
+
+	@Step
+	public void selectACRISClosingWithDistribution(){
+		onPage.addButtonClick();
+		onPage.acrisClosingsButtonClick();
+		onPage.distributionButtonClick();
+	}
 }
