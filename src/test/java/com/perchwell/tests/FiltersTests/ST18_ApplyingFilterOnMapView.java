@@ -15,8 +15,8 @@ public class ST18_ApplyingFilterOnMapView extends SampleTest {
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickMap();
-        mapSteps.clickNotNowButton();
-        mapSteps.clickMyNewSearch();
+        mapSteps.clickOnNotNowButton();
+        mapSteps.clickOnMyNewSearch();
         searchSteps.selectFilter1AndHalfBath();
         searchSteps.clickFilter1Bed();
         searchSteps.clickApplyButton();

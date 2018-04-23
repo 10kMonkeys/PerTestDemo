@@ -10,7 +10,6 @@ public class ST12_NewSearch extends SampleTest {
 
 	@Test
 	public void newSearch() throws Exception {
-
 		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		perchwellSteps.skipAllHints();
@@ -20,8 +19,8 @@ public class ST12_NewSearch extends SampleTest {
 		searchSteps.setUpFilterFirepace();
 		searchSteps.clickApplyButton();
 		perchwellSteps.clickMap();
-		mapSteps.clickNotNowButton();
-		mapSteps.clickMyNewSearch();
+		mapSteps.clickOnNotNowButton();
+		mapSteps.clickOnMyNewSearch();
 		searchSteps.selectFilter1AndHalfBath();
 		searchSteps.clickApplyButton();
 		perchwellSteps.clickAnalytics();
