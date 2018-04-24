@@ -242,25 +242,13 @@ public class AnalyticsPage extends BasePage {
 		reportSentOkButton.click();
 	}
 
-	public void addValueInSessionVariable(String name, String value) {
-		Serenity.setSessionVariable(name).to(value);
-	}
-
-	public String getValueFromSessionVariable(String name) {
-		return Serenity.sessionVariableCalled(name);
-	}
-
-	public void setValueSessionVariable(String name,String value){
-	    Serenity.setSessionVariable(name).to(value);
-    }
-
 	public void clickSaveButton() {
 		element(saveButton).click();
 	}
 
 	public void setAndSaveReportName(String reportName) {
-		addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
-		element(nameThisReport).sendKeys(getValueFromSessionVariable("Report name"));
+        SessionVariables.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
+		element(nameThisReport).sendKeys(SessionVariables.getValueFromSessionVariable("Report name"));
 	}
 
 	public Boolean shouldFindSentEmail(String report_name) {
@@ -384,8 +372,8 @@ public class AnalyticsPage extends BasePage {
     }
 
     public void getDefaultMaxValueYear(){
-        addValueInSessionVariable("MaxDefaultRangeYear",String.valueOf(endingPickerWheel.getAttribute("value")));
-        addValueInSessionVariable("MaxRangeYear",String.valueOf(Integer.parseInt(getValueFromSessionVariable("MaxDefaultRangeYear")) - 1));
+        SessionVariables.addValueInSessionVariable("MaxDefaultRangeYear",String.valueOf(endingPickerWheel.getAttribute("value")));
+        SessionVariables.addValueInSessionVariable("MaxRangeYear",String.valueOf(Integer.parseInt(SessionVariables.getValueFromSessionVariable("MaxDefaultRangeYear")) - 1));
     }
 
     public void setMinValueYear(String value){

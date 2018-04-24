@@ -1,6 +1,7 @@
 package com.perchwell.steps.analytics;
 
 import com.perchwell.entity.AppProperties;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.analytics.AnalyticsPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -16,7 +17,6 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step("Create report with name {0}")
 	public void createReportWithNameAndSave(String report_name) {
-
 		this.setReportName(report_name);
 		this.clickSaveButton();
 	}
@@ -37,9 +37,9 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldFindSentEmail() {
-		Boolean result = onPage.shouldFindSentEmail(onPage.getValueFromSessionVariable("Report name"));
+		Boolean result = onPage.shouldFindSentEmail(SessionVariables.getValueFromSessionVariable("Report name"));
 		if (!result) {
-			result = onPage.shouldFindSentEmail(onPage.getValueFromSessionVariable("Report name"));
+			result = onPage.shouldFindSentEmail(SessionVariables.getValueFromSessionVariable("Report name"));
 		}
 		Assert.assertTrue(result);
 	}
@@ -132,24 +132,24 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void getBedroomsChartValue(){
-		onPage.setValueSessionVariable("BedroomsChartValue",onPage.getValueBedroomsChart());
+		SessionVariables.addValueInSessionVariable("BedroomsChartValue",onPage.getValueBedroomsChart());
 	}
 
 	@Step
 	public void getAskingPriceChartValue(){
-		onPage.setValueSessionVariable("AskingPriceChartValue",onPage.getValueAskingPriceChart());
+		SessionVariables.addValueInSessionVariable("AskingPriceChartValue",onPage.getValueAskingPriceChart());
 	}
 
 	@Step
 	public void isBedroomsChartChange(){
 		Assert.assertFalse(onPage.getValueBedroomsChart()
-				.contains(onPage.getValueFromSessionVariable("BedroomsChartValue")));
+				.contains(SessionVariables.getValueFromSessionVariable("BedroomsChartValue")));
 	}
 
 	@Step
 	public void isAskingPriceChartChange() {
 		Assert.assertFalse(onPage.getValueAskingPriceChart()
-				.contains(onPage.getValueFromSessionVariable("AskingPriceChartValue")));
+				.contains(SessionVariables.getValueFromSessionVariable("AskingPriceChartValue")));
 	}
 
 	public void clickSendButton() {
@@ -213,14 +213,14 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void setMinRangeYearDefaultMinusOne(){
-		onPage.addValueInSessionVariable("MinRangeYear",String.valueOf(Integer.parseInt(onPage.getDefaultMinValueYear()) - 1));
-		onPage.setMinValueYear(onPage.getValueFromSessionVariable("MinRangeYear"));
+		SessionVariables.addValueInSessionVariable("MinRangeYear",String.valueOf(Integer.parseInt(onPage.getDefaultMinValueYear()) - 1));
+		onPage.setMinValueYear(SessionVariables.getValueFromSessionVariable("MinRangeYear"));
 	}
 
 	@Step
 	public void setMaxRangeYearDefaultMinusOne(){
 		onPage.getDefaultMaxValueYear();
-		onPage.setMaxValueYears(onPage.getValueFromSessionVariable("MaxRangeYear"));
+		onPage.setMaxValueYears(SessionVariables.getValueFromSessionVariable("MaxRangeYear"));
 	}
 
 	@Step
@@ -235,12 +235,12 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void isColumnForPreviousMinDefaultYearAdd(){
-		Assert.assertTrue(onPage.isColumnForPreviousMinDefaultYearAdd(onPage.getValueFromSessionVariable("MinRangeYear")));
+		Assert.assertTrue(onPage.isColumnForPreviousMinDefaultYearAdd(SessionVariables.getValueFromSessionVariable("MinRangeYear")));
 	}
 
 	@Step
 	public void isColumnForNextMaxDefaultYearRemove(){
-		Assert.assertTrue(onPage.isColumnForNextMaxDefaultYearRemove(onPage.getValueFromSessionVariable("MaxDefaultRangeYear")));
+		Assert.assertTrue(onPage.isColumnForNextMaxDefaultYearRemove(SessionVariables.getValueFromSessionVariable("MaxDefaultRangeYear")));
 	}
 
 	@Step
@@ -250,12 +250,12 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void getValueYearsRangeButton(){
-		onPage.addValueInSessionVariable("RangeButton",onPage.yearsRangeButtonValue());
+		SessionVariables.addValueInSessionVariable("RangeButton",onPage.yearsRangeButtonValue());
 	}
 
 	@Step
 	public void isYearsRangeChange(){
-		Assert.assertTrue(onPage.isYearsRangeChange(onPage.getValueFromSessionVariable("RangeButton"),onPage.getValueFromSessionVariable("MaxRangeYear")));
+		Assert.assertTrue(onPage.isYearsRangeChange(SessionVariables.getValueFromSessionVariable("RangeButton"),SessionVariables.getValueFromSessionVariable("MaxRangeYear")));
 	}
 
 	@Step

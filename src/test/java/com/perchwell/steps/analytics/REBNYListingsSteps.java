@@ -38,12 +38,6 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void isDaysOnMarketChartAdd() {
-        rebnyListingsPage.isDaysOnMarketChartAdd();
-        this.isChartDisplayed();
-    }
-
-    @Step
     public void addBuildingHeightChartWithMKTShare() {
         analyticsPage.rebnyListingsButtonClick();
         analyticsPage.mktShareButtonClick();
@@ -78,12 +72,6 @@ public class REBNYListingsSteps extends ScenarioSteps {
     public void addBedroomsChartFromREBNYListings(){
         analyticsPage.rebnyListingsButtonClick();
         rebnyListingsPage.bedroomsButtonClick();
-    }
-
-    @Step
-    public void shouldSeeDaysOnMarketChartWithSwipe() throws Exception {
-        rebnyListingsPage.shouldDaysOnMarketDisplayedWithSwipe();
-        this.isChartDisplayed();
     }
 
     @Step
