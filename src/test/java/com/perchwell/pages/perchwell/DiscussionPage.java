@@ -1,30 +1,27 @@
 package com.perchwell.pages.perchwell;
 
-import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class DiscussionPage extends BasePage {
-public DiscussionPage(WebDriver driver) {
-	super(driver);
-}
+
+	public DiscussionPage(WebDriver driver) {
+		super(driver);
+	}
 
 	@iOSXCUITFindBy(accessibility = "CC my email on this conversation")
 	private WebElement ccMyEmailText;
 
-	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
 	@iOSXCUITFindBy(accessibility = "ChatViewBackButton")
 	private WebElement backButton;
 
 	@iOSXCUITFindBy(accessibility = "SEND")
 	private WebElement sendButton;
 
-	//iosClassChain change and depends on numder of message
 	@iOSXCUITFindBy(className= "XCUIElementTypeTextView")
 	private WebElement message;
 
@@ -34,11 +31,11 @@ public DiscussionPage(WebDriver driver) {
 	@iOSXCUITFindBy(accessibility = "DiscussionsCancelButton")
 	private WebElement discussionsCancelButton;
 
-	public boolean ccMyEmailTextDispayed() {
-		return element(ccMyEmailText).isDisplayed();
+	public void shouldBeCcMyEmailTextDispayed() {
+		element(ccMyEmailText).shouldBeVisible();
 	}
 
-	public void clickBackButton() {
+	public void clickOnBackButton() {
 		element(backButton).click();
 	}
 
@@ -46,27 +43,19 @@ public DiscussionPage(WebDriver driver) {
 		element(message).sendKeys(text);
 	}
 
-	public void clickSend() {
+	public void clickOnSendButton() {
 		element(sendButton).click();
 	}
 
-	public void addValueInSessionVariable(String name, String value) {
-		Serenity.setSessionVariable(name).to(value);
+	public void shouldBeMessageDispayed() {
+		element(By.name(SessionVariables.getValueFromSessionVariable("message"))).shouldBeVisible();
 	}
 
-	public String getValueFromSessionVariable(String name) {
-		return Serenity.sessionVariableCalled(name);
-	}
-
-	public boolean messageIsDispayed(String message) {
-		return Helper.isElementDisplayed(element(By.name(message)));
-	}
-
-	public void closeButtonClick(){
+	public void clickOnCloseButton() {
 		element(closeButton).click();
 	}
 
-	public void discussionsCancelButtonClick(){
+	public void clickOndiscussionsCancelButton() {
 		element(discussionsCancelButton).click();
 	}
 }

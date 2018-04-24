@@ -29,7 +29,7 @@ public class ST25_DiscussionWithNewAgentTest extends SampleTest {
 		clientSteps.setMessageField("Hello. I'd like invite you on "+simpleDateFormat.format(new Date()));
 		clientSteps.clickInviteButton();
 		clientSteps.clickAgentSuccessfullyAddedOkButton();
-		discussionSteps.clickBackButton();
+		discussionSteps.clickOnBackButton();
 		clientSteps.clickBackButtonCreateAgent();
 		clientSteps.closePage();
 		openedBuildingSteps.clickBackButton();
