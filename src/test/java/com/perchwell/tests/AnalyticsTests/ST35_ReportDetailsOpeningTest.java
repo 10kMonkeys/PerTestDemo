@@ -15,9 +15,9 @@ public class ST35_ReportDetailsOpeningTest extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickAnalytics();
-		analyticsSteps.addChartFromREBNYSection();
+		rebnyListingsSteps.addChartFromREBNYSection();
 		analyticsSteps.skipHints();
-		analyticsSteps.askingPriceChartClick();
+		rebnyListingsSteps.askingPriceChartClick();
 		analyticsSteps.upToOneMillionButtonClick();
 		analyticsSteps.selectSecondBuildingInList();
 		openedBuildingSteps.clickDiscussWithMyClientHint();

@@ -17,24 +17,24 @@ public class ATS3_AddREBNYListingsLocationChartsTest extends SampleTest {
         perchwellSteps.clickAnalytics();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.locationButtonClick();
-        analyticsSteps.addAskingPricePerBedChart();
+        rebnyListingsSteps.addAskingPricePerBedChart();
         analyticsSteps.skipHints();
-        analyticsSteps.shouldSeeMedianAskingPricePerBedChart();
+        rebnyListingsSteps.shouldSeeMedianAskingPricePerBedChart();
         analyticsSteps.addButtonClick();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.locationButtonClick();
-        analyticsSteps.addMedianAskingPerFTChart();
+        rebnyListingsSteps.addMedianAskingPerFTChart();
         analyticsSteps.addButtonClick();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.locationButtonClick();
-        analyticsSteps.addListingCountChart();
+        rebnyListingsSteps.addListingCountChart();
         analyticsSteps.addButtonClick();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.locationButtonClick();
-        analyticsSteps.addMedianMonthliesChart();
+        rebnyListingsSteps.addMedianMonthliesChart();
         analyticsSteps.addButtonClick();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.locationButtonClick();
-        analyticsSteps.addMedianPropertyTaxesChart();
+        rebnyListingsSteps.addMedianPropertyTaxesChart();
     }
 }

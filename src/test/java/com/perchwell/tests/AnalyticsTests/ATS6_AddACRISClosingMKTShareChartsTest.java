@@ -17,13 +17,12 @@ public class ATS6_AddACRISClosingMKTShareChartsTest extends SampleTest {
         perchwellSteps.clickAnalytics();
         analyticsSteps.selectACRISClosingSection();
         analyticsSteps.mktShareButtonClick();
-        analyticsSteps.addBuildingTypeByDealCountChart();
+        acrisClosingSteps.addBuildingTypeByDealCountChart();
         analyticsSteps.skipHints();
-        analyticsSteps.shouldBuildingTypeChartDisplayed();
+        acrisClosingSteps.shouldBuildingTypeChartDisplayed();
         analyticsSteps.addButtonClick();
         analyticsSteps.selectACRISClosingSection();
         analyticsSteps.mktShareButtonClick();
-        analyticsSteps.addAndVerifyPriceByDealCountChart();
-
+        acrisClosingSteps.addAndVerifyPriceByDealCountChart();
     }
 }

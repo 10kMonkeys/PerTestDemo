@@ -15,10 +15,10 @@ public class ST37_AddChartAsClientTest extends SampleTest {
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickAnalytics();
-        analyticsSteps.addAskingPriceChartWithMKTShare();
+        rebnyListingsSteps.addAskingPriceChartWithMKTShare();
         analyticsSteps.skipHints();
         analyticsSteps.addButtonClick();
-        analyticsSteps.addBuildingHeightChartWithMKTShare();
+        rebnyListingsSteps.addBuildingHeightChartWithMKTShare();
         analyticsSteps.isThisIsAProOnlyFeatureMessageShow();
     }
 }

@@ -17,16 +17,16 @@ public class ATS7_AddACRISClosingDistributionChartTest extends SampleTest {
             perchwellSteps.clickAnalytics();
             analyticsSteps.selectACRISClosingSection();
             analyticsSteps.distributionButtonClick();
-            analyticsSteps.addDollarPerFTPercentilesChart();
+            acrisClosingSteps.addDollarPerFTPercentilesChart();
             analyticsSteps.skipHints();
-            analyticsSteps.shouldSeeDollarPerFTPercentiles();
+            acrisClosingSteps.shouldSeeDollarPerFTPercentiles();
             analyticsSteps.selectACRISClosingWithDistribution();
-            analyticsSteps.addAndVerifyPricePercentilesChart();
+            acrisClosingSteps.addAndVerifyPricePercentilesChart();
             analyticsSteps.selectACRISClosingWithDistribution();
-            analyticsSteps.addAndVerifyPriceByPriceSegmentChart();
+            acrisClosingSteps.addAndVerifyPriceByPriceSegmentChart();
             analyticsSteps.selectACRISClosingWithDistribution();
-            analyticsSteps.addAndVerifySquareFeetPercentiles();
+            acrisClosingSteps.addAndVerifySquareFeetPercentiles();
             analyticsSteps.selectACRISClosingWithDistribution();
-            analyticsSteps.addAndVerifyPriceByTypeChart();
+            acrisClosingSteps.addAndVerifyPriceByTypeChart();
     }
 }
