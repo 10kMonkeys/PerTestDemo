@@ -11,8 +11,8 @@ public class MapSteps extends ScenarioSteps {
 	PerchwellPage perchwellPage;
 
 	@Step
-	public void clickNotNowButton() {
-		onPage.clickNotNowButton();
+	public void clickOnNotNowButton() {
+		onPage.clickOnNotNowButton();
 	}
 
 	@Step
@@ -25,11 +25,8 @@ public class MapSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void itemsInListAndMapViewIsSame(){
-		System.out.print("In map "+ onPage.numberOfItemsInMapView);
-		System.out.print("Count = "+perchwellPage.numberOfItemsInListView);
+	public void itemsInListAndMapViewIsSame() {
 		Assert.assertTrue(onPage.numberOfItemsInMapView == perchwellPage.numberOfItemsInListView);
-
 	}
 
 	private void zoomIn() {
@@ -42,8 +39,8 @@ public class MapSteps extends ScenarioSteps {
 
 	}
 
-	public void clickMyNewSearch() {
-		onPage.clickMyNewSearch();
+	public void clickOnMyNewSearch() {
+		onPage.clickOnMyNewSearch();
 	}
 
 	@Step
@@ -53,7 +50,7 @@ public class MapSteps extends ScenarioSteps {
 
 	@Step
 	public void selectPinOnMap() {
-		onPage.clickSecondPin();
+		onPage.clickOnSecondPin();
 	}
 
 	@Step
@@ -87,22 +84,22 @@ public class MapSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldListingBeSortedByLeastExpensive() {
-		Assert.assertTrue(onPage.isListingSortedByLeastExpensive());
+		onPage.shouldListingBeSortedByLeastExpensive();
 	}
 
 	@Step
 	public void shouldListingBeSortedByMostExpensive() {
-		Assert.assertTrue(onPage.isListingSortedByMostExpensive());
+		onPage.shouldListingBeSortedByMostExpensive();
 	}
 
 	@Step
 	public void shouldListingBeSortedByBedrooms() {
-		Assert.assertTrue(onPage.isListingSortedByBedrooms());
+		onPage.shouldListingBeSortedByBedrooms();
 	}
 
 	@Step
 	public void shouldListingBeSortedByBathrooms() {
-		Assert.assertTrue(onPage.isListingSortedByBathrooms());
+		onPage.shouldListingBeSortedByBathrooms();
 	}
 
 	private void swipeBuilding() throws Exception {
@@ -111,6 +108,6 @@ public class MapSteps extends ScenarioSteps {
 
 	@Step
 	public void checkSortLabel(String sortType) {
-		Assert.assertTrue(onPage.hasLabelSortType(sortType));
+		onPage.checkSortLabel(sortType);
 	}
 }

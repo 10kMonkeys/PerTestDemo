@@ -107,6 +107,9 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "TBI") //TBI
 	private List<WebElement> buildingsLabels;
 
+	@iOSXCUITFindBy(accessibility = "ADDRESS")
+	private WebElement addressSortButton;
+
 	public static Integer numberOfItemsInListView;
 	// public String buildingAddress;
 
@@ -286,20 +289,20 @@ public class PerchwellPage extends BasePage {
 	    element(totalRoomsSortButton).click();
     }
 
-    public boolean isListingSortedByLeastExpensive() {
-        return (FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
+    public void isListingSortedByLeastExpensive() {
+		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
     }
 
-    public boolean isListingSortedByMostExpensive() {
-        return (FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
+    public void isListingSortedByMostExpensive() {
+		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
     }
 
-    public boolean isListingSortedByBedrooms() {
-	    return (FilteringAndSortingBuildings.getCounterInSorting("bedrooms", roomsInfoList) == 1);
+    public void isListingSortedByBedrooms() {
+	    Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedrooms", roomsInfoList) == 1);
     }
 
-    public boolean isListingSortedByBathrooms() {
-        return (FilteringAndSortingBuildings.getCounterInSorting("bathrooms", roomsInfoList) == 1);
+    public void isListingSortedByBathrooms() {
+		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bathrooms", roomsInfoList) == 1);
     }
 
 	public boolean isInitialIconDispalyed(){
@@ -357,4 +360,8 @@ public class PerchwellPage extends BasePage {
     public void isContainListingOnlyWithParticularLabel(String label) {
 		Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRoomsOrLabels(buildingsLabels, label));
     }
+
+	public void clickOnAddressSortButton() {
+		element(addressSortButton).click();
+	}
 }
