@@ -17,14 +17,14 @@ public class ATS4_AddREBNYListingsMedianChartsTest extends SampleTest {
         perchwellSteps.clickAnalytics();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.medianButtonClick();
-        analyticsSteps.addAskingPricePerBedChart();
+        rebnyListingsSteps.addAskingPricePerBedChart();
         analyticsSteps.skipHints();
-        analyticsSteps.shouldSeeMedianAskingPricePerBedChart();
+        rebnyListingsSteps.shouldSeeMedianAskingPricePerBedChart();
         analyticsSteps.selectREBNYListingsWithMedian();
-        analyticsSteps.addMedianAskingPerFTChart();
+        rebnyListingsSteps.addMedianAskingPerFTChart();
         analyticsSteps.selectREBNYListingsWithMedian();
-        analyticsSteps.addMedianMonthliesChart();
+        rebnyListingsSteps.addMedianMonthliesChart();
         analyticsSteps.selectREBNYListingsWithMedian();
-        analyticsSteps.addMedianPropertyTaxesChart();
+        rebnyListingsSteps.addMedianPropertyTaxesChart();
     }
 }

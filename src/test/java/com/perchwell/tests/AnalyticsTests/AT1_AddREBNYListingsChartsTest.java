@@ -15,18 +15,18 @@ public class AT1_AddREBNYListingsChartsTest extends SampleTest {
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickAnalytics();
-        analyticsSteps.addAskingPriceChartWithMKTShare();
+        rebnyListingsSteps.addAskingPriceChartWithMKTShare();
         analyticsSteps.skipHints();
-        analyticsSteps.isAskingPriseChartAdd();
+        rebnyListingsSteps.isAskingPriseChartAdd();
         analyticsSteps.addButtonClick();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.locationButtonClick();
-        analyticsSteps.askingPriceChartClick();
-        analyticsSteps.isMedianAskingPriceChartDisplayed();
+        rebnyListingsSteps.askingPriceChartClick();
+        rebnyListingsSteps.isMedianAskingPriceChartDisplayed();
         analyticsSteps.addButtonClick();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.medianButtonClick();
-        analyticsSteps.askingPriceChartClick();
-        analyticsSteps.isMedianAskingPriceChartDisplayed();
+        rebnyListingsSteps.askingPriceChartClick();
+        rebnyListingsSteps.isMedianAskingPriceChartDisplayed();
     }
 }

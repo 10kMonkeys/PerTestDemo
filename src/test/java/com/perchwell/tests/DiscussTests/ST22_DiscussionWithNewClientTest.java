@@ -10,7 +10,6 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 
 	@Test
 	public void discussionWithNewClientTest() throws Exception {
-
 		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		perchwellSteps.skipAllHints();
@@ -26,7 +25,7 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 		clientSteps.selectGroup("Actively Searching");
 		clientSteps.clickInviteButton();
 		clientSteps.clickOnClientSuccessfullyAddedOkButton();
-		discussionSteps.clickBackButton();
+		discussionSteps.clickOnBackButton();
 		clientSteps.clickBackButton();
 		clientSteps.closePage();
 		openedBuildingSteps.clickAddDiscusButton();

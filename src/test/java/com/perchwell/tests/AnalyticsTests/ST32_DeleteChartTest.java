@@ -15,16 +15,18 @@ public class ST32_DeleteChartTest extends SampleTest {
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickAnalytics();
-        analyticsSteps.addChartFromREBNYSection();
+        rebnyListingsSteps.addChartFromREBNYSection();
         analyticsSteps.skipHints();
         analyticsSteps.addButtonClick();
-        analyticsSteps.addChartFromACRISSection();
+        acrisClosingSteps.addChartFromACRISSection();
         analyticsSteps.addButtonClick();
-        analyticsSteps.addChartFromNYCSection();
+        nycTownhousesSteps.addChartFromNYCSection();
         analyticsSteps.addButtonClick();
-        analyticsSteps.addChartFromManagementSection();
+        managementSteps.addChartFromManagementSection();
         analyticsSteps.addButtonClick();
-        analyticsSteps.addTwoCharts();
+        rebnyListingsSteps.addBedroomsChartFromREBNYListings();
+        analyticsSteps.addButtonClick();
+        acrisClosingSteps.addBuildingTypeByDealCountChartFromACRISCloasing();
         analyticsSteps.addButtonClick();
         analyticsSteps.isMessageMaximumSixChartsDisplayed();
         analyticsSteps.okButtonClick();
@@ -32,6 +34,6 @@ public class ST32_DeleteChartTest extends SampleTest {
         analyticsSteps.deleteChart();
         analyticsSteps.doneMovingCharts();
         analyticsSteps.isAddIconDisplayed();
-        analyticsSteps.isDealCountByTypeDeleted();
+        acrisClosingSteps.isDealCountByTypeDeleted();
     }
 }

@@ -10,7 +10,6 @@ public class ST12_NewSearch extends SampleTest {
 
 	@Test
 	public void newSearch() throws Exception {
-
 		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		perchwellSteps.skipAllHints();
@@ -20,21 +19,23 @@ public class ST12_NewSearch extends SampleTest {
 		searchSteps.setUpFilterFirepace();
 		searchSteps.clickApplyButton();
 		perchwellSteps.clickMap();
-		mapSteps.clickNotNowButton();
-		mapSteps.clickMyNewSearch();
+		mapSteps.clickOnNotNowButton();
+		mapSteps.clickOnMyNewSearch();
 		searchSteps.selectFilter1AndHalfBath();
 		searchSteps.clickApplyButton();
 		perchwellSteps.clickAnalytics();
-		analyticsSteps.addChartFromREBNYSection();
+		rebnyListingsSteps.addChartFromREBNYSection();
 		analyticsSteps.skipHints();
 		analyticsSteps.addButtonClick();
-		analyticsSteps.addChartFromACRISSection();
+		acrisClosingSteps.addChartFromACRISSection();
 		analyticsSteps.addButtonClick();
-		analyticsSteps.addChartFromNYCSection();
+		nycTownhousesSteps.addChartFromNYCSection();
 		analyticsSteps.addButtonClick();
-		analyticsSteps.addChartFromManagementSection();
+		managementSteps.addChartFromManagementSection();
 		analyticsSteps.addButtonClick();
-		analyticsSteps.addTwoCharts();
+		rebnyListingsSteps.addBedroomsChartFromREBNYListings();
+		analyticsSteps.addButtonClick();
+		acrisClosingSteps.addBuildingTypeByDealCountChartFromACRISCloasing();
 		analyticsSteps.clickMyNewSearch();
 		searchSteps.clickTapToSaveChanges();
 		searchSteps.setSearchName();
@@ -61,12 +62,12 @@ public class ST12_NewSearch extends SampleTest {
 		perchwellSteps.clickMap();
 		mapSteps.checkForChangesAfterApplyingTheFilter();
 		perchwellSteps.clickAnalytics();
-		analyticsSteps.shouldBuildingTypeChartDisplayed();
-		analyticsSteps.shouldSeeBedroomCountChart();
-		analyticsSteps.shouldSeeDaysOnMarketChartWithSwipe();
-		analyticsSteps.isGardenChartDisplayed();
-		analyticsSteps.shouldSeeBuildingHeightChartWithSwipe();
-		analyticsSteps.shouldSeeAskingPriceChartWithSwipe();
+		acrisClosingSteps.shouldBuildingTypeChartDisplayed();
+		rebnyListingsSteps.shouldSeeBedroomCountChart();
+		managementSteps.shouldSeeDaysOnMarketChartWithSwipe();
+		nycTownhousesSteps.isGardenChartDisplayed();
+		acrisClosingSteps.shouldSeeBuildingHeightChartWithSwipe();
+		rebnyListingsSteps.shouldSeeAskingPriceChartWithSwipe();
 		analyticsSteps.clickOnMagnifierIconWithPreviouslySavedSearch();
 		searchSteps.shouldFireplaceFilterBeApplied();
 		searchSteps.should1AndHalfBathFilterBeApplied();

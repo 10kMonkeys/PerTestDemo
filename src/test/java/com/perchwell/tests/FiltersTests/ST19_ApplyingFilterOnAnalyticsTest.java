@@ -15,10 +15,10 @@ public class ST19_ApplyingFilterOnAnalyticsTest extends SampleTest {
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickAnalytics();
-        analyticsSteps.addChartFromREBNYSection();
+        rebnyListingsSteps.addChartFromREBNYSection();
         analyticsSteps.skipHints();
         analyticsSteps.addButtonClick();
-        analyticsSteps.addChartBedroomsFromManagementSection();
+        managementSteps.addChartBedroomsFromManagementSection();
         analyticsSteps.getBedroomsChartValue();
         analyticsSteps.getAskingPriceChartValue();
         analyticsSteps.clickMyNewSearch();

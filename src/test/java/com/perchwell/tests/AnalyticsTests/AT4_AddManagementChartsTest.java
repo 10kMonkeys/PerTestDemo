@@ -16,13 +16,13 @@ public class AT4_AddManagementChartsTest extends SampleTest {
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickAnalytics();
         analyticsSteps.selectManagementSection();
-        analyticsSteps.askingPriceChartClick();
+        managementSteps.askingPriceChartClick();
         analyticsSteps.skipHints();
-        analyticsSteps.isAskingPriseChartAdd();
+        managementSteps.isAskingPriseChartAdd();
         analyticsSteps.addButtonClick();
         analyticsSteps.selectManagementSection();
         analyticsSteps.distributionButtonClick();
-        analyticsSteps.selectFirmListingCountChart();
-        analyticsSteps.isFirmListingCountChartDisplayed();
+        managementSteps.selectFirmListingCountChart();
+        managementSteps.isFirmListingCountChartDisplayed();
     }
 }

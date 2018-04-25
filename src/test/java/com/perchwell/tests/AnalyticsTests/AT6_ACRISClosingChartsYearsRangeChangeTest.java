@@ -17,7 +17,7 @@ public class AT6_ACRISClosingChartsYearsRangeChangeTest extends SampleTest {
         perchwellSteps.clickAnalytics();
         analyticsSteps.selectACRISClosingSection();
         analyticsSteps.trendsButtonClick();
-        analyticsSteps.dealVolumeAnnualButtonClick();
+        acrisClosingSteps.dealVolumeAnnualButtonClick();
         analyticsSteps.skipHints();
         analyticsSteps.yearsRangeButtonClick();
         analyticsSteps.setMinRangeYearDefaultMinusOne();
@@ -30,7 +30,7 @@ public class AT6_ACRISClosingChartsYearsRangeChangeTest extends SampleTest {
         analyticsSteps.addButtonClick();
         analyticsSteps.selectACRISClosingSection();
         analyticsSteps.trendsButtonClick();
-        analyticsSteps.dealVolumeQuarterlyButtonClick();
+        acrisClosingSteps.dealVolumeQuarterlyButtonClick();
         analyticsSteps.getPreviousYearsInFromTopList();
         analyticsSteps.isOnlyThreeYearsInChartDisplayed();
         analyticsSteps.yearsRangeButtonClick();

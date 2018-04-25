@@ -1,17 +1,13 @@
 package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @WithTagValuesOf({"DiscussTests"})
 public class DTS8_FilterByClientTest extends SampleTest {
-    private DateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
     @Test
     public void filterByClient() throws Exception {
@@ -25,8 +21,8 @@ public class DTS8_FilterByClientTest extends SampleTest {
         openedBuildingSteps.clickSendWithinPerchwell();
         openedBuildingSteps.clickAddDiscusButton();
         clientSteps.selectTestClient();
-        discussionSteps.sendMessage("I'd_like_discuss_with_you " + simpleDateFormat.format(new Date()));
-        discussionSteps.clickBackButton();
+        discussionSteps.sendMessage(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
+        discussionSteps.clickOnBackButton();
         clientSteps.closePage();
         openedBuildingSteps.clickBackButton();
         perchwellSteps.clickOpenAccountButton();

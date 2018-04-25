@@ -19,9 +19,9 @@ public class ST36_SendReportDetailsPDF extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickAnalytics();
-		analyticsSteps.addChartFromREBNYSection();
+		rebnyListingsSteps.addChartFromREBNYSection();
 		analyticsSteps.skipHints();
-		analyticsSteps.askingPriceChartClick();
+		rebnyListingsSteps.askingPriceChartClick();
 		analyticsSteps.upTo12MillionButtonClick();
 		analyticsSteps.shareButtonClick();
 		analyticsSteps.clickSendButton();

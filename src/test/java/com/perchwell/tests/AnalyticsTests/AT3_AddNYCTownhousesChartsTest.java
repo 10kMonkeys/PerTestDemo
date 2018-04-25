@@ -17,13 +17,13 @@ public class AT3_AddNYCTownhousesChartsTest extends SampleTest{
         perchwellSteps.clickAnalytics();
         analyticsSteps.selectNYCTownhousesSection();
         analyticsSteps.mktShareButtonClick();
-        analyticsSteps.inHistoryDistClick();
+        nycTownhousesSteps.inHistoryDistClick();
         analyticsSteps.skipHints();
-        analyticsSteps.isHistoryDistChartDisplayed();
+        nycTownhousesSteps.isHistoryDistChartDisplayed();
         analyticsSteps.addButtonClick();
         analyticsSteps.selectNYCTownhousesSection();
         analyticsSteps.featureButtonClick();
-        analyticsSteps.selectGardenChart();
-        analyticsSteps.isGardenPremiumChartDisplayed();
+        nycTownhousesSteps.selectGardenChart();
+        nycTownhousesSteps.isGardenPremiumChartDisplayed();
     }
 }

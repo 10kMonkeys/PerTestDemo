@@ -4,8 +4,10 @@ package com.perchwell;
 import com.perchwell.helpers.TravisAlive;
 import com.perchwell.steps.*;
 
+import com.perchwell.steps.analytics.*;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import org.junit.BeforeClass;
 
@@ -78,6 +80,18 @@ public abstract class SampleTest {
 
     @Steps
     protected MyTagsSteps myTagsSteps;
+
+    @Steps
+    protected REBNYListingsSteps rebnyListingsSteps;
+
+    @Steps
+    protected ACRISClosingSteps acrisClosingSteps;
+
+    @Steps
+    protected NYCTownhousesSteps nycTownhousesSteps;
+
+    @Steps
+    protected ManagementSteps managementSteps;
 
     @Steps
     protected ResetPasswordSteps resetPasswordSteps;

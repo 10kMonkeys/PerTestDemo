@@ -20,10 +20,10 @@ public class ST33_SendGraphicReportsToMyEmail extends SampleTest{
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickAnalytics();
-		analyticsSteps.addChartFromREBNYSection();
+		rebnyListingsSteps.addChartFromREBNYSection();
 		analyticsSteps.skipHints();
 		analyticsSteps.addButtonClick();
-		analyticsSteps.addChartFromACRISSection();
+		acrisClosingSteps.addChartFromACRISSection();
 		analyticsSteps.addButtonClick();
 		analyticsSteps.shareButtonClick();
 		analyticsSteps.clickMyEmailOption();
