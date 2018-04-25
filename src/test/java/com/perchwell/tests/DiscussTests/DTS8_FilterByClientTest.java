@@ -28,16 +28,16 @@ public class DTS8_FilterByClientTest extends SampleTest {
         perchwellSteps.clickOpenAccountButton();
         accountSteps.clickOnDiscussionsLabel();
         discussionsListSteps.enterValueInSearchField("Tes");
-        discussionsListSteps.shouldTestClientBePresentInFilterResult();
+        discussionsListSteps.shouldBeTestClientPresentInFilterResult();
         discussionsListSteps.clickDeleteIconNextToSearchText();
-        discussionsListSteps.shouldNothingBeDisplayedInFilterByPerson();
+        discussionsListSteps.shouldBeNothingDisplayedInFilterByPerson();
         discussionsListSteps.enterValueInSearchField("st cl");
-        discussionsListSteps.shouldTestClientBePresentInFilterResult();
+        discussionsListSteps.shouldBeTestClientPresentInFilterResult();
         discussionsListSteps.clickDeleteIconNextToSearchText();
-        discussionsListSteps.shouldNothingBeDisplayedInFilterByPerson();
+        discussionsListSteps.shouldBeNothingDisplayedInFilterByPerson();
         discussionsListSteps.enterValueInSearchField(" client");
-        discussionsListSteps.shouldTestClientBePresentInFilterResult();
+        discussionsListSteps.shouldBeTestClientPresentInFilterResult();
         discussionsListSteps.selectTestClient();
-        discussionsListSteps.shouldOnlyDiscussionWithTestClientBeDisplayed();
+        discussionsListSteps.shouldBeOnlyDiscussionWithTestClientDisplayed();
     }
 }

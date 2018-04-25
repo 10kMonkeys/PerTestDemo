@@ -35,6 +35,6 @@ public class ST25_DiscussionWithNewAgentTest extends SampleTest {
 		openedBuildingSteps.clickBackButton();
 		perchwellSteps.clickOpenAccountButton();
 		accountSteps.clickOnDiscussionsLabel();
-		discussionsListSteps.discussionWithMessageNotDisplayed();
+		discussionsListSteps.shouldNotBeDiscussionWithMessageDisplayed();
 	}
 }

@@ -29,9 +29,9 @@ public class DT7_DeleteDiscussionTest extends SampleTest {
         accountSteps.clickOnDiscussionsLabel();
         discussionsListSteps.swipeFirstDiscussionName();
         discussionsListSteps.clickOnDeleteButton();
-        discussionsListSteps.shouldDeleteDiscussionFromDiscussionsList();
+        discussionsListSteps.shouldBeDiscussionDeletedFromDiscussionsList();
         discussionsListSteps.closePage();
         accountSteps.clickOnDiscussionsLabel();
-        discussionsListSteps.shouldNotContainPreviouslyDeletedDiscussion();
+        discussionsListSteps.shouldBeNotDisplayedPreviouslyDeletedDiscussion();
     }
 }
