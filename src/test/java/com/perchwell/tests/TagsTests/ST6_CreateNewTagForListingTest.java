@@ -22,7 +22,7 @@ public class ST6_CreateNewTagForListingTest extends SampleTest {
 		tagsSteps.clickBackButton();
 		openedBuildingSteps.clickBackButton();
 		perchwellSteps.clickOpenAccountButton();
-		accountSteps.clickTagsLabel();
+		accountSteps.clickOnTagsLabel();
 		tagsSteps.shouldSeeCreatedTagUpperCase();
 		tagsSteps.clickCreatedTag();
 		tagsSteps.clickSearchButton();

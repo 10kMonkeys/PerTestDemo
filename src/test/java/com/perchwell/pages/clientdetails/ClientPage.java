@@ -1,30 +1,22 @@
 package com.perchwell.pages.clientdetails;
 
-import com.perchwell.email.Email;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.MailTrapResponse;
-
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.serenitybdd.core.Serenity;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class ClientPage extends BasePage {
-
-	public ClientPage(WebDriver driver) {
-		super(driver);
-	}
 
 	@iOSXCUITFindBy(accessibility = "ADD NEW CLIENT")
 	private WebElement addNewClientButton;
@@ -38,7 +30,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "client_name_text_field")
 	private WebElement clientNameTextBox;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeTextView")
+	@iOSXCUITFindBy(accessibility = "ClientMessageTextField")
 	private WebElement addMessageField;
 
 	@iOSXCUITFindBy(accessibility = "client_email_text_field")
@@ -50,8 +42,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "client_group_button")
 	private WebElement groupLabel;
 
-	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]")
-	@FindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText")
 	private WebElement firstClientOrAgent;
 
 	@iOSXCUITFindBy(accessibility = "AddClientViewControllerBackButton")
@@ -61,7 +52,6 @@ public class ClientPage extends BasePage {
 	private WebElement backButtonCreateAgent;
 
 	@iOSXCUITFindBy(accessibility = "contactsViewCloseButton")
-	//@FindBy(xpath="//XCUIElementTypeNavigationBar[@name=\"SELECT CLIENT\"]/XCUIElementTypeButton")
 	private WebElement closeButton;
 
 	@iOSXCUITFindBy(accessibility = "INVITE")
@@ -94,28 +84,30 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "GROUPS")
 	private WebElement groupsButton;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
+	private WebElement searchFrozenArea;
+
+	public ClientPage(WebDriver driver) {
+		super(driver);
+	}
+
 	public WebElement getAddNewClientButton() {
 		return addNewClientButton;
 	}
 
-	private WebElement getGroupLabelName(String groupName) {
-		WebElement groupLabelName = getDriver().findElement(MobileBy.AccessibilityId(groupName));
-		return groupLabelName;
-	}
-
-	public void clickInviteButton() {
+	public void clickOnInviteButton() {
 		element(inviteButton).click();
 	}
 
-	public void clickYesButtonLogOutWindow() {
+	public void clickOnYesButtonLogOutWindow() {
 		element(yesButtonLogOutWindow).click();
 	}
 
-	public void clickAddNewClientButton() {
+	public void clickOnAddNewClientButton() {
 		element(addNewClientButton).click();
 	}
 
-	public void clickInviteNewClientButton() {
+	public void clickOnInviteNewClientButton() {
 		element(inviteNewClientButton).click();
 	}
 
@@ -127,16 +119,16 @@ public class ClientPage extends BasePage {
 		element(clientEmailTextBox).sendKeys(clientEmail);
 	}
 
-	public void clickGroupLabel() {
+	public void clickOnGroupLabel() {
 		element(groupLabel).click();
 	}
 
-	public void clickFirstClientOrAgent() {
+	public void clickOnFirstClientOrAgent() {
 		element(firstClientOrAgent).click();
 	}
 
 	public void selectGroup(String groupName) {
-		this.getGroupLabelName(groupName).click();
+		getDriver().findElement(MobileBy.AccessibilityId(groupName)).click();
 	}
 
 	private void swipeDownUntilElementVisible(String name) throws Exception {
@@ -147,29 +139,21 @@ public class ClientPage extends BasePage {
 		}
 	}
 
-	public boolean isClientOrAgentDisplayed(String name) throws Exception {
+	public void isClientOrAgentDisplayed(String name) throws Exception {
 		swipeDownUntilElementVisible(name);
-		return isElementVisible(MobileBy.AccessibilityId(name));
+		element(MobileBy.AccessibilityId(name)).shouldBeVisible();
 	}
 
-	public void addValueInSessionVariable(String name, String value) {
-		Serenity.setSessionVariable(name).to(value);
-	}
-
-	public String getValueFromSessionVariable(String name) {
-		return Serenity.sessionVariableCalled(name);
-	}
-
-	public Boolean invitationEmailSent(String email) {
-		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(getValueFromSessionVariable(email));
-		return (mailTrapResponse.length > 0);
+	public void checkInvitationEmailSent(String email) {
+		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(SessionVariables.getValueFromSessionVariable(email));
+		Assert.assertTrue(mailTrapResponse.length > 0);
 	}
 
 	public String getFirstClientOrAgentName() {
-		return firstClientOrAgent.findElement(By.className("XCUIElementTypeStaticText")).getAttribute("name");
+		return firstClientOrAgent.getAttribute("name");
 	}
 
-	public void clickBackButton() {
+	public void clickOnBackButton() {
 		element(backButton).click();
 	}
 
@@ -177,7 +161,7 @@ public class ClientPage extends BasePage {
 		element(closeButton).click();
 	}
 
-	public void clickDesiredClientOrAgent(String name) {
+	public void clickOnDesiredClientOrAgent(String name) {
 		element(MobileBy.AccessibilityId(name)).click();
 	}
 
@@ -193,7 +177,7 @@ public class ClientPage extends BasePage {
 		return RandomGenerator.getRandomString("11CLIENTEMAIL") + "@EMAIL.COM";
 	}
 
-	public void clickAddNewAgentButton() {
+	public void clickOnAddNewAgentButton() {
 		element(addNewAgentButton).click();
 	}
 
@@ -205,15 +189,15 @@ public class ClientPage extends BasePage {
 		element(addMessageField).sendKeys(message);
 	}
 
-	public void clickBackButtonCreateAgent() {
+	public void clickOnBackButtonCreateAgent() {
 		element(backButtonCreateAgent).click();
 	}
 
-	public void clickClientSuccessfullyAddedOkButton() {
+	public void clickOnClientSuccessfullyAddedOkButton() {
 		element(okButton).click();
 	}
 
-	public void swipeCreatedClientName(String name) throws Exception{
+	public void swipeCreatedClientName(String name) throws Exception {
 		swipeDownUntilElementVisible(name);
 		WebElement client = getDriver().findElement(MobileBy.AccessibilityId(name));
 		int y = client.getLocation().getY();
@@ -224,35 +208,32 @@ public class ClientPage extends BasePage {
 		element(deleteButton).click();
 	}
 
-	public boolean isDeletedClientNotPresentInClientsList(String name) {
-		return !element(MobileBy.AccessibilityId(name)).isPresent();
-	}
-
 	public void enterValueInSearchField(String text) {
 		element(contactsSearchBar).sendKeys(text);
 	}
 
 	public void clickOutsideSearchField() {
-		getDriver().findElements(By.className("XCUIElementTypeTable")).get(0).click();
+		element(searchFrozenArea).click();
 	}
 
-	public void clickClearTextButton() {
+	public void clickOnClearTextButton() {
 		element(clearTextButton).click();
 	}
 
-	public boolean isSearchFieldCleared() {
-		return String.valueOf(clients.size()).equals(getValueFromSessionVariable("clients before search"));
+	public void isSearchFieldCleared() {
+		Assert.assertTrue(String.valueOf(clients.size())
+				.equals(SessionVariables.getValueFromSessionVariable("clients_before_search")));
 	}
 
 	public void noteNumberClientsBeforeSearch() {
-		addValueInSessionVariable("clients before search", String.valueOf(clients.size()));
+		SessionVariables.addValueInSessionVariable("clients_before_search", String.valueOf(clients.size()));
 	}
 
-	public boolean isTestClientPresent() {
-		return element(testClient).isPresent();
+	public void isTestClientPresent() {
+		element(testClient).shouldBePresent();
 	}
 
-	public void clickTestClient() throws Exception {
+	public void clickOnTestClient() throws Exception {
 		if (!element(testClient).isVisible()) {
 			Helper.swipeDownUntilElementVisible(testClient);
 		}

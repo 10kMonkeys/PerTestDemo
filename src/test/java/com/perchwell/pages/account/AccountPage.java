@@ -29,35 +29,43 @@ public class AccountPage extends BasePage {
         super (driver);
     }
 
-    public void clickClientsLabel() { element(clientLabel).click(); }
-
-    public void clickTagsLabel() { element(tagsLabel).click(); }
-
-    public void clickCompareLabel() { element(compareLabel).click(); }
-
-    public boolean optionTagsIsDispalyed() {
-        return tagsLabel.isDisplayed();
+    public void clickOnClientsLabel() {
+        element(clientLabel).click();
     }
 
-    public boolean optionCompareIsDispalyed() {
-        return compareLabel.isDisplayed();
+    public void clickOnTagsLabel() {
+        element(tagsLabel).click();
     }
 
-    public boolean optionDiscussionsIsDispalyed() {
-        return discussionsLabel.isDisplayed();
+    public void clickOnCompareLabel() {
+        element(compareLabel).click();
     }
 
-    public boolean optionClientsIsDispalyed() {
-        return clientLabel.isDisplayed();
+    public void optionTagsIsDisplayed() {
+        element(tagsLabel).shouldBeVisible();
     }
 
-    public boolean optionAgentsIsDispalyed() {
-        return agentsLabel.isDisplayed();
+    public void optionCompareIsDisplayed() {
+        element(compareLabel).shouldBeVisible();
     }
 
-    public void clickDiscussionsLabel() { element(discussionsLabel).click();    }
+    public void optionDiscussionsIsDisplayed() {
+        element(discussionsLabel).shouldBeVisible();
+    }
 
-    public void settingProfileButtonClick(){
+    public void optionClientsIsDisplayed() {
+        element(clientLabel).shouldBeVisible();
+    }
+
+    public void optionAgentsIsDisplayed() {
+        element(agentsLabel).shouldBeVisible();
+    }
+
+    public void clickOnDiscussionsLabel() {
+        element(discussionsLabel).click();
+    }
+
+    public void clickOnSettingProfileButton() {
         element(settingProfileButton).click();
     }
 }

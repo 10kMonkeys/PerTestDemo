@@ -30,12 +30,12 @@ public class DT7_DeleteDiscussionTest extends SampleTest {
         clientSteps.closePage();
         openedBuildingSteps.clickBackButton();
         perchwellSteps.clickOpenAccountButton();
-        accountSteps.clickDiscusionsLabel();
+        accountSteps.clickOnDiscussionsLabel();
         discussionsListSteps.swipeFirstDiscussionName();
         discussionsListSteps.clickOnDeleteButton();
         discussionsListSteps.shouldDeleteDiscussionFromDiscussionsList();
         discussionsListSteps.closePage();
-        accountSteps.clickDiscusionsLabel();
+        accountSteps.clickOnDiscussionsLabel();
         discussionsListSteps.shouldNotContainPreviouslyDeletedDiscussion();
     }
 }

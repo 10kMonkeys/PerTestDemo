@@ -33,19 +33,19 @@ public class ST23_DiscussionWithExistingClient extends SampleTest {
 		discussionSteps.closeButtonClick();
 		openedBuildingSteps.clickBackButton();
 		perchwellSteps.clickOpenAccountButton();
-		accountSteps.clickDiscusionsLabel();
+		accountSteps.clickOnDiscussionsLabel();
 		discussionsListSteps.createdDiscussionIsFirst();
 		discussionsListSteps.clickFirstDiscusion();
 		discussionSteps.shouldSeeMessageInDiscussion();
 		discussionSteps.clickBackButton();
 		discussionSteps.discussionsCancelButtonClick();
 		clientSteps.logOut();
-		clientSteps.clickYesButtonLogOutWindow();
+		clientSteps.clickOnYesButtonLogOutWindow();
 		loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickOpenAccountButton();
-		accountSteps.clickDiscusionsLabel();
+		accountSteps.clickOnDiscussionsLabel();
 		discussionsListSteps.lastDiscussionWithBrokerIsFirst();
 		discussionsListSteps.clickFirstDiscusion();
 		discussionSteps.shouldSeeMessageInDiscussion();

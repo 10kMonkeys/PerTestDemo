@@ -17,7 +17,7 @@ public class ST1_LogInAsClientTest extends SampleTest {
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickOpenAccountButton();
 		accountSteps.shouldSeeOptionAgents();
-		accountSteps.shouldSeeOptionDisscussions();
+		accountSteps.shouldSeeOptionDiscussions();
 		accountSteps.shouldSeeOptionTags();
 		accountSteps.shouldSeeOptionCompare();
 	}

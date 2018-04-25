@@ -16,13 +16,13 @@ public class DT1_DeleteClientTest extends SampleTest {
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickOpenAccountButton();
-        accountSteps.clickClientsLabel();
+        accountSteps.clickOnClientsLabel();
         clientSteps.addNewClient(ClientGroups.ACTIVELYSEARCHING);
         clientSteps.swipeCreatedClientName();
         clientSteps.clickOnDeleteButton();
-        clientSteps.isClientNotPresented();
+        clientSteps.shouldClientNotBePresented();
         clientSteps.closePage();
-        accountSteps.clickClientsLabel();
-        clientSteps.isClientNotPresented();
+        accountSteps.clickOnClientsLabel();
+        clientSteps.shouldClientNotBePresented();
     }
 }

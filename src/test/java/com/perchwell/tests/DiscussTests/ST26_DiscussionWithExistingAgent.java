@@ -24,7 +24,7 @@ public class ST26_DiscussionWithExistingAgent extends SampleTest {
 		openedBuildingSteps.clickShareButton();
 		openedBuildingSteps.clickSendWithinPerchwell();
 		openedBuildingSteps.clickAddDiscusButton();
-		clientSteps.clickExistingAgent();
+		clientSteps.clickOnExistingAgent();
 		discussionSteps.sendMessage("I'd like discuss with you " + simpleDateFormat.format(new Date()));
 		discussionSteps.clickBackButton();
 		clientSteps.closePage();

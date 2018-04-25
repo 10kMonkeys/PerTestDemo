@@ -15,7 +15,7 @@ public class ST8_ShareTagTest extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickOpenAccountButton();
-		accountSteps.clickTagsLabel();
+		accountSteps.clickOnTagsLabel();
 		myTagsSteps.clickSeveralExistingTagLabel();
 		myTagsSteps.clickTagSearchButton();
 		selectResultStep.clickTagPDFExportButton();

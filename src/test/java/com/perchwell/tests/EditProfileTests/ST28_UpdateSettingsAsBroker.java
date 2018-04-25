@@ -15,7 +15,7 @@ public class ST28_UpdateSettingsAsBroker extends SampleTest {
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickOpenAccountButton();
-        accountSteps.openSettingsProfile();
+        accountSteps.openSettingProfile();
         settingsProfileSteps.changeName();
         settingsProfileSteps.changeCompany();
         settingsProfileSteps.saveButtonClick();

@@ -15,19 +15,19 @@ public class DTS4_SearchByClientNameTest extends SampleTest {
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickOpenAccountButton();
-        accountSteps.clickClientsLabel();
+        accountSteps.clickOnClientsLabel();
         clientSteps.noteNumberClientsBeforeSearch();
-        clientSteps.enterValueInSearchField("Te");
+        clientSteps.enterValueInSearchField("Tes");
         clientSteps.clickOutsideSearchSection();
         clientSteps.shouldTestClientPresentInClientsList();
-        clientSteps.clickDeleteIconNextToSearchText();
+        clientSteps.clickOnDeleteIconNextToSearchText();
         clientSteps.clickOutsideSearchSection();
         clientSteps.shouldSearchBeCleared();
-        clientSteps.enterValueInSearchField("lie");
+        clientSteps.enterValueInSearchField("st cl");
         clientSteps.clickOutsideSearchSection();
         clientSteps.shouldTestClientPresentInClientsList();
-        clientSteps.clickDeleteIconNextToSearchText();
-        clientSteps.enterValueInSearchField("nt");
+        clientSteps.clickOnDeleteIconNextToSearchText();
+        clientSteps.enterValueInSearchField(" client");
         clientSteps.clickOutsideSearchSection();
         clientSteps.shouldTestClientPresentInClientsList();
     }

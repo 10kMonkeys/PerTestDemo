@@ -16,7 +16,7 @@ public class ST2_LoginAsBrokerTest extends SampleTest {
 	perchPopupSteps.clickNotNowButton();
 	perchwellSteps.clickOpenAccountButton();
 	accountSteps.shouldSeeOptionClient();
-	accountSteps.shouldSeeOptionDisscussions();
+	accountSteps.shouldSeeOptionDiscussions();
 	accountSteps.shouldSeeOptionTags();
 	accountSteps.shouldSeeOptionCompare();
 }
