@@ -4,10 +4,11 @@ import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.serenitybdd.core.Serenity;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,9 +16,8 @@ import org.openqa.selenium.WebElement;
 import java.util.Iterator;
 import java.util.List;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-
 public class DiscussionsListPage extends BasePage {
+
 	public DiscussionsListPage(WebDriver driver) {
 		super(driver);
 	}
@@ -25,11 +25,9 @@ public class DiscussionsListPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[1]")
 	private WebElement firstItem;
 
-	//@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[1]/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
 	private WebElement firstDiscussionClient;
 
-	//@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[3]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[1]/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[3]")
 	private WebElement firstDiscussionMessage;
 
@@ -51,29 +49,30 @@ public class DiscussionsListPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[`visible == 1`]")
 	private List<WebElement> clientsListOrDiscussionsList;
 
-	public String getFistDiscussionClient() {
+	private String getFistDiscussionClient() {
 		return element(firstDiscussionClient).getAttribute("name");
 	}
 
-	public String getFistDiscussionMessage() {
+	private String getFistDiscussionMessage() {
 		return element(firstDiscussionMessage).getAttribute("name");
 	}
 
-	public void addValueInSessionVariable(String name, String value) {
-		Serenity.setSessionVariable(name).to(value);
-	}
-
-	public String getValueFromSessionVariable(String name) {
-		return Serenity.sessionVariableCalled(name);
-	}
-
-	public void clickFirstDiscussion() {
+	public void clickOnFirstDiscussion() {
 		element(firstItem).click();
 	}
 
-	public Boolean discussionsEmailSent(String emailText) {
+	public void shouldBeCreatedDiscussionFirst() {
+		Assert.assertTrue(getFistDiscussionClient().equalsIgnoreCase(SessionVariables.getValueFromSessionVariable("Client")));
+		Assert.assertTrue(getFistDiscussionMessage().equalsIgnoreCase(SessionVariables.getValueFromSessionVariable("message")));
+	}
+
+	public void shouldBeLastDiscussionWithBrokerFirst() {
+		Assert.assertTrue(getFistDiscussionMessage().equalsIgnoreCase(SessionVariables.getValueFromSessionVariable("message")));
+	}
+
+	private boolean discussionsEmailSent(String emailText) {
 			//if string containcs of ' ' then must use - .replaceAll("[\\s]", "%20"));
-		Boolean reportWasFound =false;
+		boolean reportWasFound =false;
 		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_DISCUSS"));
 		if (mailTrapResponse.length > 0) {
 			for (MailTrapResponse my_responce : mailTrapResponse) {
@@ -86,9 +85,13 @@ public class DiscussionsListPage extends BasePage {
 		return reportWasFound;
 	}
 
+	public void shouldFindDiscussionsEmailForExistingClient() {
+		Assert.assertTrue(discussionsEmailSent(SessionVariables.getValueFromSessionVariable("message")));
+	}
 
-	public boolean discusionWithMsgIsDispayed(String message) {
-		return Helper.isElementDisplayed(element(MobileBy.name(message)));
+	public void shouldNotBeDiscussionWithMessageDisplayed() {
+		String messageForAgent = SessionVariables.getValueFromSessionVariable("Msg_for_agent");
+		element(MobileBy.name(messageForAgent)).shouldNotBeVisible();
 	}
 
 	public WebElement getFirstItemValue() {
@@ -104,8 +107,9 @@ public class DiscussionsListPage extends BasePage {
 		element(deleteButton).click();
 	}
 
-	public boolean isDeletedDiscussionNotPresentInDiscussionsList(String name) {
-		return !element(MobileBy.AccessibilityId(name)).isPresent();
+	public void shouldBeDiscussionDeletedFromDiscussionsList() {
+		String message = SessionVariables.getValueFromSessionVariable("message");
+		element(MobileBy.AccessibilityId(message)).shouldNotBePresent();
 	}
 
 	public void closePage() {
@@ -116,16 +120,16 @@ public class DiscussionsListPage extends BasePage {
 		element(discussionsSearchBar).sendKeys(text);
 	}
 
-	public boolean isTestClientInFilterSearchResult() {
-		return element(testClientInFilterByPersonResult).isPresent();
+	public void shouldBeTestClientPresentInFilterResult() {
+		element(testClientInFilterByPersonResult).shouldBePresent();
 	}
 
 	public void clickOnClearTextButton() {
 		element(clearTextButton).click();
 	}
 
-	public boolean isFilterByPersonEmpty() {
-		return clientsListOrDiscussionsList.isEmpty();
+	public void shouldBeNothingDisplayedInFilterByPerson() {
+		Assert.assertTrue(clientsListOrDiscussionsList.isEmpty());
 	}
 
 	public void clickOnTestClientInFilterSearch() throws Exception {
@@ -135,8 +139,7 @@ public class DiscussionsListPage extends BasePage {
 		element(testClientInFilterByPersonResult).click();
 	}
 
-	public boolean isOnlyDiscussionWithTestClientDisplayed() {
-
+	private boolean isOnlyDiscussionWithTestClientDisplayed() {
 		for (WebElement item : clientsListOrDiscussionsList) {
 			int k = 0;
 			List<WebElement> oneDiscussion = item.findElements(By.xpath("//XCUIElementTypeStaticText[@name]"));
@@ -155,5 +158,9 @@ public class DiscussionsListPage extends BasePage {
 			}
 		}
 		return true;
+	}
+
+	public void shouldBeOnlyDiscussionWithTestClientDisplayed() {
+		Assert.assertTrue(isOnlyDiscussionWithTestClientDisplayed());
 	}
 }

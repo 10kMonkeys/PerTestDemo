@@ -26,18 +26,18 @@ public class DTS8_FilterByClientTest extends SampleTest {
         clientSteps.closePage();
         openedBuildingSteps.clickBackButton();
         perchwellSteps.clickOpenAccountButton();
-        accountSteps.clickDiscusionsLabel();
-        discussionsListSteps.enterValueInSearchField("Te");
-        discussionsListSteps.shouldTestClientBePresentInFilterResult();
+        accountSteps.clickOnDiscussionsLabel();
+        discussionsListSteps.enterValueInSearchField("Tes");
+        discussionsListSteps.shouldBeTestClientPresentInFilterResult();
         discussionsListSteps.clickDeleteIconNextToSearchText();
-        discussionsListSteps.shouldNothingBeDisplayedInFilterByPerson();
-        discussionsListSteps.enterValueInSearchField("lie");
-        discussionsListSteps.shouldTestClientBePresentInFilterResult();
+        discussionsListSteps.shouldBeNothingDisplayedInFilterByPerson();
+        discussionsListSteps.enterValueInSearchField("st cl");
+        discussionsListSteps.shouldBeTestClientPresentInFilterResult();
         discussionsListSteps.clickDeleteIconNextToSearchText();
-        discussionsListSteps.shouldNothingBeDisplayedInFilterByPerson();
-        discussionsListSteps.enterValueInSearchField("nt");
-        discussionsListSteps.shouldTestClientBePresentInFilterResult();
+        discussionsListSteps.shouldBeNothingDisplayedInFilterByPerson();
+        discussionsListSteps.enterValueInSearchField(" client");
+        discussionsListSteps.shouldBeTestClientPresentInFilterResult();
         discussionsListSteps.selectTestClient();
-        discussionsListSteps.shouldOnlyDiscussionWithTestClientBeDisplayed();
+        discussionsListSteps.shouldBeOnlyDiscussionWithTestClientDisplayed();
     }
 }

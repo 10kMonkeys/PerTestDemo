@@ -11,7 +11,8 @@ public class ST23_DiscussionWithExistingClient extends SampleTest {
 
 	@Test
 	public void discussionWithExistingClientTest() throws Exception {
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"), AppProperties.INSTANCE.getProperty("password"));
+		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+				AppProperties.INSTANCE.getProperty("password"));
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.openFirstBuilding();
@@ -30,21 +31,21 @@ public class ST23_DiscussionWithExistingClient extends SampleTest {
 		discussionSteps.clickOnCloseButton();
 		openedBuildingSteps.clickBackButton();
 		perchwellSteps.clickOpenAccountButton();
-		accountSteps.clickDiscusionsLabel();
-		discussionsListSteps.createdDiscussionIsFirst();
-		discussionsListSteps.clickFirstDiscusion();
+		accountSteps.clickOnDiscussionsLabel();
+		discussionsListSteps.shouldBeCreatedDiscussionFirst();
+		discussionsListSteps.clickOnFirstDiscussion();
 		discussionSteps.shouldSeeMessageInDiscussion();
 		discussionSteps.clickOnBackButton();
 		discussionSteps.clickOndiscussionsCancelButton();
 		clientSteps.logOut();
-		clientSteps.clickYesButtonLogOutWindow();
+		clientSteps.clickOnYesButtonLogOutWindow();
 		loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickOpenAccountButton();
-		accountSteps.clickDiscusionsLabel();
-		discussionsListSteps.lastDiscussionWithBrokerIsFirst();
-		discussionsListSteps.clickFirstDiscusion();
+		accountSteps.clickOnDiscussionsLabel();
+		discussionsListSteps.shouldBeLastDiscussionWithBrokerFirst();
+		discussionsListSteps.clickOnFirstDiscussion();
 		discussionSteps.shouldSeeMessageInDiscussion();
 		discussionsListSteps.shouldFindDiscussionsEmailForExistingClient();
 	}

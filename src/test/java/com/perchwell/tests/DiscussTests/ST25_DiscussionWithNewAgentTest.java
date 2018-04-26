@@ -28,13 +28,13 @@ public class ST25_DiscussionWithNewAgentTest extends SampleTest {
 		clientSteps.setAgentEmail("Not_existing_email@test.ru");
 		clientSteps.setMessageField("Hello. I'd like invite you on "+simpleDateFormat.format(new Date()));
 		clientSteps.clickInviteButton();
-		clientSteps.clickAgentSuccessfullyAddedOkButton();
+		clientSteps.clickOnAgentSuccessfullyAddedOkButton();
 		discussionSteps.clickOnBackButton();
-		clientSteps.clickBackButtonCreateAgent();
+		clientSteps.clickOnBackButtonCreateAgent();
 		clientSteps.closePage();
 		openedBuildingSteps.clickBackButton();
 		perchwellSteps.clickOpenAccountButton();
-		accountSteps.clickDiscusionsLabel();
-		discussionsListSteps.discussionWithMessageNotDisplayed();
+		accountSteps.clickOnDiscussionsLabel();
+		discussionsListSteps.shouldNotBeDiscussionWithMessageDisplayed();
 	}
 }

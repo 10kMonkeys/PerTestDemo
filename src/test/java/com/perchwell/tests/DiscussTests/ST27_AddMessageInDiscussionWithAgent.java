@@ -20,7 +20,7 @@ public class ST27_AddMessageInDiscussionWithAgent extends SampleTest {
 		openedBuildingSteps.clickShareButton();
 		openedBuildingSteps.clickSendWithinPerchwell();
 		openedBuildingSteps.clickAddDiscusButton();
-		clientSteps.clickExistingAgent();
+		clientSteps.clickOnExistingAgent();
 		discussionSteps.sendMessage(DiscussionMessages.HELLO);
 		discussionSteps.clickOnBackButton();
 		clientSteps.closePage();

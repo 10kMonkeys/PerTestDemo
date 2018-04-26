@@ -4,7 +4,6 @@ import com.perchwell.entity.AppProperties;
 import com.perchwell.helpers.SessionVariables;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.junit.Assert;
 import com.perchwell.pages.clientdetails.ClientPage;
 
 public class ClientSteps extends ScenarioSteps {
@@ -12,26 +11,26 @@ public class ClientSteps extends ScenarioSteps {
 	ClientPage onPage;
 
 	@Step
-	public void setRundomClientData() {
-		onPage.addValueInSessionVariable("User name", onPage.generateClientName());
-		this.onPage.setClientName(onPage.getValueFromSessionVariable("User name"));
-		onPage.addValueInSessionVariable("User email", onPage.generateClientEmail());
-		this.onPage.setClientEmail(onPage.getValueFromSessionVariable("User email"));
+	public void setRandomClientData() {
+		SessionVariables.addValueInSessionVariable("User_name", onPage.generateClientName());
+		this.onPage.setClientName(SessionVariables.getValueFromSessionVariable("User_name"));
+		SessionVariables.addValueInSessionVariable("User_email", onPage.generateClientEmail());
+		this.onPage.setClientEmail(SessionVariables.getValueFromSessionVariable("User_email"));
 	}
 
 	@Step
 	public void shouldSeeRecentlyCreatedClient() throws Exception {
-		Assert.assertTrue(onPage.isClientOrAgentDisplayed(onPage.getValueFromSessionVariable("User name")));
+		onPage.isClientOrAgentDisplayed(SessionVariables.getValueFromSessionVariable("User_name"));
 	}
 
 	@Step
-	public void clickYesButtonLogOutWindow() {
-		onPage.clickYesButtonLogOutWindow();
+	public void clickOnYesButtonLogOutWindow() {
+		onPage.clickOnYesButtonLogOutWindow();
 	}
 
 	@Step
-	public void clickGroupLabel() {
-		onPage.clickGroupLabel();
+	public void clickOnGroupLabel() {
+		onPage.clickOnGroupLabel();
 	}
 
 	@Step
@@ -42,36 +41,36 @@ public class ClientSteps extends ScenarioSteps {
 	@Step
 	public void clickAddNewClientButton() {
 		if (onPage.getAddNewClientButton().isDisplayed()) {
-			onPage.clickAddNewClientButton();
+			onPage.clickOnAddNewClientButton();
 		} else {
-			onPage.clickInviteNewClientButton();
+			onPage.clickOnInviteNewClientButton();
 		}
 	}
 
 	@Step
 	public void clickInviteButton() {
-		onPage.clickInviteButton();
+		onPage.clickOnInviteButton();
 	}
 
 	@Step
 	public void invitationEmailSent() {
-		Assert.assertTrue(onPage.invitationEmailSent("User email"));
+		onPage.checkInvitationEmailSent("User_email");
 	}
 
 	@Step
 	public void selectClient() {
-		onPage.addValueInSessionVariable("Client", onPage.getFirstClientOrAgentName());
-		onPage.clickFirstClientOrAgent();
+		SessionVariables.addValueInSessionVariable("Client", onPage.getFirstClientOrAgentName());
+		onPage.clickOnFirstClientOrAgent();
 	}
 
 	@Step
 	public void clickBackButton() {
-		onPage.clickBackButton();
+		onPage.clickOnBackButton();
 	}
 
 	@Step
-	public void clickBackButtonCreateAgent() {
-		onPage.clickBackButtonCreateAgent();
+	public void clickOnBackButtonCreateAgent() {
+		onPage.clickOnBackButtonCreateAgent();
 	}
 
 	@Step
@@ -80,18 +79,15 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickDesiredClient() throws Exception {
-		onPage.clickDesiredClientOrAgent(onPage.getValueFromSessionVariable("User name"));
+	public void clickDesiredClient() {
+		onPage.clickOnDesiredClientOrAgent(SessionVariables.getValueFromSessionVariable("User name"));
 	}
 
 	@Step
 	public void clickExistingClient() throws Exception {
-		if (onPage.isClientOrAgentDisplayed(AppProperties.INSTANCE.getProperty("client_name").toUpperCase())) {
-			onPage.clickDesiredClientOrAgent(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
-			onPage.addValueInSessionVariable("Client", AppProperties.INSTANCE.getProperty("client_name"));
-		}
-		else Assert.fail("Does not exist client with name '"+AppProperties.INSTANCE.getProperty("client_name")+"'. "
-								 + "The name and mail of the client, who associated with the current broker, must be specified in the app.properties.");
+		onPage.isClientOrAgentDisplayed(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
+		onPage.clickOnDesiredClientOrAgent(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
+		SessionVariables.addValueInSessionVariable("Client", AppProperties.INSTANCE.getProperty("client_name"));
 	}
 
 	@Step
@@ -101,9 +97,9 @@ public class ClientSteps extends ScenarioSteps {
 
 	public void clickAddNewAgentButton() {
 		//if (onPage.getAddNewClientButton().isDisplayed()) {
-		onPage.clickAddNewAgentButton();
+		onPage.clickOnAddNewAgentButton();
 //		} else {
-//			onPage.clickInviteNewClientButton();
+//			onPage.clickOnInviteNewClientButton();
 //		}
 	}
 
@@ -115,26 +111,26 @@ public class ClientSteps extends ScenarioSteps {
 	@Step("Set text in the message field {0}")
 	public void setMessageField(String msg) {
 		onPage.setMessageField(msg);
-		onPage.addValueInSessionVariable("Msg for agent", msg);
+		SessionVariables.addValueInSessionVariable("Msg_for_agent", msg);
 	}
 
 	@Step
-	public void clickExistingAgent() throws Exception {
-		onPage.addValueInSessionVariable("Agent", onPage.getFirstClientOrAgentName());
-		onPage.clickFirstClientOrAgent();
+	public void clickOnExistingAgent() {
+		SessionVariables.addValueInSessionVariable("Agent", onPage.getFirstClientOrAgentName());
+		onPage.clickOnFirstClientOrAgent();
 	}
 	@Step
-	public void clickClientSuccessfullyAddedOkButton() {
-		onPage.clickClientSuccessfullyAddedOkButton();
+	public void clickOnClientSuccessfullyAddedOkButton() {
+		onPage.clickOnClientSuccessfullyAddedOkButton();
 	}
 	@Step
-	public void clickAgentSuccessfullyAddedOkButton() {
-		onPage.clickClientSuccessfullyAddedOkButton();
+	public void clickOnAgentSuccessfullyAddedOkButton() {
+		onPage.clickOnClientSuccessfullyAddedOkButton();
 	}
 
 	@Step
 	public void swipeCreatedClientName() throws Exception {
-		onPage.swipeCreatedClientName(onPage.getValueFromSessionVariable("User name"));
+		onPage.swipeCreatedClientName(SessionVariables.getValueFromSessionVariable("User_name"));
 	}
 
 	@Step
@@ -143,21 +139,12 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldDeleteClientFromClientsList() {
-		Assert.assertTrue(onPage.isDeletedClientNotPresentInClientsList(onPage.getValueFromSessionVariable("User name")));
-	}
-
-	@Step
-	public void shouldNotContainPreviouslyDeletedClient() {
-		Assert.assertTrue(onPage.isDeletedClientNotPresentInClientsList(onPage.getValueFromSessionVariable("User name")));
-	}
-
-	@Step
 	public void setJustDeletedClientData() {
-		this.onPage.setClientName(onPage.getValueFromSessionVariable("User name"));
-		this.onPage.setClientEmail(onPage.getValueFromSessionVariable("User email"));
+		this.onPage.setClientName(SessionVariables.getValueFromSessionVariable("User_name"));
+		this.onPage.setClientEmail(SessionVariables.getValueFromSessionVariable("User_email"));
 	}
 
+	@Step
 	public void enterValueInSearchField(String someText) {
 		onPage.enterValueInSearchField(someText);
 	}
@@ -168,13 +155,13 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickDeleteIconNextToSearchText() {
-		onPage.clickClearTextButton();
+	public void clickOnDeleteIconNextToSearchText() {
+		onPage.clickOnClearTextButton();
 	}
 
 	@Step
 	public void shouldTestClientPresentInClientsList() {
-		Assert.assertTrue(onPage.isTestClientPresent());
+		onPage.isTestClientPresent();
 	}
 
 	@Step
@@ -184,19 +171,19 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSearchBeCleared() {
-		Assert.assertTrue(onPage.isSearchFieldCleared());
+		onPage.isSearchFieldCleared();
 	}
 
 	@Step
 	public void selectTestClient() throws Exception {
-		onPage.clickTestClient();
+		onPage.clickOnTestClient();
 	}
 
 	@Step
 	public void addNewClient(String groupName) {
 		this.clickAddNewClientButton();
-		this.setRundomClientData();
-		this.clickGroupLabel();
+		this.setRandomClientData();
+		this.clickOnGroupLabel();
 		this.selectGroup(groupName);
 		this.clickInviteButton();
 	}
@@ -207,7 +194,7 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void isClientNotPresented() {
-		onPage.isClientNotPresented(SessionVariables.getValueFromSessionVariable("User name"));
+	public void shouldClientNotBePresented() {
+		onPage.isClientNotPresented(SessionVariables.getValueFromSessionVariable("User_name"));
 	}
 }

@@ -15,7 +15,7 @@ public class ST30_ResetPasswordTest extends SampleTest {
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickOpenAccountButton();
-        accountSteps.openSettingsProfile();
+        accountSteps.openSettingProfile();
         settingsProfileSteps.resetPasswordClick();
         resetPasswordSteps.resetPasswordButtonClick();
         resetPasswordSteps.shouldFindSentEmail();
@@ -24,7 +24,7 @@ public class ST30_ResetPasswordTest extends SampleTest {
         settingsProfileSteps.backButtonClick();
         settingsProfileSteps.cancelButtonClick();
         clientSteps.logOut();
-        clientSteps.clickYesButtonLogOutWindow();
+        clientSteps.clickOnYesButtonLogOutWindow();
         loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("old_reset_password"));
         resetPasswordSteps.isAccountNeededToSignInMessageDisplayed();

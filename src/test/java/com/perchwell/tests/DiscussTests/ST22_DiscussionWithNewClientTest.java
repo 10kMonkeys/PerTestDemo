@@ -20,11 +20,11 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 		openedBuildingSteps.clickSendWithinPerchwell();
 		openedBuildingSteps.clickAddDiscusButton();
 		clientSteps.clickAddNewClientButton();
-		clientSteps.setRundomClientData();
-		clientSteps.clickGroupLabel();
+		clientSteps.setRandomClientData();
+		clientSteps.clickOnGroupLabel();
 		clientSteps.selectGroup("Actively Searching");
 		clientSteps.clickInviteButton();
-		clientSteps.clickClientSuccessfullyAddedOkButton();
+		clientSteps.clickOnClientSuccessfullyAddedOkButton();
 		discussionSteps.clickOnBackButton();
 		clientSteps.clickBackButton();
 		clientSteps.closePage();

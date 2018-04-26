@@ -20,7 +20,7 @@ public class ST26_DiscussionWithExistingAgent extends SampleTest {
 		openedBuildingSteps.clickShareButton();
 		openedBuildingSteps.clickSendWithinPerchwell();
 		openedBuildingSteps.clickAddDiscusButton();
-		clientSteps.clickExistingAgent();
+		clientSteps.clickOnExistingAgent();
 		discussionSteps.sendMessage(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
 		discussionSteps.clickOnBackButton();
 		clientSteps.closePage();

@@ -3,54 +3,58 @@ package com.perchwell.steps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.account.AccountPage;
-import org.junit.Assert;
 
-public class AccountSteps extends ScenarioSteps{
+public class AccountSteps extends ScenarioSteps {
+
     AccountPage onPage;
 
     @Step
-    public void clickClientsLabel() {
-        onPage.clickClientsLabel();
+    public void clickOnClientsLabel() {
+        onPage.clickOnClientsLabel();
     }
 
     @Step
-    public void clickTagsLabel() {
-        onPage.clickTagsLabel();
+    public void clickOnTagsLabel() {
+        onPage.clickOnTagsLabel();
     }
 
     @Step
-    public void clickCompareLabel() {
-        onPage.clickCompareLabel();
+    public void clickOnCompareLabel() {
+        onPage.clickOnCompareLabel();
     }
 
     @Step
-    public void shouldSeeOptionClient() throws Exception {
-        Assert.assertTrue(onPage.optionClientsIsDispalyed());
+    public void shouldSeeOptionClient() {
+        onPage.optionClientsIsDisplayed();
     }
 
     @Step
-    public void shouldSeeOptionCompare() throws Exception {
-        Assert.assertTrue(onPage.optionCompareIsDispalyed());
-    }
-    @Step
-    public void shouldSeeOptionDisscussions() throws Exception {
-        Assert.assertTrue(onPage.optionDiscussionsIsDispalyed());
-    }
-    @Step
-    public void shouldSeeOptionTags() throws Exception {
-        Assert.assertTrue(onPage.optionTagsIsDispalyed());
+    public void shouldSeeOptionCompare() {
+        onPage.optionCompareIsDisplayed();
     }
 
     @Step
-    public void shouldSeeOptionAgents() throws Exception {
-        Assert.assertTrue(onPage.optionAgentsIsDispalyed());
+    public void shouldSeeOptionDiscussions() {
+        onPage.optionDiscussionsIsDisplayed();
     }
 
     @Step
-    public void clickDiscusionsLabel() { onPage.clickDiscussionsLabel();   }
+    public void shouldSeeOptionTags() {
+        onPage.optionTagsIsDisplayed();
+    }
 
     @Step
-    public void openSettingsProfile(){
-        onPage.settingProfileButtonClick();
+    public void shouldSeeOptionAgents() {
+        onPage.optionAgentsIsDisplayed();
+    }
+
+    @Step
+    public void clickOnDiscussionsLabel() {
+        onPage.clickOnDiscussionsLabel();
+    }
+
+    @Step
+    public void openSettingProfile() {
+        onPage.clickOnSettingProfileButton();
     }
 }
