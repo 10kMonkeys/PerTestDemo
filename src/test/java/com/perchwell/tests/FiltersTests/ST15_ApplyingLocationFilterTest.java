@@ -19,7 +19,7 @@ public class ST15_ApplyingLocationFilterTest extends SampleTest {
 		perchwellSteps.clickOnMyNewSearch();
 		searchSteps.deleteDefaultLocationInFilter();
 		searchSteps.addLocationFilter();
-		searchSteps.clickApplyButton();
+		searchSteps.clickOnApplyButton();
 		perchwellSteps.shouldSeeListingsOnlyFromSelectedDistrict("ALPHABET CITY");
 	}
 }

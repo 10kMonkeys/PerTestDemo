@@ -31,9 +31,9 @@ public class ATS5_AddREBNYListingsFeaturesChartsTest extends SampleTest {
         analyticsSteps.selectREBNYListingsWithFeatures();
         rebnyListingsSteps.addAndVerifyLaundryBuildingPremiumChart();
         analyticsSteps.clickMyNewSearch();
-        searchSteps.clickLoadSavedSearchButton();
+        searchSteps.clickOnLoadSavedSearchButton();
         searchSteps.createNewSearchClick();
-        searchSteps.clickApplyButton();
+        searchSteps.clickOnApplyButton();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.featureButtonClick();
         rebnyListingsSteps.addAndVerifyNewDevelopmentChart();

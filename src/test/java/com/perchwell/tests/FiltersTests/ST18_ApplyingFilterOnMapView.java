@@ -18,8 +18,8 @@ public class ST18_ApplyingFilterOnMapView extends SampleTest {
         mapSteps.clickOnNotNowButton();
         mapSteps.clickOnMyNewSearch();
         searchSteps.selectFilter1AndHalfBath();
-        searchSteps.clickFilter1Bed();
-        searchSteps.clickApplyButton();
+        searchSteps.clickOnFilter1Bed();
+        searchSteps.clickOnApplyButton();
         mapSteps.checkForChangesAfterApplyingTheFilter();
     }
 }

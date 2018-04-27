@@ -24,7 +24,7 @@ public class ST19_ApplyingFilterOnAnalyticsTest extends SampleTest {
         analyticsSteps.clickMyNewSearch();
         searchSteps.setMinimumPriceFilter("600000");
         searchSteps.selectFilterStudioBeds();
-        searchSteps.clickApplyButton();
+        searchSteps.clickOnApplyButton();
         analyticsSteps.isBedroomsChartChange();
         analyticsSteps.isAskingPriceChartChange();
     }

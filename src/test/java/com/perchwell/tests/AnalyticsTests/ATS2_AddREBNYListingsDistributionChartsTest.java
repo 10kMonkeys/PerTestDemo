@@ -32,9 +32,9 @@ public class ATS2_AddREBNYListingsDistributionChartsTest extends SampleTest {
         analyticsSteps.selectREBNYListingsWithDistribution();
         rebnyListingsSteps.addAndVerifyAskingPricePerBedChart();
         analyticsSteps.clickMyNewSearch();
-        searchSteps.clickLoadSavedSearchButton();
+        searchSteps.clickOnLoadSavedSearchButton();
         searchSteps.createNewSearchClick();
-        searchSteps.clickApplyButton();
+        searchSteps.clickOnApplyButton();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.distributionButtonClick();
         rebnyListingsSteps.addAndVerifyAskingPricePerFTChart();

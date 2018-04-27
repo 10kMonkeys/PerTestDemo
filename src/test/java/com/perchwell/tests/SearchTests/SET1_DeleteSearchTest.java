@@ -17,7 +17,7 @@ public class SET1_DeleteSearchTest extends SampleTest {
         perchwellSteps.clickOnMyNewSearch();
         searchSteps.saveCurrentSearch();
         perchwellSteps.clickOnMyNewSearch();
-        searchSteps.clickLoadSavedSearchButton();
+        searchSteps.clickOnLoadSavedSearchButton();
         searchSteps.swipeCreatedSearch();
         searchSteps.clickOnDeleteSearchButton();
         searchSteps.shouldDeleteSearch();
