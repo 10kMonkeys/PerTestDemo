@@ -14,7 +14,7 @@ public class AT1_AddREBNYListingsChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickAnalytics();
+        perchwellSteps.clickOnAnalytics();
         rebnyListingsSteps.addAskingPriceChartWithMKTShare();
         analyticsSteps.skipHints();
         rebnyListingsSteps.isAskingPriseChartAdd();

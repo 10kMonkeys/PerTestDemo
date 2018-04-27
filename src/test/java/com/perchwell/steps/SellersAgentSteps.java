@@ -22,8 +22,8 @@ public class SellersAgentSteps extends ScenarioSteps {
         }
         while (!openedBuildingPage.isOneSellersAgent()) {
             openedBuildingPage.clickBackButton();
-            perchwellPage.swipeDownUntillNextBuildingVisible();
-            perchwellPage.clickLastVisibleBuilding();
+            perchwellPage.swipeDownUntilNextBuildingVisible();
+            perchwellPage.clickOnLastVisibleBuilding();
         }
         openedBuildingPage.addAddressInSessionVariable("building address", openedBuildingPage.getBuildingAddress());
     }

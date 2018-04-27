@@ -14,7 +14,7 @@ public class ATS7_AddACRISClosingDistributionChartTest extends SampleTest {
                     AppProperties.INSTANCE.getProperty("password"));
             perchwellSteps.skipAllHints();
             perchPopupSteps.clickNotNowButton();
-            perchwellSteps.clickAnalytics();
+            perchwellSteps.clickOnAnalytics();
             analyticsSteps.selectACRISClosingSection();
             analyticsSteps.distributionButtonClick();
             acrisClosingSteps.addDollarPerFTPercentilesChart();

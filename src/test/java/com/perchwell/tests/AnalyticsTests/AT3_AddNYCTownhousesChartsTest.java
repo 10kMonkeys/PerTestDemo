@@ -14,7 +14,7 @@ public class AT3_AddNYCTownhousesChartsTest extends SampleTest{
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickAnalytics();
+        perchwellSteps.clickOnAnalytics();
         analyticsSteps.selectNYCTownhousesSection();
         analyticsSteps.mktShareButtonClick();
         nycTownhousesSteps.inHistoryDistClick();

@@ -25,7 +25,7 @@ public class DT7_DeleteDiscussionTest extends SampleTest {
         discussionSteps.clickOnBackButton();
         clientSteps.closePage();
         openedBuildingSteps.clickBackButton();
-        perchwellSteps.clickOpenAccountButton();
+        perchwellSteps.clickOnOpenAccountButton();
         accountSteps.clickOnDiscussionsLabel();
         discussionsListSteps.swipeFirstDiscussionName();
         discussionsListSteps.clickOnDeleteButton();

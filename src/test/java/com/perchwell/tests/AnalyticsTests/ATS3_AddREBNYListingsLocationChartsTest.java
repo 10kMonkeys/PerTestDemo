@@ -14,7 +14,7 @@ public class ATS3_AddREBNYListingsLocationChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickAnalytics();
+        perchwellSteps.clickOnAnalytics();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.locationButtonClick();
         rebnyListingsSteps.addAskingPricePerBedChart();

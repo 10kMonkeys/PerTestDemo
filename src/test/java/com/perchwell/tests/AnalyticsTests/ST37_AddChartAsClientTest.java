@@ -14,7 +14,7 @@ public class ST37_AddChartAsClientTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("client_password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickAnalytics();
+        perchwellSteps.clickOnAnalytics();
         rebnyListingsSteps.addAskingPriceChartWithMKTShare();
         analyticsSteps.skipHints();
         analyticsSteps.addButtonClick();

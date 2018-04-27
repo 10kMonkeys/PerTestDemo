@@ -14,7 +14,7 @@ public class ST30_ResetPasswordTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("new_reset_password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOpenAccountButton();
+        perchwellSteps.clickOnOpenAccountButton();
         accountSteps.openSettingProfile();
         settingsProfileSteps.resetPasswordClick();
         resetPasswordSteps.resetPasswordButtonClick();

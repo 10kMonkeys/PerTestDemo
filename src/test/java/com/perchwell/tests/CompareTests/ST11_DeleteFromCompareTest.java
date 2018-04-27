@@ -24,7 +24,7 @@ public class ST11_DeleteFromCompareTest extends SampleTest {
 		perchwellSteps.openThirdBuilding();
 		openedBuildingSteps.addToCompare("the third building");
 		openedBuildingSteps.clickBackButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnCompareLabel();
 		compareSteps.clickSwipeUpToRemoveHint();
 		compareSteps.shoudSeeFirstBuildingInCompare("the first building");

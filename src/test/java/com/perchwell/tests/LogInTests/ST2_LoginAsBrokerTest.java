@@ -14,7 +14,7 @@ public class ST2_LoginAsBrokerTest extends SampleTest {
 			AppProperties.INSTANCE.getProperty("password"));
 	perchwellSteps.skipAllHints();
 	perchPopupSteps.clickNotNowButton();
-	perchwellSteps.clickOpenAccountButton();
+	perchwellSteps.clickOnOpenAccountButton();
 	accountSteps.shouldSeeOptionClient();
 	accountSteps.shouldSeeOptionDiscussions();
 	accountSteps.shouldSeeOptionTags();

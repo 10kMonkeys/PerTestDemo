@@ -25,7 +25,7 @@ public class DTS8_FilterByClientTest extends SampleTest {
         discussionSteps.clickOnBackButton();
         clientSteps.closePage();
         openedBuildingSteps.clickBackButton();
-        perchwellSteps.clickOpenAccountButton();
+        perchwellSteps.clickOnOpenAccountButton();
         accountSteps.clickOnDiscussionsLabel();
         discussionsListSteps.enterValueInSearchField("Tes");
         discussionsListSteps.shouldBeTestClientPresentInFilterResult();

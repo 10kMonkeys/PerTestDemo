@@ -19,7 +19,7 @@ public class ST33_SendGraphicReportsToMyEmail extends SampleTest{
 				AppProperties.INSTANCE.getProperty("password"));
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickAnalytics();
+		perchwellSteps.clickOnAnalytics();
 		rebnyListingsSteps.addChartFromREBNYSection();
 		analyticsSteps.skipHints();
 		analyticsSteps.addButtonClick();

@@ -21,7 +21,7 @@ public class ST6_CreateNewTagForListingTest extends SampleTest {
 		tagsSteps.setRandomTagAndSave();
 		tagsSteps.clickBackButton();
 		openedBuildingSteps.clickBackButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnTagsLabel();
 		tagsSteps.shouldSeeCreatedTagUpperCase();
 		tagsSteps.clickCreatedTag();

@@ -14,7 +14,7 @@ public class AT6_ACRISClosingChartsYearsRangeChangeTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickAnalytics();
+        perchwellSteps.clickOnAnalytics();
         analyticsSteps.selectACRISClosingSection();
         analyticsSteps.trendsButtonClick();
         acrisClosingSteps.dealVolumeAnnualButtonClick();

@@ -14,7 +14,7 @@ public class ST28_UpdateSettingsAsBroker extends SampleTest {
                 AppProperties.INSTANCE.getProperty("broker_test_password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOpenAccountButton();
+        perchwellSteps.clickOnOpenAccountButton();
         accountSteps.openSettingProfile();
         settingsProfileSteps.changeName();
         settingsProfileSteps.changeCompany();

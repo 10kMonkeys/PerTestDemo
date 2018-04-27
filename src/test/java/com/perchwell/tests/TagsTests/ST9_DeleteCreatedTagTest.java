@@ -22,7 +22,7 @@ public class ST9_DeleteCreatedTagTest extends SampleTest {
 		openedBuildingSteps.ckickDeleteTagButton();
 		tagsSteps.shouldNotSeeCreatedTagUpperCase();
 		openedBuildingSteps.clickBackButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnTagsLabel();
 		tagsSteps.shouldNotSeeCreatedTagUpperCase();
 	}

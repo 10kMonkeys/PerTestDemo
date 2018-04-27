@@ -30,7 +30,7 @@ public class ST23_DiscussionWithExistingClient extends SampleTest {
 		discussionSteps.shouldSeeMessageInDiscussion();
 		discussionSteps.clickOnCloseButton();
 		openedBuildingSteps.clickBackButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnDiscussionsLabel();
 		discussionsListSteps.shouldBeCreatedDiscussionFirst();
 		discussionsListSteps.clickOnFirstDiscussion();
@@ -42,7 +42,7 @@ public class ST23_DiscussionWithExistingClient extends SampleTest {
 		loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));
 		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnDiscussionsLabel();
 		discussionsListSteps.shouldBeLastDiscussionWithBrokerFirst();
 		discussionsListSteps.clickOnFirstDiscussion();

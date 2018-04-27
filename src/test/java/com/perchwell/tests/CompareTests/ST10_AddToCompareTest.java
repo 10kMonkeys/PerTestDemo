@@ -25,7 +25,7 @@ public class ST10_AddToCompareTest extends SampleTest {
 		perchwellSteps.openThirdBuilding();
 		openedBuildingSteps.addToCompare("the third building");
 		openedBuildingSteps.clickBackButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnCompareLabel();
 		compareSteps.clickSwipeUpToRemoveHint();
 		//compareSteps.firstBuildingIsDispayed();

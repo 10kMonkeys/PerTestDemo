@@ -15,7 +15,7 @@ public class DT1_DeleteClientTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOpenAccountButton();
+        perchwellSteps.clickOnOpenAccountButton();
         accountSteps.clickOnClientsLabel();
         clientSteps.addNewClient(ClientGroups.ACTIVELYSEARCHING);
         clientSteps.swipeCreatedClientName();

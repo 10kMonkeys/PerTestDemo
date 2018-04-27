@@ -20,7 +20,7 @@ public class ST7_UseExistingTagForListingTest extends SampleTest {
 		tagsSteps.clickExistingTagLabel();
 		tagsSteps.clickBackButton();
 		openedBuildingSteps.clickBackButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnTagsLabel();
 		tagsSteps.shouldSeeExistingTagUpperCase();
 		tagsSteps.clickUsedTag();

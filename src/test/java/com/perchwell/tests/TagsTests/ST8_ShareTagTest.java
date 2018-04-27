@@ -14,7 +14,7 @@ public class ST8_ShareTagTest extends SampleTest {
 				AppProperties.INSTANCE.getProperty("password"));
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnTagsLabel();
 		myTagsSteps.clickSeveralExistingTagLabel();
 		myTagsSteps.clickTagSearchButton();

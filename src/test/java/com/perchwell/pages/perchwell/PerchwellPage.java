@@ -2,6 +2,7 @@ package com.perchwell.pages.perchwell;
 
 import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
@@ -20,9 +21,9 @@ public class PerchwellPage extends BasePage {
 
 	private int listningsAmmount;
 
-	public PerchwellPage(WebDriver driver) {
-		super(driver);
-	}
+	public static Integer numberOfItemsInListView;
+
+	//region WebElements
 
 	@iOSXCUITFindBy(accessibility = "EDIT SEARCH FILTERS OR SEARCH FOR A SPECIFIC ADDRESS")
 	private WebElement editSearchFiltersHint;
@@ -60,11 +61,8 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "list_view_button")
 	private WebElement listButton;
 
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]")
 	private WebElement currentSearchInTitle;
-
-	@iOSXCUITFindBy(iOSNsPredicate = "**//XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeStaticText[1]")
-	private List<WebElement> aa;
 
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'LISTINGS BY'")
 	private WebElement listingsByButton;
@@ -96,36 +94,37 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS'")
 	private WebElement firstBuildingAddress;
 
-	private By nextBuildingToSwipeDown = By.xpath("//XCUIElementTypeCell[@visible=\"true\"][last()]/following::XCUIElementTypeCell[1]");
-
 	@iOSXCUITFindBy(accessibility = "AccountDetailsHeader")
 	private WebElement initials;
 
 	@iOSXCUITFindBy(accessibility = "RESET PASSWORD")
 	private WebElement resetPassword;
 
-	@iOSXCUITFindBy(accessibility = "TBI") //TBI
+	@iOSXCUITFindBy(accessibility = "TBI")
 	private List<WebElement> buildingsLabels;
 
 	@iOSXCUITFindBy(accessibility = "ADDRESS")
 	private WebElement addressSortButton;
 
-	public static Integer numberOfItemsInListView;
-	// public String buildingAddress;
+	//endregion
+
+	public PerchwellPage(WebDriver driver) {
+		super(driver);
+	}
 
 	public WebElement getThirdBuilding() {
 		return thirdBuilding;
 	}
 
-	public void clickOpenAccountButton() {
+	public void clickOnOpenAccountButton() {
 		element(openAccountButton).click();
 	}
 
-	public void clickMagnifer() {
+	public void clickOnMagnifier() {
 		element(magnifierIcon).click();
 	}
 
-	public void clickEditSearchFiltersHint() {
+	public void clickOnEditSearchFiltersHint() {
 		setImplicitTimeout(1, SECONDS);
 		element(editSearchFiltersHint).click();
 		resetImplicitTimeout();
@@ -135,19 +134,19 @@ public class PerchwellPage extends BasePage {
 		return Helper.isElementDisplayed(editSearchFiltersHint);
 	}
 
-	public void clickManageYourProfileHint() {
+	public void clickOnManageYourProfileHint() {
 		setImplicitTimeout(1, SECONDS);
 		element(manageYourProfileHint).click();
 		resetImplicitTimeout();
 	}
 
-	public void clickTransformDataHint() {
+	public void clickOnTransformDataHint() {
 		setImplicitTimeout(1, SECONDS);
 		element(transformDataHint).click();
 		resetImplicitTimeout();
 	}
 
-	public void clickMap() {
+	public void clickOnMap() {
 		element(map).click();
 	}
 
@@ -165,7 +164,7 @@ public class PerchwellPage extends BasePage {
 		element(secondBuilding).click();
 	}
 
-	public void openThirdBuilding() throws Exception {
+	public void openThirdBuilding() {
 		element(thirdBuilding).click();
 	}
 
@@ -176,8 +175,8 @@ public class PerchwellPage extends BasePage {
 		return element.isDisplayed();
 	}
 
-	public boolean editSearchFiltersHintIsDispalyed() {
-		return element(editSearchFiltersHint).isDisplayed();
+	public void shouldSeeEditSearchFiltersHint() {
+		element(editSearchFiltersHint).shouldBeVisible();
 	}
 
 	public Integer countItemsInListView() {
@@ -197,18 +196,18 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
-		Serenity.setSessionVariable(buildingName).to(buildingAddress);
+		SessionVariables.addValueInSessionVariable(buildingName,buildingAddress);
 	}
 
 	public void openAnalytics() {
 		element(analyticsButton).click();
 	}
 
-	public void clickList() {
+	public void clickOnList() {
 		element(listButton).click();
 	}
 
-	public boolean isElementExistsInEachCell(String element) {
+	public void isElementExistsInEachCell(String element) {
 		boolean isAllCellsContain = true;
 		WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
 		List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
@@ -220,22 +219,19 @@ public class PerchwellPage extends BasePage {
 				}
 			}
 		}
-		return isAllCellsContain;
+		Assert.assertTrue(isAllCellsContain);
 	}
 
-	public void addValueInSessionVariable(String name, String value) {
-		Serenity.setSessionVariable(name).to(value);
+	public void shouldSeeTheSameSearchName(String searchName,String secondSearchName){
+		Assert.assertEquals(searchName,secondSearchName);
 	}
 
-	public String getValueFromSessionVariable(String name) {
-		return Serenity.sessionVariableCalled(name);
+	public void shouldSeePreviouslyCreatedNameOfSearch(String searchName,String secondSearchName){
+		Assert.assertTrue(searchName.equalsIgnoreCase( secondSearchName));
 	}
 
 	public String getCurrentSearchName() {
-		//	String currentName=withTimeoutOf(3,SECONDS).getDriver().findElement(By.xpath ("*//XCUIElementTypeNavigationBar[1]")).getAttribute("name");
-
-		String currentName = currentSearchInTitle.getAttribute("name");
-		return currentName;
+		return currentSearchInTitle.getAttribute("name");
 	}
 
 	public void isContainParticularRooms(String rooms) {
@@ -267,13 +263,13 @@ public class PerchwellPage extends BasePage {
 		element(bathroomsSortButton).click();
 	}
 
-	public void swipeDownUntillNextBuildingVisible () throws Exception {
+	public void swipeDownUntilNextBuildingVisible () throws Exception {
 		setImplicitTimeout(1, SECONDS);
-		Helper.swipeDownUntilElementVisible(getDriver().findElement(nextBuildingToSwipeDown));
+		Helper.swipeDownUntilElementVisible(getDriver().findElement(By.xpath("//XCUIElementTypeCell[@visible=\"true\"][last()]/following::XCUIElementTypeCell[1]")));
 		resetImplicitTimeout();
 	}
 
-	public void clickLastVisibleBuilding () {
+	public void clickOnLastVisibleBuilding () {
 		element(lastVisibleBuilding).click();
 	}
 
@@ -305,8 +301,8 @@ public class PerchwellPage extends BasePage {
 		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bathrooms", roomsInfoList) == 1);
     }
 
-	public boolean isInitialIconDispalyed(){
-		return element(openAccountButton).isDisplayed();
+	public void isInitialIconDispalyed(){
+		element(openAccountButton).shouldBeVisible();
 	}
 
 	public void shouldFilter1Bed1AndHalfBathApplied(String search) {
@@ -348,11 +344,11 @@ public class PerchwellPage extends BasePage {
 		String max = "1000000";
 
 		if (Serenity.hasASessionVariableCalled("min price")) {
-			min = getValueFromSessionVariable("min price");
+			min = SessionVariables.getValueFromSessionVariable("min price");
 		}
 
 		if (Serenity.hasASessionVariableCalled("max price")) {
-			max = getValueFromSessionVariable("max price");
+			max = SessionVariables.getValueFromSessionVariable("max price");
 		}
 		return FilteringAndSortingBuildings.isPriceFilterAppliedOnListings(typePriceFilter, pricesList, min, max);
 	}

@@ -15,7 +15,7 @@ public class ST1_LogInAsClientTest extends SampleTest {
 				AppProperties.INSTANCE.getProperty("client_password"));
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.shouldSeeOptionAgents();
 		accountSteps.shouldSeeOptionDiscussions();
 		accountSteps.shouldSeeOptionTags();

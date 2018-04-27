@@ -14,7 +14,7 @@ public class ATS4_AddREBNYListingsMedianChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickAnalytics();
+        perchwellSteps.clickOnAnalytics();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.medianButtonClick();
         rebnyListingsSteps.addAskingPricePerBedChart();

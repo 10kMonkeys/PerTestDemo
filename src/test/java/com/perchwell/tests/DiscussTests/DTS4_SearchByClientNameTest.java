@@ -14,7 +14,7 @@ public class DTS4_SearchByClientNameTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOpenAccountButton();
+        perchwellSteps.clickOnOpenAccountButton();
         accountSteps.clickOnClientsLabel();
         clientSteps.noteNumberClientsBeforeSearch();
         clientSteps.enterValueInSearchField("Tes");

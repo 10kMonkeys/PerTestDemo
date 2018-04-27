@@ -15,11 +15,11 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 				AppProperties.INSTANCE.getProperty("password"));
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickMyNewSearch();
+		perchwellSteps.clickOnMyNewSearch();
 
 		searchSteps.clickLoadSavedSearchButton();
 		searchSteps.clickExistingSearchInList();
-		perchwellSteps.clickMyNewSearch();
+		perchwellSteps.clickOnMyNewSearch();
 
 		searchSteps.setMinimumPriceFilter("150000");
 		searchSteps.clickFilterStudioBeds();
@@ -29,7 +29,7 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 		searchSteps.setSearchName();
 		searchSteps.clickSaveButton();
 		perchwellSteps.shouldSeePreviouslyCreatedNameOfSearch();
-		perchwellSteps.clickMyNewSearch();
+		perchwellSteps.clickOnMyNewSearch();
 
 		searchSteps.clickLoadSavedSearchButton();
 		searchSteps.shouldSeePreviouslyCreatedSearch();

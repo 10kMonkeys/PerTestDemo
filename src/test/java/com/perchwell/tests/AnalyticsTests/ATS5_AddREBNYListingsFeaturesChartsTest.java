@@ -14,7 +14,7 @@ public class ATS5_AddREBNYListingsFeaturesChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickAnalytics();
+        perchwellSteps.clickOnAnalytics();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.featureButtonClick();
         rebnyListingsSteps.doormanButtonClick();

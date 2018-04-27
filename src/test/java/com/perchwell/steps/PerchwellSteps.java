@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.SessionVariables;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.perchwell.PerchwellPage;
@@ -11,28 +12,28 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void skipAllHints() {
-		onPage.clickEditSearchFiltersHint();
+		onPage.clickOnEditSearchFiltersHint();
 		if (onPage.isEditSearchFiltersHintisDisplayed()) {
-			onPage.clickEditSearchFiltersHint();
+			onPage.clickOnEditSearchFiltersHint();
 		}
-		onPage.clickManageYourProfileHint();
-		onPage.clickTransformDataHint();
+		onPage.clickOnManageYourProfileHint();
+		onPage.clickOnTransformDataHint();
 		onPage.clickExploreSearchResultHint();
 	}
 
 	@Step
-	public void shouldSeeEditSearchFiltersHint() throws Exception {
-		Assert.assertTrue(onPage.editSearchFiltersHintIsDispalyed());
+	public void shouldSeeEditSearchFiltersHint() {
+		onPage.shouldSeeEditSearchFiltersHint();
 	}
 
 	@Step
-	public void clickOpenAccountButton() {
-		onPage.clickOpenAccountButton();
+	public void clickOnOpenAccountButton() {
+		onPage.clickOnOpenAccountButton();
 	}
 
 	@Step
-	public void clickMyNewSearch() {
-		onPage.clickMagnifer();
+	public void clickOnMyNewSearch() {
+		onPage.clickOnMagnifier();
 	}
 
 	@Step
@@ -47,9 +48,7 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void countItemsInListView(String notice) {
-
-		onPage.addValueInSessionVariable(notice, String.valueOf(onPage.countItemsInListView()));
-		//onPage.numberOfItemsInListView= onPage.countItemsInListView();
+		SessionVariables.addValueInSessionVariable(notice, String.valueOf(onPage.countItemsInListView()));
 	}
 
     @Step
@@ -60,24 +59,22 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void countItemsInListViewBeforApplyingFilter(){
-	onPage.numberOfItemsInListView= onPage.countItemsInListView();
+		onPage.numberOfItemsInListView= onPage.countItemsInListView();
 	}
 
 	@Step(" '{0}' and '{1}' should be different")
 	public void resultsCountIsChanged(String quantity_before, String quantity_after) {
-
-		int befor = Integer.parseInt(onPage.getValueFromSessionVariable(quantity_before));
-		int after = Integer.parseInt(onPage.getValueFromSessionVariable(quantity_after));
+		int before = Integer.parseInt(SessionVariables.getValueFromSessionVariable(quantity_before));
+		int after = Integer.parseInt(SessionVariables.getValueFromSessionVariable(quantity_after));
 		System.out.print("Count after" + after);
-		System.out.print("Count before" + befor);
-		Assert.assertTrue(befor != after);
+		System.out.print("Count before" + before);
+		Assert.assertTrue(before != after);
 		//Save new value number of items
-
 	}
 
 	@Step
-	public void clickMap() {
-		onPage.clickMap();
+	public void clickOnMap() {
+		onPage.clickOnMap();
 	}
 
 	@Step
@@ -86,23 +83,23 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickAnalytics() {
+	public void clickOnAnalytics() {
 		onPage.openAnalytics();
 	}
 
 	@Step
-	public void clickList() {
-		onPage.clickList();
+	public void clickOnList() {
+		onPage.clickOnList();
 	}
 
 	@Step("Should see listings only from selected district {0}")
 	public void shouldSeeListingsOnlyFromSelectedDistrict(String city) {
-		Assert.assertTrue(onPage.isElementExistsInEachCell(city));
+		onPage.isElementExistsInEachCell(city);
 	}
 
 	@Step("Should see listing with filters are applyed {0}")
 	public void isFilter1Bath1BedApplied(String search) {
-		Assert.assertTrue(onPage.isElementExistsInEachCell(search));
+		onPage.isElementExistsInEachCell(search);
 	}
 
     @Step("Should see listing with filters are applyed {0}")
@@ -112,21 +109,19 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step("'{0}' and '{1}' should be equal")
 	public void resultsCountIsEqual(String s2, String s1) {
-
-		int number1 = Integer.parseInt(onPage.getValueFromSessionVariable(s1));
-		int number2 = Integer.parseInt(onPage.getValueFromSessionVariable(s2));
+		int number1 = Integer.parseInt(SessionVariables.getValueFromSessionVariable(s1));
+		int number2 = Integer.parseInt(SessionVariables.getValueFromSessionVariable(s2));
 		Assert.assertTrue(number1 == number2);
-
 	}
 
 	@Step
 	public void shouldSeeTheSameSearchName() {
-		Assert.assertEquals(onPage.getCurrentSearchName(), onPage.getValueFromSessionVariable("SearchName"));
+		onPage.shouldSeeTheSameSearchName(onPage.getCurrentSearchName(),SessionVariables.getValueFromSessionVariable("SearchName"));
 	}
 
 	@Step
 	public void shouldSeePreviouslyCreatedNameOfSearch() {
-		Assert.assertTrue(onPage.getCurrentSearchName().equalsIgnoreCase( onPage.getValueFromSessionVariable("Search")));
+		onPage.shouldSeePreviouslyCreatedNameOfSearch(onPage.getCurrentSearchName(),SessionVariables.getValueFromSessionVariable("Search"));
 	}
 
 	@Step
@@ -137,7 +132,6 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListing4AndMoreRooms(String roomType) {
 		onPage.isContains4PlusParticularRooms(roomType);
-
 	}
 
 	@Step
@@ -146,12 +140,12 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickListingsByButton() {
+	public void clickOnListingsByButton() {
 		onPage.clickOnListingsByButton();
 	}
 
 	@Step
-	public void clickBedroomsSortButton() {
+	public void clickOnBedroomsSortButton() {
 		onPage.clickOnBedroomsSortButton();
 	}
 
@@ -166,12 +160,12 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-    public void clickLeastExpensiveButton() {
+    public void clickOnLeastExpensiveButton() {
 	    onPage.clickOnLeastExpensiveButton();
     }
 
     @Step
-    public void clickMostExpensiveButton() {
+    public void clickOnMostExpensiveButton() {
         onPage.clickOnMostExpensiveButton();
     }
 
@@ -196,13 +190,13 @@ public class PerchwellSteps extends ScenarioSteps {
     }
 
     @Step
-	public void clickTotalRoomsSortButton() {
+	public void clickOnTotalRoomsSortButton() {
 		onPage.clickOnTotalRoomsButton();
 	}
 
 	@Step
 	public void shouldSeeInitialIcon() {
-		Assert.assertTrue(onPage.isInitialIconDispalyed());
+		onPage.isInitialIconDispalyed();
 	}
 
 	@Step
@@ -246,7 +240,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickAddressSortButton() {
+	public void clickOnAddressSortButton() {
 		onPage.clickOnAddressSortButton();
 	}
 }

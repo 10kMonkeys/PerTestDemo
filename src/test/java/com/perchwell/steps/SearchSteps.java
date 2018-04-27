@@ -114,7 +114,7 @@ public class SearchSteps extends ScenarioSteps {
 			PerchwellSteps perchwellSteps=new PerchwellSteps();
 			onPage.savedSearchCancelButtonClick();
 			createNewSearchStudioBeds();
-			perchwellSteps.clickMyNewSearch();
+			perchwellSteps.clickOnMyNewSearch();
 			this.clickLoadSavedSearchButton();
 		}
 		onPage.selectFirstSearchAndSaveName();

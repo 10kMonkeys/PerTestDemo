@@ -14,7 +14,7 @@ public class ST29_UpdateSettingsAsClient extends SampleTest {
                 AppProperties.INSTANCE.getProperty("client_test_password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOpenAccountButton();
+        perchwellSteps.clickOnOpenAccountButton();
         accountSteps.openSettingProfile();
         settingsProfileSteps.changeName();
         settingsProfileSteps.changeCompany();
