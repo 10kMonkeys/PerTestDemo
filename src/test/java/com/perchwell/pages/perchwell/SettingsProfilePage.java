@@ -1,12 +1,15 @@
 package com.perchwell.pages.perchwell;
 
-import com.perchwell.helpers.RandomGenerator;
+import com.perchwell.entity.AppProperties;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class SettingsProfilePage extends BasePage {
+
+    //region WebElements
 
     @iOSXCUITFindBy(accessibility = "UserNameTextField")
     private WebElement nameTextBox;
@@ -26,8 +29,10 @@ public class SettingsProfilePage extends BasePage {
     @iOSXCUITFindBy(accessibility = "AccountDetailsCancelButton")
     private WebElement cancelButton;
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name='SettingsViewController']/XCUIElementTypeButton")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar[$name=='SettingsViewController'$]/XCUIElementTypeButton")
     private WebElement backButton;
+
+    //endregion
     
     public SettingsProfilePage(WebDriver driver) {
             super(driver);
@@ -67,5 +72,9 @@ public class SettingsProfilePage extends BasePage {
 
     public void backButtonClick(){
         element(backButton).click();
+    }
+
+    public void isTextBoxChange(String previousText,String newText){
+        Assert.assertTrue(previousText.contains(newText));
     }
 }
