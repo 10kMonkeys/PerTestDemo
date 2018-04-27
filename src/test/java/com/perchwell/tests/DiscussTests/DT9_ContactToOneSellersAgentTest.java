@@ -17,7 +17,7 @@ public class DT9_ContactToOneSellersAgentTest extends SampleTest {
         sellersAgentSteps.findBuildingWithOneSellersAgent();
         sellersAgentSteps.swipeDownUntilSellersAgentSection();
         sellersAgentSteps.clickOnSellersAgentSection();
-        sellersAgentSteps.clickSendEmailButton();
+        sellersAgentSteps.clickOnSendEmailButton();
         sellersAgentSteps.selectConfirmOption();
         sellersAgentSteps.shouldInterestEmailSentToAgent();
     }

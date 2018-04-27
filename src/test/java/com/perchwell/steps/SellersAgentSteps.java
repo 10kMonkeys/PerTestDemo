@@ -5,7 +5,6 @@ import com.perchwell.pages.perchwell.PerchwellPage;
 import com.perchwell.pages.perchwell.SellersAgentPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.junit.Assert;
 
 public class SellersAgentSteps extends ScenarioSteps {
     PerchwellPage perchwellPage;
@@ -39,17 +38,17 @@ public class SellersAgentSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickSendEmailButton() {
-        sellersAgentPage.clickSendEmailButton();
+    public void clickOnSendEmailButton() {
+        sellersAgentPage.clickOnSendEmailButton();
     }
 
     @Step
     public void selectConfirmOption() {
-        sellersAgentPage.clickConfirmButton();
+        sellersAgentPage.clickOnConfirmButton();
     }
 
     @Step
     public void shouldInterestEmailSentToAgent() {
-        Assert.assertTrue(sellersAgentPage.shouldInterestEmailSentToOneAgent());
+        sellersAgentPage.shouldInterestEmailSentToOneAgent();
     }
 }
