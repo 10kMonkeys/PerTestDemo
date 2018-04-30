@@ -2,11 +2,12 @@ package com.perchwell.pages.tags;
 
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class ShareTaggedItemsPage extends BasePage {
+
+    //region WebElements
 
     @iOSXCUITFindBy(accessibility = "ShareTagsSendButton")
     private WebElement sendButton;
@@ -26,6 +27,7 @@ public class ShareTaggedItemsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Done")
     private WebElement doneButton;
 
+    //endregion
 
     public ShareTaggedItemsPage(WebDriver driver) {
         super(driver);
@@ -53,13 +55,5 @@ public class ShareTaggedItemsPage extends BasePage {
 
     public void doneButtonClick(){
         element(doneButton).click();
-    }
-
-    public String getValueFromSessionVariable(String name) {
-        return Serenity.sessionVariableCalled(name);
-    }
-
-    public void addValueInSessionVariable(String name, String value) {
-        Serenity.setSessionVariable(name).to(value);
     }
 }

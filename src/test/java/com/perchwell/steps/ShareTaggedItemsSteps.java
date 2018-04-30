@@ -2,6 +2,7 @@ package com.perchwell.steps;
 
 import com.perchwell.entity.AppProperties;
 import com.perchwell.helpers.RandomGenerator;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.tags.ShareTaggedItemsPage;
 import net.thucydides.core.annotations.Step;
 
@@ -17,8 +18,8 @@ public class ShareTaggedItemsSteps {
 
     @Step
     public void fillInTitle(String title){
-        onPage.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(title));
-        onPage.fillInTitleTextBox(onPage.getValueFromSessionVariable("Report name"));
+        SessionVariables.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(title));
+        onPage.fillInTitleTextBox(SessionVariables.getValueFromSessionVariable("Report name"));
     }
 
     @Step
