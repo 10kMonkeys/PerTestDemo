@@ -16,8 +16,8 @@ public class ST8_ShareTagTest extends SampleTest {
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnTagsLabel();
-		myTagsSteps.clickSeveralExistingTagLabel();
-		myTagsSteps.clickTagSearchButton();
+		myTagsSteps.clickOnSeveralExistingTagLabel();
+		myTagsSteps.clickOnTagSearchButton();
 		selectResultStep.clickTagPDFExportButton();
 		selectResultStep.selectShareTaggedItems();
 		shareTaggedItemsSteps.selectClientEmail();
