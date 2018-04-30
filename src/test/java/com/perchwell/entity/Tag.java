@@ -1,8 +1,11 @@
 package com.perchwell.entity;
 
 public class Tag {
+
     private String uniqueTagName;
-    private  String existingTagname;
+    private  String existingTagName;
+
+
     public void setUniqueTagName(String uniqueTagName) {
         this.uniqueTagName = uniqueTagName;
     }
@@ -11,11 +14,11 @@ public class Tag {
         return uniqueTagName;
     }
 
-    public String getExistingTagname() {
-        return existingTagname;
+    public String getExistingTagName() {
+        return existingTagName;
     }
 
-    public void setExistingTagname(String existingTagname) {
-        this.existingTagname = existingTagname;
+    public void setExistingTagName(String existingTagName) {
+        this.existingTagName = existingTagName;
     }
 }

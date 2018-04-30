@@ -18,7 +18,7 @@ public class ST9_DeleteCreatedTagTest extends SampleTest {
 		openedBuildingSteps.clickDiscussWithMyClientHint();
 		openedBuildingSteps.clickMyTagsLabel();
 		tagsSteps.setRandomTagAndSave();
-		tagsSteps.clickBackButton();
+		tagsSteps.clickOnBackButton();
 		openedBuildingSteps.ckickDeleteTagButton();
 		tagsSteps.shouldNotSeeCreatedTagUpperCase();
 		openedBuildingSteps.clickBackButton();
