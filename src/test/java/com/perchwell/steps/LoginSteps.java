@@ -5,9 +5,7 @@ import com.perchwell.pages.starting.GoogleLoginPage;
 import com.perchwell.pages.starting.LoginPage;
 import com.perchwell.pages.starting.WelcomePage;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.junit.Assert;
 
 public class LoginSteps extends ScenarioSteps {
 
@@ -19,7 +17,7 @@ public class LoginSteps extends ScenarioSteps {
         welcomePage.clickLoginButton();
         loginPage.setEmail(email);
         loginPage.setPassword(password);
-        loginPage.clickLogin();
+        loginPage.clickOnLoginButton();
 
     }
 
