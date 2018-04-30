@@ -14,10 +14,7 @@ import java.util.Set;
 
 public class GoogleLoginPage  extends BasePage {
 
-    public GoogleLoginPage(WebDriver driver) {
-        super(driver);
-    }
-
+	//region WebElements
     @FindBy(xpath= "//*[@id=\"identifierId\"]")
     private WebElement emailTextBox;
 
@@ -36,13 +33,19 @@ public class GoogleLoginPage  extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Choose an account")
 	private WebElement chooseAnAccountLabel;
 
+	//endregion
+
+	public GoogleLoginPage(WebDriver driver) {
+		super(driver);
+	}
+
 	public void selectWebView(){
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 		Set contextNames = appiumDriver.getContextHandles();
 		if (contextNames.size() > 1) {
-			appiumDriver.context((String) contextNames.toArray()[1]); // set context to WEBVIEW_1
+			appiumDriver.context((String) contextNames.toArray()[1]);
 		}
 	}
 
@@ -50,24 +53,28 @@ public class GoogleLoginPage  extends BasePage {
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-		Set contextNames = appiumDriver.getContextHandles();
 		appiumDriver.context("NATIVE_APP");
 	}
 
 	public void setEmail(String email) {
-    //  waitFor(emailTextBox);
 		emailTextBox.sendKeys(email);
     }
 
-    public void clickLogin() { element(identifierNextButton).click(); }
+    public void clickLogin() {
+		element(identifierNextButton).click();
+	}
 
     public void clickNextButton(){
 		element(passwordNextButton).click();
 	}
 
-    public void setPassword(String password) { element(passwordField).sendKeys(password); }
+    public void setPassword(String password) {
+		element(passwordField).sendKeys(password);
+	}
 
-	public void clickExistingAccountDisplayed() { element(existingAccount).click(); }
+	public void clickExistingAccountDisplayed() {
+		element(existingAccount).click();
+	}
 
 	public WebElement getExistingAccount() {
 		selectWebView();

@@ -11,7 +11,6 @@ import org.junit.Assert;
 
 public class LoginSteps extends ScenarioSteps {
 
-  //  Account account;
     WelcomePage welcomePage;
     LoginPage loginPage;
  	GoogleLoginPage googleLoginPage;
@@ -27,7 +26,6 @@ public class LoginSteps extends ScenarioSteps {
     @Step ("Log in as Client: {0}, {1}")
     public void loginAsClient(String email,String password){
       login(email,password);
-       // AppProperties.INSTANCE.getProperty("client_email"), AppProperties.INSTANCE.getProperty("client_password")
     }
 
 	@Step
@@ -39,8 +37,6 @@ public class LoginSteps extends ScenarioSteps {
     public void loginAsBroker(String email,String password){
         login(email,password);
     }
-    // AppProperties.INSTANCE.getProperty("email"), AppProperties.INSTANCE.getProperty("password")
-
     @Step ("Log in with Google ")
     public void loginWithGoogle() {
         welcomePage.clickConnectWith();
@@ -61,5 +57,4 @@ public class LoginSteps extends ScenarioSteps {
             googleLoginPage.selectNativeView();
         };
     }
-
 }
