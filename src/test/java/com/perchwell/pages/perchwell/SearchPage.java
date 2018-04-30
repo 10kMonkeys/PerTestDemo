@@ -2,12 +2,11 @@ package com.perchwell.pages.perchwell;
 
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.serenitybdd.core.Serenity;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
@@ -29,7 +28,6 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeButton")
 	private WebElement deleteFirstLocationButton;
 
-	//@iOSXCUITFindBy(accessibility = "APPLY")
 	@iOSXCUITFindBy(accessibility = "ApplySearchButton")
 	private WebElement applySearchButton;
 
@@ -195,15 +193,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Fireplace-SELECTED")
 	private WebElement selectedFireplaceFilter;
 
-	private String getFirstLocationName() {
-		return firstLocation.getAttribute("name");
-	}
-
-	public void clickDeleteFirstLocation() {
-		deleteFirstLocationButton.click();
-	}
-
-	public void clickApplyButton() {
+	public void clickOnApplyButton() {
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
@@ -211,7 +201,7 @@ public class SearchPage extends BasePage {
 		applySearchButton.click();
 	}
 
-	public void clickDeleteSecondLocation() {
+	public void clickOnDeleteSecondLocation() {
 		deleteSecondLocationButton.click();
 	}
 
@@ -235,38 +225,27 @@ public class SearchPage extends BasePage {
 		element(loadSavedSearchButton).click();
 	}
 
-	public void clickTapToSaveChanges() {
+	public void clickOnTapToSaveChanges() {
 		element(tapToSaveChanges).click();
 	}
 
-	public void clickSaveButton() {
+	public void clickOnSaveButton() {
 		element(saveButton).click();
 	}
 
 	public void setSearchName(String search) {
-
 		element(searchName).sendKeys(search);
 	}
 
 	public String generateRandomString(String str) {
-
 		return RandomGenerator.getRandomString(str);
 	}
 
-	public void addValueInSessionVariable(String name, String value) {
-		Serenity.setSessionVariable(name).to(value);
-	}
-
-	public String getValueFromSessionVariable(String name) {
-		return Serenity.sessionVariableCalled(name);
-	}
-
-	public void clickPreviouslyCreatedSearch(String search) {
+	public void clickOnPreviouslyCreatedSearch(String search) {
 		getDriver().findElement(By.name(search.toUpperCase())).click();
 	}
 
 	public void shouldSeePreviouslyCreatedSearch(String search) {
-
 		WebElement previouslyCreatedSearch = element(By.name(search.toUpperCase()));
 		//Helper.scrollToElement(previouslyCreatedSearch);
 		element(previouslyCreatedSearch).shouldBeVisible();
@@ -280,7 +259,7 @@ public class SearchPage extends BasePage {
 		element(filterForStudioBeds).click();
 	}
 
-	public void clickFilterStudioBeds() {
+	public void clickOnFilterStudioBeds() {
 		if (element(selectedFilterForStudioBeds).isPresent()) {
 			element(selectedFilterForStudioBeds).click();
 		} else {
@@ -325,14 +304,11 @@ public class SearchPage extends BasePage {
 		element(deleteTagButtonMANHATTAN).click();
 	}
 
-	public void addLocationFilterAlphabetCity() {
-	}
-
 	public void clickOnLocationFilter() {
 		element(searchNeihborhoods).click();
 	}
 
-	public void clickThirdSearchInList() {
+	public void clickOnThirdSearchInList() {
 		element(thirdSearchInList).click();
 	}
 
@@ -343,7 +319,7 @@ public class SearchPage extends BasePage {
 	public void selectFirstSearchAndSaveName() {
 		String searchName = firstSearchInList.getAttribute("name");
 		System.out.print("Search name" + searchName);
-		addValueInSessionVariable("SearchName", searchName);
+		SessionVariables.addValueInSessionVariable("SearchName", searchName);
 		firstSearchInList.click();
 	}
 
@@ -387,7 +363,7 @@ public class SearchPage extends BasePage {
 		element(filterFor1Bed).click();
 	}
 
-	public void clickFilter1Bed() {
+	public void clickOnFilter1Bed() {
 		element(filter1BedSelectedOrNot).click();
 	}
 
@@ -429,18 +405,19 @@ public class SearchPage extends BasePage {
 		element(deleteSearchButton).click();
 	}
 
-	public boolean isDeletedSearch(String name) {
-		return Helper.isElementDisplayed(element(MobileBy.AccessibilityId(name)));
+	public void shouldDeleteSearch() {
+		String search = SessionVariables.getValueFromSessionVariable("Search");
+		element(MobileBy.AccessibilityId(search)).shouldNotBeVisible();
 	}
 
 	public void setUpSessionVariableForStatusFilter(WebElement name) {
 		String selected = name.getAttribute("name");
 
 		if (!selected.contains("selected")) {
-			addValueInSessionVariable("status filter", "not selected");
+			SessionVariables.addValueInSessionVariable("status filter", "not selected");
 			return;
 		}
-		addValueInSessionVariable("status filter", "selected");
+		SessionVariables.addValueInSessionVariable("status filter", "selected");
 	}
 
 	public WebElement getFilterFor1Bed() {
@@ -456,7 +433,7 @@ public class SearchPage extends BasePage {
 
 	public boolean isMinPriceSaved() {
 		boolean minPriceSaved = false;
-		String minPriceEnteredPreviously = getValueFromSessionVariable("min price");
+		String minPriceEnteredPreviously = SessionVariables.getValueFromSessionVariable("min_price");
 		String minPriceInFilter = getValueFromMinPriceFilter();
 
 		if (minPriceEnteredPreviously.equalsIgnoreCase(minPriceInFilter)) {
@@ -465,9 +442,13 @@ public class SearchPage extends BasePage {
 		return minPriceSaved;
 	}
 
+	public void shouldMinPriceHaveTheSameValue() {
+		Assert.assertTrue(isMinPriceSaved());
+	}
+
 	public boolean isFilterFor1BedSaved() {
 		boolean filterFor1BedSaved = false;
-		String statusFilterPreviously = getValueFromSessionVariable("status filter");
+		String statusFilterPreviously = SessionVariables.getValueFromSessionVariable("status filter");
 		String statusFilter = filter1BedSelectedOrNot.getAttribute("name");
 
 		if ((statusFilterPreviously.equals("selected") && statusFilter.contains("selected"))
@@ -476,6 +457,10 @@ public class SearchPage extends BasePage {
 		}
 
 		return filterFor1BedSaved;
+	}
+
+	public void shouldFilter1BedBeOfTheSameStatus() {
+		Assert.assertTrue(isFilterFor1BedSaved());
 	}
 
 	public void deselectFilterStudioBeds() {
@@ -557,6 +542,10 @@ public class SearchPage extends BasePage {
 			emptyPricesFilters = false;
 		}
 		return emptyPricesFilters;
+	}
+
+	public void shouldNoOnePriceFilterBeSelected() {
+		Assert.assertTrue(isMinAndMaxPricesNotSet());
 	}
 
     public void deselectActiveFilter() {

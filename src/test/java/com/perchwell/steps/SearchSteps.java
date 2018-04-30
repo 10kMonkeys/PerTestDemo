@@ -1,21 +1,21 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.SearchPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.junit.Assert;
 
 public class SearchSteps extends ScenarioSteps {
 	SearchPage onPage;
 
 	@Step
-	public void clickDeleteSecondLocation() {
-		onPage.clickDeleteSecondLocation();
+	public void clickOnDeleteSecondLocation() {
+		onPage.clickOnDeleteSecondLocation();
 	}
 
 	@Step
-	public void clickApplyButton() {
-		onPage.clickApplyButton();
+	public void clickOnApplyButton() {
+		onPage.clickOnApplyButton();
 	}
 
 	@Step
@@ -35,36 +35,36 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickLoadSavedSearchButton() {
+	public void clickOnLoadSavedSearchButton() {
 		onPage.clickLoadSavedSearchButton();
 	}
 
 	@Step
-	public void clickTapToSaveChanges() {
-		onPage.clickTapToSaveChanges();
+	public void clickOnTapToSaveChanges() {
+		onPage.clickOnTapToSaveChanges();
 	}
 
 	public void setSearchName() {
-		onPage.addValueInSessionVariable("Search", onPage.generateRandomString("SEARCH"));
-		onPage.setSearchName(onPage.getValueFromSessionVariable("Search"));
+		SessionVariables.addValueInSessionVariable("Search", onPage.generateRandomString("SEARCH"));
+		onPage.setSearchName(SessionVariables.getValueFromSessionVariable("Search"));
 	}
 
-	public void clickSaveButton() {
-		onPage.clickSaveButton();
+	public void clickOnSaveButton() {
+		onPage.clickOnSaveButton();
 	}
 
-	public void clickPreviouslyCreatedSearch() {
-		onPage.clickPreviouslyCreatedSearch(onPage.getValueFromSessionVariable("Search"));
+	public void clickOnPreviouslyCreatedSearch() {
+		onPage.clickOnPreviouslyCreatedSearch(SessionVariables.getValueFromSessionVariable("Search"));
 	}
 
 	public void shouldSeePreviouslyCreatedSearch() {
-		onPage.shouldSeePreviouslyCreatedSearch(onPage.getValueFromSessionVariable("Search"));
+		onPage.shouldSeePreviouslyCreatedSearch(SessionVariables.getValueFromSessionVariable("Search"));
 	}
 
 	@Step
 	public void setMinimumPriceFilter(String amount) {
 		onPage.setMinimumPriceFilter(amount);
-		onPage.addValueInSessionVariable("min price", amount);
+		SessionVariables.addValueInSessionVariable("min_price", amount);
 	}
 
 	@Step
@@ -73,8 +73,8 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickFilterStudioBeds() {
-		onPage.clickFilterStudioBeds();
+	public void clickOnFilterStudioBeds() {
+		onPage.clickOnFilterStudioBeds();
 	}
 
 	@Step
@@ -91,34 +91,31 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void addLocationFilter() {
 		onPage.clickOnLocationFilter();
-//		onPage.addLocationFilterAlphabetCity();
 	}
 
 	@Step
-	public void clickThirdSearchInList() {
-		onPage.clickThirdSearchInList();
+	public void clickOnThirdSearchInList() {
+		onPage.clickOnThirdSearchInList();
 	}
 
 	private void createNewSearchStudioBeds() {
 		onPage.selectFilterStudioBeds();
-		this.clickTapToSaveChanges();
+		this.clickOnTapToSaveChanges();
 		this.setSearchName();
-		this.clickSaveButton();
+		this.clickOnSaveButton();
 	}
 
 	@Step
-	public void clickExistingSearchInList() {
+	public void clickOnExistingSearchInList() {
 
 		if (!onPage.isAnySearchExist()) {
-
-			PerchwellSteps perchwellSteps=new PerchwellSteps();
+			PerchwellSteps perchwellSteps = new PerchwellSteps();
 			onPage.savedSearchCancelButtonClick();
 			createNewSearchStudioBeds();
 			perchwellSteps.clickOnMyNewSearch();
-			this.clickLoadSavedSearchButton();
+			this.clickOnLoadSavedSearchButton();
 		}
 		onPage.selectFirstSearchAndSaveName();
-
 	}
 
 	@Step
@@ -129,16 +126,6 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void saveAsOptionSelect() {
 		onPage.saveAsOptionSelect();
-	}
-
-	@Step
-	public void clickActiveFilter(){
-		onPage.setFilterActive();
-	}
-
-	@Step
-	public void isBuildingsFilteredAfterApplyingStatusFilter() throws Exception {
-		Assert.assertTrue(onPage.isElementExistsInEachCell(onPage.getValueFromSessionVariable("filterName")));
 	}
 
 	@Step
@@ -172,8 +159,8 @@ public class SearchSteps extends ScenarioSteps {
     }
 
 	@Step
-	public void clickFilter1Bed() {
-		onPage.clickFilter1Bed();
+	public void clickOnFilter1Bed() {
+		onPage.clickOnFilter1Bed();
 		onPage.setUpSessionVariableForStatusFilter(onPage.getFilterFor1Bed());
 	}
 
@@ -189,9 +176,9 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void saveCurrentSearch() {
-		this.clickTapToSaveChanges();
+		this.clickOnTapToSaveChanges();
 		this.setSearchName();
-		this.clickSaveButton();
+		this.clickOnSaveButton();
 	}
 
 	@Step
@@ -225,7 +212,7 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void swipeCreatedSearch() throws Exception {
-		onPage.swipeCreatedSearch(onPage.getValueFromSessionVariable("Search"));
+		onPage.swipeCreatedSearch(SessionVariables.getValueFromSessionVariable("Search"));
 	}
 
 	@Step
@@ -235,17 +222,17 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldDeleteSearch() {
-		Assert.assertFalse(onPage.isDeletedSearch(onPage.getValueFromSessionVariable("Search")));
+		onPage.shouldDeleteSearch();
 	}
 
 	@Step
 	public void shouldMinPriceHaveTheSameValue() {
-		Assert.assertTrue(onPage.isMinPriceSaved());
+		onPage.shouldMinPriceHaveTheSameValue();
 	}
 
 	@Step
 	public void shouldFilter1BedBeOfTheSameStatus() {
-		Assert.assertTrue(onPage.isFilterFor1BedSaved());
+		onPage.shouldFilter1BedBeOfTheSameStatus();
 	}
 
 	@Step
@@ -301,12 +288,12 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void setMaximumPriceFilter(String amount) {
 		onPage.setMaximumPriceFilter(amount);
-		onPage.addValueInSessionVariable("max price", amount);
+		SessionVariables.addValueInSessionVariable("max_price", amount);
 	}
 
 	@Step
 	public void checkNoOnePriceFilterSelected() {
-		Assert.assertTrue(onPage.isMinAndMaxPricesNotSet());
+		onPage.shouldNoOnePriceFilterBeSelected();
 	}
 
 	@Step

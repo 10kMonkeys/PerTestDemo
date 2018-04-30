@@ -343,12 +343,12 @@ public class PerchwellPage extends BasePage {
 		String min = "0";
 		String max = "1000000";
 
-		if (Serenity.hasASessionVariableCalled("min price")) {
-			min = SessionVariables.getValueFromSessionVariable("min price");
+		if (Serenity.hasASessionVariableCalled("min_price")) {
+			min = SessionVariables.getValueFromSessionVariable("min_price");
 		}
 
-		if (Serenity.hasASessionVariableCalled("max price")) {
-			max = SessionVariables.getValueFromSessionVariable("max price");
+		if (Serenity.hasASessionVariableCalled("max_price")) {
+			max = SessionVariables.getValueFromSessionVariable("max_price");
 		}
 		return FilteringAndSortingBuildings.isPriceFilterAppliedOnListings(typePriceFilter, pricesList, min, max);
 	}
