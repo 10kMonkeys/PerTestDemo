@@ -1,7 +1,6 @@
 package com.perchwell.tests.LogInTests;
 
 import com.perchwell.SampleTest;
-import com.perchwell.email.NewInstanceDriverForCheckEmail;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
@@ -11,8 +10,8 @@ public class ST4_LogInAfterResetPasswordTest extends SampleTest {
 
     @Test
     public void logInAfterResetPasswordTest() throws Exception{
-        loginSteps.clickLoginButton();
-        resetPasswordSteps.clickForgotPassword();
+        loginSteps.clickOnLoginButton();
+        resetPasswordSteps.clickOnForgotPassword();
         resetPasswordSteps.setRestEmail(AppProperties.INSTANCE.getProperty("reset_email"));
         resetPasswordSteps.resetPasswordButtonClick();
         resetPasswordSteps.shouldFindSentEmail();

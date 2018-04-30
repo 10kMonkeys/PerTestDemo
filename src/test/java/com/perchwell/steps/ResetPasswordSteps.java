@@ -56,7 +56,9 @@ public class ResetPasswordSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickForgotPassword() { welcomePage.clickForgotPassword(); }
+    public void clickOnForgotPassword() {
+        welcomePage.clickOnForgotPassword();
+    }
 
     @Step
     public void login (String email, String password) {

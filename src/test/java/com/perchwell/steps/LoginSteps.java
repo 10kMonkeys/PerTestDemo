@@ -14,7 +14,7 @@ public class LoginSteps extends ScenarioSteps {
  	GoogleLoginPage googleLoginPage;
 
     private void login (String email, String password) {
-        welcomePage.clickLoginButton();
+        welcomePage.clickOnLoginButton();
         loginPage.setEmail(email);
         loginPage.setPassword(password);
         loginPage.clickOnLoginButton();
@@ -27,8 +27,8 @@ public class LoginSteps extends ScenarioSteps {
     }
 
 	@Step
-	public void clickLoginButton(){
-		welcomePage.clickLoginButton();
+	public void clickOnLoginButton(){
+		welcomePage.clickOnLoginButton();
 	}
 
     @Step ("Log in as Broker: {0}, {1}")
@@ -37,14 +37,13 @@ public class LoginSteps extends ScenarioSteps {
     }
     @Step ("Log in with Google ")
     public void loginWithGoogle() {
-        welcomePage.clickConnectWith();
+        welcomePage.clickOnConnectWith();
         if (welcomePage.isElementDisplayed(welcomePage.getUseGoogleComMsg())){
-            welcomePage.clickContinueButton();
+            welcomePage.clickOnContinueButton();
         };
         if (googleLoginPage.isElementDisplayed(googleLoginPage.getExistingAccount())) {
             googleLoginPage.clickExistingAccountDisplayed();
             googleLoginPage.selectNativeView();
-            //welcomePage.clickConnectWith();
         }
         else {
             googleLoginPage.selectWebView();

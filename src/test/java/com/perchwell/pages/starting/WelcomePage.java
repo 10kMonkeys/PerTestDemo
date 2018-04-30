@@ -10,16 +10,13 @@ import com.perchwell.pages.base.BasePage;
 
 public class WelcomePage extends BasePage {
 
-    public WelcomePage(WebDriver driver) {
-        super (driver);
-    }
+	//region WebElements
 
-    @AndroidFindBy(id="com.perchwell.perchwellapp:id/log_in" )
+    @AndroidFindBy(id="com.perchwell.perchwellapp:id/log_in")
     @iOSXCUITFindBy(accessibility = "LOG IN")
     private WebElement loginButton;
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeButton")
-    		//accessibility = "CONNECT WITH"
+    @iOSXCUITFindBy(accessibility = "CONNECT WITH")
     private WebElement connectWithButton;
 
     @iOSXCUITFindBy(accessibility = "“Perchwell Staging” Wants to Use “google.com” to Sign In")
@@ -31,23 +28,32 @@ public class WelcomePage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "FORGOT PASSWORD")
 	private WebElement forgotPassword;
 
-    public void clickConnectWith() { element(connectWithButton).click(); }
+	//endregion
 
-	public void clickForgotPassword() { element(forgotPassword).click(); }
+	public WelcomePage(WebDriver driver) {
+		super (driver);
+	}
 
-    public void clickLoginButton(){
+    public void clickOnConnectWith() {
+		element(connectWithButton).click();
+	}
+
+	public void clickOnForgotPassword() {
+		element(forgotPassword).click();
+	}
+
+    public void clickOnLoginButton(){
         element(loginButton).click();
     }
 
-	public void clickContinueButton(){
+	public void clickOnContinueButton(){
 		element(continueButton).click();
 	}
 
 	public WebElement getUseGoogleComMsg() {
 		return useGoogleComMsg;
 	}
-
-
+	
 	public boolean isElementDisplayed(WebElement element) {
 		try {
 			return element.isDisplayed();
