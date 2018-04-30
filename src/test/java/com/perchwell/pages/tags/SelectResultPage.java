@@ -6,18 +6,15 @@ import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.serenitybdd.core.Serenity;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class SelectResultPage extends BasePage {
 
-	public SelectResultPage(WebDriver driver) {
-		super(driver);
-	}
+	//region WebElements
 
 	@iOSXCUITFindBy(accessibility = "OK")
-	private WebElement reportSemtOkButton;
+	private WebElement reportSentOkButton;
 
 	@iOSXCUITFindBy(accessibility = "MY EMAIL")
 	private WebElement myEmailOption;
@@ -34,23 +31,28 @@ public class SelectResultPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SHARE TAGGED ITEMS")
 	private WebElement shareTaggedItems;
 
-	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
 	@iOSXCUITFindBy(accessibility = "generic_text_input_field")
 	private WebElement nameThisReport;
 
-	public void clickTagPDFExportButton() {
+	//endregion
+
+	public SelectResultPage(WebDriver driver) {
+		super(driver);
+	}
+
+	public void clickOnTagPDFExportButton() {
 		element(tagPDFExportButton).click();
 	}
 
-	public void clickClientOption() {
+	public void clickOnClientOption() {
 		element(clientOption).click();
 	}
 
-	public void clickSaveButton() {
+	public void clickOnSaveButton() {
 		element(saveButton).click();
 	}
 
-	public void clickMyEmailOption() {
+	public void clickOnMyEmailOption() {
 		element(myEmailOption).click();
 	}
 
@@ -58,16 +60,8 @@ public class SelectResultPage extends BasePage {
 		element(nameThisReport).sendKeys(reportName);
 	}
 
-	public void addValueInSessionVariable(String name, String value) {
-		Serenity.setSessionVariable(name).to(value);
-	}
-
-	public void clickReportSentOkButton() {
-		reportSemtOkButton.click();
-	}
-
-	public String getValueFromSessionVariable(String name) {
-		return Serenity.sessionVariableCalled(name);
+	public void clickOnReportSentOkButton() {
+		reportSentOkButton.click();
 	}
 
 	public Boolean shouldFindSentEmail(String report_name) {

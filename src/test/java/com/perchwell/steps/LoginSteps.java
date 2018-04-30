@@ -18,7 +18,6 @@ public class LoginSteps extends ScenarioSteps {
         loginPage.setEmail(email);
         loginPage.setPassword(password);
         loginPage.clickOnLoginButton();
-
     }
 
     @Step ("Log in as Client: {0}, {1}")
@@ -35,6 +34,7 @@ public class LoginSteps extends ScenarioSteps {
     public void loginAsBroker(String email,String password){
         login(email,password);
     }
+
     @Step ("Log in with Google ")
     public void loginWithGoogle() {
         welcomePage.clickOnConnectWith();

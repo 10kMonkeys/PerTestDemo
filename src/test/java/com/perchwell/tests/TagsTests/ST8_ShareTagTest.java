@@ -18,7 +18,7 @@ public class ST8_ShareTagTest extends SampleTest {
 		accountSteps.clickOnTagsLabel();
 		myTagsSteps.clickOnSeveralExistingTagLabel();
 		myTagsSteps.clickOnTagSearchButton();
-		selectResultStep.clickTagPDFExportButton();
+		selectResultStep.clickOnTagPDFExportButton();
 		selectResultStep.selectShareTaggedItems();
 		shareTaggedItemsSteps.selectClientEmail();
 		shareTaggedItemsSteps.fillInTitle("Test client");
