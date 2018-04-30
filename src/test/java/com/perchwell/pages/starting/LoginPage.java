@@ -17,6 +17,7 @@ public class LoginPage extends BasePage {
 
     private Random random = new Random();
 
+    //region WebElements
 
     @AndroidFindBy(id ="com.perchwell.perchwellapp:id/email" )
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField")
@@ -44,6 +45,8 @@ public class LoginPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "OK")
     private WebElement okButton;
+
+    //endregion
 
     public LoginPage(WebDriver driver) {
         super (driver);
@@ -99,8 +102,8 @@ public class LoginPage extends BasePage {
         element(backButton).click();
     }
 
-    public boolean isAccountNeededToSignInMessageDisplayed(){
-       return element(accountNeededToSignInText).isDisplayed();
+    public void shouldSeeAccountNeededToSignInMessage(){
+       element(accountNeededToSignInText).shouldBeVisible();
     }
 
     public void okButtonCLick(){

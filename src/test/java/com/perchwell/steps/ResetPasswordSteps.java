@@ -47,7 +47,7 @@ public class ResetPasswordSteps extends ScenarioSteps {
 
     @Step
     public void isAccountNeededToSignInMessageDisplayed(){
-        Assert.assertTrue(loginPage.isAccountNeededToSignInMessageDisplayed());
+        loginPage.shouldSeeAccountNeededToSignInMessage();
     }
 
     @Step
@@ -61,7 +61,7 @@ public class ResetPasswordSteps extends ScenarioSteps {
     }
 
     @Step
-    public void login (String email, String password) {
+    public void login(String email, String password) {
         loginPage.setEmail(email);
         loginPage.setPassword(password);
         loginPage.clickOnLoginButton();
