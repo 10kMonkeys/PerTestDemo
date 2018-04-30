@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
 public class SearchSteps extends ScenarioSteps {
+
 	SearchPage onPage;
 
 	@Step
@@ -107,7 +108,6 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnExistingSearchInList() {
-
 		if (!onPage.isAnySearchExist()) {
 			PerchwellSteps perchwellSteps = new PerchwellSteps();
 			onPage.savedSearchCancelButtonClick();
@@ -187,7 +187,7 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickResetFilter() {
+	public void clickOnResetFilter() {
 		onPage.clickOnResetFilters();
 	}
 

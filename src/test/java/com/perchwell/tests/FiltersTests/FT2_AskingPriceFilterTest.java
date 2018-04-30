@@ -42,7 +42,7 @@ public class FT2_AskingPriceFilterTest extends SampleTest {
         searchSteps.clickOnPreviouslyCreatedSearch();
         perchwellSteps.shouldSeeListingsBetweenMinAndMaxPrices();
         perchwellSteps.clickOnMyNewSearch();
-        searchSteps.clickResetFilter();
+        searchSteps.clickOnResetFilter();
         searchSteps.checkNoOnePriceFilterSelected();
         searchSteps.clickOnApplyButton();
         perchwellSteps.checkListingsQuantity();

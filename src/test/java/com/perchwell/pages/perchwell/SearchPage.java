@@ -18,9 +18,7 @@ import java.util.List;
 
 public class SearchPage extends BasePage {
 
-	public SearchPage(WebDriver driver) {
-		super(driver);
-	}
+	//region WebElements
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeStaticText")
 	private WebElement firstLocation;
@@ -193,6 +191,12 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Fireplace-SELECTED")
 	private WebElement selectedFireplaceFilter;
 
+	//endregion
+
+	public SearchPage(WebDriver driver) {
+		super(driver);
+	}
+
 	public void clickOnApplyButton() {
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
@@ -247,7 +251,6 @@ public class SearchPage extends BasePage {
 
 	public void shouldSeePreviouslyCreatedSearch(String search) {
 		WebElement previouslyCreatedSearch = element(By.name(search.toUpperCase()));
-		//Helper.scrollToElement(previouslyCreatedSearch);
 		element(previouslyCreatedSearch).shouldBeVisible();
 	}
 
@@ -431,7 +434,7 @@ public class SearchPage extends BasePage {
 		return minPrice;
 	}
 
-	public boolean isMinPriceSaved() {
+	private boolean isMinPriceSaved() {
 		boolean minPriceSaved = false;
 		String minPriceEnteredPreviously = SessionVariables.getValueFromSessionVariable("min_price");
 		String minPriceInFilter = getValueFromMinPriceFilter();
@@ -446,7 +449,7 @@ public class SearchPage extends BasePage {
 		Assert.assertTrue(isMinPriceSaved());
 	}
 
-	public boolean isFilterFor1BedSaved() {
+	private boolean isFilterFor1BedSaved() {
 		boolean filterFor1BedSaved = false;
 		String statusFilterPreviously = SessionVariables.getValueFromSessionVariable("status filter");
 		String statusFilter = filter1BedSelectedOrNot.getAttribute("name");
@@ -481,7 +484,6 @@ public class SearchPage extends BasePage {
 
 	public void checkNoOneBedsFilterSelected() {
 		SoftAssertions softAssert = new SoftAssertions();
-
 		softAssert.assertThat(Helper.isElementDisplayed(element(filterForStudioBeds))).isTrue();
 		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor1Bed))).isTrue();
 		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor2Beds))).isTrue();
@@ -508,7 +510,6 @@ public class SearchPage extends BasePage {
 
 	public void checkNoOneBathsFilterSelected() {
 		SoftAssertions softAssert = new SoftAssertions();
-
 		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor1Bath))).isTrue();
 		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor1AndHalfBath))).isTrue();
 		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor2Baths))).isTrue();
@@ -533,7 +534,7 @@ public class SearchPage extends BasePage {
 		}
 	}
 
-	public boolean isMinAndMaxPricesNotSet() {
+	private boolean isMinAndMaxPricesNotSet() {
 		boolean emptyPricesFilters = true;
 		String maxPriceFilter = element(maximumPriceTextBox).getAttribute("value");
 		String minPriceFilter = element(minimumPriceTextBox).getAttribute("value");
@@ -570,7 +571,6 @@ public class SearchPage extends BasePage {
 
     public void checkSalesAndActiveFiltersSelected() {
         SoftAssertions softAssert = new SoftAssertions();
-
         softAssert.assertThat(Helper.isElementDisplayed(element(selectedActiveFilter))).isTrue();
         softAssert.assertThat(Helper.isElementDisplayed(element(selectedSalesFilter))).isTrue();
         softAssert.assertAll();

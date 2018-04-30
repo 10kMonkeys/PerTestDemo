@@ -52,7 +52,7 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
 //            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter(); //24 //Rented label SEARCH PAGE??
 //            perchwellSteps.shouldSeeListingOnlyWithLabel("RentedBanner");
             perchwellSteps.clickOnMyNewSearch();
-            searchSteps.clickResetFilter();
+            searchSteps.clickOnResetFilter();
 //            searchSteps.checkSalesAndActiveFiltersSelected();
             searchSteps.clickOnApplyButton();
             perchwellSteps.checkListingsQuantity();

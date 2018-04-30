@@ -50,7 +50,7 @@ public class FT3_ApplyingBathroomsFilterTest extends SampleTest {
         searchSteps.clickOnPreviouslyCreatedSearch();
         perchwellSteps.shouldSeeListing4AndMoreRooms("bathrooms");
         perchwellSteps.clickOnMyNewSearch();
-        searchSteps.clickResetFilter();
+        searchSteps.clickOnResetFilter();
         searchSteps.checkNoOneBathsFilterSelected();
         searchSteps.clickOnApplyButton();
         perchwellSteps.checkListingsQuantity();

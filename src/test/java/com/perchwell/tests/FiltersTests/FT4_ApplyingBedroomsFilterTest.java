@@ -52,7 +52,7 @@ public class FT4_ApplyingBedroomsFilterTest extends SampleTest {
         searchSteps.clickOnPreviouslyCreatedSearch();
         perchwellSteps.shouldSeeListing4AndMoreRooms("bedrooms");
         perchwellSteps.clickOnMyNewSearch();
-        searchSteps.clickResetFilter();
+        searchSteps.clickOnResetFilter();
         searchSteps.checkNoOneBedsFilterSelected();
         searchSteps.clickOnApplyButton();
         perchwellSteps.checkListingsQuantity();
