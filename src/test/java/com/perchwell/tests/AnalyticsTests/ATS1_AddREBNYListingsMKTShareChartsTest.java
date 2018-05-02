@@ -14,7 +14,7 @@ public class ATS1_AddREBNYListingsMKTShareChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickAnalytics();
+        perchwellSteps.clickOnAnalytics();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.mktShareButtonClick();
         rebnyListingsSteps.addBedroomsChart();
@@ -32,9 +32,9 @@ public class ATS1_AddREBNYListingsMKTShareChartsTest extends SampleTest {
         analyticsSteps.selectREBNYListingsWithMKTShare();
         rebnyListingsSteps.addAndVerifyFireplaceChart();
         analyticsSteps.clickMyNewSearch();
-        searchSteps.clickLoadSavedSearchButton();
+        searchSteps.clickOnLoadSavedSearchButton();
         searchSteps.createNewSearchClick();
-        searchSteps.clickApplyButton();
+        searchSteps.clickOnApplyButton();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.mktShareButtonClick();
         rebnyListingsSteps.addAndVerifyGarageChart();
@@ -49,9 +49,9 @@ public class ATS1_AddREBNYListingsMKTShareChartsTest extends SampleTest {
         analyticsSteps.selectREBNYListingsWithMKTShare();
         rebnyListingsSteps.addAndVerifyPoolChart();
         analyticsSteps.clickMyNewSearch();
-        searchSteps.clickLoadSavedSearchButton();
+        searchSteps.clickOnLoadSavedSearchButton();
         searchSteps.createNewSearchClick();
-        searchSteps.clickApplyButton();
+        searchSteps.clickOnApplyButton();
         analyticsSteps.rebnyListingsButtonClick();
         analyticsSteps.mktShareButtonClick();
         rebnyListingsSteps.addAndVerifyPrewarChart();

@@ -2,6 +2,7 @@ package com.perchwell.steps;
 
 import com.perchwell.email.NewInstanceSafariDriver;
 import com.perchwell.entity.AppProperties;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.starting.LoginPage;
 import com.perchwell.pages.starting.WelcomePage;
 import net.thucydides.core.annotations.Step;
@@ -31,7 +32,7 @@ public class ResetPasswordSteps extends ScenarioSteps {
 
     @Step
     public void getResetToken(){
-        loginPage.getResetToken(loginPage.getValueFromSessionVariable("emailText"));
+        loginPage.getResetToken(SessionVariables.getValueFromSessionVariable("emailText"));
     }
 
     @Step
@@ -46,7 +47,7 @@ public class ResetPasswordSteps extends ScenarioSteps {
 
     @Step
     public void isAccountNeededToSignInMessageDisplayed(){
-        Assert.assertTrue(loginPage.isAccountNeededToSignInMessageDisplayed());
+        loginPage.shouldSeeAccountNeededToSignInMessage();
     }
 
     @Step
@@ -55,13 +56,15 @@ public class ResetPasswordSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickForgotPassword() { welcomePage.clickForgotPassword(); }
+    public void clickOnForgotPassword() {
+        welcomePage.clickOnForgotPassword();
+    }
 
     @Step
-    public void login (String email, String password) {
+    public void login(String email, String password) {
         loginPage.setEmail(email);
         loginPage.setPassword(password);
-        loginPage.clickLogin();
+        loginPage.clickOnLoginButton();
     }
 
     @Step

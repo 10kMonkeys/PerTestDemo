@@ -14,7 +14,7 @@ public class ST31_AddGraphicsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickAnalytics();
+        perchwellSteps.clickOnAnalytics();
         rebnyListingsSteps.addChartFromREBNYSection();
         analyticsSteps.skipHints();
         rebnyListingsSteps.isAskingPriseChartAdd();

@@ -9,34 +9,24 @@ import org.junit.Test;
 public class ST13_SaveChangesAsNewSearch extends SampleTest {
 
 	@Test
-	public void changeExistingSearch(){
-
+	public void changeExistingSearch() {
 		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickMyNewSearch();
-
-		searchSteps.clickLoadSavedSearchButton();
-		searchSteps.clickExistingSearchInList();
-		perchwellSteps.clickMyNewSearch();
-
+		perchwellSteps.clickOnMyNewSearch();
+		searchSteps.clickOnLoadSavedSearchButton();
+		searchSteps.clickOnExistingSearchInList();
+		perchwellSteps.clickOnMyNewSearch();
 		searchSteps.setMinimumPriceFilter("150000");
-		searchSteps.clickFilterStudioBeds();
-
-		searchSteps.clickTapToSaveChanges();
+		searchSteps.clickOnFilterStudioBeds();
+		searchSteps.clickOnTapToSaveChanges();
 		searchSteps.saveAsOptionSelect();
 		searchSteps.setSearchName();
-		searchSteps.clickSaveButton();
+		searchSteps.clickOnSaveButton();
 		perchwellSteps.shouldSeePreviouslyCreatedNameOfSearch();
-		perchwellSteps.clickMyNewSearch();
-
-		searchSteps.clickLoadSavedSearchButton();
+		perchwellSteps.clickOnMyNewSearch();
+		searchSteps.clickOnLoadSavedSearchButton();
 		searchSteps.shouldSeePreviouslyCreatedSearch();
-
-
-
-
 	}
-
 }

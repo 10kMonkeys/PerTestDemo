@@ -33,8 +33,8 @@ public class ST25_DiscussionWithNewAgentTest extends SampleTest {
 		clientSteps.clickOnBackButtonCreateAgent();
 		clientSteps.closePage();
 		openedBuildingSteps.clickOnBackButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnDiscussionsLabel();
-		discussionsListSteps.discussionWithMessageNotDisplayed();
+		discussionsListSteps.shouldNotBeDiscussionWithMessageDisplayed();
 	}
 }

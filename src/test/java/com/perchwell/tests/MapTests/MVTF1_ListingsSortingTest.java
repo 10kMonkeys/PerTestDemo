@@ -15,7 +15,7 @@ public class MVTF1_ListingsSortingTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("client_password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickMap();
+        perchwellSteps.clickOnMap();
         mapSteps.clickOnNotNowButton();
         mapSteps.selectPinOnMap();
         mapSteps.clickOnSortingSectionButton();

@@ -14,10 +14,10 @@ public class SET1_DeleteSearchTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("client_test_password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickMyNewSearch();
+        perchwellSteps.clickOnMyNewSearch();
         searchSteps.saveCurrentSearch();
-        perchwellSteps.clickMyNewSearch();
-        searchSteps.clickLoadSavedSearchButton();
+        perchwellSteps.clickOnMyNewSearch();
+        searchSteps.clickOnLoadSavedSearchButton();
         searchSteps.swipeCreatedSearch();
         searchSteps.clickOnDeleteSearchButton();
         searchSteps.shouldDeleteSearch();

@@ -13,11 +13,9 @@ import java.util.List;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class TagsPage extends BasePage {
-	public TagsPage(WebDriver driver) {
-		super(driver);
-	}
 
-	//@iOSXCUITFindBy(accessibility = "tagSearchButton")
+	//region WebElements
+
 	@iOSXCUITFindBy(accessibility = "TagSearchButton")
 	private WebElement tagSearchButton;
 
@@ -28,34 +26,35 @@ public class TagsPage extends BasePage {
 	private WebElement createTagLabel;
 
 	@iOSXCUITFindBy(accessibility = "Nav Back White")
-	private WebElement back;
-
-	private WebElement getCreatedTagLabel(String uniqueTagName) {
-		WebElement createdTag = getDriver().findElement(MobileBy.AccessibilityId(uniqueTagName));
-		return createdTag;
-	}
+	private WebElement backButton;
 
 	@iOSXCUITFindBy(accessibility = "search")
 	private WebElement searchButton;
+
+	//endregion
+
+	public TagsPage(WebDriver driver) {
+		super(driver);
+	}
 
 	public void setUniqueSearchTagTextBox(String uniqueTagName) {
 		element(searchTagTexBox).sendKeys(uniqueTagName);
 	}
 
-	public void clickCreateTagLabel() {
+	public void clickOnCreateTagLabel() {
 		element(createTagLabel).click();
 	}
 
-	public void clickBackButton() {
-		element(back).click();
+	public void clickOnBackButton() {
+		element(backButton).click();
 	}
 
 
-	public void clickTagLabel(String TagName) {
+	public void clickOnTagLabel(String TagName) {
 		this.getCreatedTagLabel(TagName).click();
 	}
 
-	public void clickSearchButton() {
+	public void clickOnSearchButton() {
 		element(searchButton).click();
 	}
 
@@ -67,7 +66,6 @@ public class TagsPage extends BasePage {
 	public boolean isTagDisplayedWithSwipe(String tagName) throws Exception {
 		if (getDriver().findElements(MobileBy.AccessibilityId(tagName)).size() > 0) {
 			setImplicitTimeout(1, SECONDS);
-			//Helper.swipeDownUntilElementVisible(tagName);
 			Helper.scrollToElement(getDriver().findElements(MobileBy.AccessibilityId(tagName)).get(0));
 			resetImplicitTimeout();
 		}
@@ -77,13 +75,10 @@ public class TagsPage extends BasePage {
 	public WebElement findExistingTagLabel() {
 		WebElement parentCell = null;
 		WebElement parentLabelElement = null;
-		//XCUIElementTypeApplication[@name="Perchwell"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable
-		//XCUIElementTypeTable classname
 		WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
 		List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
 		if (listCells.size() > 0) {
 			for (WebElement desiredElement : listCells) {
-
 				if (desiredElement.findElements(By.className("XCUIElementTypeButton")).size() == 0) {
 					parentCell = desiredElement;
 					break;
@@ -92,10 +87,11 @@ public class TagsPage extends BasePage {
 			if (parentCell != null) {
 				parentLabelElement = parentCell.findElements(By.className("XCUIElementTypeStaticText")).get(0);
 			}
-
 		}
 		return parentLabelElement;
 	}
 
-
+	private WebElement getCreatedTagLabel(String uniqueTagName) {
+		return getDriver().findElement(MobileBy.AccessibilityId(uniqueTagName));
+	}
 }

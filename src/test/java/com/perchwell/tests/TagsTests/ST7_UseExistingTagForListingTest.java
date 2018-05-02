@@ -17,14 +17,14 @@ public class ST7_UseExistingTagForListingTest extends SampleTest {
 		perchwellSteps.openFirstBuilding();
 		openedBuildingSteps.clickOnDiscussWithMyClientHint();
 		openedBuildingSteps.clickOnMyTagsLabel();
-		tagsSteps.clickExistingTagLabel();
-		tagsSteps.clickBackButton();
+		tagsSteps.clickOnExistingTagLabel();
+		tagsSteps.clickOnBackButton();
 		openedBuildingSteps.clickOnBackButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnTagsLabel();
 		tagsSteps.shouldSeeExistingTagUpperCase();
-		tagsSteps.clickUsedTag();
-		tagsSteps.clickSearchButton();
+		tagsSteps.clickOnUsedTag();
+		tagsSteps.clickOnSearchButton();
 		tagsSteps.shouldSeeExistingTagUpperCase();
 	}
 }

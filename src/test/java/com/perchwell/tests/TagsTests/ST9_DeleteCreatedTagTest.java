@@ -18,11 +18,11 @@ public class ST9_DeleteCreatedTagTest extends SampleTest {
 		openedBuildingSteps.clickOnDiscussWithMyClientHint();
 		openedBuildingSteps.clickOnMyTagsLabel();
 		tagsSteps.setRandomTagAndSave();
-		tagsSteps.clickBackButton();
+		tagsSteps.clickOnBackButton();
 		openedBuildingSteps.clickOnDeleteTagButton();
 		tagsSteps.shouldNotSeeCreatedTagUpperCase();
 		openedBuildingSteps.clickOnBackButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnTagsLabel();
 		tagsSteps.shouldNotSeeCreatedTagUpperCase();
 	}

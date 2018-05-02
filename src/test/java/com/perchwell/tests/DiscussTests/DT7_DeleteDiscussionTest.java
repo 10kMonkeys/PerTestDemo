@@ -25,13 +25,13 @@ public class DT7_DeleteDiscussionTest extends SampleTest {
         discussionSteps.clickOnBackButton();
         clientSteps.closePage();
         openedBuildingSteps.clickOnBackButton();
-        perchwellSteps.clickOpenAccountButton();
+        perchwellSteps.clickOnOpenAccountButton();
         accountSteps.clickOnDiscussionsLabel();
         discussionsListSteps.swipeFirstDiscussionName();
         discussionsListSteps.clickOnDeleteButton();
-        discussionsListSteps.shouldDeleteDiscussionFromDiscussionsList();
+        discussionsListSteps.shouldBeDiscussionDeletedFromDiscussionsList();
         discussionsListSteps.closePage();
         accountSteps.clickOnDiscussionsLabel();
-        discussionsListSteps.shouldNotContainPreviouslyDeletedDiscussion();
+        discussionsListSteps.shouldBeNotDisplayedPreviouslyDeletedDiscussion();
     }
 }

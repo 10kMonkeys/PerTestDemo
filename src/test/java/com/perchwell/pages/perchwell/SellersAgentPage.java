@@ -4,17 +4,16 @@ import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import net.serenitybdd.core.Serenity;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class SellersAgentPage extends BasePage {
 
-    public SellersAgentPage(WebDriver driver) {
-        super(driver);
-    }
+    //region WebElements
 
     @iOSFindBy(accessibility = "SendEmailButton")
     private WebElement sendEmailButton;
@@ -22,20 +21,18 @@ public class SellersAgentPage extends BasePage {
     @iOSFindBy(accessibility = "CONFIRM")
     private WebElement confirmButton;
 
-    public void clickSendEmailButton() {
+    //endregion
+
+    public SellersAgentPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public void clickOnSendEmailButton() {
         element(sendEmailButton).click();
     }
 
-    public void clickConfirmButton() {
+    public void clickOnConfirmButton() {
         element(confirmButton).click();
-    }
-
-    public void addValueInSessionVariable(String name, String value) {
-        Serenity.setSessionVariable(name).to(value);
-    }
-
-    public String getValueFromSessionVariable(String name) {
-        return Serenity.sessionVariableCalled(name);
     }
 
     private int countNumberEmailsSentToSellersAgents() {
@@ -46,7 +43,7 @@ public class SellersAgentPage extends BasePage {
         }
 
         int k = 0;
-        String subjectName = "New interest in your listing " + getValueFromSessionVariable("building address");
+        String subjectName = "New interest in your listing " + SessionVariables.getValueFromSessionVariable("building address");
         subjectName = Helper.removeChar(subjectName, '#');
 
             String emailHeaderToSellersAgent = AppProperties.INSTANCE.getProperty("HEADER_SELLERS_AGENT");
@@ -60,8 +57,8 @@ public class SellersAgentPage extends BasePage {
         return k;
     }
 
-    public boolean shouldInterestEmailSentToOneAgent() {
-        return (countNumberEmailsSentToSellersAgents() > 0);
+    public void shouldInterestEmailSentToOneAgent() {
+        Assert.assertTrue(countNumberEmailsSentToSellersAgents() > 0);
     }
 
     public boolean shouldInterestEmailsSentToSeveralAgents() {

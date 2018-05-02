@@ -19,13 +19,13 @@ public class ST6_CreateNewTagForListingTest extends SampleTest {
 		openedBuildingSteps.clickOnDiscussWithMyClientHint();
 		openedBuildingSteps.clickOnMyTagsLabel();
 		tagsSteps.setRandomTagAndSave();
-		tagsSteps.clickBackButton();
+		tagsSteps.clickOnBackButton();
 		openedBuildingSteps.clickOnBackButton();
-		perchwellSteps.clickOpenAccountButton();
+		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnTagsLabel();
 		tagsSteps.shouldSeeCreatedTagUpperCase();
-		tagsSteps.clickCreatedTag();
-		tagsSteps.clickSearchButton();
+		tagsSteps.clickOnCreatedTag();
+		tagsSteps.clickOnSearchButton();
 		tagsSteps.shouldSeeCreatedTagUpperCase();
 	}
 }

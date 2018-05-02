@@ -14,12 +14,12 @@ public class ST18_ApplyingFilterOnMapView extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickMap();
+        perchwellSteps.clickOnMap();
         mapSteps.clickOnNotNowButton();
         mapSteps.clickOnMyNewSearch();
         searchSteps.selectFilter1AndHalfBath();
-        searchSteps.clickFilter1Bed();
-        searchSteps.clickApplyButton();
+        searchSteps.clickOnFilter1Bed();
+        searchSteps.clickOnApplyButton();
         mapSteps.checkForChangesAfterApplyingTheFilter();
     }
 }

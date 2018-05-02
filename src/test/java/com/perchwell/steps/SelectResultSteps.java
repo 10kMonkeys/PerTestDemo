@@ -1,54 +1,56 @@
 package com.perchwell.steps;
 
 import com.perchwell.helpers.RandomGenerator;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.tags.SelectResultPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 
 public class SelectResultSteps extends ScenarioSteps {
+
 	SelectResultPage onPage;
 
 	@Step
-	public void clickClientOption() {
-		onPage.clickClientOption();
+	public void clickOnClientOption() {
+		onPage.clickOnClientOption();
 	}
 
 	@Step
-	public void clickMyEmailOption() {
-		onPage.clickMyEmailOption();
+	public void clickOnMyEmailOption() {
+		onPage.clickOnMyEmailOption();
 	}
 
 	@Step
-	public void clickTagPDFExportButton() {
-		onPage.clickTagPDFExportButton();
+	public void clickOnTagPDFExportButton() {
+		onPage.clickOnTagPDFExportButton();
 	}
 
 	@Step
 	public void createReportWithNameAndSave(String ReportName) {
 		this.setReportName(ReportName);
-		this.clickSaveButton();
-		this.clickReportSentOkButton();
+		this.clickOnSaveButton();
+		this.clickOnReportSentOkButton();
 	}
 
-	public void clickReportSentOkButton() {
-		onPage.clickReportSentOkButton();
+	private void clickOnReportSentOkButton() {
+		onPage.clickOnReportSentOkButton();
 	}
 
-	private void clickSaveButton() {
-		onPage.clickSaveButton();
+	private void clickOnSaveButton() {
+		onPage.clickOnSaveButton();
 	}
 
 	private void setReportName(String reportName) {
-		onPage.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
-		onPage.setReportName(onPage.getValueFromSessionVariable("Report name"));
+		SessionVariables.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
+		onPage.setReportName(SessionVariables.getValueFromSessionVariable("Report name"));
 	}
 
 	@Step("Should see sent email. Mail is checked twice with a five minute waiting")
 	public void shouldFindSentEmail() {
-		Boolean result = onPage.shouldFindSentEmail(onPage.getValueFromSessionVariable("Report name"));
+		Boolean result = onPage.shouldFindSentEmail(SessionVariables.getValueFromSessionVariable("Report name"));
 		if (!result) {
-			result = onPage.shouldFindSentEmail(onPage.getValueFromSessionVariable("Report name"));
+			result = onPage.shouldFindSentEmail(SessionVariables.getValueFromSessionVariable("Report name"));
 		}
 		Assert.assertTrue(result);
 	}
@@ -57,5 +59,4 @@ public class SelectResultSteps extends ScenarioSteps {
 	public void selectShareTaggedItems(){
 		onPage.selectShareTaggedItems();
 	}
-
 }

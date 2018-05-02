@@ -18,7 +18,7 @@ public class ST36_SendReportDetailsPDF extends SampleTest {
 				AppProperties.INSTANCE.getProperty("password"));
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickAnalytics();
+		perchwellSteps.clickOnAnalytics();
 		rebnyListingsSteps.addChartFromREBNYSection();
 		analyticsSteps.skipHints();
 		rebnyListingsSteps.askingPriceChartClick();

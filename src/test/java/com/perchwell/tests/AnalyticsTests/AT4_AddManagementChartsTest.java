@@ -14,7 +14,7 @@ public class AT4_AddManagementChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         perchwellSteps.skipAllHints();
         perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickAnalytics();
+        perchwellSteps.clickOnAnalytics();
         analyticsSteps.selectManagementSection();
         managementSteps.askingPriceChartClick();
         analyticsSteps.skipHints();

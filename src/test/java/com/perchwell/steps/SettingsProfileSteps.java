@@ -4,9 +4,7 @@ import com.github.javafaker.Faker;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.pages.perchwell.SettingsProfilePage;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
-import com.perchwell.pages.clientdetails.ClientPage;
 
 public class SettingsProfileSteps {
 
@@ -35,12 +33,12 @@ public class SettingsProfileSteps {
 
     @Step
     public void isNameTextBoxChange(){
-        Assert.assertTrue(onPage.nameProfile().contains(AppProperties.INSTANCE.getProperty("name")));
+        onPage.isTextBoxChange(onPage.nameProfile(),AppProperties.INSTANCE.getProperty("name"));
     }
 
     @Step
     public void isCompanyTextBoxChange(){
-        Assert.assertTrue(onPage.companyProfile().contains(AppProperties.INSTANCE.getProperty("company")));
+        onPage.isTextBoxChange(onPage.companyProfile(),(AppProperties.INSTANCE.getProperty("company")));
     }
 
     @Step

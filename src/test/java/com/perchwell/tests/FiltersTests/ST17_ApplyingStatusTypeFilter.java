@@ -15,46 +15,46 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
             perchwellSteps.skipAllHints();
             perchPopupSteps.clickNotNowButton();
             perchwellSteps.isListingsQuantity();
-            perchwellSteps.clickMyNewSearch();
+            perchwellSteps.clickOnMyNewSearch();
             searchSteps.deselectActiveFilter();
             searchSteps.selectContractFilter();
-            searchSteps.clickApplyButton();
+            searchSteps.clickOnApplyButton();
 //            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter(); //Contract label SEARCH PAGE??
 //            perchwellSteps.shouldSeeListingOnlyWithLabel("InContractBanner");
-            perchwellSteps.clickMyNewSearch();
+            perchwellSteps.clickOnMyNewSearch();
             searchSteps.deselectContractFilter();
             searchSteps.selectOffMktFilter();
-            searchSteps.clickApplyButton();
+            searchSteps.clickOnApplyButton();
 //            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter(); //Oft mkt label SEARCH PAGE??
 //            perchwellSteps.shouldSeeListingOnlyWithLabel("OffMarketBanner");
-            perchwellSteps.clickMyNewSearch();
+            perchwellSteps.clickOnMyNewSearch();
             searchSteps.deselectOffMktFilter();
             searchSteps.selectSoldOrRentFilter();
-            searchSteps.clickApplyButton();
+            searchSteps.clickOnApplyButton();
 //            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter(); //Sold label SEARCH PAGE??
 //            perchwellSteps.shouldSeeListingOnlyWithLabel("SoldBanner");
-            perchwellSteps.clickMyNewSearch();
+            perchwellSteps.clickOnMyNewSearch();
             searchSteps.selectRentedFilter();
-            searchSteps.clickApplyButton();
+            searchSteps.clickOnApplyButton();
 //            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter(); //Rented label SEARCH PAGE??
 //            perchwellSteps.shouldSeeListingOnlyWithLabel("RentedBanner");
-            perchwellSteps.clickMyNewSearch();
+            perchwellSteps.clickOnMyNewSearch();
             searchSteps.saveCurrentSearch();
-            perchwellSteps.clickMyNewSearch();
-            searchSteps.clickLoadSavedSearchButton();
+            perchwellSteps.clickOnMyNewSearch();
+            searchSteps.clickOnLoadSavedSearchButton();
             searchSteps.createNewSearchClick();
-            searchSteps.clickApplyButton();
+            searchSteps.clickOnApplyButton();
             perchwellSteps.checkListingsQuantity();
-            perchwellSteps.clickMyNewSearch();
+            perchwellSteps.clickOnMyNewSearch();
 //            searchSteps.checkSalesAndActiveFiltersSelected();
-            searchSteps.clickLoadSavedSearchButton();
-            searchSteps.clickPreviouslyCreatedSearch();
+            searchSteps.clickOnLoadSavedSearchButton();
+            searchSteps.clickOnPreviouslyCreatedSearch();
 //            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter(); //24 //Rented label SEARCH PAGE??
 //            perchwellSteps.shouldSeeListingOnlyWithLabel("RentedBanner");
-            perchwellSteps.clickMyNewSearch();
-            searchSteps.clickResetFilter();
+            perchwellSteps.clickOnMyNewSearch();
+            searchSteps.clickOnResetFilter();
 //            searchSteps.checkSalesAndActiveFiltersSelected();
-            searchSteps.clickApplyButton();
+            searchSteps.clickOnApplyButton();
             perchwellSteps.checkListingsQuantity();
     }
 }

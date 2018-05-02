@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 public class TagsSteps extends ScenarioSteps {
+
 	Tag tag = new Tag();
 	TagsPage onPage;
 
@@ -16,7 +17,7 @@ public class TagsSteps extends ScenarioSteps {
 	public void setRandomTagAndSave() {
 		tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
 		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
-		this.onPage.clickCreateTagLabel();
+		this.onPage.clickOnCreateTagLabel();
 	}
 
 	@Step
@@ -30,42 +31,39 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickCreatedTag() {
-		onPage.clickTagLabel(tag.getUniqueTagName());
+	public void clickOnCreatedTag() {
+		onPage.clickOnTagLabel(tag.getUniqueTagName());
 	}
 
 	@Step
-	public void clickUsedTag() {
-		onPage.clickTagLabel(tag.getExistingTagname());
+	public void clickOnUsedTag() {
+		onPage.clickOnTagLabel(tag.getExistingTagName());
 	}
 
 	@Step
-	public void clickBackButton() {
-		onPage.clickBackButton();
+	public void clickOnBackButton() {
+		onPage.clickOnBackButton();
 	}
 
 	@Step
-	public void clickSearchButton() {
-		onPage.clickSearchButton();
+	public void clickOnSearchButton() {
+		onPage.clickOnSearchButton();
 	}
 
 	@Step
-	public void clickExistingTagLabel() {
-
+	public void clickOnExistingTagLabel() {
 		WebElement element = onPage.findExistingTagLabel();
 		if (element == null) {
 			this.setRandomTagAndSave();
-			this.onPage.clickCreateTagLabel();
+			this.onPage.clickOnCreateTagLabel();
 			element = onPage.findExistingTagLabel();
 		}
-
 		element.click();
-		tag.setExistingTagname(element.getAttribute("name"));
-
+		tag.setExistingTagName(element.getAttribute("name"));
 	}
 
 	@Step
 	public void shouldSeeExistingTagUpperCase() throws Exception {
-		Assert.assertTrue(onPage.isTagDisplayedWithSwipe(tag.getExistingTagname().toUpperCase()));
+		Assert.assertTrue(onPage.isTagDisplayedWithSwipe(tag.getExistingTagName().toUpperCase()));
 	}
 }
