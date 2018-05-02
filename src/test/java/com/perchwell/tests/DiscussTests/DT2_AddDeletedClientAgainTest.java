@@ -16,19 +16,19 @@ public class DT2_AddDeletedClientAgainTest extends SampleTest {
         perchPopupSteps.clickNotNowButton();
         perchwellSteps.clickOpenAccountButton();
         accountSteps.clickOnClientsLabel();
-        clientSteps.clickAddNewClientButton();
+        clientSteps.clickOnAddNewClientButton();
         clientSteps.setRandomClientData();
         clientSteps.clickOnGroupLabel();
         clientSteps.selectGroup("Actively Searching");
-        clientSteps.clickInviteButton();
+        clientSteps.clickOnInviteButton();
         emailSteps.acceptClientInvitation();
         clientSteps.swipeCreatedClientName();
         clientSteps.clickOnDeleteButton();
-        clientSteps.clickAddNewClientButton();
+        clientSteps.clickOnAddNewClientButton();
         clientSteps.setJustDeletedClientData();
         clientSteps.clickOnGroupLabel();
         clientSteps.selectGroup("Actively Searching");
-        clientSteps.clickInviteButton();
+        clientSteps.clickOnInviteButton();
         clientSteps.shouldSeeRecentlyCreatedClient();
         emailSteps.shouldNotSecondInvitationSent();
     }

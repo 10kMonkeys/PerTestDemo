@@ -2,7 +2,6 @@ package com.perchwell.tests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
-import net.thucydides.core.annotations.WithTag;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
@@ -17,7 +16,7 @@ public class ST20_ListViewTest extends SampleTest {
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.getFirstBuildingAddress();
 		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickDiscussWithMyClientHint();
+		openedBuildingSteps.clickOnDiscussWithMyClientHint();
 		openedBuildingSteps.shouldSeeBuildingAddress();
 	}
 }

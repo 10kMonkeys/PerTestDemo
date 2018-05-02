@@ -15,11 +15,11 @@ public class ST7_UseExistingTagForListingTest extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickDiscussWithMyClientHint();
-		openedBuildingSteps.clickMyTagsLabel();
+		openedBuildingSteps.clickOnDiscussWithMyClientHint();
+		openedBuildingSteps.clickOnMyTagsLabel();
 		tagsSteps.clickExistingTagLabel();
 		tagsSteps.clickBackButton();
-		openedBuildingSteps.clickBackButton();
+		openedBuildingSteps.clickOnBackButton();
 		perchwellSteps.clickOpenAccountButton();
 		accountSteps.clickOnTagsLabel();
 		tagsSteps.shouldSeeExistingTagUpperCase();

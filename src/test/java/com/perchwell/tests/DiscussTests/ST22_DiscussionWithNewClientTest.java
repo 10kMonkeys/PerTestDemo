@@ -15,22 +15,22 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickDiscussWithMyClientHint();
+		openedBuildingSteps.clickOnDiscussWithMyClientHint();
 		openedBuildingSteps.clickShareButton();
-		openedBuildingSteps.clickSendWithinPerchwell();
-		openedBuildingSteps.clickAddDiscusButton();
-		clientSteps.clickAddNewClientButton();
+		openedBuildingSteps.clickOnSendWithinPerchwell();
+		openedBuildingSteps.clickOnAddDiscusButton();
+		clientSteps.clickOnAddNewClientButton();
 		clientSteps.setRandomClientData();
 		clientSteps.clickOnGroupLabel();
 		clientSteps.selectGroup("Actively Searching");
-		clientSteps.clickInviteButton();
+		clientSteps.clickOnInviteButton();
 		clientSteps.clickOnClientSuccessfullyAddedOkButton();
 		discussionSteps.clickOnBackButton();
-		clientSteps.clickBackButton();
+		clientSteps.clickOnBackButton();
 		clientSteps.closePage();
-		openedBuildingSteps.clickAddDiscusButton();
+		openedBuildingSteps.clickOnAddDiscusButton();
 		clientSteps.shouldSeeRecentlyCreatedClient();
-		clientSteps.clickDesiredClient();
+		clientSteps.clickOnDesiredClient();
 		discussionSteps.shouldSeeDicsussionWithNewClient();
 	}
 }

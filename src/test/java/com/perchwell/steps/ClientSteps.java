@@ -39,7 +39,7 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickAddNewClientButton() {
+	public void clickOnAddNewClientButton() {
 		if (onPage.getAddNewClientButton().isDisplayed()) {
 			onPage.clickOnAddNewClientButton();
 		} else {
@@ -48,7 +48,7 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickInviteButton() {
+	public void clickOnInviteButton() {
 		onPage.clickOnInviteButton();
 	}
 
@@ -64,7 +64,7 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickBackButton() {
+	public void clickOnBackButton() {
 		onPage.clickOnBackButton();
 	}
 
@@ -79,12 +79,12 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickDesiredClient() {
+	public void clickOnDesiredClient() {
 		onPage.clickOnDesiredClientOrAgent(SessionVariables.getValueFromSessionVariable("User name"));
 	}
 
 	@Step
-	public void clickExistingClient() throws Exception {
+	public void clickOnExistingClient() throws Exception {
 		onPage.isClientOrAgentDisplayed(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
 		onPage.clickOnDesiredClientOrAgent(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
 		SessionVariables.addValueInSessionVariable("Client", AppProperties.INSTANCE.getProperty("client_name"));
@@ -95,7 +95,7 @@ public class ClientSteps extends ScenarioSteps {
 		onPage.logOut();
 	}
 
-	public void clickAddNewAgentButton() {
+	public void clickOnAddNewAgentButton() {
 		//if (onPage.getAddNewClientButton().isDisplayed()) {
 		onPage.clickOnAddNewAgentButton();
 //		} else {
@@ -115,14 +115,17 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickOnExistingAgent() {
-		SessionVariables.addValueInSessionVariable("Agent", onPage.getFirstClientOrAgentName());
-		onPage.clickOnFirstClientOrAgent();
+	public void clickOnExistingAgent() throws Exception {
+		onPage.isClientOrAgentDisplayed(AppProperties.INSTANCE.getProperty("broker_name").toUpperCase());
+		onPage.clickOnDesiredClientOrAgent(AppProperties.INSTANCE.getProperty("broker_name").toUpperCase());
+		SessionVariables.addValueInSessionVariable("Agent", AppProperties.INSTANCE.getProperty("broker_name"));
 	}
+
 	@Step
 	public void clickOnClientSuccessfullyAddedOkButton() {
 		onPage.clickOnClientSuccessfullyAddedOkButton();
 	}
+
 	@Step
 	public void clickOnAgentSuccessfullyAddedOkButton() {
 		onPage.clickOnClientSuccessfullyAddedOkButton();
@@ -181,15 +184,15 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void addNewClient(String groupName) {
-		this.clickAddNewClientButton();
+		this.clickOnAddNewClientButton();
 		this.setRandomClientData();
 		this.clickOnGroupLabel();
 		this.selectGroup(groupName);
-		this.clickInviteButton();
+		this.clickOnInviteButton();
 	}
 
 	@Step
-	public void clickGroupsButton() {
+	public void clickOnGroupsButton() {
 		onPage.clickOnGroupsButton();
 	}
 

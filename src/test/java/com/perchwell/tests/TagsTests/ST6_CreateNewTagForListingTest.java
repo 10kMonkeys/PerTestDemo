@@ -16,11 +16,11 @@ public class ST6_CreateNewTagForListingTest extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickDiscussWithMyClientHint();
-		openedBuildingSteps.clickMyTagsLabel();
+		openedBuildingSteps.clickOnDiscussWithMyClientHint();
+		openedBuildingSteps.clickOnMyTagsLabel();
 		tagsSteps.setRandomTagAndSave();
 		tagsSteps.clickBackButton();
-		openedBuildingSteps.clickBackButton();
+		openedBuildingSteps.clickOnBackButton();
 		perchwellSteps.clickOpenAccountButton();
 		accountSteps.clickOnTagsLabel();
 		tagsSteps.shouldSeeCreatedTagUpperCase();

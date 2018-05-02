@@ -13,11 +13,11 @@ public class DiscussThisListingSteps extends ScenarioSteps {
     @Step
     public void deleteDiscussionWithClientIfExist() throws Exception {
         if (openedBuildingPage.isClientWithDiscussionExist()) {
-            openedBuildingPage.clickViewAllDiscussionsButton();
+            openedBuildingPage.clickOnViewAllDiscussionsButton();
             discussThisListingPage.DeleteClientsWithDiscussion();
             discussThisListingPage.clickClosePageButton();
-            openedBuildingPage.clickShareButton();
-            openedBuildingPage.clickSendWithinPerchwell();
+            openedBuildingPage.clickOnShareButton();
+            openedBuildingPage.clickOnSendWithinPerchwell();
         }
     }
 }

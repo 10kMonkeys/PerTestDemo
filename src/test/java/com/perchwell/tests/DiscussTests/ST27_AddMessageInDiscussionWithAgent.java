@@ -16,16 +16,16 @@ public class ST27_AddMessageInDiscussionWithAgent extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickDiscussWithMyClientHint();
+		openedBuildingSteps.clickOnDiscussWithMyClientHint();
 		openedBuildingSteps.clickShareButton();
-		openedBuildingSteps.clickSendWithinPerchwell();
-		openedBuildingSteps.clickAddDiscusButton();
+		openedBuildingSteps.clickOnSendWithinPerchwell();
+		openedBuildingSteps.clickOnAddDiscusButton();
 		clientSteps.clickOnExistingAgent();
 		discussionSteps.sendMessage(DiscussionMessages.HELLO);
 		discussionSteps.clickOnBackButton();
 		clientSteps.closePage();
-		openedBuildingSteps.shouldSeeExistingDuscussionWithAgent();
-		openedBuildingSteps.openExistingDuscussionWithAgent();
+		openedBuildingSteps.shouldSeeExistingDiscussionWithAgent();
+		openedBuildingSteps.openExistingDiscussionWithAgent();
 		discussionSteps.sendMessage(DiscussionMessages.ADD_MESSAGE);
 		discussionSteps.shouldSeeMessageInDiscussion();
 	}

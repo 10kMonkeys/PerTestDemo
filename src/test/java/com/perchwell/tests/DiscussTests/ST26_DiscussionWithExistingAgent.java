@@ -16,16 +16,16 @@ public class ST26_DiscussionWithExistingAgent extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickDiscussWithMyClientHint();
+		openedBuildingSteps.clickOnDiscussWithMyClientHint();
 		openedBuildingSteps.clickShareButton();
-		openedBuildingSteps.clickSendWithinPerchwell();
-		openedBuildingSteps.clickAddDiscusButton();
+		openedBuildingSteps.clickOnSendWithinPerchwell();
+		openedBuildingSteps.clickOnAddDiscusButton();
 		clientSteps.clickOnExistingAgent();
 		discussionSteps.sendMessage(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
 		discussionSteps.clickOnBackButton();
 		clientSteps.closePage();
-		openedBuildingSteps.shouldSeeExistingDuscussionWithAgent();
-		openedBuildingSteps.openExistingDuscussionWithAgent();
+		openedBuildingSteps.shouldSeeExistingDiscussionWithAgent();
+		openedBuildingSteps.openExistingDiscussionWithAgent();
 		discussionSteps.shouldSeeMessageInDiscussion();
 	}
 }

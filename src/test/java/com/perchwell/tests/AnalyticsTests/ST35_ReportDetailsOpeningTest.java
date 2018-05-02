@@ -20,7 +20,7 @@ public class ST35_ReportDetailsOpeningTest extends SampleTest {
 		rebnyListingsSteps.askingPriceChartClick();
 		analyticsSteps.upToOneMillionButtonClick();
 		analyticsSteps.selectSecondBuildingInList();
-		openedBuildingSteps.clickDiscussWithMyClientHint();
+		openedBuildingSteps.clickOnDiscussWithMyClientHint();
 		openedBuildingSteps.isBuildingOpen();
 
 

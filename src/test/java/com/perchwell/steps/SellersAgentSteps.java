@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.OpenedBuildingPage;
 import com.perchwell.pages.perchwell.PerchwellPage;
 import com.perchwell.pages.perchwell.SellersAgentPage;
@@ -15,17 +16,17 @@ public class SellersAgentSteps extends ScenarioSteps {
     @Step
     public void findBuildingWithOneSellersAgent() throws Exception {
         perchwellPage.openFirstBuilding();
-        openedBuildingPage.clickDiscussWithMyClientHint();
+        openedBuildingPage.clickOnDiscussWithMyClientHint();
         if (!openedBuildingPage.isOneSellersAgent()) {
-            openedBuildingPage.clickBackButton();
+            openedBuildingPage.clickOnBackButton();
             perchwellPage.openSecondBuilding();
         }
         while (!openedBuildingPage.isOneSellersAgent()) {
-            openedBuildingPage.clickBackButton();
+            openedBuildingPage.clickOnBackButton();
             perchwellPage.swipeDownUntillNextBuildingVisible();
             perchwellPage.clickLastVisibleBuilding();
         }
-        openedBuildingPage.addAddressInSessionVariable("building address", openedBuildingPage.getBuildingAddress());
+        SessionVariables.addValueInSessionVariable("building address", openedBuildingPage.getBuildingAddress());
     }
 
     @Step
@@ -35,7 +36,7 @@ public class SellersAgentSteps extends ScenarioSteps {
 
     @Step
     public void clickOnSellersAgentSection() {
-        openedBuildingPage.clickOneSellersAgentSection();
+        openedBuildingPage.clickOnOneSellersAgentSection();
     }
 
     @Step

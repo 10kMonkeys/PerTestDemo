@@ -1,31 +1,28 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class OpenedBuildingPage extends BasePage {
 
-	public OpenedBuildingPage(WebDriver driver) {
-		super(driver);
-	}
+	//region WebElements
 
 	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
 	private WebElement discussThisHint;
 
-	//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeCollectionView
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeCollectionView[1]")
-	private WebElement collectionForDiscussionSeach;
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView[1]")
+	private WebElement collectionForDiscussionSerach;
 
 	@iOSXCUITFindBy(accessibility = "MY TAGS")
 	private WebElement myTagsLabel;
@@ -33,8 +30,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
 	private WebElement backButton;
 
-	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton[1]")
-	@FindBy(xpath = "//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton[1]")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeButton' AND name CONTAINS 'DeleteTagBubbleButton'")
 	private WebElement deleteTagButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
@@ -52,26 +48,20 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "NEW")
 	private WebElement addDiscus;
 
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeStaticText[@name=\"STUDIO\"][1]")
+	@iOSXCUITFindBy(accessibility = "STUDIO")
 	private WebElement textStudio;
 
-
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeOther[XCUIElementTypeStaticText[@name=\"BATH\"] and XCUIElementTypeStaticText[@name=\"1\"]]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[4]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]")
 	private WebElement bath1Text;
 
 	@iOSXCUITFindBy(accessibility = "share")
 	private WebElement shareBitton;
 
-
-	//XCUIElementTypeStaticText[@name="FEATURES & AMENITIES"
-//	@iOSXCUITFindBy(tagname= "FEATURES & AMENITIES")
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeOther[@name=\"FEATURES & AMENITIES\"]")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeOther' AND name CONTAINS 'FEATURES & AMENITIES'")
 	private WebElement featuresAmenities;
 
-	//@iOSXCUITFindBy(accessibility = "FIREPLACE")
-	//@iOSXCUITFindBy(iOSNsPredicate =("type == 'XCUIElementTypeStaticText' AND name == \"FIREPLACE\"")
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeStaticText[@name=\"FIREPLACE\"]")
-private WebElement FIREPLACE;
+	@iOSXCUITFindBy(accessibility = "FIREPLACE")
+	private WebElement FIREPLACE;
 
 	@iOSXCUITFindBy(accessibility = "SELLER'S AGENTS")
 	private WebElement severalSellersAgentsSection;
@@ -85,33 +75,39 @@ private WebElement FIREPLACE;
 	@iOSXCUITFindBy(accessibility = "VIEW ALL DISCUSSIONS FOR THIS LISTING")
     private WebElement viewAllDiscussionsButton;
 
-	public void clickAddDiscus() {
+	//endregion
+
+	public OpenedBuildingPage(WebDriver driver) {
+		super(driver);
+	}
+
+	public void clickOnAddDiscus() {
 		element(addDiscus).click();
 	}
 
-	public void clickDiscussWithClientOption() {
+	public void clickOnDiscussWithClientOption() {
 		element(disccusWithClientOption).click();
 	}
 
-	public void clickDiscussWithMyClientHint() {
+	public void clickOnDiscussWithMyClientHint() {
 		element(discussThisHint).click();
 	}
 
-	public void clickMyTagsLabel() {
+	public void clickOnMyTagsLabel() {
 		element(myTagsLabel).click();
 	}
 
-	public void clickBackButton() {
+	public void clickOnBackButton() {
 		element(backButton).click();
 	}
 
-	public void ckickDeleteTagButton() {
+	public void clickOnDeleteTagButton() {
 		while (element(deleteTagButton).isPresent()) {
 			element(deleteTagButton).click();
 		}
 	}
 
-	public void clickAddToCompareButton() {
+	public void clickOnAddToCompareButton() {
 		element(compareButton).click();
 	}
 
@@ -119,21 +115,12 @@ private WebElement FIREPLACE;
 		return buildingAddress.getAttribute("name");
 	}
 
-	public void addAddressInSessionVariable(String name, String buildingAddress) {
-		Serenity.setSessionVariable(name).to(buildingAddress);
-	}
-
-	public String getFromSessionVariable(String name) {
-		return Serenity.sessionVariableCalled(name);
-	}
-
-	public void openExistingDuscussion(String discussionName) {
-		WebElement discuss = getDriver().findElements(By.name(discussionName)).get(0);
-		discuss.click();
+	public void openExistingDiscussion(String discussionName) {
+		element(MobileBy.AccessibilityId(discussionName)).click();
 	}
 
 	public void openExistingDiscussionWithAgent(String discussionName) {
-		List<WebElement> listCells = collectionForDiscussionSeach.findElements(By.className("XCUIElementTypeCell"));
+		List<WebElement> listCells = collectionForDiscussionSerach.findElements(By.className("XCUIElementTypeCell"));
 		if (listCells.size() > 0) {
 			for (WebElement desiredElement : listCells) {
 				WebElement original_element = desiredElement.findElements(By.className("XCUIElementTypeStaticText")).get(0);
@@ -147,34 +134,32 @@ private WebElement FIREPLACE;
 		}
 	}
 
-	public boolean duscussionIsDisplayed(String discussionName) {
-		WebElement clicablElement = element(MobileBy.AccessibilityId(discussionName));
-		System.out.print(clicablElement);
-		return ((clicablElement != null) ? true : false);
-
+	public void discussionIsDisplayed(String discussionName) {
+		element(MobileBy.AccessibilityId(discussionName)).shouldBeVisible();
 	}
 
-	public void clickSendWithinPerchwell() {
+	public void clickOnSendWithinPerchwell() {
 		element(sendWithinPerchwell).click();
 	}
 
-	public boolean isDiscussionWithMyClientDisplayed() {
-		return Helper.isElementDisplayed(disccusWithClientOption);
+	public void isDiscussionWithMyClientDisplayed() {
+		Assert.assertTrue(Helper.isElementDisplayed(disccusWithClientOption));
 	}
 
-	public boolean isTextStudioDisplayed() {return Helper.isElementDisplayed(textStudio);
+	public void isTextStudioDisplayed() {
+		Assert.assertTrue(Helper.isElementDisplayed(textStudio));
 	}
 
-	public boolean isText1BathDisplayed() {
-		return Helper.isElementDisplayed(bath1Text);
+	public void isText1BathDisplayed() {
+		Assert.assertTrue(Helper.isElementDisplayed(bath1Text));
 	}
 
-	public void clickShareButton() {
+	public void clickOnShareButton() {
 		element(shareBitton).click();
 	}
 
-	public boolean isBuildingOpen(){
-		return element(myTagsLabel).isDisplayed();
+	public void isBuildingOpen() {
+		element(myTagsLabel).shouldBeVisible();
 	}
 
 	public void clickFeaturesAmenities() throws Exception {
@@ -187,10 +172,9 @@ private WebElement FIREPLACE;
 		element(featuresAmenities).click();
 	}
 
-	public void shouldFireplaceDisplayed() {
+	public void isFireplaceDisplayed() {
 		Helper.scrollToElement(FIREPLACE);
 		element(FIREPLACE).shouldBeVisible();
-
 	}
 
 	public WebElement getOneSellersAgentElement() {
@@ -201,7 +185,7 @@ private WebElement FIREPLACE;
 		Helper.swipeDownUntilElementVisible(name);
 	}
 
-	public boolean isSeveralSellersAgents() {
+	public boolean isSeveralSellersAgentsPresent() {
 		return element(severalSellersAgentsSection).isPresent();
 	}
 
@@ -209,7 +193,7 @@ private WebElement FIREPLACE;
 		return element(oneSellerAgentSection).isPresent();
 	}
 
-	public void clickOneSellersAgentSection() {
+	public void clickOnOneSellersAgentSection() {
 		element(oneSellerAgentSection).click();
 	}
 
@@ -222,7 +206,12 @@ private WebElement FIREPLACE;
         return isClientWithDiscussion;
     }
 
-	public void clickViewAllDiscussionsButton() {
+	public void clickOnViewAllDiscussionsButton() {
 	    element(viewAllDiscussionsButton).click();
     }
+
+	public void isBuildingAddressDisplayed() {
+		Assert.assertTrue(getBuildingAddress()
+				.equalsIgnoreCase(SessionVariables.getValueFromSessionVariable("buildingAddress")));
+	}
 }

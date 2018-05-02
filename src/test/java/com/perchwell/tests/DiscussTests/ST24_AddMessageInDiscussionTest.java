@@ -16,15 +16,15 @@ public class ST24_AddMessageInDiscussionTest extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickDiscussWithMyClientHint();
+		openedBuildingSteps.clickOnDiscussWithMyClientHint();
 		openedBuildingSteps.clickShareButton();
-		openedBuildingSteps.clickDiscussWithMyClientOption();
-		openedBuildingSteps.clickAddDiscusButton();
+		openedBuildingSteps.clickOnDiscussWithMyClientOption();
+		openedBuildingSteps.clickOnAddDiscusButton();
 		clientSteps.selectClient();
 		discussionSteps.sendMessage(DiscussionMessages.HELLO);
 		discussionSteps.clickOnBackButton();
 		clientSteps.closePage();
-		openedBuildingSteps.openExistingDuscussion();
+		openedBuildingSteps.openExistingDiscussion();
 		discussionSteps.sendMessage(DiscussionMessages.LETS_START_DISCUSSION);
 		discussionSteps.shouldSeeMessageInDiscussion();
 	}

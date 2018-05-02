@@ -15,13 +15,13 @@ public class ST9_DeleteCreatedTagTest extends SampleTest {
 		perchwellSteps.skipAllHints();
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickDiscussWithMyClientHint();
-		openedBuildingSteps.clickMyTagsLabel();
+		openedBuildingSteps.clickOnDiscussWithMyClientHint();
+		openedBuildingSteps.clickOnMyTagsLabel();
 		tagsSteps.setRandomTagAndSave();
 		tagsSteps.clickBackButton();
-		openedBuildingSteps.ckickDeleteTagButton();
+		openedBuildingSteps.clickOnDeleteTagButton();
 		tagsSteps.shouldNotSeeCreatedTagUpperCase();
-		openedBuildingSteps.clickBackButton();
+		openedBuildingSteps.clickOnBackButton();
 		perchwellSteps.clickOpenAccountButton();
 		accountSteps.clickOnTagsLabel();
 		tagsSteps.shouldNotSeeCreatedTagUpperCase();

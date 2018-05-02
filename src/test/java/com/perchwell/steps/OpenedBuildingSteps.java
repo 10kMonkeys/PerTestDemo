@@ -1,110 +1,108 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.OpenedBuildingPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.junit.Assert;
 
 public class OpenedBuildingSteps extends ScenarioSteps {
 
 	OpenedBuildingPage onPage;
 
 	@Step
-	public void clickDiscussWithMyClientHint() {
-		onPage.clickDiscussWithMyClientHint();
+	public void clickOnDiscussWithMyClientHint() {
+		onPage.clickOnDiscussWithMyClientHint();
 	}
 
 	@Step
-	public void clickMyTagsLabel() {
-		onPage.clickMyTagsLabel();
+	public void clickOnMyTagsLabel() {
+		onPage.clickOnMyTagsLabel();
 	}
 
 	@Step
-	public void clickBackButton() {
-		onPage.clickBackButton();
+	public void clickOnBackButton() {
+		onPage.clickOnBackButton();
 	}
 
 	@Step
-	public void ckickDeleteTagButton() {
-		onPage.ckickDeleteTagButton();
+	public void clickOnDeleteTagButton() {
+		onPage.clickOnDeleteTagButton();
 	}
 
 	@Step("Add to compare {0}")
 	public void addToCompare(String buildingName) {
-		onPage.clickAddToCompareButton();
-		addBuildingAddressInSessionVariable(buildingName, onPage.getBuildingAddress());
+		onPage.clickOnAddToCompareButton();
+		SessionVariables.addValueInSessionVariable(buildingName, onPage.getBuildingAddress());
 	}
 
 	@Step
-	public void clickDiscussWithMyClientOption() {
-		onPage.clickDiscussWithClientOption();
+	public void clickOnDiscussWithMyClientOption() {
+		onPage.clickOnDiscussWithClientOption();
 	}
 
 	@Step
-	public void clickAddDiscusButton() {
-		onPage.clickAddDiscus();
+	public void clickOnAddDiscusButton() {
+		onPage.clickOnAddDiscus();
 	}
 
-	private void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
-		onPage.addAddressInSessionVariable(buildingName, buildingAddress);
-	}
-
+	@Step
 	public void shouldSeeBuildingAddress() {
-		Assert.assertTrue(onPage.getBuildingAddress().equalsIgnoreCase(onPage.getFromSessionVariable("buidingAddress")));
+		onPage.isBuildingAddressDisplayed();
 	}
 
 	@Step
-	public void openExistingDuscussion() {
-		onPage.openExistingDuscussion(onPage.getFromSessionVariable("Client"));
+	public void openExistingDiscussion() {
+		onPage.openExistingDiscussion(SessionVariables.getValueFromSessionVariable("Client"));
 	}
 
-	public void shouldSeeExistingDuscussion() {
-		Assert.assertTrue(onPage.duscussionIsDisplayed(onPage.getFromSessionVariable("Client")));
-	}
-
-	@Step
-	public void clickSendWithinPerchwell() {
-		onPage.clickSendWithinPerchwell();
+	public void shouldSeeExistingDiscussion() {
+		onPage.discussionIsDisplayed(SessionVariables.getValueFromSessionVariable("Client"));
 	}
 
 	@Step
-	public void shouldSeeExistingDuscussionWithAgent() {
-		Assert.assertTrue(onPage.duscussionIsDisplayed(onPage.getFromSessionVariable("Agent")));
+	public void clickOnSendWithinPerchwell() {
+		onPage.clickOnSendWithinPerchwell();
 	}
 
 	@Step
-	public void openExistingDuscussionWithAgent() {
-		onPage.openExistingDiscussionWithAgent(onPage.getFromSessionVariable("Agent"));
+	public void shouldSeeExistingDiscussionWithAgent() {
+		onPage.discussionIsDisplayed(SessionVariables.getValueFromSessionVariable("Agent"));
+	}
+
+	@Step
+	public void openExistingDiscussionWithAgent() {
+		onPage.openExistingDiscussion(SessionVariables.getValueFromSessionVariable("Agent"));
 	}
 
 	@Step
 	public void isDiscussionWithMyClientDisplayed() {
-		Assert.assertTrue(onPage.isDiscussionWithMyClientDisplayed());
-
+		onPage.isDiscussionWithMyClientDisplayed();
 	}
 
+	@Step
 	public void isFilterStudioApplied() {
-
-		Assert.assertTrue(onPage.isTextStudioDisplayed());
+		onPage.isTextStudioDisplayed();
 	}
 
+	@Step
 	public void isFilter1BathApplied() {
-		Assert.assertTrue(onPage.isText1BathDisplayed());
+		onPage.isText1BathDisplayed();
 	}
 
 	@Step
-	public void shouldFilterFirepaceApplied() throws Exception {
+	public void shouldFilterFireplaceApplied() throws Exception {
 		onPage.clickFeaturesAmenities();
-		onPage.shouldFireplaceDisplayed();
-	}
-
-	public void clickShareButton() {
-		onPage.clickShareButton();
+		onPage.isFireplaceDisplayed();
 	}
 
 	@Step
-	public void isBuildingOpen(){
-		Assert.assertTrue(onPage.isBuildingOpen());
+	public void clickShareButton() {
+		onPage.clickOnShareButton();
+	}
+
+	@Step
+	public void isBuildingOpen() {
+		onPage.isBuildingOpen();
 	}
 }
 

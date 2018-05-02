@@ -16,11 +16,11 @@ public class ST5_AddClientTest extends SampleTest {
 		perchPopupSteps.clickNotNowButton();
 		perchwellSteps.clickOpenAccountButton();
 		accountSteps.clickOnClientsLabel();
-		clientSteps.clickAddNewClientButton();
+		clientSteps.clickOnAddNewClientButton();
 		clientSteps.setRandomClientData();
 		clientSteps.clickOnGroupLabel();
 		clientSteps.selectGroup("Actively Searching");
-		clientSteps.clickInviteButton();
+		clientSteps.clickOnInviteButton();
 		clientSteps.shouldSeeRecentlyCreatedClient();
 		clientSteps.invitationEmailSent();
 	}

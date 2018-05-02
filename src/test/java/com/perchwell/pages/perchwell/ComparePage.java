@@ -16,10 +16,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class ComparePage extends BasePage {
 
-	public ComparePage(WebDriver driver) {
-		super(driver);
-	}
-
 	@iOSXCUITFindBy(accessibility = "SWIPE UP TO REMOVE A PROPERTY. SWIPE RIGHT TO SEE OTHERS YOU'VE ADDED.")
 	private WebElement swipeUpToRemoveHint;
 
@@ -46,7 +42,10 @@ public class ComparePage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "REMOVE")
 	private WebElement removeMsgButtom;
 
-	OpenedBuildingPage openedBuildingPage;
+
+	public ComparePage(WebDriver driver) {
+		super(driver);
+	}
 
 	public Boolean removePropertyMsgIsDispayed() {
 		return Helper.isElementDisplayed(removePropertyMsg);
