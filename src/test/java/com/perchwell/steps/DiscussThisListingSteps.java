@@ -15,7 +15,7 @@ public class DiscussThisListingSteps extends ScenarioSteps {
         if (openedBuildingPage.isClientWithDiscussionExist()) {
             openedBuildingPage.clickOnViewAllDiscussionsButton();
             discussThisListingPage.DeleteClientsWithDiscussion();
-            discussThisListingPage.clickClosePageButton();
+            discussThisListingPage.clickOnClosePageButton();
             openedBuildingPage.clickOnShareButton();
             openedBuildingPage.clickOnSendWithinPerchwell();
         }

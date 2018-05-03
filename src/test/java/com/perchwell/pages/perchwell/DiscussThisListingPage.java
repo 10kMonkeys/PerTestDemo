@@ -8,9 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class DiscussThisListingPage extends BasePage {
 
-    public DiscussThisListingPage(WebDriver driver) {
-        super(driver);
-    }
+    //region WebElements
 
     @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'CONSTANT CLIENT'")
     private WebElement clientWithDiscussion;
@@ -21,20 +19,26 @@ public class DiscussThisListingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DiscussionsCancelButton")
     private WebElement closeButton;
 
+    //endregion
+
+    public DiscussThisListingPage(WebDriver driver) {
+        super(driver);
+    }
+
     public void DeleteClientsWithDiscussion() throws Exception {
 
         while (element(clientWithDiscussion).isVisible()) {
             int y = clientWithDiscussion.getLocation().getY();
             Helper.swipeRightElementWithSetY(clientWithDiscussion, y + 1);
-            clickDeleteButton();
+            clickOnDeleteButton();
         }
     }
 
-    public void clickDeleteButton() {
+    public void clickOnDeleteButton() {
         element(deleteButton).click();
     }
 
-    public void clickClosePageButton() {
+    public void clickOnClosePageButton() {
         element(closeButton).click();
     }
 }

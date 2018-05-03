@@ -27,11 +27,9 @@ public class ST10_AddToCompareTest extends SampleTest {
 		openedBuildingSteps.clickOnBackButton();
 		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnCompareLabel();
-		compareSteps.clickSwipeUpToRemoveHint();
-		//compareSteps.firstBuildingIsDispayed();
-		compareSteps.shoudSeeFirstBuildingInCompare("the first building");
-		//compareSteps.secondBuildingIsDispayed();
-		compareSteps.shoudSeeSecondBuildingInCompare("the second building");
-		compareSteps.thirdBuildingIsDispayed("the third building");
+		compareSteps.clickOnSwipeUpToRemoveHint();
+		compareSteps.shouldSeeFirstBuildingInCompare("the first building");
+		compareSteps.shouldSeeSecondBuildingInCompare("the second building");
+		compareSteps.thirdBuildingIsDisplayed("the third building");
 	}
 }

@@ -22,7 +22,5 @@ public class ST35_ReportDetailsOpeningTest extends SampleTest {
 		analyticsSteps.selectSecondBuildingInList();
 		openedBuildingSteps.clickOnDiscussWithMyClientHint();
 		openedBuildingSteps.isBuildingOpen();
-
-
 	}
 }
