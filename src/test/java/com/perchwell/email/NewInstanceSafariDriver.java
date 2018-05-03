@@ -20,8 +20,8 @@ public abstract class NewInstanceSafariDriver {
 
         safariDriver.navigate().to("https://staging.perchwell.com/accounts/password/edit?reset_password_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));
         AppProperties.INSTANCE.setProperty("new_reset_password",newPassword);
-        WebElement passwordTextBox = safariDriver.findElement(By.xpath("//*[@id='c43']"));
-        WebElement confirmPasswordTextBox = safariDriver.findElement(By.xpath("//*[@id='c44']"));
+        WebElement passwordTextBox = safariDriver.findElement(By.xpath("//*[@id='c44']"));
+        WebElement confirmPasswordTextBox = safariDriver.findElement(By.xpath("//*[@id='c45']"));
         WebElement resetPasswordButton = safariDriver.findElement(By.xpath("//*[@id='new_user']/div[3]/input"));
         passwordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("new_reset_password"));
         confirmPasswordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("new_reset_password"));
