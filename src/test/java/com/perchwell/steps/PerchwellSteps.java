@@ -7,8 +7,8 @@ import com.perchwell.pages.perchwell.PerchwellPage;
 import org.junit.Assert;
 
 public class PerchwellSteps extends ScenarioSteps {
-	PerchwellPage onPage;
 
+	PerchwellPage onPage;
 
 	@Step
 	public void skipAllHints() {

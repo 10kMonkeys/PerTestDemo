@@ -13,9 +13,7 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -98,8 +96,8 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "CLIENT EMAIL")
 	private WebElement clientOption;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
-	private WebElement buildingTable;
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]/XCUIElementTypeCell[2]/XCUIElementTypeStaticText[1]")
+	private WebElement secondBuildingTable;
 
 	@iOSXCUITFindBy(accessibility = "DOM BY PRICE2")
 	private WebElement domByPrice2Chart;
@@ -282,7 +280,7 @@ public class AnalyticsPage extends BasePage {
 	}
 
 	public void selectSecondBuildingInList(){
-		element(buildingTable).findElement(By.className("XCUIElementTypeCell")).click();
+        element(secondBuildingTable).click();
 
 	}
 	public void shareButtonClick(){
