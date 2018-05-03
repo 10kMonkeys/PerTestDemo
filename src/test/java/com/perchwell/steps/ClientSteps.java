@@ -80,7 +80,7 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnDesiredClient() {
-		onPage.clickOnDesiredClientOrAgent(SessionVariables.getValueFromSessionVariable("User name"));
+		onPage.clickOnDesiredClientOrAgent(SessionVariables.getValueFromSessionVariable("User_name"));
 	}
 
 	@Step
