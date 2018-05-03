@@ -7,8 +7,8 @@ import com.perchwell.pages.perchwell.PerchwellPage;
 import org.junit.Assert;
 
 public class PerchwellSteps extends ScenarioSteps {
-	PerchwellPage onPage;
 
+	PerchwellPage onPage;
 
 	@Step
 	public void skipAllHints() {
@@ -58,8 +58,8 @@ public class PerchwellSteps extends ScenarioSteps {
     }
 
 	@Step
-	public void countItemsInListViewBeforApplyingFilter(){
-		onPage.numberOfItemsInListView= onPage.countItemsInListView();
+	public void countItemsInListViewBeforApplyingFilter() {
+		onPage.numberOfItemsInListView = onPage.countItemsInListView();
 	}
 
 	@Step(" '{0}' and '{1}' should be different")
@@ -200,12 +200,12 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickInitials() {
+	public void clickOnInitials() {
 		onPage.clickOnInitials();
 	}
 
 	@Step
-	public void clickResetPassword() {
+	public void clickOnResetPassword() {
 		onPage.clickOnResetPassword();
 	}
 
