@@ -1,10 +1,12 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,10 +18,11 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class ComparePage extends BasePage {
 
+	//region WebElements
+
 	@iOSXCUITFindBy(accessibility = "SWIPE UP TO REMOVE A PROPERTY. SWIPE RIGHT TO SEE OTHERS YOU'VE ADDED.")
 	private WebElement swipeUpToRemoveHint;
 
-	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]")
 	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText")
 	@FindBy(xpath= "//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText")
 	private WebElement firstBuildingsAddress;
@@ -27,11 +30,6 @@ public class ComparePage extends BasePage {
 	@FindBy(xpath = "//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText")
 	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText")
 	private WebElement secondBuildingsAddress;
-
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[3]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]")
-	//@iOSXCUITFindBy(iOSClassChain = "//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[3]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText")
-	//@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView[1]/XCUIElementTypeCell[3]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]")
-	private WebElement thirdBuildingsAddress;
 
 	@iOSXCUITFindBy(accessibility = "REMOVE PROPERTY?")
 	private WebElement removePropertyMsg;
@@ -42,24 +40,25 @@ public class ComparePage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "REMOVE")
 	private WebElement removeMsgButtom;
 
+	//endregion
 
 	public ComparePage(WebDriver driver) {
 		super(driver);
 	}
 
-	public Boolean removePropertyMsgIsDispayed() {
-		return Helper.isElementDisplayed(removePropertyMsg);
+	public void removePropertyMsgIsDisplayed() {
+		Assert.assertTrue(Helper.isElementDisplayed(removePropertyMsg));
 	}
 
-	public void clickSwipeUpToRemoveHint() {
+	public void clickOnSwipeUpToRemoveHint() {
 		element(swipeUpToRemoveHint).click();
 	}
 
-	public void clickCancelMsgButton() {
+	public void clickOnCancelMsgButton() {
 		element(cancelMsgButton).click();
 	}
 
-	public void clickRemoveMsgButtom() {
+	public void clickOnRemoveMsgButton() {
 		element(removeMsgButtom).click();
 	}
 
@@ -71,19 +70,15 @@ public class ComparePage extends BasePage {
 		return element(secondBuildingsAddress).getAttribute("name");
 	}
 
-	public String getThirddBuildingAddress() {
-		return element(thirdBuildingsAddress).getAttribute("name");
+	public void firstBuildingIsDisplayed() {
+		Assert.assertTrue(Helper.isElementDisplayed(firstBuildingsAddress));
 	}
 
-	public Boolean firstBuildingIsDispayed() {
-		return Helper.isElementDisplayed(firstBuildingsAddress);
+	public void secondBuildingIsDisplayed() {
+		element(secondBuildingsAddress).shouldBeVisible();
 	}
 
-	public Boolean secondBuildingIsDispayed() {
-		return element(secondBuildingsAddress).isDisplayed();
-	}
-
-	public void scrollUpFirstBulding() throws Exception {
+	public void scrollUpFirstBuilding() {
 		setImplicitTimeout(1, SECONDS);
 
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -105,10 +100,23 @@ public class ComparePage extends BasePage {
 		return result;
 	}
 
-	public String getBuildingAddressFromSessionVariable(String buildingName) {
-		return Serenity.sessionVariableCalled(buildingName);
+	public void shouldSeeSecondBuildingInCompare(String building) {
+		Assert.assertTrue(getSecondBuildingAddress()
+				.equalsIgnoreCase(SessionVariables.getValueFromSessionVariable(building)));
 	}
 
+	public void thirdBuildingIsDisplayed(String building) throws Exception {
+		Assert.assertTrue(isBuildingDisplayedWithSwipe(SessionVariables.getValueFromSessionVariable(building)));
+	}
 
+	public void notSeeFirstBuildingInCompare(String building) {
+		Assert.assertFalse(getFirstBuildingAddress()
+				.equalsIgnoreCase(SessionVariables.getValueFromSessionVariable(building)));
+	}
+
+	public void shouldSeeFirstBuildingInCompare(String building) {
+		Assert.assertTrue(getFirstBuildingAddress()
+				.equalsIgnoreCase(SessionVariables.getValueFromSessionVariable(building)));
+	}
 }
 

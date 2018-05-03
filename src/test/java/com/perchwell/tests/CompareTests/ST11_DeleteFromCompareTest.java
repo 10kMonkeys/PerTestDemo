@@ -26,14 +26,14 @@ public class ST11_DeleteFromCompareTest extends SampleTest {
 		openedBuildingSteps.clickOnBackButton();
 		perchwellSteps.clickOnOpenAccountButton();
 		accountSteps.clickOnCompareLabel();
-		compareSteps.clickSwipeUpToRemoveHint();
-		compareSteps.shoudSeeFirstBuildingInCompare("the first building");
+		compareSteps.clickOnSwipeUpToRemoveHint();
+		compareSteps.shouldSeeFirstBuildingInCompare("the first building");
 		compareSteps.scrollUpFirstBuilding();
-		compareSteps.shoudSeeRemovePropertyMsg();
-		compareSteps.clickCancelMsgButton();
-		compareSteps.shoudSeeFirstBuildingInCompare("the first building");
+		compareSteps.shouldSeeRemovePropertyMsg();
+		compareSteps.clickOnCancelMsgButton();
+		compareSteps.shouldSeeFirstBuildingInCompare("the first building");
 		compareSteps.scrollUpFirstBuilding();
-		compareSteps.clickRemoveMsgButtom();
+		compareSteps.clickOnRemoveMsgButton();
 		compareSteps.notSeeFirstBuildingInCompare("the first building");
 	}
 }
