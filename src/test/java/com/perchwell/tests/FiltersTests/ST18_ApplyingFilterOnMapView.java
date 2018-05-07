@@ -10,16 +10,16 @@ public class ST18_ApplyingFilterOnMapView extends SampleTest {
 
     @Test
     public void applyingFilterOnMapViewTest() {
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnMap();
-        mapSteps.clickOnNotNowButton();
-        mapSteps.clickOnMyNewSearch();
-        searchSteps.selectFilter1AndHalfBath();
-        searchSteps.clickOnFilter1Bed();
-        searchSteps.clickOnApplyButton();
-        mapSteps.checkForChangesAfterApplyingTheFilter();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnMap();
+        user.atMapPage.clickOnNotNowButton();
+        user.atMapPage.clickOnMyNewSearch();
+        user.atSearchPage.selectFilter1AndHalfBath();
+        user.atSearchPage.clickOnFilter1Bed();
+        user.atSearchPage.clickOnApplyButton();
+        user.atMapPage.checkForChangesAfterApplyingTheFilter();
     }
 }

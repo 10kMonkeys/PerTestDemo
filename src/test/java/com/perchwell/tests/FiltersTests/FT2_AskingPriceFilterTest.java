@@ -10,41 +10,41 @@ public class FT2_AskingPriceFilterTest extends SampleTest {
 
     @Test
     public void resultAfterAskingPriceFilter() {
-        loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_test_email"),
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_test_email"),
                 AppProperties.INSTANCE.getProperty("client_test_password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.isListingsQuantity();
-        perchwellSteps.clickOnMyNewSearch();
-        searchSteps.setMinimumPriceFilter("100000");
-        searchSteps.clickOnApplyButton();
-        perchwellSteps.shouldSeeListingsEqualOrMoreMinPrice();
-        perchwellSteps.clickOnMyNewSearch();
-        searchSteps.eraseMinValueOfPriceFilter();
-        searchSteps.setMaximumPriceFilter("1100000");
-        searchSteps.clickOnApplyButton();
-        perchwellSteps.shouldSeeListingsEqualOrLessMaxPrice();
-        perchwellSteps.clickOnMyNewSearch();
-        searchSteps.setMinimumPriceFilter("900000");
-        searchSteps.setMaximumPriceFilter("1200000");
-        searchSteps.clickOnApplyButton();
-        perchwellSteps.shouldSeeListingsBetweenMinAndMaxPrices();
-        perchwellSteps.clickOnMyNewSearch();
-        searchSteps.saveCurrentSearch();
-        perchwellSteps.clickOnMyNewSearch();
-        searchSteps.clickOnLoadSavedSearchButton();
-        searchSteps.createNewSearchClick();
-        searchSteps.clickOnApplyButton();
-        perchwellSteps.checkListingsQuantity();
-        perchwellSteps.clickOnMyNewSearch();
-        searchSteps.checkNoOnePriceFilterSelected();
-        searchSteps.clickOnLoadSavedSearchButton();
-        searchSteps.clickOnPreviouslyCreatedSearch();
-        perchwellSteps.shouldSeeListingsBetweenMinAndMaxPrices();
-        perchwellSteps.clickOnMyNewSearch();
-        searchSteps.clickOnResetFilter();
-        searchSteps.checkNoOnePriceFilterSelected();
-        searchSteps.clickOnApplyButton();
-        perchwellSteps.checkListingsQuantity();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.isListingsQuantity();
+        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.setMinimumPriceFilter("100000");
+        user.atSearchPage.clickOnApplyButton();
+        user.atPerchwellPage.shouldSeeListingsEqualOrMoreMinPrice();
+        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.eraseMinValueOfPriceFilter();
+        user.atSearchPage.setMaximumPriceFilter("1100000");
+        user.atSearchPage.clickOnApplyButton();
+        user.atPerchwellPage.shouldSeeListingsEqualOrLessMaxPrice();
+        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.setMinimumPriceFilter("900000");
+        user.atSearchPage.setMaximumPriceFilter("1200000");
+        user.atSearchPage.clickOnApplyButton();
+        user.atPerchwellPage.shouldSeeListingsBetweenMinAndMaxPrices();
+        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.saveCurrentSearch();
+        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.clickOnApplyButton();
+        user.atPerchwellPage.checkListingsQuantity();
+        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.checkNoOnePriceFilterSelected();
+        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.clickOnPreviouslyCreatedSearch();
+        user.atPerchwellPage.shouldSeeListingsBetweenMinAndMaxPrices();
+        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.clickOnResetFilter();
+        user.atSearchPage.checkNoOnePriceFilterSelected();
+        user.atSearchPage.clickOnApplyButton();
+        user.atPerchwellPage.checkListingsQuantity();
     }
 }

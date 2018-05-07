@@ -11,27 +11,20 @@ public class DT7_DeleteDiscussionTest extends SampleTest {
 
     @Test
     public void deleteDiscussion() throws Exception {
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.openFirstBuilding();
-        openedBuildingSteps.clickOnDiscussWithMyClientHint();
-        openedBuildingSteps.clickShareButton();
-        openedBuildingSteps.clickOnSendWithinPerchwell();
-        openedBuildingSteps.clickOnAddDiscusButton();
-        clientSteps.selectClient();
-        discussionSteps.sendMessage(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
-        discussionSteps.clickOnBackButton();
-        clientSteps.closePage();
-        openedBuildingSteps.clickOnBackButton();
-        perchwellSteps.clickOnOpenAccountButton();
-        accountSteps.clickOnDiscussionsLabel();
-        discussionsListSteps.swipeFirstDiscussionName();
-        discussionsListSteps.clickOnDeleteButton();
-        discussionsListSteps.shouldBeDiscussionDeletedFromDiscussionsList();
-        discussionsListSteps.closePage();
-        accountSteps.clickOnDiscussionsLabel();
-        discussionsListSteps.shouldBeNotDisplayedPreviouslyDeletedDiscussion();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
+        user.usingComplexSteps.sendMessageToClientAndCloseDiscussion(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
+        user.atOpenedBuildingPage.clickOnBackButton();
+        user.atPerchwellPage.clickOnOpenAccountButton();
+        user.atAccountPage.clickOnDiscussionsLabel();
+        user.atDiscussionsListPage.swipeFirstDiscussionName();
+        user.atDiscussionsListPage.clickOnDeleteButton();
+        user.atDiscussionsListPage.shouldBeDiscussionDeletedFromDiscussionsList();
+        user.atDiscussionsListPage.closePage();
+        user.atAccountPage.clickOnDiscussionsLabel();
+        user.atDiscussionsListPage.shouldBeNotDisplayedPreviouslyDeletedDiscussion();
     }
 }

@@ -10,30 +10,30 @@ public class ST32_DeleteChartTest extends SampleTest {
 
     @Test
     public void deleteChart() throws Exception {
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnAnalytics();
-        rebnyListingsSteps.addChartFromREBNYSection();
-        analyticsSteps.skipHints();
-        analyticsSteps.addButtonClick();
-        acrisClosingSteps.addChartFromACRISSection();
-        analyticsSteps.addButtonClick();
-        nycTownhousesSteps.addChartFromNYCSection();
-        analyticsSteps.addButtonClick();
-        managementSteps.addChartFromManagementSection();
-        analyticsSteps.addButtonClick();
-        rebnyListingsSteps.addBedroomsChartFromREBNYListings();
-        analyticsSteps.addButtonClick();
-        acrisClosingSteps.addBuildingTypeByDealCountChartFromACRISCloasing();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.isMessageMaximumSixChartsDisplayed();
-        analyticsSteps.okButtonClick();
-        analyticsSteps.holdCharts();
-        analyticsSteps.deleteChart();
-        analyticsSteps.doneMovingCharts();
-        analyticsSteps.isAddIconDisplayed();
-        acrisClosingSteps.isDealCountByTypeDeleted();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnAnalytics();
+        user.atRebnyListingsPage.addChartFromREBNYSection();
+        user.atAnalyticsPage.skipHints();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAcrisClosingPage.addChartFromACRISSection();
+        user.atAnalyticsPage.addButtonClick();
+        user.atNycTownhousesPage.addChartFromNYCSection();
+        user.atAnalyticsPage.addButtonClick();
+        user.atManagementPage.addChartFromManagementSection();
+        user.atAnalyticsPage.addButtonClick();
+        user.atRebnyListingsPage.addBedroomsChartFromREBNYListings();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAcrisClosingPage.addBuildingTypeByDealCountChartFromACRISCloasing();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAnalyticsPage.isMessageMaximumSixChartsDisplayed();
+        user.atAnalyticsPage.okButtonClick();
+        user.atAnalyticsPage.holdCharts();
+        user.atAnalyticsPage.deleteChart();
+        user.atAnalyticsPage.doneMovingCharts();
+        user.atAnalyticsPage.isAddIconDisplayed();
+        user.atAcrisClosingPage.isDealCountByTypeDeleted();
     }
 }

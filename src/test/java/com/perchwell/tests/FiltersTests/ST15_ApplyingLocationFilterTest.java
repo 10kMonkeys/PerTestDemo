@@ -12,14 +12,14 @@ public class ST15_ApplyingLocationFilterTest extends SampleTest {
 @Ignore
 	@Test
 	public void resultAfterApplyingLocationFilter() throws Exception {
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+	user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOnMyNewSearch();
-		searchSteps.deleteDefaultLocationInFilter();
-		searchSteps.addLocationFilter();
-		searchSteps.clickOnApplyButton();
-		perchwellSteps.shouldSeeListingsOnlyFromSelectedDistrict("ALPHABET CITY");
+	user.atPerchwellPage.skipAllHints();
+	user.atPerchPopup.clickNotNowButton();
+	user.atPerchwellPage.clickOnMyNewSearch();
+	user.atSearchPage.deleteDefaultLocationInFilter();
+	user.atSearchPage.addLocationFilter();
+	user.atSearchPage.clickOnApplyButton();
+	user.atPerchwellPage.shouldSeeListingsOnlyFromSelectedDistrict("ALPHABET CITY");
 	}
 }

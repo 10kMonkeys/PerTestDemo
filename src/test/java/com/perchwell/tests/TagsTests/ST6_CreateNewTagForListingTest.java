@@ -11,21 +11,21 @@ public class ST6_CreateNewTagForListingTest extends SampleTest {
 	@Test
 	public void createNewTagForListing() throws Exception {
 
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickOnDiscussWithMyClientHint();
-		openedBuildingSteps.clickOnMyTagsLabel();
-		tagsSteps.setRandomTagAndSave();
-		tagsSteps.clickOnBackButton();
-		openedBuildingSteps.clickOnBackButton();
-		perchwellSteps.clickOnOpenAccountButton();
-		accountSteps.clickOnTagsLabel();
-		tagsSteps.shouldSeeCreatedTagUpperCase();
-		tagsSteps.clickOnCreatedTag();
-		tagsSteps.clickOnSearchButton();
-		tagsSteps.shouldSeeCreatedTagUpperCase();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.openFirstBuilding();
+		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+		user.atOpenedBuildingPage.clickOnMyTagsLabel();
+		user.atTagsPage.setRandomTagAndSave();
+		user.atTagsPage.clickOnBackButton();
+		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atPerchwellPage.clickOnOpenAccountButton();
+		user.atAccountPage.clickOnTagsLabel();
+		user.atTagsPage.shouldSeeCreatedTagUpperCase();
+		user.atTagsPage.clickOnCreatedTag();
+		user.atTagsPage.clickOnSearchButton();
+		user.atTagsPage.shouldSeeCreatedTagUpperCase();
 	}
 }

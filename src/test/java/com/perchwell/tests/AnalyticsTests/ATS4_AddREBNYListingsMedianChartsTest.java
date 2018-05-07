@@ -10,21 +10,21 @@ public class ATS4_AddREBNYListingsMedianChartsTest extends SampleTest {
 
     @Test
     public void addREBNYListingsMedianChartsTest(){
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnAnalytics();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.medianButtonClick();
-        rebnyListingsSteps.addAskingPricePerBedChart();
-        analyticsSteps.skipHints();
-        rebnyListingsSteps.shouldSeeMedianAskingPricePerBedChart();
-        analyticsSteps.selectREBNYListingsWithMedian();
-        rebnyListingsSteps.addMedianAskingPerFTChart();
-        analyticsSteps.selectREBNYListingsWithMedian();
-        rebnyListingsSteps.addMedianMonthliesChart();
-        analyticsSteps.selectREBNYListingsWithMedian();
-        rebnyListingsSteps.addMedianPropertyTaxesChart();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnAnalytics();
+        user.atAnalyticsPage.rebnyListingsButtonClick();
+        user.atAnalyticsPage.medianButtonClick();
+        user.atRebnyListingsPage.addAskingPricePerBedChart();
+        user.atAnalyticsPage.skipHints();
+        user.atRebnyListingsPage.shouldSeeMedianAskingPricePerBedChart();
+        user.atAnalyticsPage.selectREBNYListingsWithMedian();
+        user.atRebnyListingsPage.addMedianAskingPerFTChart();
+        user.atAnalyticsPage.selectREBNYListingsWithMedian();
+        user.atRebnyListingsPage.addMedianMonthliesChart();
+        user.atAnalyticsPage.selectREBNYListingsWithMedian();
+        user.atRebnyListingsPage.addMedianPropertyTaxesChart();
     }
 }

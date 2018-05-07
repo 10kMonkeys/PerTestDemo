@@ -5,27 +5,24 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 @WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "Third"})
 public class ST36_SendReportDetailsPDF extends SampleTest {
 
 	@Test
 	public void sendReportDetailsPDF() throws Exception {
 
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOnAnalytics();
-		rebnyListingsSteps.addChartFromREBNYSection();
-		analyticsSteps.skipHints();
-		rebnyListingsSteps.askingPriceChartClick();
-		analyticsSteps.upTo12MillionButtonClick();
-		analyticsSteps.shareButtonClick();
-		analyticsSteps.clickSendButton();
-		analyticsSteps.shouldFindPDFSummaryEmail();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.clickOnAnalytics();
+		user.atRebnyListingsPage.addChartFromREBNYSection();
+		user.atAnalyticsPage.skipHints();
+		user.atRebnyListingsPage.askingPriceChartClick();
+		user.atAnalyticsPage.upTo12MillionButtonClick();
+		user.atAnalyticsPage.shareButtonClick();
+		user.atAnalyticsPage.clickSendButton();
+		user.atAnalyticsPage.shouldFindPDFSummaryEmail();
 
 
 	}

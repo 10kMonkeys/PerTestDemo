@@ -7,17 +7,18 @@ import org.junit.Test;
 
 @WithTagValuesOf({"SmokeTestSuit", "LogInTests", "First"})
 public class ST2_LoginAsBrokerTest extends SampleTest {
+
 	@Test
 	public void logInAsBroker() throws Exception {
 
-	loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 			AppProperties.INSTANCE.getProperty("password"));
-	perchwellSteps.skipAllHints();
-	perchPopupSteps.clickNotNowButton();
-	perchwellSteps.clickOnOpenAccountButton();
-	accountSteps.shouldSeeOptionClient();
-	accountSteps.shouldSeeOptionDiscussions();
-	accountSteps.shouldSeeOptionTags();
-	accountSteps.shouldSeeOptionCompare();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.clickOnOpenAccountButton();
+		user.atAccountPage.shouldSeeOptionClient();
+		user.atAccountPage.shouldSeeOptionDiscussions();
+		user.atAccountPage.shouldSeeOptionTags();
+		user.atAccountPage.shouldSeeOptionCompare();
 }
 }

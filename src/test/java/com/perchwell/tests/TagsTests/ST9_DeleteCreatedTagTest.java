@@ -10,20 +10,20 @@ public class ST9_DeleteCreatedTagTest extends SampleTest {
 
 	@Test
 	public void deleteCreatedTag() throws Exception {
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickOnDiscussWithMyClientHint();
-		openedBuildingSteps.clickOnMyTagsLabel();
-		tagsSteps.setRandomTagAndSave();
-		tagsSteps.clickOnBackButton();
-		openedBuildingSteps.clickOnDeleteTagButton();
-		tagsSteps.shouldNotSeeCreatedTagUpperCase();
-		openedBuildingSteps.clickOnBackButton();
-		perchwellSteps.clickOnOpenAccountButton();
-		accountSteps.clickOnTagsLabel();
-		tagsSteps.shouldNotSeeCreatedTagUpperCase();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.openFirstBuilding();
+		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+		user.atOpenedBuildingPage.clickOnMyTagsLabel();
+		user.atTagsPage.setRandomTagAndSave();
+		user.atTagsPage.clickOnBackButton();
+		user.atOpenedBuildingPage.clickOnDeleteTagButton();
+		user.atTagsPage.shouldNotSeeCreatedTagUpperCase();
+		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atPerchwellPage.clickOnOpenAccountButton();
+		user.atAccountPage.clickOnTagsLabel();
+		user.atTagsPage.shouldNotSeeCreatedTagUpperCase();
 	}
 }

@@ -10,19 +10,19 @@ public class AT4_AddManagementChartsTest extends SampleTest {
 
     @Test
     public void addManagementChartsTest() throws Exception{
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnAnalytics();
-        analyticsSteps.selectManagementSection();
-        managementSteps.askingPriceChartClick();
-        analyticsSteps.skipHints();
-        managementSteps.isAskingPriseChartAdd();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.selectManagementSection();
-        analyticsSteps.distributionButtonClick();
-        managementSteps.selectFirmListingCountChart();
-        managementSteps.isFirmListingCountChartDisplayed();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnAnalytics();
+        user.atAnalyticsPage.selectManagementSection();
+        user.atManagementPage.askingPriceChartClick();
+        user.atAnalyticsPage.skipHints();
+        user.atManagementPage.isAskingPriseChartAdd();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAnalyticsPage.selectManagementSection();
+        user.atAnalyticsPage.distributionButtonClick();
+        user.atManagementPage.selectFirmListingCountChart();
+        user.atManagementPage.isFirmListingCountChartDisplayed();
     }
 }

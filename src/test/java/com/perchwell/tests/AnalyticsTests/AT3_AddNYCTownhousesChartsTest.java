@@ -10,20 +10,20 @@ public class AT3_AddNYCTownhousesChartsTest extends SampleTest{
 
     @Test
     public void addNYCTownhousesChartsTest() throws Exception{
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnAnalytics();
-        analyticsSteps.selectNYCTownhousesSection();
-        analyticsSteps.mktShareButtonClick();
-        nycTownhousesSteps.inHistoryDistClick();
-        analyticsSteps.skipHints();
-        nycTownhousesSteps.isHistoryDistChartDisplayed();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.selectNYCTownhousesSection();
-        analyticsSteps.featureButtonClick();
-        nycTownhousesSteps.selectGardenChart();
-        nycTownhousesSteps.isGardenPremiumChartDisplayed();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnAnalytics();
+        user.atAnalyticsPage.selectNYCTownhousesSection();
+        user.atAnalyticsPage.mktShareButtonClick();
+        user.atNycTownhousesPage.inHistoryDistClick();
+        user.atAnalyticsPage.skipHints();
+        user.atNycTownhousesPage.isHistoryDistChartDisplayed();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAnalyticsPage.selectNYCTownhousesSection();
+        user.atAnalyticsPage.featureButtonClick();
+        user.atNycTownhousesPage.selectGardenChart();
+        user.atNycTownhousesPage.isGardenPremiumChartDisplayed();
     }
 }

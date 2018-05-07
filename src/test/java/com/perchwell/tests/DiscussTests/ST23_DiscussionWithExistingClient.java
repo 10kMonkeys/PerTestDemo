@@ -11,42 +11,35 @@ public class ST23_DiscussionWithExistingClient extends SampleTest {
 
 	@Test
 	public void discussionWithExistingClientTest() throws Exception {
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickOnDiscussWithMyClientHint();
-		openedBuildingSteps.clickShareButton();
-		openedBuildingSteps.clickOnSendWithinPerchwell();
-		discussThisListingSteps.deleteDiscussionWithClientIfExist();
-		openedBuildingSteps.clickOnAddDiscusButton();
-		clientSteps.clickOnExistingClient();
-		discussionSteps.sendMessage(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
-		discussionSteps.clickOnBackButton();
-		clientSteps.closePage();
-		openedBuildingSteps.shouldSeeExistingDiscussion();
-		openedBuildingSteps.openExistingDiscussion();
-		discussionSteps.shouldSeeMessageInDiscussion();
-		discussionSteps.clickOnCloseButton();
-		openedBuildingSteps.clickOnBackButton();
-		perchwellSteps.clickOnOpenAccountButton();
-		accountSteps.clickOnDiscussionsLabel();
-		discussionsListSteps.shouldBeCreatedDiscussionFirst();
-		discussionsListSteps.clickOnFirstDiscussion();
-		discussionSteps.shouldSeeMessageInDiscussion();
-		discussionSteps.clickOnBackButton();
-		discussionSteps.clickOndiscussionsCancelButton();
-		clientSteps.logOut();
-		clientSteps.clickOnYesButtonLogOutWindow();
-		loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
+		user.atDiscussThisListingPage.deleteDiscussionWithClientIfExist();
+		user.usingComplexSteps.sendMessageToClientAndCloseDiscussion(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
+		user.atOpenedBuildingPage.shouldSeeExistingDiscussion();
+		user.atOpenedBuildingPage.openExistingDiscussion();
+		user.atDiscussionPage.shouldSeeMessageInDiscussion();
+		user.atDiscussionPage.clickOnCloseButton();
+		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atPerchwellPage.clickOnOpenAccountButton();
+		user.atAccountPage.clickOnDiscussionsLabel();
+		user.atDiscussionsListPage.shouldBeCreatedDiscussionFirst();
+		user.atDiscussionsListPage.clickOnFirstDiscussion();
+		user.atDiscussionPage.shouldSeeMessageInDiscussion();
+		user.atDiscussionPage.clickOnBackButton();
+		user.atDiscussionPage.clickOndiscussionsCancelButton();
+		user.atClientPage.logOut();
+		user.atClientPage.clickOnYesButtonLogOutWindow();
+		user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOnOpenAccountButton();
-		accountSteps.clickOnDiscussionsLabel();
-		discussionsListSteps.shouldBeLastDiscussionWithBrokerFirst();
-		discussionsListSteps.clickOnFirstDiscussion();
-		discussionSteps.shouldSeeMessageInDiscussion();
-		discussionsListSteps.shouldFindDiscussionsEmailForExistingClient();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.clickOnOpenAccountButton();
+		user.atAccountPage.clickOnDiscussionsLabel();
+		user.atDiscussionsListPage.shouldBeLastDiscussionWithBrokerFirst();
+		user.atDiscussionsListPage.clickOnFirstDiscussion();
+		user.atDiscussionPage.shouldSeeMessageInDiscussion();
+		user.atDiscussionsListPage.shouldFindDiscussionsEmailForExistingClient();
 	}
 }

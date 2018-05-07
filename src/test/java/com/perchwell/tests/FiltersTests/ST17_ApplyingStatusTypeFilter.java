@@ -10,51 +10,51 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
 
     @Test
     public void applyingStatusTypeFilter() throws Exception{
-            loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("client_test_email"),
+            user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("client_test_email"),
                     AppProperties.INSTANCE.getProperty("client_test_password"));
-            perchwellSteps.skipAllHints();
-            perchPopupSteps.clickNotNowButton();
-            perchwellSteps.isListingsQuantity();
-            perchwellSteps.clickOnMyNewSearch();
-            searchSteps.deselectActiveFilter();
-            searchSteps.selectContractFilter();
-            searchSteps.clickOnApplyButton();
-//            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter(); //Contract label SEARCH PAGE??
-//            perchwellSteps.shouldSeeListingOnlyWithLabel("InContractBanner");
-            perchwellSteps.clickOnMyNewSearch();
-            searchSteps.deselectContractFilter();
-            searchSteps.selectOffMktFilter();
-            searchSteps.clickOnApplyButton();
-//            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter(); //Oft mkt label SEARCH PAGE??
-//            perchwellSteps.shouldSeeListingOnlyWithLabel("OffMarketBanner");
-            perchwellSteps.clickOnMyNewSearch();
-            searchSteps.deselectOffMktFilter();
-            searchSteps.selectSoldOrRentFilter();
-            searchSteps.clickOnApplyButton();
-//            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter(); //Sold label SEARCH PAGE??
-//            perchwellSteps.shouldSeeListingOnlyWithLabel("SoldBanner");
-            perchwellSteps.clickOnMyNewSearch();
-            searchSteps.selectRentedFilter();
-            searchSteps.clickOnApplyButton();
-//            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter(); //Rented label SEARCH PAGE??
-//            perchwellSteps.shouldSeeListingOnlyWithLabel("RentedBanner");
-            perchwellSteps.clickOnMyNewSearch();
-            searchSteps.saveCurrentSearch();
-            perchwellSteps.clickOnMyNewSearch();
-            searchSteps.clickOnLoadSavedSearchButton();
-            searchSteps.createNewSearchClick();
-            searchSteps.clickOnApplyButton();
-            perchwellSteps.checkListingsQuantity();
-            perchwellSteps.clickOnMyNewSearch();
-//            searchSteps.checkSalesAndActiveFiltersSelected();
-            searchSteps.clickOnLoadSavedSearchButton();
-            searchSteps.clickOnPreviouslyCreatedSearch();
-//            searchSteps.isBuildingsFilteredAfterApplyingStatusFilter(); //24 //Rented label SEARCH PAGE??
-//            perchwellSteps.shouldSeeListingOnlyWithLabel("RentedBanner");
-            perchwellSteps.clickOnMyNewSearch();
-            searchSteps.clickOnResetFilter();
-//            searchSteps.checkSalesAndActiveFiltersSelected();
-            searchSteps.clickOnApplyButton();
-            perchwellSteps.checkListingsQuantity();
+            user.atPerchwellPage.skipAllHints();
+            user.atPerchPopup.clickNotNowButton();
+            user.atPerchwellPage.isListingsQuantity();
+            user.atPerchwellPage.clickOnMyNewSearch();
+            user.atSearchPage.deselectActiveFilter();
+            user.atSearchPage.selectContractFilter();
+            user.atSearchPage.clickOnApplyButton();
+//            user.atSearchPage.isBuildingsFilteredAfterApplyingStatusFilter(); //Contract label SEARCH PAGE??
+//            user.atPerchwellPage.shouldSeeListingOnlyWithLabel("InContractBanner");
+            user.atPerchwellPage.clickOnMyNewSearch();
+            user.atSearchPage.deselectContractFilter();
+            user.atSearchPage.selectOffMktFilter();
+            user.atSearchPage.clickOnApplyButton();
+//            user.atSearchPage.isBuildingsFilteredAfterApplyingStatusFilter(); //Oft mkt label SEARCH PAGE??
+//            user.atPerchwellPage.shouldSeeListingOnlyWithLabel("OffMarketBanner");
+            user.atPerchwellPage.clickOnMyNewSearch();
+            user.atSearchPage.deselectOffMktFilter();
+            user.atSearchPage.selectSoldOrRentFilter();
+            user.atSearchPage.clickOnApplyButton();
+//            user.atSearchPage.isBuildingsFilteredAfterApplyingStatusFilter(); //Sold label SEARCH PAGE??
+//            user.atPerchwellPage.shouldSeeListingOnlyWithLabel("SoldBanner");
+            user.atPerchwellPage.clickOnMyNewSearch();
+            user.atSearchPage.selectRentedFilter();
+            user.atSearchPage.clickOnApplyButton();
+//            user.atSearchPage.isBuildingsFilteredAfterApplyingStatusFilter(); //Rented label SEARCH PAGE??
+//            user.atPerchwellPage.shouldSeeListingOnlyWithLabel("RentedBanner");
+            user.atPerchwellPage.clickOnMyNewSearch();
+            user.atSearchPage.saveCurrentSearch();
+            user.atPerchwellPage.clickOnMyNewSearch();
+            user.atSearchPage.clickOnLoadSavedSearchButton();
+            user.atSearchPage.createNewSearchClick();
+            user.atSearchPage.clickOnApplyButton();
+            user.atPerchwellPage.checkListingsQuantity();
+            user.atPerchwellPage.clickOnMyNewSearch();
+//           user.atSearchPage.checkSalesAndActiveFiltersSelected();
+            user.atSearchPage.clickOnLoadSavedSearchButton();
+            user.atSearchPage.clickOnPreviouslyCreatedSearch();
+//            user.atSearchPage.isBuildingsFilteredAfterApplyingStatusFilter(); //24 //Rented label SEARCH PAGE??
+//            user.atPerchwellPage.shouldSeeListingOnlyWithLabel("RentedBanner");
+            user.atPerchwellPage.clickOnMyNewSearch();
+            user.atSearchPage.clickOnResetFilter();
+//            user.atSearchPage.checkSalesAndActiveFiltersSelected();
+            user.atSearchPage.clickOnApplyButton();
+            user.atPerchwellPage.checkListingsQuantity();
     }
 }

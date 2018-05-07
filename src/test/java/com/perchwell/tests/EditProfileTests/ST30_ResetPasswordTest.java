@@ -10,28 +10,28 @@ public class ST30_ResetPasswordTest extends SampleTest {
 
     @Test
     public void resetPasswordTest() throws Exception{
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("reset_email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("new_reset_password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnOpenAccountButton();
-        accountSteps.openSettingProfile();
-        settingsProfileSteps.resetPasswordClick();
-        resetPasswordSteps.resetPasswordButtonClick();
-        resetPasswordSteps.shouldFindSentEmail();
-        resetPasswordSteps.getResetToken();
-        resetPasswordSteps.setNewPassword();
-        settingsProfileSteps.backButtonClick();
-        settingsProfileSteps.cancelButtonClick();
-        clientSteps.logOut();
-        clientSteps.clickOnYesButtonLogOutWindow();
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("reset_email"),
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnOpenAccountButton();
+        user.atAccountPage.openSettingProfile();
+        user.atSettingsProfilePage.resetPasswordClick();
+        user.atResetPasswordPage.resetPasswordButtonClick();
+        user.atResetPasswordPage.shouldFindSentEmail();
+        user.atResetPasswordPage.getResetToken();
+        user.atResetPasswordPage.setNewPassword();
+        user.atSettingsProfilePage.backButtonClick();
+        user.atSettingsProfilePage.cancelButtonClick();
+        user.atClientPage.logOut();
+        user.atClientPage.clickOnYesButtonLogOutWindow();
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("old_reset_password"));
-        resetPasswordSteps.isAccountNeededToSignInMessageDisplayed();
-        resetPasswordSteps.okButtonClick();
-        resetPasswordSteps.login(AppProperties.INSTANCE.getProperty("reset_email"),
+        user.atResetPasswordPage.isAccountNeededToSignInMessageDisplayed();
+        user.atResetPasswordPage.okButtonClick();
+        user.atResetPasswordPage.login(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("new_reset_password"));
-        perchwellSteps.shouldSeeInitialIcon();
-        resetPasswordSteps.overwritingOldPassword();
+        user.atPerchwellPage.shouldSeeInitialIcon();
+        user.atResetPasswordPage.overwritingOldPassword();
     }
 }

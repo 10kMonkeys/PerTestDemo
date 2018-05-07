@@ -10,15 +10,15 @@ public class ST37_AddChartAsClientTest extends SampleTest {
 
     @Test
     public void addChartAsClient(){
-        loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
                 AppProperties.INSTANCE.getProperty("client_password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnAnalytics();
-        rebnyListingsSteps.addAskingPriceChartWithMKTShare();
-        analyticsSteps.skipHints();
-        analyticsSteps.addButtonClick();
-        rebnyListingsSteps.addBuildingHeightChartWithMKTShare();
-        analyticsSteps.isThisIsAProOnlyFeatureMessageShow();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnAnalytics();
+        user.atRebnyListingsPage.addAskingPriceChartWithMKTShare();
+        user.atAnalyticsPage.skipHints();
+        user.atAnalyticsPage.addButtonClick();
+        user.atRebnyListingsPage.addBuildingHeightChartWithMKTShare();
+        user.atAnalyticsPage.isThisIsAProOnlyFeatureMessageShow();
     }
 }

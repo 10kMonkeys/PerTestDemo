@@ -11,18 +11,18 @@ public class DT1_DeleteClientTest extends SampleTest {
 
     @Test
     public void deleteClient() throws Exception {
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnOpenAccountButton();
-        accountSteps.clickOnClientsLabel();
-        clientSteps.addNewClient(ClientGroups.ACTIVELYSEARCHING);
-        clientSteps.swipeCreatedClientName();
-        clientSteps.clickOnDeleteButton();
-        clientSteps.shouldClientNotBePresented();
-        clientSteps.closePage();
-        accountSteps.clickOnClientsLabel();
-        clientSteps.shouldClientNotBePresented();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnOpenAccountButton();
+        user.atAccountPage.clickOnClientsLabel();
+        user.atClientPage.addNewClient(ClientGroups.ACTIVELYSEARCHING);
+        user.atClientPage.swipeCreatedClientName();
+        user.atClientPage.clickOnDeleteButton();
+        user.atClientPage.shouldClientNotBePresented();
+        user.atClientPage.closePage();
+        user.atAccountPage.clickOnClientsLabel();
+        user.atClientPage.shouldClientNotBePresented();
     }
 }

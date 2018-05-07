@@ -11,29 +11,29 @@ public class ST14_ChangeExistingSearch extends SampleTest {
 	@Test
 	public void changeExistingSearch() {
 
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOnMyNewSearch();
-		searchSteps.clickOnLoadSavedSearchButton();
-		searchSteps.clickOnExistingSearchInList();
-		perchwellSteps.countItemsInListView("The number of elements before search changing");
-		perchwellSteps.clickOnMyNewSearch();
-		searchSteps.setMinimumPriceFilter("700000");
-		searchSteps.clickOnFilter1Bed();
-		searchSteps.clickOnApplyButton();
-		perchwellSteps.countItemsInListView("The number of elements after search changing");
-		perchwellSteps.resultsCountIsChanged("The number of elements before search changing","The number of elements after search changing");
-		perchwellSteps.clickOnMyNewSearch();
-		searchSteps.clickOnTapToSaveChanges();
-		searchSteps.overwriteOptionSelect();
-		perchwellSteps.countItemsInListView("The number of elements after overwrite");
-		perchwellSteps.resultsCountIsEqual("The number of elements after overwrite","The number of elements after search changing");
-		perchwellSteps.shouldSeeTheSameSearchName();
-		perchwellSteps.clickOnMyNewSearch();
-        searchSteps.shouldMinPriceHaveTheSameValue();
-        searchSteps.shouldFilter1BedBeOfTheSameStatus();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atSearchPage.clickOnLoadSavedSearchButton();
+		user.atSearchPage.clickOnExistingSearchInList();
+		user.atPerchwellPage.countItemsInListView("The number of elements before search changing");
+		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atSearchPage.setMinimumPriceFilter("700000");
+		user.atSearchPage.clickOnFilter1Bed();
+		user.atSearchPage.clickOnApplyButton();
+		user.atPerchwellPage.countItemsInListView("The number of elements after search changing");
+		user.atPerchwellPage.resultsCountIsChanged("The number of elements before search changing","The number of elements after search changing");
+		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atSearchPage.clickOnTapToSaveChanges();
+		user.atSearchPage.overwriteOptionSelect();
+		user.atPerchwellPage.countItemsInListView("The number of elements after overwrite");
+		user.atPerchwellPage.resultsCountIsEqual("The number of elements after overwrite","The number of elements after search changing");
+		user.atPerchwellPage.shouldSeeTheSameSearchName();
+		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atSearchPage.shouldMinPriceHaveTheSameValue();
+		user.atSearchPage.shouldFilter1BedBeOfTheSameStatus();
 	}
 
 }

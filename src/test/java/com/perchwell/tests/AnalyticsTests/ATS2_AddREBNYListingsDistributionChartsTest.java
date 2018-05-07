@@ -10,42 +10,41 @@ public class ATS2_AddREBNYListingsDistributionChartsTest extends SampleTest {
 
     @Test
     public void addREBNYListingsDistributionChartsTest(){
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnAnalytics();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.distributionButtonClick();
-        rebnyListingsSteps.dollarPerFTByPriceSegmentButtonClick();
-        analyticsSteps.skipHints();
-        rebnyListingsSteps.isDollarPerFTByPriceSegmentChartAdd();
-        analyticsSteps.selectREBNYListingsWithDistribution();
-        rebnyListingsSteps.askingPriceChartClick();
-        rebnyListingsSteps.isAskingPriseChartAdd();
-        analyticsSteps.selectREBNYListingsWithDistribution();
-        rebnyListingsSteps.addAndVerifyAskingPriceByBedsChart();
-        analyticsSteps.selectREBNYListingsWithDistribution();
-        rebnyListingsSteps.addAndVerifyAskingPriceByPriceSegmentChart();
-        analyticsSteps.selectREBNYListingsWithDistribution();
-        rebnyListingsSteps.addAndVerifyAskingPriceByTypeChart();
-        analyticsSteps.selectREBNYListingsWithDistribution();
-        rebnyListingsSteps.addAndVerifyAskingPricePerBedChart();
-        analyticsSteps.clickMyNewSearch();
-        searchSteps.clickOnLoadSavedSearchButton();
-        searchSteps.createNewSearchClick();
-        searchSteps.clickOnApplyButton();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.distributionButtonClick();
-        rebnyListingsSteps.addAndVerifyAskingPricePerFTChart();
-        analyticsSteps.selectREBNYListingsWithDistribution();
-        rebnyListingsSteps.addAndVerifyDOMByNumberBedsChart();
-        analyticsSteps.selectREBNYListingsWithDistribution();
-        rebnyListingsSteps.addAndVerifyDOMByPriceSegmentChart();
-        analyticsSteps.selectREBNYListingsWithDistribution();
-        rebnyListingsSteps.addAndVerifyMonthliesChart();
-        analyticsSteps.selectREBNYListingsWithDistribution();
-        rebnyListingsSteps.addAndVerifySquareFeetChart();
-
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnAnalytics();
+        user.atAnalyticsPage.rebnyListingsButtonClick();
+        user.atAnalyticsPage.distributionButtonClick();
+        user.atRebnyListingsPage.dollarPerFTByPriceSegmentButtonClick();
+        user.atAnalyticsPage.skipHints();
+        user.atRebnyListingsPage.isDollarPerFTByPriceSegmentChartAdd();
+        user.atAnalyticsPage.selectREBNYListingsWithDistribution();
+        user.atRebnyListingsPage.askingPriceChartClick();
+        user.atRebnyListingsPage.isAskingPriseChartAdd();
+        user.atAnalyticsPage.selectREBNYListingsWithDistribution();
+        user.atRebnyListingsPage.addAndVerifyAskingPriceByBedsChart();
+        user.atAnalyticsPage.selectREBNYListingsWithDistribution();
+        user.atRebnyListingsPage.addAndVerifyAskingPriceByPriceSegmentChart();
+        user.atAnalyticsPage.selectREBNYListingsWithDistribution();
+        user.atRebnyListingsPage.addAndVerifyAskingPriceByTypeChart();
+        user.atAnalyticsPage.selectREBNYListingsWithDistribution();
+        user.atRebnyListingsPage.addAndVerifyAskingPricePerBedChart();
+        user.atAnalyticsPage.clickMyNewSearch();
+        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.clickOnApplyButton();
+        user.atAnalyticsPage.rebnyListingsButtonClick();
+        user.atAnalyticsPage.distributionButtonClick();
+        user.atRebnyListingsPage.addAndVerifyAskingPricePerFTChart();
+        user.atAnalyticsPage.selectREBNYListingsWithDistribution();
+        user.atRebnyListingsPage.addAndVerifyDOMByNumberBedsChart();
+        user.atAnalyticsPage.selectREBNYListingsWithDistribution();
+        user.atRebnyListingsPage.addAndVerifyDOMByPriceSegmentChart();
+        user.atAnalyticsPage.selectREBNYListingsWithDistribution();
+        user.atRebnyListingsPage.addAndVerifyMonthliesChart();
+        user.atAnalyticsPage.selectREBNYListingsWithDistribution();
+        user.atRebnyListingsPage.addAndVerifySquareFeetChart();
     }
 }

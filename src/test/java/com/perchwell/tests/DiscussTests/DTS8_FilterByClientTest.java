@@ -11,33 +11,33 @@ public class DTS8_FilterByClientTest extends SampleTest {
 
     @Test
     public void filterByClient() throws Exception {
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.openSecondBuilding();
-        openedBuildingSteps.clickOnDiscussWithMyClientHint();
-        openedBuildingSteps.clickShareButton();
-        openedBuildingSteps.clickOnSendWithinPerchwell();
-        openedBuildingSteps.clickOnAddDiscusButton();
-        clientSteps.selectTestClient();
-        discussionSteps.sendMessage(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
-        discussionSteps.clickOnBackButton();
-        clientSteps.closePage();
-        openedBuildingSteps.clickOnBackButton();
-        perchwellSteps.clickOnOpenAccountButton();
-        accountSteps.clickOnDiscussionsLabel();
-        discussionsListSteps.enterValueInSearchField("Tes");
-        discussionsListSteps.shouldBeTestClientPresentInFilterResult();
-        discussionsListSteps.clickDeleteIconNextToSearchText();
-        discussionsListSteps.shouldBeNothingDisplayedInFilterByPerson();
-        discussionsListSteps.enterValueInSearchField("st cl");
-        discussionsListSteps.shouldBeTestClientPresentInFilterResult();
-        discussionsListSteps.clickDeleteIconNextToSearchText();
-        discussionsListSteps.shouldBeNothingDisplayedInFilterByPerson();
-        discussionsListSteps.enterValueInSearchField(" client");
-        discussionsListSteps.shouldBeTestClientPresentInFilterResult();
-        discussionsListSteps.selectTestClient();
-        discussionsListSteps.shouldBeOnlyDiscussionWithTestClientDisplayed();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.openSecondBuilding();
+        user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+        user.atOpenedBuildingPage.clickShareButton();
+        user.atOpenedBuildingPage.clickOnSendWithinPerchwell();
+        user.atOpenedBuildingPage.clickOnAddDiscusButton();
+        user.atClientPage.selectTestClient();
+        user.atDiscussionPage.sendMessage(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
+        user.atDiscussionPage.clickOnBackButton();
+        user.atClientPage.closePage();
+        user.atOpenedBuildingPage.clickOnBackButton();
+        user.atPerchwellPage.clickOnOpenAccountButton();
+        user.atAccountPage.clickOnDiscussionsLabel();
+        user.atDiscussionsListPage.enterValueInSearchField("Tes");
+        user.atDiscussionsListPage.shouldBeTestClientPresentInFilterResult();
+        user.atDiscussionsListPage.clickDeleteIconNextToSearchText();
+        user.atDiscussionsListPage.shouldBeNothingDisplayedInFilterByPerson();
+        user.atDiscussionsListPage.enterValueInSearchField("st cl");
+        user.atDiscussionsListPage.shouldBeTestClientPresentInFilterResult();
+        user.atDiscussionsListPage.clickDeleteIconNextToSearchText();
+        user.atDiscussionsListPage.shouldBeNothingDisplayedInFilterByPerson();
+        user.atDiscussionsListPage.enterValueInSearchField(" client");
+        user.atDiscussionsListPage.shouldBeTestClientPresentInFilterResult();
+        user.atDiscussionsListPage.selectTestClient();
+        user.atDiscussionsListPage.shouldBeOnlyDiscussionWithTestClientDisplayed();
     }
 }

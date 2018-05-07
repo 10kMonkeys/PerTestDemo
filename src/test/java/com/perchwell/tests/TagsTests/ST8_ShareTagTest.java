@@ -10,21 +10,21 @@ public class ST8_ShareTagTest extends SampleTest {
 
 	@Test
 	public void shareTagTest() throws Exception {
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOnOpenAccountButton();
-		accountSteps.clickOnTagsLabel();
-		myTagsSteps.clickOnSeveralExistingTagLabel();
-		myTagsSteps.clickOnTagSearchButton();
-		selectResultStep.clickOnTagPDFExportButton();
-		selectResultStep.selectShareTaggedItems();
-		shareTaggedItemsSteps.selectClientEmail();
-		shareTaggedItemsSteps.fillInTitle("Test client");
-		shareTaggedItemsSteps.fillInMessage("Test message");
-		shareTaggedItemsSteps.doneButtonClick();
-		shareTaggedItemsSteps.sendButtonClick();
-		selectResultStep.shouldFindSentEmail();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.clickOnOpenAccountButton();
+		user.atAccountPage.clickOnTagsLabel();
+		user.atMyTagsPage.clickOnSeveralExistingTagLabel();
+		user.atMyTagsPage.clickOnTagSearchButton();
+		user.atSelectResultPage.clickOnTagPDFExportButton();
+		user.atSelectResultPage.selectShareTaggedItems();
+		user.atShareTaggedItemsPage.selectClientEmail();
+		user.atShareTaggedItemsPage.fillInTitle("Test client");
+		user.atShareTaggedItemsPage.fillInMessage("Test message");
+		user.atShareTaggedItemsPage.doneButtonClick();
+		user.atShareTaggedItemsPage.sendButtonClick();
+		user.atSelectResultPage.shouldFindSentEmail();
 	}
 }

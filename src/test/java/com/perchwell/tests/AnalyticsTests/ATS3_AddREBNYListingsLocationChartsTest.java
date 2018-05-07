@@ -10,31 +10,31 @@ public class ATS3_AddREBNYListingsLocationChartsTest extends SampleTest {
 
     @Test
     public void addREBNYListingsLocationChartsTest() throws Exception {
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnAnalytics();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.locationButtonClick();
-        rebnyListingsSteps.addAskingPricePerBedChart();
-        analyticsSteps.skipHints();
-        rebnyListingsSteps.shouldSeeMedianAskingPricePerBedChart();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.locationButtonClick();
-        rebnyListingsSteps.addMedianAskingPerFTChart();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.locationButtonClick();
-        rebnyListingsSteps.addListingCountChart();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.locationButtonClick();
-        rebnyListingsSteps.addMedianMonthliesChart();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.locationButtonClick();
-        rebnyListingsSteps.addMedianPropertyTaxesChart();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnAnalytics();
+        user.atAnalyticsPage.rebnyListingsButtonClick();
+        user.atAnalyticsPage.locationButtonClick();
+        user.atRebnyListingsPage.addAskingPricePerBedChart();
+        user.atAnalyticsPage.skipHints();
+        user.atRebnyListingsPage.shouldSeeMedianAskingPricePerBedChart();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAnalyticsPage.rebnyListingsButtonClick();
+        user.atAnalyticsPage.locationButtonClick();
+        user.atRebnyListingsPage.addMedianAskingPerFTChart();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAnalyticsPage.rebnyListingsButtonClick();
+        user.atAnalyticsPage.locationButtonClick();
+        user.atRebnyListingsPage.addListingCountChart();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAnalyticsPage.rebnyListingsButtonClick();
+        user.atAnalyticsPage.locationButtonClick();
+        user.atRebnyListingsPage.addMedianMonthliesChart();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAnalyticsPage.rebnyListingsButtonClick();
+        user.atAnalyticsPage.locationButtonClick();
+        user.atRebnyListingsPage.addMedianPropertyTaxesChart();
     }
 }

@@ -10,25 +10,25 @@ public class DTS4_SearchByClientNameTest extends SampleTest {
 
     @Test
     public void searchByClientName() {
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnOpenAccountButton();
-        accountSteps.clickOnClientsLabel();
-        clientSteps.noteNumberClientsBeforeSearch();
-        clientSteps.enterValueInSearchField("Tes");
-        clientSteps.clickOutsideSearchSection();
-        clientSteps.shouldTestClientPresentInClientsList();
-        clientSteps.clickOnDeleteIconNextToSearchText();
-        clientSteps.clickOutsideSearchSection();
-        clientSteps.shouldSearchBeCleared();
-        clientSteps.enterValueInSearchField("st cl");
-        clientSteps.clickOutsideSearchSection();
-        clientSteps.shouldTestClientPresentInClientsList();
-        clientSteps.clickOnDeleteIconNextToSearchText();
-        clientSteps.enterValueInSearchField(" client");
-        clientSteps.clickOutsideSearchSection();
-        clientSteps.shouldTestClientPresentInClientsList();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnOpenAccountButton();
+        user.atAccountPage.clickOnClientsLabel();
+        user.atClientPage.noteNumberClientsBeforeSearch();
+        user.atClientPage.enterValueInSearchField("Tes");
+        user.atClientPage.clickOutsideSearchSection();
+        user.atClientPage.shouldTestClientPresentInClientsList();
+        user.atClientPage.clickOnDeleteIconNextToSearchText();
+        user.atClientPage.clickOutsideSearchSection();
+        user.atClientPage.shouldSearchBeCleared();
+        user.atClientPage.enterValueInSearchField("st cl");
+        user.atClientPage.clickOutsideSearchSection();
+        user.atClientPage.shouldTestClientPresentInClientsList();
+        user.atClientPage.clickOnDeleteIconNextToSearchText();
+        user.atClientPage.enterValueInSearchField(" client");
+        user.atClientPage.clickOutsideSearchSection();
+        user.atClientPage.shouldTestClientPresentInClientsList();
     }
 }

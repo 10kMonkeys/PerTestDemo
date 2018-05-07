@@ -10,16 +10,16 @@ public class SET1_DeleteSearchTest extends SampleTest {
 
     @Test
     public void deleteSearch() throws Exception {
-        loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_test_email"),
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_test_email"),
                 AppProperties.INSTANCE.getProperty("client_test_password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnMyNewSearch();
-        searchSteps.saveCurrentSearch();
-        perchwellSteps.clickOnMyNewSearch();
-        searchSteps.clickOnLoadSavedSearchButton();
-        searchSteps.swipeCreatedSearch();
-        searchSteps.clickOnDeleteSearchButton();
-        searchSteps.shouldDeleteSearch();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.saveCurrentSearch();
+        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.swipeCreatedSearch();
+        user.atSearchPage.clickOnDeleteSearchButton();
+        user.atSearchPage.shouldDeleteSearch();
     }
 }

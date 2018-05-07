@@ -10,28 +10,28 @@ public class ST31_AddGraphicsTest extends SampleTest {
 
     @Test
     public void addGraphics() throws Exception {
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnAnalytics();
-        rebnyListingsSteps.addChartFromREBNYSection();
-        analyticsSteps.skipHints();
-        rebnyListingsSteps.isAskingPriseChartAdd();
-        analyticsSteps.addButtonClick();
-        acrisClosingSteps.addChartFromACRISSection();
-        acrisClosingSteps.isDealCountByHeightAdd();
-        analyticsSteps.addButtonClick();
-        nycTownhousesSteps.addChartFromNYCSection();
-        nycTownhousesSteps.isGardenChartDisplayed();
-        analyticsSteps.addButtonClick();
-        managementSteps.addChartFromManagementSection();
-        managementSteps.isDaysOnMarketChartAdd();
-        analyticsSteps.addButtonClick();
-        rebnyListingsSteps.addBedroomsChartFromREBNYListings();
-        analyticsSteps.addButtonClick();
-        acrisClosingSteps.addBuildingTypeByDealCountChartFromACRISCloasing();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.isMessageMaximumSixChartsDisplayed();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnAnalytics();
+        user.atRebnyListingsPage.addChartFromREBNYSection();
+        user.atAnalyticsPage.skipHints();
+        user.atRebnyListingsPage.isAskingPriseChartAdd();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAcrisClosingPage.addChartFromACRISSection();
+        user.atAcrisClosingPage.isDealCountByHeightAdd();
+        user.atAnalyticsPage.addButtonClick();
+        user.atNycTownhousesPage.addChartFromNYCSection();
+        user.atNycTownhousesPage.isGardenChartDisplayed();
+        user.atAnalyticsPage.addButtonClick();
+        user.atManagementPage.addChartFromManagementSection();
+        user.atManagementPage.isDaysOnMarketChartAdd();
+        user.atAnalyticsPage.addButtonClick();
+        user.atRebnyListingsPage.addBedroomsChartFromREBNYListings();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAcrisClosingPage.addBuildingTypeByDealCountChartFromACRISCloasing();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAnalyticsPage.isMessageMaximumSixChartsDisplayed();
     }
 }

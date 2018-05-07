@@ -5,31 +5,27 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "Third"})
 public class ST34_SendGraphicReportToClientEmail extends SampleTest {
 
 	@Test
 	public void sendGraphicReportToClientEmail() throws Exception {
 
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOnAnalytics();
-		rebnyListingsSteps.addChartFromREBNYSection();
-		analyticsSteps.skipHints();
-		analyticsSteps.addButtonClick();
-		acrisClosingSteps.addChartFromACRISSection();
-		analyticsSteps.addButtonClick();
-		analyticsSteps.shareButtonClick();
-		analyticsSteps.clickClientEmailOption();
-		analyticsSteps.createReportWithNameAndSave("Analytics_client_report");
-		analyticsSteps.setClientAddress();
-		analyticsSteps.clickReportSentOkButton();
-		analyticsSteps.shouldFindSentEmail();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.clickOnAnalytics();
+		user.atRebnyListingsPage.addChartFromREBNYSection();
+		user.atAnalyticsPage.skipHints();
+		user.atAnalyticsPage.addButtonClick();
+		user.atAcrisClosingPage.addChartFromACRISSection();
+		user.atAnalyticsPage.addButtonClick();
+		user.atAnalyticsPage.shareButtonClick();
+		user.atAnalyticsPage.clickClientEmailOption();
+		user.atAnalyticsPage.createReportWithNameAndSave("Analytics_client_report");
+		user.atAnalyticsPage.setClientAddress();
+		user.atAnalyticsPage.clickReportSentOkButton();
+		user.atAnalyticsPage.shouldFindSentEmail();
 	}
 }

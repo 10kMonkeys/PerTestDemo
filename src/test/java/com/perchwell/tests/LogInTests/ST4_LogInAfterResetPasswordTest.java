@@ -10,21 +10,21 @@ public class ST4_LogInAfterResetPasswordTest extends SampleTest {
 
     @Test
     public void logInAfterResetPasswordTest() throws Exception{
-        loginSteps.clickOnLoginButton();
-        resetPasswordSteps.clickOnForgotPassword();
-        resetPasswordSteps.setRestEmail(AppProperties.INSTANCE.getProperty("reset_email"));
-        resetPasswordSteps.resetPasswordButtonClick();
-        resetPasswordSteps.shouldFindSentEmail();
-        resetPasswordSteps.getResetToken();
-        resetPasswordSteps.setNewPassword();
-        resetPasswordSteps.backButtonClick();
-        resetPasswordSteps.login(AppProperties.INSTANCE.getProperty("reset_email"),
+        user.atLoginPage.clickOnLoginButton();
+        user.atResetPasswordPage.clickOnForgotPassword();
+        user.atResetPasswordPage.setRestEmail(AppProperties.INSTANCE.getProperty("reset_email"));
+        user.atResetPasswordPage.resetPasswordButtonClick();
+        user.atResetPasswordPage.shouldFindSentEmail();
+        user.atResetPasswordPage.getResetToken();
+        user.atResetPasswordPage.setNewPassword();
+        user.atResetPasswordPage.backButtonClick();
+        user.atResetPasswordPage.login(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("old_reset_password"));
-        resetPasswordSteps.isAccountNeededToSignInMessageDisplayed();
-        resetPasswordSteps.okButtonClick();
-        resetPasswordSteps.login(AppProperties.INSTANCE.getProperty("reset_email"),
+        user.atResetPasswordPage.isAccountNeededToSignInMessageDisplayed();
+        user.atResetPasswordPage.okButtonClick();
+        user.atResetPasswordPage.login(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("new_reset_password"));
-        perchwellSteps.shouldSeeEditSearchFiltersHint();
-        resetPasswordSteps.overwritingOldPassword();
+        user.atPerchwellPage.shouldSeeEditSearchFiltersHint();
+        user.atResetPasswordPage.overwritingOldPassword();
     }
 }

@@ -11,28 +11,28 @@ public class MVTF1_ListingsSortingTest extends SampleTest {
 
     @Test
     public void sortListingsOnMap() throws Exception {
-        loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
                 AppProperties.INSTANCE.getProperty("client_password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnMap();
-        mapSteps.clickOnNotNowButton();
-        mapSteps.selectPinOnMap();
-        mapSteps.clickOnSortingSectionButton();
-        mapSteps.selectLeastExpensiveOption();
-        mapSteps.checkSortLabel(SortingTypes.LEASTEXPENSIVE);
-        mapSteps.shouldListingBeSortedByLeastExpensive();
-        mapSteps.clickOnSortingSectionButton();
-        mapSteps.selectMostExpensiveOption();
-        mapSteps.checkSortLabel(SortingTypes.MOSTEXPENSIVE);
-        mapSteps.shouldListingBeSortedByMostExpensive();
-        mapSteps.clickOnSortingSectionButton();
-        mapSteps.selectBedroomsOption();
-        mapSteps.checkSortLabel(SortingTypes.BEDROOMS);
-        mapSteps.shouldListingBeSortedByBedrooms();
-        mapSteps.clickOnSortingSectionButton();
-        mapSteps.selectBathroomsOption();
-        mapSteps.checkSortLabel(SortingTypes.BATHROOMS);
-        mapSteps.shouldListingBeSortedByBathrooms();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnMap();
+        user.atMapPage.clickOnNotNowButton();
+        user.atMapPage.selectPinOnMap();
+        user.atMapPage.clickOnSortingSectionButton();
+        user.atMapPage.selectLeastExpensiveOption();
+        user.atMapPage.checkSortLabel(SortingTypes.LEASTEXPENSIVE);
+        user.atMapPage.shouldListingBeSortedByLeastExpensive();
+        user.atMapPage.clickOnSortingSectionButton();
+        user.atMapPage.selectMostExpensiveOption();
+        user.atMapPage.checkSortLabel(SortingTypes.MOSTEXPENSIVE);
+        user.atMapPage.shouldListingBeSortedByMostExpensive();
+        user.atMapPage.clickOnSortingSectionButton();
+        user.atMapPage.selectBedroomsOption();
+        user.atMapPage.checkSortLabel(SortingTypes.BEDROOMS);
+        user.atMapPage.shouldListingBeSortedByBedrooms();
+        user.atMapPage.clickOnSortingSectionButton();
+        user.atMapPage.selectBathroomsOption();
+        user.atMapPage.checkSortLabel(SortingTypes.BATHROOMS);
+        user.atMapPage.shouldListingBeSortedByBathrooms();
     }
 }

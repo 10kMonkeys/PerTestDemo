@@ -10,27 +10,27 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 
 	@Test
 	public void discussionWithNewClientTest() throws Exception {
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickOnDiscussWithMyClientHint();
-		openedBuildingSteps.clickShareButton();
-		openedBuildingSteps.clickOnSendWithinPerchwell();
-		openedBuildingSteps.clickOnAddDiscusButton();
-		clientSteps.clickOnAddNewClientButton();
-		clientSteps.setRandomClientData();
-		clientSteps.clickOnGroupLabel();
-		clientSteps.selectGroup("Actively Searching");
-		clientSteps.clickOnInviteButton();
-		clientSteps.clickOnClientSuccessfullyAddedOkButton();
-		discussionSteps.clickOnBackButton();
-		clientSteps.clickOnBackButton();
-		clientSteps.closePage();
-		openedBuildingSteps.clickOnAddDiscusButton();
-		clientSteps.shouldSeeRecentlyCreatedClient();
-		clientSteps.clickOnDesiredClient();
-		discussionSteps.shouldSeeDicsussionWithNewClient();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.openFirstBuilding();
+		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+		user.atOpenedBuildingPage.clickShareButton();
+		user.atOpenedBuildingPage.clickOnSendWithinPerchwell();
+		user.atOpenedBuildingPage.clickOnAddDiscusButton();
+		user.atClientPage.clickOnAddNewClientButton();
+		user.atClientPage.setRandomClientData();
+		user.atClientPage.clickOnGroupLabel();
+		user.atClientPage.selectGroup("Actively Searching");
+		user.atClientPage.clickOnInviteButton();
+		user.atClientPage.clickOnClientSuccessfullyAddedOkButton();
+		user.atDiscussionPage.clickOnBackButton();
+		user.atClientPage.clickOnBackButton();
+		user.atClientPage.closePage();
+		user.atOpenedBuildingPage.clickOnAddDiscusButton();
+		user.atClientPage.shouldSeeRecentlyCreatedClient();
+		user.atClientPage.clickOnDesiredClient();
+		user.atDiscussionPage.shouldSeeDicsussionWithNewClient();
 	}
 }

@@ -10,23 +10,23 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 
 	@Test
 	public void changeExistingSearch() {
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOnMyNewSearch();
-		searchSteps.clickOnLoadSavedSearchButton();
-		searchSteps.clickOnExistingSearchInList();
-		perchwellSteps.clickOnMyNewSearch();
-		searchSteps.setMinimumPriceFilter("150000");
-		searchSteps.clickOnFilterStudioBeds();
-		searchSteps.clickOnTapToSaveChanges();
-		searchSteps.saveAsOptionSelect();
-		searchSteps.setSearchName();
-		searchSteps.clickOnSaveButton();
-		perchwellSteps.shouldSeePreviouslyCreatedNameOfSearch();
-		perchwellSteps.clickOnMyNewSearch();
-		searchSteps.clickOnLoadSavedSearchButton();
-		searchSteps.shouldSeePreviouslyCreatedSearch();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atSearchPage.clickOnLoadSavedSearchButton();
+		user.atSearchPage.clickOnExistingSearchInList();
+		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atSearchPage.setMinimumPriceFilter("150000");
+		user.atSearchPage.clickOnFilterStudioBeds();
+		user.atSearchPage.clickOnTapToSaveChanges();
+		user.atSearchPage.saveAsOptionSelect();
+		user.atSearchPage.setSearchName();
+		user.atSearchPage.clickOnSaveButton();
+		user.atPerchwellPage.shouldSeePreviouslyCreatedNameOfSearch();
+		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atSearchPage.clickOnLoadSavedSearchButton();
+		user.atSearchPage.shouldSeePreviouslyCreatedSearch();
 	}
 }

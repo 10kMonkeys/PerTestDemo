@@ -10,17 +10,17 @@ public class ST29_UpdateSettingsAsClient extends SampleTest {
 
     @Test
     public void updateSettingAsClientTest() {
-        loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_test_email"),
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_test_email"),
                 AppProperties.INSTANCE.getProperty("client_test_password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnOpenAccountButton();
-        accountSteps.openSettingProfile();
-        settingsProfileSteps.changeName();
-        settingsProfileSteps.changeCompany();
-        settingsProfileSteps.saveButtonClick();
-        settingsProfileSteps.okButtonClick();
-        settingsProfileSteps.isNameTextBoxChange();
-        settingsProfileSteps.isCompanyTextBoxChange();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnOpenAccountButton();
+        user.atAccountPage.openSettingProfile();
+        user.atSettingsProfilePage.changeName();
+        user.atSettingsProfilePage.changeCompany();
+        user.atSettingsProfilePage.saveButtonClick();
+        user.atSettingsProfilePage.okButtonClick();
+        user.atSettingsProfilePage.isNameTextBoxChange();
+        user.atSettingsProfilePage.isCompanyTextBoxChange();
     }
 }

@@ -10,23 +10,23 @@ public class AT1_AddREBNYListingsChartsTest extends SampleTest {
 
     @Test
     public void addREBNYListingsChartsTest() throws Exception{
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnAnalytics();
-        rebnyListingsSteps.addAskingPriceChartWithMKTShare();
-        analyticsSteps.skipHints();
-        rebnyListingsSteps.isAskingPriseChartAdd();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.locationButtonClick();
-        rebnyListingsSteps.askingPriceChartClick();
-        rebnyListingsSteps.isMedianAskingPriceChartDisplayed();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.rebnyListingsButtonClick();
-        analyticsSteps.medianButtonClick();
-        rebnyListingsSteps.askingPriceChartClick();
-        rebnyListingsSteps.isMedianAskingPriceChartDisplayed();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnAnalytics();
+        user.atRebnyListingsPage.addAskingPriceChartWithMKTShare();
+        user.atAnalyticsPage.skipHints();
+        user.atRebnyListingsPage.isAskingPriseChartAdd();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAnalyticsPage.rebnyListingsButtonClick();
+        user.atAnalyticsPage.locationButtonClick();
+        user.atRebnyListingsPage.askingPriceChartClick();
+        user.atRebnyListingsPage.isMedianAskingPriceChartDisplayed();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAnalyticsPage.rebnyListingsButtonClick();
+        user.atAnalyticsPage.medianButtonClick();
+        user.atRebnyListingsPage.askingPriceChartClick();
+        user.atRebnyListingsPage.isMedianAskingPriceChartDisplayed();
     }
 }

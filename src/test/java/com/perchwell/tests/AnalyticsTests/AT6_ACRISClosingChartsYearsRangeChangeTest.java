@@ -10,35 +10,35 @@ public class AT6_ACRISClosingChartsYearsRangeChangeTest extends SampleTest {
 
     @Test
     public void acrisClosingChartsYearsRangeChangeTest() throws Exception{
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnAnalytics();
-        analyticsSteps.selectACRISClosingSection();
-        analyticsSteps.trendsButtonClick();
-        acrisClosingSteps.dealVolumeAnnualButtonClick();
-        analyticsSteps.skipHints();
-        analyticsSteps.yearsRangeButtonClick();
-        analyticsSteps.setMinRangeYearDefaultMinusOne();
-        analyticsSteps.setYearsRangeButtonClick();
-        analyticsSteps.isColumnForPreviousMinDefaultYearAdd();
-        analyticsSteps.yearsRangeButtonClick();
-        analyticsSteps.setMaxRangeYearDefaultMinusOne();
-        analyticsSteps.setYearsRangeButtonClick();
-        analyticsSteps.isColumnForNextMaxDefaultYearRemove();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.selectACRISClosingSection();
-        analyticsSteps.trendsButtonClick();
-        acrisClosingSteps.dealVolumeQuarterlyButtonClick();
-        analyticsSteps.getPreviousYearsInFromTopList();
-        analyticsSteps.isOnlyThreeYearsInChartDisplayed();
-        analyticsSteps.yearsRangeButtonClick();
-        analyticsSteps.setMaxRangeYearDefaultMinusOne();
-        analyticsSteps.setYearsRangeButtonClick();
-        analyticsSteps.getValueYearsRangeButton();
-        analyticsSteps.isYearsRangeChange();
-        analyticsSteps.getPresentYearsInFromTopList();
-        analyticsSteps.isOnChartUpdateYearsFromTop();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnAnalytics();
+        user.atAnalyticsPage.selectACRISClosingSection();
+        user.atAnalyticsPage.trendsButtonClick();
+        user.atAcrisClosingPage.dealVolumeAnnualButtonClick();
+        user.atAnalyticsPage.skipHints();
+        user.atAnalyticsPage.yearsRangeButtonClick();
+        user.atAnalyticsPage.setMinRangeYearDefaultMinusOne();
+        user.atAnalyticsPage.setYearsRangeButtonClick();
+        user.atAnalyticsPage.isColumnForPreviousMinDefaultYearAdd();
+        user.atAnalyticsPage.yearsRangeButtonClick();
+        user.atAnalyticsPage.setMaxRangeYearDefaultMinusOne();
+        user.atAnalyticsPage.setYearsRangeButtonClick();
+        user.atAnalyticsPage.isColumnForNextMaxDefaultYearRemove();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAnalyticsPage.selectACRISClosingSection();
+        user.atAnalyticsPage.trendsButtonClick();
+        user.atAcrisClosingPage.dealVolumeQuarterlyButtonClick();
+        user.atAnalyticsPage.getPreviousYearsInFromTopList();
+        user.atAnalyticsPage.isOnlyThreeYearsInChartDisplayed();
+        user.atAnalyticsPage.yearsRangeButtonClick();
+        user.atAnalyticsPage.setMaxRangeYearDefaultMinusOne();
+        user.atAnalyticsPage.setYearsRangeButtonClick();
+        user.atAnalyticsPage.getValueYearsRangeButton();
+        user.atAnalyticsPage.isYearsRangeChange();
+        user.atAnalyticsPage.getPresentYearsInFromTopList();
+        user.atAnalyticsPage.isOnChartUpdateYearsFromTop();
     }
 }

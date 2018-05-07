@@ -15,26 +15,23 @@ public class ST25_DiscussionWithNewAgentTest extends SampleTest {
 
 	@Test
 	public void discussionWithNewAgentTest() {
-		loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
+		user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickOnDiscussWithMyClientHint();
-		openedBuildingSteps.clickShareButton();
-		openedBuildingSteps.clickOnSendWithinPerchwell();
-		openedBuildingSteps.clickOnAddDiscusButton();
-		clientSteps.clickOnAddNewAgentButton();
-		clientSteps.setAgentEmail("Not_existing_email@test.ru");
-		clientSteps.setMessageField("Hello. I'd like invite you on "+simpleDateFormat.format(new Date()));
-		clientSteps.clickOnInviteButton();
-		clientSteps.clickOnAgentSuccessfullyAddedOkButton();
-		discussionSteps.clickOnBackButton();
-		clientSteps.clickOnBackButtonCreateAgent();
-		clientSteps.closePage();
-		openedBuildingSteps.clickOnBackButton();
-		perchwellSteps.clickOnOpenAccountButton();
-		accountSteps.clickOnDiscussionsLabel();
-		discussionsListSteps.shouldNotBeDiscussionWithMessageDisplayed();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
+		user.atOpenedBuildingPage.clickOnAddDiscusButton();
+		user.atClientPage.clickOnAddNewAgentButton();
+		user.atClientPage.setAgentEmail("Not_existing_email@test.ru");
+		user.atClientPage.setMessageField("Hello. I'd like invite you on " + simpleDateFormat.format(new Date()));
+		user.atClientPage.clickOnInviteButton();
+		user.atClientPage.clickOnAgentSuccessfullyAddedOkButton();
+		user.atDiscussionPage.clickOnBackButton();
+		user.atClientPage.clickOnBackButtonCreateAgent();
+		user.atClientPage.closePage();
+		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atPerchwellPage.clickOnOpenAccountButton();
+		user.atAccountPage.clickOnDiscussionsLabel();
+		user.atDiscussionsListPage.shouldNotBeDiscussionWithMessageDisplayed();
 	}
 }

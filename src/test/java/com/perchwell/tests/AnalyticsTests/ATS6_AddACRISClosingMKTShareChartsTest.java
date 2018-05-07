@@ -10,19 +10,19 @@ public class ATS6_AddACRISClosingMKTShareChartsTest extends SampleTest {
 
     @Test
     public void addACRISClosingMKTShareChartsTest(){
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnAnalytics();
-        analyticsSteps.selectACRISClosingSection();
-        analyticsSteps.mktShareButtonClick();
-        acrisClosingSteps.addBuildingTypeByDealCountChart();
-        analyticsSteps.skipHints();
-        acrisClosingSteps.shouldBuildingTypeChartDisplayed();
-        analyticsSteps.addButtonClick();
-        analyticsSteps.selectACRISClosingSection();
-        analyticsSteps.mktShareButtonClick();
-        acrisClosingSteps.addAndVerifyPriceByDealCountChart();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnAnalytics();
+        user.atAnalyticsPage.selectACRISClosingSection();
+        user.atAnalyticsPage.mktShareButtonClick();
+        user.atAcrisClosingPage.addBuildingTypeByDealCountChart();
+        user.atAnalyticsPage.skipHints();
+        user.atAcrisClosingPage.shouldBuildingTypeChartDisplayed();
+        user.atAnalyticsPage.addButtonClick();
+        user.atAnalyticsPage.selectACRISClosingSection();
+        user.atAnalyticsPage.mktShareButtonClick();
+        user.atAcrisClosingPage.addAndVerifyPriceByDealCountChart();
     }
 }

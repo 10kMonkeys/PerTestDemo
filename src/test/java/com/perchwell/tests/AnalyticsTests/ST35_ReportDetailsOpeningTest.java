@@ -10,17 +10,17 @@ public class ST35_ReportDetailsOpeningTest extends SampleTest {
 
 	@Test
 	public void reportDetailsOpeningTest() {
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOnAnalytics();
-		rebnyListingsSteps.addChartFromREBNYSection();
-		analyticsSteps.skipHints();
-		rebnyListingsSteps.askingPriceChartClick();
-		analyticsSteps.upToOneMillionButtonClick();
-		analyticsSteps.selectSecondBuildingInList();
-		openedBuildingSteps.clickOnDiscussWithMyClientHint();
-		openedBuildingSteps.isBuildingOpen();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.clickOnAnalytics();
+		user.atRebnyListingsPage.addChartFromREBNYSection();
+		user.atAnalyticsPage.skipHints();
+		user.atRebnyListingsPage.askingPriceChartClick();
+		user.atAnalyticsPage.upToOneMillionButtonClick();
+		user.atAnalyticsPage.selectSecondBuildingInList();
+		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+		user.atOpenedBuildingPage.isBuildingOpen();
 	}
 }

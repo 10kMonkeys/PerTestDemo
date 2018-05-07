@@ -11,14 +11,14 @@ public class ST1_LogInAsClientTest extends SampleTest {
 	@Test
 	public void logInAsClient() throws Exception {
 
-		loginSteps.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
+		user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.clickOnOpenAccountButton();
-		accountSteps.shouldSeeOptionAgents();
-		accountSteps.shouldSeeOptionDiscussions();
-		accountSteps.shouldSeeOptionTags();
-		accountSteps.shouldSeeOptionCompare();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.clickOnOpenAccountButton();
+		user.atAccountPage.shouldSeeOptionAgents();
+		user.atAccountPage.shouldSeeOptionDiscussions();
+		user.atAccountPage.shouldSeeOptionTags();
+		user.atAccountPage.shouldSeeOptionCompare();
 	}
 }

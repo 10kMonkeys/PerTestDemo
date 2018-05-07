@@ -10,22 +10,22 @@ public class ST19_ApplyingFilterOnAnalyticsTest extends SampleTest {
 
     @Test
     public void applyingFilterOnAnalyticsTest() {
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        perchwellSteps.clickOnAnalytics();
-        rebnyListingsSteps.addChartFromREBNYSection();
-        analyticsSteps.skipHints();
-        analyticsSteps.addButtonClick();
-        managementSteps.addChartBedroomsFromManagementSection();
-        analyticsSteps.getBedroomsChartValue();
-        analyticsSteps.getAskingPriceChartValue();
-        analyticsSteps.clickMyNewSearch();
-        searchSteps.setMinimumPriceFilter("600000");
-        searchSteps.selectFilterStudioBeds();
-        searchSteps.clickOnApplyButton();
-        analyticsSteps.isBedroomsChartChange();
-        analyticsSteps.isAskingPriceChartChange();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnAnalytics();
+        user.atRebnyListingsPage.addChartFromREBNYSection();
+        user.atAnalyticsPage.skipHints();
+        user.atAnalyticsPage.addButtonClick();
+        user.atManagementPage.addChartBedroomsFromManagementSection();
+        user.atAnalyticsPage.getBedroomsChartValue();
+        user.atAnalyticsPage.getAskingPriceChartValue();
+        user.atAnalyticsPage.clickMyNewSearch();
+        user.atSearchPage.setMinimumPriceFilter("600000");
+        user.atSearchPage.selectFilterStudioBeds();
+        user.atSearchPage.clickOnApplyButton();
+        user.atAnalyticsPage.isBedroomsChartChange();
+        user.atAnalyticsPage.isAskingPriceChartChange();
     }
 }

@@ -10,23 +10,23 @@ public class ATS7_AddACRISClosingDistributionChartTest extends SampleTest {
 
     @Test
     public void addACRISClosingDistributionChartTest(){
-            loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+            user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                     AppProperties.INSTANCE.getProperty("password"));
-            perchwellSteps.skipAllHints();
-            perchPopupSteps.clickNotNowButton();
-            perchwellSteps.clickOnAnalytics();
-            analyticsSteps.selectACRISClosingSection();
-            analyticsSteps.distributionButtonClick();
-            acrisClosingSteps.addDollarPerFTPercentilesChart();
-            analyticsSteps.skipHints();
-            acrisClosingSteps.shouldSeeDollarPerFTPercentiles();
-            analyticsSteps.selectACRISClosingWithDistribution();
-            acrisClosingSteps.addAndVerifyPricePercentilesChart();
-            analyticsSteps.selectACRISClosingWithDistribution();
-            acrisClosingSteps.addAndVerifyPriceByPriceSegmentChart();
-            analyticsSteps.selectACRISClosingWithDistribution();
-            acrisClosingSteps.addAndVerifySquareFeetPercentiles();
-            analyticsSteps.selectACRISClosingWithDistribution();
-            acrisClosingSteps.addAndVerifyPriceByTypeChart();
+            user.atPerchwellPage.skipAllHints();
+            user.atPerchPopup.clickNotNowButton();
+            user.atPerchwellPage.clickOnAnalytics();
+            user.atAnalyticsPage.selectACRISClosingSection();
+            user.atAnalyticsPage.distributionButtonClick();
+            user.atAcrisClosingPage.addDollarPerFTPercentilesChart();
+            user.atAnalyticsPage.skipHints();
+            user.atAcrisClosingPage.shouldSeeDollarPerFTPercentiles();
+            user.atAnalyticsPage.selectACRISClosingWithDistribution();
+            user.atAcrisClosingPage.addAndVerifyPricePercentilesChart();
+            user.atAnalyticsPage.selectACRISClosingWithDistribution();
+            user.atAcrisClosingPage.addAndVerifyPriceByPriceSegmentChart();
+            user.atAnalyticsPage.selectACRISClosingWithDistribution();
+            user.atAcrisClosingPage.addAndVerifySquareFeetPercentiles();
+            user.atAnalyticsPage.selectACRISClosingWithDistribution();
+            user.atAcrisClosingPage.addAndVerifyPriceByTypeChart();
     }
 }

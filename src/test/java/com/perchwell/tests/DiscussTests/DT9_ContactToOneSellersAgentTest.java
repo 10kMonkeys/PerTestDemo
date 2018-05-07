@@ -10,15 +10,15 @@ public class DT9_ContactToOneSellersAgentTest extends SampleTest {
 
     @Test
     public void sendEmailToOneSellersAgent() throws Exception {
-        loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
-        perchwellSteps.skipAllHints();
-        perchPopupSteps.clickNotNowButton();
-        sellersAgentSteps.findBuildingWithOneSellersAgent();
-        sellersAgentSteps.swipeDownUntilSellersAgentSection();
-        sellersAgentSteps.clickOnSellersAgentSection();
-        sellersAgentSteps.clickOnSendEmailButton();
-        sellersAgentSteps.selectConfirmOption();
-        sellersAgentSteps.shouldInterestEmailSentToAgent();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atSellersAgentPage.findBuildingWithOneSellersAgent();
+        user.atSellersAgentPage.swipeDownUntilSellersAgentSection();
+        user.atSellersAgentPage.clickOnSellersAgentSection();
+        user.atSellersAgentPage.clickOnSendEmailButton();
+        user.atSellersAgentPage.selectConfirmOption();
+        user.atSellersAgentPage.shouldInterestEmailSentToAgent();
     }
 }

@@ -20,7 +20,7 @@ public class EmailSteps extends ScenarioSteps {
     @Step
     private boolean shouldFindSentInviteEmailByNameAndGetTextBody() {
         return Email.findSentEmailAndGetTextBody(
-                SessionVariables.getValueFromSessionVariable("User name"),
+                SessionVariables.getValueFromSessionVariable("User_name"),
                 AppProperties.INSTANCE.getProperty("HEADER_INVITATION"));
     }
 

@@ -10,22 +10,15 @@ import org.junit.Test;
 public class ST24_AddMessageInDiscussionTest extends SampleTest {
 
 	@Test
-	public void addMessageInDiscussionTest() {
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+	public void addMessageInDiscussionTest() throws Exception {
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickOnDiscussWithMyClientHint();
-		openedBuildingSteps.clickShareButton();
-		openedBuildingSteps.clickOnDiscussWithMyClientOption();
-		openedBuildingSteps.clickOnAddDiscusButton();
-		clientSteps.selectClient();
-		discussionSteps.sendMessage(DiscussionMessages.HELLO);
-		discussionSteps.clickOnBackButton();
-		clientSteps.closePage();
-		openedBuildingSteps.openExistingDiscussion();
-		discussionSteps.sendMessage(DiscussionMessages.LETS_START_DISCUSSION);
-		discussionSteps.shouldSeeMessageInDiscussion();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.usingComplexSteps.startShareAndDiscussWithMyClientOptionForFirstBuilding(); ///////////
+		user.usingComplexSteps.sendMessageToClientAndCloseDiscussion(DiscussionMessages.HELLO); ////////////
+		user.atOpenedBuildingPage.openExistingDiscussion();
+		user.atDiscussionPage.sendMessage(DiscussionMessages.LETS_START_DISCUSSION);
+		user.atDiscussionPage.shouldSeeMessageInDiscussion();
 	}
 }

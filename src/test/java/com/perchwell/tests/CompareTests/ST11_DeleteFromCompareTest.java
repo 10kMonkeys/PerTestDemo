@@ -1,6 +1,7 @@
 package com.perchwell.tests.CompareTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.Buildings;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
@@ -10,30 +11,30 @@ public class ST11_DeleteFromCompareTest extends SampleTest {
 
 	@Test
 	public void deleteFromCompare() throws Exception {
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickOnDiscussWithMyClientHint();
-		openedBuildingSteps.addToCompare("the first building");
-		openedBuildingSteps.clickOnBackButton();
-		perchwellSteps.openSecondBuilding();
-		openedBuildingSteps.addToCompare("the second building");
-		openedBuildingSteps.clickOnBackButton();
-		perchwellSteps.openThirdBuilding();
-		openedBuildingSteps.addToCompare("the third building");
-		openedBuildingSteps.clickOnBackButton();
-		perchwellSteps.clickOnOpenAccountButton();
-		accountSteps.clickOnCompareLabel();
-		compareSteps.clickOnSwipeUpToRemoveHint();
-		compareSteps.shouldSeeFirstBuildingInCompare("the first building");
-		compareSteps.scrollUpFirstBuilding();
-		compareSteps.shouldSeeRemovePropertyMsg();
-		compareSteps.clickOnCancelMsgButton();
-		compareSteps.shouldSeeFirstBuildingInCompare("the first building");
-		compareSteps.scrollUpFirstBuilding();
-		compareSteps.clickOnRemoveMsgButton();
-		compareSteps.notSeeFirstBuildingInCompare("the first building");
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.openFirstBuilding();
+		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+		user.atOpenedBuildingPage.addToCompare(Buildings.FIRSTBUILDING);
+		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atPerchwellPage.openSecondBuilding();
+		user.atOpenedBuildingPage.addToCompare(Buildings.SECONDBUILDING);
+		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atPerchwellPage.openThirdBuilding();
+		user.atOpenedBuildingPage.addToCompare(Buildings.THIRDBUILDING);
+		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atPerchwellPage.clickOnOpenAccountButton();
+		user.atAccountPage.clickOnCompareLabel();
+		user.atComparePage.clickOnSwipeUpToRemoveHint();
+		user.atComparePage.shouldSeeFirstBuildingInCompare(Buildings.FIRSTBUILDING);
+		user.atComparePage.scrollUpFirstBuilding();
+		user.atComparePage.shouldSeeRemovePropertyMsg();
+		user.atComparePage.clickOnCancelMsgButton();
+		user.atComparePage.shouldSeeFirstBuildingInCompare(Buildings.FIRSTBUILDING);
+		user.atComparePage.scrollUpFirstBuilding();
+		user.atComparePage.clickOnRemoveMsgButton();
+		user.atComparePage.notSeeFirstBuildingInCompare(Buildings.FIRSTBUILDING);
 	}
 }

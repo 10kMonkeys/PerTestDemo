@@ -10,21 +10,21 @@ public class ST7_UseExistingTagForListingTest extends SampleTest {
 
 	@Test
 	public void useExistingTagForListing() throws Exception {
-		loginSteps.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
-		perchwellSteps.skipAllHints();
-		perchPopupSteps.clickNotNowButton();
-		perchwellSteps.openFirstBuilding();
-		openedBuildingSteps.clickOnDiscussWithMyClientHint();
-		openedBuildingSteps.clickOnMyTagsLabel();
-		tagsSteps.clickOnExistingTagLabel();
-		tagsSteps.clickOnBackButton();
-		openedBuildingSteps.clickOnBackButton();
-		perchwellSteps.clickOnOpenAccountButton();
-		accountSteps.clickOnTagsLabel();
-		tagsSteps.shouldSeeExistingTagUpperCase();
-		tagsSteps.clickOnUsedTag();
-		tagsSteps.clickOnSearchButton();
-		tagsSteps.shouldSeeExistingTagUpperCase();
+		user.atPerchwellPage.skipAllHints();
+		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.openFirstBuilding();
+		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+		user.atOpenedBuildingPage.clickOnMyTagsLabel();
+		user.atTagsPage.clickOnExistingTagLabel();
+		user.atTagsPage.clickOnBackButton();
+		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atPerchwellPage.clickOnOpenAccountButton();
+		user.atAccountPage.clickOnTagsLabel();
+		user.atTagsPage.shouldSeeExistingTagUpperCase();
+		user.atTagsPage.clickOnUsedTag();
+		user.atTagsPage.clickOnSearchButton();
+		user.atTagsPage.shouldSeeExistingTagUpperCase();
 	}
 }
