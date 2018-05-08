@@ -8,7 +8,7 @@ import org.junit.Test;
 public class ST3_LoginWithGoogleTest extends SampleTest {
 
 	@Test
-	public void logInWithGoogle() throws Exception {
+	public void logInWithGoogle() {
 		user.atLoginPage.loginWithGoogle();
 		user.atPerchwellPage.shouldSeeEditSearchFiltersHint();
 	}

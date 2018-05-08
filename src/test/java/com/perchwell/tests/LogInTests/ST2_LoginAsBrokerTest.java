@@ -9,10 +9,9 @@ import org.junit.Test;
 public class ST2_LoginAsBrokerTest extends SampleTest {
 
 	@Test
-	public void logInAsBroker() throws Exception {
-
+	public void logInAsBroker() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
-			AppProperties.INSTANCE.getProperty("password"));
+				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
 		user.atPerchwellPage.clickOnOpenAccountButton();

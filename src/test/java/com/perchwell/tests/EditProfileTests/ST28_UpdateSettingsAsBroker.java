@@ -16,10 +16,7 @@ public class ST28_UpdateSettingsAsBroker extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.openSettingProfile();
-        user.atSettingsProfilePage.changeName();
-        user.atSettingsProfilePage.changeCompany();
-        user.atSettingsProfilePage.saveButtonClick();
-        user.atSettingsProfilePage.okButtonClick();
+        user.atSettingsProfilePage.changeNameAndCompany();
         user.atSettingsProfilePage.isNameTextBoxChange();
         user.atSettingsProfilePage.isCompanyTextBoxChange();
     }

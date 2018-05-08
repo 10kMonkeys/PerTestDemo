@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ST9_DeleteCreatedTagTest extends SampleTest {
 
 	@Test
-	public void deleteCreatedTag() throws Exception {
+	public void deleteCreatedTag() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();

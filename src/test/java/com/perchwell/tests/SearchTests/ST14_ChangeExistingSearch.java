@@ -15,6 +15,16 @@ public class ST14_ChangeExistingSearch extends SampleTest {
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
+
+		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atSearchPage.selectFilter1Bed();
+		user.atSearchPage.selectFilter4PlusBeds();
+		user.atSearchPage.saveCurrentSearch();
+		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atSearchPage.clickOnLoadSavedSearchButton();
+		user.atSearchPage.createNewSearchClick();
+		user.atSearchPage.clickOnApplyButton();
+
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.clickOnLoadSavedSearchButton();
 		user.atSearchPage.clickOnExistingSearchInList();
@@ -35,5 +45,4 @@ public class ST14_ChangeExistingSearch extends SampleTest {
 		user.atSearchPage.shouldMinPriceHaveTheSameValue();
 		user.atSearchPage.shouldFilter1BedBeOfTheSameStatus();
 	}
-
 }

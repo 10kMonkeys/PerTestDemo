@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ST31_AddGraphicsTest extends SampleTest {
 
     @Test
-    public void addGraphics() throws Exception {
+    public void addGraphics() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

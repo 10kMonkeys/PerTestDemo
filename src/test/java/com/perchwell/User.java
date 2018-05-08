@@ -1,15 +1,10 @@
 package com.perchwell;
 
-import com.perchwell.helpers.TravisAlive;
 import com.perchwell.steps.*;
 import com.perchwell.steps.analytics.*;
 import com.perchwell.steps.complex.ComplexSteps;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.junit.BeforeClass;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class User extends ScenarioSteps {
 
@@ -84,21 +79,6 @@ public class User extends ScenarioSteps {
 
     @Steps
     public ResetPasswordSteps atResetPasswordPage;
-
-    static TimerTask task = new TravisAlive();
-    static Timer timer;
-
-
-    @BeforeClass
-    public static void keepTravisAlive(){
-        if(timer == null){
-            TimerTask task = new TravisAlive();
-            timer = new Timer(true);
-
-            timer.schedule(task, 15000, 540000);
-
-        }
-    }
 
     @Steps
     public EmailSteps atEmailPage;

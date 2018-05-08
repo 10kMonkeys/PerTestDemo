@@ -60,4 +60,12 @@ public class SettingsProfileSteps {
     public void backButtonClick(){
         onPage.backButtonClick();
     }
+
+    @Step
+    public void changeNameAndCompany() {
+        this.changeName();
+        this.changeCompany();
+        this.saveButtonClick();
+        this.okButtonClick();
+    }
 }
