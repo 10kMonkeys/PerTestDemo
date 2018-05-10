@@ -15,19 +15,19 @@ import java.util.Set;
 public class GoogleLoginPage  extends BasePage {
 
 	//region WebElements
-    @FindBy(xpath= "//*[@id=\"identifierId\"]")
+    @FindBy(xpath= "//*[@id='identifierId']")
     private WebElement emailTextBox;
 
-    @FindBy(xpath = "//*[@id=\"passwordNext\"]/content/span")
+    @FindBy(xpath = "//*[@id='passwordNext']/content/span")
     private WebElement passwordNextButton;
 
-	@FindBy(xpath = "//*[@id=\"identifierNext\"]/content/span")
+	@FindBy(xpath = "//*[@id='identifierNext']/content/span")
 	private WebElement identifierNextButton;
 
-    @FindBy(xpath= "//*[@id=\"password\"]/div[1]/div/div[1]/input")
+    @FindBy(xpath= "//*[@id='password']/div[1]/div/div[1]/input")
     private WebElement passwordField;
 
-	@FindBy(xpath = "//*[@id=\"view_container\"]/form/div[2]/div/div/div/ul[1]/li[1]/div")
+	@FindBy(xpath = "//*[@id='view_container']/form/div[2]/div/div/div/ul[1]/li[1]/div")
 	private WebElement existingAccount;
 
 	@iOSXCUITFindBy(accessibility = "Choose an account")
@@ -79,6 +79,10 @@ public class GoogleLoginPage  extends BasePage {
 	public WebElement getExistingAccount() {
 		selectWebView();
 		return existingAccount;
+	}
+
+	public WebElement getPasswordField() {
+		return emailTextBox;
 	}
 
 	public boolean isElementDisplayed(WebElement element) {

@@ -43,6 +43,10 @@ public class LoginSteps extends ScenarioSteps {
         };
         if (googleLoginPage.isElementDisplayed(googleLoginPage.getExistingAccount())) {
             googleLoginPage.clickExistingAccountDisplayed();
+            if (googleLoginPage.isElementDisplayed(googleLoginPage.getPasswordField())){
+                googleLoginPage.setPassword(AppProperties.INSTANCE.getProperty("client_password"));
+                googleLoginPage.clickNextButton();
+            }
             googleLoginPage.selectNativeView();
         }
         else {

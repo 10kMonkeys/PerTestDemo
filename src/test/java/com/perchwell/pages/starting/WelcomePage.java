@@ -16,7 +16,8 @@ public class WelcomePage extends BasePage {
     @iOSXCUITFindBy(accessibility = "LOG IN")
     private WebElement loginButton;
 
-    @iOSXCUITFindBy(accessibility = "CONNECT WITH")
+    //@iOSXCUITFindBy(accessibility = "CONNECT WITH")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeButton")
     private WebElement connectWithButton;
 
     @iOSXCUITFindBy(accessibility = "“Perchwell Staging” Wants to Use “google.com” to Sign In")
