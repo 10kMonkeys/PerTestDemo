@@ -9,8 +9,7 @@ import org.junit.Test;
 public class ST36_SendReportDetailsPDF extends SampleTest {
 
 	@Test
-	public void sendReportDetailsPDF() throws Exception {
-
+	public void sendReportDetailsPDF() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();

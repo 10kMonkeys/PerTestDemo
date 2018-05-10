@@ -1,6 +1,7 @@
 package com.perchwell.tests.AnalyticsTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.Reports;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
@@ -9,8 +10,7 @@ import org.junit.Test;
 public class ST34_SendGraphicReportToClientEmail extends SampleTest {
 
 	@Test
-	public void sendGraphicReportToClientEmail() throws Exception {
-
+	public void sendGraphicReportToClientEmail() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
@@ -23,7 +23,7 @@ public class ST34_SendGraphicReportToClientEmail extends SampleTest {
 		user.atAnalyticsPage.addButtonClick();
 		user.atAnalyticsPage.shareButtonClick();
 		user.atAnalyticsPage.clickClientEmailOption();
-		user.atAnalyticsPage.createReportWithNameAndSave("Analytics_client_report");
+		user.atAnalyticsPage.createReportWithNameAndSave(Reports.ANALYTICSCLIENTREPORT);
 		user.atAnalyticsPage.setClientAddress();
 		user.atAnalyticsPage.clickReportSentOkButton();
 		user.atAnalyticsPage.shouldFindSentEmail();

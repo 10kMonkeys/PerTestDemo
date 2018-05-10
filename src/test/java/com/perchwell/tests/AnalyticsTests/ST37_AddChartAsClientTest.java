@@ -7,9 +7,8 @@ import org.junit.Test;
 
 @WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "Third"})
 public class ST37_AddChartAsClientTest extends SampleTest {
-
     @Test
-    public void addChartAsClient(){
+    public void addChartAsClient() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
                 AppProperties.INSTANCE.getProperty("client_password"));
         user.atPerchwellPage.skipAllHints();

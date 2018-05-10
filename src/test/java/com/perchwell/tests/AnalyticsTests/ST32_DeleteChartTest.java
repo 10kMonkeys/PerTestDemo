@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ST32_DeleteChartTest extends SampleTest {
 
     @Test
-    public void deleteChart() throws Exception {
+    public void deleteChart() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

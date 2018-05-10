@@ -4,11 +4,13 @@ import com.perchwell.SampleTest;
 import com.perchwell.data.Buildings;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.Ignore;
 import org.junit.Test;
 
 @WithTagValuesOf({"SmokeTestSuit", "CompareTests", "First"})
 public class ST11_DeleteFromCompareTest extends SampleTest {
 
+	@Ignore
 	@Test
 	public void deleteFromCompare() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

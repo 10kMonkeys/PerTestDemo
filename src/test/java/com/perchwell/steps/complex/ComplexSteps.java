@@ -1,9 +1,6 @@
 package com.perchwell.steps.complex;
 
-import com.perchwell.steps.ClientSteps;
-import com.perchwell.steps.DiscussionSteps;
-import com.perchwell.steps.OpenedBuildingSteps;
-import com.perchwell.steps.PerchwellSteps;
+import com.perchwell.steps.*;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -11,51 +8,66 @@ import net.thucydides.core.steps.ScenarioSteps;
 public class ComplexSteps extends ScenarioSteps{
 
     @Steps
-    protected ClientSteps clientSteps;
+    private ClientSteps atClientPage;
 
     @Steps
-    protected PerchwellSteps perchwellSteps;
+    private PerchwellSteps atPerchwellPage;
 
     @Steps
-    protected OpenedBuildingSteps openedBuildingSteps;
+    private OpenedBuildingSteps atOpenedBuildingPage;
 
     @Steps
-    protected DiscussionSteps discussionSteps;
+    private DiscussionSteps atDiscussionPage;
+
+    @Steps
+    private SearchSteps atSearchPage;
 
     @Step
     private void openFirstBuildingSkipHintClickOnShareButton() {
-        perchwellSteps.openFirstBuilding();
-        openedBuildingSteps.clickOnDiscussWithMyClientHint();
-        openedBuildingSteps.clickShareButton();
+        atPerchwellPage.openFirstBuilding();
+        atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+        atOpenedBuildingPage.clickShareButton();
     }
 
     @Step
     public void startShareAndSendWithinPerchwellForFirstBuilding() {
         this.openFirstBuildingSkipHintClickOnShareButton();
-        openedBuildingSteps.clickOnSendWithinPerchwell();
+        atOpenedBuildingPage.clickOnSendWithinPerchwell();
     }
 
     @Step
     public void startShareAndDiscussWithMyClientOptionForFirstBuilding() {
         this.openFirstBuildingSkipHintClickOnShareButton();
-        openedBuildingSteps.clickOnDiscussWithMyClientOption();
+        atOpenedBuildingPage.clickOnDiscussWithMyClientOption();
     }
 
     @Step
     public void sendMessageToClientAndCloseDiscussion(String message) throws Exception {
-        openedBuildingSteps.clickOnAddDiscusButton();
-        clientSteps.clickOnExistingClient();
-        discussionSteps.sendMessage(message);
-        discussionSteps.clickOnBackButton();
-        clientSteps.closePage();
+        atOpenedBuildingPage.clickOnAddDiscusButton();
+        atClientPage.clickOnExistingClient();
+        atDiscussionPage.sendMessage(message);
+        atDiscussionPage.clickOnBackButton();
+        atClientPage.closePage();
     }
 
     @Step
     public void sendMessageToAgentAndCloseDiscussion(String message) throws Exception {
-        openedBuildingSteps.clickOnAddDiscusButton();
-        clientSteps.clickOnExistingAgent();
-        discussionSteps.sendMessage(message);
-        discussionSteps.clickOnBackButton();
-        clientSteps.closePage();
+        atOpenedBuildingPage.clickOnAddDiscusButton();
+        atClientPage.clickOnExistingAgent();
+        atDiscussionPage.sendMessage(message);
+        atDiscussionPage.clickOnBackButton();
+        atClientPage.closePage();
+    }
+
+    @Step
+    public void saveNewSearchAndStartNewSearch() {
+        atPerchwellPage.clickOnMyNewSearch();
+        atSearchPage.selectFilter1Bed();
+        atSearchPage.selectFilter4PlusBeds();
+        atSearchPage.saveCurrentSearch();
+        atPerchwellPage.clickOnMyNewSearch();
+        atSearchPage.clickOnLoadSavedSearchButton();
+        atSearchPage.createNewSearchClick();
+        atSearchPage.clickOnApplyButton();
     }
 }

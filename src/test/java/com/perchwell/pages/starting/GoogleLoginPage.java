@@ -12,7 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import java.net.URL;
 import java.util.Set;
 
-public class GoogleLoginPage  extends BasePage {
+public class GoogleLoginPage extends BasePage {
 
 	//region WebElements
     @FindBy(xpath= "//*[@id=\"identifierId\"]")

@@ -1,4 +1,4 @@
-package com.perchwell.tests;
+package com.perchwell.tests.ClientTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.data.ClientGroups;

@@ -15,8 +15,8 @@ public class ST24_AddMessageInDiscussionTest extends SampleTest {
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
-		user.usingComplexSteps.startShareAndDiscussWithMyClientOptionForFirstBuilding(); ///////////
-		user.usingComplexSteps.sendMessageToClientAndCloseDiscussion(DiscussionMessages.HELLO); ////////////
+		user.usingComplexSteps.startShareAndDiscussWithMyClientOptionForFirstBuilding();
+		user.usingComplexSteps.sendMessageToClientAndCloseDiscussion(DiscussionMessages.HELLO);
 		user.atOpenedBuildingPage.openExistingDiscussion();
 		user.atDiscussionPage.sendMessage(DiscussionMessages.LETS_START_DISCUSSION);
 		user.atDiscussionPage.shouldSeeMessageInDiscussion();

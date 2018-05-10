@@ -1,6 +1,7 @@
 package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.ClientGroups;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
@@ -22,7 +23,7 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 		user.atClientPage.clickOnAddNewClientButton();
 		user.atClientPage.setRandomClientData();
 		user.atClientPage.clickOnGroupLabel();
-		user.atClientPage.selectGroup("Actively Searching");
+		user.atClientPage.selectGroup(ClientGroups.ACTIVELYSEARCHING);
 		user.atClientPage.clickOnInviteButton();
 		user.atClientPage.clickOnClientSuccessfullyAddedOkButton();
 		user.atDiscussionPage.clickOnBackButton();

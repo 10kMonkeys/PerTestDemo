@@ -1,6 +1,7 @@
 package com.perchwell.tests.SearchTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.FilterPrices;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
@@ -18,7 +19,7 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 		user.atSearchPage.clickOnLoadSavedSearchButton();
 		user.atSearchPage.clickOnExistingSearchInList();
 		user.atPerchwellPage.clickOnMyNewSearch();
-		user.atSearchPage.setMinimumPriceFilter("150000");
+		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST13MINPRICE);
 		user.atSearchPage.clickOnFilterStudioBeds();
 		user.atSearchPage.clickOnTapToSaveChanges();
 		user.atSearchPage.saveAsOptionSelect();

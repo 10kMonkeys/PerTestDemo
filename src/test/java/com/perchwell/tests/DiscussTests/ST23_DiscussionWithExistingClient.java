@@ -29,7 +29,7 @@ public class ST23_DiscussionWithExistingClient extends SampleTest {
 		user.atDiscussionsListPage.clickOnFirstDiscussion();
 		user.atDiscussionPage.shouldSeeMessageInDiscussion();
 		user.atDiscussionPage.clickOnBackButton();
-		user.atDiscussionPage.clickOndiscussionsCancelButton();
+		user.atDiscussionPage.clickOnDiscussionsCancelButton();
 		user.atClientPage.logOut();
 		user.atClientPage.clickOnYesButtonLogOutWindow();
 		user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),

@@ -1,4 +1,4 @@
-package com.perchwell.tests.DiscussTests;
+package com.perchwell.tests.ClientTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.data.ClientGroups;
@@ -7,10 +7,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"DiscussTests"})
-public class DT2_AddDeletedClientAgainTest extends SampleTest {
+public class DT1_DeleteClientTest extends SampleTest {
 
     @Test
-    public void addDeletedClientAgain() throws Exception {
+    public void deleteClient() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -18,15 +18,11 @@ public class DT2_AddDeletedClientAgainTest extends SampleTest {
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnClientsLabel();
         user.atClientPage.addNewClient(ClientGroups.ACTIVELYSEARCHING);
-        user.atEmailPage.acceptClientInvitation();
         user.atClientPage.swipeCreatedClientName();
         user.atClientPage.clickOnDeleteButton();
-        user.atClientPage.clickOnAddNewClientButton();
-        user.atClientPage.setJustDeletedClientData();
-        user.atClientPage.clickOnGroupLabel();
-        user.atClientPage.selectGroup(ClientGroups.ACTIVELYSEARCHING);
-        user.atClientPage.clickOnInviteButton();
-        user.atClientPage.shouldSeeRecentlyCreatedClient();
-        user.atEmailPage.shouldNotSecondInvitationSent();
+        user.atClientPage.shouldClientNotBePresented();
+        user.atClientPage.closePage();
+        user.atAccountPage.clickOnClientsLabel();
+        user.atClientPage.shouldClientNotBePresented();
     }
 }

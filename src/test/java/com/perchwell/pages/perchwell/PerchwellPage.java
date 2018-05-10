@@ -130,7 +130,7 @@ public class PerchwellPage extends BasePage {
 		resetImplicitTimeout();
 	}
 
-	public Boolean isEditSearchFiltersHintisDisplayed() {
+	public Boolean isEditSearchFiltersHintIsDisplayed() {
 		return Helper.isElementDisplayed(editSearchFiltersHint);
 	}
 

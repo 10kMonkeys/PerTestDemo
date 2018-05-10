@@ -26,7 +26,7 @@ public class ResetPasswordSteps extends ScenarioSteps {
     }
 
     @Step
-    public void shouldFindSentEmail(){
+    public void shouldFindSentEmail() {
         Assert.assertTrue(loginPage.shouldFindSentEmail(AppProperties.INSTANCE.getProperty("reset_email")));
     }
 
@@ -68,7 +68,7 @@ public class ResetPasswordSteps extends ScenarioSteps {
     }
 
     @Step
-    public void overwritingOldPassword(){
+    public void overwritingOldPassword() {
         AppProperties.INSTANCE.setProperty("old_reset_password",AppProperties.INSTANCE.getProperty("new_reset_password"));
     }
 }
