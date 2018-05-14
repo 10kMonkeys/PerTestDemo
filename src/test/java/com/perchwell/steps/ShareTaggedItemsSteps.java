@@ -18,8 +18,8 @@ public class ShareTaggedItemsSteps {
 
     @Step
     public void fillInTitle(String title){
-        SessionVariables.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(title));
-        onPage.fillInTitleTextBox(SessionVariables.getValueFromSessionVariable("Report name"));
+        SessionVariables.addValueInSessionVariable("Report_name", RandomGenerator.getRandomString(title));
+        onPage.fillInTitleTextBox(SessionVariables.getValueFromSessionVariable("Report_name"));
     }
 
     @Step

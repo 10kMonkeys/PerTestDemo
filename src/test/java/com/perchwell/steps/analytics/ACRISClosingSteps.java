@@ -106,4 +106,26 @@ public class ACRISClosingSteps extends ScenarioSteps {
         this.isChartDisplayed();
     }
 
+    @Step
+    public void addDealCountChart() {
+        acrisClosingPage.addDealCountChart();
+    }
+
+    @Step
+    public void shouldDealCountChartDisplayed() {
+        acrisClosingPage.shouldSeeDealCount();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyPriceChart() {
+        acrisClosingPage.addAndVerifyPriceChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyPricePerFT2Chart() {
+        acrisClosingPage.addAndVerifyPricePerFT2Chart();
+        this.isChartDisplayed();
+    }
 }

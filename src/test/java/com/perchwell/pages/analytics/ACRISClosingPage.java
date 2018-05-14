@@ -70,13 +70,31 @@ public class ACRISClosingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DEAL VOLUME (QUARTERLY)")
     private WebElement dealVolumeQuarterlyButton;
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeStaticText[`name CONTAINS[cd] \"DEAL COUNT\"`]")
+    private WebElement dealCountButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"DEAL COUNT\"`][1]")
+    private WebElement dealCountChart;
+
+    @iOSXCUITFindBy(accessibility = "PRICE")
+    private WebElement priceChartButton;
+
+    @iOSXCUITFindBy(accessibility = "PRICE PER FT²")
+    private WebElement pricePerFT2ChartButton;
+
+    @iOSXCUITFindBy(accessibility = "MEDIAN SALE PRICE")
+    private WebElement priceChart;
+
+    @iOSXCUITFindBy(accessibility = "MEDIAN SALE $/FT²")
+    private WebElement pricePerFT2Chart;
+
     //endregion
 
     public ACRISClosingPage(WebDriver driver) {
         super(driver);
     }
 
-    public void dealVolumeAnnualButtonClick(){
+    public void dealVolumeAnnualButtonClick() {
         element(dealVolumeAnnualButton).click();
     }
 
@@ -140,5 +158,23 @@ public class ACRISClosingPage extends BasePage {
     public void addAndVerifyPriceByTypeChart(){
         element(priceByTypeButton).click();
         element(medianSalePriceChart).shouldBeVisible();
+    }
+
+    public void addDealCountChart() {
+        element(dealCountButton).click();
+    }
+
+    public void shouldSeeDealCount() {
+        element(dealCountChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyPriceChart() {
+        element(priceChartButton).click();
+        element(priceChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyPricePerFT2Chart() {
+        element(pricePerFT2ChartButton).click();
+        element(pricePerFT2Chart).shouldBeVisible();
     }
 }

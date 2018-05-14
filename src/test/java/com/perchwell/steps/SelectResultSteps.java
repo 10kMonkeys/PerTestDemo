@@ -42,15 +42,15 @@ public class SelectResultSteps extends ScenarioSteps {
 	}
 
 	private void setReportName(String reportName) {
-		SessionVariables.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
-		onPage.setReportName(SessionVariables.getValueFromSessionVariable("Report name"));
+		SessionVariables.addValueInSessionVariable("Report_name", RandomGenerator.getRandomString(reportName));
+		onPage.setReportName(SessionVariables.getValueFromSessionVariable("Report_name"));
 	}
 
 	@Step("Should see sent email. Mail is checked twice with a five minute waiting")
 	public void shouldFindSentEmail() {
-		Boolean result = onPage.shouldFindSentEmail(SessionVariables.getValueFromSessionVariable("Report name"));
+		Boolean result = onPage.shouldFindSentEmail(SessionVariables.getValueFromSessionVariable("Report_name"));
 		if (!result) {
-			result = onPage.shouldFindSentEmail(SessionVariables.getValueFromSessionVariable("Report name"));
+			result = onPage.shouldFindSentEmail(SessionVariables.getValueFromSessionVariable("Report_name"));
 		}
 		Assert.assertTrue(result);
 	}

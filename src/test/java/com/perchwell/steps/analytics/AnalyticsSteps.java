@@ -327,4 +327,11 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.acrisClosingsButtonClick();
 		onPage.distributionButtonClick();
 	}
+
+	@Step
+	public void selectACRISClosingWithLocation() {
+		onPage.addButtonClick();
+		onPage.acrisClosingsButtonClick();
+		onPage.locationButtonClick();
+	}
 }
