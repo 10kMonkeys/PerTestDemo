@@ -94,6 +94,9 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS'")
 	private WebElement firstBuildingAddress;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS'$][2]")
+	private WebElement secondBuildingAddress;
+
 	@iOSXCUITFindBy(accessibility = "AccountDetailsHeader")
 	private WebElement initials;
 
@@ -157,10 +160,12 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void openFirstBuilding() {
+		SessionVariables.addValueInSessionVariable("First_building_address", firstBuildingAddress.getText());
 		element(firstBuilding).click();
 	}
 
 	public void openSecondBuilding() {
+		SessionVariables.addValueInSessionVariable("Second_building_address", secondBuildingAddress.getText());
 		element(secondBuilding).click();
 	}
 

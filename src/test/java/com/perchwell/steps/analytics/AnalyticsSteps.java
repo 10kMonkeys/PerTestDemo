@@ -37,9 +37,9 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldFindSentEmail() {
-		Boolean result = onPage.shouldFindSentEmail(SessionVariables.getValueFromSessionVariable("Report name"));
+		Boolean result = onPage.shouldFindSentEmail(SessionVariables.getValueFromSessionVariable("Report_name"));
 		if (!result) {
-			result = onPage.shouldFindSentEmail(SessionVariables.getValueFromSessionVariable("Report name"));
+			result = onPage.shouldFindSentEmail(SessionVariables.getValueFromSessionVariable("Report_name"));
 		}
 		Assert.assertTrue(result);
 	}
@@ -183,7 +183,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void selectNYCTownhousesSection(){
-		onPage.nycTownHousesButtonClick();
+		onPage.nycTownhousesButtonClick();
 	}
 
 	@Step
@@ -234,12 +234,12 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void isColumnForPreviousMinDefaultYearAdd(){
+	public void isColumnForPreviousMinDefaultYearAdd() {
 		Assert.assertTrue(onPage.isColumnForPreviousMinDefaultYearAdd(SessionVariables.getValueFromSessionVariable("MinRangeYear")));
 	}
 
 	@Step
-	public void isColumnForNextMaxDefaultYearRemove(){
+	public void isColumnForNextMaxDefaultYearRemove() {
 		Assert.assertTrue(onPage.isColumnForNextMaxDefaultYearRemove(SessionVariables.getValueFromSessionVariable("MaxDefaultRangeYear")));
 	}
 
@@ -249,12 +249,12 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void getValueYearsRangeButton(){
+	public void getValueYearsRangeButton() {
 		SessionVariables.addValueInSessionVariable("RangeButton",onPage.yearsRangeButtonValue());
 	}
 
 	@Step
-	public void isYearsRangeChange(){
+	public void isYearsRangeChange() {
 		Assert.assertTrue(onPage.isYearsRangeChange(SessionVariables.getValueFromSessionVariable("RangeButton"),SessionVariables.getValueFromSessionVariable("MaxRangeYear")));
 	}
 
@@ -285,14 +285,14 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void selectREBNYListingsWithMKTShare(){
+	public void selectREBNYListingsWithMKTShare() {
 		onPage.addButtonClick();
 		onPage.rebnyListingsButtonClick();
 		onPage.mktShareButtonClick();
 	}
 
 	@Step
-	public void selectREBNYListingsWithDistribution(){
+	public void selectREBNYListingsWithDistribution() {
 		onPage.addButtonClick();
 		onPage.rebnyListingsButtonClick();
 		onPage.distributionButtonClick();
@@ -308,21 +308,21 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void selectREBNYListingsWithMedian(){
+	public void selectREBNYListingsWithMedian() {
 		onPage.addButtonClick();
 		onPage.rebnyListingsButtonClick();
 		onPage.medianButtonClick();
 	}
 
     @Step
-    public void selectREBNYListingsWithFeatures(){
+    public void selectREBNYListingsWithFeatures() {
         onPage.addButtonClick();
         onPage.rebnyListingsButtonClick();
         onPage.featuresButtonClick();
     }
 
 	@Step
-	public void selectACRISClosingWithDistribution(){
+	public void selectACRISClosingWithDistribution() {
 		onPage.addButtonClick();
 		onPage.acrisClosingsButtonClick();
 		onPage.distributionButtonClick();
@@ -333,5 +333,19 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.addButtonClick();
 		onPage.acrisClosingsButtonClick();
 		onPage.locationButtonClick();
+	}
+
+	@Step
+	public void selectACRISClosingWithMedian() {
+		onPage.addButtonClick();
+		onPage.acrisClosingsButtonClick();
+		onPage.medianButtonClick();
+	}
+
+	@Step
+	public void selectACRISClosingWithTrends() {
+		onPage.addButtonClick();
+		onPage.acrisClosingsButtonClick();
+		onPage.trendsButtonClick();
 	}
 }

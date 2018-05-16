@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.tags.MyTagsPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -29,5 +30,10 @@ public class MyTagsSteps extends ScenarioSteps {
 		} else {
 			Assert.assertFalse("Does not exist several tags", true);
 		}
+	}
+
+	public void checkTwoJustCreatedTags() throws Exception {
+		onPage.checkJustCreatedTag(SessionVariables.getValueFromSessionVariable("First_tag"));
+		onPage.checkJustCreatedTag(SessionVariables.getValueFromSessionVariable("Second_tag"));
 	}
 }

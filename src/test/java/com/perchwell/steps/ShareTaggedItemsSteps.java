@@ -23,8 +23,9 @@ public class ShareTaggedItemsSteps {
     }
 
     @Step
-    public void fillInMessage(String message){
-        onPage.fillInMessageTextBox(message);
+    public void fillInMessage() {
+        SessionVariables.addValueInSessionVariable("Custom_message_name", onPage.generateCustomMessage());
+        onPage.fillInMessageTextBox(SessionVariables.getValueFromSessionVariable("Custom_message_name"));
     }
 
     @Step

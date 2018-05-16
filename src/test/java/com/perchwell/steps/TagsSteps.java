@@ -2,6 +2,7 @@ package com.perchwell.steps;
 
 import com.perchwell.entity.Tag;
 import com.perchwell.helpers.RandomGenerator;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.tags.TagsPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -16,6 +17,22 @@ public class TagsSteps extends ScenarioSteps {
 	@Step
 	public void setRandomTagAndSave() {
 		tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
+		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
+		this.onPage.clickOnCreateTagLabel();
+	}
+
+	@Step
+	public void setRandomFirstTagAndSave() {
+		tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
+		SessionVariables.addValueInSessionVariable("First_tag", tag.getUniqueTagName());
+		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
+		this.onPage.clickOnCreateTagLabel();
+	}
+
+	@Step
+	public void setRandomSecondTagAndSave() {
+		tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
+		SessionVariables.addValueInSessionVariable("Second_tag", tag.getUniqueTagName());
 		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
 		this.onPage.clickOnCreateTagLabel();
 	}

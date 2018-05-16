@@ -112,7 +112,7 @@ public class ACRISClosingSteps extends ScenarioSteps {
     }
 
     @Step
-    public void shouldDealCountChartDisplayed() {
+    public void shouldSeeDealCountChart() {
         acrisClosingPage.shouldSeeDealCount();
         this.isChartDisplayed();
     }
@@ -128,4 +128,131 @@ public class ACRISClosingSteps extends ScenarioSteps {
         acrisClosingPage.addAndVerifyPricePerFT2Chart();
         this.isChartDisplayed();
     }
+
+    @Step
+    public void addPriceChart() {
+        acrisClosingPage.addPriceChart();
+    }
+
+    @Step
+    public void shouldSeePriceChart() {
+        acrisClosingPage.shouldSeePriceChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addDealCountAnnualChart() throws Exception {
+        acrisClosingPage.addDealCountAnnualChart();
+    }
+
+    @Step
+    public void shouldSeeDealCountAnnualChart() {
+        acrisClosingPage.shouldSeeDealCountAnnualChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyDealCountQuarterlyChart() throws Exception {
+        acrisClosingPage.addAndVerifyDealCountQuarterlyChart();
+        this.isChartDisplayed();
+    }
+
+    public void addAndVerifyDealVolumeAnnualChart() throws Exception {
+        acrisClosingPage.addAndVerifyDealVolumeAnnualChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyDealVolumeQuarterlyChart() throws Exception {
+        acrisClosingPage.addAndVerifyDealVolumeQuarterlyChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyPriceAnnualChart() throws Exception {
+        acrisClosingPage.addAndVerifyPriceAnnualChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyPriceQuarterlyChart() throws Exception {
+        acrisClosingPage.addAndVerifyPriceQuarterlyChart();
+        this.isChartDisplayed();
+    }
+
+    public void addAndVerifyPricePerFT2AnnualChart() throws Exception {
+        acrisClosingPage.addAndVerifyPricePerFT2AnnualChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyPricePerFT2QuarterlyChart() throws Exception {
+        acrisClosingPage.addAndVerifyPricePerFT2QuarterlyChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyTopTenPerMKTDealVolumeAnnualChart() throws Exception {
+        acrisClosingPage.addAndVerifyTopTenPerMKTDealVolumeAnnualChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyTopTenPerMKTPriceAnnualChart() throws Exception {
+        acrisClosingPage.addAndVerifyTopTenPerMKTPriceAnnualChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyTopTenPerMKTPriceQuarterlyChart() throws Exception {
+        acrisClosingPage.addAndVerifyTopTenPerMKTPriceQuarterlyChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyTopTenPerMKTPricePerFT2AnnualChart() throws Exception {
+        acrisClosingPage.addAndVerifyTopTenPerMKTPricePerFT2AnnualChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyTopTenPerMKTPricePerFT2QuarterlyChart() throws Exception {
+        acrisClosingPage.addAndVerifyTopTenPerMKTPricePerFT2QuarterlyChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyTopTenPerMKTUnitSizeAnnualChart() throws Exception {
+        acrisClosingPage.addAndVerifyTopTenPerMKTUnitSizeAnnualChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyTopTenPerMKTUnitSizeQuarterlyChart() throws Exception {
+        acrisClosingPage.addAndVerifyTopTenPerMKTUnitSizeQuarterlyChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addPricePerFT2AnnualChart() throws Exception {
+        acrisClosingPage.addPricePerFT2AnnualChart();
+    }
+
+    @Step
+    public void shouldSeePricePerFT2AnnualChart() {
+        acrisClosingPage.shouldSeePricePerFT2AnnualChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addTopTenPerMKTPricePerFT2QuarterlyChart() throws Exception {
+        acrisClosingPage.addTopTenPerMKTPricePerFT2QuarterlyChart();
+    }
+
+    @Step
+    public void shouldSeeTopTenPerMKTPricePerFT2QuarterlyChart() {
+        acrisClosingPage.shouldSeeTopTenPerMKTPricePerFT2QuarterlyChart();
+        this.isChartDisplayed();
+    }
 }
+

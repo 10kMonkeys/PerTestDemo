@@ -10,8 +10,8 @@ public class FT2_AskingPriceFilterTest extends SampleTest {
 
     @Test
     public void resultAfterAskingPriceFilter() {
-        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_test_email"),
-                AppProperties.INSTANCE.getProperty("client_test_password"));
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
+                AppProperties.INSTANCE.getProperty("client_password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.isListingsQuantity();

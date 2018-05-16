@@ -189,7 +189,7 @@ public class AnalyticsPage extends BasePage {
         element(domByPriceButton).click();
     }
 
-    public void nycTownHousesButtonClick(){
+    public void nycTownhousesButtonClick(){
         element(nycTownhousesButton).click();
     }
 
@@ -245,8 +245,8 @@ public class AnalyticsPage extends BasePage {
 	}
 
 	public void setAndSaveReportName(String reportName) {
-        SessionVariables.addValueInSessionVariable("Report name", RandomGenerator.getRandomString(reportName));
-		element(nameThisReport).sendKeys(SessionVariables.getValueFromSessionVariable("Report name"));
+        SessionVariables.addValueInSessionVariable("Report_name", RandomGenerator.getRandomString(reportName));
+		element(nameThisReport).sendKeys(SessionVariables.getValueFromSessionVariable("Report_name"));
 	}
 
 	public Boolean shouldFindSentEmail(String report_name) {

@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ATS8_AddACRISClosingLocationChartsTest extends SampleTest {
 
     @Test
-    public void AddACRISClosingLocationChartsTest() {
+    public void addACRISClosingLocationChartsTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -19,7 +19,7 @@ public class ATS8_AddACRISClosingLocationChartsTest extends SampleTest {
         user.atAnalyticsPage.locationButtonClick();
         user.atAcrisClosingPage.addDealCountChart();
         user.atAnalyticsPage.skipHints();
-        user.atAcrisClosingPage.shouldDealCountChartDisplayed();
+        user.atAcrisClosingPage.shouldSeeDealCountChart();
         user.atAnalyticsPage.selectACRISClosingWithLocation();
         user.atAcrisClosingPage.addAndVerifyPriceChart();
         user.atAnalyticsPage.selectACRISClosingWithLocation();

@@ -10,8 +10,8 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
 
     @Test
     public void applyingStatusTypeFilter() throws Exception{
-            user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("client_test_email"),
-                    AppProperties.INSTANCE.getProperty("client_test_password"));
+            user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("client_email"),
+                    AppProperties.INSTANCE.getProperty("client_password"));
             user.atPerchwellPage.skipAllHints();
             user.atPerchPopup.clickNotNowButton();
             user.atPerchwellPage.isListingsQuantity();

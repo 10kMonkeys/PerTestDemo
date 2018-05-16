@@ -10,20 +10,22 @@ import org.junit.Test;
 public class ST8_ShareTagTest extends SampleTest {
 
 	@Test
-	public void shareTagTest() {
+	public void shareTagTest() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
+		user.usingComplexSteps.addTagToTheFirstListing();
+		user.usingComplexSteps.addTagToTheSecondListing();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnTagsLabel();
-		user.atMyTagsPage.clickOnSeveralExistingTagLabel();
+		user.atMyTagsPage.checkTwoJustCreatedTags();
 		user.atMyTagsPage.clickOnTagSearchButton();
 		user.atSelectResultPage.clickOnTagPDFExportButton();
 		user.atSelectResultPage.selectShareTaggedItems();
 		user.atShareTaggedItemsPage.selectClientEmail();
 		user.atShareTaggedItemsPage.fillInTitle(EmailData.EMAILTITLE);
-		user.atShareTaggedItemsPage.fillInMessage(EmailData.EMAILMESSAGE);
+		user.atShareTaggedItemsPage.fillInMessage();
 		user.atShareTaggedItemsPage.doneButtonClick();
 		user.atShareTaggedItemsPage.sendButtonClick();
 		user.atSelectResultPage.shouldFindSentEmail();

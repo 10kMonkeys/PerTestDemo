@@ -1,5 +1,6 @@
 package com.perchwell.pages.tags;
 
+import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
@@ -55,5 +56,9 @@ public class ShareTaggedItemsPage extends BasePage {
 
     public void doneButtonClick(){
         element(doneButton).click();
+    }
+
+    public String generateCustomMessage() {
+        return RandomGenerator.getRandomString("Message ");
     }
 }

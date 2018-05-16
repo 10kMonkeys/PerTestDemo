@@ -1,12 +1,18 @@
 package com.perchwell.pages.tags;
 
+import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class MyTagsPage extends BasePage {
 
@@ -46,5 +52,13 @@ public class MyTagsPage extends BasePage {
 	public void clickOnTagSearchButton() {
 		element(tagSearchButton).click();
 	}
+
+    public void checkJustCreatedTag(String tag) throws Exception {
+		WebElement justCreatedTag = getDriver().findElement(MobileBy.AccessibilityId(tag));
+		setImplicitTimeout(1, SECONDS);
+		Helper.swipeDownUntilElementVisible(justCreatedTag);
+		element(justCreatedTag).click();
+		resetImplicitTimeout();
+    }
 }
 

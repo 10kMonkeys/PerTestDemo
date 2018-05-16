@@ -22,6 +22,9 @@ public class ComplexSteps extends ScenarioSteps{
     @Steps
     private SearchSteps atSearchPage;
 
+    @Steps
+    private TagsSteps atTagsPage;
+
     @Step
     private void openFirstBuildingSkipHintClickOnShareButton() {
         atPerchwellPage.openFirstBuilding();
@@ -65,9 +68,34 @@ public class ComplexSteps extends ScenarioSteps{
         atSearchPage.selectFilter1Bed();
         atSearchPage.selectFilter4PlusBeds();
         atSearchPage.saveCurrentSearch();
+        this.startNewSearch();
+    }
+
+    @Step
+    public void startNewSearch() {
         atPerchwellPage.clickOnMyNewSearch();
         atSearchPage.clickOnLoadSavedSearchButton();
         atSearchPage.createNewSearchClick();
         atSearchPage.clickOnApplyButton();
     }
+
+    @Step
+    public void addTagToTheFirstListing() {
+        atPerchwellPage.openFirstBuilding();
+        atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+        atOpenedBuildingPage.clickOnMyTagsLabel();
+        atTagsPage.setRandomFirstTagAndSave();
+        atTagsPage.clickOnBackButton();
+        atOpenedBuildingPage.clickOnBackButton();
+    }
+
+    @Step
+    public void addTagToTheSecondListing() {
+        atPerchwellPage.openSecondBuilding();
+        atOpenedBuildingPage.clickOnMyTagsLabel();
+        atTagsPage.setRandomSecondTagAndSave();
+        atTagsPage.clickOnBackButton();
+        atOpenedBuildingPage.clickOnBackButton();
+    }
+
 }

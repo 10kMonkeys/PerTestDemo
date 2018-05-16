@@ -9,7 +9,7 @@ import org.junit.Test;
 public class AT6_ACRISClosingChartsYearsRangeChangeTest extends SampleTest {
 
     @Test
-    public void acrisClosingChartsYearsRangeChangeTest() throws Exception{
+    public void acrisClosingChartsYearsRangeChangeTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

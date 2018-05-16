@@ -22,7 +22,5 @@ public class ST36_SendReportDetailsPDF extends SampleTest {
 		user.atAnalyticsPage.shareButtonClick();
 		user.atAnalyticsPage.clickSendButton();
 		user.atAnalyticsPage.shouldFindPDFSummaryEmail();
-
-
 	}
 }

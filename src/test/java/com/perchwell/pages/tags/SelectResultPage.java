@@ -4,6 +4,7 @@ import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
@@ -64,31 +65,68 @@ public class SelectResultPage extends BasePage {
 		reportSentOkButton.click();
 	}
 
-	public Boolean shouldFindSentEmail(String report_name) {
+//	public Boolean shouldFindSentEmail(String report_name) {
+//		//Waiting while report was sent
+//		try {
+//			Thread.sleep(50000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+//		//Get last emails with HEADER_SHARE_TAGS
+//		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_SHARE_TAGS"));
+//		Boolean reportWasFound = false;
+//		report_name = report_name + ".pdf";
+//		//Get attachments
+//		MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
+//		//Find attachments with REPORT_NAME
+//		for (MailTrapAttachment my_attachment : mailTrapAttachment) {
+//			if (my_attachment.getFilename().equalsIgnoreCase(report_name)) {
+//				reportWasFound = true;
+//				break;
+//			}
+//		}
+//
+//		return reportWasFound;
+//	}
+
+	public void selectShareTaggedItems(){
+		element(shareTaggedItems).click();
+	}
+
+	public Boolean shouldFindSentEmail(String customMessage) {
 		//Waiting while report was sent
 		try {
 			Thread.sleep(50000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+
 		//Get last emails with HEADER_SHARE_TAGS
-		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_SHARE_TAGS"));
-		Boolean reportWasFound = false;
-		report_name = report_name + ".pdf";
-		//Get attachments
-		MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
-		//Find attachments with REPORT_NAME
-		for (MailTrapAttachment my_attachment : mailTrapAttachment) {
-			if (my_attachment.getFilename().equalsIgnoreCase(report_name)) {
-				reportWasFound = true;
-				break;
+		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(
+				AppProperties.INSTANCE.getProperty("HEADER_SHARE_TAGS"));
+		Boolean emailWasFound = false;
+
+			//Find email with Custom_message, First Building and Second Building
+			for (MailTrapResponse my_responce : mailTrapResponse) {
+
+				if (my_responce.getText_body().contains(customMessage)
+						& my_responce.getText_body().toUpperCase().contains(
+								SessionVariables.getValueFromSessionVariable("Second_building_address"))
+						& my_responce.getText_body().toUpperCase().contains(
+								SessionVariables.getValueFromSessionVariable("First_building_address"))) {
+					//Get attachments
+					MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(my_responce.getId());
+
+					//Find attachments with LISTING_REPORT_NAME
+					for (MailTrapAttachment my_attachment : mailTrapAttachment) {
+						if (my_attachment.getFilename().equalsIgnoreCase(
+								AppProperties.INSTANCE.getProperty("LISTING_REPORT_NAME"))) {
+							emailWasFound = true;
+							break;
+						}
+					}
+				}
 			}
-		}
-
-		return reportWasFound;
-	}
-
-	public void selectShareTaggedItems(){
-		element(shareTaggedItems).click();
+		return emailWasFound;
 	}
 }
