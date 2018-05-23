@@ -8,13 +8,15 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "Third"})
 public class ST37_AddChartAsClientTest extends SampleTest {
     @Test
-    public void addChartAsClient() {
+    public void addChartAsClient() throws Exception {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
                 AppProperties.INSTANCE.getProperty("client_password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnAnalytics();
-        user.atRebnyListingsPage.addAskingPriceChartWithMKTShare();
+        user.atAnalyticsPage.selectREBNYListingsSection();
+        user.atAnalyticsPage.mktShareButtonClick();
+        user.atRebnyListingsPage.addMKTShareAskingPriceChart();
         user.atAnalyticsPage.skipHints();
         user.atAnalyticsPage.addButtonClick();
         user.atRebnyListingsPage.addBuildingHeightChartWithMKTShare();

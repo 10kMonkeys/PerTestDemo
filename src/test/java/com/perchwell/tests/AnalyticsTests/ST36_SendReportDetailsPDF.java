@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ST36_SendReportDetailsPDF extends SampleTest {
 
 	@Test
-	public void sendReportDetailsPDF() {
+	public void sendReportDetailsPDF() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
@@ -17,7 +17,7 @@ public class ST36_SendReportDetailsPDF extends SampleTest {
 		user.atPerchwellPage.clickOnAnalytics();
 		user.atRebnyListingsPage.addChartFromREBNYSection();
 		user.atAnalyticsPage.skipHints();
-		user.atRebnyListingsPage.askingPriceChartClick();
+		user.atRebnyListingsPage.addMedianOrLocationPriceChart();
 		user.atAnalyticsPage.upTo12MillionButtonClick();
 		user.atAnalyticsPage.shareButtonClick();
 		user.atAnalyticsPage.clickSendButton();

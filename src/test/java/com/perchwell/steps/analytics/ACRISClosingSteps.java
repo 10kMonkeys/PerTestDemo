@@ -12,7 +12,7 @@ public class ACRISClosingSteps extends ScenarioSteps {
     AnalyticsPage analyticsPage;
 
     @Step
-    public void addBuildingTypeByDealCountChartFromACRISCloasing(){
+    public void addBuildingTypeByDealCountChartFromACRISClosing(){
         analyticsPage.acrisClosingsButtonClick();
         acrisClosingPage.buildingTypeByDealCountButtonClick();
     }
@@ -44,8 +44,12 @@ public class ACRISClosingSteps extends ScenarioSteps {
         this.isChartDisplayed();
     }
 
-    public void isChartDisplayed(){
+    private void isChartDisplayed() {
         analyticsPage.isChartDisplayed();
+    }
+
+    private void isChartWithApplyingFiltersDisplayed() {
+        analyticsPage.isChartWithApplyingFiltersDisplayed();
     }
 
     @Step
@@ -56,13 +60,13 @@ public class ACRISClosingSteps extends ScenarioSteps {
     @Step
     public void shouldSeeBuildingHeightChartWithSwipe() {
         acrisClosingPage.shouldBuildingHeightChartDisplayedWithSwipe();
-        this.isChartDisplayed();
+        this.isChartWithApplyingFiltersDisplayed();
     }
 
     @Step
     public void shouldBuildingTypeChartDisplayed() {
         acrisClosingPage.shouldBuildingTypeByDealCountDisplayed();
-        this.isChartDisplayed();
+        this.isChartWithApplyingFiltersDisplayed();
     }
 
     @Step

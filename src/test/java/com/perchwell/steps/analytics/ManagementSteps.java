@@ -4,7 +4,6 @@ import com.perchwell.pages.analytics.AnalyticsPage;
 import com.perchwell.pages.analytics.ManagementPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.junit.Assert;
 
 public class ManagementSteps extends ScenarioSteps {
     ManagementPage managementPage;
@@ -33,8 +32,12 @@ public class ManagementSteps extends ScenarioSteps {
         this.isChartDisplayed();
     }
 
-    public void isChartDisplayed(){
+    public void isChartDisplayed() {
         analyticsPage.isChartDisplayed();
+    }
+
+    private void isChartWithApplyingFiltersDisplayed() {
+        analyticsPage.isChartWithApplyingFiltersDisplayed();
     }
 
     @Step
@@ -57,6 +60,24 @@ public class ManagementSteps extends ScenarioSteps {
     @Step
     public void shouldSeeDaysOnMarketChartWithSwipe() throws Exception {
         managementPage.shouldDaysOnMarketDisplayedWithSwipe();
+        this.isChartWithApplyingFiltersDisplayed();
+    }
+
+    @Step
+    public void addMKTShareAskingPriceChart() throws Exception {
+        managementPage.addMKTShareAskingPriceChart();
+    }
+
+    @Step
+    public void shouldSeeMKTShareAskingPriceChart() {
+        managementPage.shouldSeeMKTShareAskingPriceChart();
+        this.isChartDisplayed();
+    }
+
+
+    @Step
+    public void addAndVerifyDistributionFirmListingCountChart() throws Exception {
+        managementPage.addAndVerifyDistributionFirmListingCountChart();
         this.isChartDisplayed();
     }
 }

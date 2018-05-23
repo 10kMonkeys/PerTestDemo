@@ -21,7 +21,7 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "SQUARE FEET")
     private WebElement squareFeetButton;
 
-    @iOSXCUITFindBy(accessibility = "GARDEN")
+    @iOSXCUITFindBy(accessibility = "GARDEN houses TwoPiecePie")
     private WebElement gardenChart;
 
     @iOSXCUITFindBy(accessibility = "GARDEN PREMIUM")
@@ -30,17 +30,17 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "HISTORIC DIST.")
     private WebElement historyDistChart;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"HAS GARDEN\"")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HAS GARDEN\"`][1]")
     private WebElement REBNYTownhouseListingsHasGardenButton;
 
-    @iOSXCUITFindBy(accessibility = "GARDEN")
+    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_GARDEN_107")
     private WebElement REBNYTownhouseListingsHasGardenChart;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"IN HISTORIC DIST.\"")
     private WebElement REBNYTownhouseListingsInHistoricDistButton;
 
-    @iOSXCUITFindBy(accessibility = "HISTORIC DIST.")
-    private WebElement REBNYTownhouseListingsInHistoricDistChart;
+    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_HISTORIC DIST._103")
+    private WebElement MTKShareREBNYTownhouseListingsInHistoricDistChart;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"SQUARE FEET\"")
     private WebElement REBNYTownhouseListingsSquareFeetButton;
@@ -60,8 +60,47 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "YEAR LAST ALTERED")
     private WebElement REBNYTownhouseListingsYearLastAlteredChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS")
-    private WebElement REBNYTownhouseListingsTitle;
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HAS GARDEN\"`][2]")
+    private WebElement ACRISTownhouseClosingHasGardenButton;
+
+    @iOSXCUITFindBy(accessibility = "GARDEN")
+    private WebElement ACRISTownhouseClosingHasGardenChart;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"IN HISTORIC DIST.\"`][2]")
+    private WebElement ACRISTownhouseClosingInHistoricDistButton;
+
+    @iOSXCUITFindBy(accessibility = "HISTORIC DIST.")
+    private WebElement ACRISTownhouseClosingInHistoricDistChart;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SQUARE FEET\"`][2]")
+    private WebElement ACRISTownhouseClosingSquareFeetButton;
+
+    @iOSXCUITFindBy(accessibility = "SQUARE FEET")
+    private WebElement ACRISTownhouseClosingSquareFeetChart;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"WIDTH\"`][2]")
+    private WebElement ACRISTownhouseClosingWidthButton;
+
+    @iOSXCUITFindBy(accessibility = "WIDTH")
+    private WebElement ACRISTownhouseClosingWidthChart;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"DEAL COUNT BY PRICE\"`][1]")
+    private WebElement ACRISTownhouseClosingDealCountByPriceButton;
+
+    @iOSXCUITFindBy(accessibility = "SALE PRICE")
+    private WebElement ACRISTownhouseClosingDealCountByPriceChart;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"GARDEN\"`][2]")
+    private WebElement featureACRISTownhouseClosingsGardenButton;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_GARDEN PREMIUM_147")
+    private WebElement featureACRISTownhouseClosingsGardenChart;
+
+    @iOSXCUITFindBy(accessibility = "# TOWNHOUSES")
+    private WebElement locationTotalTHStockNumberTownhousesButton;
+
+    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_COUNT OF EXISTING TOWNHOUSES_83")
+    private WebElement locationTotalTHStockNumberTownhousesChart;
 
     //endregion
 
@@ -90,45 +129,40 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void shouldGardenChartDisplayed() {
-        Helper.scrollToElement(gardenChart);
-        element(gardenChart).shouldBeVisible();
+        Helper.scrollToElement(REBNYTownhouseListingsHasGardenChart);
+        element(REBNYTownhouseListingsHasGardenChart).shouldBeVisible();
     }
 
     public void addREBNYTownhouseListingsHasGardenChart() throws Exception {
-        swipeUntilButtonShown(REBNYTownhouseListingsHasGardenButton);
+        this.swipeUntilButtonShown(REBNYTownhouseListingsHasGardenButton);
         element(REBNYTownhouseListingsHasGardenButton).click();
     }
 
     public void shouldSeeREBNYTownhouseListingsHasGardenChart() {
-        element(REBNYTownhouseListingsTitle).shouldBeVisible();
         element(REBNYTownhouseListingsHasGardenChart).shouldBeVisible();
     }
 
     public void addAndVerifyREBNYTownhouseListingsInHistoricDistChart() throws Exception {
-        swipeUntilButtonShown(REBNYTownhouseListingsInHistoricDistButton);
+        this.swipeUntilButtonShown(REBNYTownhouseListingsInHistoricDistButton);
         element(REBNYTownhouseListingsInHistoricDistButton).click();
-        element(REBNYTownhouseListingsTitle).shouldBeVisible();
-        element(REBNYTownhouseListingsInHistoricDistChart).shouldBeVisible();
+        element(MTKShareREBNYTownhouseListingsInHistoricDistChart).shouldBeVisible();
     }
 
     public void addAndVerifyREBNYTownhouseListingsSquareFeetChart() throws Exception {
-        swipeUntilButtonShown(REBNYTownhouseListingsSquareFeetButton);
+        this.swipeUntilButtonShown(REBNYTownhouseListingsSquareFeetButton);
         element(REBNYTownhouseListingsSquareFeetButton).click();
-        element(REBNYTownhouseListingsTitle).shouldBeVisible();
         element(REBNYTownhouseListingsSquareFeetChart).shouldBeVisible();
     }
 
     public void addAndVerifyREBNYTownhouseListingsWidthChart() throws Exception {
-        swipeUntilButtonShown(REBNYTownhouseListingsWidthButton);
+        this.swipeUntilButtonShown(REBNYTownhouseListingsWidthButton);
         element(REBNYTownhouseListingsWidthButton).click();
-        element(REBNYTownhouseListingsTitle).shouldBeVisible();
         element(REBNYTownhouseListingsWidthChart).shouldBeVisible();
     }
 
     public void addAndVerifyREBNYTownhouseListingsYearLastAlteredChart() throws Exception {
-        swipeUntilButtonShown(REBNYTownhouseListingsYearLastAlteredButton);
+        this.swipeUntilButtonShown(REBNYTownhouseListingsYearLastAlteredButton);
         element(REBNYTownhouseListingsYearLastAlteredButton).click();
-        element(REBNYTownhouseListingsTitle).shouldBeVisible();
         element(REBNYTownhouseListingsYearLastAlteredChart).shouldBeVisible();
     }
 
@@ -136,5 +170,59 @@ public class NYCTownhousesPage extends BasePage {
         setImplicitTimeout(1, SECONDS);
         Helper.swipeDownUntilElementVisible(button);
         resetImplicitTimeout();
+    }
+
+    public void addACRISTownhouseClosingHasGardenChart() throws Exception {
+        this.swipeUntilButtonShown(ACRISTownhouseClosingHasGardenButton);
+        element(ACRISTownhouseClosingHasGardenButton).click();
+    }
+
+    public void shouldSeeACRISTownhouseClosingHasGardenChart() {
+        element(ACRISTownhouseClosingHasGardenChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyACRISTownhouseClosingInHistoricDistChart() throws Exception {
+        this.swipeUntilButtonShown(ACRISTownhouseClosingInHistoricDistButton);
+        element(ACRISTownhouseClosingInHistoricDistButton).click();
+        element(ACRISTownhouseClosingInHistoricDistChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyACRISTownhouseClosingSquareFeetChart() throws Exception {
+        this.swipeUntilButtonShown(ACRISTownhouseClosingSquareFeetButton);
+        element(ACRISTownhouseClosingSquareFeetButton).click();
+        element(ACRISTownhouseClosingSquareFeetChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyACRISTownhouseClosingWidthChart() throws Exception {
+        this.swipeUntilButtonShown(ACRISTownhouseClosingWidthButton);
+        element(ACRISTownhouseClosingWidthButton).click();
+        element(ACRISTownhouseClosingWidthChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyACRISTownhouseClosingDealCountByPriceChart() throws Exception {
+        this.swipeUntilButtonShown(ACRISTownhouseClosingDealCountByPriceButton);
+        element(ACRISTownhouseClosingDealCountByPriceButton).click();
+        element(ACRISTownhouseClosingDealCountByPriceChart).shouldBeVisible();
+    }
+
+    public void addMKTShareREBNYTHListingsInHistoricDistChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(REBNYTownhouseListingsInHistoricDistButton);
+        element(REBNYTownhouseListingsInHistoricDistButton).click();
+    }
+
+    public void shouldSeeMKTShareREBNYTHListingsInHistoricDistChart() {
+        element(MTKShareREBNYTownhouseListingsInHistoricDistChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyFeaturesACRISTHClosingsGardenChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(featureACRISTownhouseClosingsGardenButton);
+        element(featureACRISTownhouseClosingsGardenButton).click();
+        element(featureACRISTownhouseClosingsGardenChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyLocationTotalTHStockNumberTownhousesChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(locationTotalTHStockNumberTownhousesButton);
+        element(locationTotalTHStockNumberTownhousesButton).click();
+        element(locationTotalTHStockNumberTownhousesChart).shouldBeVisible();
     }
 }

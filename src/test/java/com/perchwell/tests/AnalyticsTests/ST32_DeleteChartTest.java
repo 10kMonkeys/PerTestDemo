@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ST32_DeleteChartTest extends SampleTest {
 
     @Test
-    public void deleteChart() {
+    public void deleteChart() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -26,7 +26,7 @@ public class ST32_DeleteChartTest extends SampleTest {
         user.atAnalyticsPage.addButtonClick();
         user.atRebnyListingsPage.addBedroomsChartFromREBNYListings();
         user.atAnalyticsPage.addButtonClick();
-        user.atAcrisClosingPage.addBuildingTypeByDealCountChartFromACRISCloasing();
+        user.atAcrisClosingPage.addBuildingTypeByDealCountChartFromACRISClosing();
         user.atAnalyticsPage.addButtonClick();
         user.atAnalyticsPage.isMessageMaximumSixChartsDisplayed();
         user.atAnalyticsPage.okButtonClick();

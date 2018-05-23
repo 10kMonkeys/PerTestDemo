@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ST31_AddGraphicsTest extends SampleTest {
 
     @Test
-    public void addGraphics() {
+    public void addGraphics() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -17,7 +17,7 @@ public class ST31_AddGraphicsTest extends SampleTest {
         user.atPerchwellPage.clickOnAnalytics();
         user.atRebnyListingsPage.addChartFromREBNYSection();
         user.atAnalyticsPage.skipHints();
-        user.atRebnyListingsPage.isAskingPriseChartAdd();
+        user.atRebnyListingsPage.shouldSeeMKTShareAskingPriseChart();
         user.atAnalyticsPage.addButtonClick();
         user.atAcrisClosingPage.addChartFromACRISSection();
         user.atAcrisClosingPage.isDealCountByHeightAdd();
@@ -30,7 +30,7 @@ public class ST31_AddGraphicsTest extends SampleTest {
         user.atAnalyticsPage.addButtonClick();
         user.atRebnyListingsPage.addBedroomsChartFromREBNYListings();
         user.atAnalyticsPage.addButtonClick();
-        user.atAcrisClosingPage.addBuildingTypeByDealCountChartFromACRISCloasing();
+        user.atAcrisClosingPage.addBuildingTypeByDealCountChartFromACRISClosing();
         user.atAnalyticsPage.addButtonClick();
         user.atAnalyticsPage.isMessageMaximumSixChartsDisplayed();
     }

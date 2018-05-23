@@ -10,7 +10,7 @@ import org.junit.Test;
 public class ST34_SendGraphicReportToClientEmail extends SampleTest {
 
 	@Test
-	public void sendGraphicReportToClientEmail() {
+	public void sendGraphicReportToClientEmail() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();

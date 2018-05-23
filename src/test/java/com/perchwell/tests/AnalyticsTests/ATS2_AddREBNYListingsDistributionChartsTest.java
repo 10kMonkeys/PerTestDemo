@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ATS2_AddREBNYListingsDistributionChartsTest extends SampleTest {
 
     @Test
-    public void addREBNYListingsDistributionChartsTest(){
+    public void addREBNYListingsDistributionChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -21,8 +21,8 @@ public class ATS2_AddREBNYListingsDistributionChartsTest extends SampleTest {
         user.atAnalyticsPage.skipHints();
         user.atRebnyListingsPage.isDollarPerFTByPriceSegmentChartAdd();
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
-        user.atRebnyListingsPage.askingPriceChartClick();
-        user.atRebnyListingsPage.isAskingPriseChartAdd();
+        user.atRebnyListingsPage.addMedianOrLocationPriceChart();
+        user.atRebnyListingsPage.shouldSeeMKTShareAskingPriseChart(); ////////update
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
         user.atRebnyListingsPage.addAndVerifyAskingPriceByBedsChart();
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();

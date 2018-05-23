@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ST35_ReportDetailsOpeningTest extends SampleTest {
 
 	@Test
-	public void reportDetailsOpeningTest() {
+	public void reportDetailsOpeningTest() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
@@ -17,7 +17,7 @@ public class ST35_ReportDetailsOpeningTest extends SampleTest {
 		user.atPerchwellPage.clickOnAnalytics();
 		user.atRebnyListingsPage.addChartFromREBNYSection();
 		user.atAnalyticsPage.skipHints();
-		user.atRebnyListingsPage.askingPriceChartClick();
+		user.atRebnyListingsPage.addMedianOrLocationPriceChart();
 		user.atAnalyticsPage.upToOneMillionButtonClick();
 		user.atAnalyticsPage.selectSecondBuildingInList();
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();

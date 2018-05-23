@@ -6,7 +6,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"DiscussTests"})
+@WithTagValuesOf({"DiscussTests", "DiscussionsAndContacts"})
 public class DT7_DeleteDiscussionTest extends SampleTest {
 
     @Test
@@ -20,7 +20,7 @@ public class DT7_DeleteDiscussionTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnBackButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnDiscussionsLabel();
-        user.atDiscussionsListPage.swipeFirstDiscussionName();
+        user.atDiscussionsListPage.swipeJustCreatedDiscussion();
         user.atDiscussionsListPage.clickOnDeleteButton();
         user.atDiscussionsListPage.shouldBeDiscussionDeletedFromDiscussionsList();
         user.atDiscussionsListPage.closePage();

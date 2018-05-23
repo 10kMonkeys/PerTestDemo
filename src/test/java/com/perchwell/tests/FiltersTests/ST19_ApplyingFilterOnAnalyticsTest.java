@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ST19_ApplyingFilterOnAnalyticsTest extends SampleTest {
 
     @Test
-    public void applyingFilterOnAnalyticsTest() {
+    public void applyingFilterOnAnalyticsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

@@ -348,4 +348,37 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.acrisClosingsButtonClick();
 		onPage.trendsButtonClick();
 	}
+
+	@Step
+	public void selectREBNYListingsSection() {
+		onPage.REBNYListingsButtonClick();
+	}
+
+	@Step
+	public void selectREBNYListingsWithLocation() {
+		onPage.addButtonClick();
+		onPage.rebnyListingsButtonClick();
+		onPage.locationButtonClick();
+	}
+
+	@Step
+	public void selectNYTownhousesWithFeatures() {
+		onPage.addButtonClick();
+		onPage.nycTownhousesButtonClick();
+		onPage.featuresButtonClick();
+	}
+
+	@Step
+	public void selectManagementWithDistribution() {
+		onPage.addButtonClick();
+		onPage.managementButtonClick();
+		onPage.distributionButtonClick();
+	}
+
+	@Step
+    public void selectNYTownhousesWithLocation() {
+		onPage.addButtonClick();
+		onPage.nycTownhousesButtonClick();
+		onPage.locationButtonClick();
+    }
 }

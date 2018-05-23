@@ -163,4 +163,8 @@ public class DiscussionsListPage extends BasePage {
 	public void shouldBeOnlyDiscussionWithTestClientDisplayed() {
 		Assert.assertTrue(isOnlyDiscussionWithTestClientDisplayed());
 	}
+
+	public WebElement getJustCreatedDiscussion(String message) {
+		return getDriver().findElement(MobileBy.AccessibilityId(message));
+	}
 }

@@ -4,7 +4,6 @@ import com.perchwell.pages.analytics.AnalyticsPage;
 import com.perchwell.pages.analytics.REBNYListingsPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.junit.Assert;
 
 public class REBNYListingsSteps extends ScenarioSteps {
     REBNYListingsPage rebnyListingsPage;
@@ -22,8 +21,12 @@ public class REBNYListingsSteps extends ScenarioSteps {
         rebnyListingsPage.doormanButtonClick();
     }
 
-    private void isChartDisplayed(){
+    private void isChartDisplayed() {
         analyticsPage.isChartDisplayed();
+    }
+
+    private void isChartWithApplyingFiltersDisplayed() {
+        analyticsPage.isChartWithApplyingFiltersDisplayed();
     }
 
     @Step
@@ -32,8 +35,8 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void isAskingPriseChartAdd() {
-        rebnyListingsPage.isAskingPriseChartAdd();
+    public void shouldSeeMKTShareAskingPriseChart() {
+        rebnyListingsPage.shouldSeeMKTShareAskingPriseChart();
         this.isChartDisplayed();
     }
 
@@ -51,21 +54,19 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addAskingPriceChartWithMKTShare() {
-        analyticsPage.rebnyListingsButtonClick();
-        analyticsPage.mktShareButtonClick();
-        rebnyListingsPage.askingPriceButtonClick();
+    public void addMKTShareAskingPriceChart() throws Exception {
+        rebnyListingsPage.addREBNYListingsAskingPriceChart();
     }
 
     @Step
-    public void askingPriceChartClick() {
-        rebnyListingsPage.askingPriceButtonClick();
+    public void addMedianOrLocationPriceChart() throws Exception {
+        rebnyListingsPage.addREBNYListingsAskingPriceChart();
     }
 
     @Step
-    public void addChartFromREBNYSection() {
+    public void addChartFromREBNYSection() throws Exception {
         analyticsPage.rebnyListingsButtonClick();
-        rebnyListingsPage.askingPriceButtonClick();
+        rebnyListingsPage.addREBNYListingsAskingPriceChart();
     }
 
     @Step
@@ -77,7 +78,7 @@ public class REBNYListingsSteps extends ScenarioSteps {
     @Step
     public void shouldSeeAskingPriceChartWithSwipe() throws Exception {
         rebnyListingsPage.shouldSeeAskingPriceChartWithSwipe();
-        this.isChartDisplayed();
+        this.isChartWithApplyingFiltersDisplayed();
     }
 
     @Step
@@ -319,12 +320,12 @@ public class REBNYListingsSteps extends ScenarioSteps {
     @Step
     public void shouldSeeBedroomCountChart() {
         rebnyListingsPage.shouldBedroomCountChartDisplayed();
-        this.isChartDisplayed();
+        this.isChartWithApplyingFiltersDisplayed();
     }
 
     @Step
-    public void isMedianAskingPriceChartDisplayed(){
-        rebnyListingsPage.isMedianAskingPriceChartDisplayed();
+    public void shouldSeeMedianOrLocationAskingPriceChart(){
+        rebnyListingsPage.shouldSeeMedianOrLocationAskingPriceChart();
         this.isChartDisplayed();
     }
 
@@ -334,4 +335,15 @@ public class REBNYListingsSteps extends ScenarioSteps {
         this.isChartDisplayed();
     }
 
+    @Step
+    public void addAndVerifyLocationAskingPriceChart() throws Exception {
+        rebnyListingsPage.addAndVerifyLocationAskingPriceChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyMedianAskingPriceChart() throws Exception {
+        rebnyListingsPage.addAndVerifyMedianAskingPriceChart();
+        this.isChartDisplayed();
+    }
 }

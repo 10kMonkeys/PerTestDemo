@@ -28,6 +28,21 @@ public class ManagementPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT")
     private WebElement firmListingCountButton;
 
+    @iOSXCUITFindBy(accessibility = "ASKING PRICE")
+    private WebElement askingPriceChart;
+
+    @iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT")
+    private WebElement distributionFirmListingCountButton;
+
+    @iOSXCUITFindBy(accessibility = "MANAGEMENT_FIRM LISTING COUNT_157")
+    private WebElement distributionFirmListingCountChart;
+
+    @iOSXCUITFindBy(accessibility = "MANAGEMENT_ASKING PRICE_164")
+    private WebElement mktShareAskingPriceChart;
+
+    @iOSXCUITFindBy(accessibility = "MANAGEMENT_DAYS ON MARKET_180")
+    private WebElement mktShareDaysOnMarketChart;
+
     //endregion
 
 
@@ -77,8 +92,24 @@ public class ManagementPage extends BasePage {
     }
 
     public void shouldDaysOnMarketDisplayedWithSwipe() throws Exception {
-        Helper.swipeDownUntilElementVisible(daysOnMarketButton);
+        Helper.swipeDownUntilElementVisible(mktShareDaysOnMarketChart);
         //Helper.scrollToElement(daysOnMarketButton);
-        element(daysOnMarketButton).shouldBeVisible();
+        element(mktShareDaysOnMarketChart).shouldBeVisible();
+    }
+
+    public void addMKTShareAskingPriceChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(askingPriceButton);
+        element(askingPriceButton).click();
+
+    }
+
+    public void shouldSeeMKTShareAskingPriceChart() {
+        element(mktShareAskingPriceChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyDistributionFirmListingCountChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(distributionFirmListingCountButton);
+        element(distributionFirmListingCountButton).click();
+        element(distributionFirmListingCountChart).shouldBeVisible();
     }
 }

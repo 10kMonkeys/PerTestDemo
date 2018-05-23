@@ -142,7 +142,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "MEDIAN PROPERTY TAXES")
     private WebElement medianPropertyTaxesChart;
 
-    @iOSXCUITFindBy(accessibility = "BEDROOM COUNT")
+    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_BEDROOM COUNT_21")
     private WebElement bedroomChart;
 
     @iOSXCUITFindBy(accessibility = "$/FT² BY SEGMENT")
@@ -151,7 +151,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE BY SEGMENT")
     private WebElement askingPriceByPriceSegmentChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE")
+    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING PRICE_1")
     private WebElement medianAskingPriceChart;
 
     @iOSXCUITFindBy(accessibility = "DOM BY NUMBER BEDROOMS")
@@ -159,6 +159,13 @@ public class REBNYListingsPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "NEW DEVELOPMENT")
     private WebElement newDevelopmentButton;
+
+    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_ASKING PRICE_11")
+    private WebElement mktShareAskingPriceChart;
+
+    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING PRICE_63")
+    private WebElement locationAskingPriceChart;
+
 
     //endregion
 
@@ -174,8 +181,8 @@ public class REBNYListingsPage extends BasePage {
         element(bedroomsButton).click();
     }
 
-    public void isAskingPriseChartAdd(){
-        element(askingPriceButton).shouldBeVisible();
+    public void shouldSeeMKTShareAskingPriseChart() {
+        element(mktShareAskingPriceChart).shouldBeVisible();
     }
 
     public void isDaysOnMarketChartAdd(){
@@ -190,7 +197,8 @@ public class REBNYListingsPage extends BasePage {
         element(buildingHeightButton).shouldBeVisible();
     }
 
-    public void askingPriceButtonClick(){
+    public void addREBNYListingsAskingPriceChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(askingPriceButton);
         element(askingPriceButton).click();
     }
 
@@ -201,9 +209,9 @@ public class REBNYListingsPage extends BasePage {
     }
 
     public void shouldSeeAskingPriceChartWithSwipe() throws Exception {
-        Helper.swipeDownUntilElementVisible(askingPriceButton);
+        Helper.swipeDownUntilElementVisible(mktShareAskingPriceChart);
         //	Helper.scrollToElement(askingPriceButton);
-        element(askingPriceButton).shouldBeVisible();
+        element(mktShareAskingPriceChart).shouldBeVisible();
     }
 
     public boolean isAskingPriseChartDisplayed() {
@@ -383,8 +391,7 @@ public class REBNYListingsPage extends BasePage {
         element(bedroomChart).shouldBeVisible();
     }
 
-    public void isMedianAskingPriceChartDisplayed(){
-        Helper.scrollToElement(medianAskingPriceChart);
+    public void shouldSeeMedianOrLocationAskingPriceChart(){
         element(medianAskingPriceChart).shouldBeVisible();
     }
 
@@ -438,5 +445,17 @@ public class REBNYListingsPage extends BasePage {
     public void addAndVerifyNewDevelopmentChart(){
         element(newDevelopmentButton).click();
         element(newDevelopmentButton).shouldBeVisible();
+    }
+
+    public void addAndVerifyLocationAskingPriceChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(askingPriceButton);
+        element(askingPriceButton).click();
+        element(locationAskingPriceChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyMedianAskingPriceChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(askingPriceButton);
+        element(askingPriceButton).click();
+        element(medianAskingPriceChart).shouldBeVisible();
     }
 }

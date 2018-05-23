@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.DiscussionsListPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -85,5 +86,11 @@ public class DiscussionsListSteps extends ScenarioSteps {
 	@Step
 	public void shouldBeOnlyDiscussionWithTestClientDisplayed() {
 		onPage.shouldBeOnlyDiscussionWithTestClientDisplayed();
+	}
+
+	@Step
+	public void swipeJustCreatedDiscussion() throws Exception {
+		onPage.swipeFirstDiscussionName(onPage.getJustCreatedDiscussion(
+				SessionVariables.getValueFromSessionVariable("message")));
 	}
 }

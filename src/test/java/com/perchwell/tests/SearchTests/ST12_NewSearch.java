@@ -35,7 +35,7 @@ public class ST12_NewSearch extends SampleTest {
 		user.atAnalyticsPage.addButtonClick();
 		user.atRebnyListingsPage.addBedroomsChartFromREBNYListings();
 		user.atAnalyticsPage.addButtonClick();
-		user.atAcrisClosingPage.addBuildingTypeByDealCountChartFromACRISCloasing();
+		user.atAcrisClosingPage.addBuildingTypeByDealCountChartFromACRISClosing();
 		user.atAnalyticsPage.clickMyNewSearch();
 		user.atSearchPage.clickOnTapToSaveChanges();
 		user.atSearchPage.setSearchName();
