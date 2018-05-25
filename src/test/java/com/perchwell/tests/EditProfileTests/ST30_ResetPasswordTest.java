@@ -31,6 +31,7 @@ public class ST30_ResetPasswordTest extends SampleTest {
         user.atResetPasswordPage.okButtonClick();
         user.atResetPasswordPage.login(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("new_reset_password"));
+        user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.shouldSeeInitialIcon();
         user.atResetPasswordPage.overwritingOldPassword();
     }

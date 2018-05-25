@@ -181,7 +181,8 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void shouldSeeEditSearchFiltersHint() {
-		element(editSearchFiltersHint).shouldBeVisible();
+//		element(editSearchFiltersHint).shouldBeVisible();
+		Assert.assertTrue(editSearchFiltersHint.isDisplayed());
 	}
 
 	public Integer countItemsInListView() {
