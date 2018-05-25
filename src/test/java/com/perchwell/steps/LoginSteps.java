@@ -40,17 +40,13 @@ public class LoginSteps extends ScenarioSteps {
         welcomePage.clickOnConnectWith();
         if (welcomePage.isElementDisplayed(welcomePage.getUseGoogleComMsg())){
             welcomePage.clickOnContinueButton();
-        };
+        }
+        googleLoginPage.selectWebView();
         if (googleLoginPage.isElementDisplayed(googleLoginPage.getExistingAccount())) {
             googleLoginPage.clickExistingAccountDisplayed();
-            if (googleLoginPage.isElementDisplayed(googleLoginPage.getPasswordField())){
-                googleLoginPage.setPassword(AppProperties.INSTANCE.getProperty("client_password"));
-                googleLoginPage.clickNextButton();
-            }
             googleLoginPage.selectNativeView();
         }
         else {
-            googleLoginPage.selectWebView();
             googleLoginPage.setEmail(AppProperties.INSTANCE.getProperty("client_email"));
             googleLoginPage.clickLogin();
             googleLoginPage.setPassword(AppProperties.INSTANCE.getProperty("client_password"));
