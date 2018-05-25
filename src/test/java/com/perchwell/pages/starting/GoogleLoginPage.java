@@ -27,7 +27,8 @@ public class GoogleLoginPage extends BasePage {
     @FindBy(xpath= "//*[@id='password']/div[1]/div/div[1]/input")
     private WebElement passwordField;
 
-	@FindBy(xpath = "//*[@id='view_container']/form/div[2]/div/div/div/ul[1]/li[1]/div")
+    @FindBy(xpath = "//*[@id='view_container']/form/div[2]/div/div/div/ul[1]/li[1]/div/div[2]/p[2]")
+	//@FindBy(xpath = "//*[@id='view_container']/form/div[2]/div/div/div/ul[1]/li[1]/div")
 	private WebElement existingAccount;
 
 	@iOSXCUITFindBy(accessibility = "Choose an account")
@@ -53,6 +54,8 @@ public class GoogleLoginPage extends BasePage {
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+		Set contextNames = appiumDriver.getContextHandles();
+		System.out.println(contextNames);
 		appiumDriver.context("NATIVE_APP");
 	}
 
@@ -77,7 +80,6 @@ public class GoogleLoginPage extends BasePage {
 	}
 
 	public WebElement getExistingAccount() {
-		selectWebView();
 		return existingAccount;
 	}
 
