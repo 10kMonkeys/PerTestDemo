@@ -381,4 +381,34 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.nycTownhousesButtonClick();
 		onPage.locationButtonClick();
     }
+
+    @Step
+	public void checkDefaultChartYearsRange() {
+		onPage.checkDefaultChartYearsRange();
+	}
+
+	@Step
+	public void clickOnResetButton() {
+		onPage.clickOnResetButton();
+	}
+
+	@Step
+	public void checkResetBeginningAndEndingYears() {
+		onPage.checkResetBeginningYear();
+		onPage.checkResetEndingYear();
+	}
+
+	@Step
+	public void selectNYTownhousesWithDistribution() {
+		onPage.addButtonClick();
+		onPage.nycTownhousesButtonClick();
+		onPage.distributionButtonClick();
+	}
+
+	@Step
+	public void selectNYTownhousesWithMKTShare() {
+		onPage.addButtonClick();
+		onPage.nycTownhousesButtonClick();
+		onPage.mktShareButtonClick();
+	}
 }

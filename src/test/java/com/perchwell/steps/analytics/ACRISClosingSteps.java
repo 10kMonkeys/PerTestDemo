@@ -128,8 +128,8 @@ public class ACRISClosingSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addAndVerifyPricePerFT2Chart() {
-        acrisClosingPage.addAndVerifyPricePerFT2Chart();
+    public void addAndVerifyMedianPricePerFT2Chart() {
+        acrisClosingPage.addAndVerifyMedianPricePerFT2Chart();
         this.isChartDisplayed();
     }
 
@@ -139,8 +139,8 @@ public class ACRISClosingSteps extends ScenarioSteps {
     }
 
     @Step
-    public void shouldSeePriceChart() {
-        acrisClosingPage.shouldSeePriceChart();
+    public void shouldSeeMedianPriceChart() {
+        acrisClosingPage.shouldSeeMedianPriceChart();
         this.isChartDisplayed();
     }
 
@@ -184,6 +184,7 @@ public class ACRISClosingSteps extends ScenarioSteps {
         this.isChartDisplayed();
     }
 
+    @Step
     public void addAndVerifyPricePerFT2AnnualChart() throws Exception {
         acrisClosingPage.addAndVerifyPricePerFT2AnnualChart();
         this.isChartDisplayed();

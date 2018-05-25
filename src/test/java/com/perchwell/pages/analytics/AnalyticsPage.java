@@ -4,6 +4,7 @@ import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
+import com.perchwell.helpers.CurrentYear;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
@@ -14,11 +15,13 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class AnalyticsPage extends BasePage {
 
@@ -153,6 +156,15 @@ public class AnalyticsPage extends BasePage {
 
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeStaticText[contains(@name, 'NOTHING TO SEE HERE')]")
     private WebElement nothingToSeeHere;
+
+    @iOSXCUITFindBy(accessibility = "RESET")
+    private WebElement resetButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypePickerWheel[1]")
+    private WebElement actualBeginningYear;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypePickerWheel[2]")
+    private WebElement actualEndingYear;
 
     //endregion
 
@@ -481,5 +493,28 @@ public class AnalyticsPage extends BasePage {
 
     public void isChartWithApplyingFiltersDisplayed() {
         element(chart).shouldBeVisible();
+    }
+
+    public void checkDefaultChartYearsRange() {
+        Assert.assertEquals(this.getExpectedYearsRange(), this.yearsRangeButtonValue());
+    }
+
+    private String getExpectedYearsRange() {
+        int maxYear = CurrentYear.getCurrentYear() - 2000;
+        int minYear = maxYear - 4;
+        return "'" + minYear + " — '" + maxYear;
+    }
+
+    public void clickOnResetButton() {
+        element(resetButton).click();
+    }
+
+    public void checkResetBeginningYear() {
+        String beginningYear = String.valueOf(CurrentYear.getCurrentYear() - 4);
+        Assert.assertEquals(beginningYear, actualBeginningYear.getAttribute("value"));
+    }
+
+    public void checkResetEndingYear() {
+        Assert.assertEquals(String.valueOf(CurrentYear.getCurrentYear()), actualEndingYear.getAttribute("value"));
     }
 }

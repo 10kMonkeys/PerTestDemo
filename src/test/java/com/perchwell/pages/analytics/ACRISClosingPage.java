@@ -2,7 +2,6 @@ package com.perchwell.pages.analytics;
 
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -85,11 +84,11 @@ public class ACRISClosingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "PRICE PER FT²")
     private WebElement pricePerFT2ChartButton;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN SALE PRICE")
-    private WebElement priceChart;
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE PRICE_9")
+    private WebElement medianPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN SALE $/FT²")
-    private WebElement pricePerFT2Chart;
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE $/FT²_10")
+    private WebElement medianPricePerFT2Chart;
 
     @iOSXCUITFindBy(accessibility = "DEAL COUNT (ANNUAL)")
     private WebElement dealCountAnnualButton;
@@ -130,49 +129,49 @@ public class ACRISClosingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: UNIT SIZE (QUARTERLY)")
     private WebElement topTenPerMKTUnitSizeQuarterlyButton;
 
-    @iOSXCUITFindBy(accessibility = "DEAL COUNT")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_DEAL COUNT_132")
     private WebElement dealCountAnnualChart;
 
-    @iOSXCUITFindBy(accessibility = "DEAL COUNT")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_DEAL COUNT_133")
     private WebElement dealCountQuarterlyChart;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL DEAL VOLUME")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_TOTAL DEAL VOLUME_121")
     private WebElement dealVolumeAnnualChart;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL DEAL VOLUME")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_TOTAL DEAL VOLUME_122")
     private WebElement dealVolumeQuarterlyChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN SALE PRICE")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE PRICE_44")
     private WebElement priceAnnualChart;
 
-    @iOSXCUITFindBy(accessibility = "QTRLY MEDIAN SALE PRICE")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_QTRLY MEDIAN SALE PRICE_42")
     private WebElement priceQuarterlyChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN SALE $/FT²")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE $/FT²_45")
     private WebElement pricePerFT2AnnualChart;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"QTRLY MEDIAN SALE $/FT²\"")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_QTRLY MEDIAN SALE $/FT²_43")
     private WebElement pricePerFT2QuarterlyChart;
 
-    @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: DEAL VOLUME")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_TOP 10% OF MKT: DEAL VOLUME_125")
     private WebElement topTenPerMKTDealVolumeAnnualChart;
 
-    @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: MEDIAN PRICE")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_TOP 10% OF MKT: MEDIAN PRICE_119")
     private WebElement topTenPerMKTPriceAnnualChart;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"TOP 10% OF MKT: MEDIAN PRICE\"")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_QTRLY MEDIAN SALE $/FT²_43")
     private WebElement topTenPerMKTPriceQuarterlyChart;
 
-    @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: MEDIAN $/FT²")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_TOP 10% OF MKT: MEDIAN $/FT²_120")
     private WebElement topTenPerMKTPricePerFT2AnnualChart;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"TOP 10% OF MKT: MEDIAN $/FT²\"")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_TOP 10% OF MKT: MEDIAN $/FT²_128")
     private WebElement topTenPerMKTPricePerFT2QuarterlyChart;
 
-    @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: MEDIAN SIZE (FT²)")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_TOP 10% OF MKT: MEDIAN SIZE (FT²)_123")
     private WebElement topTenPerMKTUnitSizeAnnualChart;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"TOP 10% OF MKT: MEDIAN SIZE (FT²)\"")
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_TOP 10% OF MKT: MEDIAN SIZE (FT²)_129")
     private WebElement topTenPerMKTUnitSizeQuarterlyChart;
 
     //endregion
@@ -257,20 +256,20 @@ public class ACRISClosingPage extends BasePage {
 
     public void addAndVerifyPriceChart() {
         element(priceChartButton).click();
-        element(priceChart).shouldBeVisible();
+        element(medianPriceChart).shouldBeVisible();
     }
 
-    public void addAndVerifyPricePerFT2Chart() {
+    public void addAndVerifyMedianPricePerFT2Chart() {
         element(pricePerFT2ChartButton).click();
-        element(pricePerFT2Chart).shouldBeVisible();
+        element(medianPricePerFT2Chart).shouldBeVisible();
     }
 
     public void addPriceChart() {
         element(priceChartButton).click();
     }
 
-    public void shouldSeePriceChart() {
-        element(priceChart).shouldBeVisible();
+    public void shouldSeeMedianPriceChart() {
+        element(medianPriceChart).shouldBeVisible();
     }
 
     public void addDealCountAnnualChart() throws Exception {

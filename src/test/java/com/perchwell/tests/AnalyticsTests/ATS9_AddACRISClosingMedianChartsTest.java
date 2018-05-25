@@ -6,23 +6,21 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"AnalyticsTestSuit", "AnalyticsTests"})
-public class ATS8_AddACRISClosingLocationChartsTest extends SampleTest {
+public class ATS9_AddACRISClosingMedianChartsTest extends SampleTest {
 
     @Test
-    public void addACRISClosingLocationChartsTest() {
+    public void addACRISClosingMedianChartsTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnAnalytics();
         user.atAnalyticsPage.selectACRISClosingSection();
-        user.atAnalyticsPage.locationButtonClick();
-        user.atAcrisClosingPage.addDealCountChart();
+        user.atAnalyticsPage.medianButtonClick();
+        user.atAcrisClosingPage.addPriceChart();
         user.atAnalyticsPage.skipHints();
-        user.atAcrisClosingPage.shouldSeeDealCountChart();
-        user.atAnalyticsPage.selectACRISClosingWithLocation();
-        user.atAcrisClosingPage.addAndVerifyPriceChart();
-        user.atAnalyticsPage.selectACRISClosingWithLocation();
+        user.atAcrisClosingPage.shouldSeeMedianPriceChart();
+        user.atAnalyticsPage.selectACRISClosingWithMedian();
         user.atAcrisClosingPage.addAndVerifyMedianPricePerFT2Chart();
     }
 }
