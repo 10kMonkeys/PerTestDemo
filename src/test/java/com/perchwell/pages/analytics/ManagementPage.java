@@ -20,7 +20,7 @@ public class ManagementPage extends BasePage {
     private WebElement buildingHeightButton;
 
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE")
-    private WebElement buildingTypeChart;
+    private WebElement buildingTypeButton;
 
     @iOSXCUITFindBy(accessibility = "DAYS ON MARKET")
     private WebElement daysOnMarketButton;
@@ -42,6 +42,51 @@ public class ManagementPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "MANAGEMENT_DAYS ON MARKET_180")
     private WebElement mktShareDaysOnMarketChart;
+
+    @iOSXCUITFindBy(accessibility = "MANAGEMENT_BEDROOMS_165")
+    private WebElement mktShareBedroomsChart;
+
+    @iOSXCUITFindBy(accessibility = "MANAGEMENT_BUILDING HEIGHT_166")
+    private WebElement mktShareBuildingHeightChart;
+
+    @iOSXCUITFindBy(accessibility = "MANAGEMENT_BUILDING TYPE_167")
+    private WebElement mktShareBuildingTypeChart;
+
+    @iOSXCUITFindBy(accessibility = "AGENT LISTING COUNT")
+    private WebElement agentListingCountButton;
+
+    @iOSXCUITFindBy(accessibility = "MANAGEMENT_AGENT LISTING COUNT_162")
+    private WebElement distributionAgentListingCountChart;
+
+    @iOSXCUITFindBy(accessibility = "AGENT MEDIAN PRICE")
+    private WebElement agentMedianPriceButton;
+
+    @iOSXCUITFindBy(accessibility = "FIRM DOM")
+    private WebElement firmDOMButton;
+
+    @iOSXCUITFindBy(accessibility = "FIRM LISTING VOLUME")
+    private WebElement firmListingVolumeButton;
+
+    @iOSXCUITFindBy(accessibility = "FIRM MEDIAN $/SQFT")
+    private WebElement firmMedianDollarPerSQFTButton;
+
+    @iOSXCUITFindBy(accessibility = "FIRM MEDIAN PRICE")
+    private WebElement firmMedianPriceButton;
+
+    @iOSXCUITFindBy(accessibility = "MANAGEMENT_AGENT MEDIAN PRICE_161")
+    private WebElement distributionAgentMedianPriceChart;
+
+    @iOSXCUITFindBy(accessibility = "MANAGEMENT_MEDIAN DOM_178")
+    private WebElement distributionFirmDOMChart;
+
+    @iOSXCUITFindBy(accessibility = "MANAGEMENT_CURRENT LISTING VOLUME_176")
+    private WebElement distributionFirmListingVolumeChart;
+
+    @iOSXCUITFindBy(accessibility = "MANAGEMENT_FIRM MEDIAN $/FT²_159")
+    private WebElement distributionFirmMedianDollarPerSQFTChart;
+
+    @iOSXCUITFindBy(accessibility = "MANAGEMENT_FIRM MEDIAN PRICE_160")
+    private WebElement distributionFirmMedianPriceChart;
 
     //endregion
 
@@ -78,11 +123,6 @@ public class ManagementPage extends BasePage {
         element(askingPriceButton).click();
     }
 
-    public void addAndVerifyBuildingTypeChart(){
-        element(buildingTypeChart).click();
-        element(buildingTypeChart).shouldBeVisible();
-    }
-
     public void firmListingCountButtonClick(){
         element(firmListingCountButton).click();
     }
@@ -111,5 +151,67 @@ public class ManagementPage extends BasePage {
         Helper.swipeDownUntilElementVisible(distributionFirmListingCountButton);
         element(distributionFirmListingCountButton).click();
         element(distributionFirmListingCountChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyMKTShareBedroomsChart() throws Exception{
+        Helper.swipeDownUntilElementVisible(bedroomsButton);
+        element(bedroomsButton).click();
+        element(mktShareBedroomsChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyMKTShareBuildingHeightChart() throws Exception{
+        Helper.swipeDownUntilElementVisible(buildingHeightButton);
+        element(buildingHeightButton).click();
+        element(mktShareBuildingHeightChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyMKTShareBuildingTypeChart() throws Exception{
+        Helper.swipeDownUntilElementVisible(buildingTypeButton);
+        element(buildingTypeButton).click();
+        element(mktShareBuildingTypeChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyMKTShareDaysOnMarketChart() throws Exception{
+        Helper.swipeDownUntilElementVisible(daysOnMarketButton);
+        element(daysOnMarketButton).click();
+        element(mktShareDaysOnMarketChart).shouldBeVisible();
+    }
+
+    public void agentsListingCountButtonClick(){
+        element(agentListingCountButton).click();
+    }
+
+    public void shouldSeeDistributionAgentsListingCountChart(){
+        element(distributionAgentListingCountChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyDistributionAgentMedianPriceChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(agentMedianPriceButton);
+        element(agentMedianPriceButton).click();
+        element(distributionAgentMedianPriceChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyDistributionFirmDOMChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(firmDOMButton);
+        element(firmDOMButton).click();
+        element(distributionFirmDOMChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyDistributionFirmListingVolumeChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(firmListingVolumeButton);
+        element(firmListingVolumeButton).click();
+        element(distributionFirmListingVolumeChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyDistributionFirmMedianDollarPerSQFTChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(firmMedianDollarPerSQFTButton);
+        element(firmMedianDollarPerSQFTButton).click();
+        element(distributionFirmMedianDollarPerSQFTChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyDistributionFirmMedianPriceChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(firmMedianPriceButton);
+        element(firmMedianPriceButton).click();
+        element(distributionFirmMedianPriceChart).shouldBeVisible();
     }
 }
