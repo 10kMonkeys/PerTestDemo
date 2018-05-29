@@ -411,4 +411,11 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.nycTownhousesButtonClick();
 		onPage.mktShareButtonClick();
 	}
+
+	@Step
+	public void selectNYTownhousesWithMedian() {
+		onPage.addButtonClick();
+		onPage.nycTownhousesButtonClick();
+		onPage.medianButtonClick();
+	}
 }

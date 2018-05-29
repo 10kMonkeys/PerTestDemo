@@ -204,6 +204,138 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_MEDIAN WIDTH_110")
     private WebElement rebnyTHListingsMedianWidthChart;
 
+    @iOSXCUITFindBy(accessibility = "# SALES")
+    private WebElement acrisClosingNumSalesButton;
+
+    @iOSXCUITFindBy(accessibility = "# SALES OF RECENTLY ALTERED")
+    private WebElement acrisClosingNumSalesOfRecentlyAlteredButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"MEDIAN WIDTH\"`][2]")
+    private WebElement acrisClosingMedianWidthButton;
+
+    @iOSXCUITFindBy(accessibility = "PRICE")
+    private WebElement acrisClosingPriceButton;
+
+    @iOSXCUITFindBy(accessibility = "PRICE PER FT²")
+    private WebElement acrisClosingPricePerFT2Button;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_NUMBER OF SALES_91")
+    private WebElement locationACRISClosingNumSalesChart;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_COUNT OF RCNTLY ALTERED TH SALES_116")
+    private WebElement locationACRISClosingNumSalesOfRecentlyAlteredChart;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_MEDIAN WIDTH_111")
+    private WebElement locationACRISClosingMedianWidthChart;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_SALE PRICE_75")
+    private WebElement locationACRISClosingPriceChart;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_SALE $/FT²_84")
+    private WebElement locationACRISClosingPricePerFT2Chart;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"# RECENTLY ALTERED\"`][2]")
+    private WebElement locationTotalTHStockNumRecentlyAlteredButton;
+
+    @iOSXCUITFindBy(accessibility = "# TOWNHOUSES")
+    private WebElement locationTotalTHStockNumTownhousesButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"MEDIAN WIDTH\"`][3]")
+    private WebElement locationTotalTHStockMedianWidthButton;
+
+    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_NUMBER OF RECENTLY ALTERED HOUSES_115")
+    private WebElement locationTotalTHStockNumRecentlyAlteredChart;
+
+    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_COUNT OF EXISTING TOWNHOUSES_83")
+    private WebElement locationTotalTHStockNumTownhousesChart;
+
+    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_MEDIAN WIDTH_73")
+    private WebElement locationTotalTHStockMedianWidthChart;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SQUARE FEET\"`][1]")
+    private WebElement medianREBNYTHListingsSquareFeetButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"WIDTH\"`][1]")
+    private WebElement medianREBNYTHListingsWidthButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SQUARE FEET\"`][2]")
+    private WebElement medianACRISTHClosingSquareFeetButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"WIDTH\"`][2]")
+    private WebElement medianACRISTHClosingWidthButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SQUARE FEET\"`][3]")
+    private WebElement medianTotalTHStockSquareFeetButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"WIDTH\"`][3]")
+    private WebElement medianTotalTHStockWidthButton;
+
+    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_MEDIAN SQUARE FEET_78")
+    private WebElement medianREBNYTHListingsSquareFeetChart;
+
+    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_MEDIAN WIDTH_80")
+    private WebElement medianREBNYTHListingsWidthChart;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_MEDIAN SQUARE FEET_76")
+    private WebElement medianACRISTHClosingSquareFeetChart;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_MEDIAN WIDTH_79")
+    private WebElement medianACRISTHClosingWidthChart;
+
+    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_MEDIAN SQUARE FEET_82")
+    private WebElement medianTotalTHStockSquareFeetChart;
+
+    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_MEDIAN WIDTH_81")
+    private WebElement medianTotalTHStockWidthChart;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"24 FT+ WIDTH\"`][1]")
+    private WebElement featuresREBNYTHListingsTwentyFourPlusWidthButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"GARDEN\"`][1]")
+    private WebElement featuresREBNYTHListingsGardenButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HISTORIC DISTRICT\"`][1]")
+    private WebElement featuresREBNYTHListingsHistoricDistButton;
+
+    @iOSXCUITFindBy(accessibility = "LANDMARK")
+    private WebElement featuresREBNYTHListingsLandmarkButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"RECENTLY ALTERED\"`][1]")
+    private WebElement featuresREBNYTHListingsRecentlyAlteredButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"24 FT+ WIDTH\"`][2]")
+    private WebElement featuresACRISClosingTwentyFourPlusWidthButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HISTORIC DISTRICT\"`][2]")
+    private WebElement featuresACRISTHClosingsHistoricDistButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"RECENTLY ALTERED\"`][2]")
+    private WebElement featuresACRISTHClosingsRecentlyAlteredButton;
+
+    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_24 FT+ WIDTH PREMIUM_97")
+    private WebElement featuresREBNYTHListingsTwentyFourPlusWidthChart;
+
+    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_GARDEN PREMIUM_100")
+    private WebElement featuresREBNYTHListingsGardenChart;
+
+    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_HISTORIC DISTRICT PREMIUM_99")
+    private WebElement featuresREBNYTHListingsHistoricDistChart;
+
+    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_LANDMARK PREMIUM_98")
+    private WebElement featuresREBNYTHListingsLandmarkChart;
+
+    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_RECENTLY ALTERED_118")
+    private WebElement featuresREBNYTHListingsRecentlyAlteredChart;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_24 FT+ WIDTH PREMIUM_146")
+    private WebElement featuresACRISClosingTwentyFourPlusWidthChart;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_HISTORIC DISTRICT PREMIUM_148")
+    private WebElement featuresACRISTHClosingsHistoricDistChart;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_RECENTLY ALTERED PREMIUM_144")
+    private WebElement featuresACRISTHClosingsRecentlyAlteredChart;
+
     //endregion
 
     public NYCTownhousesPage(WebDriver driver) {
@@ -441,5 +573,153 @@ public class NYCTownhousesPage extends BasePage {
         Helper.swipeDownUntilElementVisible(rebnyTHListingsMedianWidthButton);
         element(rebnyTHListingsMedianWidthButton).click();
         element(rebnyTHListingsMedianWidthChart).shouldBeVisible();
+    }
+
+    public void addACRISClosingNumSalesChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(acrisClosingNumSalesButton);
+        element(acrisClosingNumSalesButton).click();
+
+    }
+
+    public void shouldSeeACRISClosingNumSalesChart() {
+        element(locationACRISClosingNumSalesChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyACRISClosingNumSalesOfRecentlyAlteredChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(acrisClosingNumSalesOfRecentlyAlteredButton);
+        element(acrisClosingNumSalesOfRecentlyAlteredButton).click();
+        element(locationACRISClosingNumSalesOfRecentlyAlteredChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyACRISClosingMedianWidthChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(acrisClosingMedianWidthButton);
+        element(acrisClosingMedianWidthButton).click();
+        element(locationACRISClosingMedianWidthChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyACRISClosingPriceChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(acrisClosingPriceButton);
+        element(acrisClosingPriceButton).click();
+        element(locationACRISClosingPriceChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyACRISClosingPricePerFT2Chart() throws Exception {
+        Helper.swipeDownUntilElementVisible(acrisClosingPricePerFT2Button);
+        element(acrisClosingPricePerFT2Button).click();
+        element(locationACRISClosingPricePerFT2Chart).shouldBeVisible();
+    }
+
+    public void addTotalTHStockNumRecentlyAlteredChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(locationTotalTHStockNumRecentlyAlteredButton);
+        element(locationTotalTHStockNumRecentlyAlteredButton).click();
+    }
+
+    public void shouldSeeTotalTHStockNumRecentlyAlteredChart() {
+        element(locationTotalTHStockNumRecentlyAlteredChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyTotalTHStockNumTownhousesChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(locationTotalTHStockNumTownhousesButton);
+        element(locationTotalTHStockNumTownhousesButton).click();
+        element(locationTotalTHStockNumTownhousesChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyTotalTHStockMedianWidthChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(locationTotalTHStockMedianWidthButton);
+        element(locationTotalTHStockMedianWidthButton).click();
+        element(locationTotalTHStockMedianWidthChart).shouldBeVisible();
+    }
+
+    public void addMedianREBNYTHListingsSquareFeetChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(medianREBNYTHListingsSquareFeetButton);
+        element(medianREBNYTHListingsSquareFeetButton).click();
+    }
+
+    public void shouldSeeMedianREBNYTHListingsSquareFeetChart() {
+        element(medianREBNYTHListingsSquareFeetChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyMedianREBNYTHListingsWidthChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(medianREBNYTHListingsWidthButton);
+        element(medianREBNYTHListingsWidthButton).click();
+        element(medianREBNYTHListingsWidthChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyMedianACRISTHClosingSquareFeetChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(medianACRISTHClosingSquareFeetButton);
+        element(medianACRISTHClosingSquareFeetButton).click();
+        element(medianACRISTHClosingSquareFeetChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyMedianACRISTHClosingWidthChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(medianACRISTHClosingWidthButton);
+        element(medianACRISTHClosingWidthButton).click();
+        element(medianACRISTHClosingWidthChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyMedianTotalTHStockSquareFeetChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(medianTotalTHStockSquareFeetButton);
+        element(medianTotalTHStockSquareFeetButton).click();
+        element(medianTotalTHStockSquareFeetChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyMedianTotalTHStockWidthChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(medianTotalTHStockWidthButton);
+        element(medianTotalTHStockWidthButton).click();
+        element(medianTotalTHStockWidthChart).shouldBeVisible();
+    }
+
+    public void addFeaturesREBNYTHListingsTwentyFourPlusWidthChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(featuresREBNYTHListingsTwentyFourPlusWidthButton);
+        element(featuresREBNYTHListingsTwentyFourPlusWidthButton).click();
+    }
+
+    public void shouldSeeFeaturesREBNYTHListingsTwentyFourPlusWidthChart() {
+        element(featuresREBNYTHListingsTwentyFourPlusWidthChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyFeaturesREBNYTHListingsGardenChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(featuresREBNYTHListingsGardenButton);
+        element(featuresREBNYTHListingsGardenButton).click();
+        element(featuresREBNYTHListingsGardenChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyFeaturesREBNYTHListingsHistoricDistChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(featuresREBNYTHListingsHistoricDistButton);
+        element(featuresREBNYTHListingsHistoricDistButton).click();
+        element(featuresREBNYTHListingsHistoricDistChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyFeaturesREBNYTHListingsLandmarkChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(featuresREBNYTHListingsLandmarkButton);
+        element(featuresREBNYTHListingsLandmarkButton).click();
+        element(featuresREBNYTHListingsLandmarkChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyFeaturesREBNYTHListingsRecentlyAlteredChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(featuresREBNYTHListingsRecentlyAlteredButton);
+        element(featuresREBNYTHListingsRecentlyAlteredButton).click();
+        element(featuresREBNYTHListingsRecentlyAlteredChart).shouldBeVisible();
+    }
+
+    public void addFeaturesACRISClosingTwentyFourPlusWidthChart() throws Exception{
+        Helper.swipeDownUntilElementVisible(featuresACRISClosingTwentyFourPlusWidthButton);
+        element(featuresACRISClosingTwentyFourPlusWidthButton).click();
+    }
+
+    public void shouldFeaturesACRISClosingTwentyFourPlusWidthChart() {
+        element(featuresACRISClosingTwentyFourPlusWidthChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyFeaturesACRISTHClosingsHistoricDistChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(featuresACRISTHClosingsHistoricDistButton);
+        element(featuresACRISTHClosingsHistoricDistButton).click();
+        element(featuresACRISTHClosingsHistoricDistChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyFeaturesACRISTHClosingsRecentlyAlteredChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(featuresACRISTHClosingsRecentlyAlteredButton);
+        element(featuresACRISTHClosingsRecentlyAlteredButton).click();
+        element(featuresACRISTHClosingsRecentlyAlteredChart).shouldBeVisible();
     }
 }

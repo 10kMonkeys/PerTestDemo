@@ -270,4 +270,160 @@ public class NYCTownhousesSteps extends ScenarioSteps {
         nycTownhousesPage.addAndVerifyREBNYTHListingsMedianWidthChart();
         analyticsPage.isChartDisplayed();
     }
+
+    @Step
+    public void addACRISClosingNumSalesChart() throws Exception {
+        nycTownhousesPage.addACRISClosingNumSalesChart();
+    }
+
+    @Step
+    public void shouldSeeACRISClosingNumSalesChart() {
+        nycTownhousesPage.shouldSeeACRISClosingNumSalesChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyACRISClosingNumSalesOfRecentlyAlteredChart() throws Exception {
+        nycTownhousesPage.addAndVerifyACRISClosingNumSalesOfRecentlyAlteredChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyACRISClosingMedianWidthChart() throws Exception {
+        nycTownhousesPage.addAndVerifyACRISClosingMedianWidthChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyACRISClosingPriceChart() throws Exception {
+        nycTownhousesPage.addAndVerifyACRISClosingPriceChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyACRISClosingPricePerFT2Chart() throws Exception {
+        nycTownhousesPage.addAndVerifyACRISClosingPricePerFT2Chart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addTotalTHStockNumRecentlyAlteredChart() throws Exception {
+        nycTownhousesPage.addTotalTHStockNumRecentlyAlteredChart();
+    }
+
+    @Step
+    public void shouldSeeTotalTHStockNumRecentlyAlteredChart() {
+        nycTownhousesPage.shouldSeeTotalTHStockNumRecentlyAlteredChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyTotalTHStockNumTownhousesChart() throws Exception {
+        nycTownhousesPage.addAndVerifyTotalTHStockNumTownhousesChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyTotalTHStockMedianWidthChart() throws Exception {
+        nycTownhousesPage.addAndVerifyTotalTHStockMedianWidthChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addMedianREBNYTHListingsSquareFeetChart() throws Exception {
+        nycTownhousesPage.addMedianREBNYTHListingsSquareFeetChart();
+    }
+
+    @Step
+    public void shouldSeeMedianREBNYTHListingsSquareFeetChart() throws Exception {
+        nycTownhousesPage.shouldSeeMedianREBNYTHListingsSquareFeetChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyMedianREBNYTHListingsWidthChart() throws Exception {
+        nycTownhousesPage.addAndVerifyMedianREBNYTHListingsWidthChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyMedianACRISTHClosingSquareFeetChart() throws Exception {
+        nycTownhousesPage.addAndVerifyMedianACRISTHClosingSquareFeetChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyMedianACRISTHClosingWidthChart() throws Exception {
+        nycTownhousesPage.addAndVerifyMedianACRISTHClosingWidthChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyMedianTotalTHStockSquareFeetChart() throws Exception {
+        nycTownhousesPage.addAndVerifyMedianTotalTHStockSquareFeetChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyMedianTotalTHStockWidthChart() throws Exception {
+        nycTownhousesPage.addAndVerifyMedianTotalTHStockWidthChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addFeaturesREBNYTHListingsTwentyFourPlusWidthChart() throws Exception {
+        nycTownhousesPage.addFeaturesREBNYTHListingsTwentyFourPlusWidthChart();
+    }
+
+    @Step
+    public void shouldSeeFeaturesREBNYTHListingsTwentyFourPlusWidthChart() {
+        nycTownhousesPage.shouldSeeFeaturesREBNYTHListingsTwentyFourPlusWidthChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyFeaturesREBNYTHListingsGardenChart() throws Exception {
+        nycTownhousesPage.addAndVerifyFeaturesREBNYTHListingsGardenChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyFeaturesREBNYTHListingsHistoricDistChart() throws Exception {
+        nycTownhousesPage.addAndVerifyFeaturesREBNYTHListingsHistoricDistChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyFeaturesREBNYTHListingsLandmarkChart() throws Exception {
+        nycTownhousesPage.addAndVerifyFeaturesREBNYTHListingsLandmarkChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyFeaturesREBNYTHListingsRecentlyAlteredChart() throws Exception {
+        nycTownhousesPage.addAndVerifyFeaturesREBNYTHListingsRecentlyAlteredChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addFeaturesACRISClosingTwentyFourPlusWidthChart() throws Exception {
+        nycTownhousesPage.addFeaturesACRISClosingTwentyFourPlusWidthChart();
+    }
+
+    public void shouldFeaturesACRISClosingTwentyFourPlusWidthChart() {
+        nycTownhousesPage.shouldFeaturesACRISClosingTwentyFourPlusWidthChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyFeaturesACRISTHClosingsHistoricDistChart() throws Exception {
+        nycTownhousesPage.addAndVerifyFeaturesACRISTHClosingsHistoricDistChart();
+        analyticsPage.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyFeaturesACRISTHClosingsRecentlyAlteredChart() throws Exception {
+        nycTownhousesPage.addAndVerifyFeaturesACRISTHClosingsRecentlyAlteredChart();
+        analyticsPage.isChartDisplayed();
+    }
 }

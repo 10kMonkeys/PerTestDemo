@@ -6,10 +6,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"AnalyticsTestSuit", "AnalyticsTests"})
-public class ATS15_AddNYCTHLocationREBNYTHListingsChartsTest extends SampleTest {
+public class ATS17_AddNYCTHLocationTotalTHStockChartsTest extends SampleTest {
 
     @Test
-    public void addNYCTownhousesLocationChartsTest() throws Exception {
+    public void addNYCTHLocationTotalTHStockChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -17,16 +17,12 @@ public class ATS15_AddNYCTHLocationREBNYTHListingsChartsTest extends SampleTest 
         user.atPerchwellPage.clickOnAnalytics();
         user.atAnalyticsPage.selectNYCTownhousesSection();
         user.atAnalyticsPage.locationButtonClick();
-        user.atNycTownhousesPage.addREBNYTHListingsNumListingsChart();
+        user.atNycTownhousesPage.addTotalTHStockNumRecentlyAlteredChart();
         user.atAnalyticsPage.skipHints();
-        user.atNycTownhousesPage.shouldSeeREBNYTHListingsNumListingsChart();
+        user.atNycTownhousesPage.shouldSeeTotalTHStockNumRecentlyAlteredChart();
         user.atAnalyticsPage.selectNYTownhousesWithLocation();
-        user.atNycTownhousesPage.addAndVerifyREBNYTHListingsNumRecentlyAlteredChart();
+        user.atNycTownhousesPage.addAndVerifyTotalTHStockNumTownhousesChart();
         user.atAnalyticsPage.selectNYTownhousesWithLocation();
-        user.atNycTownhousesPage.addAndVerifyREBNYTHListingsAskingDollarsPerFT2Chart();
-        user.atAnalyticsPage.selectNYTownhousesWithLocation();
-        user.atNycTownhousesPage.addAndVerifyREBNYTHListingsAskingPriceChart();
-        user.atAnalyticsPage.selectNYTownhousesWithLocation();
-        user.atNycTownhousesPage.addAndVerifyREBNYTHListingsMedianWidthChart();
+        user.atNycTownhousesPage.addAndVerifyTotalTHStockMedianWidthChart();
     }
 }
