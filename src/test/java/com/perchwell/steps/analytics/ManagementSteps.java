@@ -80,4 +80,63 @@ public class ManagementSteps extends ScenarioSteps {
         managementPage.addAndVerifyDistributionFirmListingCountChart();
         this.isChartDisplayed();
     }
+
+    @Step
+    public void addAndVerifyMKTShareBedroomsChart() throws Exception {
+        managementPage.addAndVerifyMKTShareBedroomsChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyMKTShareBuildingHeightChart() throws Exception{
+        managementPage.addAndVerifyMKTShareBuildingHeightChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyMKTShareBuildingTypeChart() throws Exception{
+        managementPage.addAndVerifyMKTShareBuildingTypeChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyMKTShareDaysOnMarketChart() throws Exception{
+        managementPage.addAndVerifyMKTShareDaysOnMarketChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void agentsListingCountButtonClick(){
+        managementPage.agentsListingCountButtonClick();
+    }
+
+    @Step
+    public void shouldSeeDistributionAgentsListingCountChart(){
+        managementPage.shouldSeeDistributionAgentsListingCountChart();
+    }
+
+    @Step
+    public void addAndVerifyDistributionAgentMedianPriceChart() throws Exception {
+        managementPage.addAndVerifyDistributionAgentMedianPriceChart();
+    }
+
+    @Step
+    public void addAndVerifyDistributionFirmDOMChart() throws Exception {
+        managementPage.addAndVerifyDistributionFirmDOMChart();
+    }
+
+    @Step
+    public void addAndVerifyDistributionFirmListingVolumeChart() throws Exception {
+        managementPage.addAndVerifyDistributionFirmListingVolumeChart();
+    }
+
+    @Step
+    public void addAndVerifyDistributionFirmMedianDollarPerSQFTChart() throws Exception {
+        managementPage.addAndVerifyDistributionFirmMedianDollarPerSQFTChart();
+    }
+
+    @Step
+    public void addAndVerifyDistributionFirmMedianPriceChart() throws Exception {
+        managementPage.addAndVerifyDistributionFirmMedianPriceChart();
+    }
 }
