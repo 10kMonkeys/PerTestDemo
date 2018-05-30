@@ -16,7 +16,7 @@ public class DT7_DeleteDiscussionTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
-        user.usingComplexSteps.sendMessageToClientAndCloseDiscussion(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
+        user.usingComplexSteps.sendMessageToClientForRemoveMessageAndCloseDiscussion(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
         user.atOpenedBuildingPage.clickOnBackButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnDiscussionsLabel();

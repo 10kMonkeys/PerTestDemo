@@ -98,8 +98,9 @@ public class DiscussionsListPage extends BasePage {
 		return firstItem;
 	}
 
-	public void swipeFirstDiscussionName(WebElement name) throws Exception{
-		int y = firstItem.getLocation().getY();
+	public void swipeFirstDiscussionName(WebElement name) throws Exception {
+		Helper.swipeDownUntilElementVisible(name);
+		int y = name.getLocation().getY();
 		Helper.swipeRightElementWithSetY(name, y+1);
 	}
 

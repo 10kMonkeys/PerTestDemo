@@ -34,11 +34,6 @@ public class DiscussionsListSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void swipeFirstDiscussionName() throws Exception {
-		onPage.swipeFirstDiscussionName(onPage.getFirstItemValue());
-	}
-
-	@Step
 	public void clickOnDeleteButton() {
 		onPage.clickOnDeleteButton();
 	}

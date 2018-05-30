@@ -200,4 +200,11 @@ public class ClientSteps extends ScenarioSteps {
 	public void shouldClientNotBePresented() {
 		onPage.isClientNotPresented(SessionVariables.getValueFromSessionVariable("User_name"));
 	}
+
+	@Step
+	public void clickOnExistingClientForRemoveMessage() throws Exception {
+		onPage.isClientOrAgentDisplayed(AppProperties.INSTANCE.getProperty("client_for_remove_discussion").toUpperCase());
+		onPage.clickOnDesiredClientOrAgent(AppProperties.INSTANCE.getProperty("client_for_remove_discussion").toUpperCase());
+		SessionVariables.addValueInSessionVariable("Client_for_remove_discussion", AppProperties.INSTANCE.getProperty("client_for_remove_discussion"));
+	}
 }

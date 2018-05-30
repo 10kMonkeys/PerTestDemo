@@ -25,6 +25,9 @@ public class ComplexSteps extends ScenarioSteps{
     @Steps
     private TagsSteps atTagsPage;
 
+    @Steps
+    private PerchPopupSteps inPopup;
+
     @Step
     private void openFirstBuildingSkipHintClickOnShareButton() {
         atPerchwellPage.openFirstBuilding();
@@ -98,4 +101,11 @@ public class ComplexSteps extends ScenarioSteps{
         atOpenedBuildingPage.clickOnBackButton();
     }
 
+    public void sendMessageToClientForRemoveMessageAndCloseDiscussion(String message) throws Exception {
+        atOpenedBuildingPage.clickOnAddDiscusButton();
+        atClientPage.clickOnExistingClientForRemoveMessage();
+        atDiscussionPage.sendMessage(message);
+        atDiscussionPage.clickOnBackButton();
+        atClientPage.closePage();
+    }
 }
