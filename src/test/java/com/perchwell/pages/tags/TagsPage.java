@@ -31,6 +31,9 @@ public class TagsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "search")
 	private WebElement searchButton;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeButton' AND name CONTAINS 'DeleteTagBubbleButton'")
+	private WebElement deleteTagButton;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -63,7 +66,7 @@ public class TagsPage extends BasePage {
 
 	}
 
-	public boolean isTagDisplayedWithSwipe(String tagName) throws Exception {
+	public boolean isTagDisplayedWithSwipe(String tagName) {
 		if (getDriver().findElements(MobileBy.AccessibilityId(tagName)).size() > 0) {
 			setImplicitTimeout(1, SECONDS);
 			Helper.scrollToElement(getDriver().findElements(MobileBy.AccessibilityId(tagName)).get(0));
@@ -93,5 +96,18 @@ public class TagsPage extends BasePage {
 
 	private WebElement getCreatedTagLabel(String uniqueTagName) {
 		return getDriver().findElement(MobileBy.AccessibilityId(uniqueTagName));
+	}
+
+	public void shouldSeeJustCreatedTagUpCaseWithSwipe(String tagName) throws Exception {
+		WebElement justCreatedTag = getDriver().findElement(MobileBy.AccessibilityId(tagName));
+		Helper.swipeDownUntilElementVisible(justCreatedTag);
+		element(justCreatedTag).shouldBeVisible();
+	}
+
+	public void justCreatedTagIsAddedToListingWithRemoveAnotherTags(String tagName) {
+		while(!(element(MobileBy.AccessibilityId(tagName)).isPresent())) {
+			element(deleteTagButton).click();
+		}
+		element(MobileBy.AccessibilityId(tagName)).shouldBeVisible();
 	}
 }

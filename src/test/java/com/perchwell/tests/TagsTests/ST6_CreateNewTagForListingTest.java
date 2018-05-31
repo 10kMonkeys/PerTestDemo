@@ -19,12 +19,13 @@ public class ST6_CreateNewTagForListingTest extends SampleTest {
 		user.atOpenedBuildingPage.clickOnMyTagsLabel();
 		user.atTagsPage.setRandomTagAndSave();
 		user.atTagsPage.clickOnBackButton();
+		user.atTagsPage.justCreatedTagIsAddedToListing();
 		user.atOpenedBuildingPage.clickOnBackButton();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnTagsLabel();
-		user.atTagsPage.shouldSeeCreatedTagUpperCase();
+		user.atTagsPage.shouldSeeJustCreatedTag();
 		user.atTagsPage.clickOnCreatedTag();
 		user.atTagsPage.clickOnSearchButton();
-		user.atTagsPage.shouldSeeCreatedTagUpperCase();
+		user.atTagsPage.shouldSeeJustCreatedTag();
 	}
 }

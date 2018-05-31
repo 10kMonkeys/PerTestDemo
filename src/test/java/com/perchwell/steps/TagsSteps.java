@@ -83,4 +83,15 @@ public class TagsSteps extends ScenarioSteps {
 	public void shouldSeeExistingTagUpperCase() throws Exception {
 		Assert.assertTrue(onPage.isTagDisplayedWithSwipe(tag.getExistingTagName().toUpperCase()));
 	}
+
+	@Step
+	public void shouldSeeJustCreatedTag() throws Exception {
+		onPage.shouldSeeJustCreatedTagUpCaseWithSwipe(tag.getUniqueTagName().toUpperCase());
+	}
+
+
+	@Step
+	public void justCreatedTagIsAddedToListing() {
+		onPage.justCreatedTagIsAddedToListingWithRemoveAnotherTags(tag.getUniqueTagName().toUpperCase());
+	}
 }
