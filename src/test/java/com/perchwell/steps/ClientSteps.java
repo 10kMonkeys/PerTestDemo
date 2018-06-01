@@ -203,8 +203,7 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnExistingClientForRemoveMessage() throws Exception {
-		onPage.isClientOrAgentDisplayed(AppProperties.INSTANCE.getProperty("client_for_remove_discussion").toUpperCase());
-		onPage.clickOnDesiredClientOrAgent(AppProperties.INSTANCE.getProperty("client_for_remove_discussion").toUpperCase());
-		SessionVariables.addValueInSessionVariable("Client_for_remove_discussion", AppProperties.INSTANCE.getProperty("client_for_remove_discussion"));
+		onPage.isClientOrAgentDisplayed(SessionVariables.getValueFromSessionVariable("User_name").toUpperCase());
+		onPage.clickOnDesiredClientOrAgent(SessionVariables.getValueFromSessionVariable("User_name").toUpperCase());
 	}
 }

@@ -111,7 +111,7 @@ public class ComplexSteps extends ScenarioSteps{
     }
 
     @Step
-    public void sendMessageToClientForRemoveMessageAndCloseDiscussion(String message) throws Exception {
+    public void sendMessageToJustCreatedClientAndCloseDiscussion(String message) throws Exception {
         atOpenedBuildingPage.clickOnAddDiscusButton();
         atClientPage.clickOnExistingClientForRemoveMessage();
         atDiscussionPage.sendMessage(message);
