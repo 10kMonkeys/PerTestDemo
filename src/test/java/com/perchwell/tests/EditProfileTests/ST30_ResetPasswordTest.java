@@ -9,9 +9,9 @@ import org.junit.Test;
 public class ST30_ResetPasswordTest extends SampleTest {
 
     @Test
-    public void resetPasswordTest() throws Exception{
+    public void resetPasswordTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("reset_email"),
-                AppProperties.INSTANCE.getProperty("new_reset_password"));
+                AppProperties.INSTANCE.getProperty("old_reset_password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
@@ -33,6 +33,6 @@ public class ST30_ResetPasswordTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("new_reset_password"));
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.shouldSeeInitialIcon();
-        user.atResetPasswordPage.overwritingOldPassword();
+        user.usingComplexSteps.returnOldPassword();
     }
 }
