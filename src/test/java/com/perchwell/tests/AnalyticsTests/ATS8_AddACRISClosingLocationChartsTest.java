@@ -19,10 +19,10 @@ public class ATS8_AddACRISClosingLocationChartsTest extends SampleTest {
         user.atAnalyticsPage.locationButtonClick();
         user.atAcrisClosingPage.addDealCountChart();
         user.atAnalyticsPage.skipHints();
-        user.atAcrisClosingPage.shouldSeeDealCountChart();
+        user.atAcrisClosingPage.shouldSeeLocationDealCountChart();
         user.atAnalyticsPage.selectACRISClosingWithLocation();
-        user.atAcrisClosingPage.addAndVerifyPriceChart();
+        user.atAcrisClosingPage.addAndVerifyLocationPriceChart();
         user.atAnalyticsPage.selectACRISClosingWithLocation();
-        user.atAcrisClosingPage.addAndVerifyMedianPricePerFT2Chart();
+        user.atAcrisClosingPage.addAndVerifyLocationPricePerFT2Chart();
     }
 }

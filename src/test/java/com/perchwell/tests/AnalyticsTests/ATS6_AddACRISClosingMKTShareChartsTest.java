@@ -19,10 +19,10 @@ public class ATS6_AddACRISClosingMKTShareChartsTest extends SampleTest {
         user.atAnalyticsPage.mktShareButtonClick();
         user.atAcrisClosingPage.addBuildingTypeByDealCountChart();
         user.atAnalyticsPage.skipHints();
-        user.atAcrisClosingPage.shouldBuildingTypeChartDisplayed();
+        user.atAcrisClosingPage.shouldSeeMKTShareBuildingTypeByDealCountChart();
         user.atAnalyticsPage.addButtonClick();
         user.atAnalyticsPage.selectACRISClosingSection();
         user.atAnalyticsPage.mktShareButtonClick();
-        user.atAcrisClosingPage.addAndVerifyPriceByDealCountChart();
+        user.atAcrisClosingPage.addAndVerifyMKTSharePriceByDealCountChart();
     }
 }

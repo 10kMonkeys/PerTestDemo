@@ -19,32 +19,32 @@ public class ATS2_AddREBNYListingsDistributionChartsTest extends SampleTest {
         user.atAnalyticsPage.distributionButtonClick();
         user.atRebnyListingsPage.dollarPerFTByPriceSegmentButtonClick();
         user.atAnalyticsPage.skipHints();
-        user.atRebnyListingsPage.isDollarPerFTByPriceSegmentChartAdd();
+        user.atRebnyListingsPage.shouldSeeDistributionDollarPerFTByPriceSegmentChartAdd();
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
-        user.atRebnyListingsPage.addMedianOrLocationPriceChart();
-        user.atRebnyListingsPage.shouldSeeMKTShareAskingPriseChart(); ////////update
+        user.atRebnyListingsPage.addREBNYListingsAskingPriceChart();
+        user.atRebnyListingsPage.shouldSeeDistributionAskingPriseChart();
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
-        user.atRebnyListingsPage.addAndVerifyAskingPriceByBedsChart();
+        user.atRebnyListingsPage.addAndVerifyDistributionAskingPriceByBedsChart();
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
-        user.atRebnyListingsPage.addAndVerifyAskingPriceByPriceSegmentChart();
+        user.atRebnyListingsPage.addAndVerifyDistributionAskingPriceByPriceSegmentChart();
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
-        user.atRebnyListingsPage.addAndVerifyAskingPriceByTypeChart();
+        user.atRebnyListingsPage.addAndVerifyDistributionAskingPriceByTypeChart();
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
-        user.atRebnyListingsPage.addAndVerifyAskingPricePerBedChart();
+        user.atRebnyListingsPage.addAndVerifyDistributionAskingPricePerBedChart();
         user.atAnalyticsPage.clickMyNewSearch();
         user.atSearchPage.clickOnLoadSavedSearchButton();
         user.atSearchPage.createNewSearchClick();
         user.atSearchPage.clickOnApplyButton();
         user.atAnalyticsPage.rebnyListingsButtonClick();
         user.atAnalyticsPage.distributionButtonClick();
-        user.atRebnyListingsPage.addAndVerifyAskingPricePerFTChart();
+        user.atRebnyListingsPage.addAndVerifyDistributionAskingPricePerFTChart();
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
-        user.atRebnyListingsPage.addAndVerifyDOMByNumberBedsChart();
+        user.atRebnyListingsPage.addAndVerifyDistributionDOMByNumberBedsChart();
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
-        user.atRebnyListingsPage.addAndVerifyDOMByPriceSegmentChart();
+        user.atRebnyListingsPage.addAndVerifyDistributionDOMByPriceSegmentChart();
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
-        user.atRebnyListingsPage.addAndVerifyMonthliesChart();
+        user.atRebnyListingsPage.addAndVerifyDistributionMonthliesChart();
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
-        user.atRebnyListingsPage.addAndVerifySquareFeetChart();
+        user.atRebnyListingsPage.addAndVerifyDistributionSquareFeetChart();
     }
 }

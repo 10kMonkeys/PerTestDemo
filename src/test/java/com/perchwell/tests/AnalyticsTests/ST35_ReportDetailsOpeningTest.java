@@ -17,7 +17,7 @@ public class ST35_ReportDetailsOpeningTest extends SampleTest {
 		user.atPerchwellPage.clickOnAnalytics();
 		user.atRebnyListingsPage.addChartFromREBNYSection();
 		user.atAnalyticsPage.skipHints();
-		user.atRebnyListingsPage.addMedianOrLocationPriceChart();
+		user.atRebnyListingsPage.addREBNYListingsAskingPriceChart();
 		user.atAnalyticsPage.upToOneMillionButtonClick();
 		user.atAnalyticsPage.selectSecondBuildingInList();
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();

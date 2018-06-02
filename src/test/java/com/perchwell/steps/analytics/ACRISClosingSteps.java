@@ -64,49 +64,49 @@ public class ACRISClosingSteps extends ScenarioSteps {
     }
 
     @Step
-    public void shouldBuildingTypeChartDisplayed() {
-        acrisClosingPage.shouldBuildingTypeByDealCountDisplayed();
+    public void shouldSeeMKTShareBuildingTypeByDealCountChart() {
+        acrisClosingPage.shouldSeeMKTShareBuildingTypeByDealCountChart();
         this.isChartWithApplyingFiltersDisplayed();
     }
 
     @Step
-    public void addAndVerifyPriceByDealCountChart(){
-        acrisClosingPage.addAndVerifyPriceByDealCountChart();
+    public void addAndVerifyMKTSharePriceByDealCountChart(){
+        acrisClosingPage.addAndVerifyMKTSharePriceByDealCountChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addDollarPerFTPercentilesChart(){
-        acrisClosingPage.addDollarPerFTPercentilesChart();
+    public void addDollarPerFTByPriceSegmentChart(){
+        acrisClosingPage.addDollarPerFTByPriceSegmentChart();
     }
 
     @Step
-    public void shouldSeeDollarPerFTPercentiles(){
-        acrisClosingPage.shouldSeeDollarPerFTPercentiles();
+    public void shouldSeeDistributionDollarPerFTByPriceSegmentChart(){
+        acrisClosingPage.shouldSeeDistributionDollarPerFTByPriceSegmentChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyPricePercentilesChart(){
-        acrisClosingPage.addAndVerifyPricePercentilesChart();
+    public void addAndVerifyDistributionPricePercentilesChart(){
+        acrisClosingPage.addAndVerifyDistributionPricePercentilesChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyPriceByPriceSegmentChart(){
-        acrisClosingPage.addAndVerifyPriceByPriceSegmentChart();
+    public void addAndVerifyDistributionPriceByPriceSegmentChart(){
+        acrisClosingPage.addAndVerifyDistributionPriceByPriceSegmentChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifySquareFeetPercentiles(){
-        acrisClosingPage.addAndVerifySquareFeetPercentiles();
+    public void addAndVerifyDistributionSquareFeetPercentilesChart(){
+        acrisClosingPage.addAndVerifyDistributionSquareFeetPercentilesChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyPriceByTypeChart(){
-        acrisClosingPage.addAndVerifyPriceByTypeChart();
+    public void addAndVerifyDistributionPriceByTypeChart(){
+        acrisClosingPage.addAndVerifyDistributionPriceByTypeChart();
         this.isChartDisplayed();
     }
 
@@ -116,20 +116,26 @@ public class ACRISClosingSteps extends ScenarioSteps {
     }
 
     @Step
-    public void shouldSeeDealCountChart() {
-        acrisClosingPage.shouldSeeDealCount();
+    public void shouldSeeLocationDealCountChart() {
+        acrisClosingPage.shouldSeeLocationDealCountChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyPriceChart() {
-        acrisClosingPage.addAndVerifyPriceChart();
+    public void addAndVerifyLocationPriceChart() {
+        acrisClosingPage.addAndVerifyLocationPriceChart();
         this.isChartDisplayed();
     }
 
     @Step
     public void addAndVerifyMedianPricePerFT2Chart() {
         acrisClosingPage.addAndVerifyMedianPricePerFT2Chart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyLocationPricePerFT2Chart() {
+        acrisClosingPage.addAndVerifyLocationPricePerFT2Chart();
         this.isChartDisplayed();
     }
 

@@ -22,13 +22,13 @@ public class ACRISClosingPage extends BasePage {
     private WebElement buildingTypeByDealCountButton;
 
     @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_DEAL COUNT BY TYPE_30")
-    private WebElement dealCountByTypeChart;
+    private WebElement mktShareDealCountByTypeChart;
 
     @iOSXCUITFindBy(accessibility = "PRICE (BY DEAL COUNT)")
     private WebElement priceByDealCountButton;
 
-    @iOSXCUITFindBy(accessibility = "DEAL COUNT BY SEGMENT")
-    private WebElement dealCountBySegmentChart;
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_DEAL COUNT BY SEGMENT_28")
+    private WebElement mktSharePriceByDealCountChart;
 
     @iOSXCUITFindBy(accessibility = "$/FT² PERCENTILES")
     private WebElement dollarPerFTPercentilesButton;
@@ -39,20 +39,20 @@ public class ACRISClosingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "$/FT² BY PRICE SEGMENT")
     private WebElement dollarPerFTByPriceSegmentButton;
 
-    @iOSXCUITFindBy(accessibility = "$/FT² BY SEGMENT")
-    private WebElement dollarPerFTByPriceSegmentChart;
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_$/FT² BY SEGMENT_152")
+    private WebElement distributionDollarPerFTByPriceSegmentChart;
 
     @iOSXCUITFindBy(accessibility = "PRICE PERCENTILES")
     private WebElement pricePercentilesButton;
 
-    @iOSXCUITFindBy(accessibility = "SALE PRICE")
-    private WebElement salePriceChart;
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_SALE PRICE_59")
+    private WebElement distributionPricePercentilesChart;
 
     @iOSXCUITFindBy(accessibility = "PRICE BY PRICE SEGMENT")
     private WebElement priceByPriceSegmentButton;
 
-    @iOSXCUITFindBy(accessibility = "SALE PRICE BY SEGMENT")
-    private WebElement salePriceBySegmentChart;
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_SALE PRICE BY SEGMENT_153")
+    private WebElement distributionPriceByPriceSegmentChart;
 
     @iOSXCUITFindBy(accessibility = "SQUARE FEET PERCENTILES")
     private WebElement squareFeetPercentilesButton;
@@ -60,11 +60,14 @@ public class ACRISClosingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "PRICE BY TYPE")
     private WebElement priceByTypeButton;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN SALE PRICE")
-    private WebElement medianSalePriceChart;
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE PRICE_62")
+    private WebElement distributionPriceByTypeChart;
 
     @iOSXCUITFindBy(accessibility = "SQUARE FEET")
     private WebElement squareFeetButton;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_SQUARE FEET_61")
+    private WebElement distributionSquareFeetPercentilesChart;
 
     @iOSXCUITFindBy(accessibility = "DEAL VOLUME (ANNUAL)")
     private WebElement dealVolumeAnnualButton;
@@ -72,11 +75,11 @@ public class ACRISClosingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DEAL VOLUME (QUARTERLY)")
     private WebElement dealVolumeQuarterlyButton;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeStaticText[`name CONTAINS[cd] \"DEAL COUNT\"`]")
+    @iOSXCUITFindBy(accessibility = "DEAL COUNT")
     private WebElement dealCountButton;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"DEAL COUNT\"`][1]")
-    private WebElement dealCountChart;
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_DEAL COUNT_141")
+    private WebElement locationDealCountChart;
 
     @iOSXCUITFindBy(accessibility = "PRICE")
     private WebElement priceChartButton;
@@ -87,8 +90,14 @@ public class ACRISClosingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE PRICE_9")
     private WebElement medianPriceChart;
 
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE PRICE_71")
+    private WebElement locationPriceChart;
+
     @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE $/FT²_10")
     private WebElement medianPricePerFT2Chart;
+
+    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE $/FT²_72")
+    private WebElement locationPricePerFT2Chart;
 
     @iOSXCUITFindBy(accessibility = "DEAL COUNT (ANNUAL)")
     private WebElement dealCountAnnualButton;
@@ -201,7 +210,7 @@ public class ACRISClosingPage extends BasePage {
     }
 
     public boolean isDealCountByTypeDisplayed(){
-        return Helper.isElementDisplayed(dealCountByTypeChart);
+        return Helper.isElementDisplayed(mktShareDealCountByTypeChart);
     }
 
     public void shouldBuildingHeightChartDisplayedWithSwipe() {
@@ -209,52 +218,52 @@ public class ACRISClosingPage extends BasePage {
         element(dealCountByHeightChart).shouldBeVisible();
     }
 
-    public void shouldBuildingTypeByDealCountDisplayed() {
-        element(dealCountByTypeChart).shouldBeVisible();
+    public void shouldSeeMKTShareBuildingTypeByDealCountChart() {
+        element(mktShareDealCountByTypeChart).shouldBeVisible();
     }
 
-    public void addAndVerifyPriceByDealCountChart(){
+    public void addAndVerifyMKTSharePriceByDealCountChart(){
         element(priceByDealCountButton).click();
-        element(dealCountBySegmentChart).shouldBeVisible();
+        element(mktSharePriceByDealCountChart).shouldBeVisible();
     }
 
-    public void addDollarPerFTPercentilesChart(){
-        element(dollarPerFTPercentilesButton).click();
+    public void addDollarPerFTByPriceSegmentChart(){
+        element(dollarPerFTByPriceSegmentButton).click();
     }
 
-    public void shouldSeeDollarPerFTPercentiles(){
-        element(dollarPerFTPercentilesChart).shouldBeVisible();
+    public void shouldSeeDistributionDollarPerFTByPriceSegmentChart(){
+        element(distributionDollarPerFTByPriceSegmentChart).shouldBeVisible();
     }
 
-    public void addAndVerifyPricePercentilesChart(){
+    public void addAndVerifyDistributionPricePercentilesChart(){
         element(pricePercentilesButton).click();
-        element(salePriceChart).shouldBeVisible();
+        element(distributionPricePercentilesChart).shouldBeVisible();
     }
 
-    public void addAndVerifyPriceByPriceSegmentChart(){
+    public void addAndVerifyDistributionPriceByPriceSegmentChart(){
         element(priceByPriceSegmentButton).click();
-        element(salePriceBySegmentChart).shouldBeVisible();
+        element(distributionPriceByPriceSegmentChart).shouldBeVisible();
     }
 
-    public void addAndVerifySquareFeetPercentiles(){
+    public void addAndVerifyDistributionSquareFeetPercentilesChart(){
         element(squareFeetPercentilesButton).click();
-        element(squareFeetButton).shouldBeVisible();
+        element(distributionSquareFeetPercentilesChart).shouldBeVisible();
     }
 
-    public void addAndVerifyPriceByTypeChart(){
+    public void addAndVerifyDistributionPriceByTypeChart(){
         element(priceByTypeButton).click();
-        element(medianSalePriceChart).shouldBeVisible();
+        element(distributionPriceByTypeChart).shouldBeVisible();
     }
 
     public void addDealCountChart() {
         element(dealCountButton).click();
     }
 
-    public void shouldSeeDealCount() {
-        element(dealCountChart).shouldBeVisible();
+    public void shouldSeeLocationDealCountChart() {
+        element(locationDealCountChart).shouldBeVisible();
     }
 
-    public void addAndVerifyPriceChart() {
+    public void addAndVerifyLocationPriceChart() {
         element(priceChartButton).click();
         element(medianPriceChart).shouldBeVisible();
     }
@@ -262,6 +271,11 @@ public class ACRISClosingPage extends BasePage {
     public void addAndVerifyMedianPricePerFT2Chart() {
         element(pricePerFT2ChartButton).click();
         element(medianPricePerFT2Chart).shouldBeVisible();
+    }
+
+    public void addAndVerifyLocationPricePerFT2Chart() {
+        element(pricePerFT2ChartButton).click();
+        element(locationPricePerFT2Chart).shouldBeVisible();
     }
 
     public void addPriceChart() {

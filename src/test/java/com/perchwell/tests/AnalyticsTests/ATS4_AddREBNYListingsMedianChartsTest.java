@@ -21,10 +21,10 @@ public class ATS4_AddREBNYListingsMedianChartsTest extends SampleTest {
         user.atAnalyticsPage.skipHints();
         user.atRebnyListingsPage.shouldSeeMedianAskingPricePerBedChart();
         user.atAnalyticsPage.selectREBNYListingsWithMedian();
-        user.atRebnyListingsPage.addMedianAskingPerFTChart();
+        user.atRebnyListingsPage.addAndVerifyMedianAskingPerFTChart();
         user.atAnalyticsPage.selectREBNYListingsWithMedian();
-        user.atRebnyListingsPage.addMedianMonthliesChart();
+        user.atRebnyListingsPage.addAndVerifyMedianMonthliesChart();
         user.atAnalyticsPage.selectREBNYListingsWithMedian();
-        user.atRebnyListingsPage.addMedianPropertyTaxesChart();
+        user.atRebnyListingsPage.addAndVerifyMedianPropertyTaxesChart();
     }
 }

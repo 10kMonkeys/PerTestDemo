@@ -19,22 +19,16 @@ public class ATS3_AddREBNYListingsLocationChartsTest extends SampleTest {
         user.atAnalyticsPage.locationButtonClick();
         user.atRebnyListingsPage.addAskingPricePerBedChart();
         user.atAnalyticsPage.skipHints();
-        user.atRebnyListingsPage.shouldSeeMedianAskingPricePerBedChart();
-        user.atAnalyticsPage.addButtonClick();
-        user.atAnalyticsPage.rebnyListingsButtonClick();
-        user.atAnalyticsPage.locationButtonClick();
-        user.atRebnyListingsPage.addMedianAskingPerFTChart();
-        user.atAnalyticsPage.addButtonClick();
-        user.atAnalyticsPage.rebnyListingsButtonClick();
-        user.atAnalyticsPage.locationButtonClick();
-        user.atRebnyListingsPage.addListingCountChart();
-        user.atAnalyticsPage.addButtonClick();
-        user.atAnalyticsPage.rebnyListingsButtonClick();
-        user.atAnalyticsPage.locationButtonClick();
-        user.atRebnyListingsPage.addMedianMonthliesChart();
-        user.atAnalyticsPage.addButtonClick();
-        user.atAnalyticsPage.rebnyListingsButtonClick();
-        user.atAnalyticsPage.locationButtonClick();
-        user.atRebnyListingsPage.addMedianPropertyTaxesChart();
+        user.atRebnyListingsPage.shouldSeeLocationAskingPricePerBedChart();
+        user.atAnalyticsPage.selectREBNYListingsWithLocation();
+        user.atRebnyListingsPage.addAndVerifyLocationAskingPerFTChart();
+        user.atAnalyticsPage.selectREBNYListingsWithLocation();
+        user.atRebnyListingsPage.addAndVerifyLocationListingCountChart();
+        user.atAnalyticsPage.selectREBNYListingsWithLocation();
+        user.atRebnyListingsPage.addAndVerifyLocationMonthliesChart();
+        user.atAnalyticsPage.selectREBNYListingsWithLocation();
+        user.atRebnyListingsPage.addAndVerifyLocationPropertyTaxesChart();
+        user.atAnalyticsPage.selectREBNYListingsWithLocation();
+        user.atRebnyListingsPage.addAndVerifyLocationDaysOnMarketChart();
     }
 }
