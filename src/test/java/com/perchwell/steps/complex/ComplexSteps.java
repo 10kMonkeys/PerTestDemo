@@ -28,6 +28,15 @@ public class ComplexSteps extends ScenarioSteps{
     @Steps
     private PerchPopupSteps inPopup;
 
+    @Steps
+    private ResetPasswordSteps atResetPasswordPage;
+
+    @Steps
+    private SettingsProfileSteps atSettingsProfilePage;
+
+    @Steps
+    private AccountSteps atAccountPage;
+
     @Step
     private void openFirstBuildingSkipHintClickOnShareButton() {
         atPerchwellPage.openFirstBuilding();
@@ -101,11 +110,23 @@ public class ComplexSteps extends ScenarioSteps{
         atOpenedBuildingPage.clickOnBackButton();
     }
 
-    public void sendMessageToClientForRemoveMessageAndCloseDiscussion(String message) throws Exception {
+    @Step
+    public void sendMessageToJustCreatedClientAndCloseDiscussion(String message) throws Exception {
         atOpenedBuildingPage.clickOnAddDiscusButton();
         atClientPage.clickOnExistingClientForRemoveMessage();
         atDiscussionPage.sendMessage(message);
         atDiscussionPage.clickOnBackButton();
         atClientPage.closePage();
+    }
+
+    @Step
+    public void returnOldPassword() throws InterruptedException {
+        atPerchwellPage.clickOnOpenAccountButton();
+        atAccountPage.openSettingProfile();
+        atSettingsProfilePage.resetPasswordClick();
+        atResetPasswordPage.resetPasswordButtonClick();
+        atResetPasswordPage.shouldFindSentEmail();
+        atResetPasswordPage.getResetToken();
+        atResetPasswordPage.returnOldPassword();
     }
 }

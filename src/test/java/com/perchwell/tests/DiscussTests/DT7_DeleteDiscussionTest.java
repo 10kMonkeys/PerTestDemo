@@ -1,6 +1,7 @@
 package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.ClientGroups;
 import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
@@ -15,8 +16,13 @@ public class DT7_DeleteDiscussionTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnOpenAccountButton();
+        user.atAccountPage.clickOnClientsLabel();
+        user.atClientPage.addNewClient(ClientGroups.ACTIVELYSEARCHING);
+        user.atClientPage.closePage();
+        user.atPerchwellPage.closeAccountMenu();
         user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
-        user.usingComplexSteps.sendMessageToClientForRemoveMessageAndCloseDiscussion(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
+        user.usingComplexSteps.sendMessageToJustCreatedClientAndCloseDiscussion(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
         user.atOpenedBuildingPage.clickOnBackButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnDiscussionsLabel();

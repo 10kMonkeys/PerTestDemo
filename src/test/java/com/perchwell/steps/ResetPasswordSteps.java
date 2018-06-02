@@ -71,4 +71,9 @@ public class ResetPasswordSteps extends ScenarioSteps {
     public void overwritingOldPassword() {
         AppProperties.INSTANCE.setProperty("old_reset_password",AppProperties.INSTANCE.getProperty("new_reset_password"));
     }
+
+    @Step
+    public void returnOldPassword() throws InterruptedException {
+        NewInstanceSafariDriver.returnOldPasswordInSafari();
+    }
 }

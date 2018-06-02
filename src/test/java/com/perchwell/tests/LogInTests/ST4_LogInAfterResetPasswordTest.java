@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ST4_LogInAfterResetPasswordTest extends SampleTest {
 
     @Test
-    public void logInAfterResetPasswordTest() throws Exception{
+    public void logInAfterResetPasswordTest() throws Exception {
         user.atLoginPage.clickOnLoginButton();
         user.atResetPasswordPage.clickOnForgotPassword();
         user.atResetPasswordPage.setRestEmail(AppProperties.INSTANCE.getProperty("reset_email"));
@@ -25,6 +25,8 @@ public class ST4_LogInAfterResetPasswordTest extends SampleTest {
         user.atResetPasswordPage.login(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("new_reset_password"));
         user.atPerchwellPage.shouldSeeEditSearchFiltersHint();
-        user.atResetPasswordPage.overwritingOldPassword();
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.usingComplexSteps.returnOldPassword();
     }
 }

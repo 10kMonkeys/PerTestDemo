@@ -243,4 +243,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void clickOnAddressSortButton() {
 		onPage.clickOnAddressSortButton();
 	}
+
+	@Step
+	public void closeAccountMenu() {
+		onPage.closeAccountMenu();
+	}
 }

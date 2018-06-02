@@ -4,10 +4,14 @@ import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -366,5 +370,14 @@ public class PerchwellPage extends BasePage {
 
 	public void clickOnAddressSortButton() {
 		element(addressSortButton).click();
+	}
+
+	public void closeAccountMenu() {
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+		TouchAction action = new TouchAction(appiumDriver);
+		Point magnifierLocation = element(magnifierIcon).getLocation();
+		action.tap(magnifierLocation.x, magnifierLocation.y).release().perform();
 	}
 }

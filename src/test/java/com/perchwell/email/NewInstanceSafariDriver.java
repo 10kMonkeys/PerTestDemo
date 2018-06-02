@@ -39,4 +39,19 @@ public abstract class NewInstanceSafariDriver {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[contains(@class, 'ui-modals-title')]")));
         safariDriver.quit();
     }
+
+    public static void returnOldPasswordInSafari() throws InterruptedException {
+        WebDriver safariDriver = new SafariDriver();
+
+        safariDriver.navigate().to("https://staging.perchwell.com/accounts/password/edit?reset_password_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));
+        WebElement passwordTextBox = safariDriver.findElement(By.xpath("//*[@id='c44']"));
+        WebElement confirmPasswordTextBox = safariDriver.findElement(By.xpath("//*[@id='c45']"));
+        WebElement resetPasswordButton = safariDriver.findElement(By.xpath("//*[@id='new_user']/div[3]/input"));
+        passwordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("old_reset_password"));
+        confirmPasswordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("old_reset_password"));
+        resetPasswordButton.click();
+        WebDriverWait wait = new WebDriverWait(safariDriver,60);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='sortable']/div[1]/div[1]")));
+        safariDriver.quit();
+    }
 }
