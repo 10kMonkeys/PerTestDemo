@@ -330,4 +330,9 @@ public class SearchSteps extends ScenarioSteps {
 	public void should1AndHalfBathFilterBeApplied() {
 		onPage.should1AndHalfBathFilterBeApplied();
 	}
+
+	@Step
+    public void removeBrooklynFromFilter() {
+    	onPage.removeBrooklynFromFilter();
+	}
 }

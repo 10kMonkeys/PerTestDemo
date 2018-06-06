@@ -71,7 +71,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "1BathButton")
 	private WebElement filterFor1Bath;
 
-	@iOSXCUITFindBy(accessibility = "CONTRACT")
+	@iOSXCUITFindBy(accessibility = "In Contract")
 	private WebElement contractButton;
 
 	@iOSXCUITFindBy(accessibility = "OFF MKT")
@@ -176,7 +176,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "3BathsButton-selected")
 	private WebElement selectedFilterFor3Baths;
 
-    @iOSXCUITFindBy(accessibility = "Active-selected")
+    @iOSXCUITFindBy(accessibility = "Active")
     private WebElement selectedActiveFilter;
 
     @iOSXCUITFindBy(accessibility = "Contract-selected")
@@ -190,6 +190,9 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "Fireplace-SELECTED")
 	private WebElement selectedFireplaceFilter;
+
+	@iOSXCUITFindBy(accessibility = "deleteTagButtonBROOKLYN")
+	private WebElement brooklynRemoveIcon;
 
 	//endregion
 
@@ -587,4 +590,8 @@ public class SearchPage extends BasePage {
 	public void should1AndHalfBathFilterBeApplied() {
 		element(selectedFilterFor1AndHalfBath).shouldBePresent();
 	}
+
+    public void removeBrooklynFromFilter() {
+		element(brooklynRemoveIcon).click();
+    }
 }

@@ -389,4 +389,35 @@ public class REBNYListingsSteps extends ScenarioSteps {
         rebnyListingsPage.addAndVerifyLocationDaysOnMarketChart();
         this.isChartDisplayed();
     }
+
+    @Step
+    public void getMKTShareAskingPriceListingsAmount() {
+        rebnyListingsPage.getMKTShareAskingPriceListingsAmount();
+
+    }
+
+    @Step
+    public void getLocationAskingPriceListingsLocations() {
+        rebnyListingsPage.getLocationAskingPriceListingsLocations();
+    }
+
+    @Step
+    public void checkMKTShareAskingPriceListingsAmountAfterFilterChanging() {
+        rebnyListingsPage.checkMKTShareAskingPriceListingsAmountAfterFilterChanging();
+    }
+
+    @Step
+    public void checkLocationAskingPriceListingsLocationsAfterFilterChanging() {
+        rebnyListingsPage.checkLocationAskingPriceListingsLocationsAfterFilterChanging();
+    }
+
+    @Step
+    public void checkMKTShareAskingPriceListingsAmountAfterResetFilters() {
+        rebnyListingsPage.checkMKTShareAskingPriceListingsAmountAfterResetFilters();
+    }
+
+    @Step
+    public void checkLocationAskingPriceListingsLocationsAfterResetFilters() {
+        rebnyListingsPage.checkLocationAskingPriceListingsLocationsAfterResetFilters();
+    }
 }

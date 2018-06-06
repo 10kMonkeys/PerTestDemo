@@ -52,4 +52,10 @@ public class SellersAgentSteps extends ScenarioSteps {
     public void shouldInterestEmailSentToAgent() {
         sellersAgentPage.shouldInterestEmailSentToOneAgent();
     }
+
+    @Step
+    public void updateMessage() {
+        SessionVariables.addValueInSessionVariable("Agent_message", sellersAgentPage.generateAgentMessage());
+        sellersAgentPage.updateMessage(SessionVariables.getValueFromSessionVariable("Agent_message"));
+    }
 }

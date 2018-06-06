@@ -2,13 +2,29 @@ package com.perchwell.pages.analytics;
 
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class REBNYListingsPage extends BasePage {
 
     //region WebElements
+
+    private int initialMKTShareAskingPriceStartListingsAmount = 0;
+    private String[] initialLocationAskingPriceListingsLocationsStringList = new String[5];
+    private int previousMKTShareAskingPriceStartListingsAmount = 0;
+    private String[] previousLocationAskingPriceListingsLocationsStringList = new String[5];
 
     @iOSXCUITFindBy(accessibility = "ASKING PRICE")
     private WebElement askingPriceButton;
@@ -250,6 +266,14 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING PRICE_63")
     private WebElement locationAskingPriceChart;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'REBNY LISTINGS_ASKING PRICE_11_'")
+    private WebElement mktShareAskingPriceListingsAmount;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'REBNY LISTINGS_ASKING PRICE_0_'")
+    private WebElement mktShareAskingPriceListingsAmountAfterFilterChanging;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeOther' AND name CONTAINS 'location -'")
+    private List<WebElement> locationAskingPriceListingsLocationsList;
 
     //endregion
 
@@ -564,5 +588,95 @@ public class REBNYListingsPage extends BasePage {
         Helper.swipeDownUntilElementVisible(askingPriceButton);
         element(askingPriceButton).click();
         element(medianAskingPriceChart).shouldBeVisible();
+    }
+
+    public void getMKTShareAskingPriceListingsAmount() {
+        String str = element(mktShareAskingPriceListingsAmount).getAttribute("value");
+        str = str.replace(",", "");
+
+        initialMKTShareAskingPriceStartListingsAmount = Integer.parseInt(str);
+        previousMKTShareAskingPriceStartListingsAmount = initialMKTShareAskingPriceStartListingsAmount;
+    }
+
+    public void getLocationAskingPriceListingsLocations() {
+        int counter = 0;
+
+        for(WebElement element: locationAskingPriceListingsLocationsList) {
+            initialLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("name");
+            counter += 1;
+        }
+        previousLocationAskingPriceListingsLocationsStringList = initialLocationAskingPriceListingsLocationsStringList;
+    }
+
+    public void checkMKTShareAskingPriceListingsAmountAfterFilterChanging() {
+        waitFor(ExpectedConditions.invisibilityOfElementLocated(MobileBy.AccessibilityId(
+                "REBNY LISTINGS_ASKING PRICE_0_" + Integer.toString(previousMKTShareAskingPriceStartListingsAmount))));
+
+        String str = element(mktShareAskingPriceListingsAmountAfterFilterChanging).getAttribute("value");
+        str = str.replace(",", "");
+        int currentMKTShareAskingPriceListingsAmount = Integer.parseInt(str);
+
+        Assert.assertNotEquals(previousMKTShareAskingPriceStartListingsAmount, currentMKTShareAskingPriceListingsAmount);
+
+        previousMKTShareAskingPriceStartListingsAmount = currentMKTShareAskingPriceListingsAmount;
+    }
+
+    public void checkLocationAskingPriceListingsLocationsAfterFilterChanging() {
+        int counter = 0;
+        int counter2 = 0;
+        boolean arraysAreDifferent = false;
+        String[] currentLocationAskingPriceListingsLocationsStringList = new String[5];
+
+        for(WebElement element: locationAskingPriceListingsLocationsList) {
+            currentLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("name");
+            counter += 1;
+        }
+
+        for(String element: currentLocationAskingPriceListingsLocationsStringList) {
+            if(!(element.equals(previousLocationAskingPriceListingsLocationsStringList[counter2]))) {
+                arraysAreDifferent = true;
+            }
+            counter2 += 1;
+        }
+        Assert.assertTrue(arraysAreDifferent);
+        previousLocationAskingPriceListingsLocationsStringList = currentLocationAskingPriceListingsLocationsStringList;
+    }
+
+    public void checkLocationAskingPriceListingsLocationsAfterResetFilters() {
+        int counter = 0;
+        int counter2 = 0;
+        boolean arraysAreDifferent = true;
+        String[] currentLocationAskingPriceListingsLocationsStringList = new String[5];
+
+        for(WebElement element: locationAskingPriceListingsLocationsList) {
+            currentLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("name");
+            counter += 1;
+        }
+
+        for(String element: currentLocationAskingPriceListingsLocationsStringList) {
+            if(!(element.equals(initialLocationAskingPriceListingsLocationsStringList[counter2]))) {
+                arraysAreDifferent = false;
+            }
+            counter2 += 1;
+        }
+        Assert.assertTrue(arraysAreDifferent);
+    }
+
+
+    public void checkMKTShareAskingPriceListingsAmountAfterResetFilters() {
+        boolean listingsAmountsAreDifferent = false;
+
+        waitFor(ExpectedConditions.invisibilityOfElementLocated(MobileBy.AccessibilityId(
+                "REBNY LISTINGS_ASKING PRICE_0_" + Integer.toString(previousMKTShareAskingPriceStartListingsAmount))));
+
+        String str = element(mktShareAskingPriceListingsAmountAfterFilterChanging).getAttribute("value");
+        str = str.replace(",", "");
+        int currentMKTShareAskingPriceListingsAmount = Integer.parseInt(str);
+
+        if (((initialMKTShareAskingPriceStartListingsAmount - 50) < currentMKTShareAskingPriceListingsAmount)
+                && (currentMKTShareAskingPriceListingsAmount < (initialMKTShareAskingPriceStartListingsAmount + 50))) {
+            listingsAmountsAreDifferent = true;
+        }
+        Assert.assertTrue(listingsAmountsAreDifferent);
     }
 }

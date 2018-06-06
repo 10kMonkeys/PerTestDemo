@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"DiscussTests"})
+@WithTagValuesOf({"DiscussTests", "DiscussionsAndContacts"})
 public class DT9_ContactToOneSellersAgentTest extends SampleTest {
 
     @Test
@@ -17,6 +17,7 @@ public class DT9_ContactToOneSellersAgentTest extends SampleTest {
         user.atSellersAgentPage.findBuildingWithOneSellersAgent();
         user.atSellersAgentPage.swipeDownUntilSellersAgentSection();
         user.atSellersAgentPage.clickOnSellersAgentSection();
+        user.atSellersAgentPage.updateMessage();
         user.atSellersAgentPage.clickOnSendEmailButton();
         user.atSellersAgentPage.selectConfirmOption();
         user.atSellersAgentPage.shouldInterestEmailSentToAgent();

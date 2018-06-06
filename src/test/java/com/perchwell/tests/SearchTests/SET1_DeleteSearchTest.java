@@ -5,13 +5,13 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SearchTests"})
+@WithTagValuesOf({"SearchTests", "Searches"})
 public class SET1_DeleteSearchTest extends SampleTest {
 
     @Test
     public void deleteSearch() throws Exception {
-        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
-                AppProperties.INSTANCE.getProperty("client_password"));
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
+                AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
