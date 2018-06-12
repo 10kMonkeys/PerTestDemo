@@ -230,7 +230,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN PROPERTY TAXES_70")
     private WebElement locationPropertyTaxesChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_BEDROOM COUNT_21")
+    @iOSXCUITFindBy(accessibility = "BEDROOM COUNT_ROOMS_NUM_BEDROOMS_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement bedroomChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_$/FT² BY SEGMENT_154")
@@ -239,7 +239,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING PRICE BY SEGMENT_155")
     private WebElement distributionAskingPriceByPriceSegmentChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING PRICE_1")
+    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE_MEDIAN_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianAskingPriceChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING PRICE_56")
@@ -257,20 +257,20 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_NEW DEVELOPMENT_182")
     private WebElement featuresNewDevelopmentChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_ASKING PRICE_11")
+    @iOSXCUITFindBy(accessibility = "ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareAskingPriceChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_ASKING PRICE_47")
     private WebElement distributionAskingPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING PRICE_63")
+    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE_BAR_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationAskingPriceChart;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'REBNY LISTINGS_ASKING PRICE_11_'")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL:'")
     private WebElement mktShareAskingPriceListingsAmount;
-
-    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'REBNY LISTINGS_ASKING PRICE_0_'")
-    private WebElement mktShareAskingPriceListingsAmountAfterFilterChanging;
+//
+//    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'REBNY LISTINGS_ASKING PRICE_0_'")
+//    private WebElement mktShareAskingPriceListingsAmountAfterFilterChanging;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeOther' AND name CONTAINS 'location -'")
     private List<WebElement> locationAskingPriceListingsLocationsList;
@@ -610,9 +610,10 @@ public class REBNYListingsPage extends BasePage {
 
     public void checkMKTShareAskingPriceListingsAmountAfterFilterChanging() {
         waitFor(ExpectedConditions.invisibilityOfElementLocated(MobileBy.AccessibilityId(
-                "REBNY LISTINGS_ASKING PRICE_0_" + Integer.toString(previousMKTShareAskingPriceStartListingsAmount))));
+                "ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL: "
+                        + Integer.toString(previousMKTShareAskingPriceStartListingsAmount) + ".0")));
 
-        String str = element(mktShareAskingPriceListingsAmountAfterFilterChanging).getAttribute("value");
+        String str = element(mktShareAskingPriceListingsAmount).getAttribute("value");
         str = str.replace(",", "");
         int currentMKTShareAskingPriceListingsAmount = Integer.parseInt(str);
 
@@ -667,9 +668,10 @@ public class REBNYListingsPage extends BasePage {
         boolean listingsAmountsAreDifferent = false;
 
         waitFor(ExpectedConditions.invisibilityOfElementLocated(MobileBy.AccessibilityId(
-                "REBNY LISTINGS_ASKING PRICE_0_" + Integer.toString(previousMKTShareAskingPriceStartListingsAmount))));
+                "ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL: "
+                        + Integer.toString(previousMKTShareAskingPriceStartListingsAmount) + ".0")));
 
-        String str = element(mktShareAskingPriceListingsAmountAfterFilterChanging).getAttribute("value");
+        String str = element(mktShareAskingPriceListingsAmount).getAttribute("value");
         str = str.replace(",", "");
         int currentMKTShareAskingPriceListingsAmount = Integer.parseInt(str);
 

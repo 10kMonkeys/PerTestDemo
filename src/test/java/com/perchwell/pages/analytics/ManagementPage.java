@@ -25,6 +25,9 @@ public class ManagementPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DAYS ON MARKET")
     private WebElement daysOnMarketButton;
 
+    @iOSXCUITFindBy(accessibility = "DAYS ON MARKET_DAYSONMARKETPIE_DAYS_ON_MARKET_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
+    private WebElement mktShareDaysOnMarketChart;
+
     @iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT")
     private WebElement firmListingCountButton;
 
@@ -34,14 +37,11 @@ public class ManagementPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT")
     private WebElement distributionFirmListingCountButton;
 
-    @iOSXCUITFindBy(accessibility = "MANAGEMENT_FIRM LISTING COUNT_157")
+    @iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT_COUNTPER_BROKERAGE_DISPLAY_NAME_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionFirmListingCountChart;
 
-    @iOSXCUITFindBy(accessibility = "MANAGEMENT_ASKING PRICE_164")
+    @iOSXCUITFindBy(accessibility = "ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement mktShareAskingPriceChart;
-
-    @iOSXCUITFindBy(accessibility = "MANAGEMENT_DAYS ON MARKET_180")
-    private WebElement mktShareDaysOnMarketChart;
 
     @iOSXCUITFindBy(accessibility = "MANAGEMENT_BEDROOMS_165")
     private WebElement mktShareBedroomsChart;
@@ -108,7 +108,7 @@ public class ManagementPage extends BasePage {
     }
 
     public void isDaysOnMarketChartAdd(){
-        element(daysOnMarketButton).shouldBeVisible();
+        element(mktShareDaysOnMarketChart).shouldBeVisible();
     }
 
     public void buildingHeightButton(){

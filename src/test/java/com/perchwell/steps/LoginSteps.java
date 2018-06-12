@@ -52,6 +52,6 @@ public class LoginSteps extends ScenarioSteps {
             googleLoginPage.setPassword(AppProperties.INSTANCE.getProperty("client_password"));
             googleLoginPage.clickNextButton();
             googleLoginPage.selectNativeView();
-        };
+        }
     }
 }

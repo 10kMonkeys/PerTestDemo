@@ -66,7 +66,7 @@ public class ACRISClosingSteps extends ScenarioSteps {
     @Step
     public void shouldSeeMKTShareBuildingTypeByDealCountChart() {
         acrisClosingPage.shouldSeeMKTShareBuildingTypeByDealCountChart();
-        this.isChartWithApplyingFiltersDisplayed();
+        this.isChartDisplayed();
     }
 
     @Step
@@ -264,6 +264,12 @@ public class ACRISClosingSteps extends ScenarioSteps {
     public void shouldSeeTopTenPerMKTPricePerFT2QuarterlyChart() {
         acrisClosingPage.shouldSeeTopTenPerMKTPricePerFT2QuarterlyChart();
         this.isChartDisplayed();
+    }
+
+    @Step
+    public void isBuildingTypeByDealCountChartDisplayed() {
+        acrisClosingPage.shouldSeeMKTShareBuildingTypeByDealCountChart();
+        this.isChartWithApplyingFiltersDisplayed();
     }
 }
 

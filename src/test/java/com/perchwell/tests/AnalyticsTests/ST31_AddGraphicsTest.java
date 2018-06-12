@@ -23,7 +23,7 @@ public class ST31_AddGraphicsTest extends SampleTest {
         user.atAcrisClosingPage.isDealCountByHeightAdd();
         user.atAnalyticsPage.addButtonClick();
         user.atNycTownhousesPage.addChartFromNYCSection();
-        user.atNycTownhousesPage.isGardenChartDisplayed();
+        user.atNycTownhousesPage.shouldSeeREBNYTownhouseListingsHasGardenChart();
         user.atAnalyticsPage.addButtonClick();
         user.atManagementPage.addChartFromManagementSection();
         user.atManagementPage.isDaysOnMarketChartAdd();

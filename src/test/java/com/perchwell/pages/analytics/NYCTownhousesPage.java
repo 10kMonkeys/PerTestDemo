@@ -33,13 +33,13 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HAS GARDEN\"`][1]")
     private WebElement rebnyTownhouseListingsHasGardenButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_GARDEN_107")
+    @iOSXCUITFindBy(accessibility = "GARDEN_MUSTHAVE_GARDEN_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareREBNYTownhouseListingsHasGardenChart;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"IN HISTORIC DIST.\"")
     private WebElement rebnyTownhouseListingsInHistoricDistButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_HISTORIC DIST._103")
+    @iOSXCUITFindBy(accessibility = "HISTORIC DIST._MUSTHAVE_IS_HISTORICAL_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareREBNYTownhouseListingsInHistoricDistChart;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"SQUARE FEET\"")
@@ -93,13 +93,13 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"GARDEN\"`][2]")
     private WebElement featureACRISTownhouseClosingsGardenButton;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_GARDEN PREMIUM_147")
+    @iOSXCUITFindBy(accessibility = "GARDEN PREMIUM_PREMIUM_GARDEN_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement featureACRISTownhouseClosingsGardenChart;
 
     @iOSXCUITFindBy(accessibility = "# TOWNHOUSES")
     private WebElement locationTotalTHStockNumberTownhousesButton;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_COUNT OF EXISTING TOWNHOUSES_83")
+    @iOSXCUITFindBy(accessibility = "COUNT OF EXISTING TOWNHOUSES_COUNTS_WIDTH_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement locationTotalTHStockNumberTownhousesChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HAS GARDEN\"`][3]")

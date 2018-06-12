@@ -30,7 +30,6 @@ public class AT5_REBNYListingsPlusLocationAndStatusFiltersTest extends SampleTes
         user.atRebnyListingsPage.checkLocationAskingPriceListingsLocationsAfterFilterChanging();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.deselectActiveFilter();
-        user.atSearchPage.deselectActiveFilter(); /// Remove after filter updating
         user.atSearchPage.selectContractFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atRebnyListingsPage.checkMKTShareAskingPriceListingsAmountAfterFilterChanging();

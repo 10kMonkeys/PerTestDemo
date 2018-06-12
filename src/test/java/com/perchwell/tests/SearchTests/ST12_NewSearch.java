@@ -62,7 +62,7 @@ public class ST12_NewSearch extends SampleTest {
 		user.atPerchwellPage.clickOnMap();
 		user.atMapPage.checkForChangesAfterApplyingTheFilter();
 		user.atPerchwellPage.clickOnAnalytics();
-		user.atAcrisClosingPage.shouldSeeMKTShareBuildingTypeByDealCountChart();
+		user.atAcrisClosingPage.isBuildingTypeByDealCountChartDisplayed();
 		user.atRebnyListingsPage.shouldSeeBedroomCountChart();
 		user.atManagementPage.shouldSeeDaysOnMarketChartWithSwipe();
 		user.atNycTownhousesPage.isGardenChartDisplayed();

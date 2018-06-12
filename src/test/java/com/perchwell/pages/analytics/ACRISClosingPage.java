@@ -15,13 +15,13 @@ public class ACRISClosingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT (BY DEAL COUNT)")
     private WebElement dealCountByHeightButton;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_DEAL COUNT BY HEIGHT_29")
+    @iOSXCUITFindBy(accessibility = "DEAL COUNT BY HEIGHT_RISE_NUM_STORIES_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private  WebElement dealCountByHeightChart;
 
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE (BY DEAL COUNT)")
     private WebElement buildingTypeByDealCountButton;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_DEAL COUNT BY TYPE_30")
+    @iOSXCUITFindBy(accessibility = "DEAL COUNT BY TYPE_PROPERTYTYPES_PROPERTY_TYPE_CODE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement mktShareDealCountByTypeChart;
 
     @iOSXCUITFindBy(accessibility = "PRICE (BY DEAL COUNT)")
