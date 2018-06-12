@@ -20,8 +20,8 @@ public abstract class NewInstanceSafariDriver {
 
         safariDriver.navigate().to("https://staging.perchwell.com/accounts/password/edit?reset_password_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));
         AppProperties.INSTANCE.setProperty("new_reset_password",newPassword);
-        WebElement passwordTextBox = safariDriver.findElement(By.xpath("//*[@id='c44']"));
-        WebElement confirmPasswordTextBox = safariDriver.findElement(By.xpath("//*[@id='c45']"));
+        WebElement passwordTextBox = safariDriver.findElement(By.xpath("//*[@id='c45']"));
+        WebElement confirmPasswordTextBox = safariDriver.findElement(By.xpath("//*[@id='c46']"));
         WebElement resetPasswordButton = safariDriver.findElement(By.xpath("//*[@id='new_user']/div[3]/input"));
         passwordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("new_reset_password"));
         confirmPasswordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("new_reset_password"));
@@ -44,8 +44,8 @@ public abstract class NewInstanceSafariDriver {
         WebDriver safariDriver = new SafariDriver();
 
         safariDriver.navigate().to("https://staging.perchwell.com/accounts/password/edit?reset_password_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));
-        WebElement passwordTextBox = safariDriver.findElement(By.xpath("//*[@id='c44']"));
-        WebElement confirmPasswordTextBox = safariDriver.findElement(By.xpath("//*[@id='c45']"));
+        WebElement passwordTextBox = safariDriver.findElement(By.xpath("//*[@id='c45']"));
+        WebElement confirmPasswordTextBox = safariDriver.findElement(By.xpath("//*[@id='c46']"));
         WebElement resetPasswordButton = safariDriver.findElement(By.xpath("//*[@id='new_user']/div[3]/input"));
         passwordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("old_reset_password"));
         confirmPasswordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("old_reset_password"));
