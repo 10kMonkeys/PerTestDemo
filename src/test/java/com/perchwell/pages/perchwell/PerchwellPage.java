@@ -331,13 +331,10 @@ public class PerchwellPage extends BasePage {
 
 	public void isListingsQuantity() {
 		listningsAmmount = getNumberOfListings(listingsByButton);
-		System.out.println(listningsAmmount); /////
 	}
 
 	public boolean checkListingsQuantity() {
 		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
-		System.out.println(listningsAmmount); ////
-		System.out.println(listingsAmountToCheck); ///
 		return ((listingsAmountToCheck > (listningsAmmount - 50)) && ((listningsAmmount + 50) > listingsAmountToCheck));
 	}
 	
