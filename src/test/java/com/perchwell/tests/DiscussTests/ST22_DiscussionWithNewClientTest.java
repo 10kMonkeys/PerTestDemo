@@ -2,6 +2,7 @@ package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.data.ClientGroups;
+import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
@@ -17,15 +18,18 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 		user.atPerchPopup.clickNotNowButton();
 		user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
 		user.atOpenedBuildingPage.clickOnAddDiscusButton();
-		user.atClientPage.addNewClient(ClientGroups.ACTIVELYSEARCHING);
+		user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
 		user.atClientPage.invitationEmailSent();
 		user.atClientPage.clickOnClientSuccessfullyAddedOkButton();
+		user.atDiscussionPage.sendMessageWithPause(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
 		user.atDiscussionPage.clickOnBackButton();
 		user.atClientPage.clickOnBackButton();
 		user.atClientPage.closePage();
-		user.atOpenedBuildingPage.clickOnAddDiscusButton();
-		user.atClientPage.shouldSeeRecentlyCreatedClient();
-		user.atClientPage.clickOnDesiredClient();
-		user.atDiscussionPage.shouldSeeDicsussionWithNewClient();
+		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atPerchwellPage.openSpecificBuilding();
+		user.atOpenedBuildingPage.clickShareButton();
+		user.atOpenedBuildingPage.clickOnSendWithinPerchwell();
+		user.atOpenedBuildingPage.openDiscussionWithJustCreatedClient();
+		user.atDiscussionPage.shouldSeeMessageInDiscussion();
 	}
 }

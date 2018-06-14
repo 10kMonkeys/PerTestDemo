@@ -248,4 +248,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void closeAccountMenu() {
 		onPage.closeAccountMenu();
 	}
+
+	@Step
+    public void openSpecificBuilding() throws Exception {
+		onPage.openSpecificBuilding();
+    }
 }

@@ -23,7 +23,7 @@ public class ST34_SendGraphicReportToClientEmail extends SampleTest {
 		user.atAnalyticsPage.addButtonClick();
 		user.atAnalyticsPage.shareButtonClick();
 		user.atAnalyticsPage.clickClientEmailOption();
-		user.atAnalyticsPage.createReportWithNameAndSave(Reports.ANALYTICSCLIENTREPORT);
+		user.atAnalyticsPage.createReportWithNameAndSave(Reports.ANALYTICS_CLIENT_REPORT);
 		user.atAnalyticsPage.setClientAddress();
 		user.atAnalyticsPage.clickReportSentOkButton();
 		user.atAnalyticsPage.shouldFindSentEmail();

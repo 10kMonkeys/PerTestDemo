@@ -5,6 +5,7 @@ import com.perchwell.helpers.SessionVariables;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.clientdetails.ClientPage;
+import org.junit.Assert;
 
 public class ClientSteps extends ScenarioSteps {
 
@@ -54,7 +55,12 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void invitationEmailSent() {
-		onPage.checkInvitationEmailSent("User_email");
+		Boolean result = onPage.checkInvitationEmailSent("User_email");
+		if (!result) {
+			result = onPage.checkInvitationEmailSent("User_email");
+		}
+		Assert.assertTrue(result);
+
 	}
 
 	@Step

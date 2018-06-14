@@ -17,7 +17,7 @@ public class DT1_DeleteClientTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnClientsLabel();
-        user.atClientPage.addNewClient(ClientGroups.ACTIVELYSEARCHING);
+        user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
         user.atClientPage.swipeCreatedClientName();
         user.atClientPage.clickOnDeleteButton();
         user.atClientPage.shouldClientNotBePresented();

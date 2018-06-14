@@ -19,7 +19,8 @@ public class DiscussionPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "ChatViewBackButton")
 	private WebElement backButton;
 
-	@iOSXCUITFindBy(accessibility = "SEND")
+	@iOSXCUITFindBy(accessibility = "SendMessageButton")
+//	@iOSXCUITFindBy(accessibility = "SEND")
 	private WebElement sendButton;
 
 	@iOSXCUITFindBy(className= "XCUIElementTypeTextView")

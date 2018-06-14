@@ -20,11 +20,11 @@ public class MVTF1_ListingsSortingTest extends SampleTest {
         user.atMapPage.selectPinOnMap();
         user.atMapPage.clickOnSortingSectionButton();
         user.atMapPage.selectLeastExpensiveOption();
-        user.atMapPage.checkSortLabel(SortingTypes.LEASTEXPENSIVE);
+        user.atMapPage.checkSortLabel(SortingTypes.LEAST_EXPENSIVE);
         user.atMapPage.shouldListingBeSortedByLeastExpensive();
         user.atMapPage.clickOnSortingSectionButton();
         user.atMapPage.selectMostExpensiveOption();
-        user.atMapPage.checkSortLabel(SortingTypes.MOSTEXPENSIVE);
+        user.atMapPage.checkSortLabel(SortingTypes.MOST_EXPENSIVE);
         user.atMapPage.shouldListingBeSortedByMostExpensive();
         user.atMapPage.clickOnSortingSectionButton();
         user.atMapPage.selectBedroomsOption();

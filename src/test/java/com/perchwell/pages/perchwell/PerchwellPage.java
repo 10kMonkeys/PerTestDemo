@@ -5,6 +5,7 @@ import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
@@ -379,5 +380,13 @@ public class PerchwellPage extends BasePage {
 		TouchAction action = new TouchAction(appiumDriver);
 		Point magnifierLocation = element(magnifierIcon).getLocation();
 		action.tap(magnifierLocation.x, magnifierLocation.y).release().perform();
+	}
+
+	public void openSpecificBuilding() throws Exception {
+		WebElement specificAddress = getDriver().findElement(
+				MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_building_address")));
+
+		Helper.swipeDownUntilElementVisible(specificAddress);
+		element(specificAddress).click();
 	}
 }

@@ -17,7 +17,7 @@ public class ST5_AddClientTest extends SampleTest {
 		user.atPerchPopup.clickNotNowButton();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnClientsLabel();
-		user.atClientPage.addNewClient(ClientGroups.ACTIVELYSEARCHING);
+		user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
 		user.atClientPage.shouldSeeRecentlyCreatedClient();
 		user.atClientPage.invitationEmailSent();
 	}

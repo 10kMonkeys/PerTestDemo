@@ -20,20 +20,20 @@ public class ST14_ChangeExistingSearch extends SampleTest {
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.clickOnLoadSavedSearchButton();
 		user.atSearchPage.clickOnExistingSearchInList();
-		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTYBEFORESEARCHCHANGING);
+		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTY_BEFORE_SEARCH_CHANGING);
 		user.atPerchwellPage.clickOnMyNewSearch();
-		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST14MINPRICE);
+		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST14_MIN_PRICE);
 		user.atSearchPage.clickOnFilter1Bed();
 		user.atSearchPage.clickOnApplyButton();
-		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTYAFTERSEARCHCHANGING);
-		user.atPerchwellPage.resultsCountIsChanged(ElementsNumberTitles.QTYBEFORESEARCHCHANGING,
-				ElementsNumberTitles.QTYAFTERSEARCHCHANGING);
+		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTY_AFTER_SEARCH_CHANGING);
+		user.atPerchwellPage.resultsCountIsChanged(ElementsNumberTitles.QTY_BEFORE_SEARCH_CHANGING,
+				ElementsNumberTitles.QTY_AFTER_SEARCH_CHANGING);
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.clickOnTapToSaveChanges();
 		user.atSearchPage.overwriteOptionSelect();
-		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTYAFTEROVERWRITE);
-		user.atPerchwellPage.resultsCountIsEqual(ElementsNumberTitles.QTYAFTEROVERWRITE,
-				ElementsNumberTitles.QTYAFTERSEARCHCHANGING);
+		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTY_AFTER_OVERWRITE);
+		user.atPerchwellPage.resultsCountIsEqual(ElementsNumberTitles.QTY_AFTER_OVERWRITE,
+				ElementsNumberTitles.QTY_AFTER_SEARCH_CHANGING);
 		user.atPerchwellPage.shouldSeeTheSameSearchName();
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.shouldMinPriceHaveTheSameValue();

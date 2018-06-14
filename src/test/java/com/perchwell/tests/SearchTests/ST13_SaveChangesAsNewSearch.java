@@ -19,7 +19,7 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 		user.atSearchPage.clickOnLoadSavedSearchButton();
 		user.atSearchPage.clickOnExistingSearchInList();
 		user.atPerchwellPage.clickOnMyNewSearch();
-		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST13MINPRICE);
+		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST13_MIN_PRICE);
 		user.atSearchPage.clickOnFilterStudioBeds();
 		user.atSearchPage.clickOnTapToSaveChanges();
 		user.atSearchPage.saveAsOptionSelect();

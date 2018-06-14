@@ -104,5 +104,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void isBuildingOpen() {
 		onPage.isBuildingOpen();
 	}
+
+	@Step
+	public void openDiscussionWithJustCreatedClient() {
+		onPage.openDiscussionWithJustCreatedClient(SessionVariables.getValueFromSessionVariable("User_name"));
+	}
 }
 
