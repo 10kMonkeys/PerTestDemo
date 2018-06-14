@@ -1,5 +1,6 @@
 package com.perchwell.steps.complex;
 
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.steps.*;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;

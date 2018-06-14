@@ -23,7 +23,7 @@ public class ST33_SendGraphicReportsToMyEmail extends SampleTest{
 		user.atAnalyticsPage.addButtonClick();
 		user.atAnalyticsPage.shareButtonClick();
 		user.atAnalyticsPage.clickMyEmailOption();
-		user.atAnalyticsPage.createReportWithNameAndSave(Reports.ANALYTICSREPORT);
+		user.atAnalyticsPage.createReportWithNameAndSave(Reports.ANALYTICS_REPORT);
 		user.atAnalyticsPage.clickReportSentOkButton();
 		user.atAnalyticsPage.shouldFindSentEmail();
 	}

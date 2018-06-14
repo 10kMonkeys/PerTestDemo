@@ -17,14 +17,14 @@ public class DT2_AddDeletedClientAgainTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnClientsLabel();
-        user.atClientPage.addNewClient(ClientGroups.ACTIVELYSEARCHING);
+        user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
         user.atEmailPage.acceptClientInvitation();
         user.atClientPage.swipeCreatedClientName();
         user.atClientPage.clickOnDeleteButton();
         user.atClientPage.clickOnAddNewClientButton();
         user.atClientPage.setJustDeletedClientData();
         user.atClientPage.clickOnGroupLabel();
-        user.atClientPage.selectGroup(ClientGroups.ACTIVELYSEARCHING);
+        user.atClientPage.selectGroup(ClientGroups.ACTIVELY_SEARCHING);
         user.atClientPage.clickOnInviteButton();
         user.atClientPage.shouldSeeRecentlyCreatedClient();
         user.atEmailPage.shouldNotSecondInvitationSent();

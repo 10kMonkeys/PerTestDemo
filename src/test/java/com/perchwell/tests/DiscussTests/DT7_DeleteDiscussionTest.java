@@ -18,7 +18,7 @@ public class DT7_DeleteDiscussionTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnClientsLabel();
-        user.atClientPage.addNewClient(ClientGroups.ACTIVELYSEARCHING);
+        user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
         user.atClientPage.closePage();
         user.atPerchwellPage.closeAccountMenu();
         user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();

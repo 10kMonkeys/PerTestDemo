@@ -214,4 +214,9 @@ public class OpenedBuildingPage extends BasePage {
 		Assert.assertTrue(getBuildingAddress()
 				.equalsIgnoreCase(SessionVariables.getValueFromSessionVariable("buildingAddress")));
 	}
+
+	public void openDiscussionWithJustCreatedClient(String client) {
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther/XCUIElementTypeStaticText[$name == '"
+				+ client + "'$]")).click();
+	}
 }

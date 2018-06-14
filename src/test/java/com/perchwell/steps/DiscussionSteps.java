@@ -47,4 +47,11 @@ public class DiscussionSteps extends ScenarioSteps {
 	public void clickOnDiscussionsCancelButton() {
 		onPage.clickOndiscussionsCancelButton();
 	}
+
+	@Step
+	public void sendMessageWithPause(String text) {
+		this.typeMessage(text);
+		waitABit(20000);
+		this.clickOnSendButton();
+	}
 }

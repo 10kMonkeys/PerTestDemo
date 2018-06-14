@@ -24,7 +24,7 @@ public class ST8_ShareTagTest extends SampleTest {
 		user.atSelectResultPage.clickOnTagPDFExportButton();
 		user.atSelectResultPage.selectShareTaggedItems();
 		user.atShareTaggedItemsPage.selectClientEmail();
-		user.atShareTaggedItemsPage.fillInTitle(EmailData.EMAILTITLE);
+		user.atShareTaggedItemsPage.fillInTitle(EmailData.EMAIL_TITLE);
 		user.atShareTaggedItemsPage.fillInMessage();
 		user.atShareTaggedItemsPage.doneButtonClick();
 		user.atShareTaggedItemsPage.sendButtonClick();

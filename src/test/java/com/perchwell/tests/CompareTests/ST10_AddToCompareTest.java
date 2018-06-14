@@ -20,19 +20,19 @@ public class ST10_AddToCompareTest extends SampleTest {
 		user.atPerchPopup.clickNotNowButton();
 		user.atPerchwellPage.openFirstBuilding();
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
-		user.atOpenedBuildingPage.addToCompare(Buildings.FIRSTBUILDING);
+		user.atOpenedBuildingPage.addToCompare(Buildings.FIRST_BUILDING);
 		user.atOpenedBuildingPage.clickOnBackButton();
 		user.atPerchwellPage.openSecondBuilding();
-		user.atOpenedBuildingPage.addToCompare(Buildings.SECONDBUILDING);
+		user.atOpenedBuildingPage.addToCompare(Buildings.SECOND_BUILDING);
 		user.atOpenedBuildingPage.clickOnBackButton();
 		user.atPerchwellPage.openThirdBuilding();
-		user.atOpenedBuildingPage.addToCompare(Buildings.THIRDBUILDING);
+		user.atOpenedBuildingPage.addToCompare(Buildings.THIRD_BUILDING);
 		user.atOpenedBuildingPage.clickOnBackButton();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnCompareLabel();
 		user.atComparePage.clickOnSwipeUpToRemoveHint();
-		user.atComparePage.shouldSeeFirstBuildingInCompare(Buildings.FIRSTBUILDING);
-		user.atComparePage.shouldSeeSecondBuildingInCompare(Buildings.SECONDBUILDING);
-		user.atComparePage.thirdBuildingIsDisplayed(Buildings.THIRDBUILDING);
+		user.atComparePage.shouldSeeFirstBuildingInCompare(Buildings.FIRST_BUILDING);
+		user.atComparePage.shouldSeeSecondBuildingInCompare(Buildings.SECOND_BUILDING);
+		user.atComparePage.thirdBuildingIsDisplayed(Buildings.THIRD_BUILDING);
 	}
 }
