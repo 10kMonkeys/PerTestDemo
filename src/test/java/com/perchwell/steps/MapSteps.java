@@ -61,25 +61,25 @@ public class MapSteps extends ScenarioSteps {
 	@Step
 	public void selectLeastExpensiveOption() throws Exception {
 		onPage.clickOnLeastExpensiveSection();
-		swipeBuilding();
+//		this.swipeBuilding();
 	}
 
 	@Step
 	public void selectMostExpensiveOption() throws Exception {
 		onPage.clickOnMostExpensiveSection();
-		swipeBuilding();
+		this.swipeBuilding();
 	}
 
 	@Step
 	public void selectBedroomsOption() throws Exception {
 		onPage.clickOnBedroomsSection();
-		swipeBuilding();
+		this.swipeBuilding();
 	}
 
 	@Step
 	public void selectBathroomsOption() throws Exception {
 		onPage.clickOnBathroomsSection();
-		swipeBuilding();
+		this.swipeBuilding();
 	}
 
 	@Step
@@ -109,5 +109,11 @@ public class MapSteps extends ScenarioSteps {
 	@Step
 	public void checkSortLabel(String sortType) {
 		onPage.checkSortLabel(sortType);
+	}
+
+	@Step
+	public void checkListings() throws Exception {
+		onPage.checkListings();
+		this.swipeBuilding();
 	}
 }
