@@ -5,6 +5,7 @@ import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
@@ -127,7 +128,8 @@ public class MapPage extends BasePage {
 	}
 
 	public void clickOnSecondPin() {
-		clusterList.get(1).click();
+		clusterList.get(0).click();
+
 	}
 
 	public void clickOnSortingButton() {
@@ -174,4 +176,19 @@ public class MapPage extends BasePage {
         waitFor(sortingButton);
         element(sortingButton).shouldContainText(sortType);
     }
+
+	public void checkListings() {
+		Boolean correctPin = false;
+		List<WebElement> incorrectListings;
+
+		for (WebElement pin: clusterList) {
+			incorrectListings = getDriver().findElements(MobileBy.iOSNsPredicateString("name == 'NA'"));
+			if (incorrectListings.isEmpty()) {
+				correctPin = true;
+				break;
+			}
+			pin.click();
+		}
+		Assert.assertTrue(correctPin);
+	}
 }

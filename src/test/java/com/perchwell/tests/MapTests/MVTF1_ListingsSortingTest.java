@@ -6,13 +6,13 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"MapTests"})
+@WithTagValuesOf({"MapTests, MapView"})
 public class MVTF1_ListingsSortingTest extends SampleTest {
 
     @Test
     public void sortListingsOnMap() throws Exception {
-        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
-                AppProperties.INSTANCE.getProperty("client_password"));
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
+                AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMap();
@@ -20,6 +20,7 @@ public class MVTF1_ListingsSortingTest extends SampleTest {
         user.atMapPage.selectPinOnMap();
         user.atMapPage.clickOnSortingSectionButton();
         user.atMapPage.selectLeastExpensiveOption();
+        user.atMapPage.checkListings();
         user.atMapPage.checkSortLabel(SortingTypes.LEAST_EXPENSIVE);
         user.atMapPage.shouldListingBeSortedByLeastExpensive();
         user.atMapPage.clickOnSortingSectionButton();
