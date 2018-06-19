@@ -144,14 +144,16 @@ public class ClientPage extends BasePage {
 		element(MobileBy.AccessibilityId(name)).shouldBeVisible();
 	}
 
-	public boolean checkInvitationEmailSent(String email) {
-		Boolean invitationWasFound = false;
-
+	public void checkInvitationEmailSent(String email) {
 		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(SessionVariables.getValueFromSessionVariable(email));
-		if (mailTrapResponse.length > 0) {
-			invitationWasFound = true;
-		}
-		return invitationWasFound;
+		Assert.assertTrue(mailTrapResponse.length > 0);
+//		Boolean invitationWasFound = false;
+//
+//		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(SessionVariables.getValueFromSessionVariable(email));
+//		if (mailTrapResponse.length > 0) {
+//			invitationWasFound = true;
+//		}
+//		return invitationWasFound;
 	}
 
 	public String getFirstClientOrAgentName() {

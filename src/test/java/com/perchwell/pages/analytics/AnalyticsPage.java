@@ -21,9 +21,10 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class AnalyticsPage extends BasePage {
+
+    private int numberOfReportDetailEmails = 0;
 
     //region WebElements
 
@@ -165,6 +166,12 @@ public class AnalyticsPage extends BasePage {
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypePickerWheel[2]")
     private WebElement actualEndingYear;
+
+    @iOSXCUITFindBy(accessibility = "$12M+")
+    private WebElement chartTwelvePlusMillionButton;
+
+    @iOSXCUITFindBy(accessibility = "$12M+")
+    private WebElement legendTwelvePlusMillionButton;
 
     //endregion
 
@@ -326,26 +333,28 @@ public class AnalyticsPage extends BasePage {
 	}
 
 	public boolean shouldFindPDFSummaryEmail() {
-		//Waiting while report was sent
-		try {
-			Thread.sleep(30000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		//Get last emails with HEADER_ANALYTICS
-		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_ANALYTICS"));
-		Boolean reportWasFound = false;
 
-		//Don't check report name - the report may not be
-		//String report_name = AppProperties.INSTANCE.getProperty("PDF_analitics_report") + ".pdf";
+        try {
+            Thread.sleep(30000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //Get last emails with HEADER_REPORT_DETAILS_ANALYTICS
+        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_REPORT_DETAILS_ANALYTICS"));
+        Boolean reportWasFound = false;
 
-		for (MailTrapResponse my_responce : mailTrapResponse) {
-			if (my_responce.getTo_email().equalsIgnoreCase(AppProperties.INSTANCE.getProperty("email"))) {
-				reportWasFound = true;
-				break;
-			}
-		}
-		return reportWasFound;
+        //Get attachments
+        MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
+
+        //Find attachments with DETAILS_REPORT_NAME and compare the number of emails before and after email was sent
+        for (MailTrapAttachment my_attachment : mailTrapAttachment) {
+            if (my_attachment.getFilename().equalsIgnoreCase(AppProperties.INSTANCE.getProperty("DETAILS_REPORT_NAME"))
+                    && (mailTrapResponse.length == (numberOfReportDetailEmails + 1))) {
+                reportWasFound = true;
+                break;
+            }
+        }
+        return reportWasFound;
 	}
 
 	public void upTo12MillionButtonClick() {
@@ -516,5 +525,14 @@ public class AnalyticsPage extends BasePage {
 
     public void checkResetEndingYear() {
         Assert.assertEquals(String.valueOf(CurrentYear.getCurrentYear()), actualEndingYear.getAttribute("value"));
+    }
+
+    public void clickOnLegend12PlusMillionButton() {
+        element(legendTwelvePlusMillionButton).click();
+    }
+
+    public void getNumberOfReportDetailEmails() {
+        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_REPORT_DETAILS_ANALYTICS"));
+        numberOfReportDetailEmails = mailTrapResponse.length;
     }
 }

@@ -2,6 +2,7 @@ package com.perchwell.steps;
 
 import com.perchwell.pages.perchwell.MapPage;
 import com.perchwell.pages.perchwell.PerchwellPage;
+import com.perchwell.pages.perchwell.SearchPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -9,6 +10,7 @@ import org.junit.Assert;
 public class MapSteps extends ScenarioSteps {
 	MapPage onPage;
 	PerchwellPage perchwellPage;
+	SearchPage searchPage;
 
 	@Step
 	public void clickOnNotNowButton() {
@@ -45,7 +47,15 @@ public class MapSteps extends ScenarioSteps {
 
 	@Step
 	public void checkForChangesAfterApplyingTheFilter(){
-		onPage.shouldFiltersBeApplied();
+//		onPage.shouldFiltersBeApplied();
+		boolean result = onPage.checkForChangesAfterApplyingTheFilter();
+
+		if (!result) {
+			searchPage.clickOnUniversalNewSearchButton();
+			searchPage.clickOnApplyButton();
+			result = onPage.checkForChangesAfterApplyingTheFilter();
+		}
+		Assert.assertTrue(result);
 	}
 
 	@Step

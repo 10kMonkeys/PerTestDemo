@@ -425,4 +425,14 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.managementButtonClick();
 		onPage.mktShareButtonClick();
 	}
+
+	@Step
+	public void clickOnLegend12PlusMillionButton() {
+		onPage.clickOnLegend12PlusMillionButton();
+	}
+
+	@Step
+	public void getkNumberOfReportDetailEmails() {
+		onPage.getNumberOfReportDetailEmails();
+	}
 }

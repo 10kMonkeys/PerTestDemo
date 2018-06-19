@@ -16,7 +16,7 @@ public class ST12_NewSearch extends SampleTest {
 		user.atPerchPopup.clickNotNowButton();
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.selectFilter1Bed();
-		user.atSearchPage.setUpFilterFirepace();
+		user.atSearchPage.setUpFilterLaundryBLDG();
 		user.atSearchPage.clickOnApplyButton();
 		user.atPerchwellPage.clickOnMap();
 		user.atMapPage.clickOnNotNowButton();
@@ -51,13 +51,13 @@ public class ST12_NewSearch extends SampleTest {
 		user.atPerchwellPage.shouldFilter1Bed1AndHalfBathBeApplied();
 		user.atPerchwellPage.openFirstBuilding();
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
-		user.atOpenedBuildingPage.shouldFilterFireplaceApplied();
+		user.atOpenedBuildingPage.shouldFilterLaundryBLDG();
 		user.atOpenedBuildingPage.clickOnBackButton();
 		user.atPerchwellPage.openSecondBuilding();
-		user.atOpenedBuildingPage.shouldFilterFireplaceApplied();
+		user.atOpenedBuildingPage.shouldFilterLaundryBLDG();
 		user.atOpenedBuildingPage.clickOnBackButton();
 		user.atPerchwellPage.openThirdBuilding();
-		user.atOpenedBuildingPage.shouldFilterFireplaceApplied();
+		user.atOpenedBuildingPage.shouldFilterLaundryBLDG();
 		user.atOpenedBuildingPage.clickOnBackButton();
 		user.atPerchwellPage.clickOnMap();
 		user.atMapPage.checkForChangesAfterApplyingTheFilter();
@@ -69,7 +69,7 @@ public class ST12_NewSearch extends SampleTest {
 		user.atAcrisClosingPage.shouldSeeBuildingHeightChartWithSwipe();
 		user.atRebnyListingsPage.shouldSeeAskingPriceChartWithSwipe();
 		user.atAnalyticsPage.clickOnMagnifierIconWithPreviouslySavedSearch();
-		user.atSearchPage.shouldFireplaceFilterBeApplied();
+		user.atSearchPage.shouldLaundryBLDGFilterBeApplied();
 		user.atSearchPage.should1AndHalfBathFilterBeApplied();
 		user.atSearchPage.should1BedFilterBeApplied();
 	}

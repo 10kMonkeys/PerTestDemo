@@ -17,8 +17,12 @@ public class ST36_SendReportDetailsPDF extends SampleTest {
 		user.atPerchwellPage.clickOnAnalytics();
 		user.atRebnyListingsPage.addChartFromREBNYSection();
 		user.atAnalyticsPage.skipHints();
-		user.atRebnyListingsPage.addREBNYListingsAskingPriceChart();
-		user.atAnalyticsPage.upTo12MillionButtonClick();
+		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atSearchPage.selectFilterStudioBeds();
+		user.atSearchPage.clickOnApplyButton();
+		user.atRebnyListingsPage.rebnyMKTShareAskingPriceChartTitle();
+		user.atAnalyticsPage.clickOnLegend12PlusMillionButton();
+		user.atAnalyticsPage.getkNumberOfReportDetailEmails();
 		user.atAnalyticsPage.shareButtonClick();
 		user.atAnalyticsPage.clickSendButton();
 		user.atAnalyticsPage.shouldFindPDFSummaryEmail();

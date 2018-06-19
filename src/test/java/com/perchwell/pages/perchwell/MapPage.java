@@ -99,15 +99,14 @@ public class MapPage extends BasePage {
 		element(myNewSearch).click();
 	}
 
-	private boolean checkForChangesAfterApplyingTheFilter() {
+	public boolean checkForChangesAfterApplyingTheFilter() {
 		Boolean isCheckPassed = true;
 		int numberPins = clusterList.size() < 10 ? clusterList.size() : 10;
 
 		if (clusterList.size() > 0) {
-
 			for (int i = 0; i < numberPins; i++) {
 				WebElement cluster = clusterList.get(i);
-				cluster.click();
+//				cluster.click();
 
 				if (!Helper.isElementDisplayed(oneAndHalfBaths) || (!Helper.isElementDisplayed(oneBed))) {
 					isCheckPassed = false;
