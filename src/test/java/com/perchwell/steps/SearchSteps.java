@@ -335,4 +335,15 @@ public class SearchSteps extends ScenarioSteps {
     public void removeBrooklynFromFilter() {
     	onPage.removeBrooklynFromFilter();
 	}
+
+	@Step
+	public void setUpFilterLaundryBLDG() {
+		onPage.scrollToLaundryBLDG();
+		onPage.setUpFilterLaundryBLDG();
+	}
+
+	@Step
+	public void shouldLaundryBLDGFilterBeApplied() {
+		onPage.shouldLaundryBLDGFilterBeApplied();
+	}
 }

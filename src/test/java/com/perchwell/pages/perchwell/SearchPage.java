@@ -194,10 +194,23 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "deleteTagButtonBROOKLYN")
 	private WebElement brooklynRemoveIcon;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
+	private WebElement universalNewSearchButton;
+
+	@iOSXCUITFindBy(accessibility = "Laundry Bldg")
+	private WebElement laundryBLDGFilterButton;
+
+	@iOSXCUITFindBy(accessibility = "Laundry Bldg-SELECTED")
+	private WebElement selectedLaundryBLDGFilter;
+
 	//endregion
 
 	public SearchPage(WebDriver driver) {
 		super(driver);
+	}
+
+	public void clickOnUniversalNewSearchButton() {
+		element(universalNewSearchButton).click();
 	}
 
 	public void clickOnApplyButton() {
@@ -594,4 +607,17 @@ public class SearchPage extends BasePage {
     public void removeBrooklynFromFilter() {
 		element(brooklynRemoveIcon).click();
     }
+
+	public void setUpFilterLaundryBLDG() {
+		element(laundryBLDGFilterButton).click();
+
+	}
+
+	public void scrollToLaundryBLDG() {
+		Helper.scrollToElement(laundryBLDGFilterButton);
+	}
+
+	public void shouldLaundryBLDGFilterBeApplied() {
+		element(selectedLaundryBLDGFilter).shouldBePresent();
+	}
 }

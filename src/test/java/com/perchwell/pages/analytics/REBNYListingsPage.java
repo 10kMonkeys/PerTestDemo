@@ -681,4 +681,8 @@ public class REBNYListingsPage extends BasePage {
         }
         Assert.assertTrue(listingsAmountsAreDifferent);
     }
+
+    public void rebnyMKTShareAskingPriceChartTitle() {
+        element(mktShareAskingPriceChart).click();
+    }
 }

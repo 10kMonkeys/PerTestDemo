@@ -420,4 +420,9 @@ public class REBNYListingsSteps extends ScenarioSteps {
     public void checkLocationAskingPriceListingsLocationsAfterResetFilters() {
         rebnyListingsPage.checkLocationAskingPriceListingsLocationsAfterResetFilters();
     }
+
+    @Step
+    public void rebnyMKTShareAskingPriceChartTitle() {
+        rebnyListingsPage.rebnyMKTShareAskingPriceChartTitle();
+    }
 }

@@ -75,6 +75,9 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "VIEW ALL DISCUSSIONS FOR THIS LISTING")
     private WebElement viewAllDiscussionsButton;
 
+	@iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING")
+	private WebElement LaundryBLDGD;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -218,5 +221,10 @@ public class OpenedBuildingPage extends BasePage {
 	public void openDiscussionWithJustCreatedClient(String client) {
 		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther/XCUIElementTypeStaticText[$name == '"
 				+ client + "'$]")).click();
+	}
+
+	public void isLaundryBLDGDisplayed() {
+		Helper.scrollToElement(LaundryBLDGD);
+		element(LaundryBLDGD).shouldBeVisible();
 	}
 }

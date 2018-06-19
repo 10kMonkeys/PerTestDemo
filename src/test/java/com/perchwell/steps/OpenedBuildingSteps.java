@@ -109,5 +109,11 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void openDiscussionWithJustCreatedClient() {
 		onPage.openDiscussionWithJustCreatedClient(SessionVariables.getValueFromSessionVariable("User_name"));
 	}
+
+	@Step
+	public void shouldFilterLaundryBLDG() throws Exception {
+		onPage.clickFeaturesAmenities();
+		onPage.isLaundryBLDGDisplayed();
+	}
 }
 
