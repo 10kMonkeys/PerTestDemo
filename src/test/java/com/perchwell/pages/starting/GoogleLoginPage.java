@@ -60,7 +60,6 @@ public class GoogleLoginPage extends BasePage {
 	}
 
 	public void setEmail(String email) {
-		waitABit(15000);
 		emailTextBox.sendKeys(email);
     }
 

@@ -274,7 +274,7 @@ public class AnalyticsPage extends BasePage {
 	public Boolean shouldFindSentEmail(String report_name) {
 		//Waiting while report was sent
 		try {
-			Thread.sleep(30000);
+			Thread.sleep(10000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -333,6 +333,7 @@ public class AnalyticsPage extends BasePage {
 	}
 
 	public boolean shouldFindPDFSummaryEmail() {
+        Boolean reportWasFound = false;
 
         try {
             Thread.sleep(30000);
@@ -341,17 +342,19 @@ public class AnalyticsPage extends BasePage {
         }
         //Get last emails with HEADER_REPORT_DETAILS_ANALYTICS
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_REPORT_DETAILS_ANALYTICS"));
-        Boolean reportWasFound = false;
 
-        //Get attachments
-        MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
+        if(mailTrapResponse.length != 0) {
+            System.out.println("INSIDE");
+            //Get attachments
+            MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
 
-        //Find attachments with DETAILS_REPORT_NAME and compare the number of emails before and after email was sent
-        for (MailTrapAttachment my_attachment : mailTrapAttachment) {
-            if (my_attachment.getFilename().equalsIgnoreCase(AppProperties.INSTANCE.getProperty("DETAILS_REPORT_NAME"))
-                    && (mailTrapResponse.length == (numberOfReportDetailEmails + 1))) {
-                reportWasFound = true;
-                break;
+            //Find attachments with DETAILS_REPORT_NAME and compare the number of emails before and after email was sent
+            for (MailTrapAttachment my_attachment : mailTrapAttachment) {
+                if (my_attachment.getFilename().equalsIgnoreCase(AppProperties.INSTANCE.getProperty("DETAILS_REPORT_NAME"))
+                        && (mailTrapResponse.length == (numberOfReportDetailEmails + 1))) {
+                    reportWasFound = true;
+                    break;
+                }
             }
         }
         return reportWasFound;
