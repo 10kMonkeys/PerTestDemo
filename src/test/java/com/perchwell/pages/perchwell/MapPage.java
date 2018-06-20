@@ -106,7 +106,7 @@ public class MapPage extends BasePage {
 		if (clusterList.size() > 0) {
 			for (int i = 0; i < numberPins; i++) {
 				WebElement cluster = clusterList.get(i);
-//				cluster.click();
+				cluster.click();
 
 				if (!Helper.isElementDisplayed(oneAndHalfBaths) || (!Helper.isElementDisplayed(oneBed))) {
 					isCheckPassed = false;

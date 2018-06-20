@@ -42,6 +42,7 @@ public class LoginSteps extends ScenarioSteps {
             welcomePage.clickOnContinueButton();
         }
         googleLoginPage.selectWebView();
+        waitABit(10000);
         if (googleLoginPage.isElementDisplayed(googleLoginPage.getExistingAccount())) {
             googleLoginPage.clickExistingAccountDisplayed();
             googleLoginPage.selectNativeView();
