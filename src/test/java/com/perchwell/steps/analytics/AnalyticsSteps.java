@@ -432,7 +432,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void getkNumberOfReportDetailEmails() {
+	public void getNumberOfReportDetailEmails() {
 		onPage.getNumberOfReportDetailEmails();
 	}
 }

@@ -22,7 +22,7 @@ public class ST36_SendReportDetailsPDF extends SampleTest {
 		user.atSearchPage.clickOnApplyButton();
 		user.atRebnyListingsPage.rebnyMKTShareAskingPriceChartTitle();
 		user.atAnalyticsPage.clickOnLegend12PlusMillionButton();
-		user.atAnalyticsPage.getkNumberOfReportDetailEmails();
+		user.atAnalyticsPage.getNumberOfReportDetailEmails();
 		user.atAnalyticsPage.shareButtonClick();
 		user.atAnalyticsPage.clickSendButton();
 		user.atAnalyticsPage.shouldFindPDFSummaryEmail();
