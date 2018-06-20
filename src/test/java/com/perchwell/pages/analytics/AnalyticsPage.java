@@ -333,18 +333,18 @@ public class AnalyticsPage extends BasePage {
 	}
 
 	public boolean shouldFindPDFSummaryEmail() {
-        Boolean reportWasFound = false;
-
         try {
             Thread.sleep(30000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        Boolean reportWasFound = false;
+
         //Get last emails with HEADER_REPORT_DETAILS_ANALYTICS
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_REPORT_DETAILS_ANALYTICS"));
 
         if(mailTrapResponse.length != 0) {
-            System.out.println("INSIDE");
             //Get attachments
             MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
 
@@ -357,6 +357,7 @@ public class AnalyticsPage extends BasePage {
                 }
             }
         }
+        Assert.assertEquals(mailTrapResponse.length, numberOfReportDetailEmails + 1);
         return reportWasFound;
 	}
 

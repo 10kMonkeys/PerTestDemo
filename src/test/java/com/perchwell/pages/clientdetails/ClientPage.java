@@ -145,6 +145,12 @@ public class ClientPage extends BasePage {
 	}
 
 	public void checkInvitationEmailSent(String email) {
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(SessionVariables.getValueFromSessionVariable(email));
 		Assert.assertTrue(mailTrapResponse.length > 0);
 //		Boolean invitationWasFound = false;
