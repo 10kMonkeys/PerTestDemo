@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "SearchTests", "Third"})
+@WithTagValuesOf({"SmokeTestSuit", "SearchTests", "First"})
 public class ST12_NewSearch extends SampleTest {
 
 	@Test
