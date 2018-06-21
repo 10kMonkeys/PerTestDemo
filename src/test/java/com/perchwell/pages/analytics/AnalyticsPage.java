@@ -24,7 +24,7 @@ import java.util.List;
 
 public class AnalyticsPage extends BasePage {
 
-    private int numberOfReportDetailEmails = 0;
+    private int numberOfReportDetailEmails;
 
     //region WebElements
 
@@ -346,7 +346,12 @@ public class AnalyticsPage extends BasePage {
         //Get last emails with HEADER_REPORT_DETAILS_ANALYTICS
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_REPORT_DETAILS_ANALYTICS"));
 
+        System.out.println("Size" + mailTrapResponse.length);
+
         if(mailTrapResponse.length != 0) {
+
+            System.out.println("Inside"); ///
+
             //Get attachments
             MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
 
@@ -540,6 +545,7 @@ public class AnalyticsPage extends BasePage {
 
     public void getNumberOfReportDetailEmails() {
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_REPORT_DETAILS_ANALYTICS"));
+        System.out.println(mailTrapResponse.length); ///
         numberOfReportDetailEmails = mailTrapResponse.length;
     }
 }
