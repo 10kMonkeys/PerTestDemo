@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ST18_ApplyingFilterOnMapView extends SampleTest {
 
     @Test
-    public void applyingFilterOnMapViewTest() {
+    public void applyingFilterOnMapViewTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

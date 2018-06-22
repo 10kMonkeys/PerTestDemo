@@ -50,7 +50,10 @@ public class DiscussionSteps extends ScenarioSteps {
 
 	@Step
 	public void sendMessageWithPause(String text) {
+		waitABit(5000);
 		this.typeMessage(text);
+		waitABit(5000);
 		this.clickOnSendButton();
+		waitABit(5000);
 	}
 }

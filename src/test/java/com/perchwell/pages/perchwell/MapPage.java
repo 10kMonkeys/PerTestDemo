@@ -108,7 +108,7 @@ public class MapPage extends BasePage {
 			WebElement cluster = clusterListTwo.get(i);
 			cluster.click();
 
-			if (!Helper.isElementDisplayed(oneAndHalfBaths) || (!Helper.isElementDisplayed(oneBed))) {
+			if (/*!*/Helper.isElementDisplayed(oneAndHalfBaths) || (/*!*/Helper.isElementDisplayed(oneBed))) {
 				isCheckPassed = false;
 				break;
 			}
@@ -188,5 +188,12 @@ public class MapPage extends BasePage {
 			pin.click();
 		}
 		Assert.assertTrue(correctPin);
+	}
+
+
+	public void swipeMap() {
+		WebElement pin = getDriver().findElement(MobileBy.iOSNsPredicateString("name CONTAINS 'cluster'"));
+		int y = pin.getLocation().getY();
+		Helper.swipeRightElementABitWithSetY(y);
 	}
 }
