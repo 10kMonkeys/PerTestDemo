@@ -50,11 +50,11 @@ public class MapSteps extends ScenarioSteps {
 //		onPage.shouldFiltersBeApplied();
 		boolean result = onPage.checkForChangesAfterApplyingTheFilter();
 
-		if (!result) {
-			searchPage.clickOnUniversalNewSearchButton();
-			searchPage.clickOnApplyButton();
-			result = onPage.checkForChangesAfterApplyingTheFilter();
-		}
+//		if (!result) {
+//			searchPage.clickOnUniversalNewSearchButton();
+//			searchPage.clickOnApplyButton();
+//			result = onPage.checkForChangesAfterApplyingTheFilter();
+//		}
 		Assert.assertTrue(result);
 	}
 
