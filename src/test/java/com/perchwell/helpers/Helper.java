@@ -157,4 +157,12 @@ public abstract class Helper {
         }
         return newString;
     }
+
+    public static void swipeRightElementABitWithSetY(int y) {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        swipeVertical(appiumDriver, 0.9, 0.899, y, 1);
+    }
 }
