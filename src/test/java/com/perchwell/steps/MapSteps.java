@@ -47,14 +47,7 @@ public class MapSteps extends ScenarioSteps {
 
 	@Step
 	public void checkForChangesAfterApplyingTheFilter() throws Exception {
-//		onPage.shouldFiltersBeApplied();
-		boolean result = onPage.checkForChangesAfterApplyingTheFilter();
-
-		if (!result) {
-			onPage.swipeMap();
-			result = onPage.checkForChangesAfterApplyingTheFilter();
-		}
-		Assert.assertTrue(result);
+		onPage.shouldFiltersBeApplied();
 	}
 
 	@Step
