@@ -101,14 +101,13 @@ public class MapPage extends BasePage {
 
 	public boolean checkForChangesAfterApplyingTheFilter() {
 		Boolean isCheckPassed = true;
-		List<WebElement> clusterListTwo = getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'cluster'"));
-		int numberPins = clusterListTwo.size() < 10 ? clusterListTwo.size() : 10;
+		int numberPins = clusterList.size() < 10 ? clusterList.size() : 10;
 
 		for (int i = 0; i < numberPins; i++) {
-			WebElement cluster = clusterListTwo.get(i);
+			WebElement cluster = clusterList.get(i);
 			cluster.click();
 
-			if (/*!*/Helper.isElementDisplayed(oneAndHalfBaths) || (/*!*/Helper.isElementDisplayed(oneBed))) {
+			if (!Helper.isElementDisplayed(oneAndHalfBaths) || (!Helper.isElementDisplayed(oneBed))) {
 				isCheckPassed = false;
 				break;
 			}
