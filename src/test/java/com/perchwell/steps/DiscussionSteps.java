@@ -29,7 +29,6 @@ public class DiscussionSteps extends ScenarioSteps {
 
 	@Step("Send message '{0}'")
 	public void sendMessage(String text) {
-		waitABit(20000);
 		this.typeMessage(text);
 		this.clickOnSendButton();
 	}
