@@ -17,7 +17,7 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void doormanButtonClick(){
+    public void doormanButtonClick() throws Exception {
         rebnyListingsPage.doormanButtonClick();
     }
 
@@ -48,7 +48,7 @@ public class REBNYListingsSteps extends ScenarioSteps {
 
 
     @Step
-    public void addBuildingHeightChartWithMKTShare() {
+    public void addBuildingHeightChartWithMKTShare() throws Exception {
         analyticsPage.rebnyListingsButtonClick();
         analyticsPage.mktShareButtonClick();
         rebnyListingsPage.buildingHeightButtonClick();
@@ -89,60 +89,60 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addAskingPricePerBedChart(){
+    public void addAskingPricePerBedChart() throws Exception {
         rebnyListingsPage.askingPricePerBedButtonClick();
     }
 
     @Step
-    public void addAndVerifyMedianAskingPerFTChart(){
+    public void addAndVerifyMedianAskingPerFTChart() throws Exception {
         rebnyListingsPage.addAndVerifyMedianAskingPerFTChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyLocationAskingPerFTChart(){
+    public void addAndVerifyLocationAskingPerFTChart() throws Exception {
         rebnyListingsPage.addAndVerifyLocationAskingPerFTChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyDistributionAskingPricePerFTChart(){
+    public void addAndVerifyDistributionAskingPricePerFTChart() throws Exception {
         rebnyListingsPage.addAndVerifyDistributionAskingPricePerFTChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyLocationListingCountChart(){
+    public void addAndVerifyLocationListingCountChart() throws Exception {
         rebnyListingsPage.addAndVerifyLocationListingCountChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMedianMonthliesChart(){
+    public void addAndVerifyMedianMonthliesChart() throws Exception {
         rebnyListingsPage.addAndVerifyMedianMonthliesChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyLocationMonthliesChart(){
+    public void addAndVerifyLocationMonthliesChart() throws Exception {
         rebnyListingsPage.addAndVerifyLocationMonthliesChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyDistributionMonthliesChart(){
+    public void addAndVerifyDistributionMonthliesChart() throws Exception {
         rebnyListingsPage.addAndVerifyDistributionMonthliesChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMedianPropertyTaxesChart(){
+    public void addAndVerifyMedianPropertyTaxesChart() throws Exception {
         rebnyListingsPage.addAndVerifyMedianPropertyTaxesChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyLocationPropertyTaxesChart(){
+    public void addAndVerifyLocationPropertyTaxesChart() throws Exception {
         rebnyListingsPage.addAndVerifyLocationPropertyTaxesChart();
         this.isChartDisplayed();
     }
@@ -166,138 +166,138 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addAndVerifyMKTShareDoormanChart(){
+    public void addAndVerifyMKTShareDoormanChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTShareDoormanChart();
     }
 
     @Step
-    public void addAndVerifyMKTShareElevatorChart(){
+    public void addAndVerifyMKTShareElevatorChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTShareElevatorChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyFeaturesElevatorChart(){
+    public void addAndVerifyFeaturesElevatorChart() throws Exception {
         rebnyListingsPage.addAndVerifyFeaturesElevatorChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMKTShareFireplaceChart(){
+    public void addAndVerifyMKTShareFireplaceChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTShareFireplaceChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyFeaturesWorkingFireplacChart(){
+    public void addAndVerifyFeaturesWorkingFireplaceChart() throws Exception {
         rebnyListingsPage.addAndVerifyFeaturesWorkingFireplaceChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMKTShareGarageChart(){
+    public void addAndVerifyMKTShareGarageChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTShareGarageChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyFeaturesGarageChart(){
+    public void addAndVerifyFeaturesGarageChart() throws Exception {
         rebnyListingsPage.addAndVerifyFeaturesGarageChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMKTShareGymChart(){
+    public void addAndVerifyMKTShareGymChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTShareGymChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyFeaturesGymChart(){
+    public void addAndVerifyFeaturesGymChart() throws Exception {
         rebnyListingsPage.addAndVerifyFeaturesGymChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMKTShareLaundryBuildingChart(){
+    public void addAndVerifyMKTShareLaundryBuildingChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTShareLaundryBuildingChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyFeaturesLaundryBuildingChart(){
+    public void addAndVerifyFeaturesLaundryBuildingChart() throws Exception {
         rebnyListingsPage.addAndVerifyFeaturesLaundryBuildingChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMKTShareOutdoorSpaceChart(){
+    public void addAndVerifyMKTShareOutdoorSpaceChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTShareOutdoorSpaceChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyFeaturesOutdoorSpaceChart(){
+    public void addAndVerifyFeaturesOutdoorSpaceChart() throws Exception {
         rebnyListingsPage.addAndVerifyFeaturesOutdoorSpaceChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMKTSharePetsChart(){
+    public void addAndVerifyMKTSharePetsChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTSharePetsChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyFeaturesPetsChart(){
+    public void addAndVerifyFeaturesPetsChart() throws Exception {
         rebnyListingsPage.addAndVerifyFeaturesPetsChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMKTSharePoolChart(){
+    public void addAndVerifyMKTSharePoolChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTSharePoolChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyFeaturesPoolChart(){
+    public void addAndVerifyFeaturesPoolChart() throws Exception {
         rebnyListingsPage.addAndVerifyFeaturesPoolChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMKTSharePrewarChart(){
+    public void addAndVerifyMKTSharePrewarChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTSharePrewarChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyFeaturesPrewarChart(){
+    public void addAndVerifyFeaturesPrewarChart() throws Exception {
         rebnyListingsPage.addAndVerifyFeaturesPrewarChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMKTShareWasherDryerChart(){
+    public void addAndVerifyMKTShareWasherDryerChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTShareWasherDryerChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyFeaturesWasherDryerChart(){
+    public void addAndVerifyFeaturesWasherDryerChart() throws Exception {
         rebnyListingsPage.addAndVerifyFeaturesWasherDryerChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMKTShareBuildingTypeChart(){
+    public void addAndVerifyMKTShareBuildingTypeChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTShareBuildingTypeChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void dollarPerFTByPriceSegmentButtonClick(){
+    public void dollarPerFTByPriceSegmentButtonClick() throws Exception {
         rebnyListingsPage.dollarPerFTByPriceSegmentButtonClick();
     }
 
@@ -308,48 +308,48 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addAndVerifyDistributionAskingPriceByBedsChart(){
+    public void addAndVerifyDistributionAskingPriceByBedsChart() throws Exception {
         rebnyListingsPage.addAndVerifyDistributionAskingPriceByBedsChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyDistributionAskingPriceByPriceSegmentChart(){
+    public void addAndVerifyDistributionAskingPriceByPriceSegmentChart() throws Exception {
         rebnyListingsPage.addAndVerifyDistributionAskingPriceByPriceSegmentChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyDistributionAskingPriceByTypeChart(){
+    public void addAndVerifyDistributionAskingPriceByTypeChart() throws Exception {
         rebnyListingsPage.addAndVerifyDistributionAskingPriceByTypeChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyDistributionAskingPricePerBedChart(){
+    public void addAndVerifyDistributionAskingPricePerBedChart() throws Exception {
         rebnyListingsPage.addAndVerifyDistributionAskingPricePerBedChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyDistributionDOMByNumberBedsChart(){
+    public void addAndVerifyDistributionDOMByNumberBedsChart() throws Exception {
         rebnyListingsPage.addAndVerifyDistributionDOMByNumberBedsChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyDistributionDOMByPriceSegmentChart(){
+    public void addAndVerifyDistributionDOMByPriceSegmentChart() throws Exception {
         rebnyListingsPage.addAndVerifyDistributionDOMByPriceSegmentChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyDistributionSquareFeetChart(){
+    public void addAndVerifyDistributionSquareFeetChart() throws Exception {
         rebnyListingsPage.addAndVerifyDistributionSquareFeetChart();
     }
 
     @Step
-    public void shouldSeeBedroomCountChart() {
+    public void shouldSeeBedroomCountChart() throws Exception {
         rebnyListingsPage.shouldBedroomCountChartDisplayed();
         this.isChartWithApplyingFiltersDisplayed();
     }
@@ -361,7 +361,7 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addAndVerifyFeaturesNewDevelopmentChart(){
+    public void addAndVerifyFeaturesNewDevelopmentChart() throws Exception {
         rebnyListingsPage.addAndVerifyFeaturesNewDevelopmentChart();
         this.isChartDisplayed();
     }
@@ -379,13 +379,13 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addAndVerifyMKTShareDaysOnMarketChart(){
+    public void addAndVerifyMKTShareDaysOnMarketChart() throws Exception {
         rebnyListingsPage.addAndVerifyMKTShareDaysOnMarketChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyLocationDaysOnMarketChart(){
+    public void addAndVerifyLocationDaysOnMarketChart() throws Exception {
         rebnyListingsPage.addAndVerifyLocationDaysOnMarketChart();
         this.isChartDisplayed();
     }

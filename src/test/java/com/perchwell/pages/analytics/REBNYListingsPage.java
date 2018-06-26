@@ -35,19 +35,19 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT")
     private WebElement buildingHeightButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_BUILDING HEIGHT_13")
+    @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT_RISE_NUM_STORIES_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareBuildingHeightChart;
 
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE")
     private WebElement buildingTypeButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_BUILDING TYPE_14")
+    @iOSXCUITFindBy(accessibility = "BUILDING TYPE_PROPERTYTYPES_PROPERTY_TYPE_CODE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareBuildingTypeChart;
 
     @iOSXCUITFindBy(accessibility = "DAYS ON MARKET")
     private WebElement daysOnMarketButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_DAYS ON MARKET_171")
+    @iOSXCUITFindBy(accessibility = "DAYS ON MARKET_DAYSONMARKETPIE_DAYS_ON_MARKET_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareDaysOnMarketChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN DOM_173")
@@ -56,7 +56,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DOORMAN")
     private WebElement doormanButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_DOORMAN_15")
+    @iOSXCUITFindBy(accessibility = "DOORMAN_MUSTHAVE_BUILDING_DOORMAN_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareDoormanChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_DOORMAN PREMIUM_31")
@@ -65,7 +65,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "ELEVATOR")
     private WebElement elevatorButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_ELEVATOR_16")
+    @iOSXCUITFindBy(accessibility = "ELEVATOR_MUSTHAVE_BUILDING_ELEVATOR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareElevatorChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_ELEVATOR PREMIUM_32")
@@ -74,7 +74,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "WORKING FIREPLACE")
     private WebElement workingFireplaceButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_WORKING FIREPLACE_25")
+    @iOSXCUITFindBy(accessibility = "WORKING FIREPLACE_MUSTHAVE_HAS_FIREPLACE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareWorkingFireplaceChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_WORKING FIREPLACE PREMIUM_39")
@@ -83,7 +83,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "GARAGE")
     private WebElement garageButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_GARAGE_26")
+    @iOSXCUITFindBy(accessibility = "GARAGE_GARAGEMULTIPIE_GARAGE_TYPE_CODE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareGarageChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_GARAGE PREMIUM_40")
@@ -92,7 +92,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "GYM")
     private WebElement gymButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_GYM_17")
+    @iOSXCUITFindBy(accessibility = "GYM_MUSTHAVE_BUILDING_GYM_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareGymChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_GYM PREMIUM_33")
@@ -101,7 +101,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING")
     private WebElement laundryBuildingButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_LAUNDRY - BUILDING_23")
+    @iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING_MUSTHAVE_BUILDING_LAUNDRY_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareLaundryBuildingChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_LAUNDRY - BUILDING PREMIUM_37")
@@ -110,7 +110,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "OUTDOOR SPACE")
     private WebElement outdoorSpaceButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_OUTDOOR SPACE_27")
+    @iOSXCUITFindBy(accessibility = "OUTDOOR SPACE_MUSTHAVE_HAS_OUTDOOR_SPACE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareOutdoorSpaceChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_OUTDOOR SPACE PREMIUM_41")
@@ -119,7 +119,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "PETS")
     private WebElement petsButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_PETS_18")
+    @iOSXCUITFindBy(accessibility = "PETS_MUSTHAVE_BUILDING_PETS_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktSharePetsChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_PETS PREMIUM_34")
@@ -128,7 +128,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "POOL")
     private WebElement poolButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_POOL_19")
+    @iOSXCUITFindBy(accessibility = "POOL_MUSTHAVE_BUILDING_POOL_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktSharePoolChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_POOL PREMIUM_35")
@@ -137,7 +137,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "PREWAR")
     private WebElement prewarButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_PREWAR_20")
+    @iOSXCUITFindBy(accessibility = "PREWAR_MUSTHAVE_BUILDING_PREWAR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktSharePrewarChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_PREWAR PREMIUM_36")
@@ -146,7 +146,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "WASHER/DRYER")
     private WebElement washerDryerButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_WASHER/DRYER_24")
+    @iOSXCUITFindBy(accessibility = "WASHER/DRYER_MUSTHAVE_UNIT_LAUNDRY_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareWasherDryerChart;
 
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_W/D PREMIUM_38")
@@ -297,86 +297,99 @@ public class REBNYListingsPage extends BasePage {
         element(distributionAskingPriceChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTShareDaysOnMarketChart(){
+    public void addAndVerifyMKTShareDaysOnMarketChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(daysOnMarketButton);
         element(daysOnMarketButton).click();
         element(mktShareDaysOnMarketChart).shouldBeVisible();
     }
 
-    public void addAndVerifyLocationDaysOnMarketChart(){
+    public void addAndVerifyLocationDaysOnMarketChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(daysOnMarketButton);
         element(daysOnMarketButton).click();
         element(locationDaysOnMarketChart).shouldBeVisible();
     }
 
-    public void buildingHeightButtonClick(){
+    public void buildingHeightButtonClick() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(buildingHeightButton);
         element(buildingHeightButton).click();
     }
 
-    public void shouldSeeMKTShareBuildingHeightChart(){
+    public void shouldSeeMKTShareBuildingHeightChart() {
         element(mktShareBuildingHeightChart).shouldBeVisible();
     }
 
     public void addREBNYListingsAskingPriceChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(askingPriceButton);
+        Helper.swipeDownUntilElementVisibleForCharButtons(askingPriceButton);
         element(askingPriceButton).click();
     }
 
     public void shouldSeeAskingPriceChartWithSwipe() throws Exception {
-        Helper.swipeDownUntilElementVisible(mktShareAskingPriceChart);
+        Helper.swipeDownUntilElementVisibleForCharButtons(mktShareAskingPriceChart);
         //	Helper.scrollToElement(askingPriceButton);
         element(mktShareAskingPriceChart).shouldBeVisible();
     }
 
-    public boolean isAskingPriseChartDisplayed() {
-        Helper.scrollToElement(askingPriceButton);
+    public boolean isAskingPriseChartDisplayed() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(askingPriceButton);
         return element(askingPriceButton).isDisplayed();
     }
 
-    public void askingPricePerBedButtonClick(){
+    public void askingPricePerBedButtonClick() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(askingPricePerBedButton);
         element(askingPricePerBedButton).click();
 
     }
 
-    public void addAndVerifyMedianAskingPerFTChart(){
+    public void addAndVerifyMedianAskingPerFTChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(askingPricePerFTButton);
         element(askingPricePerFTButton).click();
         element(medianAskingPerFTChart).shouldBeVisible();
     }
 
-    public void addAndVerifyLocationAskingPerFTChart(){
+    public void addAndVerifyLocationAskingPerFTChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(askingPricePerFTButton);
         element(askingPricePerFTButton).click();
         element(locationAskingPerFTChart).shouldBeVisible();
     }
 
-    public void addAndVerifyDistributionAskingPricePerFTChart(){
+    public void addAndVerifyDistributionAskingPricePerFTChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(askingPricePerFTButton);
         element(askingPricePerFTButton).click();
         element(distributionAskingPricePerFTChart).shouldBeVisible();
     }
 
-    public void addAndVerifyLocationListingCountChart(){
+    public void addAndVerifyLocationListingCountChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(listingCountButton);
         element(listingCountButton).click();
         element(locationListingCountChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMedianMonthliesChart(){
+    public void addAndVerifyMedianMonthliesChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(monthliesButton);
         element(monthliesButton).click();
         element(medianMonthliesChart).shouldBeVisible();
     }
 
-    public void addAndVerifyLocationMonthliesChart(){
+    public void addAndVerifyLocationMonthliesChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(monthliesButton);
         element(monthliesButton).click();
         element(locationMonthliesChart).shouldBeVisible();
     }
 
-    public void addAndVerifyDistributionMonthliesChart(){
+    public void addAndVerifyDistributionMonthliesChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(monthliesButton);
         element(monthliesButton).click();
         element(distributionMonthliesChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMedianPropertyTaxesChart(){
+    public void addAndVerifyMedianPropertyTaxesChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(propertyTaxesButton);
         element(propertyTaxesButton).click();
         element(medianPropertyTaxesChart).shouldBeVisible();
     }
 
-    public void addAndVerifyLocationPropertyTaxesChart(){
+    public void addAndVerifyLocationPropertyTaxesChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(propertyTaxesButton);
         element(propertyTaxesButton).click();
         element(locationPropertyTaxesChart).shouldBeVisible();
     }
@@ -389,136 +402,149 @@ public class REBNYListingsPage extends BasePage {
         element(locationAskingPricePerBedChart).shouldBeVisible();
     }
 
-    public void shouldSeeBedroomsChart(){
+    public void shouldSeeBedroomsChart() {
         element(bedroomChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTShareDoormanChart(){
+    public void addAndVerifyMKTShareDoormanChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(doormanButton);
         element(doormanButton).click();
         element(mktShareDoormanChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTShareElevatorChart(){
+    public void addAndVerifyMKTShareElevatorChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(elevatorButton);
         element(elevatorButton).click();
         element(mktShareElevatorChart).shouldBeVisible();
     }
 
-    public void addAndVerifyFeaturesElevatorChart(){
+    public void addAndVerifyFeaturesElevatorChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(elevatorButton);
         element(elevatorButton).click();
         element(featuresElevatorChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTShareFireplaceChart(){
-        Helper.scrollToElement(workingFireplaceButton);
+    public void addAndVerifyMKTShareFireplaceChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(workingFireplaceButton);
         element(workingFireplaceButton).click();
         element(mktShareWorkingFireplaceChart).shouldBeVisible();
     }
 
-    public void addAndVerifyFeaturesWorkingFireplaceChart(){
-        Helper.scrollToElement(workingFireplaceButton);
+    public void addAndVerifyFeaturesWorkingFireplaceChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(workingFireplaceButton);
         element(workingFireplaceButton).click();
         element(featuresWorkingFireplaceChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTShareGarageChart(){
+    public void addAndVerifyMKTShareGarageChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(garageButton);
         element(garageButton).click();
         element(mktShareGarageChart).shouldBeVisible();
     }
 
-    public void addAndVerifyFeaturesGarageChart(){
+    public void addAndVerifyFeaturesGarageChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(garageButton);
         element(garageButton).click();
         element(featuresGarageChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTShareGymChart(){
+    public void addAndVerifyMKTShareGymChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(gymButton);
         element(gymButton).click();
         element(mktShareGymChart).shouldBeVisible();
     }
 
-    public void addAndVerifyFeaturesGymChart(){
+    public void addAndVerifyFeaturesGymChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(gymButton);
         element(gymButton).click();
         element(featuresGymChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTShareLaundryBuildingChart(){
+    public void addAndVerifyMKTShareLaundryBuildingChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(laundryBuildingButton);
         element(laundryBuildingButton).click();
         element(mktShareLaundryBuildingChart).shouldBeVisible();
     }
 
-    public void addAndVerifyFeaturesLaundryBuildingChart(){
+    public void addAndVerifyFeaturesLaundryBuildingChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(laundryBuildingButton);
         element(laundryBuildingButton).click();
         element(featuresLaundryBuildingChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTShareOutdoorSpaceChart(){
+    public void addAndVerifyMKTShareOutdoorSpaceChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(outdoorSpaceButton);
         element(outdoorSpaceButton).click();
         element(mktShareOutdoorSpaceChart).shouldBeVisible();
     }
 
-    public void addAndVerifyFeaturesOutdoorSpaceChart(){
+    public void addAndVerifyFeaturesOutdoorSpaceChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(outdoorSpaceButton);
         element(outdoorSpaceButton).click();
         element(featuresOutdoorSpaceChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTSharePetsChart(){
-        Helper.scrollToElement(petsButton);
+    public void addAndVerifyMKTSharePetsChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(petsButton);
         element(petsButton).click();
         element(mktSharePetsChart).shouldBeVisible();
     }
 
-    public void addAndVerifyFeaturesPetsChart(){
-        Helper.scrollToElement(petsButton);
+    public void addAndVerifyFeaturesPetsChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(petsButton);
         element(petsButton).click();
         element(featuresPetsChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTSharePoolChart(){
-        Helper.scrollToElement(poolButton);
+    public void addAndVerifyMKTSharePoolChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(poolButton);
         element(poolButton).click();
         element(mktSharePoolChart).shouldBeVisible();
     }
 
-    public void addAndVerifyFeaturesPoolChart(){
-        Helper.scrollToElement(poolButton);
+    public void addAndVerifyFeaturesPoolChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(poolButton);
         element(poolButton).click();
         element(featuresPoolChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTSharePrewarChart(){
-        Helper.scrollToElement(prewarButton);
+    public void addAndVerifyMKTSharePrewarChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(prewarButton);
         element(prewarButton).click();
         element(mktSharePrewarChart).shouldBeVisible();
     }
 
-    public void addAndVerifyFeaturesPrewarChart(){
-        Helper.scrollToElement(prewarButton);
+    public void addAndVerifyFeaturesPrewarChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(prewarButton);
         element(prewarButton).click();
         element(featuresPrewarChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTShareWasherDryerChart(){
-        Helper.scrollToElement(washerDryerButton);
+    public void addAndVerifyMKTShareWasherDryerChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(washerDryerButton);
         element(washerDryerButton).click();
         element(mktShareWasherDryerChart).shouldBeVisible();
     }
 
-    public void addAndVerifyFeaturesWasherDryerChart(){
-        Helper.scrollToElement(washerDryerButton);
+    public void addAndVerifyFeaturesWasherDryerChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(washerDryerButton);
         element(washerDryerButton).click();
         element(featuresWasherDryerChart).shouldBeVisible();
     }
 
-    public void addAndVerifyMKTShareBuildingTypeChart(){
+    public void addAndVerifyMKTShareBuildingTypeChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(buildingTypeButton);
         element(buildingTypeButton).click();
         element(mktShareBuildingTypeChart).shouldBeVisible();
     }
 
-    public void dollarPerFTByPriceSegmentButtonClick(){
+    public void dollarPerFTByPriceSegmentButtonClick() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(dollarPerFTByPriceSegmentButton);
         element(dollarPerFTByPriceSegmentButton).click();
     }
 
-    public void shouldBedroomCountChartDisplayed(){
-        Helper.scrollToElement(bedroomChart);
+    public void shouldBedroomCountChartDisplayed() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(bedroomChart);
         element(bedroomChart).shouldBeVisible();
     }
 
@@ -530,37 +556,44 @@ public class REBNYListingsPage extends BasePage {
         element(distributionDollarPerFTByPriceSegmentChart).shouldBeVisible();
     }
 
-    public void addAndVerifyDistributionAskingPriceByBedsChart(){
+    public void addAndVerifyDistributionAskingPriceByBedsChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(askingPriceByBedsButton);
         element(askingPriceByBedsButton).click();
         element(distributionAskingPriceByNumberBedsChart).shouldBeVisible();
     }
 
-    public void addAndVerifyDistributionAskingPriceByPriceSegmentChart(){
+    public void addAndVerifyDistributionAskingPriceByPriceSegmentChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(askingPriceByPriceSegmentButton);
         element(askingPriceByPriceSegmentButton).click();
         element(distributionAskingPriceByPriceSegmentChart).shouldBeVisible();
     }
 
-    public void addAndVerifyDistributionAskingPriceByTypeChart(){
+    public void addAndVerifyDistributionAskingPriceByTypeChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(askingPriceByTypeButton);
         element(askingPriceByTypeButton).click();
         element(distributionAskingPriceByTypeChart).shouldBeVisible();
     }
 
-    public void addAndVerifyDistributionAskingPricePerBedChart(){
+    public void addAndVerifyDistributionAskingPricePerBedChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(askingPricePerBedButton);
         element(askingPricePerBedButton).click();
         element(distributionAskingPricePerBedChart).shouldBeVisible();
     }
 
-    public void addAndVerifyDistributionDOMByNumberBedsChart(){
+    public void addAndVerifyDistributionDOMByNumberBedsChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(domByNumberBedsButton);
         element(domByNumberBedsButton).click();
         element(distributionDOMByNumberBedroomsChart).shouldBeVisible();
     }
 
-    public void addAndVerifyDistributionDOMByPriceSegmentChart(){
+    public void addAndVerifyDistributionDOMByPriceSegmentChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(domByPriceSegmentButton);
         element(domByPriceSegmentButton).click();
         element(distributionDOMByPriceSegmentButton).shouldBeVisible();
     }
 
-    public void addAndVerifyDistributionSquareFeetChart(){
+    public void addAndVerifyDistributionSquareFeetChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(squareFeetButton);
         element(squareFeetButton).click();
         element(distributionSquareFeetChart).shouldBeVisible();
     }
@@ -569,23 +602,25 @@ public class REBNYListingsPage extends BasePage {
         element(featuresDoormanChart).shouldBeVisible();
     }
 
-    public void doormanButtonClick(){
+    public void doormanButtonClick() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(doormanButton);
         element(doormanButton).click();
     }
 
-    public void addAndVerifyFeaturesNewDevelopmentChart(){
+    public void addAndVerifyFeaturesNewDevelopmentChart() throws Exception {
+        Helper.swipeDownUntilElementVisibleForCharButtons(newDevelopmentButton);
         element(newDevelopmentButton).click();
         element(featuresNewDevelopmentChart).shouldBeVisible();
     }
 
     public void addAndVerifyLocationAskingPriceChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(askingPriceButton);
+        Helper.swipeDownUntilElementVisibleForCharButtons(askingPriceButton);
         element(askingPriceButton).click();
         element(locationAskingPriceChart).shouldBeVisible();
     }
 
     public void addAndVerifyMedianAskingPriceChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(askingPriceButton);
+        Helper.swipeDownUntilElementVisibleForCharButtons(askingPriceButton);
         element(askingPriceButton).click();
         element(medianAskingPriceChart).shouldBeVisible();
     }

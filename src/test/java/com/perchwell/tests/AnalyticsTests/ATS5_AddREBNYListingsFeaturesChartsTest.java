@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ATS5_AddREBNYListingsFeaturesChartsTest extends SampleTest {
 
     @Test
-    public void addREBNYListingsFeaturesChartsTest(){
+    public void addREBNYListingsFeaturesChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -23,7 +23,7 @@ public class ATS5_AddREBNYListingsFeaturesChartsTest extends SampleTest {
         user.atAnalyticsPage.selectREBNYListingsWithFeatures();
         user.atRebnyListingsPage.addAndVerifyFeaturesElevatorChart();
         user.atAnalyticsPage.selectREBNYListingsWithFeatures();
-        user.atRebnyListingsPage.addAndVerifyFeaturesWorkingFireplacChart();
+        user.atRebnyListingsPage.addAndVerifyFeaturesWorkingFireplaceChart();
         user.atAnalyticsPage.selectREBNYListingsWithFeatures();
         user.atRebnyListingsPage.addAndVerifyFeaturesGarageChart();
         user.atAnalyticsPage.selectREBNYListingsWithFeatures();
