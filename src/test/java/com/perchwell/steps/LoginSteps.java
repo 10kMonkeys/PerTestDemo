@@ -47,17 +47,11 @@ public class LoginSteps extends ScenarioSteps {
             googleLoginPage.selectNativeView();
         }
         else {
-//            googleLoginPage.setEmail(AppProperties.INSTANCE.getProperty("client_email"));
-            this.setEmail(); // temp
+            googleLoginPage.setEmail(AppProperties.INSTANCE.getProperty("client_email"));
             googleLoginPage.clickLogin();
             googleLoginPage.setPassword(AppProperties.INSTANCE.getProperty("client_password"));
             googleLoginPage.clickNextButton();
             googleLoginPage.selectNativeView();
         }
-    }
-
-    @Step
-    private void setEmail() {
-        googleLoginPage.setEmail(AppProperties.INSTANCE.getProperty("client_email"));
     }
 }

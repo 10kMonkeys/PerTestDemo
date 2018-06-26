@@ -40,17 +40,18 @@ public class GoogleLoginPage extends BasePage {
 		super(driver);
 	}
 
-	public void selectWebView(){
+	public void selectWebView() {
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 		Set contextNames = appiumDriver.getContextHandles();
+		System.out.println(appiumDriver.getContextHandles()); //
 		if (contextNames.size() > 1) {
 			appiumDriver.context((String) contextNames.toArray()[1]);
 		}
 	}
 
-	public void selectNativeView(){
+	public void selectNativeView() {
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
@@ -60,7 +61,7 @@ public class GoogleLoginPage extends BasePage {
 	}
 
 	public void setEmail(String email) {
-		waitABit(15000);
+		waitABit(30000);
 		emailTextBox.sendKeys(email);
     }
 

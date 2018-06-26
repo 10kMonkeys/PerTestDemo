@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ATS1_AddREBNYListingsMKTShareChartsTest extends SampleTest {
 
     @Test
-    public void addREBNYListingsMKTShareChartsTest(){
+    public void addREBNYListingsMKTShareChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

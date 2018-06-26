@@ -165,4 +165,16 @@ public abstract class Helper {
 
         swipeVertical(appiumDriver, 0.9, 0.899, y, 1);
     }
+
+    public static void swipeDownUntilElementVisibleForCharButtons(WebElement element) throws Exception {
+        int counter = 0;
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        while (!isElementDisplayed(element) && counter < 6) {
+            swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+            counter += 1;
+        }
+    }
 }

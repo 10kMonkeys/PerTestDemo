@@ -9,6 +9,7 @@ import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -84,7 +85,8 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "GROUPS")
 	private WebElement groupsButton;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]")
+//	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
 	private WebElement searchFrozenArea;
 
 	public ClientPage(WebDriver driver) {
@@ -243,7 +245,8 @@ public class ClientPage extends BasePage {
 	}
 
 	public void isTestClientPresent() {
-		element(testClient).shouldBePresent();
+//		element(testClient).shouldBePresent();
+		element(testClient).isDisplayed();
 	}
 
 	public void clickOnTestClient() throws Exception {
