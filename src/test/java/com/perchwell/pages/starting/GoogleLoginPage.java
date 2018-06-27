@@ -45,7 +45,6 @@ public class GoogleLoginPage extends BasePage {
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 		Set contextNames = appiumDriver.getContextHandles();
-		System.out.println(appiumDriver.getContextHandles()); //
 		if (contextNames.size() > 1) {
 			appiumDriver.context((String) contextNames.toArray()[1]);
 		}

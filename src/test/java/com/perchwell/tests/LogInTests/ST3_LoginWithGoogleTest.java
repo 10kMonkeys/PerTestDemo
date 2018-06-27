@@ -4,7 +4,7 @@ import com.perchwell.SampleTest;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "LogInTests", "Debug"})
+@WithTagValuesOf({"SmokeTestSuit", "LogInTests", "First"})
 public class ST3_LoginWithGoogleTest extends SampleTest {
 
 	@Test
