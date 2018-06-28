@@ -12,7 +12,7 @@ public class WelcomePage extends BasePage {
 
 	//region WebElements
 
-    @AndroidFindBy(id="com.perchwell.perchwellapp:id/log_in")
+    @AndroidFindBy(id="com.perchwell.re:id/log_in")
     @iOSXCUITFindBy(accessibility = "LOG IN")
     private WebElement loginButton;
 

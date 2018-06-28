@@ -3,6 +3,7 @@ package com.perchwell.pages.starting;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
+import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -19,15 +20,15 @@ public class LoginPage extends BasePage {
 
     //region WebElements
 
-    @AndroidFindBy(id ="com.perchwell.perchwellapp:id/email" )
+    @AndroidFindBy(id ="com.perchwell.re:id/email" )
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField")
     private WebElement emailTextBox;
 
-    @AndroidFindBy(id ="com.perchwell.perchwellapp:id/password" )
+    @AndroidFindBy(id ="com.perchwell.re:id/password" )
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSecureTextField")
     private WebElement passwordField;
 
-    @AndroidFindBy(id ="com.perchwell.perchwellapp:id/log_in" )
+    @AndroidFindBy(id ="com.perchwell.re:id/log_in" )
     @iOSXCUITFindBy(accessibility = "LOG IN")
     private WebElement loginButton;
 
@@ -57,6 +58,7 @@ public class LoginPage extends BasePage {
     }
 
     public void clickOnLoginButton() {
+        Helper.hideKeyboard();
         element(loginButton).click();
     }
 
