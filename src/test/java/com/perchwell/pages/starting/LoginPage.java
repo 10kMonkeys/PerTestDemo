@@ -20,15 +20,15 @@ public class LoginPage extends BasePage {
 
     //region WebElements
 
-    @AndroidFindBy(id ="com.perchwell.re:id/email" )
+    @AndroidFindBy(id ="com.perchwell.re:id/email")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField")
     private WebElement emailTextBox;
 
-    @AndroidFindBy(id ="com.perchwell.re:id/password" )
+    @AndroidFindBy(id ="com.perchwell.re:id/password")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSecureTextField")
     private WebElement passwordField;
 
-    @AndroidFindBy(id ="com.perchwell.re:id/log_in" )
+    @AndroidFindBy(id ="com.perchwell.re:id/log_in")
     @iOSXCUITFindBy(accessibility = "LOG IN")
     private WebElement loginButton;
 
@@ -58,7 +58,6 @@ public class LoginPage extends BasePage {
     }
 
     public void clickOnLoginButton() {
-        Helper.hideKeyboard();
         element(loginButton).click();
     }
 
