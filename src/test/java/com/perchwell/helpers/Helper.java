@@ -1,8 +1,10 @@
 package com.perchwell.helpers;
 
+import com.opera.core.systems.mobile.MobileDevices;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.ios.IOSDriver;
 import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.util.SystemEnvironmentVariables;
 import net.thucydides.core.webdriver.WebDriverFacade;
@@ -183,6 +185,6 @@ public abstract class Helper {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        appiumDriver.hideKeyboard();
+        appiumDriver.navigate().back();
     }
 }
