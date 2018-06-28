@@ -177,4 +177,12 @@ public abstract class Helper {
             counter += 1;
         }
     }
+
+    public static void hideKeyboard() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        appiumDriver.hideKeyboard();
+    }
 }
