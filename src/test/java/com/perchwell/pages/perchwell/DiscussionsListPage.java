@@ -7,23 +7,16 @@ import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Iterator;
 import java.util.List;
 
 public class DiscussionsListPage extends BasePage {
-
-	public DiscussionsListPage(WebDriver driver) {
-		super(driver);
-	}
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[1]")
 	private WebElement firstItem;
@@ -51,6 +44,10 @@ public class DiscussionsListPage extends BasePage {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[`visible == 1`]")
 	private List<WebElement> clientsListOrDiscussionsList;
+
+	public DiscussionsListPage(WebDriver driver) {
+		super(driver);
+	}
 
 	private String getFistDiscussionClient() {
 		return element(firstDiscussionClient).getAttribute("name");
@@ -113,6 +110,7 @@ public class DiscussionsListPage extends BasePage {
 
 	public void shouldBeDiscussionDeletedFromDiscussionsList() {
 		String message = SessionVariables.getValueFromSessionVariable("message");
+
 		element(MobileBy.AccessibilityId(message)).shouldNotBePresent();
 	}
 

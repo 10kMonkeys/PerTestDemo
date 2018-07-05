@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ATS8_AddACRISClosingLocationChartsTest extends SampleTest {
 
     @Test
-    public void addACRISClosingLocationChartsTest() {
+    public void addACRISClosingLocationChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

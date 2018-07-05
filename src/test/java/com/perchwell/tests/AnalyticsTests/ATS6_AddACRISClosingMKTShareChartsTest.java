@@ -5,11 +5,11 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"AnalyticsTestSuit", "AnalyticsTests"})
+@WithTagValuesOf({"AnalyticsTestSuit", "FirstAdditionalAnalytics"})
 public class ATS6_AddACRISClosingMKTShareChartsTest extends SampleTest {
 
     @Test
-    public void addACRISClosingMKTShareChartsTest(){
+    public void addACRISClosingMKTShareChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

@@ -6,7 +6,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"MapTests, MapView"})
+@WithTagValuesOf({"MapTests", "FiltersSearchesMapView"})
 public class MVTF1_ListingsSortingTest extends SampleTest {
 
     @Test
