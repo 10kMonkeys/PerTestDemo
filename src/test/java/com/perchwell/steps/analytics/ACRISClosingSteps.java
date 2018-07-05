@@ -58,7 +58,7 @@ public class ACRISClosingSteps extends ScenarioSteps {
     }
 
     @Step
-    public void shouldSeeBuildingHeightChartWithSwipe() {
+    public void shouldSeeBuildingHeightChartWithSwipe() throws Exception {
         acrisClosingPage.shouldBuildingHeightChartDisplayedWithSwipe();
         this.isChartWithApplyingFiltersDisplayed();
     }
@@ -70,7 +70,7 @@ public class ACRISClosingSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addAndVerifyMKTSharePriceByDealCountChart(){
+    public void addAndVerifyMKTSharePriceByDealCountChart() throws Exception {
         acrisClosingPage.addAndVerifyMKTSharePriceByDealCountChart();
         this.isChartDisplayed();
     }
@@ -87,25 +87,25 @@ public class ACRISClosingSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addAndVerifyDistributionPricePercentilesChart(){
+    public void addAndVerifyDistributionPricePercentilesChart() throws Exception {
         acrisClosingPage.addAndVerifyDistributionPricePercentilesChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyDistributionPriceByPriceSegmentChart(){
+    public void addAndVerifyDistributionPriceByPriceSegmentChart() throws Exception {
         acrisClosingPage.addAndVerifyDistributionPriceByPriceSegmentChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyDistributionSquareFeetPercentilesChart(){
+    public void addAndVerifyDistributionSquareFeetPercentilesChart() throws Exception {
         acrisClosingPage.addAndVerifyDistributionSquareFeetPercentilesChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyDistributionPriceByTypeChart(){
+    public void addAndVerifyDistributionPriceByTypeChart() throws Exception {
         acrisClosingPage.addAndVerifyDistributionPriceByTypeChart();
         this.isChartDisplayed();
     }
@@ -122,19 +122,19 @@ public class ACRISClosingSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addAndVerifyLocationPriceChart() {
+    public void addAndVerifyLocationPriceChart() throws Exception {
         acrisClosingPage.addAndVerifyLocationPriceChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyMedianPricePerFT2Chart() {
+    public void addAndVerifyMedianPricePerFT2Chart() throws Exception {
         acrisClosingPage.addAndVerifyMedianPricePerFT2Chart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void addAndVerifyLocationPricePerFT2Chart() {
+    public void addAndVerifyLocationPricePerFT2Chart() throws Exception {
         acrisClosingPage.addAndVerifyLocationPricePerFT2Chart();
         this.isChartDisplayed();
     }

@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ATS9_AddACRISClosingMedianChartsTest extends SampleTest {
 
     @Test
-    public void addACRISClosingMedianChartsTest() {
+    public void addACRISClosingMedianChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

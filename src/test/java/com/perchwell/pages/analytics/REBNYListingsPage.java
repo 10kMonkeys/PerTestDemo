@@ -7,14 +7,8 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class REBNYListingsPage extends BasePage {
@@ -50,7 +44,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DAYS ON MARKET_DAYSONMARKETPIE_DAYS_ON_MARKET_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareDaysOnMarketChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN DOM_173")
+    @iOSXCUITFindBy(accessibility = "MEDIAN DOM_DAYSONMARKETBYNEIGHBORHOOD_DAYS_ON_MARKET_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationDaysOnMarketChart;
 
     @iOSXCUITFindBy(accessibility = "DOORMAN")
@@ -59,7 +53,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DOORMAN_MUSTHAVE_BUILDING_DOORMAN_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareDoormanChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_DOORMAN PREMIUM_31")
+    @iOSXCUITFindBy(accessibility = "DOORMAN PREMIUM_PREMIUM_BUILDING_DOORMAN_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresDoormanChart;
 
     @iOSXCUITFindBy(accessibility = "ELEVATOR")
@@ -68,7 +62,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "ELEVATOR_MUSTHAVE_BUILDING_ELEVATOR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareElevatorChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_ELEVATOR PREMIUM_32")
+    @iOSXCUITFindBy(accessibility = "ELEVATOR PREMIUM_PREMIUM_BUILDING_ELEVATOR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresElevatorChart;
 
     @iOSXCUITFindBy(accessibility = "WORKING FIREPLACE")
@@ -77,7 +71,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "WORKING FIREPLACE_MUSTHAVE_HAS_FIREPLACE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareWorkingFireplaceChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_WORKING FIREPLACE PREMIUM_39")
+    @iOSXCUITFindBy(accessibility = "WORKING FIREPLACE PREMIUM_PREMIUM_HAS_FIREPLACE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresWorkingFireplaceChart;
 
     @iOSXCUITFindBy(accessibility = "GARAGE")
@@ -86,7 +80,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "GARAGE_GARAGEMULTIPIE_GARAGE_TYPE_CODE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareGarageChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_GARAGE PREMIUM_40")
+    @iOSXCUITFindBy(accessibility = "GARAGE PREMIUM_GARAGEPREMIUM_GARAGE_TYPE_CODE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresGarageChart;
 
     @iOSXCUITFindBy(accessibility = "GYM")
@@ -95,7 +89,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "GYM_MUSTHAVE_BUILDING_GYM_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareGymChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_GYM PREMIUM_33")
+    @iOSXCUITFindBy(accessibility = "GYM PREMIUM_PREMIUM_BUILDING_GYM_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresGymChart;
 
     @iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING")
@@ -104,7 +98,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING_MUSTHAVE_BUILDING_LAUNDRY_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareLaundryBuildingChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_LAUNDRY - BUILDING PREMIUM_37")
+    @iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING PREMIUM_PREMIUM_BUILDING_LAUNDRY_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresLaundryBuildingChart;
 
     @iOSXCUITFindBy(accessibility = "OUTDOOR SPACE")
@@ -113,7 +107,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "OUTDOOR SPACE_MUSTHAVE_HAS_OUTDOOR_SPACE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareOutdoorSpaceChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_OUTDOOR SPACE PREMIUM_41")
+    @iOSXCUITFindBy(accessibility = "OUTDOOR SPACE PREMIUM_PREMIUM_HAS_OUTDOOR_SPACE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresOutdoorSpaceChart;
 
     @iOSXCUITFindBy(accessibility = "PETS")
@@ -122,7 +116,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "PETS_MUSTHAVE_BUILDING_PETS_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktSharePetsChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_PETS PREMIUM_34")
+    @iOSXCUITFindBy(accessibility = "PETS PREMIUM_PREMIUM_BUILDING_PETS_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresPetsChart;
 
     @iOSXCUITFindBy(accessibility = "POOL")
@@ -131,7 +125,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "POOL_MUSTHAVE_BUILDING_POOL_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktSharePoolChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_POOL PREMIUM_35")
+    @iOSXCUITFindBy(accessibility = "POOL PREMIUM_PREMIUM_BUILDING_POOL_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresPoolChart;
 
     @iOSXCUITFindBy(accessibility = "PREWAR")
@@ -140,7 +134,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "PREWAR_MUSTHAVE_BUILDING_PREWAR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktSharePrewarChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_PREWAR PREMIUM_36")
+    @iOSXCUITFindBy(accessibility = "PREWAR PREMIUM_PREMIUM_BUILDING_PREWAR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresPrewarChart;
 
     @iOSXCUITFindBy(accessibility = "WASHER/DRYER")
@@ -149,7 +143,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "WASHER/DRYER_MUSTHAVE_UNIT_LAUNDRY_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareWasherDryerChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_W/D PREMIUM_38")
+    @iOSXCUITFindBy(accessibility = "W/D PREMIUM_PREMIUM_UNIT_LAUNDRY_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresWasherDryerChart;
 
     @iOSXCUITFindBy(accessibility = "$/FT² BY PRICE SEGMENT")
@@ -167,7 +161,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "ASKING PRICE PER BED")
     private WebElement askingPricePerBedButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_ASKING PRICE PER BED_48")
+    @iOSXCUITFindBy(accessibility = "ASKING PRICE PER BED_PERCENTILES_LISTING_PRICE_PER_BR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPricePerBedChart;
 
     @iOSXCUITFindBy(accessibility = "ASKING PRICE PER FT²")
@@ -179,88 +173,88 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DOM BY PRICE SEGMENT")
     private WebElement domByPriceSegmentButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_DOM BY PRICE SEGMENT_174")
-    private WebElement distributionDOMByPriceSegmentButton;
+    @iOSXCUITFindBy(accessibility = "DOM BY PRICE SEGMENT_DAYSONMARKETBYPRICESEGMENT_DAYS_ON_MARKET_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    private WebElement distributionDOMByPriceSegmentChart;
 
     @iOSXCUITFindBy(accessibility = "SQUARE FEET")
     private WebElement squareFeetButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_SQUARE FEET_54")
+    @iOSXCUITFindBy(accessibility = "SQUARE FEET_PERCENTILES_ABOVE_AREA_SQUARE_FT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionSquareFeetChart;
 
     @iOSXCUITFindBy(accessibility = "MONTHLIES")
     private WebElement monthliesButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MONTHLIES_53")
+    @iOSXCUITFindBy(accessibility = "MONTHLIES_PERCENTILES_HOA_FEE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionMonthliesChart;
 
     @iOSXCUITFindBy(accessibility = "LISTING COUNT")
     private WebElement listingCountButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_LISTING COUNT_142")
+    @iOSXCUITFindBy(accessibility = "LISTING COUNT_COUNTS_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationListingCountChart;
 
     @iOSXCUITFindBy(accessibility = "PROPERTY TAXES")
     private WebElement propertyTaxesButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING $/BED_2")
+    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/BED_MEDIAN_LISTING_PRICE_PER_BR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianAskingPricePerBedChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING $/BED_65")
+    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/BED_BAR_LISTING_PRICE_PER_BR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationAskingPricePerBedChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING $/FT²_3")
+    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/SQFT_MEDIAN_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianAskingPerFTChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING $/FT²_64")
+    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/SQFT_BAR_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationAskingPerFTChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_ASKING PRICE $/FT²_49")
+    @iOSXCUITFindBy(accessibility = "ASKING PRICE $/SQFT_PERCENTILES_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPricePerFTChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN MONTHLIES_7")
+    @iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES_MEDIAN_HOA_FEE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianMonthliesChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN MONTHLIES_69")
+    @iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES_BAR_HOA_FEE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationMonthliesChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN PROPERTY TAXES_8")
+    @iOSXCUITFindBy(accessibility = "MEDIAN PROPERTY TAXES_MEDIAN_REAL_ESTATE_TAX_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianPropertyTaxesChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN PROPERTY TAXES_70")
+    @iOSXCUITFindBy(accessibility = "MEDIAN PROPERTY TAXES_BAR_REAL_ESTATE_TAX_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationPropertyTaxesChart;
 
     @iOSXCUITFindBy(accessibility = "BEDROOM COUNT_ROOMS_NUM_BEDROOMS_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement bedroomChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_$/FT² BY SEGMENT_154")
+    @iOSXCUITFindBy(accessibility = "$/SQFT BY SEGMENT_MEDIANPERPRICETRANCHE_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionDollarPerFTByPriceSegmentChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING PRICE BY SEGMENT_155")
+    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE BY SEGMENT_MEDIANPERPRICETRANCHE_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPriceByPriceSegmentChart;
 
     @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE_MEDIAN_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianAskingPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING PRICE_56")
+    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE_MEDIANPERPROPERTYCODE_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPriceByTypeChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_MEDIAN ASKING PRICE_55")
+    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE_MEDIANPERBR_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPriceByNumberBedsChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_DOM BY NUMBER BEDROOMS_172")
+    @iOSXCUITFindBy(accessibility = "DOM BY NUMBER BEDROOMS_DAYSONMARKETBEDROOM_DAYS_ON_MARKET_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionDOMByNumberBedroomsChart;
 
     @iOSXCUITFindBy(accessibility = "NEW DEVELOPMENT")
     private WebElement newDevelopmentButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_NEW DEVELOPMENT_182")
+    @iOSXCUITFindBy(accessibility = "NEW DEVELOPMENT_PREMIUM_NEW_DEVELOPMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresNewDevelopmentChart;
 
     @iOSXCUITFindBy(accessibility = "ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareAskingPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS_ASKING PRICE_47")
+    @iOSXCUITFindBy(accessibility = "ASKING PRICE_PERCENTILES_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPriceChart;
 
     @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE_BAR_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
@@ -589,7 +583,7 @@ public class REBNYListingsPage extends BasePage {
     public void addAndVerifyDistributionDOMByPriceSegmentChart() throws Exception {
         Helper.swipeDownUntilElementVisibleForCharButtons(domByPriceSegmentButton);
         element(domByPriceSegmentButton).click();
-        element(distributionDOMByPriceSegmentButton).shouldBeVisible();
+        element(distributionDOMByPriceSegmentChart).shouldBeVisible();
     }
 
     public void addAndVerifyDistributionSquareFeetChart() throws Exception {

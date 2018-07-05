@@ -1,5 +1,6 @@
 package com.perchwell.pages.starting;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
@@ -20,15 +21,15 @@ public class LoginPage extends BasePage {
 
     //region WebElements
 
-    @AndroidFindBy(id ="com.perchwell.re:id/email")
+    @AndroidFindBy(id ="com.perchwell.re.staging:id/email")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField")
     private WebElement emailTextBox;
 
-    @AndroidFindBy(id ="com.perchwell.re:id/password")
+    @AndroidFindBy(id ="com.perchwell.re.staging:id/password")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSecureTextField")
     private WebElement passwordField;
 
-    @AndroidFindBy(id ="com.perchwell.re:id/log_in")
+    @AndroidFindBy(id ="com.perchwell.re.staging:id/log_in")
     @iOSXCUITFindBy(accessibility = "LOG IN")
     private WebElement loginButton;
 
@@ -55,6 +56,7 @@ public class LoginPage extends BasePage {
 
     public void setEmail(String email) {
       element(emailTextBox).type(email);
+//      element(emailTextBox).sendKeys(email);
     }
 
     public void clickOnLoginButton() {
@@ -63,6 +65,7 @@ public class LoginPage extends BasePage {
 
     public void setPassword(String password) {
         element(passwordField).type(password);
+//        element(passwordField).sendKeys(password);
     }
 
     public void setRestEmail(String email){

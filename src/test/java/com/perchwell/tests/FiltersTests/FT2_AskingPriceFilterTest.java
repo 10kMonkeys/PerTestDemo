@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"FiltersTests", "Filters"})
+@WithTagValuesOf({"FiltersTests", "FiltersSearchesMapView"})
 public class FT2_AskingPriceFilterTest extends SampleTest {
 
     @Test

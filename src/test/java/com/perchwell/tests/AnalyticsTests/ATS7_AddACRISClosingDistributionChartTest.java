@@ -5,11 +5,11 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"AnalyticsTestSuit", "AnalyticsTests"})
+@WithTagValuesOf({"AnalyticsTestSuit", "FirstAdditionalAnalytics"})
 public class ATS7_AddACRISClosingDistributionChartTest extends SampleTest {
 
     @Test
-    public void addACRISClosingDistributionChartTest(){
+    public void addACRISClosingDistributionChartTest() throws Exception {
             user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                     AppProperties.INSTANCE.getProperty("password"));
             user.atPerchwellPage.skipAllHints();
@@ -25,8 +25,9 @@ public class ATS7_AddACRISClosingDistributionChartTest extends SampleTest {
             user.atAnalyticsPage.selectACRISClosingWithDistribution();
             user.atAcrisClosingPage.addAndVerifyDistributionPriceByPriceSegmentChart();
             user.atAnalyticsPage.selectACRISClosingWithDistribution();
-            user.atAcrisClosingPage.addAndVerifyDistributionSquareFeetPercentilesChart();
-            user.atAnalyticsPage.selectACRISClosingWithDistribution();
             user.atAcrisClosingPage.addAndVerifyDistributionPriceByTypeChart();
+            user.atAnalyticsPage.selectACRISClosingWithDistribution();
+            user.atAcrisClosingPage.addAndVerifyDistributionSquareFeetPercentilesChart();
+
     }
 }
