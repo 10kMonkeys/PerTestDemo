@@ -7,6 +7,7 @@ import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
@@ -45,6 +46,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement magnifierIcon;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/profile_image")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
 	private WebElement openAccountButton;
 

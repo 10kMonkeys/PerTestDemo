@@ -1,10 +1,8 @@
 package com.perchwell.pages.starting;
 
-import com.perchwell.crossPlatform.Config;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
-import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.AndroidFindBy;

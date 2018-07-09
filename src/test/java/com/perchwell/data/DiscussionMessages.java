@@ -12,4 +12,5 @@ public class DiscussionMessages {
     public static final String LETS_START_DISCUSSION = "Let's start discussion " + simpleDateFormat.format(new Date());
     public static final String I_D_LIKE_TO_DISCUSS_WITH_YOU = "I'd_like_to_discuss_with_you "
             + simpleDateFormat.format(new Date());
+    public static final String MESSAGE_FOR_REMOVING = "This_message_for_removing";
 }
