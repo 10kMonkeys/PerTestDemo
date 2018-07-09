@@ -78,7 +78,7 @@ public class ACRISClosingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DEAL COUNT")
     private WebElement dealCountButton;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_DEAL COUNT_141")
+    @iOSXCUITFindBy(accessibility = "DEAL COUNT_COUNTS_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement locationDealCountChart;
 
     @iOSXCUITFindBy(accessibility = "PRICE")
@@ -87,16 +87,16 @@ public class ACRISClosingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "PRICE PER FT²")
     private WebElement pricePerFT2ChartButton;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE PRICE_9")
+    @iOSXCUITFindBy(accessibility = "MEDIAN SALE PRICE_MEDIAN_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement medianPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE PRICE_71")
+    @iOSXCUITFindBy(accessibility = "MEDIAN SALE PRICE_BAR_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement locationPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE $/FT²_10")
+    @iOSXCUITFindBy(accessibility = "MEDIAN SALE $/SQFT_MEDIAN_SALE_PRICE_PER_SQFT_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement medianPricePerFT2Chart;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS_MEDIAN SALE $/FT²_72")
+    @iOSXCUITFindBy(accessibility = "MEDIAN SALE $/SQFT_BAR_SALE_PRICE_PER_SQFT_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement locationPricePerFT2Chart;
 
     @iOSXCUITFindBy(accessibility = "DEAL COUNT (ANNUAL)")
@@ -271,7 +271,7 @@ public class ACRISClosingPage extends BasePage {
     public void addAndVerifyLocationPriceChart() throws Exception {
         Helper.swipeDownUntilElementVisibleForCharButtons(priceChartButton);
         element(priceChartButton).click();
-        element(medianPriceChart).shouldBeVisible();
+        element(locationPriceChart).shouldBeVisible();
     }
 
     public void addAndVerifyMedianPricePerFT2Chart() throws Exception {

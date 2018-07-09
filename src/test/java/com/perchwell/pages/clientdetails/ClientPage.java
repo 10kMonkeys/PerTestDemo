@@ -1,5 +1,6 @@
 package com.perchwell.pages.clientdetails;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
@@ -7,6 +8,7 @@ import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.Point;
@@ -19,6 +21,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class ClientPage extends BasePage {
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/discuss_button")
 	@iOSXCUITFindBy(accessibility = "ADD NEW CLIENT")
 	private WebElement addNewClientButton;
 
@@ -28,18 +31,21 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "INVITE MY CLIENTS")
 	private WebElement inviteNewClientButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/name_edit_text")
 	@iOSXCUITFindBy(accessibility = "client_name_text_field")
 	private WebElement clientNameTextBox;
 
 	@iOSXCUITFindBy(accessibility = "ClientMessageTextField")
 	private WebElement addMessageField;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/email_edit_text")
 	@iOSXCUITFindBy(accessibility = "client_email_text_field")
 	private WebElement clientEmailTextBox;
 
 	@iOSXCUITFindBy(accessibility = "agent_email_text_field")
 	private WebElement agentEmailTextBox;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/client_group")
 	@iOSXCUITFindBy(accessibility = "client_group_button")
 	private WebElement groupLabel;
 
@@ -130,7 +136,11 @@ public class ClientPage extends BasePage {
 	}
 
 	public void selectGroup(String groupName) {
-		getDriver().findElement(MobileBy.AccessibilityId(groupName)).click();
+		if (Config.isAndroid()) {
+			getDriver().findElement(MobileBy.xpath("//*[@text='" + groupName + "]")).click();
+		} else {
+			getDriver().findElement(MobileBy.AccessibilityId(groupName)).click();
+		}
 	}
 
 	private void swipeDownUntilElementVisible(String name) throws Exception {
