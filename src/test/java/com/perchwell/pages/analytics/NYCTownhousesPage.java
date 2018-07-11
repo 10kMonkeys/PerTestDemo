@@ -45,19 +45,19 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"SQUARE FEET\"")
     private WebElement rebnyTownhouseListingsSquareFeetButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_SQUARE FEET_106")
+    @iOSXCUITFindBy(accessibility = "SQUARE FEET_SQFTTRANCHES_ABOVE_AREA_SQUARE_FT_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareREBNYTownhouseListingsSquareFeetChart;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"WIDTH\"")
     private WebElement rebnyTownhouseListingsWidthButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_WIDTH_85")
+    @iOSXCUITFindBy(accessibility = "WIDTH_WIDTHTRANCHES_WIDTH_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareREBNYTownhouseListingsWidthChart;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"YEAR LAST ALTERED\"")
     private WebElement rebnyTownhouseListingsYearLastAlteredButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_YEAR LAST ALTERED_130")
+    @iOSXCUITFindBy(accessibility = "YEAR LAST ALTERED_YEARALTEREDTRANCHES_YEAR_LAST_ALTERED_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareREBNYTownhouseListingsYearLastAlteredChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HAS GARDEN\"`][2]")

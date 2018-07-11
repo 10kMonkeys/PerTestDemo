@@ -1,24 +1,30 @@
 package com.perchwell.pages.account;
 
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class AccountPage extends BasePage {
 
+    @AndroidFindBy(xpath = "//*[@text='CLIENTS']")
     @iOSXCUITFindBy(accessibility = "CLIENTS")
     private WebElement clientLabel;
 
+    @AndroidFindBy(xpath = "//*[@text='TAGS']")
     @iOSXCUITFindBy(accessibility = "TAGS")
     private WebElement tagsLabel;
 
+    @AndroidFindBy(xpath = "//*[@text='DISCUSSIONS']")
     @iOSXCUITFindBy(accessibility = "DISCUSSIONS")
     private WebElement discussionsLabel;
 
+    @AndroidFindBy(xpath = "//*[@text='COMPARE']")
     @iOSXCUITFindBy(accessibility = "COMPARE")
     private WebElement compareLabel;
 
+    @AndroidFindBy(xpath = "//*[@text='AGENTS']")
     @iOSXCUITFindBy(accessibility = "AGENTS")
     private WebElement agentsLabel;
 
