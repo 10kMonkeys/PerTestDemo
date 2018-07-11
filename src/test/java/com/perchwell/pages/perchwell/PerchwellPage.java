@@ -25,7 +25,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class PerchwellPage extends BasePage {
 
-	private int listningsAmmount;
+	private int listningsAmount;
 
 	public static Integer numberOfItemsInListView;
 
@@ -333,12 +333,12 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void isListingsQuantity() {
-		listningsAmmount = getNumberOfListings(listingsByButton);
+		listningsAmount = getNumberOfListings(listingsByButton);
 	}
 
 	public boolean checkListingsQuantity() {
 		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
-		return ((listingsAmountToCheck > (listningsAmmount - 50)) && ((listningsAmmount + 50) > listingsAmountToCheck));
+		return ((listingsAmountToCheck > (listningsAmount - 50)) && ((listningsAmount + 50) > listingsAmountToCheck));
 	}
 	
 	private int getNumberOfListings(WebElement listingsByButton) {

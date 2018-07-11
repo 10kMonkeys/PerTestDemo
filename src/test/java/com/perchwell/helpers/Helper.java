@@ -1,21 +1,17 @@
 package com.perchwell.helpers;
 
-import com.opera.core.systems.mobile.MobileDevices;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.ios.IOSDriver;
 import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.util.SystemEnvironmentVariables;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
-import org.yecht.Data;
 
 import java.time.Duration;
 import java.util.HashMap;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public abstract class Helper {
@@ -25,8 +21,7 @@ public abstract class Helper {
         int anchor = (int) (size.width * anchorPercentage);
         int startPoint = (int) (size.height * startPercentage);
         int endPoint = (int) (size.height * finalPercentage * (-1));
-        new TouchAction(driver).press(anchor, startPoint).waitAction(Duration.ofMillis(duration)).moveTo(10, endPoint).release().perform();
-
+        new TouchAction(driver).longPress(anchor, startPoint).waitAction(Duration.ofMillis(duration)).moveTo(10, endPoint).release().perform();
     }
 
     public static void swipeHorizontal(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage, int duration) throws Exception {
@@ -43,6 +38,14 @@ public abstract class Helper {
         int startPoint = (int) (size.width * startPercentage);
         int endPoint = (int) (size.width * finalPercentage * (-1));
         new TouchAction(driver).press(startPoint, y).waitAction(Duration.ofSeconds(duration)).moveTo(endPoint, 0).release().perform();
+    }
+
+    public static void swipeVerticalAndroid(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage, int duration) {
+        Dimension size = driver.manage().window().getSize();
+        int anchor = (int) (size.width * anchorPercentage);
+        int startPoint = (int) (size.height * startPercentage);
+        int endPoint = (int) (size.height * finalPercentage * (-1));
+        new TouchAction(driver).longPress(anchor, startPoint).waitAction(Duration.ofMillis(duration)).moveTo(10, endPoint).release().perform();
     }
 
     @Deprecated
@@ -180,11 +183,21 @@ public abstract class Helper {
         }
     }
 
-    public static void hideKeyboard() {
+
+    public static void androidSwipeDownUntilElementVisible(String elementName) {
+
+        By byElement = MobileBy.xpath("//*[contains(@text, '" + elementName + "')]");
+        boolean isFoundTheElement = getDriver().findElements(byElement).size() > 0;
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+        while (!isFoundTheElement) {
 
-        appiumDriver.navigate().back();
+            swipeVerticalAndroid(appiumDriver, 0.7, -0.5, 0.5, 1);
+
+            isFoundTheElement = getDriver().findElements(byElement).size() > 0;
+
+        }
     }
 }

@@ -61,6 +61,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "contactsViewCloseButton")
 	private WebElement closeButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/invite_button")
 	@iOSXCUITFindBy(accessibility = "INVITE")
 	private WebElement inviteButton;
 
@@ -137,23 +138,34 @@ public class ClientPage extends BasePage {
 
 	public void selectGroup(String groupName) {
 		if (Config.isAndroid()) {
-			getDriver().findElement(MobileBy.xpath("//*[@text='" + groupName + "]")).click();
+			getDriver().findElement(MobileBy.xpath("//*[@text='" + groupName + "']")).click();
 		} else {
 			getDriver().findElement(MobileBy.AccessibilityId(groupName)).click();
 		}
 	}
 
-	private void swipeDownUntilElementVisible(String name) throws Exception {
-		if (getDriver().findElements(MobileBy.AccessibilityId(name)).size() > 0) {
-			setImplicitTimeout(1, SECONDS);
-			Helper.swipeDownUntilElementVisible(name);
-			resetImplicitTimeout();
-		}
+	private void swipeDownUntilElementVisible(String name) {
+		if (Config.isAndroid()) {
+			if (getDriver().findElements(MobileBy.xpath("//*[contains(@text, '" + name + "')]")).size() == 0) {
+				setImplicitTimeout(1, SECONDS);
+				Helper.androidSwipeDownUntilElementVisible(name);
+				resetImplicitTimeout();
+			}
+		} /*else if (getDriver().findElements(MobileBy.AccessibilityId(name)).size() > 0) {
+				setImplicitTimeout(1, SECONDS);
+				Helper.swipeDownUntilElementVisible(name);
+				resetImplicitTimeout();
+		}*/
 	}
 
 	public void isClientOrAgentDisplayed(String name) throws Exception {
-		swipeDownUntilElementVisible(name);
-		element(MobileBy.AccessibilityId(name)).shouldBeVisible();
+		this.swipeDownUntilElementVisible(name);
+
+		if (Config.isAndroid()) {
+			element(MobileBy.xpath("//*[contains(@text, '" + name + "')]")).shouldBeVisible();
+		} else {
+			element(MobileBy.AccessibilityId(name)).shouldBeVisible();
+		}
 	}
 
 	public void checkInvitationEmailSent(String email) {
