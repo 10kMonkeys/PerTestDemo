@@ -214,7 +214,7 @@ public class ACRISClosingPage extends BasePage {
     }
 
     public void shouldBuildingHeightChartDisplayedWithSwipe() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(dealCountByHeightChart);
+        this.swipeUntilButtonShown(dealCountByHeightChart);
         element(dealCountByHeightChart).shouldBeVisible();
     }
 
@@ -223,7 +223,7 @@ public class ACRISClosingPage extends BasePage {
     }
 
     public void addAndVerifyMKTSharePriceByDealCountChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(priceByDealCountButton);
+        this.swipeUntilButtonShown(priceByDealCountButton);
         element(priceByDealCountButton).click();
         element(mktSharePriceByDealCountChart).shouldBeVisible();
     }
@@ -237,25 +237,25 @@ public class ACRISClosingPage extends BasePage {
     }
 
     public void addAndVerifyDistributionPricePercentilesChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(pricePercentilesButton);
+        this.swipeUntilButtonShown(pricePercentilesButton);
         element(pricePercentilesButton).click();
         element(distributionPricePercentilesChart).shouldBeVisible();
     }
 
     public void addAndVerifyDistributionPriceByPriceSegmentChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(priceByPriceSegmentButton);
+        this.swipeUntilButtonShown(priceByPriceSegmentButton);
         element(priceByPriceSegmentButton).click();
         element(distributionPriceByPriceSegmentChart).shouldBeVisible();
     }
 
     public void addAndVerifyDistributionSquareFeetPercentilesChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(squareFeetPercentilesButton);
+        this.swipeUntilButtonShown(squareFeetPercentilesButton);
         element(squareFeetPercentilesButton).click();
         element(distributionSquareFeetPercentilesChart).shouldBeVisible();
     }
 
     public void addAndVerifyDistributionPriceByTypeChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(priceByTypeButton);
+        this.swipeUntilButtonShown(priceByTypeButton);
         element(priceByTypeButton).click();
         element(distributionPriceByTypeChart).shouldBeVisible();
     }
@@ -269,19 +269,19 @@ public class ACRISClosingPage extends BasePage {
     }
 
     public void addAndVerifyLocationPriceChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(priceChartButton);
+        this.swipeUntilButtonShown(priceChartButton);
         element(priceChartButton).click();
         element(locationPriceChart).shouldBeVisible();
     }
 
     public void addAndVerifyMedianPricePerFT2Chart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(pricePerFT2ChartButton);
+        this.swipeUntilButtonShown(pricePerFT2ChartButton);
         element(pricePerFT2ChartButton).click();
         element(medianPricePerFT2Chart).shouldBeVisible();
     }
 
     public void addAndVerifyLocationPricePerFT2Chart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(pricePerFT2ChartButton);
+        this.swipeUntilButtonShown(pricePerFT2ChartButton);
         element(pricePerFT2ChartButton).click();
         element(locationPricePerFT2Chart).shouldBeVisible();
     }
@@ -295,7 +295,7 @@ public class ACRISClosingPage extends BasePage {
     }
 
     public void addDealCountAnnualChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(dealCountAnnualButton);
+        this.swipeUntilButtonShown(dealCountAnnualButton);
         element(dealCountAnnualButton).click();
 
     }
@@ -305,91 +305,91 @@ public class ACRISClosingPage extends BasePage {
     }
 
     public void addAndVerifyDealCountQuarterlyChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(dealCountQuarterlyButton);
+        this.swipeUntilButtonShown(dealCountQuarterlyButton);
         element(dealCountQuarterlyButton).click();
         element(dealCountQuarterlyChart).shouldBeVisible();
     }
 
     public void addAndVerifyDealVolumeAnnualChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(dealVolumeAnnualButton);
+        this.swipeUntilButtonShown(dealVolumeAnnualButton);
         element(dealVolumeAnnualButton).click();
         element(dealVolumeAnnualChart).shouldBeVisible();
     }
 
     public void addAndVerifyDealVolumeQuarterlyChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(dealVolumeQuarterlyButton);
+        this.swipeUntilButtonShown(dealVolumeQuarterlyButton);
         element(dealVolumeQuarterlyButton).click();
         element(dealVolumeQuarterlyChart).shouldBeVisible();
     }
 
     public void addAndVerifyPriceAnnualChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(priceAnnualButton);
+        this.swipeUntilButtonShown(priceAnnualButton);
         element(priceAnnualButton).click();
         element(priceAnnualChart).shouldBeVisible();
     }
 
     public void addAndVerifyPriceQuarterlyChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(priceQuarterlyButton);
+        this.swipeUntilButtonShown(priceQuarterlyButton);
         element(priceQuarterlyButton).click();
         element(priceQuarterlyChart).shouldBeVisible();
     }
 
     public void addAndVerifyPricePerFT2AnnualChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(pricePerFT2AnnualButton);
+        this.swipeUntilButtonShown(pricePerFT2AnnualButton);
         element(pricePerFT2AnnualButton).click();
         element(pricePerFT2AnnualChart).shouldBeVisible();
     }
 
     public void addAndVerifyPricePerFT2QuarterlyChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(pricePerFT2QuarterlyButton);
+        this.swipeUntilButtonShown(pricePerFT2QuarterlyButton);
         element(pricePerFT2QuarterlyButton).click();
         element(pricePerFT2QuarterlyChart).shouldBeVisible();
     }
 
     public void addAndVerifyTopTenPerMKTDealVolumeAnnualChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(topTenPerMKTDealVolumeAnnualButton);
+        this.swipeUntilButtonShown(topTenPerMKTDealVolumeAnnualButton);
         element(topTenPerMKTDealVolumeAnnualButton).click();
         element(topTenPerMKTDealVolumeAnnualChart).shouldBeVisible();
     }
 
     public void addAndVerifyTopTenPerMKTPriceAnnualChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(topTenPerMKTPriceAnnualButton);
+        this.swipeUntilButtonShown(topTenPerMKTPriceAnnualButton);
         element(topTenPerMKTPriceAnnualButton).click();
         element(topTenPerMKTPriceAnnualChart).shouldBeVisible();
     }
 
     public void addAndVerifyTopTenPerMKTPriceQuarterlyChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(topTenPerMKTPriceQuarterlyButton);
+        this.swipeUntilButtonShown(topTenPerMKTPriceQuarterlyButton);
         element(topTenPerMKTPriceQuarterlyButton).click();
         element(topTenPerMKTPriceQuarterlyChart).shouldBeVisible();
     }
 
     public void addAndVerifyTopTenPerMKTPricePerFT2AnnualChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(topTenPerMKTPricePerFT2AnnualButton);
+        this.swipeUntilButtonShown(topTenPerMKTPricePerFT2AnnualButton);
         element(topTenPerMKTPricePerFT2AnnualButton).click();
         element(topTenPerMKTPricePerFT2AnnualChart).shouldBeVisible();
     }
 
     public void addAndVerifyTopTenPerMKTPricePerFT2QuarterlyChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(topTenPerMKTPricePerFT2QuarterlyButton);
+        this.swipeUntilButtonShown(topTenPerMKTPricePerFT2QuarterlyButton);
         element(topTenPerMKTPricePerFT2QuarterlyButton).click();
         element(topTenPerMKTPricePerFT2QuarterlyChart).shouldBeVisible();
     }
 
     public void addAndVerifyTopTenPerMKTUnitSizeAnnualChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(topTenPerMKTUnitSizeAnnualButton);
+        this.swipeUntilButtonShown(topTenPerMKTUnitSizeAnnualButton);
         element(topTenPerMKTUnitSizeAnnualButton).click();
         element(topTenPerMKTUnitSizeAnnualChart).shouldBeVisible();
     }
 
     public void addAndVerifyTopTenPerMKTUnitSizeQuarterlyChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(topTenPerMKTUnitSizeQuarterlyButton);
+        this.swipeUntilButtonShown(topTenPerMKTUnitSizeQuarterlyButton);
         element(topTenPerMKTUnitSizeQuarterlyButton).click();
         element(topTenPerMKTUnitSizeQuarterlyChart).shouldBeVisible();
     }
 
     public void addPricePerFT2AnnualChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(pricePerFT2AnnualButton);
+        this.swipeUntilButtonShown(pricePerFT2AnnualButton);
         element(pricePerFT2AnnualButton).click();
     }
 
@@ -398,11 +398,17 @@ public class ACRISClosingPage extends BasePage {
     }
 
     public void addTopTenPerMKTPricePerFT2QuarterlyChart() throws Exception {
-        Helper.swipeDownUntilElementVisibleForCharButtons(topTenPerMKTPricePerFT2QuarterlyButton);
+        this.swipeUntilButtonShown(topTenPerMKTPricePerFT2QuarterlyButton);
         element(topTenPerMKTPricePerFT2QuarterlyButton).click();
     }
 
     public void shouldSeeTopTenPerMKTPricePerFT2QuarterlyChart() {
         element(topTenPerMKTPricePerFT2QuarterlyChart).shouldBeVisible();
+    }
+
+    private void swipeUntilButtonShown(WebElement button) throws Exception {
+        setImplicitTimeout(1, SECONDS);
+        Helper.swipeDownUntilElementVisibleForCharButtons(button);
+        resetImplicitTimeout();
     }
 }

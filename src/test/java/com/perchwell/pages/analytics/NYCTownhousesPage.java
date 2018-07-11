@@ -63,31 +63,31 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HAS GARDEN\"`][2]")
     private WebElement acrisTownhouseClosingHasGardenButton;
 
-    @iOSXCUITFindBy(accessibility = "GARDEN")
+    @iOSXCUITFindBy(accessibility = "GARDEN_MUSTHAVE_GARDEN_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareACRISTownhouseClosingHasGardenChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"IN HISTORIC DIST.\"`][2]")
     private WebElement ACRISTownhouseClosingInHistoricDistButton;
 
-    @iOSXCUITFindBy(accessibility = "HISTORIC DIST.")
+    @iOSXCUITFindBy(accessibility = "HISTORIC DIST._MUSTHAVE_IS_HISTORICAL_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement ACRISTownhouseClosingInHistoricDistChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SQUARE FEET\"`][2]")
     private WebElement ACRISTownhouseClosingSquareFeetButton;
 
-    @iOSXCUITFindBy(accessibility = "SQUARE FEET")
+    @iOSXCUITFindBy(accessibility = "SQUARE FEET_SQFTTRANCHES_ABOVE_AREA_SQUARE_FT_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement ACRISTownhouseClosingSquareFeetChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"WIDTH\"`][2]")
     private WebElement ACRISTownhouseClosingWidthButton;
 
-    @iOSXCUITFindBy(accessibility = "WIDTH")
+    @iOSXCUITFindBy(accessibility = "WIDTH_WIDTHTRANCHES_WIDTH_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement ACRISTownhouseClosingWidthChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"DEAL COUNT BY PRICE\"`][1]")
     private WebElement ACRISTownhouseClosingDealCountByPriceButton;
 
-    @iOSXCUITFindBy(accessibility = "SALE PRICE")
+    @iOSXCUITFindBy(accessibility = "SALE PRICE_PRICETRANCHES_SALE_PRICE_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement ACRISTownhouseClosingDealCountByPriceChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"GARDEN\"`][2]")
@@ -105,31 +105,31 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HAS GARDEN\"`][3]")
     private WebElement totalTHStockHasGardenButton;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_GARDEN_89")
+    @iOSXCUITFindBy(accessibility = "GARDEN_MUSTHAVE_GARDEN_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareTotalTHStockHasGardenChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"IN HISTORIC DIST.\"`][3]")
     private WebElement totalTHStockInHistoricDistButton;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_HISTORIC DIST._104")
+    @iOSXCUITFindBy(accessibility = "HISTORIC DIST._MUSTHAVE_IS_HISTORICAL_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareTotalTHStockInHistoricDistChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SQUARE FEET\"`][3]")
     private WebElement totalTHStockSquareFeetButton;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_SQUARE FEET_87")
+    @iOSXCUITFindBy(accessibility = "SQUARE FEET_SQFTTRANCHES_ABOVE_AREA_SQUARE_FT_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareTotalTHStockSquareFeetChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"WIDTH\"`][3]")
     private WebElement totalTHStockWidthButton;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_WIDTH_90")
+    @iOSXCUITFindBy(accessibility = "WIDTH_WIDTHTRANCHES_WIDTH_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareTotalTHStockWidthChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"YEAR LAST ALTERED\"`][2]")
     private WebElement totalTHStockYearLastAlteredButton;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_YEAR LAST ALTERED_114")
+    @iOSXCUITFindBy(accessibility = "YEAR LAST ALTERED_YEARALTEREDTRANCHES_YEAR_LAST_ALTERED_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareTotalTHStockYearLastAlteredChart;
 
     @iOSXCUITFindBy(accessibility = "# LISTINGS BY FT²")
@@ -402,7 +402,7 @@ public class NYCTownhousesPage extends BasePage {
 
     private void swipeUntilButtonShown(WebElement button) throws Exception {
         setImplicitTimeout(1, SECONDS);
-        Helper.swipeDownUntilElementVisible(button);
+        Helper.swipeDownUntilElementVisibleForCharButtons(button);
         resetImplicitTimeout();
     }
 
@@ -440,7 +440,7 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void addMKTShareREBNYTHListingsInHistoricDistChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(rebnyTownhouseListingsInHistoricDistButton);
+        this.swipeUntilButtonShown(rebnyTownhouseListingsInHistoricDistButton);
         element(rebnyTownhouseListingsInHistoricDistButton).click();
     }
 
@@ -449,19 +449,19 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void addAndVerifyFeaturesACRISTHClosingsGardenChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(featureACRISTownhouseClosingsGardenButton);
+        this.swipeUntilButtonShown(featureACRISTownhouseClosingsGardenButton);
         element(featureACRISTownhouseClosingsGardenButton).click();
         element(featureACRISTownhouseClosingsGardenChart).shouldBeVisible();
     }
 
     public void addAndVerifyLocationTotalTHStockNumberTownhousesChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(locationTotalTHStockNumberTownhousesButton);
+        this.swipeUntilButtonShown(locationTotalTHStockNumberTownhousesButton);
         element(locationTotalTHStockNumberTownhousesButton).click();
         element(locationTotalTHStockNumberTownhousesChart).shouldBeVisible();
     }
 
     public void addTotalTHStockHasGardenChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(totalTHStockHasGardenButton);
+        this.swipeUntilButtonShown(totalTHStockHasGardenButton);
         element(totalTHStockHasGardenButton).click();
     }
 
@@ -470,32 +470,32 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void addAndVerifyTotalTHStockInHistoricDistChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(totalTHStockInHistoricDistButton);
+        this.swipeUntilButtonShown(totalTHStockInHistoricDistButton);
         element(totalTHStockInHistoricDistButton).click();
         element(mktShareTotalTHStockInHistoricDistChart).shouldBeVisible();
     }
 
     public void addAndVerifyTotalTHStockSquareFeetChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(totalTHStockSquareFeetButton);
+        this.swipeUntilButtonShown(totalTHStockSquareFeetButton);
         element(totalTHStockSquareFeetButton).click();
         element(mktShareTotalTHStockSquareFeetChart).shouldBeVisible();
 
     }
 
     public void addAndVerifyTotalTHStockWidthChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(totalTHStockWidthButton);
+        this.swipeUntilButtonShown(totalTHStockWidthButton);
         element(totalTHStockWidthButton).click();
         element(mktShareTotalTHStockWidthChart).shouldBeVisible();
     }
 
     public void addAndVerifyTotalTHStockYearLastAlteredChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(totalTHStockYearLastAlteredButton);
+        this.swipeUntilButtonShown(totalTHStockYearLastAlteredButton);
         element(totalTHStockYearLastAlteredButton).click();
         element(mktShareTotalTHStockYearLastAlteredChart).shouldBeVisible();
     }
 
     public void addREBNYTHListingsNumListingByFT2Chart() throws Exception {
-        Helper.swipeDownUntilElementVisible(rebnyTHListingsNumListingsByFT2Button);
+        this.swipeUntilButtonShown(rebnyTHListingsNumListingsByFT2Button);
         element(rebnyTHListingsNumListingsByFT2Button).click();
     }
 
@@ -504,37 +504,37 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void addAndVerifyREBNYTHListingsNumListingsByWidthChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(rebnyTHListingsNumListingsByWidthButton);
+        this.swipeUntilButtonShown(rebnyTHListingsNumListingsByWidthButton);
         element(rebnyTHListingsNumListingsByWidthButton).click();
         element(distribREBNYTHListingsNumListingsByWidthChart).shouldBeVisible();
     }
 
     public void addAndVerifyACRISTownhouseClosingNumSalesByFT2Chart() throws Exception {
-        Helper.swipeDownUntilElementVisible(acrisTownhouseClosingNumSalesByFT2Button);
+        this.swipeUntilButtonShown(acrisTownhouseClosingNumSalesByFT2Button);
         element(acrisTownhouseClosingNumSalesByFT2Button).click();
         element(distribACRISTownhouseClosingNumSalesByFT2Chart).shouldBeVisible();
     }
 
     public void addAndVerifyACRISTownhouseClosingNumSalesByWidthChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(acrisTownhouseClosingNumSalesByWidthButton);
+        this.swipeUntilButtonShown(acrisTownhouseClosingNumSalesByWidthButton);
         element(acrisTownhouseClosingNumSalesByWidthButton).click();
         element(distribACRISTownhouseClosingNumSalesByWidthChart).shouldBeVisible();
     }
 
     public void addAndVerifyTotalTHStockNumHousesByFT2Chart() throws Exception {
-        Helper.swipeDownUntilElementVisible(totalTHStockNumHousesByFT2Button);
+        this.swipeUntilButtonShown(totalTHStockNumHousesByFT2Button);
         element(totalTHStockNumHousesByFT2Button).click();
         element(distribTotalTHStockNumHousesByFT2Chart).shouldBeVisible();
     }
 
     public void addAndVerifyTotalTHStockNumHousesByWidthChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(totalTHStockNumHousesByWidthButton);
+        this.swipeUntilButtonShown(totalTHStockNumHousesByWidthButton);
         element(totalTHStockNumHousesByWidthButton).click();
         element(distribTotalTHStockNumHousesByWidthChart).shouldBeVisible();
     }
 
     public void addREBNYTHListingsDOMByPriceChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(rebnyTHListingsDOMByPriceButton);
+        this.swipeUntilButtonShown(rebnyTHListingsDOMByPriceButton);
         element(rebnyTHListingsDOMByPriceButton).click();
     }
 
@@ -543,7 +543,7 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void addREBNYTHListingsNumListingsChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(rebnyTHListingsNumListingsButton);
+        this.swipeUntilButtonShown(rebnyTHListingsNumListingsButton);
         element(rebnyTHListingsNumListingsButton).click();
     }
 
@@ -552,31 +552,31 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void addAndVerifyREBNYTHListingsNumRecentlyAlteredChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(rebnyTHListingsNumRecentlyAlteredButton);
+        this.swipeUntilButtonShown(rebnyTHListingsNumRecentlyAlteredButton);
         element(rebnyTHListingsNumRecentlyAlteredButton).click();
         element(rebnyTHListingsNumRecentlyAlertedChart).shouldBeVisible();
     }
 
     public void addAndVerifyREBNYTHListingsAskingDollarsPerFT2Chart() throws Exception {
-        Helper.swipeDownUntilElementVisible(rebnyTHListingsAskingDollarsPerFT2Button);
+        this.swipeUntilButtonShown(rebnyTHListingsAskingDollarsPerFT2Button);
         element(rebnyTHListingsAskingDollarsPerFT2Button).click();
         element(rebnyTHListingsAskingDollarsPerFT2Chart).shouldBeVisible();
     }
 
     public void addAndVerifyREBNYTHListingsAskingPriceChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(rebnyTHListingsAskingPriceChartButton);
+        this.swipeUntilButtonShown(rebnyTHListingsAskingPriceChartButton);
         element(rebnyTHListingsAskingPriceChartButton).click();
         element(rebnyTHListingsAskingPriceChartChart).shouldBeVisible();
     }
 
     public void addAndVerifyREBNYTHListingsMedianWidthChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(rebnyTHListingsMedianWidthButton);
+        this.swipeUntilButtonShown(rebnyTHListingsMedianWidthButton);
         element(rebnyTHListingsMedianWidthButton).click();
         element(rebnyTHListingsMedianWidthChart).shouldBeVisible();
     }
 
     public void addACRISClosingNumSalesChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(acrisClosingNumSalesButton);
+        this.swipeUntilButtonShown(acrisClosingNumSalesButton);
         element(acrisClosingNumSalesButton).click();
 
     }
@@ -586,31 +586,31 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void addAndVerifyACRISClosingNumSalesOfRecentlyAlteredChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(acrisClosingNumSalesOfRecentlyAlteredButton);
+        this.swipeUntilButtonShown(acrisClosingNumSalesOfRecentlyAlteredButton);
         element(acrisClosingNumSalesOfRecentlyAlteredButton).click();
         element(locationACRISClosingNumSalesOfRecentlyAlteredChart).shouldBeVisible();
     }
 
     public void addAndVerifyACRISClosingMedianWidthChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(acrisClosingMedianWidthButton);
+        this.swipeUntilButtonShown(acrisClosingMedianWidthButton);
         element(acrisClosingMedianWidthButton).click();
         element(locationACRISClosingMedianWidthChart).shouldBeVisible();
     }
 
     public void addAndVerifyACRISClosingPriceChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(acrisClosingPriceButton);
+        this.swipeUntilButtonShown(acrisClosingPriceButton);
         element(acrisClosingPriceButton).click();
         element(locationACRISClosingPriceChart).shouldBeVisible();
     }
 
     public void addAndVerifyACRISClosingPricePerFT2Chart() throws Exception {
-        Helper.swipeDownUntilElementVisible(acrisClosingPricePerFT2Button);
+        this.swipeUntilButtonShown(acrisClosingPricePerFT2Button);
         element(acrisClosingPricePerFT2Button).click();
         element(locationACRISClosingPricePerFT2Chart).shouldBeVisible();
     }
 
     public void addTotalTHStockNumRecentlyAlteredChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(locationTotalTHStockNumRecentlyAlteredButton);
+        this.swipeUntilButtonShown(locationTotalTHStockNumRecentlyAlteredButton);
         element(locationTotalTHStockNumRecentlyAlteredButton).click();
     }
 
@@ -619,19 +619,19 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void addAndVerifyTotalTHStockNumTownhousesChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(locationTotalTHStockNumTownhousesButton);
+        this.swipeUntilButtonShown(locationTotalTHStockNumTownhousesButton);
         element(locationTotalTHStockNumTownhousesButton).click();
         element(locationTotalTHStockNumTownhousesChart).shouldBeVisible();
     }
 
     public void addAndVerifyTotalTHStockMedianWidthChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(locationTotalTHStockMedianWidthButton);
+        this.swipeUntilButtonShown(locationTotalTHStockMedianWidthButton);
         element(locationTotalTHStockMedianWidthButton).click();
         element(locationTotalTHStockMedianWidthChart).shouldBeVisible();
     }
 
     public void addMedianREBNYTHListingsSquareFeetChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(medianREBNYTHListingsSquareFeetButton);
+        this.swipeUntilButtonShown(medianREBNYTHListingsSquareFeetButton);
         element(medianREBNYTHListingsSquareFeetButton).click();
     }
 
@@ -640,37 +640,37 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void addAndVerifyMedianREBNYTHListingsWidthChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(medianREBNYTHListingsWidthButton);
+        this.swipeUntilButtonShown(medianREBNYTHListingsWidthButton);
         element(medianREBNYTHListingsWidthButton).click();
         element(medianREBNYTHListingsWidthChart).shouldBeVisible();
     }
 
     public void addAndVerifyMedianACRISTHClosingSquareFeetChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(medianACRISTHClosingSquareFeetButton);
+        this.swipeUntilButtonShown(medianACRISTHClosingSquareFeetButton);
         element(medianACRISTHClosingSquareFeetButton).click();
         element(medianACRISTHClosingSquareFeetChart).shouldBeVisible();
     }
 
     public void addAndVerifyMedianACRISTHClosingWidthChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(medianACRISTHClosingWidthButton);
+        this.swipeUntilButtonShown(medianACRISTHClosingWidthButton);
         element(medianACRISTHClosingWidthButton).click();
         element(medianACRISTHClosingWidthChart).shouldBeVisible();
     }
 
     public void addAndVerifyMedianTotalTHStockSquareFeetChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(medianTotalTHStockSquareFeetButton);
+        this.swipeUntilButtonShown(medianTotalTHStockSquareFeetButton);
         element(medianTotalTHStockSquareFeetButton).click();
         element(medianTotalTHStockSquareFeetChart).shouldBeVisible();
     }
 
     public void addAndVerifyMedianTotalTHStockWidthChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(medianTotalTHStockWidthButton);
+        this.swipeUntilButtonShown(medianTotalTHStockWidthButton);
         element(medianTotalTHStockWidthButton).click();
         element(medianTotalTHStockWidthChart).shouldBeVisible();
     }
 
     public void addFeaturesREBNYTHListingsTwentyFourPlusWidthChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(featuresREBNYTHListingsTwentyFourPlusWidthButton);
+        this.swipeUntilButtonShown(featuresREBNYTHListingsTwentyFourPlusWidthButton);
         element(featuresREBNYTHListingsTwentyFourPlusWidthButton).click();
     }
 
@@ -679,31 +679,31 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void addAndVerifyFeaturesREBNYTHListingsGardenChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(featuresREBNYTHListingsGardenButton);
+        this.swipeUntilButtonShown(featuresREBNYTHListingsGardenButton);
         element(featuresREBNYTHListingsGardenButton).click();
         element(featuresREBNYTHListingsGardenChart).shouldBeVisible();
     }
 
     public void addAndVerifyFeaturesREBNYTHListingsHistoricDistChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(featuresREBNYTHListingsHistoricDistButton);
+        this.swipeUntilButtonShown(featuresREBNYTHListingsHistoricDistButton);
         element(featuresREBNYTHListingsHistoricDistButton).click();
         element(featuresREBNYTHListingsHistoricDistChart).shouldBeVisible();
     }
 
     public void addAndVerifyFeaturesREBNYTHListingsLandmarkChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(featuresREBNYTHListingsLandmarkButton);
+        this.swipeUntilButtonShown(featuresREBNYTHListingsLandmarkButton);
         element(featuresREBNYTHListingsLandmarkButton).click();
         element(featuresREBNYTHListingsLandmarkChart).shouldBeVisible();
     }
 
     public void addAndVerifyFeaturesREBNYTHListingsRecentlyAlteredChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(featuresREBNYTHListingsRecentlyAlteredButton);
+        this.swipeUntilButtonShown(featuresREBNYTHListingsRecentlyAlteredButton);
         element(featuresREBNYTHListingsRecentlyAlteredButton).click();
         element(featuresREBNYTHListingsRecentlyAlteredChart).shouldBeVisible();
     }
 
     public void addFeaturesACRISClosingTwentyFourPlusWidthChart() throws Exception{
-        Helper.swipeDownUntilElementVisible(featuresACRISClosingTwentyFourPlusWidthButton);
+        this.swipeUntilButtonShown(featuresACRISClosingTwentyFourPlusWidthButton);
         element(featuresACRISClosingTwentyFourPlusWidthButton).click();
     }
 
@@ -712,13 +712,13 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void addAndVerifyFeaturesACRISTHClosingsHistoricDistChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(featuresACRISTHClosingsHistoricDistButton);
+        this.swipeUntilButtonShown(featuresACRISTHClosingsHistoricDistButton);
         element(featuresACRISTHClosingsHistoricDistButton).click();
         element(featuresACRISTHClosingsHistoricDistChart).shouldBeVisible();
     }
 
     public void addAndVerifyFeaturesACRISTHClosingsRecentlyAlteredChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(featuresACRISTHClosingsRecentlyAlteredButton);
+        this.swipeUntilButtonShown(featuresACRISTHClosingsRecentlyAlteredButton);
         element(featuresACRISTHClosingsRecentlyAlteredButton).click();
         element(featuresACRISTHClosingsRecentlyAlteredChart).shouldBeVisible();
     }

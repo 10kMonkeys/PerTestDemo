@@ -21,7 +21,7 @@ public abstract class Helper {
         int anchor = (int) (size.width * anchorPercentage);
         int startPoint = (int) (size.height * startPercentage);
         int endPoint = (int) (size.height * finalPercentage * (-1));
-        new TouchAction(driver).longPress(anchor, startPoint).waitAction(Duration.ofMillis(duration)).moveTo(10, endPoint).release().perform();
+        new TouchAction(driver).press(anchor, startPoint).waitAction(Duration.ofMillis(duration)).moveTo(10, endPoint).release().perform();
     }
 
     public static void swipeHorizontal(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage, int duration) throws Exception {
