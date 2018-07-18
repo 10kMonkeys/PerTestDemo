@@ -144,18 +144,18 @@ public class ClientPage extends BasePage {
 		}
 	}
 
-	private void swipeDownUntilElementVisible(String name) {
+	private void swipeDownUntilElementVisible(String name) throws Exception {
 		if (Config.isAndroid()) {
 			if (getDriver().findElements(MobileBy.xpath("//*[contains(@text, '" + name + "')]")).size() == 0) {
 				setImplicitTimeout(1, SECONDS);
 				Helper.androidSwipeDownUntilElementVisible(name);
 				resetImplicitTimeout();
 			}
-		} /*else if (getDriver().findElements(MobileBy.AccessibilityId(name)).size() > 0) {
+		} else if (getDriver().findElements(MobileBy.AccessibilityId(name)).size() > 0) {
 				setImplicitTimeout(1, SECONDS);
 				Helper.swipeDownUntilElementVisible(name);
 				resetImplicitTimeout();
-		}*/
+		}
 	}
 
 	public void isClientOrAgentDisplayed(String name) throws Exception {
@@ -284,5 +284,8 @@ public class ClientPage extends BasePage {
 
 	public void isClientNotPresented(String name) {
 		element(MobileBy.AccessibilityId(name)).shouldNotBePresent();
+	}
+
+	public void clickOnExistingDesiredClientOrAgent(String user_name) {
 	}
 }
