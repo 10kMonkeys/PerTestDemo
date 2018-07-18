@@ -116,6 +116,7 @@ public class MapPage extends BasePage {
 	}
 
 	public void shouldFiltersBeApplied() {
+		waitABit(10000);
 		Assert.assertTrue(checkForChangesAfterApplyingTheFilter());
 	}
 

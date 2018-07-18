@@ -135,73 +135,73 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "# LISTINGS BY FT²")
     private WebElement rebnyTHListingsNumListingsByFT2Button;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_NUMBER OF LISTINGS BY FT²_92")
+    @iOSXCUITFindBy(accessibility = "NUMBER OF LISTINGS BY SQFT_SQFTDISTRIBUTION_ABOVE_AREA_SQUARE_FT_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement distribREBNYTHListingsNumListingsByFT2Chart;
 
     @iOSXCUITFindBy(accessibility = "# LISTINGS BY WIDTH")
     private WebElement rebnyTHListingsNumListingsByWidthButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_NUMBER OF LISTINGS BY WIDTH_96")
+    @iOSXCUITFindBy(accessibility = "NUMBER OF LISTINGS BY WIDTH_COUNTPERWIDTHTRANCHE_WIDTH_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement distribREBNYTHListingsNumListingsByWidthChart;
 
     @iOSXCUITFindBy(accessibility = "# SALES BY FT²")
     private WebElement acrisTownhouseClosingNumSalesByFT2Button;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_NUMBER OF SALES BY FT²_94")
+    @iOSXCUITFindBy(accessibility = "NUMBER OF SALES BY SQFT_SQFTDISTRIBUTION_ABOVE_AREA_SQUARE_FT_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement distribACRISTownhouseClosingNumSalesByFT2Chart;
 
     @iOSXCUITFindBy(accessibility = "# SALES BY WIDTH")
     private WebElement acrisTownhouseClosingNumSalesByWidthButton;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_NUMBER OF SALES BY WIDTH_95")
+    @iOSXCUITFindBy(accessibility = "NUMBER OF SALES BY WIDTH_COUNTPERWIDTHTRANCHE_WIDTH_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement distribACRISTownhouseClosingNumSalesByWidthChart;
 
     @iOSXCUITFindBy(accessibility = "# HOUSES BY FT²")
     private WebElement totalTHStockNumHousesByFT2Button;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_NUMBER OF TOWNHOUSES BY FT²_93")
+    @iOSXCUITFindBy(accessibility = "NUMBER OF TOWNHOUSES BY SQFT_SQFTDISTRIBUTION_ABOVE_AREA_SQUARE_FT_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement distribTotalTHStockNumHousesByFT2Chart;
 
     @iOSXCUITFindBy(accessibility = "# HOUSES BY WIDTH")
     private WebElement totalTHStockNumHousesByWidthButton;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_NUMBER OF TOWNHOUSES BY WIDTH_102")
+    @iOSXCUITFindBy(accessibility = "NUMBER OF TOWNHOUSES BY WIDTH_COUNTPERWIDTHTRANCHE_WIDTH_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement distribTotalTHStockNumHousesByWidthChart;
 
     @iOSXCUITFindBy(accessibility = "DOM BY PRICE")
     private WebElement rebnyTHListingsDOMByPriceButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_DOM BY PRICE_181")
+    @iOSXCUITFindBy(accessibility = "DOM BY PRICE_DAYSONMARKETBYPRICESEGMENT_DAYS_ON_MARKET_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement distribREBNYTHListingsDOMByPriceChart;
 
     @iOSXCUITFindBy(accessibility = "# LISTINGS")
     private WebElement rebnyTHListingsNumListingsButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_NUMBER OF LISTINGS_101")
+    @iOSXCUITFindBy(accessibility = "NUMBER OF LISTINGS_COUNTS_LISTING_PRICE_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement rebnyTHListingsNumListingsChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"# RECENTLY ALTERED\"`][1]")
     private WebElement rebnyTHListingsNumRecentlyAlteredButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_NUMBER OF RECENTLY ALTERED LISTINGS_117")
+    @iOSXCUITFindBy(accessibility = "NUMBER OF RECENTLY ALTERED LISTINGS_FILTEREDCOUNT_IS_RECENTLY_ALTERED_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement rebnyTHListingsNumRecentlyAlertedChart;
 
     @iOSXCUITFindBy(accessibility = "ASKING $/FT²")
     private WebElement rebnyTHListingsAskingDollarsPerFT2Button;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_ASKING $/FT²_86")
+    @iOSXCUITFindBy(accessibility = "ASKING $/SQFT_BAR_LISTING_PRICE_PER_SQFT_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement rebnyTHListingsAskingDollarsPerFT2Chart;
 
     @iOSXCUITFindBy(accessibility = "ASKING PRICE")
     private WebElement rebnyTHListingsAskingPriceChartButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_ASKING PRICE_74")
+    @iOSXCUITFindBy(accessibility = "ASKING PRICE_BAR_LISTING_PRICE_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement rebnyTHListingsAskingPriceChartChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"MEDIAN WIDTH\"`][1]")
     private WebElement rebnyTHListingsMedianWidthButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_MEDIAN WIDTH_110")
+    @iOSXCUITFindBy(accessibility = "MEDIAN WIDTH_BAR_WIDTH_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement rebnyTHListingsMedianWidthChart;
 
     @iOSXCUITFindBy(accessibility = "# SALES")
@@ -219,19 +219,19 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "PRICE PER FT²")
     private WebElement acrisClosingPricePerFT2Button;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_NUMBER OF SALES_91")
+    @iOSXCUITFindBy(accessibility = "NUMBER OF SALES_COUNTS_SALE_PRICE_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement locationACRISClosingNumSalesChart;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_COUNT OF RCNTLY ALTERED TH SALES_116")
+    @iOSXCUITFindBy(accessibility = "COUNT OF RCNTLY ALTERED TH SALES_FILTEREDCOUNT_IS_RECENTLY_ALTERED_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement locationACRISClosingNumSalesOfRecentlyAlteredChart;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_MEDIAN WIDTH_111")
+    @iOSXCUITFindBy(accessibility = "MEDIAN WIDTH_BAR_WIDTH_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement locationACRISClosingMedianWidthChart;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_SALE PRICE_75")
+    @iOSXCUITFindBy(accessibility = "SALE PRICE_BAR_SALE_PRICE_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement locationACRISClosingPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_SALE $/FT²_84")
+    @iOSXCUITFindBy(accessibility = "SALE $/SQFT_BAR_SALE_PRICE_PER_SQFT_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement locationACRISClosingPricePerFT2Chart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"# RECENTLY ALTERED\"`][2]")
@@ -243,13 +243,13 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"MEDIAN WIDTH\"`][3]")
     private WebElement locationTotalTHStockMedianWidthButton;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_NUMBER OF RECENTLY ALTERED HOUSES_115")
+    @iOSXCUITFindBy(accessibility = "NUMBER OF RECENTLY ALTERED HOUSES_FILTEREDCOUNT_IS_RECENTLY_ALTERED_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement locationTotalTHStockNumRecentlyAlteredChart;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_COUNT OF EXISTING TOWNHOUSES_83")
+    @iOSXCUITFindBy(accessibility = "COUNT OF EXISTING TOWNHOUSES_COUNTS_WIDTH_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement locationTotalTHStockNumTownhousesChart;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_MEDIAN WIDTH_73")
+    @iOSXCUITFindBy(accessibility = "MEDIAN WIDTH_BAR_WIDTH_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement locationTotalTHStockMedianWidthChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SQUARE FEET\"`][1]")
