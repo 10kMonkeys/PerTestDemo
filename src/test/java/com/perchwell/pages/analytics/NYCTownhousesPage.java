@@ -270,22 +270,22 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"WIDTH\"`][3]")
     private WebElement medianTotalTHStockWidthButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_MEDIAN SQUARE FEET_78")
+    @iOSXCUITFindBy(accessibility = "MEDIAN SQUARE FEET_MEDIAN_ABOVE_AREA_SQUARE_FT_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement medianREBNYTHListingsSquareFeetChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_MEDIAN WIDTH_80")
+    @iOSXCUITFindBy(accessibility = "MEDIAN WIDTH_MEDIAN_WIDTH_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement medianREBNYTHListingsWidthChart;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_MEDIAN SQUARE FEET_76")
+    @iOSXCUITFindBy(accessibility = "MEDIAN SQUARE FEET_MEDIAN_ABOVE_AREA_SQUARE_FT_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement medianACRISTHClosingSquareFeetChart;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_MEDIAN WIDTH_79")
+    @iOSXCUITFindBy(accessibility = "MEDIAN WIDTH_MEDIAN_WIDTH_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement medianACRISTHClosingWidthChart;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_MEDIAN SQUARE FEET_82")
+    @iOSXCUITFindBy(accessibility = "MEDIAN SQUARE FEET_MEDIAN_ABOVE_AREA_SQUARE_FT_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement medianTotalTHStockSquareFeetChart;
 
-    @iOSXCUITFindBy(accessibility = "TOTAL TOWNHOUSE STOCK_MEDIAN WIDTH_81")
+    @iOSXCUITFindBy(accessibility = "MEDIAN WIDTH_MEDIAN_WIDTH_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement medianTotalTHStockWidthChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"24 FT+ WIDTH\"`][1]")
@@ -312,19 +312,19 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"RECENTLY ALTERED\"`][2]")
     private WebElement featuresACRISTHClosingsRecentlyAlteredButton;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_24 FT+ WIDTH PREMIUM_97")
+    @iOSXCUITFindBy(accessibility = "24 FT+ WIDTH PREMIUM_PREMIUM_IS_WIDE_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement featuresREBNYTHListingsTwentyFourPlusWidthChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_GARDEN PREMIUM_100")
+    @iOSXCUITFindBy(accessibility = "GARDEN PREMIUM_PREMIUM_GARDEN_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement featuresREBNYTHListingsGardenChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_HISTORIC DISTRICT PREMIUM_99")
+    @iOSXCUITFindBy(accessibility = "HISTORIC DISTRICT PREMIUM_PREMIUM_IS_HISTORICAL_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement featuresREBNYTHListingsHistoricDistChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_LANDMARK PREMIUM_98")
+    @iOSXCUITFindBy(accessibility = "LANDMARK PREMIUM_PREMIUM_IS_LANDMARK_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement featuresREBNYTHListingsLandmarkChart;
 
-    @iOSXCUITFindBy(accessibility = "REBNY TOWNHOUSE LISTINGS_RECENTLY ALTERED_118")
+    @iOSXCUITFindBy(accessibility = "RECENTLY ALTERED_PREMIUM_IS_RECENTLY_ALTERED_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement featuresREBNYTHListingsRecentlyAlteredChart;
 
     @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_24 FT+ WIDTH PREMIUM_146")

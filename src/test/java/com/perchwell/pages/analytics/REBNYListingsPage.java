@@ -187,7 +187,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "MONTHLIES")
     private WebElement monthliesButton;
 
-    @iOSXCUITFindBy(accessibility = "MONTHLIES_PERCENTILES_HOA_FEE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MONTHLIES_PERCENTILES_MONTHLY_PAYMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionMonthliesChart;
 
     @iOSXCUITFindBy(accessibility = "LISTING COUNT")
@@ -214,10 +214,10 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "ASKING PRICE $/SQFT_PERCENTILES_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPricePerFTChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES_MEDIAN_HOA_FEE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES_MEDIAN_MONTHLY_PAYMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianMonthliesChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES_BAR_HOA_FEE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES_BAR_MONTHLY_PAYMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationMonthliesChart;
 
     @iOSXCUITFindBy(accessibility = "MEDIAN PROPERTY TAXES_MEDIAN_REAL_ESTATE_TAX_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
