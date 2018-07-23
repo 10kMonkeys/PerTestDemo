@@ -5,13 +5,13 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"FiltersTests"})
+@WithTagValuesOf({"FiltersTests", "FiltersSearchesMapView"})
 public class FT4_ApplyingBedroomsFilterTest extends SampleTest {
 
     @Test
-    public void resultAfterApplyingBedroomFilter() throws Exception {
-        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
-                AppProperties.INSTANCE.getProperty("client_password"));
+    public void resultAfterApplyingBedroomFilter() {
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
+                AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.isListingsQuantity();

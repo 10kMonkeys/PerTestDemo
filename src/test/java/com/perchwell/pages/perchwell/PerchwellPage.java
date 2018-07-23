@@ -50,6 +50,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
 	private WebElement openAccountButton;
 
+	@AndroidFindBy(xpath = "//android.support.v7.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.RelativeLayout[1]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[1]")
 	private WebElement firstBuilding;
 

@@ -327,13 +327,13 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "RECENTLY ALTERED_PREMIUM_IS_RECENTLY_ALTERED_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement featuresREBNYTHListingsRecentlyAlteredChart;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_24 FT+ WIDTH PREMIUM_146")
+    @iOSXCUITFindBy(accessibility = "24 FT+ WIDTH PREMIUM_PREMIUM_IS_WIDE_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement featuresACRISClosingTwentyFourPlusWidthChart;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_HISTORIC DISTRICT PREMIUM_148")
+    @iOSXCUITFindBy(accessibility = "HISTORIC DISTRICT PREMIUM_PREMIUM_IS_HISTORICAL_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement featuresACRISTHClosingsHistoricDistChart;
 
-    @iOSXCUITFindBy(accessibility = "ACRIS TOWNHOUSE CLOSINGS_RECENTLY ALTERED PREMIUM_144")
+    @iOSXCUITFindBy(accessibility = "RECENTLY ALTERED PREMIUM_PREMIUM_IS_RECENTLY_ALTERED_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement featuresACRISTHClosingsRecentlyAlteredChart;
 
     //endregion

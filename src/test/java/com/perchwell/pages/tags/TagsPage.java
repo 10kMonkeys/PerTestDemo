@@ -3,6 +3,7 @@ package com.perchwell.pages.tags;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,12 +20,15 @@ public class TagsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "TagSearchButton")
 	private WebElement tagSearchButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSearchField")
 	private WebElement searchTagTexBox;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_tag")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell")
 	private WebElement createTagLabel;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "Nav Back White")
 	private WebElement backButton;
 

@@ -346,4 +346,9 @@ public class SearchSteps extends ScenarioSteps {
 	public void shouldLaundryBLDGFilterBeApplied() {
 		onPage.shouldLaundryBLDGFilterBeApplied();
 	}
+
+	@Step
+    public void removeManhattanFromFilter() {
+		onPage.clickDeleteTagButtonMANHATTAN();
+    }
 }
