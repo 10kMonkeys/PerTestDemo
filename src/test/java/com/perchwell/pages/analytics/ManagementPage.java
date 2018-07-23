@@ -43,19 +43,19 @@ public class ManagementPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement mktShareAskingPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "MANAGEMENT_BEDROOMS_165")
+    @iOSXCUITFindBy(accessibility = "BEDROOMS_ROOMS_NUM_BEDROOMS_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement mktShareBedroomsChart;
 
-    @iOSXCUITFindBy(accessibility = "MANAGEMENT_BUILDING HEIGHT_166")
+    @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT_RISE_NUM_STORIES_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement mktShareBuildingHeightChart;
 
-    @iOSXCUITFindBy(accessibility = "MANAGEMENT_BUILDING TYPE_167")
+    @iOSXCUITFindBy(accessibility = "BUILDING TYPE_PROPERTYTYPES_PROPERTY_TYPE_CODE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement mktShareBuildingTypeChart;
 
     @iOSXCUITFindBy(accessibility = "AGENT LISTING COUNT")
     private WebElement agentListingCountButton;
 
-    @iOSXCUITFindBy(accessibility = "MANAGEMENT_AGENT LISTING COUNT_162")
+    @iOSXCUITFindBy(accessibility = "AGENT LISTING COUNT_COUNTPERAGENT_LISTING_PRICE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionAgentListingCountChart;
 
     @iOSXCUITFindBy(accessibility = "AGENT MEDIAN PRICE")
@@ -73,19 +73,19 @@ public class ManagementPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "FIRM MEDIAN PRICE")
     private WebElement firmMedianPriceButton;
 
-    @iOSXCUITFindBy(accessibility = "MANAGEMENT_AGENT MEDIAN PRICE_161")
+    @iOSXCUITFindBy(accessibility = "AGENT MEDIAN PRICE_MEDIANPERAGENT_LISTING_PRICE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionAgentMedianPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "MANAGEMENT_MEDIAN DOM_178")
+    @iOSXCUITFindBy(accessibility = "MEDIAN DOM_DAYSONMARKETBYBROKERAGE_DAYS_ON_MARKET_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionFirmDOMChart;
 
-    @iOSXCUITFindBy(accessibility = "MANAGEMENT_CURRENT LISTING VOLUME_176")
+    @iOSXCUITFindBy(accessibility = "CURRENT LISTING VOLUME_VOLUMEPERBROKERAGE_BROKERAGE_DISPLAY_NAME_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionFirmListingVolumeChart;
 
-    @iOSXCUITFindBy(accessibility = "MANAGEMENT_FIRM MEDIAN $/FT²_159")
+    @iOSXCUITFindBy(accessibility = "FIRM MEDIAN $/SQFT_MEDIANPERBROKERAGE_LISTING_PRICE_PER_SQFT_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionFirmMedianDollarPerSQFTChart;
 
-    @iOSXCUITFindBy(accessibility = "MANAGEMENT_FIRM MEDIAN PRICE_160")
+    @iOSXCUITFindBy(accessibility = "FIRM MEDIAN PRICE_MEDIANPERBROKERAGE_LISTING_PRICE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionFirmMedianPriceChart;
 
     //endregion
