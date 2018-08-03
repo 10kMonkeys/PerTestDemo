@@ -1,11 +1,13 @@
 package com.perchwell.helpers;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public abstract class FilteringAndSortingBuildings {
 
@@ -122,7 +124,7 @@ public abstract class FilteringAndSortingBuildings {
 
     public static boolean isContainsStudios(List<WebElement> roomsInfoList) {
         if (roomsInfoList.size() > 0) {
-            for(WebElement element: roomsInfoList) {
+            for (WebElement element : roomsInfoList) {
                 String studioString = element.getAttribute("value");
 
                 if (studioString.contains(" BD")) {
@@ -142,7 +144,7 @@ public abstract class FilteringAndSortingBuildings {
                 String s = element.getAttribute("value");
                 System.out.println(s);
                 currentNumber = getNumberFromString(roomType, s);
-                    if (currentNumber < 4) {
+                if (currentNumber < 4) {
                     return false;
                 }
             }
@@ -152,7 +154,7 @@ public abstract class FilteringAndSortingBuildings {
 
     public static boolean isContainParticularRoomsOrLabels(List<WebElement> buildingsElementsList, String rooms) {
         if (buildingsElementsList.size() > 0) {
-            for(WebElement element: buildingsElementsList) {
+            for (WebElement element : buildingsElementsList) {
                 String roomsString = element.getAttribute("value");
                 if (!roomsString.contains(rooms)) {
                     return false;
@@ -225,15 +227,15 @@ public abstract class FilteringAndSortingBuildings {
                 float currentPrice = FilteringAndSortingBuildings.getNumberFromString("price", s);
 
                 switch (typePriceFilter) {
-                    case "min" :
+                    case "min":
                         listingWithPriceFilter = checkBuildingOnMinFilterApplied(currentPrice, min);
                         break;
 
-                    case "max" :
+                    case "max":
                         listingWithPriceFilter = checkBuildingOnMaxFilterApplied(currentPrice, max);
                         break;
 
-                    case "between min and max" :
+                    case "between min and max":
                         listingWithPriceFilter = checkBuildingOnBetweenMinAndMaxFilterApplied(currentPrice, min, max);
                         break;
                 }
@@ -246,4 +248,6 @@ public abstract class FilteringAndSortingBuildings {
         }
         return listingWithPriceFilter;
     }
+
+
 }

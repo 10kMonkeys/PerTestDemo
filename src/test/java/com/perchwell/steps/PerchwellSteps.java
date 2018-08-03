@@ -235,11 +235,6 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldSeeListingOnlyWithLabel(String label) {
-		onPage.isContainListingOnlyWithParticularLabel(label);
-	}
-
-	@Step
 	public void clickOnAddressSortButton() {
 		onPage.clickOnAddressSortButton();
 	}
@@ -253,4 +248,15 @@ public class PerchwellSteps extends ScenarioSteps {
     public void openSpecificBuilding() throws Exception {
 		onPage.openSpecificBuilding();
     }
+
+    @Step
+	public void shouldSeeListingWithLabel(String label) {
+		onPage.isContainLabel(label);
+
+	}
+
+	@Step
+	public void shouldSeeListingWithLabels (String label1, String label2){
+		onPage.isContainLabels(label1, label2);
+	}
 }

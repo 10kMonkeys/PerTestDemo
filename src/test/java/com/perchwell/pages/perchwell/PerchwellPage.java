@@ -11,6 +11,8 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.jruby.RubyBoolean;
+import org.jruby.RubyProcess;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
@@ -368,9 +370,16 @@ public class PerchwellPage extends BasePage {
 		return FilteringAndSortingBuildings.isPriceFilterAppliedOnListings(typePriceFilter, pricesList, min, max);
 	}
 
-    public void isContainListingOnlyWithParticularLabel(String label) {
-		Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRoomsOrLabels(buildingsLabels, label));
-    }
+	public void isContainLabel(String label){
+		List<WebElement> i = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label + "'"));
+		Assert.assertTrue(i.size()==20);
+	}
+
+	public void isContainLabels(String label1, String label2){
+		List<WebElement> i1 = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label1 + "'"));
+		List<WebElement> i2 = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label2 + "'"));
+		Assert.assertTrue(i1.size()+i2.size() == 20);
+	}
 
 	public void clickOnAddressSortButton() {
 		element(addressSortButton).click();

@@ -351,4 +351,8 @@ public class SearchSteps extends ScenarioSteps {
     public void removeManhattanFromFilter() {
 		onPage.clickDeleteTagButtonMANHATTAN();
     }
+
+	public void deselectSoldFilter() throws Exception {
+		onPage.clickOnSoldFilter();
+	}
 }

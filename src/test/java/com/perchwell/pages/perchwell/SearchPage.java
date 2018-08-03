@@ -53,7 +53,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "LoadSavedSearchButton")
 	private WebElement loadSavedSearchButton;
 
-	@iOSXCUITFindBy(accessibility = "TAP TO SAVE CHANGES")
+	@iOSXCUITFindBy(accessibility = "TAP TO EDIT OR SAVE")
 	private WebElement tapToSaveChanges;
 
 	@iOSXCUITFindBy(accessibility = "generic_text_input_field")
@@ -74,7 +74,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "In Contract")
 	private WebElement contractButton;
 
-	@iOSXCUITFindBy(accessibility = "OFF MKT")
+	@iOSXCUITFindBy(accessibility = "Off Market")
 	private WebElement offMKTButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SOLD/RENTED\"`][1]")
@@ -116,7 +116,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE AS...")
 	private WebElement save;
 
-	@iOSXCUITFindBy(accessibility = "RENTALS")
+	@iOSXCUITFindBy(accessibility = "Rentals")
 	private WebElement rentalsButton;
 
 	@iOSXCUITFindBy(accessibility = "CreateNewSearchButton")
@@ -179,10 +179,10 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Active")
     private WebElement selectedActiveFilter;
 
-    @iOSXCUITFindBy(accessibility = "Contract-selected")
+    @iOSXCUITFindBy(accessibility = "In Contract")
     private WebElement selectedContractFilter;
 
-    @iOSXCUITFindBy(accessibility = "Off Mkt-selected")
+    @iOSXCUITFindBy(accessibility = "Off Market")
     private WebElement selectedOffMktFilter;
 
     @iOSXCUITFindBy(accessibility = "Sales-selected")
@@ -203,7 +203,8 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Laundry Bldg-SELECTED")
 	private WebElement selectedLaundryBLDGFilter;
 
-	//endregion
+	@iOSXCUITFindBy(iOSNsPredicate= "type=='XCUIElementTypeStaticText' AND name CONTAINS 'Sold'")
+	private WebElement selectedSoldFilter;
 
 	public SearchPage(WebDriver driver) {
 		super(driver);
@@ -619,5 +620,13 @@ public class SearchPage extends BasePage {
 
 	public void shouldLaundryBLDGFilterBeApplied() {
 		element(selectedLaundryBLDGFilter).shouldBePresent();
+	}
+
+
+	public void clickOnSoldFilter() throws Exception {
+
+		Helper.swipeDownUntilElementVisible(selectedSoldFilter);
+		element(selectedSoldFilter).click();
+
 	}
 }
