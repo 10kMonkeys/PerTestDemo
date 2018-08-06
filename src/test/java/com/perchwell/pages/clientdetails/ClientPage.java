@@ -74,6 +74,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "OK")
 	private WebElement okButton;
 
+	@AndroidFindBy(xpath = "//*[@text='DELETE']")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton")
 	private WebElement deleteButton;
 
@@ -83,7 +84,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearTextButton;
 
-	@iOSXCUITFindBy(accessibility = "TEST CLIENT")
+	@iOSXCUITFindBy(accessibility = "TEST CLIENT1")
 	private WebElement testClient;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[`visible==1`]/XCUIElementTypeCell")
@@ -95,6 +96,31 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]")
 //	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
 	private WebElement searchFrozenArea;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[2]")
+//	@iOSXCUITFindBy(accessibility = "DONE ")
+	private WebElement doneButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS '11CLIENT'")
+	private List<WebElement> clientList;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell")
+	private List<WebElement> listOfClientsAndListings;
+
+	@iOSXCUITFindBy(accessibility = "Table View Cell: Actively Searching")
+	private WebElement activelySearchingGroup;
+
+	@iOSXCUITFindBy(accessibility = "Table View Cell: Inactive")
+	private WebElement inactiveGroup;
+
+	@iOSXCUITFindBy(accessibility = "Table View Cell: New Contacts")
+	private WebElement newContactsGroup;
+
+	@iOSXCUITFindBy(accessibility = "Table View Cell: Passively Searching")
+	private WebElement passivelySearchingGroup;
+
+	@iOSXCUITFindBy(accessibility = "Table View Cell: Not Grouped")
+	private WebElement notGroupedGroup;
 
 	public ClientPage(WebDriver driver) {
 		super(driver);
@@ -267,8 +293,12 @@ public class ClientPage extends BasePage {
 	}
 
 	public void isTestClientPresent() {
-//		element(testClient).shouldBePresent();
-		element(testClient).isDisplayed();
+		boolean onlyTestClientDisplayed = false;
+
+		if (((listOfClientsAndListings.size() - 20 == 1) && element(testClient).isDisplayed())) {
+			onlyTestClientDisplayed = true;
+		}
+		Assert.assertTrue(onlyTestClientDisplayed);
 	}
 
 	public void clickOnTestClient() throws Exception {
@@ -286,6 +316,47 @@ public class ClientPage extends BasePage {
 		element(MobileBy.AccessibilityId(name)).shouldNotBePresent();
 	}
 
-	public void clickOnExistingDesiredClientOrAgent(String user_name) {
+	public void clickOnDoneButton() {
+		element(doneButton).click();
+	}
+
+	public void clickOnActivelySearchingGroup() {
+		element(activelySearchingGroup).click();
+	}
+
+	public void clickOnInactiveGroup() {
+		element(inactiveGroup).click();
+	}
+
+	public void clickOnNewContactsGroup() {
+		element(newContactsGroup).click();
+	}
+
+	public void clickOnPassivelySearchingGroup() {
+		element(passivelySearchingGroup).click();
+	}
+
+	public void clickOnNotGroupedGroup() {
+		element(notGroupedGroup).click();
+	}
+
+	public void checkFilteredClients(String clientGroup) {
+		boolean clientsFilteredCorrectly = true;
+
+		for (WebElement client : clientList) {
+			element(client).click();
+			List<WebElement> clientGroups = getDriver().findElements(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group"));
+
+			if (clientGroups.isEmpty()) {
+				clientsFilteredCorrectly = false;
+				break;
+			}
+			this.clickOnBackButtonCreateAgent();
+		}
+		Assert.assertTrue(clientsFilteredCorrectly);
+	}
+
+	public void shouldSeeClientGroup(String clientGroup) {
+		element(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group")).shouldBeVisible();
 	}
 }

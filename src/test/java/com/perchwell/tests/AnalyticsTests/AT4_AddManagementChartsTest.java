@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"DiscussTests", "DiscussionsContactsAnalytics"})
+@WithTagValuesOf({"DiscussTests", "Analytics"})
 public class AT4_AddManagementChartsTest extends SampleTest {
 
     @Test

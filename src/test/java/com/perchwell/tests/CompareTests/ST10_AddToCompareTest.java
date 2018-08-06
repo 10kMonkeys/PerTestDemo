@@ -10,7 +10,6 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "CompareTests", "First"})
 public class ST10_AddToCompareTest extends SampleTest {
 
-	@Ignore
 	@Test
 	public void addToCompare() throws Exception {
 

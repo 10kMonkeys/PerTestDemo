@@ -264,9 +264,6 @@ public class REBNYListingsPage extends BasePage {
 
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL:'")
     private WebElement mktShareAskingPriceListingsAmount;
-//
-//    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'REBNY LISTINGS_ASKING PRICE_0_'")
-//    private WebElement mktShareAskingPriceListingsAmountAfterFilterChanging;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeOther' AND name CONTAINS 'location -'")
     private List<WebElement> locationAskingPriceListingsLocationsList;
