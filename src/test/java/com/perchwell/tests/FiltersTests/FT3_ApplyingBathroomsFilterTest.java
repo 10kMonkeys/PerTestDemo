@@ -7,7 +7,7 @@ import org.junit.Test;
 public class FT3_ApplyingBathroomsFilterTest extends SampleTest {
 
     @Test
-    public void resultAfterApplyingBathroomFilter() {
+    public void resultAfterApplyingBathroomFilter()  {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

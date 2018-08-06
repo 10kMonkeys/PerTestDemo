@@ -11,7 +11,7 @@ import java.awt.*;
 public class ST17_ApplyingStatusTypeFilter extends SampleTest {
 
     @Test
-    public void applyingStatusTypeFilter() throws Exception{
+    public void applyingStatusTypeFilter() throws Exception {
             user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                     AppProperties.INSTANCE.getProperty("password"));
             user.atPerchwellPage.skipAllHints();
@@ -33,7 +33,6 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
             user.atSearchPage.clickOnApplyButton();
             user.atPerchwellPage.shouldSeeListingWithLabel("Sold");
             user.atPerchwellPage.clickOnMyNewSearch();
-            user.atSearchPage.deselectSoldFilter();
             user.atSearchPage.selectRentedFilter();
             user.atSearchPage.clickOnApplyButton();
             user.atPerchwellPage.shouldSeeListingWithLabel("Rented");

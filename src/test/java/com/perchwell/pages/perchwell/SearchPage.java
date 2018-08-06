@@ -53,7 +53,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "LoadSavedSearchButton")
 	private WebElement loadSavedSearchButton;
 
-	@iOSXCUITFindBy(accessibility = "TAP TO EDIT OR SAVE")
+	@iOSXCUITFindBy(accessibility = "TAP TO SAVE CHANGES")
 	private WebElement tapToSaveChanges;
 
 	@iOSXCUITFindBy(accessibility = "generic_text_input_field")
@@ -203,7 +203,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Laundry Bldg-SELECTED")
 	private WebElement selectedLaundryBLDGFilter;
 
-	@iOSXCUITFindBy(iOSNsPredicate= "type=='XCUIElementTypeStaticText' AND name CONTAINS 'Sold'")
+	@iOSXCUITFindBy(accessibility = "Sales-selected")
 	private WebElement selectedSoldFilter;
 
 	public SearchPage(WebDriver driver) {

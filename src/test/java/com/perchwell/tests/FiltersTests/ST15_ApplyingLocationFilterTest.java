@@ -11,7 +11,7 @@ public class ST15_ApplyingLocationFilterTest extends SampleTest {
 
 @Ignore
 	@Test
-	public void resultAfterApplyingLocationFilter() throws Exception {
+	public void resultAfterApplyingLocationFilter() {
 	user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 	user.atPerchwellPage.skipAllHints();
