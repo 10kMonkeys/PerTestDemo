@@ -5,7 +5,6 @@ import com.perchwell.helpers.SessionVariables;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.clientdetails.ClientPage;
-import org.junit.Assert;
 
 public class ClientSteps extends ScenarioSteps {
 
@@ -85,7 +84,7 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickOnDesiredClient() {
+	public void clickOnJustCreatedClient() {
 		onPage.clickOnDesiredClientOrAgent(SessionVariables.getValueFromSessionVariable("User_name"));
 	}
 
@@ -211,5 +210,64 @@ public class ClientSteps extends ScenarioSteps {
 	public void clickOnExistingClientForRemoveMessage() throws Exception {
 		onPage.isClientOrAgentDisplayed(SessionVariables.getValueFromSessionVariable("User_name").toUpperCase());
 		onPage.clickOnDesiredClientOrAgent(SessionVariables.getValueFromSessionVariable("User_name").toUpperCase());
+	}
+
+	@Step
+	public void deselectActivelySearchingGroup() {
+		onPage.clickOnActivelySearchingGroup();
+	}
+
+	@Step
+	public void deselectInactiveGroup() {
+		onPage.clickOnInactiveGroup();
+	}
+
+	@Step
+	public void deselectNewContactsGroup() {
+		onPage.clickOnNewContactsGroup();
+	}
+
+	@Step
+	public void deselectPassivelySearchingGroup() {
+		onPage.clickOnPassivelySearchingGroup();
+	}
+
+	@Step
+	public void deselectNotGroupedGroup() {
+		onPage.clickOnNotGroupedGroup();
+	}
+
+	@Step
+	public void clickOnDoneButton() {
+		onPage.clickOnDoneButton();
+	}
+
+	@Step
+	public void checkFilteredClients(String clientGroup) {
+		onPage.checkFilteredClients(clientGroup);
+	}
+
+	@Step
+	public void shouldSeeClientGroup(String clientGroup) {
+		onPage.shouldSeeClientGroup(clientGroup);
+	}
+
+	public void selectInactiveGroup() {
+		onPage.clickOnInactiveGroup();
+	}
+
+	@Step
+	public void selectNewContactsGroup() {
+		onPage.clickOnNewContactsGroup();
+	}
+
+	@Step
+	public void selectPassivelySearchingGroup() {
+		onPage.clickOnPassivelySearchingGroup();
+	}
+
+	@Step
+	public void selectNotGroupedGroup() {
+		onPage.clickOnNotGroupedGroup();
 	}
 }

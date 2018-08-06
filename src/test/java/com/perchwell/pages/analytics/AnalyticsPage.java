@@ -142,11 +142,12 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypePickerWheel[2]")
     private MobileElement  endingPickerWheel;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'SET RANGE'")
-	//@iOSXCUITFindBy(accessibility = "SET RANGE")
+//    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'SET RANGE'")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='SET RANGE']")
+//	@iOSXCUITFindBy(accessibility = "SET RANGE")
     private WebElement setRangeButton;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeStaticText")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther")
     private List<WebElement> valueColumnYearsList;
 
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther")
@@ -158,7 +159,9 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeStaticText[contains(@name, 'NOTHING TO SEE HERE')]")
     private WebElement nothingToSeeHere;
 
-    @iOSXCUITFindBy(accessibility = "RESET")
+//    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'RESET'")
+//    @iOSXCUITFindBy(accessibility = "RESET")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='RESET']")
     private WebElement resetButton;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypePickerWheel[1]")
@@ -398,7 +401,7 @@ public class AnalyticsPage extends BasePage {
         return element(beginningPickerWheel).getText();
     }
 
-    public void getDefaultMaxValueYear(){
+    public void getDefaultMaxValueYear() {
         SessionVariables.addValueInSessionVariable("MaxDefaultRangeYear",String.valueOf(endingPickerWheel.getAttribute("value")));
         SessionVariables.addValueInSessionVariable("MaxRangeYear",String.valueOf(Integer.parseInt(SessionVariables.getValueFromSessionVariable("MaxDefaultRangeYear")) - 1));
     }
@@ -412,31 +415,35 @@ public class AnalyticsPage extends BasePage {
     }
 
     public void setRangeButtonClick(){
-	    setRangeButton.click();
+	    element(setRangeButton).click();
     }
 
-    public boolean isColumnForPreviousMinDefaultYearAdd(String year){
-	    boolean isFound = false;
-	    String shortenedYear = year.substring(2);
-        for(WebElement e : valueColumnYearsList) {
-            if((e.getText().equals(year))||(e.getText().equals(shortenedYear))) {
-                isFound = true;
+    public void isColumnForPreviousMinDefaultYearAdd(String minYear) {
+	    boolean isCorrectRange = true;
+        int counterYear = Integer.parseInt(minYear);
+
+        for(WebElement year : valueColumnYearsList) {
+            if(!((Integer.parseInt(year.getAttribute("name")) == counterYear) & (valueColumnYearsList.size() == 6))) {
+                isCorrectRange = false;
                 break;
             }
+            counterYear += 1;
         }
-	    return isFound;
+	    Assert.assertTrue(isCorrectRange);
     }
 
-    public boolean isColumnForNextMaxDefaultYearRemove(String year){
-        boolean isRemove = true;
-        String shortenedYear = year.substring(2);
-        for(WebElement e : valueColumnYearsList) {
-            if((e.getText().equals(year))||(e.getText().equals(shortenedYear))) {
-                isRemove = false;
+    public void isColumnForNextMaxDefaultYearRemove() {
+        boolean isCorrectRange = true;
+        int counterYear = Integer.parseInt(SessionVariables.getValueFromSessionVariable("MinRangeYear"));
+
+        for(WebElement year : valueColumnYearsList) {
+            if(!((Integer.parseInt(year.getAttribute("name")) == counterYear) & (valueColumnYearsList.size() == 5))) {
+                isCorrectRange = false;
                 break;
             }
+            counterYear += 1;
         }
-        return isRemove;
+        Assert.assertTrue(isCorrectRange);
 	}
 
 	public boolean isOnlyThreeYearsDisplayed(){
@@ -444,7 +451,7 @@ public class AnalyticsPage extends BasePage {
     }
 
     public String yearsRangeButtonValue(){
-	    return yearsRange.getText();
+	    return yearsRange.getAttribute("name");
     }
 
     public boolean isYearsRangeChange(String previous,String present){
@@ -459,16 +466,17 @@ public class AnalyticsPage extends BasePage {
     public void  getPreviousYearsInFromTopList() {
         List<Integer> yearsList = new ArrayList<>();
         for (WebElement e : valueColumnYearsList) {
-            String year = e.getText();
+            String year = e.getAttribute("name");
             year = year.substring(0,year.length() - 1);
             yearsList.add(Integer.parseInt(year));
         }
         previousYearsList = yearsList;
     }
-    public void getPresentYearsInFromTopList(){
+
+    public void getPresentYearsInFromTopList() {
         List<Integer> yearsList = new ArrayList<>();
         for (WebElement e : valueColumnYearsList) {
-            String year = e.getText();
+            String year = e.getAttribute("name");
             year = year.substring(0,year.length() - 1);
             yearsList.add(Integer.parseInt(year));
         }
@@ -477,7 +485,8 @@ public class AnalyticsPage extends BasePage {
 
     public boolean isOnChartUpdateYearsFromTop(){
         boolean isChartUpdateYearsFromTop = false;
-        for (int i = 0;i<presentYearsList.size();i++){
+        for (int i = 0;i < presentYearsList.size() ;i++){
+
             if(presentYearsList.get(i) == previousYearsList.get(i) - 1) isChartUpdateYearsFromTop = true;
             else{
                 isChartUpdateYearsFromTop = false;
@@ -516,7 +525,7 @@ public class AnalyticsPage extends BasePage {
     private String getExpectedYearsRange() {
         int maxYear = CurrentYear.getCurrentYear() - 2000;
         int minYear = maxYear - 4;
-        return "'" + minYear + " — '" + maxYear;
+        return "'" + minYear + "  — '" + maxYear; //add space
     }
 
     public void clickOnResetButton() {

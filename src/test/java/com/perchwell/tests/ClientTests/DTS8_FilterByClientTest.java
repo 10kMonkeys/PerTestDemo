@@ -2,11 +2,12 @@ package com.perchwell.tests.ClientTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.data.DiscussionMessages;
+import com.perchwell.data.SearchRequests;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"DiscussTests", "DiscussionsContactsAnalytics"})
+@WithTagValuesOf({"DiscussTests", "DiscussionsContacts"})
 public class DTS8_FilterByClientTest extends SampleTest {
 
     @Test
@@ -27,15 +28,15 @@ public class DTS8_FilterByClientTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnBackButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnDiscussionsLabel();
-        user.atDiscussionsListPage.enterValueInSearchField("Tes");
+        user.atDiscussionsListPage.enterValueInSearchField(SearchRequests.TES);
         user.atDiscussionsListPage.shouldBeTestClientPresentInFilterResult();
         user.atDiscussionsListPage.clickDeleteIconNextToSearchText();
         user.atDiscussionsListPage.shouldBeNothingDisplayedInFilterByPerson();
-        user.atDiscussionsListPage.enterValueInSearchField("st cl");
+        user.atDiscussionsListPage.enterValueInSearchField(SearchRequests.ST_CL);
         user.atDiscussionsListPage.shouldBeTestClientPresentInFilterResult();
         user.atDiscussionsListPage.clickDeleteIconNextToSearchText();
         user.atDiscussionsListPage.shouldBeNothingDisplayedInFilterByPerson();
-        user.atDiscussionsListPage.enterValueInSearchField(" client");
+        user.atDiscussionsListPage.enterValueInSearchField(SearchRequests.CLIENT1);
         user.atDiscussionsListPage.shouldBeTestClientPresentInFilterResult();
         user.atDiscussionsListPage.selectTestClient();
         user.atDiscussionsListPage.shouldBeOnlyDiscussionWithTestClientDisplayed();

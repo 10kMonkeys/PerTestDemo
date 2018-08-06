@@ -271,5 +271,28 @@ public class ACRISClosingSteps extends ScenarioSteps {
         acrisClosingPage.shouldSeeMKTShareBuildingTypeByDealCountChart();
         this.isChartWithApplyingFiltersDisplayed();
     }
+
+    @Step
+    public void addMKTShareBuildingHeightByDealCountChart() throws Exception {
+        acrisClosingPage.addMKTShareBuildingHeightByDealCountChart();
+    }
+
+    @Step
+    public void shouldSeeMKTShareBuildingHeightByDealCountChart() {
+        acrisClosingPage.shouldSeeMKTShareBuildingHeightByDealCountChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyDistributionDollarFT2PercentilesChart() throws Exception {
+        acrisClosingPage.addAndVerifyDistributionDollarFT2PercentilesChart();
+        this.isChartDisplayed();
+    }
+
+    @Step
+    public void addAndVerifyTrendsTopTenPerMKTDealVolumeQuarterlyChart() throws Exception {
+        acrisClosingPage.addAndVerifyTrendsTopTenPerMKTDealVolumeQuarterlyChart();
+        this.isChartDisplayed();
+    }
 }
 

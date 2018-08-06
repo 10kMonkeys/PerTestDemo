@@ -40,12 +40,12 @@ public abstract class Helper {
         new TouchAction(driver).press(startPoint, y).waitAction(Duration.ofSeconds(duration)).moveTo(endPoint, 0).release().perform();
     }
 
-    public static void swipeVerticalAndroid(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage, int duration) {
+    public static void swipeVerticalAndroid(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage) {
         Dimension size = driver.manage().window().getSize();
         int anchor = (int) (size.width * anchorPercentage);
         int startPoint = (int) (size.height * startPercentage);
-        int endPoint = (int) (size.height * finalPercentage * (-1));
-        new TouchAction(driver).press(anchor, startPoint).moveTo(10, endPoint).release().perform();
+        int endPoint = (int) (size.height * finalPercentage);
+        new TouchAction(driver).longPress(anchor, startPoint).moveTo(anchor, endPoint).release().perform();
     }
 
     @Deprecated
@@ -194,7 +194,7 @@ public abstract class Helper {
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
         while (!isFoundTheElement) {
 
-            swipeVerticalAndroid(appiumDriver, 0.7, -0.5, 0.5, 1);
+            swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
 
             isFoundTheElement = getDriver().findElements(byElement).size() > 0;
 

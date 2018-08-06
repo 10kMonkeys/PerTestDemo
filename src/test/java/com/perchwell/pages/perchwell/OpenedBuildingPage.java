@@ -38,7 +38,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement buildingAddress;
 
-	@iOSXCUITFindBy(accessibility = "compare untinted")
+	@iOSXCUITFindBy(accessibility = "Compare Bar Button")
 	private WebElement compareButton;
 
 	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")

@@ -10,7 +10,6 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "CompareTests", "First"})
 public class ST11_DeleteFromCompareTest extends SampleTest {
 
-	@Ignore
 	@Test
 	public void deleteFromCompare() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

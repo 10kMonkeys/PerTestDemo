@@ -1,9 +1,12 @@
 package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.ClientGroups;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"SmokeTestSuit", "CompareTests", "DiscussionsContacts"})
 public class DT5_AddClientForAllGroupsTest extends SampleTest {
 
     @Test
@@ -14,35 +17,29 @@ public class DT5_AddClientForAllGroupsTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnClientsLabel();
-
-        user.atClientPage.addNewClient("Actively Searching");
+        user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
         user.atClientPage.shouldSeeRecentlyCreatedClient();
-        user.atClientPage.clickOnDesiredClient();
-// user.atClientPage.shouldSeeClientGroup("Actively Searching"); //todo implement after fix of hotelka
-        user.atClientPage.clickOnBackButton();
-
-        user.atClientPage.addNewClient("Inactive");
+        user.atClientPage.clickOnJustCreatedClient();
+        user.atClientPage.shouldSeeClientGroup(ClientGroups.ACTIVELY_SEARCHING);
+        user.atClientPage.clickOnBackButtonCreateAgent();
+        user.atClientPage.addNewClient(ClientGroups.INACTICE);
         user.atClientPage.shouldSeeRecentlyCreatedClient();
-        user.atClientPage.clickOnDesiredClient();
-// user.atClientPage.shouldSeeClientGroup("Inactive"); //todo implement after fix of hotelka
-        user.atClientPage.clickOnBackButton();
-
-        user.atClientPage.addNewClient("New contacts");
+        user.atClientPage.clickOnJustCreatedClient();
+        user.atClientPage.shouldSeeClientGroup(ClientGroups.INACTICE);
+        user.atClientPage.clickOnBackButtonCreateAgent();
+        user.atClientPage.addNewClient(ClientGroups.NEW_CONTACTS);
         user.atClientPage.shouldSeeRecentlyCreatedClient();
-        user.atClientPage.clickOnDesiredClient();
-// user.atClientPage.shouldSeeClientGroup("New contacts"); //todo implement after fix of hotelka
-        user.atClientPage.clickOnBackButton();
-
-        user.atClientPage.addNewClient("Passively Searching");
+        user.atClientPage.clickOnJustCreatedClient();
+        user.atClientPage.shouldSeeClientGroup(ClientGroups.NEW_CONTACTS);
+        user.atClientPage.clickOnBackButtonCreateAgent();
+        user.atClientPage.addNewClient(ClientGroups.PASSIVELY_SEARCHING);
         user.atClientPage.shouldSeeRecentlyCreatedClient();
-        user.atClientPage.clickOnDesiredClient();
-// user.atClientPage.shouldSeeClientGroup("Passively Searching"); //todo implement after fix of hotelka
-        user.atClientPage.clickOnBackButton();
-
-        user.atClientPage.addNewClient("Not Grouped");
+        user.atClientPage.clickOnJustCreatedClient();
+        user.atClientPage.shouldSeeClientGroup(ClientGroups.PASSIVELY_SEARCHING);
+        user.atClientPage.clickOnBackButtonCreateAgent();
+        user.atClientPage.addNewClient(ClientGroups.NOT_GROUPED);
         user.atClientPage.shouldSeeRecentlyCreatedClient();
-        user.atClientPage.clickOnDesiredClient();
-// user.atClientPage.shouldSeeClientGroup("Not Grouped"); //todo implement after fix of hotelka
-        user.atClientPage.clickOnBackButton();
+        user.atClientPage.clickOnJustCreatedClient();
+        user.atClientPage.shouldSeeClientGroup(ClientGroups.NOT_GROUPED);
     }
 }
