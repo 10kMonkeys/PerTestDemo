@@ -71,10 +71,10 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "1BathButton")
 	private WebElement filterFor1Bath;
 
-	@iOSXCUITFindBy(accessibility = "In Contract")
+	@iOSXCUITFindBy(accessibility = "IN CONTRACT")
 	private WebElement contractButton;
 
-	@iOSXCUITFindBy(accessibility = "Off Market")
+	@iOSXCUITFindBy(accessibility = "OFF MARKET")
 	private WebElement offMKTButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SOLD/RENTED\"`][1]")
@@ -179,10 +179,10 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "ACTIVE-Selected")
     private WebElement selectedActiveFilter;
 
-    @iOSXCUITFindBy(accessibility = "In Contract")
+    @iOSXCUITFindBy(accessibility = "IN CONTRACT-Selected")
     private WebElement selectedContractFilter;
 
-    @iOSXCUITFindBy(accessibility = "Off Market")
+    @iOSXCUITFindBy(accessibility = "OFF MARKET-Selected")
     private WebElement selectedOffMktFilter;
 
     @iOSXCUITFindBy(accessibility = "Sales-selected")
