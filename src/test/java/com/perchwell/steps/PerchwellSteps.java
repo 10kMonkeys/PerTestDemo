@@ -259,4 +259,8 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void shouldSeeListingWithLabels (String label1, String label2){
 		onPage.isContainLabels(label1, label2);
 	}
+
+	public void waitForClickOnMyNewSearch() {
+		onPage.waitForClickOnMagnifier();
+	}
 }

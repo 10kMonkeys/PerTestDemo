@@ -176,7 +176,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "3BathsButton-selected")
 	private WebElement selectedFilterFor3Baths;
 
-    @iOSXCUITFindBy(accessibility = "Active")
+    @iOSXCUITFindBy(accessibility = "ACTIVE-Selected")
     private WebElement selectedActiveFilter;
 
     @iOSXCUITFindBy(accessibility = "In Contract")
@@ -586,8 +586,9 @@ public class SearchPage extends BasePage {
 	    element(selectedOffMktFilter).click();
     }
 
-    public void checkSalesAndActiveFiltersSelected() {
+    public void checkSalesAndActiveFiltersSelected() throws Exception {
         SoftAssertions softAssert = new SoftAssertions();
+        Helper.swipeDownUntilElementVisible(selectedSoldFilter);
         softAssert.assertThat(Helper.isElementDisplayed(element(selectedActiveFilter))).isTrue();
         softAssert.assertThat(Helper.isElementDisplayed(element(selectedSalesFilter))).isTrue();
         softAssert.assertAll();

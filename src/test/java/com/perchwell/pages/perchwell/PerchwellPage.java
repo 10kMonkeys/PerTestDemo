@@ -6,7 +6,9 @@ import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileDriver;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.functions.ExpectedCondition;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
@@ -18,6 +20,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -400,5 +404,10 @@ public class PerchwellPage extends BasePage {
 
 		Helper.swipeDownUntilElementVisible(specificAddress);
 		element(specificAddress).click();
+	}
+
+	public void waitForClickOnMagnifier() {
+		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
+		magnifierIcon.click();
 	}
 }

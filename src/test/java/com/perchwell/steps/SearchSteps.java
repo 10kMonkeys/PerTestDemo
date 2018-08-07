@@ -312,7 +312,7 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkSalesAndActiveFiltersSelected() {
+	public void checkSalesAndActiveFiltersSelected() throws Exception {
 		onPage.checkSalesAndActiveFiltersSelected();
 	}
 
