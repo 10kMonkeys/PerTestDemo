@@ -36,7 +36,7 @@ public class DiscussionsListPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DiscussionsSearchBar")
 	private WebElement discussionsSearchBar;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'TEST CLIENT' AND visible==1")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'TEST CLIENT1' AND visible==1")
 	private WebElement testClientInFilterByPersonResult;
 
 	@iOSXCUITFindBy(accessibility = "Clear text")

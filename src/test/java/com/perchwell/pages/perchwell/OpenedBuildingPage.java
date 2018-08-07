@@ -38,7 +38,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement buildingAddress;
 
-	@iOSXCUITFindBy(accessibility = "compare untinted")
+	@iOSXCUITFindBy(accessibility = "Compare Bar Button")
 	private WebElement compareButton;
 
 	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")
@@ -186,6 +186,10 @@ public class OpenedBuildingPage extends BasePage {
 		return oneSellerAgentSection;
 	}
 
+	public WebElement getSeveralSellersAgentsElement() {
+		return severalSellersAgentsSection;
+	}
+
 	public void swipeDownUntilElementVisible(WebElement name) throws Exception {
 		Helper.swipeDownUntilElementVisible(name);
 	}
@@ -228,5 +232,9 @@ public class OpenedBuildingPage extends BasePage {
 	public void isLaundryBLDGDisplayed() {
 		Helper.scrollToElement(LaundryBLDGD);
 		element(LaundryBLDGD).shouldBeVisible();
+	}
+
+	public void clickOnSeveralSellersAgentSection() {
+		element(severalSellersAgentsSection).click();
 	}
 }

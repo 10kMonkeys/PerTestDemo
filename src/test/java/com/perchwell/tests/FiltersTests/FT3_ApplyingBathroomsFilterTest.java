@@ -2,8 +2,10 @@ package com.perchwell.tests.FiltersTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"FiltersTests", "FiltersSearchesMapView"})
 public class FT3_ApplyingBathroomsFilterTest extends SampleTest {
 
     @Test

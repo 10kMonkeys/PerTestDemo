@@ -183,6 +183,24 @@ public class ACRISClosingPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: MEDIAN SIZE (SQFT)_TOPTENQUARTERLYTRENDBAR_GROSS_SQUARE_FEET_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement topTenPerMKTUnitSizeQuarterlyChart;
 
+    @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT (BY DEAL COUNT)")
+    private WebElement mktShareBuildingHeightByDealCountButton;
+
+    @iOSXCUITFindBy(accessibility = "DEAL COUNT BY HEIGHT_RISE_NUM_STORIES_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
+    private WebElement mktShareBuildingHeightByDealCountChart;
+
+    @iOSXCUITFindBy(accessibility = "$/FT² PERCENTILES")
+    private WebElement distributionDollarFT2PercentilesButton;
+
+    @iOSXCUITFindBy(accessibility = "SALE $/SQFT_PERCENTILES_SALE_PRICE_PER_SQFT_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
+    private WebElement distributionDollarFT2PercentilesChart;
+
+    @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: DEAL VOLUME (QUARTERLY)")
+    private WebElement trendsTopTenPerMKTDealVolumeQuarterlyButton;
+
+    @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: DEAL VOLUME_TOPTENSTACKEDQUARTERLYTRENDBAR_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
+    private WebElement trendsTopTenPerMKTDealVolumeQuarterlyChart;
+
     //endregion
 
     public ACRISClosingPage(WebDriver driver) {
@@ -410,5 +428,26 @@ public class ACRISClosingPage extends BasePage {
         setImplicitTimeout(1, SECONDS);
         Helper.swipeDownUntilElementVisibleForCharButtons(button);
         resetImplicitTimeout();
+    }
+
+    public void addMKTShareBuildingHeightByDealCountChart() throws Exception {
+        this.swipeUntilButtonShown(mktShareBuildingHeightByDealCountButton);
+        element(mktShareBuildingHeightByDealCountButton).click();
+    }
+
+    public void shouldSeeMKTShareBuildingHeightByDealCountChart() {
+        element(mktShareBuildingHeightByDealCountChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyDistributionDollarFT2PercentilesChart() throws Exception {
+        this.swipeUntilButtonShown(distributionDollarFT2PercentilesButton);
+        element(distributionDollarFT2PercentilesButton).click();
+        element(distributionDollarFT2PercentilesChart).shouldBeVisible();
+    }
+
+    public void addAndVerifyTrendsTopTenPerMKTDealVolumeQuarterlyChart() throws Exception {
+        this.swipeUntilButtonShown(trendsTopTenPerMKTDealVolumeQuarterlyButton);
+        element(trendsTopTenPerMKTDealVolumeQuarterlyButton).click();
+        element(trendsTopTenPerMKTDealVolumeQuarterlyChart).shouldBeVisible();
     }
 }

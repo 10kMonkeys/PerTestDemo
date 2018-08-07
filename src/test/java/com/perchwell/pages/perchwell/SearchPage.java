@@ -62,10 +62,10 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
-	@iOSXCUITFindBy(accessibility = "MinimumPriceField")
+	@iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
 	private WebElement minimumPriceTextBox;
 
-	@iOSXCUITFindBy(accessibility = "MaximumPriceField")
+	@iOSXCUITFindBy(accessibility = "Asking Price Maximum Value Input")
 	private WebElement maximumPriceTextBox;
 
 	@iOSXCUITFindBy(accessibility = "1BathButton")
