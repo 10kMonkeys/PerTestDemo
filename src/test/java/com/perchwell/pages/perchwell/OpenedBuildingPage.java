@@ -186,6 +186,10 @@ public class OpenedBuildingPage extends BasePage {
 		return oneSellerAgentSection;
 	}
 
+	public WebElement getSeveralSellersAgentsElement() {
+		return severalSellersAgentsSection;
+	}
+
 	public void swipeDownUntilElementVisible(WebElement name) throws Exception {
 		Helper.swipeDownUntilElementVisible(name);
 	}
@@ -228,5 +232,9 @@ public class OpenedBuildingPage extends BasePage {
 	public void isLaundryBLDGDisplayed() {
 		Helper.scrollToElement(LaundryBLDGD);
 		element(LaundryBLDGD).shouldBeVisible();
+	}
+
+	public void clickOnSeveralSellersAgentSection() {
+		element(severalSellersAgentsSection).click();
 	}
 }

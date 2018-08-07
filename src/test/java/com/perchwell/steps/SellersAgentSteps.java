@@ -34,6 +34,11 @@ public class SellersAgentSteps extends ScenarioSteps {
     }
 
     @Step
+    public void swipeDownUntilSellersSeveralAgentsSection() throws Exception {
+        openedBuildingPage.swipeDownUntilElementVisible(openedBuildingPage.getSeveralSellersAgentsElement());
+    }
+
+    @Step
     public void clickOnSellersAgentSection() {
         openedBuildingPage.clickOnOneSellersAgentSection();
     }
@@ -57,5 +62,10 @@ public class SellersAgentSteps extends ScenarioSteps {
     public void updateMessage() {
         SessionVariables.addValueInSessionVariable("Agent_message", sellersAgentPage.generateAgentMessage());
         sellersAgentPage.updateMessage(SessionVariables.getValueFromSessionVariable("Agent_message"));
+    }
+
+    @Step
+    public void shouldInterestEmailSentToTwoAgent() {
+        sellersAgentPage.shouldInterestEmailSentToTwoAgent();
     }
 }
