@@ -12,6 +12,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SellersAgentPage extends BasePage {
 
@@ -69,7 +70,7 @@ public class SellersAgentPage extends BasePage {
     }
 
     public void shouldInterestEmailSentToOneAgent() {
-        Assert.assertTrue(countNumberEmailsSentToSellersAgents() > 0);
+        Assert.assertEquals(1, countNumberEmailsSentToSellersAgents());
     }
 
     public boolean shouldInterestEmailsSentToSeveralAgents() {
@@ -83,5 +84,39 @@ public class SellersAgentPage extends BasePage {
 
     public void updateMessage(String agent_message) {
         element(agentMessagetextBox).sendKeys(agent_message);
+    }
+
+    public int countNumberEmailsSentToTwoSellersAgents() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        int k = 0;
+        int l = 0;
+
+        String address = SessionVariables.getValueFromSessionVariable("First_building_address");
+        String emailHeaderToSellersAgent = AppProperties.INSTANCE.getProperty("HEADER_SELLERS_AGENT");
+
+        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(emailHeaderToSellersAgent);
+
+
+        for (MailTrapResponse email : mailTrapResponse) {
+            if ((email.getText_body().toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message")))
+                    && email.getText_body().toUpperCase().contains(SessionVariables.getValueFromSessionVariable("First_building_address"))
+                    && email.getTo_email().equals((AppProperties.INSTANCE.getProperty("agent1_email")))) {
+                k += 1;
+            } else if ((email.getText_body().toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message")))
+                    && email.getText_body().toUpperCase().contains(SessionVariables.getValueFromSessionVariable("First_building_address"))
+                    && email.getTo_email().equals((AppProperties.INSTANCE.getProperty("agent2_email")))) {
+                l += 1;
+            }
+        }
+        return k + l;
+    }
+
+    public void shouldInterestEmailSentToTwoAgent() {
+        Assert.assertEquals(2, countNumberEmailsSentToTwoSellersAgents());
     }
 }

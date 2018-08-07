@@ -115,5 +115,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 		onPage.clickFeaturesAmenities();
 		onPage.isLaundryBLDGDisplayed();
 	}
+
+	@Step
+    public void clickOnSeveralSellersAgentSection() {
+		onPage.clickOnSeveralSellersAgentSection();
+    }
 }
 
