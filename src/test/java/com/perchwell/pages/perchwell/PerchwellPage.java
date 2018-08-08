@@ -375,14 +375,14 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void isContainLabel(String label){
-		List<WebElement> i = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label + "'"));
-		Assert.assertTrue(i.size()==20);
+		List<WebElement> labelsList = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label + "'"));
+		Assert.assertEquals(20, labelsList.size());
 	}
 
 	public void isContainLabels(String label1, String label2){
-		List<WebElement> i1 = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label1 + "'"));
-		List<WebElement> i2 = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label2 + "'"));
-		Assert.assertTrue(i1.size()+i2.size() == 20);
+		List<WebElement> labelsList1 = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label1 + "'"));
+		List<WebElement> labelsList2 = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label2 + "'"));
+		Assert.assertEquals(20, labelsList1.size() + labelsList2.size());
 	}
 
 	public void clickOnAddressSortButton() {

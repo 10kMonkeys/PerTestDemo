@@ -1,13 +1,12 @@
 package com.perchwell.tests.FiltersTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.ListingLabels;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-import java.awt.*;
-
-@WithTagValuesOf({"SmokeTestSuit", "FiltersTests", "Second"})
+@WithTagValuesOf({"SmokeTestSuit", "FiltersTests", "Third"})
 public class ST17_ApplyingStatusTypeFilter extends SampleTest {
 
     @Test
@@ -21,24 +20,25 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
             user.atSearchPage.deselectActiveFilter();
             user.atSearchPage.selectContractFilter();
             user.atSearchPage.clickOnApplyButton();
-            user.atPerchwellPage.shouldSeeListingWithLabel("In Contract");
+            user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.IN_CONTRACT);
             user.atPerchwellPage.clickOnMyNewSearch();
             user.atSearchPage.deselectContractFilter();
             user.atSearchPage.selectOffMktFilter();
             user.atSearchPage.clickOnApplyButton();
-            user.atPerchwellPage.shouldSeeListingWithLabels("Temporarily Off Market", "Permanently Off Market");
+            user.atPerchwellPage.shouldSeeListingWithLabels(ListingLabels.TEMP_OFF_MARKET,
+                    ListingLabels.PERM_OFF_MARKET);
             user.atPerchwellPage.clickOnMyNewSearch();
             user.atSearchPage.deselectOffMktFilter();
             user.atSearchPage.selectSoldOrRentFilter();
             user.atSearchPage.clickOnApplyButton();
-            user.atPerchwellPage.shouldSeeListingWithLabel("Sold");
+            user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.SOLD);
             user.atPerchwellPage.clickOnMyNewSearch();
             user.atSearchPage.selectRentedFilter();
             user.atSearchPage.clickOnApplyButton();
-            user.atPerchwellPage.shouldSeeListingWithLabel("Rented");
+            user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.RENTED);
             user.atPerchwellPage.clickOnMyNewSearch();
             user.atSearchPage.saveCurrentSearch();
-            user.atPerchwellPage.waitForClickOnMyNewSearch(); //
+            user.atPerchwellPage.clickOnMyNewSearchWithPause();
             user.atSearchPage.clickOnLoadSavedSearchButton();
             user.atSearchPage.createNewSearchClick();
             user.atSearchPage.clickOnApplyButton();
@@ -47,7 +47,7 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
             user.atSearchPage.checkSalesAndActiveFiltersSelected();
             user.atSearchPage.clickOnLoadSavedSearchButton();
             user.atSearchPage.clickOnPreviouslyCreatedSearch();
-            user.atPerchwellPage.shouldSeeListingWithLabel("Rented");
+            user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.RENTED);
             user.atPerchwellPage.clickOnMyNewSearch();
             user.atSearchPage.clickOnResetFilter();
             user.atSearchPage.checkSalesAndActiveFiltersSelected();

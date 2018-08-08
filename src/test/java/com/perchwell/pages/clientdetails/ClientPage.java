@@ -314,7 +314,10 @@ public class ClientPage extends BasePage {
 	}
 
 	public void isClientNotPresented(String name) {
-		element(MobileBy.AccessibilityId(name)).shouldNotBePresent();
+		WebElement justCreatedUser = getDriver().findElement(MobileBy.AccessibilityId(name));
+		waitFor(ExpectedConditions.stalenessOf(justCreatedUser));
+		element(justCreatedUser).shouldNotBePresent();
+//		element(MobileBy.AccessibilityId(name)).shouldNotBePresent();
 	}
 
 	public void clickOnDoneButton() {
