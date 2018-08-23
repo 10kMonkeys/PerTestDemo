@@ -214,4 +214,9 @@ public class ManagementPage extends BasePage {
         element(firmMedianPriceButton).click();
         element(distributionFirmMedianPriceChart).shouldBeVisible();
     }
+
+    public void addMKTShareBedroomsChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(bedroomsButton);
+        element(bedroomsButton).click();
+    }
 }

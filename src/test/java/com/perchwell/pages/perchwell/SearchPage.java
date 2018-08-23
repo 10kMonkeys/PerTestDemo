@@ -13,8 +13,11 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
+import javax.swing.*;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class SearchPage extends BasePage {
 
@@ -48,7 +51,7 @@ public class SearchPage extends BasePage {
 	private WebElement baths;
 
 	@iOSXCUITFindBy(accessibility = "FIREPLACE")
-	private WebElement fireplace;
+	private WebElement fireplaceFilter;
 
 	@iOSXCUITFindBy(accessibility = "LoadSavedSearchButton")
 	private WebElement loadSavedSearchButton;
@@ -206,6 +209,30 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Sales-selected")
 	private WebElement selectedSoldFilter;
 
+	@iOSXCUITFindBy(accessibility = "Doorman")
+	private WebElement doormanFilter;
+
+	@iOSXCUITFindBy(accessibility = "Elevator")
+	private WebElement elevatorFilter;
+
+	@iOSXCUITFindBy(accessibility = "New Dev")
+	private WebElement developmentFilter;
+
+	@iOSXCUITFindBy(accessibility = "Pets")
+	private WebElement petsFilter;
+
+	@iOSXCUITFindBy(accessibility = "Pool")
+	private WebElement poolFilter;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NO MIN'")
+	private WebElement squareFeetMinimumValue;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS '10,000+'")
+	private WebElement squareFeetMaximumValue;
+
+	@iOSXCUITFindBy(accessibility = "Laundry Unit")
+	private WebElement laundryUnitFilter;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -232,14 +259,6 @@ public class SearchPage extends BasePage {
 
 	public void selectFilterFor2Beds() {
 		element(filterFor2Beds).click();
-	}
-
-	public void selectFilterFireplace() {
-		element(fireplace).click();
-	}
-
-	public void scrollToFireplace() {
-		Helper.scrollToElement(fireplace);
 	}
 
 	public void clickLoadSavedSearchButton() {
@@ -630,4 +649,50 @@ public class SearchPage extends BasePage {
 		element(selectedSoldFilter).click();
 
 	}
+
+	public void clickOnDoormanFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(doormanFilter);
+		element(doormanFilter).click();
+	}
+
+	public void AddElevatorFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(elevatorFilter);
+		element(elevatorFilter).click();
+	}
+
+	public void clickOnLaundryBuildingFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(laundryBLDGFilterButton);
+		element(laundryBLDGFilterButton);
+	}
+
+	public void clickOnPetsFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(petsFilter);
+		element(petsFilter).click();
+	}
+
+	public void clickOnDevelopmentFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(developmentFilter);
+		element(developmentFilter).click();
+	}
+
+	public void clickOnPoolFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(poolFilter);
+		element(poolFilter).click();
+	}
+
+	public void clickOnFireplaceFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(fireplaceFilter);
+		element(fireplaceFilter).click();
+	}
+
+	public void setMinimumSquareFeet(String value) throws Exception {
+		Helper.swipeDownUntilElementVisible(squareFeetMinimumValue);
+		withAction().dragAndDrop(squareFeetMinimumValue, squareFeetMaximumValue).perform();
+
+	}
+
+    public void clickOnLaundryUnitFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(laundryUnitFilter);
+		element(laundryUnitFilter).click();
+    }
 }

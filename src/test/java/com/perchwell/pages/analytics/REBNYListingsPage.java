@@ -274,11 +274,11 @@ public class REBNYListingsPage extends BasePage {
         super(driver);
     }
 
-    public void daysOnMarketButtonClick(){
+    public void daysOnMarketButtonClick() {
         element(daysOnMarketButton).click();
     }
 
-    public void bedroomsButtonClick(){
+    public void bedroomsButtonClick() {
         element(bedroomsButton).click();
     }
 
@@ -327,7 +327,7 @@ public class REBNYListingsPage extends BasePage {
         return element(askingPriceButton).isDisplayed();
     }
 
-    public void askingPricePerBedButtonClick() throws Exception {
+    public void addDistributionAskingPricePerBedChart() throws Exception {
         this.swipeUntilButtonShown(askingPricePerBedButton);
         element(askingPricePerBedButton).click();
 
@@ -387,11 +387,11 @@ public class REBNYListingsPage extends BasePage {
         element(locationPropertyTaxesChart).shouldBeVisible();
     }
 
-    public void shouldSeeMedianAskingPricePerBedChart(){
+    public void shouldSeeMedianAskingPricePerBedChart() {
         element(medianAskingPricePerBedChart).shouldBeVisible();
     }
 
-    public void shouldSeeLocationAskingPricePerBedChart(){
+    public void shouldSeeLocationAskingPricePerBedChart() {
         element(locationAskingPricePerBedChart).shouldBeVisible();
     }
 
@@ -541,11 +541,11 @@ public class REBNYListingsPage extends BasePage {
         element(bedroomChart).shouldBeVisible();
     }
 
-    public void shouldSeeMedianOrLocationAskingPriceChart(){
+    public void shouldSeeMedianOrLocationAskingPriceChart() {
         element(medianAskingPriceChart).shouldBeVisible();
     }
 
-    public void shouldSeeDistributionDollarPerFTByPriceSegmentChartAdd(){
+    public void shouldSeeDistributionDollarPerFTByPriceSegmentChartAdd() {
         element(distributionDollarPerFTByPriceSegmentChart).shouldBeVisible();
     }
 
@@ -591,11 +591,11 @@ public class REBNYListingsPage extends BasePage {
         element(distributionSquareFeetChart).shouldBeVisible();
     }
 
-    public void shouldSeeFeaturesDoormanChart(){
+    public void shouldSeeFeaturesDoormanChart() {
         element(featuresDoormanChart).shouldBeVisible();
     }
 
-    public void doormanButtonClick() throws Exception {
+    public void addDoormanChart() throws Exception {
         this.swipeUntilButtonShown(doormanButton);
         element(doormanButton).click();
     }
@@ -629,7 +629,7 @@ public class REBNYListingsPage extends BasePage {
     public void getLocationAskingPriceListingsLocations() {
         int counter = 0;
 
-        for(WebElement element: locationAskingPriceListingsLocationsList) {
+        for (WebElement element : locationAskingPriceListingsLocationsList) {
             initialLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("name");
             counter += 1;
         }
@@ -656,13 +656,13 @@ public class REBNYListingsPage extends BasePage {
         boolean arraysAreDifferent = false;
         String[] currentLocationAskingPriceListingsLocationsStringList = new String[5];
 
-        for(WebElement element: locationAskingPriceListingsLocationsList) {
+        for (WebElement element : locationAskingPriceListingsLocationsList) {
             currentLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("name");
             counter += 1;
         }
 
-        for(String element: currentLocationAskingPriceListingsLocationsStringList) {
-            if(!(element.equals(previousLocationAskingPriceListingsLocationsStringList[counter2]))) {
+        for (String element : currentLocationAskingPriceListingsLocationsStringList) {
+            if (!(element.equals(previousLocationAskingPriceListingsLocationsStringList[counter2]))) {
                 arraysAreDifferent = true;
             }
             counter2 += 1;
@@ -677,13 +677,13 @@ public class REBNYListingsPage extends BasePage {
         boolean arraysAreDifferent = true;
         String[] currentLocationAskingPriceListingsLocationsStringList = new String[5];
 
-        for(WebElement element: locationAskingPriceListingsLocationsList) {
+        for (WebElement element : locationAskingPriceListingsLocationsList) {
             currentLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("name");
             counter += 1;
         }
 
-        for(String element: currentLocationAskingPriceListingsLocationsStringList) {
-            if(!(element.equals(initialLocationAskingPriceListingsLocationsStringList[counter2]))) {
+        for (String element : currentLocationAskingPriceListingsLocationsStringList) {
+            if (!(element.equals(initialLocationAskingPriceListingsLocationsStringList[counter2]))) {
                 arraysAreDifferent = false;
             }
             counter2 += 1;
@@ -718,5 +718,44 @@ public class REBNYListingsPage extends BasePage {
         setImplicitTimeout(1, SECONDS);
         Helper.swipeDownUntilElementVisibleForCharButtons(button);
         resetImplicitTimeout();
+    }
+
+    public void addDistributionDOMByNumberBedsChart() {
+        element(domByNumberBedsButton).click();
+    }
+
+    public void addElevatorChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(elevatorButton);
+        element(elevatorButton).click();
+    }
+
+    public void addParkingChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(garageButton);
+        element(garageButton).click();
+    }
+
+    public void addGymChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(gymButton);
+        element(gymButton).click();
+    }
+
+    public void addLaundryBuildingChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(laundryBuildingButton);
+        element(laundryBuildingButton).click();
+    }
+
+    public void addPetsChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(petsButton);
+        element(petsButton).click();
+    }
+
+    public void addPoolChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(poolButton);
+        element(poolButton).click();
+    }
+
+    public void addFireplaceChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(workingFireplaceButton);
+        element(workingFireplaceButton).click();
     }
 }

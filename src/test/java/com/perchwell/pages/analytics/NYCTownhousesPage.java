@@ -722,4 +722,34 @@ public class NYCTownhousesPage extends BasePage {
         element(featuresACRISTHClosingsRecentlyAlteredButton).click();
         element(featuresACRISTHClosingsRecentlyAlteredChart).shouldBeVisible();
     }
+
+    public void addREBNYListingsSquareFeetChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(medianREBNYTHListingsSquareFeetButton);
+        element(medianREBNYTHListingsSquareFeetButton).click();
+    }
+
+    public void addACRISClosingsSquareFeetChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(medianACRISTHClosingSquareFeetButton);
+        element(medianACRISTHClosingSquareFeetButton).click();
+    }
+
+    public void addStockSquareFeetChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(medianTotalTHStockSquareFeetButton);
+        element(medianTotalTHStockSquareFeetButton).click();
+    }
+
+    public void addREBNYListingsBySQFTChar() throws Exception {
+        Helper.swipeDownUntilElementVisible(rebnyTHListingsNumListingsByFT2Button);
+        element(rebnyTHListingsNumListingsByFT2Button).click();
+    }
+
+    public void addACRISClosingsBySQFTChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(acrisTownhouseClosingNumSalesByFT2Button);
+        element(acrisTownhouseClosingNumSalesByFT2Button).click();
+    }
+
+    public void addStockBySQFTChart() throws Exception {
+        Helper.swipeDownUntilElementVisible(totalTHStockNumHousesByFT2Button);
+        element(totalTHStockNumHousesByFT2Button).click();
+    }
 }
