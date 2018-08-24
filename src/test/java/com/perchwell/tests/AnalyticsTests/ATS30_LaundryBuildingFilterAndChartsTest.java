@@ -4,10 +4,10 @@ import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class ATS36_AddLaundryBuildingFilterAndChartsTest extends SampleTest {
+public class ATS30_LaundryBuildingFilterAndChartsTest extends SampleTest {
 
     @Test
-    public void addLaundryBuildingFilterAndChartsTest() throws Exception {
+    public void laundryBuildingFilterAndChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

@@ -4,24 +4,24 @@ import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class ATS40_AddPoolFilterAndChartsTest extends SampleTest {
+public class ATS27_ElevatorFilterAndChartsTest extends SampleTest {
 
     @Test
-    public void addPoolFilterAndChartsTest() throws Exception {
+    public void elevatorFilterAndChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.clickOnPoolFilter();
+        user.atSearchPage.AddElevatorFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
         user.atAnalyticsPage.selectREBNYListingsWithMKTShare();
-        user.atRebnyListingsPage.addMKTSharePoolChart();
+        user.atRebnyListingsPage.addMKTShareElevatorChart();
         user.atAnalyticsPage.skipHints();
-//        user.atAnalyticsPage.verifyThatChartIsDisplayedWithFilter("");
+//        user.atAnalyticsPage.verifyThatChartDisplayedWithFilter("");
         user.atAnalyticsPage.selectREBNYListingsWithFeatures();
-        user.atRebnyListingsPage.addFeaturesPoolChart();
-//        user.atAnalyticsPage.verifyThatChartIsDisplayedWithFilter("");
+        user.atRebnyListingsPage.addFeaturesElevatorChart();
+//        user.atAnalyticsPage.verifyThatChartDisplayedWithFilter("");
     }
 }

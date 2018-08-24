@@ -4,10 +4,10 @@ import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class ATS45_AddACRISClosingsLocationsChartsAndFilterTest extends SampleTest {
+public class ATS39_ACRISClosingsLocationsChartsAndFilterTest extends SampleTest {
 
     @Test
-    public void addACRISClosingsLocationsChartsAndFilterTest(){
+    public void acrisClosingsLocationsChartsAndFilterTest(){
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

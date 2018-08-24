@@ -4,16 +4,16 @@ import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class ATS47_AddSquareFeetFilterAndChartsTest extends SampleTest {
+public class ATS41_SquareFeetFilterAndChartsTest extends SampleTest {
 
     @Test
-    public void addSquareFeetFilterAndChartsTest() throws Exception {
+    public void squareFeetFilterAndChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
 //        user.atPerchwellPage.clickOnMyNewSearch();
-//        user.atSearchPage.setMinimumSquareFeet("6000");
+        user.atSearchPage.setSquareFeetMinFilterToSixK();
 //        user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
         user.atAnalyticsPage.selectNYCTownhousesSection();

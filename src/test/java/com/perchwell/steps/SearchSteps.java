@@ -367,8 +367,8 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void setSquareFeetMinFilterTo() throws Exception {
-		onPage.setSquareFeetMinFilterTo();
+	public void setSquareFeetMinFilterToSixK() throws Exception {
+		onPage.setSquareFeetMinFilterToSixK();
 	}
 
 	@Step

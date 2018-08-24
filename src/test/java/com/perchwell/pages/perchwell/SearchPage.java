@@ -685,7 +685,7 @@ public class SearchPage extends BasePage {
 		element(prewarFilter).click();
 	}
 
-	public void setSquareFeetMinFilterTo() throws Exception {
+	public void setSquareFeetMinFilterToSixK() throws Exception {
 		Helper.swipeDownUntilElementVisible(waitElement);
 
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
