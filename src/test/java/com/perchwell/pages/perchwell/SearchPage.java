@@ -6,6 +6,8 @@ import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.SelendroidBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
@@ -41,6 +43,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "2BedsButton")
 	private WebElement filterFor2Beds;
 
+	@AndroidFindBy(uiAutomator = "text(\"STUDIO\")")
 	@iOSXCUITFindBy(accessibility = "StudioBedsButton")
 	private WebElement filterForStudioBeds;
 
@@ -50,18 +53,23 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "FIREPLACE")
 	private WebElement fireplace;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/load")
 	@iOSXCUITFindBy(accessibility = "LoadSavedSearchButton")
 	private WebElement loadSavedSearchButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
 	@iOSXCUITFindBy(accessibility = "TAP TO SAVE CHANGES")
 	private WebElement tapToSaveChanges;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/rename_group_edit_text")
 	@iOSXCUITFindBy(accessibility = "generic_text_input_field")
 	private WebElement searchName;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/min_price")
 	@iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
 	private WebElement minimumPriceTextBox;
 
@@ -104,15 +112,18 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[3]")
 	private WebElement thirdSearchInList;
 
+	@AndroidFindBy(id = "saved_search_foreground")
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
 	private WebElement firstSearchInList;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "SavedSearchCancelButton")
 	private WebElement savedSearchCancelButton;
 
 	@iOSXCUITFindBy(accessibility = "OVERWRITE")
 	private WebElement overwrite;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/second_option")
 	@iOSXCUITFindBy(accessibility = "SAVE AS...")
 	private WebElement save;
 

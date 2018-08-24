@@ -49,6 +49,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "EXPLORE SEARCH RESULTS BY LOCATION")
 	private WebElement exploreSearchResultHint;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement magnifierIcon;
 
@@ -75,6 +76,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "list_view_button")
 	private WebElement listButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]")
 	private WebElement currentSearchInTitle;
 
