@@ -410,6 +410,7 @@ public class NYCTownhousesSteps extends ScenarioSteps {
         nycTownhousesPage.addFeaturesACRISClosingTwentyFourPlusWidthChart();
     }
 
+    @Step
     public void shouldFeaturesACRISClosingTwentyFourPlusWidthChart() {
         nycTownhousesPage.shouldFeaturesACRISClosingTwentyFourPlusWidthChart();
         analyticsPage.isChartDisplayed();
@@ -435,5 +436,35 @@ public class NYCTownhousesSteps extends ScenarioSteps {
     @Step
     public void addDistributionREBNYListingsDOMByPriceChart() throws Exception {
         nycTownhousesPage.addDistributionREBNYListingsDOMByPriceChart();
+    }
+
+    @Step
+    public void addREBNYListingsSquareFeetChart() throws Exception {
+        nycTownhousesPage.addREBNYListingsSquareFeetChart();
+    }
+
+    @Step
+    public void addACRISClosingsSquareFeetChart() throws Exception {
+        nycTownhousesPage.addACRISClosingsSquareFeetChart();
+    }
+
+    @Step
+    public void addStockSquareFeetChart() throws Exception {
+        nycTownhousesPage.addStockSquareFeetChart();
+    }
+
+    @Step
+    public void addREBNYListingsBySQFTChar() throws Exception {
+        nycTownhousesPage.addREBNYListingsBySQFTChar();
+    }
+
+    @Step
+    public void addACRISClosingsBySQFTChart() throws Exception {
+        nycTownhousesPage.addACRISClosingsBySQFTChart();
+    }
+
+    @Step
+    public void addStockBySQFTChart() throws Exception {
+        nycTownhousesPage.addStockBySQFTChart();
     }
 }

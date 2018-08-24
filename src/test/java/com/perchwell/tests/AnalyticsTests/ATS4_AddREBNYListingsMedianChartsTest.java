@@ -17,7 +17,7 @@ public class ATS4_AddREBNYListingsMedianChartsTest extends SampleTest {
         user.atPerchwellPage.clickOnAnalytics();
         user.atAnalyticsPage.rebnyListingsButtonClick();
         user.atAnalyticsPage.medianButtonClick();
-        user.atRebnyListingsPage.addAskingPricePerBedChart();
+        user.atRebnyListingsPage.addDistributionAskingPricePerBedChart();
         user.atAnalyticsPage.skipHints();
         user.atRebnyListingsPage.shouldSeeMedianAskingPricePerBedChart();
         user.atAnalyticsPage.selectREBNYListingsWithMedian();

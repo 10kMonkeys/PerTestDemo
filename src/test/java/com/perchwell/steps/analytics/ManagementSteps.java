@@ -144,4 +144,9 @@ public class ManagementSteps extends ScenarioSteps {
     public void addMKTShareBuildingTypeChart() throws Exception {
         managementPage.addMKTShareBuildingTypeChart();
     }
+
+    @Step
+    public void addMKTShareBedroomsChart() throws Exception {
+        managementPage.addMKTShareBedroomsChart();
+    }
 }

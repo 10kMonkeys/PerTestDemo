@@ -17,7 +17,7 @@ public class ATS3_AddREBNYListingsLocationChartsTest extends SampleTest {
         user.atPerchwellPage.clickOnAnalytics();
         user.atAnalyticsPage.rebnyListingsButtonClick();
         user.atAnalyticsPage.locationButtonClick();
-        user.atRebnyListingsPage.addAskingPricePerBedChart();
+        user.atRebnyListingsPage.addDistributionAskingPricePerBedChart();
         user.atAnalyticsPage.skipHints();
         user.atRebnyListingsPage.shouldSeeLocationAskingPricePerBedChart();
         user.atAnalyticsPage.selectREBNYListingsWithLocation();

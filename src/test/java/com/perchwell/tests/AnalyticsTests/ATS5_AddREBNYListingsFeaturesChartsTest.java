@@ -17,7 +17,7 @@ public class ATS5_AddREBNYListingsFeaturesChartsTest extends SampleTest {
         user.atPerchwellPage.clickOnAnalytics();
         user.atAnalyticsPage.rebnyListingsButtonClick();
         user.atAnalyticsPage.featureButtonClick();
-        user.atRebnyListingsPage.doormanButtonClick();
+        user.atRebnyListingsPage.addMKTShareDoormanChart();
         user.atAnalyticsPage.skipHints();
         user.atRebnyListingsPage.shouldSeeFeaturesDoormanChart();
         user.atAnalyticsPage.selectREBNYListingsWithFeatures();
