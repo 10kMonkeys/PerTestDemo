@@ -1,10 +1,12 @@
 package com.perchwell.pages.tags;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +20,7 @@ public class MyTagsPage extends BasePage {
 
 	//region WebElements
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_by_tags")
 	@iOSXCUITFindBy(accessibility = "TagSearchButton")
 	private WebElement tagSearchButton;
 
@@ -54,11 +57,18 @@ public class MyTagsPage extends BasePage {
 	}
 
     public void checkJustCreatedTag(String tag) throws Exception {
-		WebElement justCreatedTag = getDriver().findElement(MobileBy.AccessibilityId(tag));
-		setImplicitTimeout(1, SECONDS);
-		Helper.swipeDownUntilElementVisible(justCreatedTag);
-		element(justCreatedTag).click();
-		resetImplicitTimeout();
+		if (Config.isAndroid()) {
+			setImplicitTimeout(1, SECONDS);
+			Helper.androidSwipeDownUntilElementVisible(tag);
+			resetImplicitTimeout();
+			element(MobileBy.xpath("//*[contains(@text, '" + tag + "')]")).click();
+		} else {
+			WebElement justCreatedTag = getDriver().findElement(MobileBy.AccessibilityId(tag));
+			setImplicitTimeout(1, SECONDS);
+			Helper.swipeDownUntilElementVisible(justCreatedTag);
+			element(justCreatedTag).click();
+			resetImplicitTimeout();
+		}
     }
 }
 

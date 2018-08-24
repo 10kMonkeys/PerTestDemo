@@ -86,7 +86,7 @@ public class SellersAgentPage extends BasePage {
         element(agentMessagetextBox).sendKeys(agent_message);
     }
 
-    public int countNumberEmailsSentToTwoSellersAgents() {
+    public boolean countNumberEmailsSentToTwoSellersAgents() {
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
@@ -101,22 +101,21 @@ public class SellersAgentPage extends BasePage {
 
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(emailHeaderToSellersAgent);
 
-
         for (MailTrapResponse email : mailTrapResponse) {
-            if ((email.getText_body().toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message")))
-                    && email.getText_body().toUpperCase().contains(SessionVariables.getValueFromSessionVariable("First_building_address"))
-                    && email.getTo_email().equals((AppProperties.INSTANCE.getProperty("agent1_email")))) {
-                k += 1;
-            } else if ((email.getText_body().toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message")))
-                    && email.getText_body().toUpperCase().contains(SessionVariables.getValueFromSessionVariable("First_building_address"))
-                    && email.getTo_email().equals((AppProperties.INSTANCE.getProperty("agent2_email")))) {
-                l += 1;
+
+            if (email.getText_body().toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message"))
+                    && email.getText_body().toUpperCase().contains(SessionVariables.getValueFromSessionVariable("First_building_address"))) {
+                if (email.getTo_email().equals((AppProperties.INSTANCE.getProperty("agent1_email")))) {
+                    k += 1;
+                } else if (email.getTo_email().equals((AppProperties.INSTANCE.getProperty("agent2_email")))) {
+                    l += 1;
+                }
             }
         }
-        return k + l;
+        return (k == l) && ((k + l) == 2);
     }
 
     public void shouldInterestEmailSentToTwoAgent() {
-        Assert.assertEquals(2, countNumberEmailsSentToTwoSellersAgents());
+        Assert.assertTrue(countNumberEmailsSentToTwoSellersAgents());
     }
 }

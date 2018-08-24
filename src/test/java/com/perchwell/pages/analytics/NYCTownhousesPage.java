@@ -722,4 +722,14 @@ public class NYCTownhousesPage extends BasePage {
         element(featuresACRISTHClosingsRecentlyAlteredButton).click();
         element(featuresACRISTHClosingsRecentlyAlteredChart).shouldBeVisible();
     }
+
+    public void addMKTShareACRISClosingDealCountByPriceChart() throws Exception {
+        this.swipeUntilButtonShown(ACRISTownhouseClosingDealCountByPriceButton);
+        element(ACRISTownhouseClosingDealCountByPriceButton).click();
+    }
+
+    public void addDistributionREBNYListingsDOMByPriceChart() throws Exception {
+        this.swipeUntilButtonShown(rebnyTHListingsDOMByPriceButton);
+        element(rebnyTHListingsDOMByPriceButton).click();
+    }
 }

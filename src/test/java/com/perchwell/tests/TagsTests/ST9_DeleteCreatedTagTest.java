@@ -24,6 +24,7 @@ public class ST9_DeleteCreatedTagTest extends SampleTest {
 		user.atOpenedBuildingPage.clickOnBackButton();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnTagsLabel();
+		user.atTagsPage.searchRemovedTag();
 		user.atTagsPage.shouldNotSeeCreatedTagUpperCase();
 	}
 }

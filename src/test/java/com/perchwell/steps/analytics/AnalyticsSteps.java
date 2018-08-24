@@ -435,4 +435,10 @@ public class AnalyticsSteps extends ScenarioSteps {
 	public void getNumberOfReportDetailEmails() {
 		onPage.getNumberOfReportDetailEmails();
 	}
+
+	@Step
+	public void selectACRISClosingSectionWithMKTShare() {
+		onPage.addButtonClick();
+		onPage.acrisClosingsButtonClick();
+	}
 }

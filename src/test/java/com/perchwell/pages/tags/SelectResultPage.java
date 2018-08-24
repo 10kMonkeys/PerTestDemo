@@ -6,6 +6,7 @@ import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,12 +24,14 @@ public class SelectResultPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "CLIENT")
 	private WebElement clientOption;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_by_tags")
 	@iOSXCUITFindBy(accessibility = "TagPDFExportButton")
 	private WebElement tagPDFExportButton;
 
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/first_option")
 	@iOSXCUITFindBy(accessibility = "SHARE TAGGED ITEMS")
 	private WebElement shareTaggedItems;
 

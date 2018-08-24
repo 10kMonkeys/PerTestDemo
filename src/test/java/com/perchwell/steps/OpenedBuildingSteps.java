@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.OpenedBuildingPage;
 import net.thucydides.core.annotations.Step;
@@ -11,7 +12,9 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnDiscussWithMyClientHint() {
-		onPage.clickOnDiscussWithMyClientHint();
+		if (!Config.isAndroid()) {
+			onPage.clickOnDiscussWithMyClientHint();
+		}
 	}
 
 	@Step
@@ -120,5 +123,15 @@ public class OpenedBuildingSteps extends ScenarioSteps {
     public void clickOnSeveralSellersAgentSection() {
 		onPage.clickOnSeveralSellersAgentSection();
     }
+
+    @Step
+    public void removeAllTags() {
+    	onPage.removeAllTAgs();
+	}
+
+	@Step
+	public void shouldSeeAddedTag() {
+		onPage.shouldSeeAddedTag();
+	}
 }
 

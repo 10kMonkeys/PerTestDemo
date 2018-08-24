@@ -53,8 +53,8 @@ public class LoginPage extends BasePage {
     }
 
     public void setEmail(String email) {
-      element(emailTextBox).type(email);
-//      element(emailTextBox).sendKeys(email);
+//      element(emailTextBox).type(email);
+      element(emailTextBox).sendKeys(email);
     }
 
     public void clickOnLoginButton() {
@@ -62,8 +62,8 @@ public class LoginPage extends BasePage {
     }
 
     public void setPassword(String password) {
-        element(passwordField).type(password);
-//        element(passwordField).sendKeys(password);
+//        element(passwordField).type(password);
+        element(passwordField).sendKeys(password);
     }
 
     public void setRestEmail(String email){

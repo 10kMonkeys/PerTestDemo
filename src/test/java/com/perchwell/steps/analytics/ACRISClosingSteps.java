@@ -12,7 +12,7 @@ public class ACRISClosingSteps extends ScenarioSteps {
     AnalyticsPage analyticsPage;
 
     @Step
-    public void addBuildingTypeByDealCountChartFromACRISClosing(){
+    public void addBuildingTypeByDealCountChartFromACRISClosing() throws Exception {
         analyticsPage.acrisClosingsButtonClick();
         acrisClosingPage.buildingTypeByDealCountButtonClick();
     }
@@ -34,7 +34,7 @@ public class ACRISClosingSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addBuildingTypeByDealCountChart(){
+    public void addBuildingTypeByDealCountChart() throws Exception {
         acrisClosingPage.buildingTypeByDealCountButtonClick();
     }
 
@@ -293,6 +293,56 @@ public class ACRISClosingSteps extends ScenarioSteps {
     public void addAndVerifyTrendsTopTenPerMKTDealVolumeQuarterlyChart() throws Exception {
         acrisClosingPage.addAndVerifyTrendsTopTenPerMKTDealVolumeQuarterlyChart();
         this.isChartDisplayed();
+    }
+
+    @Step
+    public void addMKTSharePriceByDealCountChart() throws Exception {
+        acrisClosingPage.addMKTSharePriceByDealCountChart();
+    }
+
+    @Step
+    public void addDistributionDollarFT2ByPriceSegmentChart() throws Exception {
+        acrisClosingPage.addDistributionDollarFT2ByPriceSegmentChart();
+    }
+
+    @Step
+    public void addDistributionPriceByPriceSegmentChart() throws Exception {
+        acrisClosingPage.addDistributionPriceByPriceSegmentChart();
+    }
+
+    @Step
+    public void addACRISClosingBuildingTypeByDealCountChart() throws Exception {
+        acrisClosingPage.buildingTypeByDealCountButtonClick();
+    }
+
+    @Step
+    public void addDistributionPriceByTypeChart() throws Exception {
+        acrisClosingPage.addDistributionPriceByTypeChart();
+    }
+
+    @Step
+    public void addATrendsDealCountQuarterlyChart() throws Exception {
+        acrisClosingPage.addATrendsDealCountQuarterlyChart();
+    }
+
+    @Step
+    public void addTrendsDealVolumeAnnualChart() throws Exception {
+        acrisClosingPage.addTrendsDealVolumeAnnualChart();
+    }
+
+    @Step
+    public void addTrendsTopTenPerMKTDealVolumeAnnualChart() throws Exception {
+        acrisClosingPage.addTrendsTopTenPerMKTDealVolumeAnnualChart();
+    }
+
+    @Step
+    public void addTrendsDealVolumeQuarterlyChart() throws Exception {
+        acrisClosingPage.addTrendsDealVolumeQuarterlyChart();
+    }
+
+    @Step
+    public void addTrendsTopTenPerMKTDealVolumeQuarterlyChart() throws Exception {
+        acrisClosingPage.addTrendsTopTenPerMKTDealVolumeQuarterlyChart();
     }
 }
 

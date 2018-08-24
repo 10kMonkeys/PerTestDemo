@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.MapPage;
 import com.perchwell.pages.perchwell.PerchwellPage;
 import com.perchwell.pages.perchwell.SearchPage;
@@ -117,5 +118,16 @@ public class MapSteps extends ScenarioSteps {
 	public void checkListings() throws Exception {
 		onPage.checkListings();
 		this.swipeBuilding();
+	}
+
+	@Step
+    public void clickOnPinFirstListing() {
+		SessionVariables.addValueInSessionVariable("PinListingAddress", onPage.getPinFirstListingAddress());
+		onPage.clickOnPinFirstListing(SessionVariables.getValueFromSessionVariable("PinListingAddress"));
+    }
+
+    @Step
+	public void checkFirstListingIsOpened() {
+		onPage.checkFirstListingIsOpened(SessionVariables.getValueFromSessionVariable("PinListingAddress"));
 	}
 }

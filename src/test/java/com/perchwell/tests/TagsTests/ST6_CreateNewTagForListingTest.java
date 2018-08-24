@@ -26,6 +26,6 @@ public class ST6_CreateNewTagForListingTest extends SampleTest {
 		user.atTagsPage.shouldSeeJustCreatedTag();
 		user.atTagsPage.clickOnCreatedTag();
 		user.atTagsPage.clickOnSearchButton();
-		user.atTagsPage.shouldSeeJustCreatedTag();
+		user.atTagsPage.shouldSeeTaggedListing();
 	}
 }

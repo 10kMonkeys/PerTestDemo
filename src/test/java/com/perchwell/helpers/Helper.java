@@ -127,13 +127,23 @@ public abstract class Helper {
         }
     }
 
-    public static void swipeDownUntilElementVisible(WebElement element) throws Exception {
+    public static void swipeDownUntilElementVisible(WebElement element) {
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
         while (!isElementDisplayed(element)) {
             swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+        }
+    }
+
+    public static void androidSwipeDownUntilElementVisible(WebElement element) {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        while (!isElementDisplayed(element)) {
+            swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
         }
     }
 
@@ -198,6 +208,18 @@ public abstract class Helper {
 
             isFoundTheElement = getDriver().findElements(byElement).size() > 0;
 
+        }
+    }
+
+    public static void swipeDownUntilElementVisibleForCharButtonsIPad(WebElement element) throws Exception {
+        int counter = 0;
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        while (!isElementDisplayed(element) && counter < 6) {
+            swipeVertical(appiumDriver, 0.5, 0.3, 0.5, 1);
+            counter += 1;
         }
     }
 }

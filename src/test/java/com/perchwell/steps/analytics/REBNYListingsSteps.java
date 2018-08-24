@@ -425,4 +425,44 @@ public class REBNYListingsSteps extends ScenarioSteps {
     public void rebnyMKTShareAskingPriceChartTitle() {
         rebnyListingsPage.rebnyMKTShareAskingPriceChartTitle();
     }
+
+    @Step
+    public void addDistributionAskingPriceByPriceSegmentChart() throws Exception {
+        rebnyListingsPage.addDistributionAskingPriceByPriceSegmentChart();
+    }
+
+    @Step
+    public void addDistributionDOMByPriceSegmentChart() throws Exception {
+        rebnyListingsPage.addDistributionDOMByPriceSegmentChart();
+    }
+
+    @Step
+    public void addMKTShareBuildingTypeChart() throws Exception {
+        rebnyListingsPage.addMKTShareBuildingTypeChart();
+    }
+
+    @Step
+    public void addDistributionAskingPriceByTypeChart() throws Exception {
+        rebnyListingsPage.addDistributionAskingPriceByTypeChart();
+    }
+
+    @Step
+    public void addMKTShareOutdoorSpaceChart() throws Exception {
+        rebnyListingsPage.addOutdoorSpaceChart();
+    }
+
+    @Step
+    public void addFeaturesOutdoorSpaceChart() throws Exception {
+        rebnyListingsPage.addOutdoorSpaceChart();
+    }
+
+    @Step
+    public void addMKTSharePrewarSpaceChart() throws Exception {
+        rebnyListingsPage.addPrewarSpaceChart();
+    }
+
+    @Step
+    public void addFeaturesPrewarChart() throws Exception {
+        rebnyListingsPage.addPrewarSpaceChart();
+    }
 }

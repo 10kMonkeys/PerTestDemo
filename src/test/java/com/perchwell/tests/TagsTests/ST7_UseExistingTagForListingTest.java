@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ST7_UseExistingTagForListingTest extends SampleTest {
 
 	@Test
-	public void useExistingTagForListing() throws Exception {
+	public void useExistingTagForListing() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
@@ -17,14 +17,18 @@ public class ST7_UseExistingTagForListingTest extends SampleTest {
 		user.atPerchwellPage.openFirstBuilding();
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
 		user.atOpenedBuildingPage.clickOnMyTagsLabel();
-		user.atTagsPage.clickOnExistingTagLabel();
+		user.atTagsPage.setRandomTagAndSave();
 		user.atTagsPage.clickOnBackButton();
+		user.atOpenedBuildingPage.removeAllTags();
+		user.atOpenedBuildingPage.clickOnMyTagsLabel();
+		user.atTagsPage.clickOnFirstTag();
+		user.atTagsPage.clickOnBackButton();
+		user.atOpenedBuildingPage.shouldSeeAddedTag();
 		user.atOpenedBuildingPage.clickOnBackButton();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnTagsLabel();
-		user.atTagsPage.shouldSeeExistingTagUpperCase();
-		user.atTagsPage.clickOnUsedTag();
+		user.atTagsPage.clickOnExistingTag();
 		user.atTagsPage.clickOnSearchButton();
-		user.atTagsPage.shouldSeeExistingTagUpperCase();
+		user.atTagsPage.shouldSeeTaggedListing();
 	}
 }

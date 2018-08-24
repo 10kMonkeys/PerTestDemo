@@ -352,7 +352,28 @@ public class SearchSteps extends ScenarioSteps {
 		onPage.clickDeleteTagButtonMANHATTAN();
     }
 
+    @Step
 	public void deselectSoldFilter() throws Exception {
 		onPage.clickOnSoldFilter();
+	}
+
+	@Step
+    public void selectCondoFilter() throws Exception {
+		onPage.selectCondoFilter();
+    }
+
+    @Step
+	public void selectOutdoorSpaceFilter() throws Exception {
+		onPage.selectOutdoorSpaceFilter();
+	}
+
+	@Step
+	public void selectPrewarFilter() throws Exception {
+		onPage.selectPrewarFilter();
+	}
+
+	@Step
+	public void setSquareFeetMinFilterTo() throws Exception {
+		onPage.setSquareFeetMinFilterTo();
 	}
 }

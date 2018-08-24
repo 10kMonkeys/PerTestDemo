@@ -2,6 +2,7 @@ package com.perchwell.pages.perchwell;
 
 import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 
@@ -12,6 +13,7 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
 
+import javax.swing.text.AttributeSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -65,6 +67,9 @@ public class MapPage extends BasePage {
 
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'BA'")
 	private List<WebElement> bathroomsList;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]")
+	private WebElement mapFirstAddress;
 
 	public void clickOnNotNowButton() {
 		element(notNowButton).click();
@@ -195,5 +200,17 @@ public class MapPage extends BasePage {
 		WebElement pin = getDriver().findElement(MobileBy.iOSNsPredicateString("name CONTAINS 'cluster'"));
 		int y = pin.getLocation().getY();
 		Helper.swipeRightElementABitWithSetY(y);
+	}
+
+    public String getPinFirstListingAddress() {
+		return (mapFirstAddress).getAttribute("name");
+    }
+
+	public void clickOnPinFirstListing(String pinListingAddress) {
+		element(MobileBy.AccessibilityId(pinListingAddress)).click();
+	}
+
+	public void checkFirstListingIsOpened(String pinListingAddress) {
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[$name CONTAINS '" + pinListingAddress + "'$]")).shouldBeVisible();
 	}
 }

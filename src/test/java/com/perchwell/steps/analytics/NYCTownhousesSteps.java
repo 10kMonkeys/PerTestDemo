@@ -426,4 +426,14 @@ public class NYCTownhousesSteps extends ScenarioSteps {
         nycTownhousesPage.addAndVerifyFeaturesACRISTHClosingsRecentlyAlteredChart();
         analyticsPage.isChartDisplayed();
     }
+
+    @Step
+    public void addMKTShareACRISClosingDealCountByPriceChart() throws Exception {
+        nycTownhousesPage.addMKTShareACRISClosingDealCountByPriceChart();
+    }
+
+    @Step
+    public void addDistributionREBNYListingsDOMByPriceChart() throws Exception {
+        nycTownhousesPage.addDistributionREBNYListingsDOMByPriceChart();
+    }
 }

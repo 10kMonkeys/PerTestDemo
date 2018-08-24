@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.helpers.SessionVariables;
 import net.thucydides.core.annotations.Step;
@@ -20,7 +21,12 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeRecentlyCreatedClient() throws Exception {
-		onPage.isClientOrAgentDisplayed(SessionVariables.getValueFromSessionVariable("User_name"));
+
+		if(Config.isAndroid()) {
+			onPage.isClientOrAgentDisplayedAndroid(SessionVariables.getValueFromSessionVariable("User_name"));
+		} else {
+			onPage.isClientOrAgentDisplayed(SessionVariables.getValueFromSessionVariable("User_name"));
+		}
 	}
 
 	@Step

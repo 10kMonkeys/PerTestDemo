@@ -16,5 +16,14 @@ public class Config {
         Capabilities capabilities = ((RemoteWebDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).getCapabilities();
         return String.valueOf(capabilities.getCapability("platformName"));
     }
+
+    public static boolean isIPad() {
+        return getDeviceNameCapability().contains("iPad");
+    }
+
+    private static String getDeviceNameCapability() {
+        Capabilities capabilities = ((RemoteWebDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).getCapabilities();
+        return String.valueOf(capabilities.getCapability("deviceName"));
+    }
 }
 

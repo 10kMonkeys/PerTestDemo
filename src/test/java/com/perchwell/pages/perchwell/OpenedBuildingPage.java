@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
@@ -29,9 +30,11 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MY TAGS")
 	private WebElement myTagsLabel;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
 	private WebElement backButton;
 
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ImageView")
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeButton' AND name CONTAINS 'DeleteTagBubbleButton'")
 	private WebElement deleteTagButton;
 
@@ -236,5 +239,19 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void clickOnSeveralSellersAgentSection() {
 		element(severalSellersAgentsSection).click();
+	}
+
+    public void removeAllTAgs() {
+		while (Helper.isElementDisplayed(deleteTagButton)) {
+			deleteTagButton.click();
+		}
+    }
+
+	public void shouldSeeAddedTag() {
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//*[contains(@text, '" + SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "')]")).shouldBeVisible();
+		} else {
+			element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).shouldBeVisible();
+		}
 	}
 }

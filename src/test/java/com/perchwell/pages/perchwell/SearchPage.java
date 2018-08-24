@@ -6,13 +6,12 @@ import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.List;
 
@@ -205,6 +204,27 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "Sales-selected")
 	private WebElement selectedSoldFilter;
+
+	@iOSXCUITFindBy(accessibility = "Condo")
+	private WebElement condoFilter;
+
+	@iOSXCUITFindBy(accessibility = "Outdoor Space")
+	private WebElement outdoorSpaceFilter;
+
+	@iOSXCUITFindBy(accessibility = "Prewar")
+	private WebElement prewarFilter;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name CONTAINS[cd] \"knob_upd\"`][3]")
+	private WebElement squareFeetMinControl;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name CONTAINS[cd] \"knob_upd\"`][4]")
+	private WebElement squareFeetMaxControl;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name CONTAINS[cd] \"knob_upd\"`][4]")
+	private WebElement waitElement;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[10]/XCUIElementTypeOther[2]")
+	private WebElement squareFeetSlider;
 
 	public SearchPage(WebDriver driver) {
 		super(driver);
@@ -629,5 +649,43 @@ public class SearchPage extends BasePage {
 		Helper.swipeDownUntilElementVisible(selectedSoldFilter);
 		element(selectedSoldFilter).click();
 
+	}
+
+    public void selectCondoFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(condoFilter);
+		element(condoFilter).click();
+    }
+
+	public void selectOutdoorSpaceFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(outdoorSpaceFilter);
+		element(outdoorSpaceFilter).click();
+	}
+
+	public void selectPrewarFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(prewarFilter);
+		element(prewarFilter).click();
+	}
+
+	public void setSquareFeetMinFilterTo() throws Exception {
+		Helper.swipeDownUntilElementVisible(waitElement);
+
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+		int sliderXPositionForSixK = this.getXCoordinateForSixK();
+		int minX = squareFeetMinControl.getLocation().getX() + 13;
+		int minY = squareFeetMinControl.getLocation().getY() + 13;
+
+		new TouchAction(appiumDriver).press(minX, minY).moveTo(sliderXPositionForSixK, 0).release().perform();
+	}
+
+	private int getXCoordinateForSixK() {
+		Dimension size = getDriver().manage().window().getSize();
+		int deviceWidth = size.width;
+		int sliderStartPositionX = squareFeetSlider.getLocation().getX();
+		int sliderWidth = deviceWidth - (sliderStartPositionX * 2);
+
+		return (sliderStartPositionX + ((sliderWidth / 20) * 11));
 	}
 }

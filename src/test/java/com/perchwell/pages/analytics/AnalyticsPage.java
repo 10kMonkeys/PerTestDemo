@@ -1,5 +1,6 @@
 package com.perchwell.pages.analytics;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapAttachment;
@@ -155,6 +156,9 @@ public class AnalyticsPage extends BasePage {
 
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]")
     private WebElement chart;
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[4]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]")
+    private WebElement iPadChart;
 
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeStaticText[contains(@name, 'NOTHING TO SEE HERE')]")
     private WebElement nothingToSeeHere;
@@ -423,7 +427,7 @@ public class AnalyticsPage extends BasePage {
         int counterYear = Integer.parseInt(minYear);
 
         for(WebElement year : valueColumnYearsList) {
-            if(!((Integer.parseInt(year.getAttribute("name")) == counterYear) & (valueColumnYearsList.size() == 6))) {
+            if(!((Integer.parseInt(year.getAttribute("name")) == counterYear) && (valueColumnYearsList.size() == 6))) {
                 isCorrectRange = false;
                 break;
             }
@@ -437,7 +441,7 @@ public class AnalyticsPage extends BasePage {
         int counterYear = Integer.parseInt(SessionVariables.getValueFromSessionVariable("MinRangeYear"));
 
         for(WebElement year : valueColumnYearsList) {
-            if(!((Integer.parseInt(year.getAttribute("name")) == counterYear) & (valueColumnYearsList.size() == 5))) {
+            if(!((Integer.parseInt(year.getAttribute("name")) == counterYear) && (valueColumnYearsList.size() == 5))) {
                 isCorrectRange = false;
                 break;
             }
@@ -486,7 +490,6 @@ public class AnalyticsPage extends BasePage {
     public boolean isOnChartUpdateYearsFromTop(){
         boolean isChartUpdateYearsFromTop = false;
         for (int i = 0;i < presentYearsList.size() ;i++){
-
             if(presentYearsList.get(i) == previousYearsList.get(i) - 1) isChartUpdateYearsFromTop = true;
             else{
                 isChartUpdateYearsFromTop = false;
@@ -501,7 +504,11 @@ public class AnalyticsPage extends BasePage {
     }
 
     public void isChartDisplayed() {
-        element(chart).shouldBeVisible();
+        if (Config.isIPad()) {
+            element(iPadChart).shouldBeVisible();
+        } else {
+            element(chart).shouldBeVisible();
+        }
         element(nothingToSeeHere).shouldNotBeVisible();
     }
 

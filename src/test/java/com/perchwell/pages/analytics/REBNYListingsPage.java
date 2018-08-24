@@ -1,5 +1,6 @@
 package com.perchwell.pages.analytics;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
@@ -716,7 +717,42 @@ public class REBNYListingsPage extends BasePage {
 
     private void swipeUntilButtonShown(WebElement button) throws Exception {
         setImplicitTimeout(1, SECONDS);
-        Helper.swipeDownUntilElementVisibleForCharButtons(button);
+        if (Config.isIPad()) {
+            Helper.swipeDownUntilElementVisibleForCharButtonsIPad(button);
+        } else {
+            Helper.swipeDownUntilElementVisibleForCharButtons(button);
+        }
         resetImplicitTimeout();
+    }
+
+    public void addDistributionAskingPriceByPriceSegmentChart() throws Exception {
+        this.swipeUntilButtonShown(askingPriceByPriceSegmentButton);
+        element(askingPriceByPriceSegmentButton).click();
+    }
+
+    public void addDistributionDOMByPriceSegmentChart() throws Exception {
+        this.swipeUntilButtonShown(domByPriceSegmentButton);
+        element(domByPriceSegmentButton).click();
+    }
+
+    public void addMKTShareBuildingTypeChart() throws Exception {
+        this.swipeUntilButtonShown(buildingTypeButton);
+        element(buildingTypeButton).click();
+
+    }
+
+    public void addDistributionAskingPriceByTypeChart() throws Exception {
+        this.swipeUntilButtonShown(askingPriceByTypeButton);
+        element(askingPriceByTypeButton).click();
+    }
+
+    public void addOutdoorSpaceChart() throws Exception {
+        this.swipeUntilButtonShown(outdoorSpaceButton);
+        element(outdoorSpaceButton).click();
+    }
+
+    public void addPrewarSpaceChart() throws Exception {
+        this.swipeUntilButtonShown(prewarButton);
+        element(prewarButton).click();
     }
 }

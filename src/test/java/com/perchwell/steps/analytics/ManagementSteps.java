@@ -139,4 +139,9 @@ public class ManagementSteps extends ScenarioSteps {
     public void addAndVerifyDistributionFirmMedianPriceChart() throws Exception {
         managementPage.addAndVerifyDistributionFirmMedianPriceChart();
     }
+
+    @Step
+    public void addMKTShareBuildingTypeChart() throws Exception {
+        managementPage.addMKTShareBuildingTypeChart();
+    }
 }
