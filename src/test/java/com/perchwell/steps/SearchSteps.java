@@ -30,12 +30,6 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void setUpFilterFirepace() {
-		onPage.scrollToFireplace();
-		onPage.selectFilterFireplace();
-	}
-
-	@Step
 	public void clickOnLoadSavedSearchButton() {
 		onPage.clickLoadSavedSearchButton();
 	}
@@ -352,7 +346,78 @@ public class SearchSteps extends ScenarioSteps {
 		onPage.clickDeleteTagButtonMANHATTAN();
     }
 
+    @Step
 	public void deselectSoldFilter() throws Exception {
 		onPage.clickOnSoldFilter();
+	}
+
+	@Step
+    public void selectCondoFilter() throws Exception {
+		onPage.selectCondoFilter();
+    }
+
+    @Step
+	public void selectOutdoorSpaceFilter() throws Exception {
+		onPage.selectOutdoorSpaceFilter();
+	}
+
+	@Step
+	public void selectPrewarFilter() throws Exception {
+		onPage.selectPrewarFilter();
+	}
+
+	@Step
+	public void setSquareFeetMinFilterToSixK() throws Exception {
+		onPage.setSquareFeetMinFilterToSixK();
+	}
+
+	@Step
+	public void clickOnDoormanFilter() throws Exception {
+		onPage.clickOnDoormanFilter();
+	}
+
+	@Step
+	public void AddElevatorFilter() throws Exception {
+		onPage.AddElevatorFilter();
+	}
+
+	@Step
+	public void clickOnLaundryBuildingFilter() throws Exception {
+		onPage.clickOnLaundryBuildingFilter();
+	}
+
+	@Step
+	public void clickOnPetsFilter() throws Exception {
+		onPage.clickOnPetsFilter();
+	}
+
+	@Step
+	public void clickOnDevelopmentFilter() throws Exception {
+		onPage.clickOnDevelopmentFilter();
+	}
+
+	@Step
+	public void clickOnPoolFilter() throws Exception {
+		onPage.clickOnPoolFilter();
+	}
+
+	@Step
+	public void clickOnFireplaceFilter() throws Exception {
+		onPage.clickOnFireplaceFilter();
+	}
+
+	@Step
+	public void selectChelseaTag() {
+		onPage.clickOnLocationFilter();
+	}
+
+	@Step
+	public void setMinimumSquareFeet(String value) throws Exception {
+		onPage.setMinimumSquareFeet(value);
+	}
+
+	@Step
+	public void clickOnLaundryUnitFilter() throws Exception {
+		onPage.clickOnLaundryUnitFilter();
 	}
 }

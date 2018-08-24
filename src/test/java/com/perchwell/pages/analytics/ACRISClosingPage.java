@@ -219,7 +219,8 @@ public class ACRISClosingPage extends BasePage {
         element(dealCountByHeightButton).click();
     }
 
-    public void buildingTypeByDealCountButtonClick(){
+    public void buildingTypeByDealCountButtonClick() throws Exception {
+        this.swipeUntilButtonShown(buildingTypeByDealCountButton);
         element(buildingTypeByDealCountButton).click();
     }
 
@@ -449,5 +450,50 @@ public class ACRISClosingPage extends BasePage {
         this.swipeUntilButtonShown(trendsTopTenPerMKTDealVolumeQuarterlyButton);
         element(trendsTopTenPerMKTDealVolumeQuarterlyButton).click();
         element(trendsTopTenPerMKTDealVolumeQuarterlyChart).shouldBeVisible();
+    }
+
+    public void addMKTSharePriceByDealCountChart() throws Exception {
+        this.swipeUntilButtonShown(priceByDealCountButton);
+        element(priceByDealCountButton).click();
+    }
+
+    public void addDistributionDollarFT2ByPriceSegmentChart() throws Exception {
+        this.swipeUntilButtonShown(dollarPerFTByPriceSegmentButton);
+        element(dollarPerFTByPriceSegmentButton).click();
+    }
+
+    public void addDistributionPriceByPriceSegmentChart() throws Exception {
+        this.swipeUntilButtonShown(priceByPriceSegmentButton);
+        element(priceByPriceSegmentButton).click();
+    }
+
+    public void addDistributionPriceByTypeChart() throws Exception {
+        this.swipeUntilButtonShown(priceByTypeButton);
+        element(priceByTypeButton).click();
+    }
+
+    public void addATrendsDealCountQuarterlyChart() throws Exception {
+        this.swipeUntilButtonShown(dealCountQuarterlyButton);
+        element(dealCountQuarterlyButton).click();
+    }
+
+    public void addTrendsDealVolumeAnnualChart() throws Exception {
+        this.swipeUntilButtonShown(dealVolumeAnnualButton);
+        element(dealVolumeAnnualButton).click();
+    }
+
+    public void addTrendsTopTenPerMKTDealVolumeAnnualChart() throws Exception {
+        this.swipeUntilButtonShown(topTenPerMKTDealVolumeAnnualButton);
+        element(topTenPerMKTDealVolumeAnnualButton).click();
+    }
+
+    public void addTrendsDealVolumeQuarterlyChart() throws Exception {
+        this.swipeUntilButtonShown(dealVolumeQuarterlyButton);
+        element(dealVolumeQuarterlyButton).click();
+    }
+
+    public void addTrendsTopTenPerMKTDealVolumeQuarterlyChart() throws Exception {
+        this.swipeUntilButtonShown(trendsTopTenPerMKTDealVolumeQuarterlyButton);
+        element(trendsTopTenPerMKTDealVolumeQuarterlyButton).click();
     }
 }

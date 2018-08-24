@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -12,13 +13,15 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void skipAllHints() {
-		onPage.clickOnEditSearchFiltersHint();
-		if (onPage.isEditSearchFiltersHintIsDisplayed()) {
+		if(!Config.isAndroid()) {
 			onPage.clickOnEditSearchFiltersHint();
+			if (onPage.isEditSearchFiltersHintIsDisplayed()) {
+				onPage.clickOnEditSearchFiltersHint();
+			}
+			onPage.clickOnManageYourProfileHint();
+			onPage.clickOnTransformDataHint();
+			onPage.clickExploreSearchResultHint();
 		}
-		onPage.clickOnManageYourProfileHint();
-		onPage.clickOnTransformDataHint();
-		onPage.clickExploreSearchResultHint();
 	}
 
 	@Step

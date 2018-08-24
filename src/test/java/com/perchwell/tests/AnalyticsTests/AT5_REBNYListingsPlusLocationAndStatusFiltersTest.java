@@ -23,19 +23,19 @@ public class AT5_REBNYListingsPlusLocationAndStatusFiltersTest extends SampleTes
         user.atAnalyticsPage.selectREBNYListingsWithLocation();
         user.atRebnyListingsPage.addAndVerifyLocationAskingPriceChart();
         user.atRebnyListingsPage.getLocationAskingPriceListingsLocations();
-        user.atPerchwellPage.clickOnMyNewSearch();
-//        user.atSearchPage.removeBrooklynFromFilter();
+        user.atAnalyticsPage.clickMyNewSearch();
+//        user.atSearchPage.removeBrooklynFromFilter(); not uncomment
         user.atSearchPage.removeManhattanFromFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atRebnyListingsPage.checkMKTShareAskingPriceListingsAmountAfterFilterChanging();
         user.atRebnyListingsPage.checkLocationAskingPriceListingsLocationsAfterFilterChanging();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atAnalyticsPage.clickMyNewSearch();
         user.atSearchPage.deselectActiveFilter();
         user.atSearchPage.selectContractFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atRebnyListingsPage.checkMKTShareAskingPriceListingsAmountAfterFilterChanging();
         user.atRebnyListingsPage.checkLocationAskingPriceListingsLocationsAfterFilterChanging();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atAnalyticsPage.clickMyNewSearch();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atRebnyListingsPage.checkMKTShareAskingPriceListingsAmountAfterResetFilters();

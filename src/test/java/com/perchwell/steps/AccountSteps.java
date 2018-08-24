@@ -1,8 +1,14 @@
 package com.perchwell.steps;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.account.AccountPage;
+import net.thucydides.core.webdriver.WebDriverFacade;
+import org.openqa.selenium.WebDriver;
+
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class AccountSteps extends ScenarioSteps {
 
@@ -56,5 +62,14 @@ public class AccountSteps extends ScenarioSteps {
     @Step
     public void openSettingProfile() {
         onPage.clickOnSettingProfileButton();
+    }
+
+    @Step
+    public void closeAccountMenu() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        new TouchAction(appiumDriver).tap(60,60).release().perform();
     }
 }

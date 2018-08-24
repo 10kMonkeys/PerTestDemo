@@ -80,7 +80,7 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldSeeExistingTagUpperCase() throws Exception {
+	public void shouldSeeExistingTagUpperCase() {
 		Assert.assertTrue(onPage.isTagDisplayedWithSwipe(tag.getExistingTagName().toUpperCase()));
 	}
 
@@ -93,5 +93,30 @@ public class TagsSteps extends ScenarioSteps {
 	@Step
 	public void justCreatedTagIsAddedToListing() {
 		onPage.justCreatedTagIsAddedToListingWithRemoveAnotherTags(tag.getUniqueTagName().toUpperCase());
+	}
+
+	@Step
+	public void shouldSeeTaggedListing() {
+		onPage.shouldSeeTaggedListing(SessionVariables.getValueFromSessionVariable("First_building_address"));
+	}
+
+	@Step
+	public void clickOnFirstTag() {
+		onPage.clickOnFirstTag();
+	}
+
+	@Step
+	public void closeTagsPage() {
+		onPage.closeTagsPage();
+	}
+
+	@Step
+	public void clickOnExistingTag() {
+		onPage.clickOnExistingTag();
+	}
+
+	@Step
+	public void searchRemovedTag() {
+		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
 	}
 }

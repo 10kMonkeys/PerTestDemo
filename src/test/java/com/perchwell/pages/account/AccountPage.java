@@ -12,7 +12,7 @@ public class AccountPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "CLIENTS")
     private WebElement clientLabel;
 
-    @AndroidFindBy(xpath = "//*[@text='TAGS']")
+    @AndroidFindBy(xpath = "(//*[@text='TAGS'])[3]")
     @iOSXCUITFindBy(accessibility = "TAGS")
     private WebElement tagsLabel;
 

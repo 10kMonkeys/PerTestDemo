@@ -7,11 +7,12 @@ import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.SelendroidBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
+import org.openqa.selenium.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -51,7 +52,7 @@ public class SearchPage extends BasePage {
 	private WebElement baths;
 
 	@iOSXCUITFindBy(accessibility = "FIREPLACE")
-	private WebElement fireplace;
+	private WebElement fireplaceFilter;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/load")
 	@iOSXCUITFindBy(accessibility = "LoadSavedSearchButton")
@@ -217,6 +218,51 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Sales-selected")
 	private WebElement selectedSoldFilter;
 
+	@iOSXCUITFindBy(accessibility = "Condo")
+	private WebElement condoFilter;
+
+	@iOSXCUITFindBy(accessibility = "Outdoor Space")
+	private WebElement outdoorSpaceFilter;
+
+	@iOSXCUITFindBy(accessibility = "Prewar")
+	private WebElement prewarFilter;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name CONTAINS[cd] \"knob_upd\"`][3]")
+	private WebElement squareFeetMinControl;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name CONTAINS[cd] \"knob_upd\"`][4]")
+	private WebElement squareFeetMaxControl;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name CONTAINS[cd] \"knob_upd\"`][4]")
+	private WebElement waitElement;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[10]/XCUIElementTypeOther[2]")
+	private WebElement squareFeetSlider;
+
+	@iOSXCUITFindBy(accessibility = "Doorman")
+	private WebElement doormanFilter;
+
+	@iOSXCUITFindBy(accessibility = "Elevator")
+	private WebElement elevatorFilter;
+
+	@iOSXCUITFindBy(accessibility = "New Dev")
+	private WebElement developmentFilter;
+
+	@iOSXCUITFindBy(accessibility = "Pets")
+	private WebElement petsFilter;
+
+	@iOSXCUITFindBy(accessibility = "Pool")
+	private WebElement poolFilter;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NO MIN'")
+	private WebElement squareFeetMinimumValue;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS '10,000+'")
+	private WebElement squareFeetMaximumValue;
+
+	@iOSXCUITFindBy(accessibility = "Laundry Unit")
+	private WebElement laundryUnitFilter;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -243,14 +289,6 @@ public class SearchPage extends BasePage {
 
 	public void selectFilterFor2Beds() {
 		element(filterFor2Beds).click();
-	}
-
-	public void selectFilterFireplace() {
-		element(fireplace).click();
-	}
-
-	public void scrollToFireplace() {
-		Helper.scrollToElement(fireplace);
 	}
 
 	public void clickLoadSavedSearchButton() {
@@ -641,4 +679,88 @@ public class SearchPage extends BasePage {
 		element(selectedSoldFilter).click();
 
 	}
+
+    public void selectCondoFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(condoFilter);
+		element(condoFilter).click();
+    }
+
+	public void selectOutdoorSpaceFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(outdoorSpaceFilter);
+		element(outdoorSpaceFilter).click();
+	}
+
+	public void selectPrewarFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(prewarFilter);
+		element(prewarFilter).click();
+	}
+
+	public void setSquareFeetMinFilterToSixK() throws Exception {
+		Helper.swipeDownUntilElementVisible(waitElement);
+
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+		int sliderXPositionForSixK = this.getXCoordinateForSixK();
+		int minX = squareFeetMinControl.getLocation().getX() + 13;
+		int minY = squareFeetMinControl.getLocation().getY() + 13;
+
+		new TouchAction(appiumDriver).press(minX, minY).moveTo(sliderXPositionForSixK, 0).release().perform();
+	}
+
+	private int getXCoordinateForSixK() {
+		Dimension size = getDriver().manage().window().getSize();
+		int deviceWidth = size.width;
+		int sliderStartPositionX = squareFeetSlider.getLocation().getX();
+		int sliderWidth = deviceWidth - (sliderStartPositionX * 2);
+
+		return (sliderStartPositionX + ((sliderWidth / 20) * 11));
+	}
+
+	public void clickOnDoormanFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(doormanFilter);
+		element(doormanFilter).click();
+	}
+
+	public void AddElevatorFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(elevatorFilter);
+		element(elevatorFilter).click();
+	}
+
+	public void clickOnLaundryBuildingFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(laundryBLDGFilterButton);
+		element(laundryBLDGFilterButton);
+	}
+
+	public void clickOnPetsFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(petsFilter);
+		element(petsFilter).click();
+	}
+
+	public void clickOnDevelopmentFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(developmentFilter);
+		element(developmentFilter).click();
+	}
+
+	public void clickOnPoolFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(poolFilter);
+		element(poolFilter).click();
+	}
+
+	public void clickOnFireplaceFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(fireplaceFilter);
+		element(fireplaceFilter).click();
+	}
+
+	public void setMinimumSquareFeet(String value) throws Exception {
+		Helper.swipeDownUntilElementVisible(squareFeetMinimumValue);
+		withAction().dragAndDrop(squareFeetMinimumValue, squareFeetMaximumValue).perform();
+
+	}
+
+    public void clickOnLaundryUnitFilter() throws Exception {
+		Helper.swipeDownUntilElementVisible(laundryUnitFilter);
+		element(laundryUnitFilter).click();
+    }
 }

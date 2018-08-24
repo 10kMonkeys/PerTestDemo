@@ -57,10 +57,11 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
 	private WebElement openAccountButton;
 
-	@AndroidFindBy(xpath = "//android.support.v7.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.RelativeLayout[1]")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_image")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[1]")
 	private WebElement firstBuilding;
 
+	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/listing_image'])[2]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[2]")
 	private WebElement secondBuilding;
 
@@ -107,9 +108,11 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[`visible==1`][-1]")
 	private WebElement lastVisibleBuilding;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS'")
 	private WebElement firstBuildingAddress;
 
+	@iOSXCUITFindBy(xpath = "com.perchwell.re.staging:id/listing_address")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS'$][2]")
 	private WebElement secondBuildingAddress;
 

@@ -17,7 +17,7 @@ public class ATS1_AddREBNYListingsMKTShareChartsTest extends SampleTest {
         user.atPerchwellPage.clickOnAnalytics();
         user.atAnalyticsPage.rebnyListingsButtonClick();
         user.atAnalyticsPage.mktShareButtonClick();
-        user.atRebnyListingsPage.addBedroomsChart();
+        user.atRebnyListingsPage.addMKTShareBedroomsChart();
         user.atAnalyticsPage.skipHints();
         user.atRebnyListingsPage.shouldSeeBedroomsChart();
         user.atAnalyticsPage.addButtonClick();

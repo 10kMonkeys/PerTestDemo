@@ -1,6 +1,8 @@
 package com.perchwell.pages.tags;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -32,11 +34,24 @@ public class TagsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Nav Back White")
 	private WebElement backButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_by_tags")
 	@iOSXCUITFindBy(accessibility = "search")
 	private WebElement searchButton;
 
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.ImageView")
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeButton' AND name CONTAINS 'DeleteTagBubbleButton'")
 	private WebElement deleteTagButton;
+
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]/android.widget.LinearLayout/android.widget.TextView")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'More'")
+	private WebElement moreTagIcon;
+
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/tag_name")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '11CLIENTNAME'")
+	private WebElement firstTag;
+
+	@iOSXCUITFindBy(id = "TagsViewControllerCancelButton")
+	private WebElement tagsPageCloseButton;
 
 	//endregion
 
@@ -66,8 +81,14 @@ public class TagsPage extends BasePage {
 	}
 
 	public boolean isTagDisplayed(String tagName) {
-		return isElementVisible(MobileBy.AccessibilityId(tagName));
+		Boolean elementIsVisible;
 
+		if (Config.isAndroid()) {
+			elementIsVisible = isElementVisible(MobileBy.xpath("//*[contains(@text, '" + tagName + "')]"));
+		} else {
+			elementIsVisible = isElementVisible(MobileBy.AccessibilityId(tagName));
+		}
+		return elementIsVisible;
 	}
 
 	public boolean isTagDisplayedWithSwipe(String tagName) {
@@ -99,19 +120,70 @@ public class TagsPage extends BasePage {
 	}
 
 	private WebElement getCreatedTagLabel(String uniqueTagName) {
-		return getDriver().findElement(MobileBy.AccessibilityId(uniqueTagName));
+		WebElement tag;
+
+		if(Config.isAndroid()) {
+			tag = getDriver().findElement(MobileBy.xpath("//*[contains(@text, '" + uniqueTagName + "')]"));
+		} else {
+			tag = getDriver().findElement(MobileBy.AccessibilityId(uniqueTagName));
+		}
+
+		return tag;
 	}
 
 	public void shouldSeeJustCreatedTagUpCaseWithSwipe(String tagName) throws Exception {
-		WebElement justCreatedTag = getDriver().findElement(MobileBy.AccessibilityId(tagName));
-		Helper.swipeDownUntilElementVisible(justCreatedTag);
-		element(justCreatedTag).shouldBeVisible();
+		if (Config.isAndroid()) {
+			setImplicitTimeout(1, SECONDS);
+			Helper.androidSwipeDownUntilElementVisible(tagName);
+			resetImplicitTimeout();
+			element(MobileBy.xpath("//*[contains(@text, '" + tagName + "')]")).shouldBeVisible();
+		} else {
+			WebElement justCreatedTag = getDriver().findElement(MobileBy.AccessibilityId(tagName));
+			Helper.swipeDownUntilElementVisible(justCreatedTag);
+			element(justCreatedTag).shouldBeVisible();
+		}
 	}
 
 	public void justCreatedTagIsAddedToListingWithRemoveAnotherTags(String tagName) {
-		while(!(element(MobileBy.AccessibilityId(tagName)).isPresent())) {
-			element(deleteTagButton).click();
+		if(Config.isAndroid()) {
+			while((getDriver().findElements(By.xpath("//*[contains(@text, '" + tagName + "')]")).size() < 1)/* && Helper.isElementDisplayed(moreTagIcon)*/) {
+				element(deleteTagButton).click();
+			}
+			element(MobileBy.xpath("//*[contains(@text, '" + tagName + "')]")).shouldBeVisible();
+		} else {
+			while((!(element(MobileBy.AccessibilityId(tagName)).isPresent()))/* && Helper.isElementDisplayed(moreTagIcon)*/) {
+				element(deleteTagButton).click();
+			}
+			element(MobileBy.AccessibilityId(tagName)).shouldBeVisible();
 		}
-		element(MobileBy.AccessibilityId(tagName)).shouldBeVisible();
+	}
+
+	public void shouldSeeTaggedListing(String buildingAddress) {
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//*[contains(@text, '" + buildingAddress + "')]")).shouldBeVisible();
+		} else {
+			element(MobileBy.AccessibilityId(buildingAddress)).shouldBeVisible();
+		}
+	}
+
+	public void clickOnFirstTag() {
+		if(Config.isAndroid()) {
+			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("text"));
+		} else {
+			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("name"));
+		}
+		element(firstTag).click();
+	}
+
+	public void closeTagsPage() {
+		element(tagsPageCloseButton).click();
+	}
+
+	public void clickOnExistingTag() {
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//*[contains(@text, '" + SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "')]")).click();
+		} else {
+			element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).click();
+		}
 	}
 }

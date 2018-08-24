@@ -172,27 +172,25 @@ public class ClientPage extends BasePage {
 	}
 
 	private void swipeDownUntilElementVisible(String name) throws Exception {
-		if (Config.isAndroid()) {
-			if (getDriver().findElements(MobileBy.xpath("//*[contains(@text, '" + name + "')]")).size() == 0) {
-				setImplicitTimeout(1, SECONDS);
-				Helper.androidSwipeDownUntilElementVisible(name);
-				resetImplicitTimeout();
-			}
-		} else if (getDriver().findElements(MobileBy.AccessibilityId(name)).size() > 0) {
-				setImplicitTimeout(1, SECONDS);
-				Helper.swipeDownUntilElementVisible(name);
-				resetImplicitTimeout();
-		}
+		setImplicitTimeout(1, SECONDS);
+		Helper.swipeDownUntilElementVisible(name);
+		resetImplicitTimeout();
+	}
+
+	private void swipeDownUntilElementVisibleAndroid(String name)  {
+		setImplicitTimeout(1, SECONDS);
+		Helper.androidSwipeDownUntilElementVisible(name);
+		resetImplicitTimeout();
 	}
 
 	public void isClientOrAgentDisplayed(String name) throws Exception {
 		this.swipeDownUntilElementVisible(name);
+		element(MobileBy.AccessibilityId(name)).shouldBeVisible();
+	}
 
-		if (Config.isAndroid()) {
-			element(MobileBy.xpath("//*[contains(@text, '" + name + "')]")).shouldBeVisible();
-		} else {
-			element(MobileBy.AccessibilityId(name)).shouldBeVisible();
-		}
+	public void isClientOrAgentDisplayedAndroid(String name) {
+		this.swipeDownUntilElementVisibleAndroid(name);
+		element(MobileBy.xpath("//*[contains(@text, '" + name + "')]")).shouldBeVisible();
 	}
 
 	public void checkInvitationEmailSent(String email) {
