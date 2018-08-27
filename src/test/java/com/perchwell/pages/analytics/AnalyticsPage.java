@@ -14,6 +14,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
@@ -29,9 +30,11 @@ public class AnalyticsPage extends BasePage {
 
     //region WebElements
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/rebny_listings")
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS")
     private WebElement rebnyListingsButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/add")
     @iOSXCUITFindBy(accessibility = "plus white")
     private WebElement plusWhiteButton;
 
@@ -50,6 +53,7 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY PRICE")
     private WebElement dealCountByPriceButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/management")
     @iOSXCUITFindBy(accessibility = "MANAGEMENT")
     private WebElement managementButton;
 
@@ -236,9 +240,11 @@ public class AnalyticsPage extends BasePage {
     }
 
     public void skipHints(){
-        element(dontForgetHint).click();
-        element(tapAnyChartHint).click();
-        element(pressAndHoldHint).click();
+        if (!Config.isAndroid()){
+            element(dontForgetHint).click();
+            element(tapAnyChartHint).click();
+            element(pressAndHoldHint).click();
+        }
     }
 
     public boolean isDomByPriceCartAdd(){

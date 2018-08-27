@@ -3,6 +3,7 @@ package com.perchwell.steps;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.SearchPage;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 
 public class SearchSteps extends ScenarioSteps {
@@ -39,19 +40,23 @@ public class SearchSteps extends ScenarioSteps {
 		onPage.clickOnTapToSaveChanges();
 	}
 
+	@Step
 	public void setSearchName() {
 		SessionVariables.addValueInSessionVariable("Search", onPage.generateRandomString("SEARCH"));
 		onPage.setSearchName(SessionVariables.getValueFromSessionVariable("Search"));
 	}
 
+	@Step
 	public void clickOnSaveButton() {
 		onPage.clickOnSaveButton();
 	}
 
+	@Step
 	public void clickOnPreviouslyCreatedSearch() {
 		onPage.clickOnPreviouslyCreatedSearch(SessionVariables.getValueFromSessionVariable("Search"));
 	}
 
+	@Step
 	public void shouldSeePreviouslyCreatedSearch() {
 		onPage.shouldSeePreviouslyCreatedSearch(SessionVariables.getValueFromSessionVariable("Search"));
 	}

@@ -38,6 +38,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeButton' AND name CONTAINS 'DeleteTagBubbleButton'")
 	private WebElement deleteTagButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement buildingAddress;
 
@@ -120,7 +121,12 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public String getBuildingAddress() {
-		return buildingAddress.getAttribute("name");
+		if (Config.isAndroid()){
+			return buildingAddress.getAttribute("text");
+		}
+		else{
+			return buildingAddress.getAttribute("name");
+		}
 	}
 
 	public void openExistingDiscussion(String discussionName) {

@@ -4,6 +4,7 @@ import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +24,7 @@ public class REBNYListingsPage extends BasePage {
     private int previousMKTShareAskingPriceStartListingsAmount = 0;
     private String[] previousLocationAskingPriceListingsLocationsStringList = new String[5];
 
+    @AndroidFindBy(xpath = "//*[@text='ASKING PRICE']")
     @iOSXCUITFindBy(accessibility = "ASKING PRICE")
     private WebElement askingPriceButton;
 

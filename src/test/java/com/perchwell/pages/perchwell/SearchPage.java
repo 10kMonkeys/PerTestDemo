@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
@@ -16,6 +17,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -29,6 +31,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeButton")
 	private WebElement deleteFirstLocationButton;
 
+	@AndroidFindBy (id = "com.perchwell.re.staging:id/apply")
 	@iOSXCUITFindBy(accessibility = "ApplySearchButton")
 	private WebElement applySearchButton;
 
@@ -44,7 +47,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "2BedsButton")
 	private WebElement filterFor2Beds;
 
-	@AndroidFindBy(uiAutomator = "text(\"STUDIO\")")
+	@AndroidFindBy(xpath = "//*[@text='STUDIO']")
 	@iOSXCUITFindBy(accessibility = "StudioBedsButton")
 	private WebElement filterForStudioBeds;
 
@@ -137,6 +140,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "RESET FILTERS")
 	private WebElement resetFiltersButton;
 
+	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
 	@iOSXCUITFindBy(accessibility = "1BedButton")
 	private WebElement filterFor1Bed;
 
@@ -149,6 +153,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "4PlusBedsButton")
 	private WebElement filterFor4PlusBeds;
 
+	@AndroidFindBy(xpath = "//*[@text='1 ½']")
 	@iOSXCUITFindBy(accessibility = "1.5BathsButton")
 	private WebElement filterFor1AndHalfBath;
 
@@ -272,11 +277,16 @@ public class SearchPage extends BasePage {
 	}
 
 	public void clickOnApplyButton() {
-		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-		WebDriver webDriver = webDriverFacade.getProxiedDriver();
-		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-		appiumDriver.hideKeyboard();
-		applySearchButton.click();
+		if (Config.isAndroid()){
+			element(applySearchButton).click();
+		}
+		else {
+			WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+			WebDriver webDriver = webDriverFacade.getProxiedDriver();
+			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+			appiumDriver.hideKeyboard();
+			applySearchButton.click();
+		}
 	}
 
 	public void clickOnDeleteSecondLocation() {
@@ -316,12 +326,18 @@ public class SearchPage extends BasePage {
 	}
 
 	public void shouldSeePreviouslyCreatedSearch(String search) {
-		WebElement previouslyCreatedSearch = element(By.name(search.toUpperCase()));
+		WebElement previouslyCreatedSearch;
+		if(Config.isAndroid()) {
+			previouslyCreatedSearch = element(By.xpath("//*[@text='" + search + "']"));
+		} else {
+			previouslyCreatedSearch = element(By.name(search.toUpperCase()));
+		}
+		waitFor(ExpectedConditions.visibilityOf(firstSearchInList));
 		element(previouslyCreatedSearch).shouldBeVisible();
 	}
 
 	public void setMinimumPriceFilter(String price) {
-		element(minimumPriceTextBox).typeAndEnter(price);
+		element(minimumPriceTextBox).sendKeys(price);
 	}
 
 	public void selectFilterStudioBeds() {
@@ -386,9 +402,15 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectFirstSearchAndSaveName() {
-		String searchName = firstSearchInList.getAttribute("name");
-		System.out.print("Search name" + searchName);
-		SessionVariables.addValueInSessionVariable("SearchName", searchName);
+		String searchName;
+		if (Config.isAndroid()){
+			searchName = firstSearchInList.getAttribute("text");
+			SessionVariables.addValueInSessionVariable("SearchName", searchName);
+		}
+		else {
+			searchName = firstSearchInList.getAttribute("name");
+			SessionVariables.addValueInSessionVariable("SearchName", searchName);
+		}
 		firstSearchInList.click();
 	}
 

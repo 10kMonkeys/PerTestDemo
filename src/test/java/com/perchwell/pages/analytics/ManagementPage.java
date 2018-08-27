@@ -2,6 +2,7 @@ package com.perchwell.pages.analytics;
 
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +14,7 @@ public class ManagementPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "ASKING PRICE")
     private WebElement askingPriceButton;
 
+    @AndroidFindBy(xpath = "//*[@text='BEDROOMS']")
     @iOSXCUITFindBy(accessibility = "BEDROOMS")
     private WebElement bedroomsButton;
 

@@ -18,7 +18,7 @@ public class ST18_ApplyingFilterOnMapView extends SampleTest {
         user.atMapPage.clickOnNotNowButton();
         user.atMapPage.clickOnMyNewSearch();
         user.atSearchPage.selectFilter1AndHalfBath();
-        user.atSearchPage.clickOnFilter1Bed();
+        user.atSearchPage.selectFilter1Bed();
         user.atSearchPage.clickOnApplyButton();
         user.atMapPage.checkForChangesAfterApplyingTheFilter();
     }

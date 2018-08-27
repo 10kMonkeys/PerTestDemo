@@ -20,7 +20,7 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 		user.atSearchPage.clickOnExistingSearchInList();
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST13_MIN_PRICE);
-		user.atSearchPage.clickOnFilterStudioBeds();
+		user.atSearchPage.clickOnFilterStudioBeds(); //add (No 'selected' attribute)
 		user.atSearchPage.clickOnTapToSaveChanges();
 		user.atSearchPage.saveAsOptionSelect();
 		user.atSearchPage.setSearchName();
@@ -28,6 +28,6 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 		user.atPerchwellPage.shouldSeePreviouslyCreatedNameOfSearch();
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.clickOnLoadSavedSearchButton();
-		user.atSearchPage.shouldSeePreviouslyCreatedSearch();
+		user.atSearchPage.shouldSeePreviouslyCreatedSearch(); //
 	}
 }

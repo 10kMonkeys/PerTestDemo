@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
@@ -23,10 +24,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class PerchwellPage extends BasePage {
@@ -49,7 +52,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "EXPLORE SEARCH RESULTS BY LOCATION")
 	private WebElement exploreSearchResultHint;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/search")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement magnifierIcon;
 
@@ -68,9 +71,11 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[3]")
 	private WebElement thirdBuilding;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_map")
 	@iOSXCUITFindBy(accessibility = "map_view_button")
 	private WebElement map;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_analytics")
 	@iOSXCUITFindBy(accessibility = "market report logo")
 	private WebElement analyticsButton;
 
@@ -218,7 +223,12 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public String getFistBuildingAddress() {
-		return firstBuildingAddress.getAttribute("value");
+		if (Config.isAndroid()){
+			return firstBuildingAddress.getAttribute("text");
+		}
+		else {
+			return firstBuildingAddress.getAttribute("value");
+		}
 	}
 
 	public void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
@@ -253,11 +263,17 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void shouldSeePreviouslyCreatedNameOfSearch(String searchName,String secondSearchName){
-		Assert.assertTrue(searchName.equalsIgnoreCase( secondSearchName));
+		Assert.assertTrue(searchName.equalsIgnoreCase(secondSearchName));
 	}
 
 	public String getCurrentSearchName() {
-		return currentSearchInTitle.getAttribute("name");
+		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
+		if (Config.isAndroid()){
+			return currentSearchInTitle.getAttribute("text");
+		}
+		else {
+			return currentSearchInTitle.getAttribute("name");
+		}
 	}
 
 	public void isContainParticularRooms(String rooms) {
