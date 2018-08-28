@@ -130,6 +130,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "OVERWRITE")
 	private WebElement overwrite;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/second_option")
 	@iOSXCUITFindBy(accessibility = "SAVE AS...")
 	private WebElement save;
 
@@ -419,7 +420,6 @@ public class SearchPage extends BasePage {
 			searchName = firstSearchInList.getAttribute("name");
 		}
 
-		System.out.print("Search name" + searchName);
 		SessionVariables.addValueInSessionVariable("SearchName", searchName);
 		firstSearchInList.click();
 	}

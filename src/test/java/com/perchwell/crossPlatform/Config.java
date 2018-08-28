@@ -9,7 +9,7 @@ import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver
 public class Config {
 
     public static boolean isAndroid () {
-        return getPlatformCapability().equals("LINUX");
+        return getPlatformCapability().equals("ANDROID");
     }
 
     private static String getPlatformCapability() {
