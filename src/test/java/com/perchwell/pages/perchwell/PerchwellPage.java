@@ -24,10 +24,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class PerchwellPage extends BasePage {
@@ -227,7 +229,14 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public String getFistBuildingAddress() {
-		return firstBuildingAddress.getAttribute("value");
+	    String firstBuildAddress;
+		if (Config.isAndroid()){
+            firstBuildAddress = firstBuildingAddress.getAttribute("text");
+		}
+		else {
+            firstBuildAddress = firstBuildingAddress.getAttribute("value");
+		}
+		return firstBuildAddress;
 	}
 
 	public void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
@@ -262,11 +271,12 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void shouldSeePreviouslyCreatedNameOfSearch(String searchName,String secondSearchName){
-		Assert.assertTrue(searchName.equalsIgnoreCase( secondSearchName));
+		Assert.assertTrue(searchName.equalsIgnoreCase(secondSearchName));
 	}
 
 	public String getCurrentSearchName() {
 		String title;
+        waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 		if(Config.isAndroid()) {
 			title = currentSearchInTitle.getAttribute("text");
 		} else {

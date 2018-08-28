@@ -556,7 +556,13 @@ public class SearchPage extends BasePage {
 	private boolean isFilterFor1BedSaved() {
 		boolean filterFor1BedSaved = false;
 		String statusFilterPreviously = SessionVariables.getValueFromSessionVariable("status filter");
-		String statusFilter = filter1BedSelectedOrNot.getAttribute("name");
+		String statusFilter;
+
+		if(Config.isAndroid()) {
+			statusFilter = filter1BedSelectedOrNot.getAttribute("text");
+		} else {
+			statusFilter = filter1BedSelectedOrNot.getAttribute("name");
+		}
 
 		if ((statusFilterPreviously.equals("selected") && statusFilter.contains("selected"))
 				|| (statusFilterPreviously.equals("not selected") && !statusFilter.contains("selected"))) {

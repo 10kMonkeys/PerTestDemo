@@ -16,6 +16,7 @@ public class ManagementPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "ASKING PRICE")
     private WebElement askingPriceButton;
 
+    @AndroidFindBy(xpath = "//*[@text='BEDROOMS']")
     @iOSXCUITFindBy(accessibility = "BEDROOMS")
     private WebElement bedroomsButton;
 

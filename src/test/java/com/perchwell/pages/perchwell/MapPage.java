@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
@@ -38,14 +39,14 @@ public class MapPage extends BasePage {
 	private WebElement myNewSearch;
 
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View")
-    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'cluster'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'GMSMarker'")
 	private List<WebElement> clusterList;
 
 	@AndroidFindBy(xpath = "//*[@text='1½ BA']")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1½ BA'")
 	private WebElement oneAndHalfBaths;
 
-	@AndroidFindBy(xpath = "//*[@text='1 BD']")
+    @AndroidFindBy(xpath = "//*[@text='1 BD']")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1 BD'")
     private WebElement oneBed;
 
@@ -73,11 +74,14 @@ public class MapPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'BA'")
 	private List<WebElement> bathroomsList;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]")
 	private WebElement mapFirstAddress;
 
 	public void clickOnNotNowButton() {
-		element(notNowButton).click();
+		if (!Config.isAndroid()){
+			element(notNowButton).click();
+		}
 	}
 
 	public Integer countItemsInMapView() {
@@ -208,14 +212,30 @@ public class MapPage extends BasePage {
 	}
 
     public String getPinFirstListingAddress() {
-		return (mapFirstAddress).getAttribute("name");
+		if (Config.isAndroid())
+		{
+			return (mapFirstAddress).getAttribute("text");
+		}
+		else {
+			return (mapFirstAddress).getAttribute("name");
+		}
     }
 
 	public void clickOnPinFirstListing(String pinListingAddress) {
-		element(MobileBy.AccessibilityId(pinListingAddress)).click();
+		if (Config.isAndroid()){
+			element(mapFirstAddress).click();//////////////
+		}
+		else{
+			element(MobileBy.AccessibilityId(pinListingAddress)).click();
+		}
 	}
 
 	public void checkFirstListingIsOpened(String pinListingAddress) {
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[$name CONTAINS '" + pinListingAddress + "'$]")).shouldBeVisible();
+		if (Config.isAndroid()){
+			element(By.xpath("//*[@text='" + pinListingAddress + "']")).shouldBeVisible();
+		}
+		else{
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[$name CONTAINS '" + pinListingAddress + "'$]")).shouldBeVisible();
+		}
 	}
 }
