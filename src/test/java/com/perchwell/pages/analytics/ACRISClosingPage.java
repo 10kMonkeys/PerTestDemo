@@ -2,6 +2,7 @@ package com.perchwell.pages.analytics;
 
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,15 +13,19 @@ public class ACRISClosingPage extends BasePage {
 
     //region WebElements
 
+    @AndroidFindBy(xpath = "//*[@text='BUILDING HEIGHT (BY DEAL COUNT)']")
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT (BY DEAL COUNT)")
     private WebElement dealCountByHeightButton;
 
+    @AndroidFindBy(xpath = "//*[@text='DEAL COUNT BY HEIGHT']")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY HEIGHT_RISE_NUM_STORIES_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private  WebElement dealCountByHeightChart;
 
+    @AndroidFindBy(xpath = "//*[@text='BUILDING TYPE (BY DEAL COUNT)']")
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE (BY DEAL COUNT)")
     private WebElement buildingTypeByDealCountButton;
 
+    @AndroidFindBy(xpath = "//*[@text='DEAL COUNT BY TYPE']")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY TYPE_PROPERTYTYPES_PROPERTY_TYPE_CODE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement mktShareDealCountByTypeChart;
 
@@ -216,6 +221,9 @@ public class ACRISClosingPage extends BasePage {
     }
 
     public void dealCountByHeightButtonClick(){
+        setImplicitTimeout(1, SECONDS);
+        Helper.universalVerticalSwipe(dealCountByHeightButton);
+        resetImplicitTimeout();
         element(dealCountByHeightButton).click();
     }
 
@@ -233,12 +241,18 @@ public class ACRISClosingPage extends BasePage {
     }
 
     public void shouldBuildingHeightChartDisplayedWithSwipe() throws Exception {
-        this.swipeUntilButtonShown(dealCountByHeightChart);
+        setImplicitTimeout(1, SECONDS);
+        Helper.universalVerticalSwipe(dealCountByHeightChart);
+        resetImplicitTimeout();
         element(dealCountByHeightChart).shouldBeVisible();
     }
 
     public void shouldSeeMKTShareBuildingTypeByDealCountChart() {
+        setImplicitTimeout(1, SECONDS);
+        Helper.universalVerticalSwipe(mktShareDealCountByTypeChart);
+        resetImplicitTimeout();
         element(mktShareDealCountByTypeChart).shouldBeVisible();
+
     }
 
     public void addAndVerifyMKTSharePriceByDealCountChart() throws Exception {
@@ -427,7 +441,7 @@ public class ACRISClosingPage extends BasePage {
 
     private void swipeUntilButtonShown(WebElement button) throws Exception {
         setImplicitTimeout(1, SECONDS);
-        Helper.swipeDownUntilElementVisibleForCharButtons(button);
+        Helper.universalVerticalSwipe(button);
         resetImplicitTimeout();
     }
 

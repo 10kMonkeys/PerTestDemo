@@ -7,6 +7,7 @@ import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
@@ -32,15 +33,19 @@ public class MapPage extends BasePage {
 	@iOSXCUITFindBy(className = "XCUIElementTypeMap")
     private WebElement map;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
 	@iOSXCUITFindBy(accessibility= "MY NEW SEARCH")
 	private WebElement myNewSearch;
 
+	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'cluster'")
 	private List<WebElement> clusterList;
 
+	@AndroidFindBy(xpath = "//*[@text='1½ BA']")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1½ BA'")
 	private WebElement oneAndHalfBaths;
 
+	@AndroidFindBy(xpath = "//*[@text='1 BD']")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1 BD'")
     private WebElement oneBed;
 

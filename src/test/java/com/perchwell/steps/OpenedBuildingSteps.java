@@ -133,5 +133,15 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void shouldSeeAddedTag() {
 		onPage.shouldSeeAddedTag();
 	}
+
+	@Step
+	public void getFirstBuildingAddress() {
+		onPage.saveFirstBuildingAddress();
+	}
+
+	@Step
+	public void getSecondBuildingAddress() {
+		onPage.saveSecondBuildingAddress();
+	}
 }
 

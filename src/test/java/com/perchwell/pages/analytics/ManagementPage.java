@@ -2,9 +2,12 @@ package com.perchwell.pages.analytics;
 
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class ManagementPage extends BasePage {
 
@@ -22,9 +25,11 @@ public class ManagementPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE")
     private WebElement buildingTypeButton;
 
+    @AndroidFindBy(xpath = "//*[@text='DAYS ON MARKET']")
     @iOSXCUITFindBy(accessibility = "DAYS ON MARKET")
     private WebElement daysOnMarketButton;
 
+    @AndroidFindBy(xpath = "//*[@text='DAYS ON MARKET']")
     @iOSXCUITFindBy(accessibility = "DAYS ON MARKET_DAYSONMARKETPIE_DAYS_ON_MARKET_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement mktShareDaysOnMarketChart;
 
@@ -96,6 +101,9 @@ public class ManagementPage extends BasePage {
     }
 
     public void daysOnMarketButtonClick(){
+        setImplicitTimeout(1, SECONDS);
+        Helper.universalVerticalSwipe(daysOnMarketButton);
+        resetImplicitTimeout();
         element(daysOnMarketButton).click();
     }
 
@@ -132,8 +140,9 @@ public class ManagementPage extends BasePage {
     }
 
     public void shouldDaysOnMarketDisplayedWithSwipe() throws Exception {
-        Helper.swipeDownUntilElementVisible(mktShareDaysOnMarketChart);
-        //Helper.scrollToElement(daysOnMarketButton);
+        setImplicitTimeout(1, SECONDS);
+        Helper.universalVerticalSwipe(mktShareDaysOnMarketChart);
+        resetImplicitTimeout();
         element(mktShareDaysOnMarketChart).shouldBeVisible();
     }
 

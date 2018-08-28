@@ -4,6 +4,7 @@ import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -23,9 +24,11 @@ public class REBNYListingsPage extends BasePage {
     private int previousMKTShareAskingPriceStartListingsAmount = 0;
     private String[] previousLocationAskingPriceListingsLocationsStringList = new String[5];
 
+    @AndroidFindBy(xpath = "//*[@text='ASKING PRICE']")
     @iOSXCUITFindBy(accessibility = "ASKING PRICE")
     private WebElement askingPriceButton;
 
+    @AndroidFindBy(xpath = "//*[@text='BEDROOMS']")
     @iOSXCUITFindBy(accessibility = "BEDROOMS")
     private WebElement bedroomsButton;
 
@@ -227,6 +230,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "MEDIAN PROPERTY TAXES_BAR_REAL_ESTATE_TAX_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationPropertyTaxesChart;
 
+    @AndroidFindBy(xpath = "//*[@text='BEDROOM COUNT']")
     @iOSXCUITFindBy(accessibility = "BEDROOM COUNT_ROOMS_NUM_BEDROOMS_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement bedroomChart;
 
@@ -254,6 +258,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "NEW DEVELOPMENT_PREMIUM_NEW_DEVELOPMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresNewDevelopmentChart;
 
+    @AndroidFindBy(xpath = "//*[@text='ASKING PRICE']")
     @iOSXCUITFindBy(accessibility = "ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareAskingPriceChart;
 
@@ -280,6 +285,9 @@ public class REBNYListingsPage extends BasePage {
     }
 
     public void bedroomsButtonClick() {
+        setImplicitTimeout(1, SECONDS);
+        Helper.universalVerticalSwipe(bedroomsButton);
+        resetImplicitTimeout();
         element(bedroomsButton).click();
     }
 
@@ -318,8 +326,13 @@ public class REBNYListingsPage extends BasePage {
     }
 
     public void shouldSeeAskingPriceChartWithSwipe() throws Exception {
-        this.swipeUntilButtonShown(mktShareAskingPriceChart);
-        //	Helper.scrollToElement(askingPriceButton);
+        setImplicitTimeout(1, SECONDS);
+        if(Config.isAndroid()) {
+            Helper.androidSwipeDownUntilElementVisible(mktShareAskingPriceChart);
+        } else {
+            Helper.swipeDownUntilElementVisible(mktShareAskingPriceChart);
+        }
+        resetImplicitTimeout();
         element(mktShareAskingPriceChart).shouldBeVisible();
     }
 
@@ -538,8 +551,14 @@ public class REBNYListingsPage extends BasePage {
     }
 
     public void shouldBedroomCountChartDisplayed() throws Exception {
-        this.swipeUntilButtonShown(bedroomChart);
+        setImplicitTimeout(1, SECONDS);
+        Helper.universalVerticalSwipe(bedroomChart);
+        resetImplicitTimeout();
         element(bedroomChart).shouldBeVisible();
+    }
+
+    private void swipeUntilButtonShownAndroid(String chart) {
+        Helper.androidSwipeDownUntilElementVisible(chart);
     }
 
     public void shouldSeeMedianOrLocationAskingPriceChart() {
@@ -717,11 +736,7 @@ public class REBNYListingsPage extends BasePage {
 
     private void swipeUntilButtonShown(WebElement button) throws Exception {
         setImplicitTimeout(1, SECONDS);
-        if (Config.isIPad()) {
-            Helper.swipeDownUntilElementVisibleForCharButtonsIPad(button);
-        } else {
-            Helper.swipeDownUntilElementVisibleForCharButtons(button);
-        }
+        Helper.universalVerticalSwipe(button);
         resetImplicitTimeout();
     }
 

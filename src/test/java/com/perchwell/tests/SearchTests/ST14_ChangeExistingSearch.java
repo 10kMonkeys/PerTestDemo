@@ -23,7 +23,7 @@ public class ST14_ChangeExistingSearch extends SampleTest {
 		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTY_BEFORE_SEARCH_CHANGING);
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST14_MIN_PRICE);
-		user.atSearchPage.clickOnFilter1Bed();
+		user.atSearchPage.clickOnFilter1Bed(); //
 		user.atSearchPage.clickOnApplyButton();
 		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTY_AFTER_SEARCH_CHANGING);
 		user.atPerchwellPage.resultsCountIsChanged(ElementsNumberTitles.QTY_BEFORE_SEARCH_CHANGING,
@@ -36,7 +36,7 @@ public class ST14_ChangeExistingSearch extends SampleTest {
 				ElementsNumberTitles.QTY_AFTER_SEARCH_CHANGING);
 		user.atPerchwellPage.shouldSeeTheSameSearchName();
 		user.atPerchwellPage.clickOnMyNewSearch();
-		user.atSearchPage.shouldMinPriceHaveTheSameValue();
-		user.atSearchPage.shouldFilter1BedBeOfTheSameStatus();
+		user.atSearchPage.shouldMinPriceHaveTheSameValue(); //
+		user.atSearchPage.shouldFilter1BedBeOfTheSameStatus(); //
 	}
 }

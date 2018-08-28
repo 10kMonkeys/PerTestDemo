@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.MapPage;
 import com.perchwell.pages.perchwell.PerchwellPage;
@@ -15,7 +16,9 @@ public class MapSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnNotNowButton() {
-		onPage.clickOnNotNowButton();
+		if(!Config.isAndroid()) {
+			onPage.clickOnNotNowButton();
+		}
 	}
 
 	@Step

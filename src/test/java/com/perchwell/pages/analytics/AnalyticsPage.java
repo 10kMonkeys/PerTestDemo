@@ -14,9 +14,11 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -29,18 +31,23 @@ public class AnalyticsPage extends BasePage {
 
     //region WebElements
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/rebny_listings")
     @iOSXCUITFindBy(accessibility = "REBNY LISTINGS")
     private WebElement rebnyListingsButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/add")
     @iOSXCUITFindBy(accessibility = "plus white")
     private WebElement plusWhiteButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/acris_closings")
     @iOSXCUITFindBy(accessibility = "ACRIS CLOSINGS")
     private WebElement acrisClosingsButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/title")
     @iOSXCUITFindBy(accessibility = "MY NEW SEARCH")
 	private WebElement myNewSearch;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/nyc_townhouses")
     @iOSXCUITFindBy(accessibility = "NYC TOWNHOUSES")
     private WebElement nycTownhousesButton;
 
@@ -50,6 +57,7 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY PRICE")
     private WebElement dealCountByPriceButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/management")
     @iOSXCUITFindBy(accessibility = "MANAGEMENT")
     private WebElement managementButton;
 
@@ -154,6 +162,7 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther")
     private WebElement headerOfFirstChart;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/chart_with_legend_container")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]")
     private WebElement chart;
 
@@ -235,10 +244,12 @@ public class AnalyticsPage extends BasePage {
         return element(maximumSixChartMessage).isDisplayed();
     }
 
-    public void skipHints(){
-        element(dontForgetHint).click();
-        element(tapAnyChartHint).click();
-        element(pressAndHoldHint).click();
+    public void skipHints() {
+	    if(!Config.isAndroid()) {
+            element(dontForgetHint).click();
+            element(tapAnyChartHint).click();
+            element(pressAndHoldHint).click();
+        }
     }
 
     public boolean isDomByPriceCartAdd(){
@@ -514,7 +525,11 @@ public class AnalyticsPage extends BasePage {
 
     public void clickOnMagnifierIconWithPreviouslySavedSearch() {
         String search = SessionVariables.getValueFromSessionVariable("Search");
-        getDriver().findElement(MobileBy.AccessibilityId(search)).click();
+        if (Config.isAndroid()) {
+            getDriver().findElement(By.xpath("//*[@text='" + search + "']")).click();
+        } else {
+            getDriver().findElement(MobileBy.AccessibilityId(search)).click();
+        }
     }
 
     public void REBNYListingsButtonClick() {

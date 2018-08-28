@@ -16,6 +16,8 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class OpenedBuildingPage extends BasePage {
 
 	//region WebElements
@@ -62,6 +64,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "share")
 	private WebElement shareBitton;
 
+	@AndroidFindBy(xpath = "//*[@text='FEATURES & AMENITIES']")
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeOther' AND name CONTAINS 'FEATURES & AMENITIES'")
 	private WebElement featuresAmenities;
 
@@ -80,8 +83,13 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "VIEW ALL DISCUSSIONS FOR THIS LISTING")
     private WebElement viewAllDiscussionsButton;
 
+	@AndroidFindBy(xpath = "//*[@text='LAUNDRY - BUILDING']")
 	@iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING")
 	private WebElement LaundryBLDGD;
+
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
+	private WebElement buildAddress;
 
 	//endregion
 
@@ -171,13 +179,21 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void clickFeaturesAmenities() throws Exception {
-	//	Helper.swipeDownUntilElementVisible(featuresAmenities);
-	//Helper.scrollToElement(featuresAmenities);
+//		Helper.swipeDownUntilElementVisible(featuresAmenities);
+//	Helper.scrollToElement(featuresAmenities);
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-		Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+
+		if(Config.isAndroid()) {
+			Helper.swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
+		} else {
+			Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+		}
 		element(featuresAmenities).click();
+
+
+
 	}
 
 	public void isFireplaceDisplayed() {
@@ -233,7 +249,13 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void isLaundryBLDGDisplayed() {
-		Helper.scrollToElement(LaundryBLDGD);
+		if(Config.isAndroid()) {
+			setImplicitTimeout(1, SECONDS);
+			Helper.androidSwipeDownUntilElementVisible(LaundryBLDGD);
+			resetImplicitTimeout();
+		} else {
+			Helper.scrollToElement(LaundryBLDGD);
+		}
 		element(LaundryBLDGD).shouldBeVisible();
 	}
 
@@ -253,5 +275,13 @@ public class OpenedBuildingPage extends BasePage {
 		} else {
 			element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).shouldBeVisible();
 		}
+	}
+
+	public void saveFirstBuildingAddress() {
+		SessionVariables.addValueInSessionVariable("First_building_address", buildAddress.getAttribute("name"));
+	}
+
+	public void saveSecondBuildingAddress() {
+		SessionVariables.addValueInSessionVariable("Second_building_address", buildAddress.getAttribute("name"));
 	}
 }

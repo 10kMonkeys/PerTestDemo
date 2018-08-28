@@ -16,6 +16,7 @@ public class ST6_CreateNewTagForListingTest extends SampleTest {
 		user.atPerchPopup.clickNotNowButton();
 		user.atPerchwellPage.openFirstBuilding();
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+		user.atOpenedBuildingPage.getFirstBuildingAddress();
 		user.atOpenedBuildingPage.clickOnMyTagsLabel();
 		user.atTagsPage.setRandomTagAndSave();
 		user.atTagsPage.clickOnBackButton();

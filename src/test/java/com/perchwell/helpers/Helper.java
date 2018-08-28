@@ -1,5 +1,6 @@
 package com.perchwell.helpers;
 
+import com.perchwell.crossPlatform.Config;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
@@ -220,6 +221,23 @@ public abstract class Helper {
         while (!isElementDisplayed(element) && counter < 6) {
             swipeVertical(appiumDriver, 0.5, 0.3, 0.5, 1);
             counter += 1;
+        }
+    }
+
+    public static void universalVerticalSwipe(WebElement element) {
+
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        if(Config.isAndroid()) {
+            while (!isElementDisplayed(element)) {
+                swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
+            }
+        } else {
+            while (!isElementDisplayed(element)) {
+                swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+            }
         }
     }
 }

@@ -95,6 +95,7 @@ public class ComplexSteps extends ScenarioSteps{
     public void addTagToTheFirstListing() {
         atPerchwellPage.openFirstBuilding();
         atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+        atOpenedBuildingPage.getFirstBuildingAddress();
         atOpenedBuildingPage.clickOnMyTagsLabel();
         atTagsPage.setRandomFirstTagAndSave();
         atTagsPage.clickOnBackButton();
@@ -104,6 +105,7 @@ public class ComplexSteps extends ScenarioSteps{
     @Step
     public void addTagToTheSecondListing() {
         atPerchwellPage.openSecondBuilding();
+        atOpenedBuildingPage.getSecondBuildingAddress();
         atOpenedBuildingPage.clickOnMyTagsLabel();
         atTagsPage.setRandomSecondTagAndSave();
         atTagsPage.clickOnBackButton();

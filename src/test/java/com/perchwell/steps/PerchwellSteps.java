@@ -107,7 +107,11 @@ public class PerchwellSteps extends ScenarioSteps {
 
     @Step("Should see listing with filters are applyed {0}")
     public void shouldFilter1Bed1AndHalfBathBeApplied() {
-        onPage.shouldFilter1Bed1AndHalfBathApplied("1 BD  |  1½ BA");
+		if(Config.isAndroid()) {
+			onPage.shouldFilter1Bed1AndHalfBathApplied("1 BD | 1½ BA");
+		} else {
+			onPage.shouldFilter1Bed1AndHalfBathApplied("1 BD  |  1½ BA");
+		}
     }
 
 	@Step("'{0}' and '{1}' should be equal")

@@ -1,5 +1,6 @@
 package com.perchwell.helpers;
 
+import com.perchwell.crossPlatform.Config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.util.Iterator;
@@ -172,13 +173,24 @@ public abstract class FilteringAndSortingBuildings {
 
         Iterator<WebElement> iterator = roomsInfoList.iterator();
 
-        while (iterator.hasNext() && (numberCheckedBuildings < numberBuildingToCheck)) {
-            String infoRoom = iterator.next().getAttribute("value");
-            if (!infoRoom.contains(info)) {
-                infoRoomPresent = false;
-                break;
+        if(Config.isAndroid()) {
+            while (iterator.hasNext() && (numberCheckedBuildings < numberBuildingToCheck)) {
+                String infoRoom = iterator.next().getAttribute("text");
+                if (!infoRoom.contains(info)) {
+                    infoRoomPresent = false;
+                    break;
+                }
+                numberCheckedBuildings++;
             }
-            numberCheckedBuildings++;
+        } else {
+            while (iterator.hasNext() && (numberCheckedBuildings < numberBuildingToCheck)) {
+                String infoRoom = iterator.next().getAttribute("value");
+                if (!infoRoom.contains(info)) {
+                    infoRoomPresent = false;
+                    break;
+                }
+                numberCheckedBuildings++;
+            }
         }
         return infoRoomPresent;
     }

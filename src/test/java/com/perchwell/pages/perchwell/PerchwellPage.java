@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
@@ -49,6 +50,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "EXPLORE SEARCH RESULTS BY LOCATION")
 	private WebElement exploreSearchResultHint;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement magnifierIcon;
 
@@ -64,18 +66,23 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[2]")
 	private WebElement secondBuilding;
 
+    @AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/listing_image'])[3]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[3]")
 	private WebElement thirdBuilding;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_map")
 	@iOSXCUITFindBy(accessibility = "map_view_button")
 	private WebElement map;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_analytics")
 	@iOSXCUITFindBy(accessibility = "market report logo")
 	private WebElement analyticsButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_listings")
 	@iOSXCUITFindBy(accessibility = "list_view_button")
 	private WebElement listButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]")
 	private WebElement currentSearchInTitle;
 
@@ -85,6 +92,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BEDROOMS")
 	private WebElement bedroomsSortButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_beds")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'INFO'")
 	private List<WebElement> roomsInfoList;
 
@@ -177,12 +185,10 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void openFirstBuilding() {
-		SessionVariables.addValueInSessionVariable("First_building_address", firstBuildingAddress.getText());
 		element(firstBuilding).click();
 	}
 
 	public void openSecondBuilding() {
-		SessionVariables.addValueInSessionVariable("Second_building_address", secondBuildingAddress.getText());
 		element(secondBuilding).click();
 	}
 
@@ -205,7 +211,12 @@ public class PerchwellPage extends BasePage {
 
 	public Integer countItemsInListView() {
         String newString = "0";
-        String s = listingsByButton.getAttribute("value");
+		String s;
+        if(Config.isAndroid()) {
+			s = listingsByButton.getAttribute("text");
+		} else {
+			s = listingsByButton.getAttribute("value");
+		}
         s = Helper.removeChar(s, ',');
         Pattern p = Pattern.compile("^\\d+\\s+");
         Matcher m = p.matcher(s);
@@ -255,7 +266,13 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public String getCurrentSearchName() {
-		return currentSearchInTitle.getAttribute("name");
+		String title;
+		if(Config.isAndroid()) {
+			title = currentSearchInTitle.getAttribute("text");
+		} else {
+			title = currentSearchInTitle.getAttribute("name");
+		}
+		return title;
 	}
 
 	public void isContainParticularRooms(String rooms) {

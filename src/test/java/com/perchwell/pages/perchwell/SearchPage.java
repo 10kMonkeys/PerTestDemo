@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
@@ -7,6 +8,7 @@ import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
@@ -18,6 +20,8 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class SearchPage extends BasePage {
 
 	//region WebElements
@@ -28,6 +32,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeButton")
 	private WebElement deleteFirstLocationButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/apply")
 	@iOSXCUITFindBy(accessibility = "ApplySearchButton")
 	private WebElement applySearchButton;
 
@@ -43,6 +48,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "2BedsButton")
 	private WebElement filterFor2Beds;
 
+	@AndroidFindBy(xpath = "(//*[@text='STUDIO'])[1]")
 	@iOSXCUITFindBy(accessibility = "StudioBedsButton")
 	private WebElement filterForStudioBeds;
 
@@ -52,18 +58,23 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "FIREPLACE")
 	private WebElement fireplaceFilter;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/load")
 	@iOSXCUITFindBy(accessibility = "LoadSavedSearchButton")
 	private WebElement loadSavedSearchButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
 	@iOSXCUITFindBy(accessibility = "TAP TO SAVE CHANGES")
 	private WebElement tapToSaveChanges;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/rename_group_edit_text")
 	@iOSXCUITFindBy(accessibility = "generic_text_input_field")
 	private WebElement searchName;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/min_price")
 	@iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
 	private WebElement minimumPriceTextBox;
 
@@ -103,15 +114,19 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SearchNeighborhoods")
 	private WebElement searchNeihborhoods;
 
+	@AndroidFindBy(xpath = "//android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.view.ViewGroup[3]")
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[3]")
 	private WebElement thirdSearchInList;
 
+	@AndroidFindBy(xpath = "//android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.view.ViewGroup[1]")
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
 	private WebElement firstSearchInList;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "SavedSearchCancelButton")
 	private WebElement savedSearchCancelButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/first_option")
 	@iOSXCUITFindBy(accessibility = "OVERWRITE")
 	private WebElement overwrite;
 
@@ -121,24 +136,29 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Rentals")
 	private WebElement rentalsButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_new_search")
 	@iOSXCUITFindBy(accessibility = "CreateNewSearchButton")
 	private WebElement createNewSearchButton;
 
 	@iOSXCUITFindBy(accessibility = "RESET FILTERS")
 	private WebElement resetFiltersButton;
 
+	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
 	@iOSXCUITFindBy(accessibility = "1BedButton")
 	private WebElement filterFor1Bed;
 
+	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1BedButton'")
 	private WebElement filter1BedSelectedOrNot;
 
 	@iOSXCUITFindBy(accessibility = "3BedsButton")
 	private WebElement filterFor3Beds;
 
+	@AndroidFindBy(xpath = "(//*[@text='4+'])[1]")
 	@iOSXCUITFindBy(accessibility = "4PlusBedsButton")
 	private WebElement filterFor4PlusBeds;
 
+	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[2]")
 	@iOSXCUITFindBy(accessibility = "1.5BathsButton")
 	private WebElement filterFor1AndHalfBath;
 
@@ -154,6 +174,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "StudioBedsButton-selected")
 	private WebElement selectedFilterForStudioBeds;
 
+	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
 	@iOSXCUITFindBy(accessibility = "1BedButton-selected")
 	private WebElement selectedFilterFor1Bed;
 
@@ -169,6 +190,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "1BathButton-selected")
 	private WebElement selectedFilterFor1Bath;
 
+	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[2]")
 	@iOSXCUITFindBy(accessibility = "1.5BathsButton-selected")
 	private WebElement selectedFilterFor1AndHalfBath;
 
@@ -199,9 +221,11 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement universalNewSearchButton;
 
+	@AndroidFindBy(xpath = "//*[@text='LAUNDRY BLDG']")
 	@iOSXCUITFindBy(accessibility = "Laundry Bldg")
 	private WebElement laundryBLDGFilterButton;
 
+	@AndroidFindBy(xpath = "//*[@text='LAUNDRY BLDG']")
 	@iOSXCUITFindBy(accessibility = "Laundry Bldg-SELECTED")
 	private WebElement selectedLaundryBLDGFilter;
 
@@ -265,7 +289,9 @@ public class SearchPage extends BasePage {
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-		appiumDriver.hideKeyboard();
+		if(!Config.isAndroid()) {
+			appiumDriver.hideKeyboard();
+		}
 		applySearchButton.click();
 	}
 
@@ -302,16 +328,26 @@ public class SearchPage extends BasePage {
 	}
 
 	public void clickOnPreviouslyCreatedSearch(String search) {
-		getDriver().findElement(By.name(search.toUpperCase())).click();
+		if(Config.isAndroid()) {
+			getDriver().findElement(By.xpath("//*[@text='" + search.toUpperCase() + "']")).click();
+		} else {
+			getDriver().findElement(By.name(search.toUpperCase())).click();
+		}
 	}
 
 	public void shouldSeePreviouslyCreatedSearch(String search) {
-		WebElement previouslyCreatedSearch = element(By.name(search.toUpperCase()));
+		WebElement previouslyCreatedSearch;
+
+		if(Config.isAndroid()) {
+			previouslyCreatedSearch = element(By.xpath("//*[@text='" + search.toUpperCase() + "']"));
+		} else {
+			previouslyCreatedSearch = element(By.name(search.toUpperCase()));
+		}
 		element(previouslyCreatedSearch).shouldBeVisible();
 	}
 
 	public void setMinimumPriceFilter(String price) {
-		element(minimumPriceTextBox).typeAndEnter(price);
+		element(minimumPriceTextBox).sendKeys(price);
 	}
 
 	public void selectFilterStudioBeds() {
@@ -376,7 +412,13 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectFirstSearchAndSaveName() {
-		String searchName = firstSearchInList.getAttribute("name");
+		String searchName;
+		if(Config.isAndroid()) {
+			searchName = firstSearchInList.getAttribute("text");
+		} else {
+			searchName = firstSearchInList.getAttribute("name");
+		}
+
 		System.out.print("Search name" + searchName);
 		SessionVariables.addValueInSessionVariable("SearchName", searchName);
 		firstSearchInList.click();
@@ -470,7 +512,13 @@ public class SearchPage extends BasePage {
 	}
 
 	public void setUpSessionVariableForStatusFilter(WebElement name) {
-		String selected = name.getAttribute("name");
+		String selected;
+
+		if(Config.isAndroid())  {
+			selected = name.getAttribute("text");
+		} else {
+			selected = name.getAttribute("name");
+		}
 
 		if (!selected.contains("selected")) {
 			SessionVariables.addValueInSessionVariable("status filter", "not selected");
@@ -638,11 +686,11 @@ public class SearchPage extends BasePage {
 	}
 
 	public void should1BedFilterBeApplied() {
-		element(selectedFilterFor1Bed).shouldBePresent();
+		element(selectedFilterFor1Bed).shouldBeVisible();
 	}
 
 	public void should1AndHalfBathFilterBeApplied() {
-		element(selectedFilterFor1AndHalfBath).shouldBePresent();
+		element(selectedFilterFor1AndHalfBath).shouldBeVisible();
 	}
 
     public void removeBrooklynFromFilter() {
@@ -651,20 +699,31 @@ public class SearchPage extends BasePage {
 
 	public void setUpFilterLaundryBLDG() {
 		element(laundryBLDGFilterButton).click();
-
 	}
 
 	public void scrollToLaundryBLDG() {
-		Helper.scrollToElement(laundryBLDGFilterButton);
+		if (Config.isAndroid()) {
+			setImplicitTimeout(1, SECONDS);
+			Helper.androidSwipeDownUntilElementVisible("LAUNDRY BLDG");
+			resetImplicitTimeout();
+		} else {
+			Helper.scrollToElement(laundryBLDGFilterButton);
+		}
 	}
 
 	public void shouldLaundryBLDGFilterBeApplied() {
-		element(selectedLaundryBLDGFilter).shouldBePresent();
+		if (Config.isAndroid()) {
+			setImplicitTimeout(1, SECONDS);
+			Helper.androidSwipeDownUntilElementVisible("LAUNDRY BLDG");
+			resetImplicitTimeout();
+			element(selectedLaundryBLDGFilter).shouldBeVisible();
+		} else {
+			element(selectedLaundryBLDGFilter).shouldBePresent();
+		}
 	}
 
 
 	public void clickOnSoldFilter() throws Exception {
-
 		Helper.swipeDownUntilElementVisible(selectedSoldFilter);
 		element(selectedSoldFilter).click();
 

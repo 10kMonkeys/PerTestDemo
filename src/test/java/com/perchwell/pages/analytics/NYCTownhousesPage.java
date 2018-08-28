@@ -1,7 +1,9 @@
 package com.perchwell.pages.analytics;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,9 +32,11 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "HISTORIC DIST.")
     private WebElement historyDistChart;
 
+    @AndroidFindBy(xpath = "//*[@text='HAS GARDEN']")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HAS GARDEN\"`][1]")
     private WebElement rebnyTownhouseListingsHasGardenButton;
 
+    @AndroidFindBy(xpath = "//*[@text='GARDEN']")
     @iOSXCUITFindBy(accessibility = "GARDEN_MUSTHAVE_GARDEN_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareREBNYTownhouseListingsHasGardenChart;
 
@@ -363,7 +367,9 @@ public class NYCTownhousesPage extends BasePage {
     }
 
     public void shouldGardenChartDisplayed() {
-        Helper.scrollToElement(mktShareREBNYTownhouseListingsHasGardenChart);
+        setImplicitTimeout(1, SECONDS);
+        Helper.universalVerticalSwipe(mktShareREBNYTownhouseListingsHasGardenChart);
+        resetImplicitTimeout();
         element(mktShareREBNYTownhouseListingsHasGardenChart).shouldBeVisible();
     }
 
@@ -402,7 +408,7 @@ public class NYCTownhousesPage extends BasePage {
 
     private void swipeUntilButtonShown(WebElement button) throws Exception {
         setImplicitTimeout(1, SECONDS);
-        Helper.swipeDownUntilElementVisibleForCharButtons(button);
+        Helper.universalVerticalSwipe(button);
         resetImplicitTimeout();
     }
 

@@ -45,7 +45,6 @@ public class ST12_NewSearch extends SampleTest {
 		user.atSearchPage.clickOnThirdSearchInList();
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.clickOnLoadSavedSearchButton();
-		user.atSearchPage.shouldSeePreviouslyCreatedSearch();
 		user.atSearchPage.clickOnPreviouslyCreatedSearch();
 		user.atPerchwellPage.clickOnList();
 		user.atPerchwellPage.shouldFilter1Bed1AndHalfBathBeApplied();
@@ -54,9 +53,6 @@ public class ST12_NewSearch extends SampleTest {
 		user.atOpenedBuildingPage.shouldFilterLaundryBLDG();
 		user.atOpenedBuildingPage.clickOnBackButton();
 		user.atPerchwellPage.openSecondBuilding();
-		user.atOpenedBuildingPage.shouldFilterLaundryBLDG();
-		user.atOpenedBuildingPage.clickOnBackButton();
-		user.atPerchwellPage.openThirdBuilding();
 		user.atOpenedBuildingPage.shouldFilterLaundryBLDG();
 		user.atOpenedBuildingPage.clickOnBackButton();
 		user.atPerchwellPage.clickOnMap();
@@ -69,8 +65,9 @@ public class ST12_NewSearch extends SampleTest {
 		user.atAcrisClosingPage.shouldSeeBuildingHeightChartWithSwipe();
 		user.atRebnyListingsPage.shouldSeeAskingPriceChartWithSwipe();
 		user.atAnalyticsPage.clickOnMagnifierIconWithPreviouslySavedSearch();
-		user.atSearchPage.shouldLaundryBLDGFilterBeApplied();
 		user.atSearchPage.should1AndHalfBathFilterBeApplied();
 		user.atSearchPage.should1BedFilterBeApplied();
+		user.atSearchPage.shouldLaundryBLDGFilterBeApplied();
+
 	}
 }
