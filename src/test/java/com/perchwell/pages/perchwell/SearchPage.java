@@ -84,12 +84,15 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "1BathButton")
 	private WebElement filterFor1Bath;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/in_contract")
 	@iOSXCUITFindBy(accessibility = "IN CONTRACT")
 	private WebElement contractButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/off_market")
 	@iOSXCUITFindBy(accessibility = "OFF MARKET")
 	private WebElement offMKTButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/sold_rented")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SOLD/RENTED\"`][1]")
 	private WebElement soldOrRentedButton;
 
@@ -134,6 +137,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE AS...")
 	private WebElement save;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/rentals\n")
 	@iOSXCUITFindBy(accessibility = "Rentals")
 	private WebElement rentalsButton;
 
@@ -141,6 +145,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "CreateNewSearchButton")
 	private WebElement createNewSearchButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/reset_filters")
 	@iOSXCUITFindBy(accessibility = "RESET FILTERS")
 	private WebElement resetFiltersButton;
 
@@ -201,12 +206,15 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "3BathsButton-selected")
 	private WebElement selectedFilterFor3Baths;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/active")
     @iOSXCUITFindBy(accessibility = "ACTIVE-Selected")
     private WebElement selectedActiveFilter;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/in_contract")
     @iOSXCUITFindBy(accessibility = "IN CONTRACT-Selected")
     private WebElement selectedContractFilter;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/off_market")
     @iOSXCUITFindBy(accessibility = "OFF MARKET-Selected")
     private WebElement selectedOffMktFilter;
 
@@ -660,11 +668,14 @@ public class SearchPage extends BasePage {
 	}
 
     public void deselectActiveFilter() {
-		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-		WebDriver webDriver = webDriverFacade.getProxiedDriver();
-		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-		Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
-	    element(selectedActiveFilter).click();
+		if (Config.isAndroid()) {
+			setImplicitTimeout(1, SECONDS);
+			Helper.universalVerticalSwipe(selectedActiveFilter);
+			resetImplicitTimeout();
+		} else {
+			Helper.scrollToElement(selectedActiveFilter);
+		}
+		element(selectedActiveFilter).click();
     }
 
     public void deselectContractFilter() {

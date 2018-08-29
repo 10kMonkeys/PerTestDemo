@@ -35,7 +35,7 @@ public class DiscussionSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeMessageInDiscussion() {
-		onPage.shouldBeMessageDispayed();
+		onPage.shouldBeMessageDispayed(SessionVariables.getValueFromSessionVariable("message"));
 	}
 
 	@Step

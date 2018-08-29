@@ -276,4 +276,8 @@ public class ClientSteps extends ScenarioSteps {
 	public void selectNotGroupedGroup() {
 		onPage.clickOnNotGroupedGroup();
 	}
+
+	public void clickOnCancelButton() {
+		onPage.clickOnCancelButton();
+	}
 }

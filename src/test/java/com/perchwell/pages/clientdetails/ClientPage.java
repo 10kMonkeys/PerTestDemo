@@ -11,9 +11,11 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
@@ -66,9 +68,11 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "INVITE")
 	private WebElement inviteButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/logout")
 	@iOSXCUITFindBy(accessibility = "LOG OUT")
 	private WebElement logOutButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
 	@iOSXCUITFindBy(accessibility = "YES")
 	private WebElement yesButtonLogOutWindow;
 
@@ -123,6 +127,9 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Table View Cell: Not Grouped")
 	private WebElement notGroupedGroup;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/negative_button")
+	private WebElement cancelButton;
+
 	public ClientPage(WebDriver driver) {
 		super(driver);
 	}
@@ -171,9 +178,16 @@ public class ClientPage extends BasePage {
 		}
 	}
 
-	private void swipeDownUntilElementVisible(String name) throws Exception {
+	private void swipeDownUntilElementVisible(String name){
+		 WebElement element;
+		if (Config.isAndroid()){
+			element = element(By.xpath("//*[@text='" + name + "']"));
+		}
+		else {
+			element = element(By.xpath("//*[@value='" + name + "']"));
+		}
 		setImplicitTimeout(1, SECONDS);
-		Helper.swipeDownUntilElementVisible(name);
+		Helper.universalVerticalSwipe(element);
 		resetImplicitTimeout();
 	}
 
@@ -183,9 +197,14 @@ public class ClientPage extends BasePage {
 		resetImplicitTimeout();
 	}
 
-	public void isClientOrAgentDisplayed(String name) throws Exception {
+	public void isClientOrAgentDisplayed(String name){
 		this.swipeDownUntilElementVisible(name);
-		element(MobileBy.AccessibilityId(name)).shouldBeVisible();
+		if (Config.isAndroid()){
+			element(By.xpath("//*[@text='" + name + "']")).shouldBeVisible();
+		}
+		else {
+			element(MobileBy.AccessibilityId(name)).shouldBeVisible();
+		}
 	}
 
 	public void isClientOrAgentDisplayedAndroid(String name) {
@@ -219,12 +238,22 @@ public class ClientPage extends BasePage {
 		element(backButton).click();
 	}
 
-	public void closePage() {
-		element(closeButton).click();
+	public void closePage() { /////////////////
+		if (Config.isAndroid()){
+			element(By.id("com.perchwell.re.staging:id/up_button")).click();
+		}
+		else {
+			element(closeButton).click();
+		}
 	}
 
 	public void clickOnDesiredClientOrAgent(String name) {
-		element(MobileBy.AccessibilityId(name)).click();
+		if (Config.isAndroid()){
+			element(By.xpath("//*[@text='" + name + "']")).click();
+		}
+		else {
+			element(MobileBy.AccessibilityId(name)).click();
+		}
 	}
 
 	public void logOut() {
@@ -360,5 +389,9 @@ public class ClientPage extends BasePage {
 
 	public void shouldSeeClientGroup(String clientGroup) {
 		element(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group")).shouldBeVisible();
+	}
+
+	public void clickOnCancelButton() { ///////
+		element(cancelButton).click();
 	}
 }

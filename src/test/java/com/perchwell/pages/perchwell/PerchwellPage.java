@@ -88,6 +88,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]")
 	private WebElement currentSearchInTitle;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/sort")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'LISTINGS BY'")
 	private WebElement listingsByButton;
 
@@ -379,7 +380,15 @@ public class PerchwellPage extends BasePage {
 	}
 	
 	private int getNumberOfListings(WebElement listingsByButton) {
-		String listingsByText = element(listingsByButton).getAttribute("value");
+//		String listingsByText = element(listingsByButton).getAttribute("value");
+		String listingsByText;
+		if (Config.isAndroid()){
+			listingsByText = element(listingsByButton).getAttribute("text");
+			System.out.println("Android: " + listingsByText);
+		}
+		else {
+			listingsByText = element(listingsByButton).getAttribute("value");
+		}
 		StringBuilder listingsQty = new StringBuilder();
 
 		for (int i = 0; i < listingsByText.length(); i++) {
