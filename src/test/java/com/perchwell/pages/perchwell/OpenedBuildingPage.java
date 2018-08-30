@@ -50,9 +50,11 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")
 	private WebElement disccusWithClientOption;
 
+	@AndroidFindBy(xpath = "//*[@text='SEND WITHIN PERCHWELL']")
 	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")
 	private WebElement sendWithinPerchwell;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/new_client")
 	@iOSXCUITFindBy(accessibility = "NEW")
 	private WebElement addDiscus;
 
@@ -62,6 +64,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[4]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]")
 	private WebElement bath1Text;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/share")
 	@iOSXCUITFindBy(accessibility = "share")
 	private WebElement shareBitton;
 
@@ -91,6 +94,9 @@ public class OpenedBuildingPage extends BasePage {
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement buildAddress;
+
+	@iOSXCUITFindBy(accessibility = "CANCEL")
+	private WebElement cancelButton;
 
 	//endregion
 
@@ -250,15 +256,21 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void openDiscussionWithJustCreatedClient(String client) {
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther/XCUIElementTypeStaticText[$name == '"
-				+ client + "'$]")).click();
+		if(Config.isAndroid()) {
+			element(By.xpath("//*[contains(@text,'" + client + "')]")).click();
+		} else {
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeOther/XCUIElementTypeStaticText[$name == '"
+					+ client + "'$]")).click();
+		}
+
+
 	}
 
 	public void isLaundryBLDGDisplayed() {
 		if(Config.isAndroid()) {
-			setImplicitTimeout(1, SECONDS);
+//			setImplicitTimeout(1, SECONDS);
 			Helper.androidSwipeDownUntilElementVisible(LaundryBLDGD);
-			resetImplicitTimeout();
+//			resetImplicitTimeout();
 		} else {
 			Helper.scrollToElement(LaundryBLDGD);
 		}
@@ -289,5 +301,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void saveSecondBuildingAddress() {
 		SessionVariables.addValueInSessionVariable("Second_building_address", buildAddress.getAttribute("name"));
+	}
+
+	public void clickOnCancelButton() {
+		element(cancelButton).click();
 	}
 }

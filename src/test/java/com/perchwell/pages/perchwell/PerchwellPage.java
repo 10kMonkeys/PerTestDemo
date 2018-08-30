@@ -429,10 +429,20 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void openSpecificBuilding() throws Exception {
-		WebElement specificAddress = getDriver().findElement(
-				MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_building_address")));
+//		WebElement specificAddress = getDriver().findElement(
+//				MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_building_address")));
+//
+//		Helper.swipeDownUntilElementVisible(specificAddress);
+//		element(specificAddress).click();
+		WebElement specificAddress;
 
-		Helper.swipeDownUntilElementVisible(specificAddress);
+		if(Config.isAndroid()) {
+			specificAddress = getDriver().findElement(By.xpath("//*[@text = '" + SessionVariables.getValueFromSessionVariable("First_building_address") + "']"));
+		} else {
+			specificAddress = getDriver().findElement(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_building_address")));
+		}
+
+		Helper.universalVerticalSwipe(specificAddress);
 		element(specificAddress).click();
 	}
 

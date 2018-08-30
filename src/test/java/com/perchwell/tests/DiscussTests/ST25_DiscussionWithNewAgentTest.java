@@ -23,13 +23,13 @@ public class ST25_DiscussionWithNewAgentTest extends SampleTest {
 		user.atOpenedBuildingPage.clickOnAddDiscusButton();
 		user.atClientPage.clickOnAddNewAgentButton();
 		user.atClientPage.setAgentEmail("Not_existing_email@test.ru");
-		user.atClientPage.setMessageField("Hello. I'd like invite you on " + simpleDateFormat.format(new Date()));
+		user.atClientPage.setMessageField("Hello. I_d like invite you on " + simpleDateFormat.format(new Date()));
 		user.atClientPage.clickOnInviteButton();
-		user.atClientPage.clickOnAgentSuccessfullyAddedOkButton();
-		user.atDiscussionPage.clickOnBackButton();
-		user.atClientPage.clickOnBackButtonCreateAgent();
-		user.atClientPage.closePage();
-		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atClientPage.clickOnAgentSuccessfullyAddedOkButton(); //
+		user.atDiscussionPage.clickOnBackButton(); //
+		user.atClientPage.clickOnBackButtonCreateAgent(); //
+		user.atClientPage.closePage(); //need update
+		user.atOpenedBuildingPage.clickOnBackButton(); // need update
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnDiscussionsLabel();
 		user.atDiscussionsListPage.shouldNotBeDiscussionWithMessageDisplayed();

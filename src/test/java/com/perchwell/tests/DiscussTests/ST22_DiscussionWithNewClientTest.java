@@ -20,7 +20,7 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 		user.atOpenedBuildingPage.clickOnAddDiscusButton();
 		user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
 		user.atClientPage.invitationEmailSent();
-		user.atClientPage.clickOnClientSuccessfullyAddedOkButton();
+		user.atClientPage.openDiscussion();
 		user.atDiscussionPage.sendMessageWithPause(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
 		user.atDiscussionPage.clickOnBackButton();
 		user.atClientPage.clickOnBackButton();

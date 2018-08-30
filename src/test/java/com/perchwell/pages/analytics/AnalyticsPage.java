@@ -79,6 +79,7 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "PRESS AND HOLD ANY CHART TO REARRANGE OR DELETE")
     private WebElement pressAndHoldHint;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/ok")
     @iOSXCUITFindBy(accessibility = "OK")
     private WebElement okButton;
 

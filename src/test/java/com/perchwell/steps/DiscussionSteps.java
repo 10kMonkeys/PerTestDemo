@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.DiscussionPage;
 import net.thucydides.core.annotations.Step;
@@ -50,7 +51,9 @@ public class DiscussionSteps extends ScenarioSteps {
 
 	@Step
 	public void sendMessageWithPause(String text) {
-		waitABit(20000);
+		if(!Config.isAndroid()) {
+			waitABit(20000);
+		}
 		this.typeMessage(text);
 		this.clickOnSendButton();
 	}

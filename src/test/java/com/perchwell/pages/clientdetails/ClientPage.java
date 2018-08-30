@@ -11,6 +11,7 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,6 +27,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "ADD NEW CLIENT")
 	private WebElement addNewClientButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/discuss_button")
 	@iOSXCUITFindBy(accessibility = "ADD NEW AGENT")
 	private WebElement addNewAgentButton;
 
@@ -36,6 +38,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "client_name_text_field")
 	private WebElement clientNameTextBox;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/message_edit_text")
 	@iOSXCUITFindBy(accessibility = "ClientMessageTextField")
 	private WebElement addMessageField;
 
@@ -43,6 +46,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "client_email_text_field")
 	private WebElement clientEmailTextBox;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/email_edit_text")
 	@iOSXCUITFindBy(accessibility = "agent_email_text_field")
 	private WebElement agentEmailTextBox;
 
@@ -53,12 +57,14 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText")
 	private WebElement firstClientOrAgent;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "AddClientViewControllerBackButton")
 	private WebElement backButton;
 
 	@iOSXCUITFindBy(accessibility = "Nav Back White")
 	private WebElement backButtonCreateAgent;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/negative_button")
 	@iOSXCUITFindBy(accessibility = "contactsViewCloseButton")
 	private WebElement closeButton;
 
@@ -224,7 +230,11 @@ public class ClientPage extends BasePage {
 	}
 
 	public void clickOnDesiredClientOrAgent(String name) {
-		element(MobileBy.AccessibilityId(name)).click();
+		if(Config.isAndroid()) {
+			element(By.xpath("//*[contains(@text,'" + SessionVariables.getValueFromSessionVariable("User_name") + "')]")).click();
+		} else {
+			element(MobileBy.AccessibilityId(name)).click();
+		}
 	}
 
 	public void logOut() {
@@ -256,7 +266,9 @@ public class ClientPage extends BasePage {
 	}
 
 	public void clickOnClientSuccessfullyAddedOkButton() {
-		element(okButton).click();
+		if(!Config.isAndroid()) {
+			element(okButton).click();
+		}
 	}
 
 	public void swipeCreatedClientName(String name) throws Exception {

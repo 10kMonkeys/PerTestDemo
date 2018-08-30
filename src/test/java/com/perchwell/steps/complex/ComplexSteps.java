@@ -41,6 +41,7 @@ public class ComplexSteps extends ScenarioSteps{
     private void openFirstBuildingSkipHintClickOnShareButton() {
         atPerchwellPage.openFirstBuilding();
         atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+        atOpenedBuildingPage.getFirstBuildingAddress();
         atOpenedBuildingPage.clickShareButton();
     }
 

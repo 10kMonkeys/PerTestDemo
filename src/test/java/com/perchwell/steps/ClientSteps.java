@@ -2,10 +2,13 @@ package com.perchwell.steps;
 
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.entity.AppProperties;
+import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
+import io.appium.java_client.MobileBy;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.clientdetails.ClientPage;
+import org.openqa.selenium.By;
 
 public class ClientSteps extends ScenarioSteps {
 
@@ -81,7 +84,9 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnBackButtonCreateAgent() {
-		onPage.clickOnBackButtonCreateAgent();
+		if(!Config.isAndroid()) {
+			onPage.clickOnBackButtonCreateAgent();
+		}
 	}
 
 	@Step
@@ -133,13 +138,15 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickOnClientSuccessfullyAddedOkButton() {
+	public void iOSClickOnClientSuccessfullyAddedOkButton() {
 		onPage.clickOnClientSuccessfullyAddedOkButton();
 	}
 
 	@Step
 	public void clickOnAgentSuccessfullyAddedOkButton() {
-		onPage.clickOnClientSuccessfullyAddedOkButton();
+		if(!Config.isAndroid()) {
+			onPage.clickOnClientSuccessfullyAddedOkButton();
+		}
 	}
 
 	@Step
@@ -275,5 +282,19 @@ public class ClientSteps extends ScenarioSteps {
 	@Step
 	public void selectNotGroupedGroup() {
 		onPage.clickOnNotGroupedGroup();
+	}
+
+	@Step
+	public void androidOpenDiscussionWithCreatedClient() {
+		if (Config.isAndroid()) {
+			Helper.androidSwipeDownUntilElementVisible(SessionVariables.getValueFromSessionVariable("User_name"));
+			this.clickOnJustCreatedClient();
+		}
+	}
+
+	@Step
+	public void openDiscussion() {
+		this.iOSClickOnClientSuccessfullyAddedOkButton();
+		this.androidOpenDiscussionWithCreatedClient();
 	}
 }

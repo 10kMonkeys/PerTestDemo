@@ -143,5 +143,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void getSecondBuildingAddress() {
 		onPage.saveSecondBuildingAddress();
 	}
+
+	@Step
+	public void clickOnCancelButton() {
+		onPage.clickOnCancelButton();
+	}
 }
 
