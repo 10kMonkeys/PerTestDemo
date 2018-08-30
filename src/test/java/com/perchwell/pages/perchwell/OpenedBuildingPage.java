@@ -47,6 +47,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Compare Bar Button")
 	private WebElement compareButton;
 
+	@AndroidFindBy(xpath = "//*[@text='SEND WITHIN PERCHWELL']")
 	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")
 	private WebElement disccusWithClientOption;
 
@@ -81,9 +82,11 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SELLER'S AGENT")
 	private WebElement oneSellerAgentSection;
 
+	@AndroidFindBy(xpath = "//*[@text='CONSTANT CLIENT']")
 	@iOSXCUITFindBy(accessibility = "Constant client")
     private WebElement clientWithDiscussion;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/view_all_discussions")
 	@iOSXCUITFindBy(accessibility = "VIEW ALL DISCUSSIONS FOR THIS LISTING")
     private WebElement viewAllDiscussionsButton;
 
@@ -95,6 +98,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement buildAddress;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/negative_button")
 	@iOSXCUITFindBy(accessibility = "CANCEL")
 	private WebElement cancelButton;
 
@@ -121,7 +125,13 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void clickOnBackButton() {
-		element(backButton).click();
+		if (Config.isAndroid()){
+			element(cancelButton).click();
+			element(backButton).click();
+		}
+		else {
+			element(backButton).click();
+		}
 	}
 
 	public void clickOnDeleteTagButton() {
@@ -144,7 +154,12 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void openExistingDiscussion(String discussionName) {
-		element(MobileBy.AccessibilityId(discussionName)).click();
+		if (Config.isAndroid()){
+			element(MobileBy.xpath("//*[@text='" + discussionName.toUpperCase() + "']")).click();
+		}
+		else {
+			element(MobileBy.AccessibilityId(discussionName)).click();
+		}
 	}
 
 	public void openExistingDiscussionWithAgent(String discussionName) {
@@ -163,7 +178,12 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void discussionIsDisplayed(String discussionName) {
-		element(MobileBy.AccessibilityId(discussionName)).shouldBeVisible();
+		if (Config.isAndroid()){
+			element(By.xpath("//*[@text='" + discussionName.toUpperCase() + "']")).shouldBeVisible();
+		}
+		else {
+			element(MobileBy.AccessibilityId(discussionName)).shouldBeVisible();
+		}
 	}
 
 	public void clickOnSendWithinPerchwell() {
@@ -203,8 +223,6 @@ public class OpenedBuildingPage extends BasePage {
 			Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
 		}
 		element(featuresAmenities).click();
-
-
 
 	}
 

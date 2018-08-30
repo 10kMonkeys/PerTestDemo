@@ -64,6 +64,10 @@ public class ComplexSteps extends ScenarioSteps{
         atDiscussionPage.sendMessage(message);
         atDiscussionPage.clickOnBackButton();
         atClientPage.closePage();
+        atClientPage.clickOnCancelButton();
+        atOpenedBuildingPage.clickShareButton();
+        atOpenedBuildingPage.clickOnDiscussWithMyClientOption();
+
     }
 
     @Step

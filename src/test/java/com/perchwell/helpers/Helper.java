@@ -33,12 +33,28 @@ public abstract class Helper {
         new TouchAction(driver).press(startPoint, anchor).waitAction(Duration.ofSeconds(duration)).moveTo(endPoint, 0).release().perform();
     }
 
+    public static void swipeHorizontalAndroid(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage) throws Exception {
+        Dimension size = driver.manage().window().getSize();
+        int anchor = (int) (size.height * anchorPercentage);
+        int startPoint = (int) (size.width * startPercentage);
+        int endPoint = (int) (size.width * finalPercentage);
+        new TouchAction(driver).longPress(startPoint, anchor).moveTo(endPoint, 0).release().perform();
+    }
+
     public static void swipeHorizontalWithSetY(AppiumDriver driver, double startPercentage, double finalPercentage, int y, int duration) throws Exception {
 
         Dimension size = driver.manage().window().getSize();
         int startPoint = (int) (size.width * startPercentage);
         int endPoint = (int) (size.width * finalPercentage * (-1));
         new TouchAction(driver).press(startPoint, y).waitAction(Duration.ofSeconds(duration)).moveTo(endPoint, 0).release().perform();
+    }
+
+    public static void swipeHorizontalWithSetYAndroid(AppiumDriver driver, double startPercentage, double finalPercentage, int y) throws Exception {
+
+        Dimension size = driver.manage().window().getSize();
+        int startPoint = (int) (size.width * startPercentage);
+        int endPoint = (int) (size.width * finalPercentage);
+        new TouchAction(driver).press(startPoint, y).moveTo(endPoint, 0).release().perform();
     }
 
     public static void swipeVerticalAndroid(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage) {
@@ -239,5 +255,17 @@ public abstract class Helper {
                 swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
             }
         }
+    }
+
+    public static void universalHorizontalSwipe(WebElement element, int y) throws Exception {
+       WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+       WebDriver webDriver = webDriverFacade.getProxiedDriver();
+       AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+       if(Config.isAndroid()){
+           swipeHorizontalWithSetYAndroid(appiumDriver, 0.9, 0.5, y);
+       } else {
+           swipeHorizontalWithSetY(appiumDriver, 0.9, 0.5, y, 1);
+       }
     }
 }

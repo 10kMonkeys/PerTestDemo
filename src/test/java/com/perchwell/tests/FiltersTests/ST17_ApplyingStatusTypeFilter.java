@@ -17,10 +17,10 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
             user.atPerchPopup.clickNotNowButton();
             user.atPerchwellPage.isListingsQuantity();
             user.atPerchwellPage.clickOnMyNewSearch();
-            user.atSearchPage.deselectActiveFilter();
+            user.atSearchPage.deselectActiveFilter(); //Active filter "selected" attribute + swipe?@!?!?!?
             user.atSearchPage.selectContractFilter();
             user.atSearchPage.clickOnApplyButton();
-            user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.IN_CONTRACT);
+            user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.IN_CONTRACT); //Labels names is missing in dom
             user.atPerchwellPage.clickOnMyNewSearch();
             user.atSearchPage.deselectContractFilter();
             user.atSearchPage.selectOffMktFilter();
@@ -44,7 +44,7 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
             user.atSearchPage.clickOnApplyButton();
             user.atPerchwellPage.checkListingsQuantity();
             user.atPerchwellPage.clickOnMyNewSearch();
-            user.atSearchPage.checkSalesAndActiveFiltersSelected();
+            user.atSearchPage.checkSalesAndActiveFiltersSelected(); ///// "selected"
             user.atSearchPage.clickOnLoadSavedSearchButton();
             user.atSearchPage.clickOnPreviouslyCreatedSearch();
             user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.RENTED);

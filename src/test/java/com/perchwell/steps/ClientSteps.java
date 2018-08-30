@@ -297,4 +297,9 @@ public class ClientSteps extends ScenarioSteps {
 		this.iOSClickOnClientSuccessfullyAddedOkButton();
 		this.androidOpenDiscussionWithCreatedClient();
 	}
+
+	@Step
+	public void clickOnCancelButton() {
+		onPage.clickOnCancelButton();
+	}
 }

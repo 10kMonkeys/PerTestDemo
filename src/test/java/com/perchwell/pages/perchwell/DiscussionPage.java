@@ -8,6 +8,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class DiscussionPage extends BasePage {
 
@@ -18,7 +19,7 @@ public class DiscussionPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "CC my email on this conversation")
 	private WebElement ccMyEmailText;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button") //backBtn
 	@iOSXCUITFindBy(accessibility = "ChatViewBackButton")
 	private WebElement backButton;
 
@@ -31,9 +32,11 @@ public class DiscussionPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MessageTextField")
 	private WebElement message;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "x")
 	private WebElement closeButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "DiscussionsCancelButton")
 	private WebElement discussionsCancelButton;
 
@@ -41,7 +44,7 @@ public class DiscussionPage extends BasePage {
 		element(ccMyEmailText).shouldBeVisible();
 	}
 
-	public void clickOnBackButton() {
+	public void clickOnBackButton() { /////////////////////////////
 		element(backButton).click();
 	}
 
@@ -53,11 +56,11 @@ public class DiscussionPage extends BasePage {
 		element(sendButton).click();
 	}
 
-	public void shouldBeMessageDispayed() {
-		if(Config.isAndroid()) {
-			element(By.xpath("//*[contains(@text,'" + SessionVariables.getValueFromSessionVariable("message") + "')]")).shouldBeVisible();
+	public void shouldBeMessageDispayed(String message) {
+		if (Config.isAndroid()){
+			element(By.xpath("//*[@text='" + message + "']")).shouldBeVisible();
 		} else {
-			element(By.name(SessionVariables.getValueFromSessionVariable("message"))).shouldBeVisible();
+			element(By.name(message)).shouldBeVisible();
 		}
 	}
 

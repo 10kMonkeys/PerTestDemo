@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
@@ -7,6 +8,7 @@ import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -18,12 +20,15 @@ import java.util.List;
 
 public class DiscussionsListPage extends BasePage {
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/foreground_container")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[1]")
 	private WebElement firstItem;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/client_name")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[1]/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
 	private WebElement firstDiscussionClient;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/last_message")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[1]/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[3]")
 	private WebElement firstDiscussionMessage;
 
@@ -50,11 +55,21 @@ public class DiscussionsListPage extends BasePage {
 	}
 
 	private String getFistDiscussionClient() {
-		return element(firstDiscussionClient).getAttribute("name");
+		if (Config.isAndroid()){
+			return element(firstDiscussionClient).getAttribute("text");
+		}
+		else {
+			return element(firstDiscussionClient).getAttribute("name");
+		}
 	}
 
 	private String getFistDiscussionMessage() {
-		return element(firstDiscussionMessage).getAttribute("name");
+		if (Config.isAndroid()){
+			return element(firstDiscussionMessage).getAttribute("text");
+		}
+		else {
+			return element(firstDiscussionMessage).getAttribute("name");
+		}
 	}
 
 	public void clickOnFirstDiscussion() {
