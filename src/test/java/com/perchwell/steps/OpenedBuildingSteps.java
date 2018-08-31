@@ -23,8 +23,8 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickOnBackButton() {
-		onPage.clickOnBackButton();
+	public void clickOnArrowBackButtonFromListing() {
+		onPage.clickOnArrowBackButtonFromListing();
 	}
 
 	@Step
@@ -147,6 +147,11 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	@Step
 	public void clickOnCancelButton() {
 		onPage.clickOnCancelButton();
+	}
+
+	@Step
+	public void clickOnCancelButtonInDiscussWithClient() {
+		onPage.clickOnCancelButtonInDiscussWithClient();
 	}
 }
 

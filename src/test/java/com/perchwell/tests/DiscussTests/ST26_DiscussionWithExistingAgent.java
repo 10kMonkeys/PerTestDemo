@@ -17,6 +17,7 @@ public class ST26_DiscussionWithExistingAgent extends SampleTest {
 		user.atPerchPopup.clickNotNowButton();
 		user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
 		user.usingComplexSteps.sendMessageToAgentAndCloseDiscussion(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
+		user.atDiscussionPage.shouldSeeMessageInDiscussion();
 		user.atOpenedBuildingPage.shouldSeeExistingDiscussionWithAgent();
 		user.atOpenedBuildingPage.openExistingDiscussionWithAgent();
 		user.atDiscussionPage.shouldSeeMessageInDiscussion();

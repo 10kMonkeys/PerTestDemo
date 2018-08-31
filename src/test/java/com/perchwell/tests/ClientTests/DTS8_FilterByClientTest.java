@@ -23,9 +23,10 @@ public class DTS8_FilterByClientTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnAddDiscusButton();
         user.atClientPage.selectTestClient();
         user.atDiscussionPage.sendMessage(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
-        user.atDiscussionPage.clickOnBackButton();
-        user.atClientPage.closePage();
-        user.atOpenedBuildingPage.clickOnBackButton();
+        user.atDiscussionPage.clickOnBackButtonFromDiscussion(); // ia
+        user.atClientPage.clickOnCrossBackButtonFromClients(); //new ia
+        user.atOpenedBuildingPage.clickOnCancelButtonInDiscussWithClient(); //ia
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //ia
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnDiscussionsLabel();
         user.atDiscussionsListPage.enterValueInSearchField(SearchRequests.TES);

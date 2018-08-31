@@ -19,17 +19,18 @@ public class DT7_DeleteDiscussionTest extends SampleTest {
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnClientsLabel();
         user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
-        user.atClientPage.closePage();
+        user.atClientPage.clickOnCrossBackButtonFromClients(); //new ia
         user.atPerchwellPage.closeAccountMenu();
         user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
-        user.usingComplexSteps.sendMessageToJustCreatedClientAndCloseDiscussion(DiscussionMessages.MESSAGE_FOR_REMOVING);
-        user.atOpenedBuildingPage.clickOnBackButton();
+        user.usingComplexSteps.sendMessageToJustCreatedClientAndCloseDiscussion(DiscussionMessages.MESSAGE_FOR_REMOVING); //ia
+        user.atOpenedBuildingPage.clickOnCancelButtonInDiscussWithClient(); //new ia
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //ia
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnDiscussionsLabel();
         user.atDiscussionsListPage.swipeJustCreatedDiscussion();
         user.atDiscussionsListPage.clickOnDeleteButton();
         user.atDiscussionsListPage.shouldBeDiscussionDeletedFromDiscussionsList();
-        user.atDiscussionsListPage.closePage();
+        user.atDiscussionPage.clickOnCrossBackButtonFromDiscussionsPage();//new ia
         user.atAccountPage.clickOnDiscussionsLabel();
         user.atDiscussionsListPage.shouldBeNotDisplayedPreviouslyDeletedDiscussion();
     }

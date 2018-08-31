@@ -15,8 +15,15 @@ public class DiscussionSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickOnBackButton() {
-		onPage.clickOnBackButton();
+	public void clickOnBackButtonFromDiscussion() {
+		onPage.clickOnBackButtonFromDiscussion();
+	}
+
+	@Step
+	public void clickOnBackButtonFromDiscussionOnlyIOS() {
+		if(!Config.isAndroid()) {
+			onPage.clickOnBackButtonFromDiscussion();
+		}
 	}
 
 	private void typeMessage(String text) {
@@ -40,13 +47,8 @@ public class DiscussionSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickOnCloseButton() {
-		onPage.clickOnCloseButton();
-	}
-
-	@Step
-	public void clickOnDiscussionsCancelButton() {
-		onPage.clickOndiscussionsCancelButton();
+	public void clickOnCrossBackButtonFromDiscussion() {
+		onPage.clickOnCrossBackButtonFromDiscussion();
 	}
 
 	@Step
@@ -56,5 +58,10 @@ public class DiscussionSteps extends ScenarioSteps {
 		}
 		this.typeMessage(text);
 		this.clickOnSendButton();
+	}
+
+	@Step
+	public void clickOnCrossBackButtonFromDiscussionsPage() {
+		onPage.clickOnCrossBackButtonFromDiscussionsPage();
 	}
 }

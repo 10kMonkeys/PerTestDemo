@@ -15,8 +15,8 @@ public class ST8_ShareTagTest extends SampleTest {
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
-		user.usingComplexSteps.addTagToTheFirstListing();
-		user.usingComplexSteps.addTagToTheSecondListing();
+		user.usingComplexSteps.addTagToTheFirstListing(); //ia
+		user.usingComplexSteps.addTagToTheSecondListing(); //ia
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnTagsLabel();
 		user.atMyTagsPage.checkTwoJustCreatedTags();

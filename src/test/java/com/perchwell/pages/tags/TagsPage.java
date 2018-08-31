@@ -32,7 +32,7 @@ public class TagsPage extends BasePage {
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "Nav Back White")
-	private WebElement backButton;
+	private WebElement arrowBackFromTagsButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_by_tags")
 	@iOSXCUITFindBy(accessibility = "search")
@@ -67,8 +67,8 @@ public class TagsPage extends BasePage {
 		element(createTagLabel).click();
 	}
 
-	public void clickOnBackButton() {
-		element(backButton).click();
+	public void clickOnArrowBackFromTagsButton() {
+		element(arrowBackFromTagsButton).click();
 	}
 
 
@@ -160,7 +160,7 @@ public class TagsPage extends BasePage {
 
 	public void shouldSeeTaggedListing(String buildingAddress) {
 		if(Config.isAndroid()) {
-			element(MobileBy.xpath("//*[contains(@text, '" + buildingAddress + "')]")).shouldBeVisible();
+			element(MobileBy.xpath("//*[contains(@text,'" + buildingAddress + "')]")).shouldBeVisible();
 		} else {
 			element(MobileBy.AccessibilityId(buildingAddress)).shouldBeVisible();
 		}
@@ -181,7 +181,7 @@ public class TagsPage extends BasePage {
 
 	public void clickOnExistingTag() {
 		if(Config.isAndroid()) {
-			element(MobileBy.xpath("//*[contains(@text, '" + SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "')]")).click();
+			element(MobileBy.xpath("//*[contains(@text,'" + SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "')]")).click();
 		} else {
 			element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).click();
 		}

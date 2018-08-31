@@ -17,19 +17,20 @@ public class ST23_DiscussionWithExistingClient extends SampleTest {
 		user.atPerchPopup.clickNotNowButton();
 		user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
 		user.atDiscussThisListingPage.deleteDiscussionWithClientIfExist(); //update for android + universal swipe for removing
-		user.usingComplexSteps.sendMessageToClientAndCloseDiscussion(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);////
+		user.usingComplexSteps.sendMessageToClientAndCloseDiscussion(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);// ia
 		user.atOpenedBuildingPage.shouldSeeExistingDiscussion();
 		user.atOpenedBuildingPage.openExistingDiscussion();
 		user.atDiscussionPage.shouldSeeMessageInDiscussion();
-		user.atDiscussionPage.clickOnCloseButton();
-		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atDiscussionPage.clickOnCrossBackButtonFromDiscussion(); //ia
+		user.atOpenedBuildingPage.clickOnCancelButtonInDiscussWithClient(); //ia
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //ia
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnDiscussionsLabel();
-		user.atDiscussionsListPage.shouldBeCreatedDiscussionFirst();
+		user.atDiscussionsListPage.shouldBeCreatedDiscussionFirst(); //check method
 		user.atDiscussionsListPage.clickOnFirstDiscussion();
 		user.atDiscussionPage.shouldSeeMessageInDiscussion();
-		user.atDiscussionPage.clickOnBackButton();
-		user.atDiscussionPage.clickOnDiscussionsCancelButton();
+		user.atDiscussionPage.clickOnBackButtonFromDiscussion(); //ia
+		user.atDiscussionPage.clickOnCrossBackButtonFromDiscussionsPage(); //ia
 		user.atClientPage.logOut();
 		user.atClientPage.clickOnYesButtonLogOutWindow();
 		user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),

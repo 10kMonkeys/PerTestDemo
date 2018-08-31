@@ -19,9 +19,9 @@ public class ST6_CreateNewTagForListingTest extends SampleTest {
 		user.atOpenedBuildingPage.getFirstBuildingAddress();
 		user.atOpenedBuildingPage.clickOnMyTagsLabel();
 		user.atTagsPage.setRandomTagAndSave();
-		user.atTagsPage.clickOnBackButton();
+		user.atTagsPage.clickOnArrowBackFromTagsButton();
 		user.atTagsPage.justCreatedTagIsAddedToListing();
-		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnTagsLabel();
 		user.atTagsPage.shouldSeeJustCreatedTag();

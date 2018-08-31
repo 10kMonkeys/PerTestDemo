@@ -17,11 +17,11 @@ public class SellersAgentSteps extends ScenarioSteps {
         perchwellPage.openFirstBuilding();
         openedBuildingPage.clickOnDiscussWithMyClientHint();
         if (!openedBuildingPage.isOneSellersAgent()) {
-            openedBuildingPage.clickOnBackButton();
+            openedBuildingPage.clickOnArrowBackButtonFromListing();
             perchwellPage.openSecondBuilding();
         }
         while (!openedBuildingPage.isOneSellersAgent()) {
-            openedBuildingPage.clickOnBackButton();
+            openedBuildingPage.clickOnArrowBackButtonFromListing();
             perchwellPage.swipeDownUntilNextBuildingVisible();
             perchwellPage.clickOnLastVisibleBuilding();
         }

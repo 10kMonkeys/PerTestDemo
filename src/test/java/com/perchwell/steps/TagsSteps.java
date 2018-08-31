@@ -58,8 +58,8 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickOnBackButton() {
-		onPage.clickOnBackButton();
+	public void clickOnArrowBackFromTagsButton() {
+		onPage.clickOnArrowBackFromTagsButton();
 	}
 
 	@Step

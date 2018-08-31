@@ -51,10 +51,10 @@ public class ST12_NewSearch extends SampleTest {
 		user.atPerchwellPage.openFirstBuilding();
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
 		user.atOpenedBuildingPage.shouldFilterLaundryBLDG();
-		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
 		user.atPerchwellPage.openSecondBuilding();
 		user.atOpenedBuildingPage.shouldFilterLaundryBLDG();
-		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
 		user.atPerchwellPage.clickOnMap();
 		user.atMapPage.checkForChangesAfterApplyingTheFilter();
 		user.atPerchwellPage.clickOnAnalytics();

@@ -21,7 +21,7 @@ public class DT1_DeleteClientTest extends SampleTest {
         user.atClientPage.swipeCreatedClientName();
         user.atClientPage.clickOnDeleteButton();
         user.atClientPage.shouldClientNotBePresented();
-        user.atClientPage.closePage();
+        user.atClientPage.clickOnCrossBackButtonFromClients(); //new ai
         user.atAccountPage.clickOnClientsLabel();
         user.atClientPage.shouldClientNotBePresented();
     }

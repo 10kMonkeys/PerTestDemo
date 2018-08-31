@@ -22,10 +22,10 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 		user.atClientPage.invitationEmailSent();
 		user.atClientPage.openDiscussion();
 		user.atDiscussionPage.sendMessageWithPause(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
-		user.atDiscussionPage.clickOnBackButton();
-		user.atClientPage.clickOnBackButton();
-		user.atClientPage.closePage();
-		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atDiscussionPage.clickOnBackButtonFromDiscussion(); //ai
+		user.atClientPage.clickOnCrossBackButtonFromClients(); //ai
+		user.atOpenedBuildingPage.clickOnCancelButtonInDiscussWithClient(); //ai
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //ia
 		user.atPerchwellPage.openSpecificBuilding();
 		user.atOpenedBuildingPage.clickShareButton();
 		user.atOpenedBuildingPage.clickOnSendWithinPerchwell();

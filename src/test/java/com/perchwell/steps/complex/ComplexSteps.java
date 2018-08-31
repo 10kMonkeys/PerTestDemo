@@ -62,9 +62,9 @@ public class ComplexSteps extends ScenarioSteps{
         atOpenedBuildingPage.clickOnAddDiscusButton();
         atClientPage.clickOnExistingClient();
         atDiscussionPage.sendMessage(message);
-        atDiscussionPage.clickOnBackButton();
-        atClientPage.closePage();
-        atClientPage.clickOnCancelButton();
+        atDiscussionPage.clickOnBackButtonFromDiscussion(); //ai
+        atClientPage.clickOnCrossBackButtonFromClients(); //ia
+        atOpenedBuildingPage.clickOnCancelButtonInDiscussWithClient();//ia
         atOpenedBuildingPage.clickShareButton();
         atOpenedBuildingPage.clickOnDiscussWithMyClientOption();
 
@@ -75,8 +75,8 @@ public class ComplexSteps extends ScenarioSteps{
         atOpenedBuildingPage.clickOnAddDiscusButton();
         atClientPage.clickOnExistingAgent();
         atDiscussionPage.sendMessage(message);
-        atDiscussionPage.clickOnBackButton();
-        atClientPage.closePage();
+        atDiscussionPage.clickOnBackButtonFromDiscussion(); //ai
+        atClientPage.clickOnCrossBackButtonFromClients(); //ai
     }
 
     @Step
@@ -103,8 +103,8 @@ public class ComplexSteps extends ScenarioSteps{
         atOpenedBuildingPage.getFirstBuildingAddress();
         atOpenedBuildingPage.clickOnMyTagsLabel();
         atTagsPage.setRandomFirstTagAndSave();
-        atTagsPage.clickOnBackButton();
-        atOpenedBuildingPage.clickOnBackButton();
+        atTagsPage.clickOnArrowBackFromTagsButton();
+        atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
     }
 
     @Step
@@ -113,8 +113,8 @@ public class ComplexSteps extends ScenarioSteps{
         atOpenedBuildingPage.getSecondBuildingAddress();
         atOpenedBuildingPage.clickOnMyTagsLabel();
         atTagsPage.setRandomSecondTagAndSave();
-        atTagsPage.clickOnBackButton();
-        atOpenedBuildingPage.clickOnBackButton();
+        atTagsPage.clickOnArrowBackFromTagsButton();
+        atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
     }
 
     @Step
@@ -122,8 +122,8 @@ public class ComplexSteps extends ScenarioSteps{
         atOpenedBuildingPage.clickOnAddDiscusButton();
         atClientPage.clickOnExistingClientForRemoveMessage();
         atDiscussionPage.sendMessage(message);
-        atDiscussionPage.clickOnBackButton();
-        atClientPage.closePage();
+        atDiscussionPage.clickOnBackButtonFromDiscussion(); //ia
+        atClientPage.clickOnCrossBackButtonFromClients(); //ia
     }
 
     @Step

@@ -18,10 +18,10 @@ public class ST9_DeleteCreatedTagTest extends SampleTest {
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
 		user.atOpenedBuildingPage.clickOnMyTagsLabel();
 		user.atTagsPage.setRandomTagAndSave();
-		user.atTagsPage.clickOnBackButton();
+		user.atTagsPage.clickOnArrowBackFromTagsButton();
 		user.atOpenedBuildingPage.clickOnDeleteTagButton();
 		user.atTagsPage.shouldNotSeeCreatedTagUpperCase();
-		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnTagsLabel();
 		user.atTagsPage.searchRemovedTag();

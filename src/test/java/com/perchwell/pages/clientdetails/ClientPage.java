@@ -12,10 +12,8 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
@@ -59,8 +57,8 @@ public class ClientPage extends BasePage {
 	private WebElement firstClientOrAgent;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
-	@iOSXCUITFindBy(accessibility = "AddClientViewControllerBackButton")
-	private WebElement backButton;
+	@iOSXCUITFindBy(accessibility = "contactsViewCloseButton")
+	private WebElement crossBackButtonFromClients;
 
 	@iOSXCUITFindBy(accessibility = "Nav Back White")
 	private WebElement backButtonCreateAgent;
@@ -238,16 +236,12 @@ public class ClientPage extends BasePage {
 		return firstClientOrAgent.getAttribute("name");
 	}
 
-	public void clickOnBackButton() {
-		element(backButton).click();
+	public void clickOnCrossBackButtonFromClients() {
+		element(crossBackButtonFromClients).click();
 	}
 
-	public void closePage() { /////////////////
-		if (Config.isAndroid()) {
-			element(By.id("com.perchwell.re.staging:id/up_button")).click();
-		} else {
-			element(closeButton).click();
-		}
+	public void clickOnCancelButtonInDiscussWithClient() {
+		element(closeButton).click();
 	}
 
 	public void clickOnDesiredClientOrAgent(String name) {

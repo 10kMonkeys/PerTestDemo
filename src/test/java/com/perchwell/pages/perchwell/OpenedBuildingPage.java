@@ -16,8 +16,6 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-
 public class OpenedBuildingPage extends BasePage {
 
 	//region WebElements
@@ -33,8 +31,8 @@ public class OpenedBuildingPage extends BasePage {
 	private WebElement myTagsLabel;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
-	private WebElement backButton;
+	@iOSXCUITFindBy(accessibility = "ListingViewBackButton")
+	private WebElement arrowBackButtonFromListing;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ImageView")
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeButton' AND name CONTAINS 'DeleteTagBubbleButton'")
@@ -102,6 +100,10 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "CANCEL")
 	private WebElement cancelButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/negative_button")
+	@iOSXCUITFindBy(accessibility = "CANCEL")
+	private WebElement cancelButtonInDiscussWithClient;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -124,14 +126,8 @@ public class OpenedBuildingPage extends BasePage {
 		element(myTagsLabel).click();
 	}
 
-	public void clickOnBackButton() {
-		if (Config.isAndroid()){
-			element(cancelButton).click();
-			element(backButton).click();
-		}
-		else {
-			element(backButton).click();
-		}
+	public void clickOnArrowBackButtonFromListing() {
+			element(arrowBackButtonFromListing).click();
 	}
 
 	public void clickOnDeleteTagButton() {
@@ -180,8 +176,7 @@ public class OpenedBuildingPage extends BasePage {
 	public void discussionIsDisplayed(String discussionName) {
 		if (Config.isAndroid()){
 			element(By.xpath("//*[@text='" + discussionName.toUpperCase() + "']")).shouldBeVisible();
-		}
-		else {
+		} else {
 			element(MobileBy.AccessibilityId(discussionName)).shouldBeVisible();
 		}
 	}
@@ -323,5 +318,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void clickOnCancelButton() {
 		element(cancelButton).click();
+	}
+
+	public void clickOnCancelButtonInDiscussWithClient() {
+		element(cancelButtonInDiscussWithClient).click();
 	}
 }

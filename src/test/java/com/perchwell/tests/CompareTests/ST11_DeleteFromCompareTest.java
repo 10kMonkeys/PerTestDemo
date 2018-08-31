@@ -4,7 +4,6 @@ import com.perchwell.SampleTest;
 import com.perchwell.data.Buildings;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
-import org.junit.Ignore;
 import org.junit.Test;
 
 @WithTagValuesOf({"SmokeTestSuit", "CompareTests", "First"})
@@ -19,13 +18,13 @@ public class ST11_DeleteFromCompareTest extends SampleTest {
 		user.atPerchwellPage.openFirstBuilding();
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
 		user.atOpenedBuildingPage.addToCompare(Buildings.FIRST_BUILDING);
-		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //
 		user.atPerchwellPage.openSecondBuilding();
 		user.atOpenedBuildingPage.addToCompare(Buildings.SECOND_BUILDING);
-		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //
 		user.atPerchwellPage.openThirdBuilding();
 		user.atOpenedBuildingPage.addToCompare(Buildings.THIRD_BUILDING);
-		user.atOpenedBuildingPage.clickOnBackButton();
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnCompareLabel();
 		user.atComparePage.clickOnSwipeUpToRemoveHint();
