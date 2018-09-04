@@ -3,6 +3,8 @@ package com.perchwell.email;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.SessionVariables;
 
+import static com.perchwell.email.MailTrap.getTextBody;
+
 
 public abstract class Email {
 
@@ -16,9 +18,9 @@ public abstract class Email {
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(emailHeader);
         if (mailTrapResponse.length > 0) {
             for (MailTrapResponse my_responce : mailTrapResponse) {
-                if (my_responce.getText_body().contains(userName)) {
+                if (getTextBody(my_responce.getTxt_path()).contains(userName)) {
                     emailWasFound = true;
-                    SessionVariables.addValueInSessionVariable("emailText",my_responce.getText_body());
+                    SessionVariables.addValueInSessionVariable("emailText", getTextBody(my_responce.getTxt_path()));
                     break;
                 }
             }
