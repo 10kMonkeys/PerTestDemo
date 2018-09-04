@@ -94,33 +94,41 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "THIS IS A PRO-ONLY FEATURE")
     private WebElement thisIsAProOnlyFeatureMessage;
 
+    @AndroidFindBy(xpath = "//*[@text='UP TO $1M']")
     @iOSXCUITFindBy(accessibility = "UP TO $1M")
     private WebElement upToOneMillionButton;
 
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[2]")
 	private WebElement firstBuildingInList;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/rename_group_edit_text")
 	@iOSXCUITFindBy(accessibility = "generic_text_input_field")
 	private WebElement nameThisReport;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/ok")
 	@iOSXCUITFindBy(accessibility = "OK")
 	private WebElement reportSentOkButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/first_option")
 	@iOSXCUITFindBy(accessibility = "MY EMAIL")
 	private WebElement myEmailOption;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/second_option")
 	@iOSXCUITFindBy(accessibility = "CLIENT EMAIL")
 	private WebElement clientOption;
 
+	@AndroidFindBy(xpath = "*//android.widget.RelativeLayout[2]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]/XCUIElementTypeCell[2]/XCUIElementTypeStaticText[1]")
 	private WebElement secondBuildingTable;
 
 	@iOSXCUITFindBy(accessibility = "DOM BY PRICE2")
 	private WebElement domByPrice2Chart;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/upload")
 	@iOSXCUITFindBy(accessibility = "share")
 	private WebElement shareButton;
 
@@ -278,7 +286,7 @@ public class AnalyticsPage extends BasePage {
     }
 
     public void upToOneMillionButtonClick(){
-        element(upToOneMillionButton).click();
+            element(upToOneMillionButton).click();
     }
 
     public void selectFirstBuildingInList(){

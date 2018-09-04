@@ -34,6 +34,7 @@ public class LoginPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "LOG IN")
     private WebElement loginButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/email")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField")
     private WebElement resetEmailTextBox;
 
@@ -76,7 +77,8 @@ public class LoginPage extends BasePage {
     }
 
     public void setRestEmail(String email){
-      element(resetEmailTextBox).type(email);
+//      element(resetEmailTextBox).type(email);
+        element(resetEmailTextBox).sendKeys(email);
     }
 
     public void resetPasswordButtonClick(){
@@ -114,9 +116,12 @@ public class LoginPage extends BasePage {
         SessionVariables.addValueInSessionVariable("resetToken",emailText);
     }
 
-    public void backButtonClick(){
-        element(backButton).click();
-
+    public void backButtonClick() {
+        if (Config.isAndroid()){
+            getDriver().navigate().back();
+        }else {
+            element(backButton).click();
+        }
     }
 
     public void shouldSeeAccountNeededToSignInMessage(){
