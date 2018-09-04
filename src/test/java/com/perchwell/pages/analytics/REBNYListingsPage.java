@@ -32,6 +32,7 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "BEDROOMS")
     private WebElement bedroomsButton;
 
+    @AndroidFindBy (xpath = "//*[@text='BUILDING HEIGHT']")
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT")
     private WebElement buildingHeightButton;
 

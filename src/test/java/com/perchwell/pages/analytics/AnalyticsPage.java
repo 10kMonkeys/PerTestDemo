@@ -61,12 +61,15 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "MANAGEMENT")
     private WebElement managementButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/remove_button")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[3]")
     private WebElement deleteChartButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/done_moving_charts")
     @iOSXCUITFindBy(accessibility = "DONE MOVING CHARTS")
     private WebElement doneMovingChartsButton;
 
+    @AndroidFindBy(xpath = "//*[@text='MAXIMUM 6 CHARTS ALLOWED']")
     @iOSXCUITFindBy(accessibility = "MAXIMUM 6 CHARTS ALLOWED")
     private WebElement maximumSixChartMessage;
 
@@ -83,9 +86,11 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "OK")
     private WebElement okButton;
 
+    @AndroidFindBy(xpath = "*//android.view.ViewGroup/android.widget.FrameLayout[1]")
     @iOSXCUITFindBy(accessibility = "MKT SHARE")
     private WebElement mktShareButton;
 
+    @AndroidFindBy(xpath = "//*[@text='THIS IS A PRO-ONLY FEATURE']")
     @iOSXCUITFindBy(accessibility = "THIS IS A PRO-ONLY FEATURE")
     private WebElement thisIsAProOnlyFeatureMessage;
 
@@ -160,6 +165,7 @@ public class AnalyticsPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther")
     private List<WebElement> valueColumnYearsList;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/header_container")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther")
     private WebElement headerOfFirstChart;
 
@@ -170,6 +176,7 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[4]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]")
     private WebElement iPadChart;
 
+    @AndroidFindBy(xpath = "//*[@text='NOTHING TO SEE HERE']")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeStaticText[contains(@name, 'NOTHING TO SEE HERE')]")
     private WebElement nothingToSeeHere;
 
@@ -187,6 +194,7 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "$12M+")
     private WebElement chartTwelvePlusMillionButton;
 
+    @AndroidFindBy(xpath = "//*[@text='$12M+']")
     @iOSXCUITFindBy(accessibility = "$12M+")
     private WebElement legendTwelvePlusMillionButton;
 

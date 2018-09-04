@@ -17,6 +17,15 @@ public class ST28_UpdateSettingsAsBroker extends SampleTest {
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.openSettingProfile();
         user.atSettingsProfilePage.changeNameAndCompany();
+        user.atSettingsProfilePage.backButtonClick();
+        user.atClientPage.logOut();
+        user.atClientPage.clickOnYesButtonLogOutWindow();
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("broker_test_email"),
+                AppProperties.INSTANCE.getProperty("broker_test_password"));
+        user.atPerchwellPage.skipAllHints();
+        user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnOpenAccountButton();
+        user.atAccountPage.openSettingProfile();
         user.atSettingsProfilePage.isNameTextBoxChange();
         user.atSettingsProfilePage.isCompanyTextBoxChange();
     }

@@ -28,6 +28,7 @@ public class AccountPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "AGENTS")
     private WebElement agentsLabel;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/name")
     @iOSXCUITFindBy(accessibility = "AccountDetailsHeader")
     private WebElement settingProfileButton;
 
