@@ -1,5 +1,6 @@
 package com.perchwell.pages.starting;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
@@ -51,6 +52,9 @@ public class LoginPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "OK")
     private WebElement okButton;
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[1]")
+    private WebElement loginBackButton;
+
     //endregion
 
     public LoginPage(WebDriver driver) {
@@ -89,9 +93,14 @@ public class LoginPage extends BasePage {
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_RESET_EMAIL"));
         if (mailTrapResponse.length > 0) {
             for (MailTrapResponse my_responce : mailTrapResponse) {
-                if (my_responce.getText_body().contains(email)) {
+                if (getTextBody(my_responce.getTxt_path()).contains(email)) {
                     reportWasFound = true;
-                    SessionVariables.addValueInSessionVariable("emailText",my_responce.getText_body());
+                    SessionVariables.addValueInSessionVariable("emailText", getTextBody(my_responce.getTxt_path()));
+                    break;
+                }
+                if (getTextBody(my_responce.getTxt_path()).contains(email)) {
+                    reportWasFound = true;
+                    SessionVariables.addValueInSessionVariable("emailText", getTextBody(my_responce.getTxt_path()));
                     break;
                 }
             }
@@ -107,6 +116,7 @@ public class LoginPage extends BasePage {
 
     public void backButtonClick(){
         element(backButton).click();
+
     }
 
     public void shouldSeeAccountNeededToSignInMessage(){
@@ -123,5 +133,13 @@ public class LoginPage extends BasePage {
            newPassword.append(String.valueOf(random.nextInt(10)));
         }
         return newPassword.toString();
+    }
+
+    public void clickOnBackFromLogin() {
+        if(Config.isAndroid()) {
+            getDriver().navigate().back();
+        } else {
+            element(loginBackButton).click();
+        }
     }
 }

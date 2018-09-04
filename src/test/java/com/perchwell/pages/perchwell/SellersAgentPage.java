@@ -14,6 +14,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static com.perchwell.email.MailTrap.getTextBody;
+
 public class SellersAgentPage extends BasePage {
 
     //region WebElements
@@ -61,8 +63,8 @@ public class SellersAgentPage extends BasePage {
 
         for (MailTrapResponse email : mailTrapResponse) {
             if ((email.getSubject().equalsIgnoreCase(subjectName))
-                & (email.getText_body().toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message")))
-                & email.getText_body().toUpperCase().contains(SessionVariables.getValueFromSessionVariable("building address"))) {
+                & (getTextBody(email.getTxt_path()).toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message")))
+                & getTextBody(email.getTxt_path()).toUpperCase().contains(SessionVariables.getValueFromSessionVariable("building address"))) {
                 k++;
             }
         }
@@ -103,8 +105,8 @@ public class SellersAgentPage extends BasePage {
 
         for (MailTrapResponse email : mailTrapResponse) {
 
-            if (email.getText_body().toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message"))
-                    && email.getText_body().toUpperCase().contains(SessionVariables.getValueFromSessionVariable("First_building_address"))) {
+            if (getTextBody(email.getTxt_path()).toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message"))
+                    && getTextBody(email.getTxt_path()).toUpperCase().contains(SessionVariables.getValueFromSessionVariable("First_building_address"))) {
                 if (email.getTo_email().equals((AppProperties.INSTANCE.getProperty("agent1_email")))) {
                     k += 1;
                 } else if (email.getTo_email().equals((AppProperties.INSTANCE.getProperty("agent2_email")))) {

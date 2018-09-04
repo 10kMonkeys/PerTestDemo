@@ -11,6 +11,8 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static com.perchwell.email.MailTrap.getTextBody;
+
 public class SelectResultPage extends BasePage {
 
 	//region WebElements
@@ -112,10 +114,10 @@ public class SelectResultPage extends BasePage {
 			//Find email with Custom_message, First Building and Second Building
 			for (MailTrapResponse my_responce : mailTrapResponse) {
 
-				if (my_responce.getText_body().contains(customMessage)
-						& my_responce.getText_body().toUpperCase().contains(
+				if (getTextBody(my_responce.getTxt_path()).contains(customMessage)
+						& getTextBody(my_responce.getTxt_path()).contains(
 								SessionVariables.getValueFromSessionVariable("Second_building_address"))
-						& my_responce.getText_body().toUpperCase().contains(
+						& getTextBody(my_responce.getTxt_path()).toUpperCase().contains(
 								SessionVariables.getValueFromSessionVariable("First_building_address"))) {
 					//Get attachments
 					MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(my_responce.getId());

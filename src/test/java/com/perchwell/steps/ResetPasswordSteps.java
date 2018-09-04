@@ -76,4 +76,9 @@ public class ResetPasswordSteps extends ScenarioSteps {
     public void returnOldPassword(){
         NewInstanceSafariDriver.returnOldPasswordBySafariOrChrome();
     }
+
+    @Step
+    public void clickOnBackFromLogin() {
+        loginPage.clickOnBackFromLogin();
+    }
 }

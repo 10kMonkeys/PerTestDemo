@@ -29,6 +29,7 @@ public class ST30_ResetPasswordTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("old_reset_password"));
         user.atResetPasswordPage.isAccountNeededToSignInMessageDisplayed();
         user.atResetPasswordPage.okButtonClick();
+        user.atResetPasswordPage.clickOnBackFromLogin();
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("new_reset_password"));
         user.atPerchPopup.clickNotNowButton();

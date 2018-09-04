@@ -18,6 +18,8 @@ import org.openqa.selenium.WebElement;
 import java.util.Iterator;
 import java.util.List;
 
+import static com.perchwell.email.MailTrap.getTextBody;
+
 public class DiscussionsListPage extends BasePage {
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/foreground_container")
@@ -28,7 +30,7 @@ public class DiscussionsListPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[1]/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
 	private WebElement firstDiscussionClient;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/last_message")
+	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/last_message'])[1]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[1]/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[3]")
 	private WebElement firstDiscussionMessage;
 
@@ -91,7 +93,7 @@ public class DiscussionsListPage extends BasePage {
 		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_DISCUSS"));
 		if (mailTrapResponse.length > 0) {
 			for (MailTrapResponse my_responce : mailTrapResponse) {
-				if (my_responce.getHtml_body().contains(emailText)) {
+				if (getTextBody(my_responce.getTxt_path()).contains(emailText)) {
 					reportWasFound = true;
 					break;
 				}
