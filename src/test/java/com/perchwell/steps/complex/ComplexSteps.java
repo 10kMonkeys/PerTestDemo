@@ -128,7 +128,7 @@ public class ComplexSteps extends ScenarioSteps{
     }
 
     @Step
-    public void returnOldPassword() throws InterruptedException {
+    public void returnOldPassword(){
         atPerchwellPage.clickOnOpenAccountButton();
         atAccountPage.openSettingProfile();
         atSettingsProfilePage.resetPasswordClick();

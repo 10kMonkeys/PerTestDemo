@@ -36,15 +36,18 @@ public class LoginPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField")
     private WebElement resetEmailTextBox;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/reset_password")
     @iOSXCUITFindBy(accessibility = "RESET PASSWORD")
     private WebElement resetPasswordButton;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar[$name=='Perchwell_Staging.ForgotPasswordSuccessResetView'$]/XCUIElementTypeButton")
     private WebElement backButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/title")
     @iOSXCUITFindBy(accessibility = "ACCOUNT NEEDED TO SIGN IN")
     private WebElement accountNeededToSignInText;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/ok")
     @iOSXCUITFindBy(accessibility = "OK")
     private WebElement okButton;
 

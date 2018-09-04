@@ -36,8 +36,8 @@ public class ResetPasswordSteps extends ScenarioSteps {
     }
 
     @Step
-    public void setNewPassword() throws InterruptedException {
-        NewInstanceSafariDriver.resetPasswordInSafari(loginPage.generateNewPassword());
+    public void setNewPassword(){
+        NewInstanceSafariDriver.resetPasswordBySafariOrChrome(loginPage.generateNewPassword());
     }
 
     @Step
@@ -73,7 +73,7 @@ public class ResetPasswordSteps extends ScenarioSteps {
     }
 
     @Step
-    public void returnOldPassword() throws InterruptedException {
-        NewInstanceSafariDriver.returnOldPasswordInSafari();
+    public void returnOldPassword(){
+        NewInstanceSafariDriver.returnOldPasswordBySafariOrChrome();
     }
 }

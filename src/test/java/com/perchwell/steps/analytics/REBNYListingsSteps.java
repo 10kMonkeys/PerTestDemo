@@ -55,7 +55,7 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void shouldSeeMKTShareBuildingHeightChart(){
+    public void shouldSeeMKTShareBuildingHeightChart() {
         rebnyListingsPage.shouldSeeMKTShareBuildingHeightChart();
         this.isChartDisplayed();
     }
@@ -77,7 +77,7 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addBedroomsChartFromREBNYListings(){
+    public void addBedroomsChartFromREBNYListings() {
         analyticsPage.rebnyListingsButtonClick();
         rebnyListingsPage.bedroomsButtonClick();
     }
@@ -148,19 +148,19 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void shouldSeeMedianAskingPricePerBedChart(){
+    public void shouldSeeMedianAskingPricePerBedChart() {
         rebnyListingsPage.shouldSeeMedianAskingPricePerBedChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void shouldSeeLocationAskingPricePerBedChart(){
+    public void shouldSeeLocationAskingPricePerBedChart() {
         rebnyListingsPage.shouldSeeLocationAskingPricePerBedChart();
         this.isChartDisplayed();
     }
 
     @Step
-    public void shouldSeeBedroomsChart(){
+    public void shouldSeeBedroomsChart() {
         rebnyListingsPage.shouldSeeBedroomsChart();
         this.isChartDisplayed();
     }
@@ -355,7 +355,7 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void shouldSeeMedianOrLocationAskingPriceChart(){
+    public void shouldSeeMedianOrLocationAskingPriceChart() {
         rebnyListingsPage.shouldSeeMedianOrLocationAskingPriceChart();
         this.isChartDisplayed();
     }
