@@ -27,7 +27,6 @@ public class ST32_DeleteChartTest extends SampleTest {
         user.atRebnyListingsPage.addBedroomsChartFromREBNYListings();
         user.atAnalyticsPage.addButtonClick();
         user.atAcrisClosingPage.addBuildingTypeByDealCountChartFromACRISClosing();
-//        user.atAnalyticsPage.addButtonClick(); ///////
         user.atAnalyticsPage.isMessageMaximumSixChartsDisplayed();
         user.atAnalyticsPage.okButtonClick();
         user.atAnalyticsPage.holdCharts();

@@ -31,7 +31,6 @@ public class ST31_AddGraphicsTest extends SampleTest {
         user.atRebnyListingsPage.addBedroomsChartFromREBNYListings();
         user.atAnalyticsPage.addButtonClick();
         user.atAcrisClosingPage.addBuildingTypeByDealCountChartFromACRISClosing();
-//        user.atAnalyticsPage.addButtonClick(); //////////////
         user.atAnalyticsPage.isMessageMaximumSixChartsDisplayed();
     }
 }

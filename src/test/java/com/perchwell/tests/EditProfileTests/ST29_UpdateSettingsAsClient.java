@@ -22,7 +22,6 @@ public class ST29_UpdateSettingsAsClient extends SampleTest {
         user.atClientPage.clickOnYesButtonLogOutWindow();
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_test_email"),
                 AppProperties.INSTANCE.getProperty("client_test_password"));
-        user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.openSettingProfile();

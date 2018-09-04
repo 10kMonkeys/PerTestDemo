@@ -26,6 +26,7 @@ public class WelcomePage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Continue")
 	private WebElement continueButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/forgot_password")
 	@iOSXCUITFindBy(accessibility = "FORGOT PASSWORD")
 	private WebElement forgotPassword;
 
