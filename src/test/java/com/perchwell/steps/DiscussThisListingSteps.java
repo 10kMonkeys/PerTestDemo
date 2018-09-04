@@ -14,7 +14,18 @@ public class DiscussThisListingSteps extends ScenarioSteps {
     public void deleteDiscussionWithClientIfExist() throws Exception {
         if (openedBuildingPage.isClientWithDiscussionExist()) {
             openedBuildingPage.clickOnViewAllDiscussionsButton();
-            discussThisListingPage.DeleteClientsWithDiscussion(); //
+            discussThisListingPage.deleteClientsWithDiscussion();
+            discussThisListingPage.clickOnClosePageButton();
+            openedBuildingPage.clickOnShareButton();
+            openedBuildingPage.clickOnSendWithinPerchwell();
+        }
+    }
+
+    @Step
+    public void deleteDiscussionWithAgentIfExist() throws Exception {
+        if (openedBuildingPage.isAgentWithDiscussionExist()) {
+            openedBuildingPage.clickOnViewAllDiscussionsButton();
+            discussThisListingPage.deleteAgentsWithDiscussion();
             discussThisListingPage.clickOnClosePageButton();
             openedBuildingPage.clickOnShareButton();
             openedBuildingPage.clickOnSendWithinPerchwell();

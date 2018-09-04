@@ -80,9 +80,13 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SELLER'S AGENT")
 	private WebElement oneSellerAgentSection;
 
-	@AndroidFindBy(xpath = "//*[@text='CONSTANT CLIENT']")
+	@AndroidFindBy(xpath = "//*[contains(@text,'CONSTANT CLIENT')]")
 	@iOSXCUITFindBy(accessibility = "Constant client")
     private WebElement clientWithDiscussion;
+
+	@AndroidFindBy(xpath = "//*[contains(@text,'ALIAKSEI YARMALCHUK')]")
+	@iOSXCUITFindBy(accessibility = "Aliaksei Yarmalchuk")
+	private WebElement agentWithDiscussion;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/view_all_discussions")
 	@iOSXCUITFindBy(accessibility = "VIEW ALL DISCUSSIONS FOR THIS LISTING")
@@ -208,14 +212,16 @@ public class OpenedBuildingPage extends BasePage {
 	public void clickFeaturesAmenities() throws Exception {
 //		Helper.swipeDownUntilElementVisible(featuresAmenities);
 //	Helper.scrollToElement(featuresAmenities);
-		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-		WebDriver webDriver = webDriverFacade.getProxiedDriver();
-		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+//		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+//		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+//		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
 		if(Config.isAndroid()) {
-			Helper.swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
+//			Helper.swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
+			Helper.androidSwipeDownUntilElementVisible(featuresAmenities);
 		} else {
-			Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+//			Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+			Helper.swipeDownUntilElementVisible(featuresAmenities);
 		}
 		element(featuresAmenities).click();
 
@@ -286,6 +292,7 @@ public class OpenedBuildingPage extends BasePage {
 //			resetImplicitTimeout();
 		} else {
 			Helper.scrollToElement(LaundryBLDGD);
+//			Helper.swipeDownUntilElementVisible(LaundryBLDGD);
 		}
 		element(LaundryBLDGD).shouldBeVisible();
 	}
@@ -322,5 +329,14 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void clickOnCancelButtonInDiscussWithClient() {
 		element(cancelButtonInDiscussWithClient).click();
+	}
+
+	public boolean isAgentWithDiscussionExist() {
+		boolean isAgentWithDiscussion = false;
+
+		if (element(agentWithDiscussion).isVisible()) {
+				isAgentWithDiscussion = true;
+		}
+		return isAgentWithDiscussion;
 	}
 }

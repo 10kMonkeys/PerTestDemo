@@ -17,6 +17,7 @@ public class ST24_AddMessageInDiscussionTest extends SampleTest {
 		user.atPerchPopup.clickNotNowButton();
 		user.usingComplexSteps.startShareAndDiscussWithMyClientOptionForFirstBuilding();
 		user.usingComplexSteps.sendMessageToClientAndCloseDiscussion(DiscussionMessages.HELLO);
+		user.atOpenedBuildingPage.reopenDiscussionsPopUpInListingOnlyForAndroid();
 		user.atOpenedBuildingPage.openExistingDiscussion();
 		user.atDiscussionPage.sendMessage(DiscussionMessages.LETS_START_DISCUSSION);
 		user.atDiscussionPage.shouldSeeMessageInDiscussion();

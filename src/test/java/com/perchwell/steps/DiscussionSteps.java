@@ -64,4 +64,10 @@ public class DiscussionSteps extends ScenarioSteps {
 	public void clickOnCrossBackButtonFromDiscussionsPage() {
 		onPage.clickOnCrossBackButtonFromDiscussionsPage();
 	}
+
+	@Step
+	public void justSendMessage(String text) {
+		onPage.typeMessage(text);
+		this.clickOnSendButton();
+	}
 }

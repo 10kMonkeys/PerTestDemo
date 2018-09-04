@@ -13,6 +13,7 @@ public class MailTrapResponse {
 	private String to_name;
 	private String html_body;
 	private String text_body;
+	private String txt_path;
 
 
 	public String getSubject() {
@@ -93,5 +94,9 @@ public class MailTrapResponse {
 
 	public void setText_body(String txt_body) {
 		this.text_body = txt_body;
+	}
+
+	public String getTxt_path() {
+		return txt_path;
 	}
 }

@@ -133,6 +133,9 @@ public class ClientPage extends BasePage {
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/negative_button")
 	private WebElement cancelButton;
 
+	@iOSXCUITFindBy(accessibility = "AddClientViewControllerBackButton")
+	private WebElement backButtonCreateClient;
+
 	public ClientPage(WebDriver driver) {
 		super(driver);
 	}
@@ -187,7 +190,7 @@ public class ClientPage extends BasePage {
 		if (Config.isAndroid()){
 			client = element(By.xpath("//*[@text='" + name + "']"));
 		} else {
-			client = element(By.xpath("//*[@value='" + name + "']"));
+			client = element(MobileBy.AccessibilityId(name));
 		}
 		setImplicitTimeout(1, SECONDS);
 		Helper.universalVerticalSwipe(client);
@@ -203,7 +206,7 @@ public class ClientPage extends BasePage {
 	public void isClientOrAgentDisplayed(String name){
 		this.swipeDownUntilElementVisible(name);
 		if (Config.isAndroid()){
-			element(By.xpath("//*[@text='" + name + "']")).shouldBeVisible();
+			element(By.xpath("//*[contains(@text,'" + name + "')]")).shouldBeVisible();
 		} else {
 			element(MobileBy.AccessibilityId(name)).shouldBeVisible();
 		}
@@ -246,7 +249,7 @@ public class ClientPage extends BasePage {
 
 	public void clickOnDesiredClientOrAgent(String name) {
 		if (Config.isAndroid()) {
-			element(By.xpath("//*[@text='" + name + "']")).click();
+			element(By.xpath("//*[contains(@text,'" + name + "')]")).click();
 		} else {
 			element(MobileBy.AccessibilityId(name)).click();
 		}
@@ -391,5 +394,9 @@ public class ClientPage extends BasePage {
 
 	public void clickOnCancelButton() { ///////
 		element(cancelButton).click();
+	}
+
+	public void clickOnBackButtonCreateClientOnlyIOS() {
+		element(backButtonCreateClient).click();
 	}
 }

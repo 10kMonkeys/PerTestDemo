@@ -17,12 +17,14 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
 		user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
+		user.atDiscussThisListingPage.deleteDiscussionWithClientIfExist();
 		user.atOpenedBuildingPage.clickOnAddDiscusButton();
 		user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
 		user.atClientPage.invitationEmailSent();
 		user.atClientPage.openDiscussion();
 		user.atDiscussionPage.sendMessageWithPause(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
 		user.atDiscussionPage.clickOnBackButtonFromDiscussion(); //ai
+		user.atClientPage.clickOnBackButtonCreateClientOnlyIOS(); //new
 		user.atClientPage.clickOnCrossBackButtonFromClients(); //ai
 		user.atOpenedBuildingPage.clickOnCancelButtonInDiscussWithClient(); //ai
 		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //ia

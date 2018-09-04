@@ -305,4 +305,11 @@ public class ClientSteps extends ScenarioSteps {
 	public void clickOnCancelButton() {
 		onPage.clickOnCancelButton();
 	}
+
+	@Step
+	public void clickOnBackButtonCreateClientOnlyIOS() {
+		if(!Config.isAndroid()) {
+			onPage.clickOnBackButtonCreateClientOnlyIOS();
+		}
+	}
 }

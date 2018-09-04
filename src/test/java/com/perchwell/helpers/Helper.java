@@ -54,7 +54,7 @@ public abstract class Helper {
         Dimension size = driver.manage().window().getSize();
         int startPoint = (int) (size.width * startPercentage);
         int endPoint = (int) (size.width * finalPercentage);
-        new TouchAction(driver).press(startPoint, y).moveTo(endPoint, 0).release().perform();
+        new TouchAction(driver).longPress(startPoint, y).moveTo(endPoint, 0).release().perform();
     }
 
     public static void swipeVerticalAndroid(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage) {
@@ -122,7 +122,7 @@ public abstract class Helper {
     public static boolean isElementDisplayed(WebElement element) {
         try {
             return element.isDisplayed();
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             return false;
         }
     }

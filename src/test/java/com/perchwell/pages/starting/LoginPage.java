@@ -12,6 +12,8 @@ import org.openqa.selenium.WebElement;
 
 import java.util.Random;
 
+import static com.perchwell.email.MailTrap.getTextBody;
+
 
 public class LoginPage extends BasePage {
 

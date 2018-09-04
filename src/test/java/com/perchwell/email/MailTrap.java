@@ -101,4 +101,30 @@ public class MailTrap {
 		}
 		return mailTrapResponse;
 	}
+
+	public static String getTextBody(String path) {
+		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		HttpClient client = HttpClientBuilder.create().build();
+
+		HttpGet request = new HttpGet("https://mailtrap.io" + path);
+		//Token is provided MailTrap
+		request.addHeader("Api-Token", AppProperties.INSTANCE.getProperty("API_TOKEN"));
+		String textBody = null;
+
+		try {
+			HttpResponse response = client.execute(request);
+
+			if (response.getStatusLine().getStatusCode() == 200) {
+				try {
+					textBody = EntityUtils.toString(response.getEntity());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return textBody;
+	}
 }

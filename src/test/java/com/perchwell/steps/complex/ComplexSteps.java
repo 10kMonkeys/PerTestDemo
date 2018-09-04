@@ -1,5 +1,6 @@
 package com.perchwell.steps.complex;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.steps.*;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
@@ -62,9 +63,9 @@ public class ComplexSteps extends ScenarioSteps{
         atOpenedBuildingPage.clickOnAddDiscusButton();
         atClientPage.clickOnExistingClient();
         atDiscussionPage.sendMessage(message);
-        atDiscussionPage.clickOnBackButtonFromDiscussion(); //ai
-        atClientPage.clickOnCrossBackButtonFromClients(); //ia
-        atOpenedBuildingPage.clickOnCancelButtonInDiscussWithClient();//ia
+        atDiscussionPage.clickOnBackButtonFromDiscussion();
+        atClientPage.clickOnCrossBackButtonFromClients();
+        atOpenedBuildingPage.clickOnCancelButtonInDiscussWithClient();
         atOpenedBuildingPage.clickShareButton();
         atOpenedBuildingPage.clickOnDiscussWithMyClientOption();
 

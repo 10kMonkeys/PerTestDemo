@@ -14,23 +14,24 @@ public class ST25_DiscussionWithNewAgentTest extends SampleTest {
 	private DateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
 	@Test
-	public void discussionWithNewAgentTest() {
+	public void discussionWithNewAgentTest() throws Exception {
 		user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
 		user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
+		user.atDiscussThisListingPage.deleteDiscussionWithAgentIfExist();
 		user.atOpenedBuildingPage.clickOnAddDiscusButton();
 		user.atClientPage.clickOnAddNewAgentButton();
 		user.atClientPage.setAgentEmail("Not_existing_email@test.ru");
 		user.atClientPage.setMessageField("Hello. I_d like invite you on " + simpleDateFormat.format(new Date()));
 		user.atClientPage.clickOnInviteButton();
 		user.atClientPage.clickOnAgentSuccessfullyAddedOkButton();
-		user.atDiscussionPage.clickOnBackButtonFromDiscussionOnlyIOS(); // only i ready
-		user.atClientPage.clickOnBackButtonCreateAgentOnlyIOS(); // only i ready
-		user.atClientPage.clickOnCrossBackButtonFromClients(); //ia
-		user.atOpenedBuildingPage.clickOnCancelButtonInDiscussWithClient(); //ia
-		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //ia
+		user.atDiscussionPage.clickOnBackButtonFromDiscussionOnlyIOS();
+		user.atClientPage.clickOnBackButtonCreateAgentOnlyIOS();
+		user.atClientPage.clickOnCrossBackButtonFromClients();
+		user.atOpenedBuildingPage.clickOnCancelButtonInDiscussWithClient();
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnDiscussionsLabel();
 		user.atDiscussionsListPage.shouldNotBeDiscussionWithMessageDisplayed();

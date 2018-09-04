@@ -26,7 +26,7 @@ public class DiscussionPage extends BasePage {
 //	@iOSXCUITFindBy(accessibility = "SEND")
 	private WebElement sendButton;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/message")
+	@AndroidFindBy(xpath = "//*[contains(@text, 'MESSAGE')]")
 	@iOSXCUITFindBy(accessibility = "MessageTextField")
 	private WebElement message;
 
@@ -56,7 +56,7 @@ public class DiscussionPage extends BasePage {
 
 	public void shouldBeMessageDispayed(String message) {
 		if (Config.isAndroid()){
-			element(By.xpath("//*[@text='" + message + "']")).shouldBeVisible();
+			element(By.xpath("//*[contains(@text,'" + message + "')]")).shouldBeVisible();
 		} else {
 			element(By.name(message)).shouldBeVisible();
 		}

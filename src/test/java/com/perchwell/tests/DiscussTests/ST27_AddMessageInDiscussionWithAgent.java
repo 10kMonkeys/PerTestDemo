@@ -16,7 +16,13 @@ public class ST27_AddMessageInDiscussionWithAgent extends SampleTest {
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
 		user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
-		user.usingComplexSteps.sendMessageToAgentAndCloseDiscussion(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
+		user.atDiscussThisListingPage.deleteDiscussionWithAgentIfExist();
+		user.atOpenedBuildingPage.clickOnAddDiscusButton();
+		user.atClientPage.clickOnExistingAgent();
+		user.atDiscussionPage.sendMessage(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
+		user.atDiscussionPage.clickOnBackButtonFromDiscussion();
+		user.atClientPage.clickOnCrossBackButtonFromClients();
+		user.atOpenedBuildingPage.reopenDiscussionsPopUpInListingOnlyForAndroid();
 		user.atOpenedBuildingPage.shouldSeeExistingDiscussionWithAgent();
 		user.atOpenedBuildingPage.openExistingDiscussionWithAgent();
 		user.atDiscussionPage.sendMessage(DiscussionMessages.ADD_MESSAGE);

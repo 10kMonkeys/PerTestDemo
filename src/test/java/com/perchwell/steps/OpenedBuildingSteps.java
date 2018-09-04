@@ -153,5 +153,14 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void clickOnCancelButtonInDiscussWithClient() {
 		onPage.clickOnCancelButtonInDiscussWithClient();
 	}
+
+	@Step
+	public void reopenDiscussionsPopUpInListingOnlyForAndroid() {
+		if(Config.isAndroid()) {
+			this.clickOnCancelButtonInDiscussWithClient();
+			this.clickShareButton();
+			this.clickOnSendWithinPerchwell();
+		}
+	}
 }
 
