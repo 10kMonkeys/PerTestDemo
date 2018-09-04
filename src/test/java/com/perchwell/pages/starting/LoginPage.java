@@ -1,5 +1,6 @@
 package com.perchwell.pages.starting;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
@@ -33,6 +34,7 @@ public class LoginPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "LOG IN")
     private WebElement loginButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/email")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField")
     private WebElement resetEmailTextBox;
 
@@ -106,7 +108,11 @@ public class LoginPage extends BasePage {
     }
 
     public void backButtonClick(){
-        element(backButton).click();
+        if (Config.isAndroid()){
+            getDriver().navigate().back();
+        }else {
+            element(backButton).click();
+        }
     }
 
     public void shouldSeeAccountNeededToSignInMessage(){

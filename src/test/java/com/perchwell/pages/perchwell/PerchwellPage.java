@@ -207,9 +207,11 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void shouldSeeEditSearchFiltersHint() {
-		waitFor(editSearchFiltersHint);
+		if (!Config.isAndroid()){
+			waitFor(editSearchFiltersHint);
 //		element(editSearchFiltersHint).shouldBeVisible();
-		Assert.assertTrue(editSearchFiltersHint.isDisplayed());
+			Assert.assertTrue(editSearchFiltersHint.isDisplayed());
+		}
 	}
 
 	public Integer countItemsInListView() {

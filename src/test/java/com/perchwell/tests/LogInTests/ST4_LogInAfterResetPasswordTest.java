@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ST4_LogInAfterResetPasswordTest extends SampleTest {
 
     @Test
-    public void logInAfterResetPasswordTest() throws Exception {
+    public void logInAfterResetPasswordTest() {
         user.atLoginPage.clickOnLoginButton();
         user.atResetPasswordPage.clickOnForgotPassword();
         user.atResetPasswordPage.setRestEmail(AppProperties.INSTANCE.getProperty("reset_email"));
