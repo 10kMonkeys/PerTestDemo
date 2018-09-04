@@ -77,7 +77,8 @@ public class LoginPage extends BasePage {
     }
 
     public void setRestEmail(String email){
-      element(resetEmailTextBox).type(email);
+//      element(resetEmailTextBox).type(email);
+        element(resetEmailTextBox).sendKeys(email);
     }
 
     public void resetPasswordButtonClick(){

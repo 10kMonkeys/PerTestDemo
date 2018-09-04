@@ -12,7 +12,7 @@ public class ST4_LogInAfterResetPasswordTest extends SampleTest {
     public void logInAfterResetPasswordTest() {
         user.atLoginPage.clickOnLoginButton();
         user.atResetPasswordPage.clickOnForgotPassword();
-        user.atResetPasswordPage.setRestEmail(AppProperties.INSTANCE.getProperty("reset_email"));
+        user.atResetPasswordPage.setRestEmail(AppProperties.INSTANCE.getProperty("reset_email")); ////
         user.atResetPasswordPage.resetPasswordButtonClick();
         user.atResetPasswordPage.shouldFindSentEmail();
         user.atResetPasswordPage.getResetToken();
@@ -22,6 +22,8 @@ public class ST4_LogInAfterResetPasswordTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("old_reset_password"));
         user.atResetPasswordPage.isAccountNeededToSignInMessageDisplayed();
         user.atResetPasswordPage.okButtonClick();
+        user.atResetPasswordPage.clickOnBackFromLogin();
+        user.atLoginPage.clickOnLoginButton();
         user.atResetPasswordPage.login(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("new_reset_password"));
         user.atPerchwellPage.shouldSeeEditSearchFiltersHint();
