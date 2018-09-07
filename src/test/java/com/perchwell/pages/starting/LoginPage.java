@@ -100,11 +100,6 @@ public class LoginPage extends BasePage {
                     SessionVariables.addValueInSessionVariable("emailText", getTextBody(my_responce.getTxt_path()));
                     break;
                 }
-                if (getTextBody(my_responce.getTxt_path()).contains(email)) {
-                    reportWasFound = true;
-                    SessionVariables.addValueInSessionVariable("emailText", getTextBody(my_responce.getTxt_path()));
-                    break;
-                }
             }
         }
         return reportWasFound;

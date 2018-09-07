@@ -19,13 +19,13 @@ public class ST10_AddToCompareTest extends SampleTest {
 		user.atPerchwellPage.openFirstBuilding();
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
 		user.atOpenedBuildingPage.addToCompare(Buildings.FIRST_BUILDING);
-		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
 		user.atPerchwellPage.openSecondBuilding();
 		user.atOpenedBuildingPage.addToCompare(Buildings.SECOND_BUILDING);
-		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
 		user.atPerchwellPage.openThirdBuilding();
 		user.atOpenedBuildingPage.addToCompare(Buildings.THIRD_BUILDING);
-		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //
+		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnCompareLabel();
 		user.atComparePage.clickOnSwipeUpToRemoveHint();

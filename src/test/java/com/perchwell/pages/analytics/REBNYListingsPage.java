@@ -328,11 +328,7 @@ public class REBNYListingsPage extends BasePage {
 
     public void shouldSeeAskingPriceChartWithSwipe() throws Exception {
         setImplicitTimeout(1, SECONDS);
-        if(Config.isAndroid()) {
-            Helper.androidSwipeDownUntilElementVisible(mktShareAskingPriceChart);
-        } else {
-            Helper.swipeDownUntilElementVisible(mktShareAskingPriceChart);
-        }
+        Helper.universalVerticalSwipe(mktShareAskingPriceChart);
         resetImplicitTimeout();
         element(mktShareAskingPriceChart).shouldBeVisible();
     }

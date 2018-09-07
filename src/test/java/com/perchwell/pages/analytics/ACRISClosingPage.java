@@ -1,5 +1,6 @@
 package com.perchwell.pages.analytics;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -241,9 +242,11 @@ public class ACRISClosingPage extends BasePage {
     }
 
     public void shouldBuildingHeightChartDisplayedWithSwipe() throws Exception {
-        setImplicitTimeout(1, SECONDS);
-        Helper.universalVerticalSwipe(dealCountByHeightChart);
-        resetImplicitTimeout();
+        if(!Config.isAndroid()) {
+            setImplicitTimeout(1, SECONDS);
+            Helper.universalVerticalSwipe(dealCountByHeightChart);
+            resetImplicitTimeout();
+        }
         element(dealCountByHeightChart).shouldBeVisible();
     }
 

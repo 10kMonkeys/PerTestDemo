@@ -60,14 +60,24 @@ public class SellersAgentPage extends BasePage {
 
         String emailHeaderToSellersAgent = AppProperties.INSTANCE.getProperty("HEADER_SELLERS_AGENT");
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(emailHeaderToSellersAgent);
+        String textBody;
 
         for (MailTrapResponse email : mailTrapResponse) {
+            textBody = getTextBody(email.getTxt_path());
             if ((email.getSubject().equalsIgnoreCase(subjectName))
-                & (getTextBody(email.getTxt_path()).toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message")))
-                & getTextBody(email.getTxt_path()).toUpperCase().contains(SessionVariables.getValueFromSessionVariable("building address"))) {
+                    & (textBody.toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message")))
+                    & textBody.toUpperCase().contains(SessionVariables.getValueFromSessionVariable("building address"))) {
                 k++;
             }
         }
+
+//        for (MailTrapResponse email : mailTrapResponse) {
+//            if ((email.getSubject().equalsIgnoreCase(subjectName))
+//                & (getTextBody(email.getTxt_path()).toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message")))
+//                & getTextBody(email.getTxt_path()).toUpperCase().contains(SessionVariables.getValueFromSessionVariable("building address"))) {
+//                k++;
+//            }
+//        }
         return k;
     }
 
@@ -102,17 +112,27 @@ public class SellersAgentPage extends BasePage {
         String emailHeaderToSellersAgent = AppProperties.INSTANCE.getProperty("HEADER_SELLERS_AGENT");
 
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(emailHeaderToSellersAgent);
+        String textBody;
 
         for (MailTrapResponse email : mailTrapResponse) {
-
-            if (getTextBody(email.getTxt_path()).toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message"))
-                    && getTextBody(email.getTxt_path()).toUpperCase().contains(SessionVariables.getValueFromSessionVariable("First_building_address"))) {
+            textBody = getTextBody(email.getTxt_path());
+            if (textBody.toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message"))
+                    && textBody.toUpperCase().contains(SessionVariables.getValueFromSessionVariable("First_building_address"))) {
                 if (email.getTo_email().equals((AppProperties.INSTANCE.getProperty("agent1_email")))) {
                     k += 1;
                 } else if (email.getTo_email().equals((AppProperties.INSTANCE.getProperty("agent2_email")))) {
                     l += 1;
                 }
             }
+
+//            if (getTextBody(email.getTxt_path()).toUpperCase().contains("I'M INTERESTED IN " + address + SessionVariables.getValueFromSessionVariable("Agent_message"))
+//                    && getTextBody(email.getTxt_path()).toUpperCase().contains(SessionVariables.getValueFromSessionVariable("First_building_address"))) {
+//                if (email.getTo_email().equals((AppProperties.INSTANCE.getProperty("agent1_email")))) {
+//                    k += 1;
+//                } else if (email.getTo_email().equals((AppProperties.INSTANCE.getProperty("agent2_email")))) {
+//                    l += 1;
+//                }
+//            }
         }
         return (k == l) && ((k + l) == 2);
     }

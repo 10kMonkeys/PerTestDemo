@@ -68,7 +68,7 @@ public class OpenedBuildingPage extends BasePage {
 	private WebElement shareBitton;
 
 	@AndroidFindBy(xpath = "//*[@text='FEATURES & AMENITIES']")
-	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeOther' AND name CONTAINS 'FEATURES & AMENITIES'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'FEATURES & AMENITIES'")
 	private WebElement featuresAmenities;
 
 	@iOSXCUITFindBy(accessibility = "FIREPLACE")
@@ -210,25 +210,23 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void clickFeaturesAmenities() throws Exception {
-//		Helper.swipeDownUntilElementVisible(featuresAmenities);
-//	Helper.scrollToElement(featuresAmenities);
-//		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-//		WebDriver webDriver = webDriverFacade.getProxiedDriver();
-//		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
 		if(Config.isAndroid()) {
 //			Helper.swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
 			Helper.androidSwipeDownUntilElementVisible(featuresAmenities);
 		} else {
-//			Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
-			Helper.swipeDownUntilElementVisible(featuresAmenities);
+			WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+			WebDriver webDriver = webDriverFacade.getProxiedDriver();
+			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
 		}
 		element(featuresAmenities).click();
 
 	}
 
 	public void isFireplaceDisplayed() {
-		Helper.scrollToElement(FIREPLACE);
+//		Helper.scrollToElement(FIREPLACE);
+		Helper.universalVerticalSwipe(FIREPLACE);
 		element(FIREPLACE).shouldBeVisible();
 	}
 
@@ -287,12 +285,14 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void isLaundryBLDGDisplayed() {
 		if(Config.isAndroid()) {
-//			setImplicitTimeout(1, SECONDS);
+//			Helper.swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
 			Helper.androidSwipeDownUntilElementVisible(LaundryBLDGD);
-//			resetImplicitTimeout();
 		} else {
-			Helper.scrollToElement(LaundryBLDGD);
-//			Helper.swipeDownUntilElementVisible(LaundryBLDGD);
+			WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+			WebDriver webDriver = webDriverFacade.getProxiedDriver();
+			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
 		}
 		element(LaundryBLDGD).shouldBeVisible();
 	}

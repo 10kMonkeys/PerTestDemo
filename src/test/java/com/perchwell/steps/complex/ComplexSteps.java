@@ -1,10 +1,15 @@
 package com.perchwell.steps.complex;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.helpers.Helper;
 import com.perchwell.steps.*;
+import com.perchwell.steps.analytics.AnalyticsSteps;
+import io.appium.java_client.AppiumDriver;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
+import net.thucydides.core.webdriver.WebDriverFacade;
+import org.openqa.selenium.WebDriver;
 
 public class ComplexSteps extends ScenarioSteps{
 
@@ -37,6 +42,9 @@ public class ComplexSteps extends ScenarioSteps{
 
     @Steps
     private AccountSteps atAccountPage;
+
+    @Steps
+    private AnalyticsSteps atAnalyticsPage;
 
     @Step
     private void openFirstBuildingSkipHintClickOnShareButton() {
@@ -76,8 +84,8 @@ public class ComplexSteps extends ScenarioSteps{
         atOpenedBuildingPage.clickOnAddDiscusButton();
         atClientPage.clickOnExistingAgent();
         atDiscussionPage.sendMessage(message);
-        atDiscussionPage.clickOnBackButtonFromDiscussion(); //ai
-        atClientPage.clickOnCrossBackButtonFromClients(); //ai
+        atDiscussionPage.clickOnBackButtonFromDiscussion();
+        atClientPage.clickOnCrossBackButtonFromClients();
     }
 
     @Step
@@ -123,8 +131,8 @@ public class ComplexSteps extends ScenarioSteps{
         atOpenedBuildingPage.clickOnAddDiscusButton();
         atClientPage.clickOnExistingClientForRemoveMessage();
         atDiscussionPage.sendMessage(message);
-        atDiscussionPage.clickOnBackButtonFromDiscussion(); //ia
-        atClientPage.clickOnCrossBackButtonFromClients(); //ia
+        atDiscussionPage.clickOnBackButtonFromDiscussion();
+        atClientPage.clickOnCrossBackButtonFromClients();
     }
 
     @Step
@@ -136,5 +144,18 @@ public class ComplexSteps extends ScenarioSteps{
         atResetPasswordPage.shouldFindSentEmail();
         atResetPasswordPage.getResetToken();
         atResetPasswordPage.returnOldPassword();
+    }
+
+    @Step
+    public void justSwipeForAndroid() {
+        if(Config.isAndroid()) {
+            WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+            WebDriver webDriver = webDriverFacade.getProxiedDriver();
+            AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+            Helper.swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
+            atAnalyticsPage.doneMovingCharts();
+        }
+
     }
 }

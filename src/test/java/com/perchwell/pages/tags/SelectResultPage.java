@@ -110,15 +110,17 @@ public class SelectResultPage extends BasePage {
 		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(
 				AppProperties.INSTANCE.getProperty("HEADER_SHARE_TAGS"));
 		Boolean emailWasFound = false;
+		String textBody;
 
 			//Find email with Custom_message, First Building and Second Building
 			for (MailTrapResponse my_responce : mailTrapResponse) {
+				textBody = getTextBody(my_responce.getTxt_path()).toUpperCase();
 
-				if (getTextBody(my_responce.getTxt_path()).contains(customMessage)
-						& getTextBody(my_responce.getTxt_path()).contains(
-								SessionVariables.getValueFromSessionVariable("Second_building_address"))
-						& getTextBody(my_responce.getTxt_path()).toUpperCase().contains(
-								SessionVariables.getValueFromSessionVariable("First_building_address"))) {
+				if (textBody.contains(customMessage.toUpperCase())
+						& textBody.contains(
+						SessionVariables.getValueFromSessionVariable("Second_building_address"))
+						& textBody.toUpperCase().contains(
+						SessionVariables.getValueFromSessionVariable("First_building_address"))) {
 					//Get attachments
 					MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(my_responce.getId());
 
@@ -131,6 +133,24 @@ public class SelectResultPage extends BasePage {
 						}
 					}
 				}
+
+//				if (getTextBody(my_responce.getTxt_path()).contains(customMessage)
+//						& getTextBody(my_responce.getTxt_path()).contains(
+//								SessionVariables.getValueFromSessionVariable("Second_building_address"))
+//						& getTextBody(my_responce.getTxt_path()).toUpperCase().contains(
+//								SessionVariables.getValueFromSessionVariable("First_building_address"))) {
+//					//Get attachments
+//					MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(my_responce.getId());
+//
+//					//Find attachments with LISTING_REPORT_NAME
+//					for (MailTrapAttachment my_attachment : mailTrapAttachment) {
+//						if (my_attachment.getFilename().equalsIgnoreCase(
+//								AppProperties.INSTANCE.getProperty("LISTING_REPORT_NAME"))) {
+//							emailWasFound = true;
+//							break;
+//						}
+//					}
+//				}
 			}
 		return emailWasFound;
 	}
