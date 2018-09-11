@@ -425,4 +425,9 @@ public class SearchSteps extends ScenarioSteps {
 	public void clickOnLaundryUnitFilter() throws Exception {
 		onPage.clickOnLaundryUnitFilter();
 	}
+
+	@Step
+	public void clickOnApplyButtonWithoutKeyboard() {
+		onPage.clickOnApplyButtonWithoutKeyboard();
+	}
 }

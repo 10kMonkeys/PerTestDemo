@@ -17,24 +17,24 @@ public class FT2_AskingPriceFilterTest extends SampleTest {
         user.atPerchwellPage.isListingsQuantity();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.setMinimumPriceFilter("100000");
-        user.atSearchPage.clickOnApplyButton();
+        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.shouldSeeListingsEqualOrMoreMinPrice();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.eraseMinValueOfPriceFilter();
         user.atSearchPage.setMaximumPriceFilter("1100000");
-        user.atSearchPage.clickOnApplyButton();
+        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.shouldSeeListingsEqualOrLessMaxPrice();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.setMinimumPriceFilter("900000");
         user.atSearchPage.setMaximumPriceFilter("1200000");
-        user.atSearchPage.clickOnApplyButton();
+        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.shouldSeeListingsBetweenMinAndMaxPrices();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.saveCurrentSearch();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.clickOnLoadSavedSearchButton();
         user.atSearchPage.createNewSearchClick();
-        user.atSearchPage.clickOnApplyButton();
+        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.checkListingsQuantity();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.checkNoOnePriceFilterSelected();
@@ -44,7 +44,7 @@ public class FT2_AskingPriceFilterTest extends SampleTest {
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkNoOnePriceFilterSelected();
-        user.atSearchPage.clickOnApplyButton();
+        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.checkListingsQuantity();
     }
 }

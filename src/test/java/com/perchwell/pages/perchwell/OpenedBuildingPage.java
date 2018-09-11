@@ -217,7 +217,7 @@ public class OpenedBuildingPage extends BasePage {
 			WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 			WebDriver webDriver = webDriverFacade.getProxiedDriver();
 			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
+			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
 			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
 		}
 		element(featuresAmenities).click();
@@ -293,7 +293,9 @@ public class OpenedBuildingPage extends BasePage {
 			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
 			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
+			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
 		}
+
 		element(LaundryBLDGD).shouldBeVisible();
 	}
 
