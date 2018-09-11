@@ -105,8 +105,7 @@ public class ClientPage extends BasePage {
 //	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
 	private WebElement searchFrozenArea;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[2]")
-//	@iOSXCUITFindBy(accessibility = "DONE ")
+	@iOSXCUITFindBy(accessibility = "Done")
 	private WebElement doneButton;
 
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS '11CLIENT'")
@@ -340,10 +339,7 @@ public class ClientPage extends BasePage {
 	}
 
 	public void isClientNotPresented(String name) {
-		WebElement justCreatedUser = getDriver().findElement(MobileBy.AccessibilityId(name));
-		waitFor(ExpectedConditions.stalenessOf(justCreatedUser));
-		element(justCreatedUser).shouldNotBePresent();
-//		element(MobileBy.AccessibilityId(name)).shouldNotBePresent();
+		element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND name CONTAINS '" + name  + "'")).shouldNotBeVisible();
 	}
 
 	public void clickOnDoneButton() {

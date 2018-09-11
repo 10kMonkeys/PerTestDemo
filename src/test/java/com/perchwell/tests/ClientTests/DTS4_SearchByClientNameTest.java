@@ -22,6 +22,7 @@ public class DTS4_SearchByClientNameTest extends SampleTest {
         user.atClientPage.clickOutsideSearchSection();
         user.atClientPage.shouldTestClientPresentInClientsList();
         user.atClientPage.clickOnDeleteIconNextToSearchText();
+        user.atClientPage.clickOutsideSearchSection();
         user.atClientPage.shouldSearchBeCleared();
         user.atClientPage.enterValueInSearchField(SearchRequests.ST_CL);
         user.atClientPage.clickOutsideSearchSection();

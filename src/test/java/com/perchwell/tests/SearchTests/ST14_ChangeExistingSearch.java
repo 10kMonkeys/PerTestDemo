@@ -24,7 +24,7 @@ public class ST14_ChangeExistingSearch extends SampleTest {
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST14_MIN_PRICE);
 		user.atSearchPage.clickOnFilter1Bed(); // selected filters missed
-		user.atSearchPage.clickOnApplyButton();
+		user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
 		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTY_AFTER_SEARCH_CHANGING);
 		user.atPerchwellPage.resultsCountIsChanged(ElementsNumberTitles.QTY_BEFORE_SEARCH_CHANGING,
 				ElementsNumberTitles.QTY_AFTER_SEARCH_CHANGING);

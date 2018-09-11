@@ -24,7 +24,7 @@ public class ST19_ApplyingFilterOnAnalyticsTest extends SampleTest {
         user.atAnalyticsPage.clickMyNewSearch();
         user.atSearchPage.setMinimumPriceFilter("600000");
         user.atSearchPage.selectFilterStudioBeds();
-        user.atSearchPage.clickOnApplyButton();
+        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atAnalyticsPage.isBedroomsChartChange(); //// No such element in DOM
         user.atAnalyticsPage.isAskingPriceChartChange(); //// No such element in DOM
     }

@@ -310,7 +310,7 @@ public class SearchPage extends BasePage {
 		if(!Config.isAndroid()) {
 			appiumDriver.hideKeyboard();
 		}
-		applySearchButton.click();
+		element(applySearchButton).click();
 	}
 
 	public void clickOnDeleteSecondLocation() {
@@ -365,10 +365,11 @@ public class SearchPage extends BasePage {
 	}
 
 	public void setMinimumPriceFilter(String price) {
-		element(minimumPriceTextBox).sendKeys(price);
+		element(minimumPriceTextBox).type(price);
 	}
 
 	public void selectFilterStudioBeds() {
+		Helper.universalVerticalSwipe(filterForStudioBeds);
 		element(filterForStudioBeds).click();
 	}
 
@@ -389,11 +390,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectOffMktFilter() {
-//		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-//		WebDriver webDriver = webDriverFacade.getProxiedDriver();
-//		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-//		Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
-		Helper.scrollToElement(offMKTButton);
+		Helper.universalVerticalSwipe(offMKTButton);
 		element(offMKTButton).click();
 	}
 
@@ -471,7 +468,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectRentedFilter() {
-		Helper.scrollToElement(rentalsButton);
+		Helper.universalVerticalSwipe(rentalsButton);
 		element(rentalsButton).click();
 	}
 
@@ -690,16 +687,12 @@ public class SearchPage extends BasePage {
     }
 
     public void deselectContractFilter() {
-		Helper.scrollToElement(selectedContractFilter);
+		Helper.universalVerticalSwipe(selectedContractFilter);
 	    element(selectedContractFilter).click();
     }
 
     public void deselectOffMktFilter() {
-//		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-//		WebDriver webDriver = webDriverFacade.getProxiedDriver();
-//		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-//		Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
-		Helper.scrollToElement(selectedOffMktFilter);
+		Helper.universalVerticalSwipe(selectedOffMktFilter);
 	    element(selectedOffMktFilter).click();
     }
 
@@ -853,5 +846,9 @@ public class SearchPage extends BasePage {
 
 	public void clickOnBackFromNeighborhoodsPage() {
 		element(backButtonFromNeighborhoods).click();
+	}
+
+	public void clickOnApplyButtonWithoutKeyboard() {
+		element(applySearchButton).click();
 	}
 }
