@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.SearchPage;
 import net.thucydides.core.annotations.Step;
@@ -348,7 +349,13 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
     public void removeManhattanFromFilter() {
-		onPage.clickDeleteTagButtonMANHATTAN();
+		if(Config.isAndroid()) {
+			onPage.clickDeleteTagButtonMANHATTAN();
+		} else {
+			onPage.clickOnNeighborhoodsPlusButton();
+			onPage.uncheckManhattan();
+			onPage.clickOnBackFromNeighborhoodsPage();
+		}
     }
 
     @Step

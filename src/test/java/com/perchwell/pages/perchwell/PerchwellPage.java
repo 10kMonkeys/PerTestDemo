@@ -416,6 +416,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void isContainLabel(String label){
+		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 		List<WebElement> labelsList = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label + "'"));
 		Assert.assertEquals(20, labelsList.size());
 	}

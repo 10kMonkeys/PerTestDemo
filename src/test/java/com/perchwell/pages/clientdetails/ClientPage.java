@@ -331,9 +331,7 @@ public class ClientPage extends BasePage {
 	}
 
 	public void clickOnTestClient() throws Exception {
-		if (!element(testClient).isVisible()) {
-			Helper.swipeDownUntilElementVisible(testClient);
-		}
+		Helper.swipeDownUntilElementVisible(testClient);
 		element(testClient).click();
 	}
 

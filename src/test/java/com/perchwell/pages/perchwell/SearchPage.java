@@ -286,6 +286,15 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Laundry Unit")
 	private WebElement laundryUnitFilter;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name=='Add Button: Bar'`][1]")
+	private WebElement neighborhoodsPlusButton;
+
+	@iOSXCUITFindBy(accessibility = "MY NEW SEARCH")
+	private WebElement backButtonFromNeighborhoods;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name=='checkboxSelected'`][1]")
+	private WebElement manhattanCheckedCheckbox;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -380,10 +389,11 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectOffMktFilter() {
-		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-		WebDriver webDriver = webDriverFacade.getProxiedDriver();
-		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-		Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+//		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+//		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+//		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+//		Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+		Helper.scrollToElement(offMKTButton);
 		element(offMKTButton).click();
 	}
 
@@ -393,6 +403,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectContractFilter() {
+		Helper.scrollToElement(contractButton);
 		element(contractButton).click();
 	}
 
@@ -679,14 +690,16 @@ public class SearchPage extends BasePage {
     }
 
     public void deselectContractFilter() {
+		Helper.scrollToElement(selectedContractFilter);
 	    element(selectedContractFilter).click();
     }
 
     public void deselectOffMktFilter() {
-		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-		WebDriver webDriver = webDriverFacade.getProxiedDriver();
-		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-		Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+//		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+//		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+//		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+//		Helper.swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+		Helper.scrollToElement(selectedOffMktFilter);
 	    element(selectedOffMktFilter).click();
     }
 
@@ -829,4 +842,16 @@ public class SearchPage extends BasePage {
 		Helper.swipeDownUntilElementVisible(laundryUnitFilter);
 		element(laundryUnitFilter).click();
     }
+
+	public void clickOnNeighborhoodsPlusButton() {
+		element(neighborhoodsPlusButton).click();
+	}
+
+	public void uncheckManhattan() {
+		element(manhattanCheckedCheckbox).click();
+	}
+
+	public void clickOnBackFromNeighborhoodsPage() {
+		element(backButtonFromNeighborhoods).click();
+	}
 }
