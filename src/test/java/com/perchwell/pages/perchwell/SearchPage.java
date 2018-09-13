@@ -105,16 +105,16 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeStaticText[not(contains(@name,'LISTING STATUS'))]")
 	private List<WebElement> statusFilterList;
 
-	@iOSXCUITFindBy(accessibility = "deleteTagButtonBROOKLYN")
+	@iOSXCUITFindBy(accessibility = "Remove Button: BROOKLYN")
 	private WebElement deleteTagButtonBROOKLYN;
 
 	@iOSXCUITFindBy(accessibility = "deleteTagButtonMANHATTAN")
 	private WebElement deleteTagButtonMANHATTAN;
 
-	@iOSXCUITFindBy(accessibility = "deleteTagButtonQUEENS")
+	@iOSXCUITFindBy(accessibility = "Remove Button: QUEENS")
 	private WebElement deleteTagButtonQUEENS;
 
-	@iOSXCUITFindBy(accessibility = "SearchNeighborhoods")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name=='Add Button: Bar'`][1]")
 	private WebElement searchNeihborhoods;
 
 	@AndroidFindBy(xpath = "//android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.view.ViewGroup[3]")
@@ -294,6 +294,15 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name=='checkboxSelected'`][1]")
 	private WebElement manhattanCheckedCheckbox;
+
+	@iOSXCUITFindBy(accessibility = "ADDRESS")
+	private WebElement searchByAddressButton;
+
+	@iOSXCUITFindBy(accessibility = "AddressSearchBar")
+	private WebElement addressSearchField;
+
+	@iOSXCUITFindBy(accessibility = "THE MURRAY HILL, 240 EAST 35TH STREET")
+	private WebElement testBuilding;
 
 	public SearchPage(WebDriver driver) {
 		super(driver);
@@ -850,5 +859,17 @@ public class SearchPage extends BasePage {
 
 	public void clickOnApplyButtonWithoutKeyboard() {
 		element(applySearchButton).click();
+	}
+
+	public void clickOnSearchByAddressButton() {
+		element(searchByAddressButton).click();
+	}
+
+	public void fillInSearchField(String value) {
+		element(addressSearchField).sendKeys(value);
+	}
+
+	public void clickOnTestBuilding() {
+		element(testBuilding).click();
 	}
 }
