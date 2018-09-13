@@ -267,7 +267,81 @@ public class PerchwellSteps extends ScenarioSteps {
 		onPage.isContainLabels(label1, label2);
 	}
 
+	@Step
 	public void clickOnMyNewSearchWithPause() {
 		onPage.waitForClickOnMagnifier();
+	}
+
+	@Step
+	public void fillInSearchFieldByNeighborhood() {
+		onPage.fillInSearchField(SessionVariables.getValueFromSessionVariable("Neighborhood value"));
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByBeds() {
+		onPage.checkIfListingsAreFilteredByBeds();
+	}
+
+	@Step
+	public void clickOnClearFieldButton() {
+		onPage.clickOnClearFieldButton();
+	}
+
+	@Step
+	public void checkIfListingReturnedToInitialState() {
+		onPage.checkIfListingReturnedToInitialState();
+	}
+
+	@Step
+	public void swipeToTheSimilarListings() {
+		onPage.swipeToSimilarListingsSection();
+	}
+
+	@Step
+	public void getBedsAndBathsListingsAmount() {
+		onPage.getInitialBedsAndBathsAmountList();
+	}
+
+	@Step
+	public void clickOnTestListing() {
+		onPage.clickOnTestListing();
+	}
+
+	@Step
+	public void skipDiscussWithClientHint() {
+		onPage.skipDiscussWithClientHint();
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByBaths() {
+		onPage.checkIfListingsAreFilteredByBaths();
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByNeighborhood() {
+		onPage.checkIfListingsAreFilteredByNeighborhood();
+	}
+
+	@Step
+	public void getNeighborhoodValue() {
+		onPage.getNeighborhoodValue();
+	}
+
+	@Step
+	public void clickOnMoreInBuildingSection() {
+		onPage.clickOnMoreInBuildingSection();
+	}
+
+	@Step
+	public void checkIfSearchFieldIsFilledByNeighborhood() {
+		onPage.checkIfSearchFieldIsFilledByNeighborhood();
+	}
+
+	public void clickOnSimilarListingsSection() {
+		onPage.clickOnSimilarListingsSection();
+	}
+
+	public void fillInSearchFieldByFilter(String value) {
+		onPage.fillInSearchField(value);
 	}
 }

@@ -437,4 +437,19 @@ public class SearchSteps extends ScenarioSteps {
 	public void clickOnApplyButtonWithoutKeyboard() {
 		onPage.clickOnApplyButtonWithoutKeyboard();
 	}
+
+	@Step
+	public void clickOnSearchByAddressButton() {
+		onPage.clickOnSearchByAddressButton();
+	}
+
+	@Step
+	public void fillInSearchField(String value) {
+		onPage.fillInSearchField(value);
+	}
+
+	@Step
+	public void clickOnTestBuilding() {
+		onPage.clickOnTestBuilding();
+	}
 }
