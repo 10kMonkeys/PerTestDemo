@@ -18,17 +18,17 @@ public class DTS4_SearchByClientNameTest extends SampleTest {
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnClientsLabel();
         user.atClientPage.noteNumberClientsBeforeSearch();
-        user.atClientPage.enterValueInSearchField(SearchRequests.TES);
+        user.atClientPage.enterValueInSearchField(SearchRequests.CLIENT_TEST);
         user.atClientPage.clickOutsideSearchSection();
         user.atClientPage.shouldTestClientPresentInClientsList();
         user.atClientPage.clickOnDeleteIconNextToSearchText();
         user.atClientPage.clickOutsideSearchSection();
         user.atClientPage.shouldSearchBeCleared();
-        user.atClientPage.enterValueInSearchField(SearchRequests.ST_CL);
+        user.atClientPage.enterValueInSearchField(SearchRequests.CLIENT);
         user.atClientPage.clickOutsideSearchSection();
         user.atClientPage.shouldTestClientPresentInClientsList();
         user.atClientPage.clickOnDeleteIconNextToSearchText();
-        user.atClientPage.enterValueInSearchField(SearchRequests.CLIENT1);
+        user.atClientPage.enterValueInSearchField(SearchRequests.TH_CHARTS);
         user.atClientPage.clickOutsideSearchSection();
         user.atClientPage.shouldTestClientPresentInClientsList();
     }

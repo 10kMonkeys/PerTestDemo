@@ -72,7 +72,6 @@ public class ShareTaggedItemsPage extends BasePage {
     }
 
     public void selectClient(){
-
         if(Config.isAndroid()) {
             element(MobileBy.xpath("//*[@text='" + AppProperties.INSTANCE.getProperty("client_email") + "']")).click();
         } else {

@@ -80,12 +80,12 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SELLER'S AGENT")
 	private WebElement oneSellerAgentSection;
 
-	@AndroidFindBy(xpath = "//*[contains(@text,'CONSTANT CLIENT')]")
-	@iOSXCUITFindBy(accessibility = "Constant client")
+	@AndroidFindBy(xpath = "//*[contains(@text,'CLIENT TEST+CLIENT0')]")
+	@iOSXCUITFindBy(accessibility = "CLIENT TEST+CLIENT0")
     private WebElement clientWithDiscussion;
 
-	@AndroidFindBy(xpath = "//*[contains(@text,'ALIAKSEI YARMALCHUK')]")
-	@iOSXCUITFindBy(accessibility = "Aliaksei Yarmalchuk")
+	@AndroidFindBy(xpath = "//*[contains(@text,'TEST TEST-IOS+MGMT-CORE@PERCHWELL.COM')]")
+	@iOSXCUITFindBy(accessibility = "Test test-ios+mgmt-core@perchwell.com")
 	private WebElement agentWithDiscussion;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/view_all_discussions")

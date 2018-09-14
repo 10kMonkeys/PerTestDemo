@@ -35,6 +35,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class PerchwellPage extends BasePage {
 
 	private int listningsAmount;
+	private int fourDistrictListingsAmount;
 
 	public static Integer numberOfItemsInListView;
 
@@ -386,7 +387,6 @@ public class PerchwellPage extends BasePage {
 		String listingsByText;
 		if (Config.isAndroid()){
 			listingsByText = element(listingsByButton).getAttribute("text");
-			System.out.println("Android: " + listingsByText);
 		}
 		else {
 			listingsByText = element(listingsByButton).getAttribute("value");
@@ -461,5 +461,38 @@ public class PerchwellPage extends BasePage {
 	public void waitForClickOnMagnifier() {
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 		magnifierIcon.click();
+	}
+
+    public void checkFilterIsApplied() {
+		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
+		Assert.assertTrue((listningsAmount - 3000) > listingsAmountToCheck);
+    }
+
+	public void shouldSeeListingsFromAllUpperEastSideDistricts(String carnegieHill, String lenoxHill, String upperEastSide, String yorkville) {
+		List<WebElement> districtList1 = getDriver().findElements(MobileBy.iOSNsPredicateString(
+				"type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NEIGHBORHOOD: " + carnegieHill + "'"));
+		List<WebElement> districtList2 = getDriver().findElements(MobileBy.iOSNsPredicateString(
+				"type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NEIGHBORHOOD: " + lenoxHill + "'"));
+		List<WebElement> districtList3 = getDriver().findElements(MobileBy.iOSNsPredicateString(
+				"type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NEIGHBORHOOD: " + upperEastSide + "'"));
+		List<WebElement> districtList4 = getDriver().findElements(MobileBy.iOSNsPredicateString(
+				"type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NEIGHBORHOOD: " + yorkville + "'"));
+		Assert.assertEquals(20, districtList1.size() + districtList2.size() + districtList3.size() + districtList4.size());
+		fourDistrictListingsAmount = getNumberOfListings(listingsByButton);
+	}
+
+	public void shouldSeeListingsTwoDistricts(String firstDist, String secondDist) {
+		List<WebElement> districtList1 = getDriver().findElements(MobileBy.iOSNsPredicateString(
+				"type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NEIGHBORHOOD: " + firstDist + "'"));
+		List<WebElement> districtList2 = getDriver().findElements(MobileBy.iOSNsPredicateString(
+				"type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NEIGHBORHOOD: " + secondDist + "'"));
+		Assert.assertEquals(20, districtList1.size() + districtList2.size());
+	}
+
+	public void checkFourDistrictsListings() {
+		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
+		Assert.assertTrue((listingsAmountToCheck > (fourDistrictListingsAmount - 50)) && ((fourDistrictListingsAmount + 50) > listingsAmountToCheck));
+
+
 	}
 }

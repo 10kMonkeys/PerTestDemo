@@ -1,5 +1,7 @@
 package com.perchwell.entity;
 
+import com.perchwell.crossPlatform.Config;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,9 +16,15 @@ private Properties props = null;
 	private AppProperties() {
 			props = new Properties();
 			try {
-				FileInputStream file = new FileInputStream(
-						new File("app.properties"));
-				props.load(file);
+				if(Config.isAndroid()) {
+					FileInputStream file = new FileInputStream(
+							new File("app.propertiesAndroid"));
+					props.load(file);
+				} else {
+					FileInputStream file = new FileInputStream(
+							new File("app.properties"));
+					props.load(file);
+				}
 			}
 			catch (Exception e) {
 				System.out.println("Cann't read file app.properties");

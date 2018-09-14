@@ -13,7 +13,7 @@ public class ATS39_ACRISClosingsLocationsChartsAndFilterTest extends SampleTest 
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.deleteDefaultLocationInFilter();
+//        user.atSearchPage.deleteDefaultLocationInFilter();
         user.atSearchPage.selectChelseaTag(); ////
     }
 }

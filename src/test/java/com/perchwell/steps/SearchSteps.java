@@ -4,7 +4,6 @@ import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.SearchPage;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 
 public class SearchSteps extends ScenarioSteps {
@@ -83,10 +82,19 @@ public class SearchSteps extends ScenarioSteps {
 		onPage.selectFilter1Bath();
 	}
 
-	public void deleteDefaultLocationInFilter() {
-		onPage.clickDeleteTagButtonBROOKLYN();
-		onPage.clickDeleteTagButtonQUEENS();
-		onPage.clickDeleteTagButtonMANHATTAN();
+	@Step
+	public void deleteManhattan() {
+		onPage.uncheckManhattan();
+	}
+
+	@Step
+	public void deleteBrooklyn() {
+		onPage.uncheckBrooklyn();
+	}
+
+	@Step
+	public void deleteQueens() {
+		onPage.uncheckQueens();
 	}
 
 	@Step
@@ -332,11 +340,6 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-    public void removeBrooklynFromFilter() {
-    	onPage.removeBrooklynFromFilter();
-	}
-
-	@Step
 	public void setUpFilterLaundryBLDG() {
 		onPage.scrollToLaundryBLDG();
 		onPage.setUpFilterLaundryBLDG();
@@ -436,5 +439,51 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void clickOnApplyButtonWithoutKeyboard() {
 		onPage.clickOnApplyButtonWithoutKeyboard();
+	}
+
+	@Step
+	public void clickOnNeighborhoodsPlusButton() {
+		onPage.clickOnNeighborhoodsPlusButton();
+	}
+
+	@Step
+	public void addAlphabetCity() {
+		onPage.clickOnAlphabetCityCheckbox();
+	}
+
+	@Step
+	public void clickOnBackFromNeighborhoodsPage() {
+		onPage.clickOnBackFromNeighborhoodsPage();
+	}
+
+	@Step
+	public void selectDistrict(String district, String districtID) {
+		onPage.searchDistrict(district);
+		onPage.selectDistrict(districtID);
+	}
+
+	@Step
+	public void deleteMidwoodFromFilter() {
+		onPage.uncheckMidwoodFromFilter();
+	}
+
+	@Step
+	public void deleteAllUpperEastSideFromFilter() {
+		onPage.uncheckAllUpperEastSideFromFilter();
+	}
+
+	@Step
+	public void deleteCarnegieHillsFromFilter() {
+		onPage.uncheckCarnegieHillsFromFilter();
+	}
+
+	@Step
+	public void deleteUpperEastSideFromFilter() {
+		onPage.uncheckUpperEastSideFromFilter();
+	}
+
+	@Step
+	public void deleteYorkvilleFromFilter() {
+		onPage.uncheckYorkvilleFromFilter()	;
 	}
 }

@@ -43,7 +43,7 @@ public class DiscussionsListPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DiscussionsSearchBar")
 	private WebElement discussionsSearchBar;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'TEST CLIENT1' AND visible==1")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'CLIENT TEST+CLIENT-TH-CHARTS' AND visible==1")
 	private WebElement testClientInFilterByPersonResult;
 
 	@iOSXCUITFindBy(accessibility = "Clear text")
@@ -166,7 +166,7 @@ public class DiscussionsListPage extends BasePage {
 
 			while (iterator.hasNext()) {
 				String text = iterator.next().getText();
-				if (text.contains("TEST CLIENT")) {
+				if (text.contains("CLIENT TEST+CLIENT-TH-CHARTS")) {
 					k++;
 					break;
 				}

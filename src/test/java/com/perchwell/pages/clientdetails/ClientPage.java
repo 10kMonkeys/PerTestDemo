@@ -92,7 +92,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearTextButton;
 
-	@iOSXCUITFindBy(accessibility = "TEST CLIENT1")
+	@iOSXCUITFindBy(accessibility = "CLIENT TEST+CLIENT-TH-CHARTS")
 	private WebElement testClient;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[`visible==1`]/XCUIElementTypeCell")

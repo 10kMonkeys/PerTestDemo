@@ -12,12 +12,12 @@ public class DiscussThisListingPage extends BasePage {
 
     //region WebElements
 
-    @AndroidFindBy(xpath = "//*[contains(@text,'CONSTANT CLIENT')]")
-    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'CONSTANT CLIENT'")
+    @AndroidFindBy(xpath = "//*[contains(@text,'CLIENT TEST+CLIENT0')]")
+    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'CLIENT TEST+CLIENT0'")
     private WebElement clientWithDiscussion;
 
-    @AndroidFindBy(xpath = "//*[contains(@text,'ALIAKSEI YARMALCHUK')]")
-    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'ALIAKSEI YARMALCHUK'")
+    @AndroidFindBy(xpath = "//*[contains(@text,'TEST TEST-IOS+MGMT-CORE@PERCHWELL.COM')]")
+    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'TEST TEST-IOS+MGMT-CORE@PERCHWELL.COM'")
     private WebElement agentWithDiscussion;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/delete_button")

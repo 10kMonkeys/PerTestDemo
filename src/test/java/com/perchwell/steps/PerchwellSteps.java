@@ -267,7 +267,28 @@ public class PerchwellSteps extends ScenarioSteps {
 		onPage.isContainLabels(label1, label2);
 	}
 
+	@Step
 	public void clickOnMyNewSearchWithPause() {
 		onPage.waitForClickOnMagnifier();
+	}
+
+	@Step
+    public void checkFilterIsApplied() {
+		onPage.checkFilterIsApplied();
+    }
+	
+    @Step
+	public void shouldSeeListingsFromAllUpperEastSideDistricts(String carnegieHill, String lenoxHill, String upperEastSide, String yorkville) {
+		onPage.shouldSeeListingsFromAllUpperEastSideDistricts(carnegieHill, lenoxHill, upperEastSide, yorkville);
+	}
+
+	@Step
+	public void shouldSeeListingsTwoDistricts(String firstDist, String secondDist) {
+		onPage.shouldSeeListingsTwoDistricts(firstDist, secondDist);
+	}
+
+	@Step
+	public void checkFourDistrictsListings() {
+		onPage.checkFourDistrictsListings();
 	}
 }

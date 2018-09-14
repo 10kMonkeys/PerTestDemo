@@ -29,15 +29,15 @@ public class DTS8_FilterByClientTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing(); //ia
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnDiscussionsLabel();
-        user.atDiscussionsListPage.enterValueInSearchField(SearchRequests.TES);
+        user.atDiscussionsListPage.enterValueInSearchField(SearchRequests.CLIENT_TEST);
         user.atDiscussionsListPage.shouldBeTestClientPresentInFilterResult();
         user.atDiscussionsListPage.clickDeleteIconNextToSearchText();
         user.atDiscussionsListPage.shouldBeNothingDisplayedInFilterByPerson();
-        user.atDiscussionsListPage.enterValueInSearchField(SearchRequests.ST_CL);
+        user.atDiscussionsListPage.enterValueInSearchField(SearchRequests.CLIENT);
         user.atDiscussionsListPage.shouldBeTestClientPresentInFilterResult();
         user.atDiscussionsListPage.clickDeleteIconNextToSearchText();
         user.atDiscussionsListPage.shouldBeNothingDisplayedInFilterByPerson();
-        user.atDiscussionsListPage.enterValueInSearchField(SearchRequests.CLIENT1);
+        user.atDiscussionsListPage.enterValueInSearchField(SearchRequests.TH_CHARTS);
         user.atDiscussionsListPage.shouldBeTestClientPresentInFilterResult();
         user.atDiscussionsListPage.selectTestClient();
         user.atDiscussionsListPage.shouldBeOnlyDiscussionWithTestClientDisplayed();

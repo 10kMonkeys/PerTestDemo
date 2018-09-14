@@ -224,9 +224,6 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Fireplace-SELECTED")
 	private WebElement selectedFireplaceFilter;
 
-	@iOSXCUITFindBy(accessibility = "deleteTagButtonBROOKLYN")
-	private WebElement brooklynRemoveIcon;
-
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement universalNewSearchButton;
 
@@ -294,6 +291,33 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name=='checkboxSelected'`][1]")
 	private WebElement manhattanCheckedCheckbox;
+
+	@iOSXCUITFindBy(accessibility = "Remove Button: BROOKLYN")
+	private WebElement brooklynRemoveIcon;
+
+	@iOSXCUITFindBy(accessibility = "Remove Button: QUEENS")
+	private WebElement queensRemoveIcon;
+
+	@iOSXCUITFindBy(accessibility = "Neighborhood-ALPHABET CITY")
+	private WebElement alphabetCityCheckbox;
+
+	@iOSXCUITFindBy(accessibility = "Text Field: Cell")
+	private WebElement searchNeihborhoodsSearchField;
+
+	@iOSXCUITFindBy(accessibility = "Remove Button: MIDWOOD")
+	private WebElement midwoodRemoveIcon;
+
+	@iOSXCUITFindBy(accessibility = "Remove Button: ALL UPPER EAST SIDE")
+	private WebElement allUpperEastSideRemoveIcon;
+
+	@iOSXCUITFindBy(accessibility = "Remove Button: CARNEGIE HILL")
+	private WebElement carnegieHillsRemoveIcon;
+
+	@iOSXCUITFindBy(accessibility = "Remove Button: UPPER EAST SIDE")
+	private WebElement upperEastSideRemoveIcon;
+
+	@iOSXCUITFindBy(accessibility = "Remove Button: YORKVILLE")
+	private WebElement yorkvilleRemoveIcon;
 
 	public SearchPage(WebDriver driver) {
 		super(driver);
@@ -716,10 +740,6 @@ public class SearchPage extends BasePage {
 		element(selectedFilterFor1AndHalfBath).shouldBeVisible();
 	}
 
-    public void removeBrooklynFromFilter() {
-		element(brooklynRemoveIcon).click();
-    }
-
 	public void setUpFilterLaundryBLDG() {
 		element(laundryBLDGFilterButton).click();
 	}
@@ -850,5 +870,45 @@ public class SearchPage extends BasePage {
 
 	public void clickOnApplyButtonWithoutKeyboard() {
 		element(applySearchButton).click();
+	}
+
+	public void uncheckBrooklyn() {
+		element(brooklynRemoveIcon).click();
+	}
+
+	public void uncheckQueens() {
+		element(queensRemoveIcon).click();
+	}
+
+	public void clickOnAlphabetCityCheckbox() {
+		element(alphabetCityCheckbox).click();
+	}
+
+	public void searchDistrict(String district) {
+		element(searchNeihborhoodsSearchField).sendKeys(district);
+	}
+
+	public void selectDistrict(String districtID) {
+		element(MobileBy.AccessibilityId(districtID)).click();
+	}
+
+	public void uncheckMidwoodFromFilter() {
+		element(midwoodRemoveIcon).click();
+	}
+
+	public void uncheckAllUpperEastSideFromFilter() {
+		element(allUpperEastSideRemoveIcon).click();
+	}
+
+	public void uncheckCarnegieHillsFromFilter() {
+		element(carnegieHillsRemoveIcon).click();
+	}
+
+	public void uncheckUpperEastSideFromFilter() {
+		element(upperEastSideRemoveIcon).click();
+	}
+
+	public void uncheckYorkvilleFromFilter() {
+		element(yorkvilleRemoveIcon).click();
 	}
 }
