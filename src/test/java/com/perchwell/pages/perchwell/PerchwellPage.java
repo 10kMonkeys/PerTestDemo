@@ -148,7 +148,8 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
 	private WebElement discussWithClientHint;
 
-	@iOSXCUITFindBy(accessibility = "240 EAST 35TH ST. #TEST")
+//	@iOSXCUITFindBy(accessibility = "240 EAST 35TH ST. #TEST")
+	@iOSXCUITFindBy(accessibility = "ADDRESS-61 WEST 62ND ST. #TEST")
 	private WebElement testListing;
 
 	@iOSXCUITFindBy(accessibility = "MORE")
@@ -534,7 +535,6 @@ public class PerchwellPage extends BasePage {
 		boolean result = true;
 
 		for (WebElement listing : currentBedsAndBathsAmountList) {
-			System.out.println(listing.getAttribute("value"));
 			if(!listing.getAttribute("value").contains("2  BEDS")) {
 				result = false;
 				break;
@@ -569,7 +569,6 @@ public class PerchwellPage extends BasePage {
 		boolean result = true;
 
 		for (WebElement listing : currentBedsAndBathsAmountList) {
-			System.out.println(listing.getAttribute("value"));
 			if(!listing.getAttribute("value").contains("2  BATHS")) {
 				result = false;
 				break;
@@ -581,11 +580,8 @@ public class PerchwellPage extends BasePage {
 	public void checkIfListingsAreFilteredByNeighborhood() {
 		boolean result = true;
 
-		System.out.println("Expected value: " + SessionVariables.getValueFromSessionVariable("Neighborhood value"));
-
 		for (WebElement listing : neighborhoodValueList) {
-			System.out.println("Listings value: " + listing.getAttribute("value"));
-			if(!listing.getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood value"))) {
+			if(!listing.getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value"))) {
 				result = false;
 				break;
 			}
@@ -594,7 +590,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void getNeighborhoodValue() {
-		SessionVariables.addValueInSessionVariable("Neighborhood value", neighborhoodValue.getAttribute("value"));
+		SessionVariables.addValueInSessionVariable("Neighborhood_value", neighborhoodValue.getAttribute("value"));
 	}
 
 	public void clickOnMoreInBuildingSection() {
@@ -602,7 +598,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void checkIfSearchFieldIsFilledByNeighborhood() {
-		Assert.assertEquals(element(listingsSearchField).getAttribute("value"), SessionVariables.getValueFromSessionVariable("Neighborhood value"));
+		Assert.assertEquals(element(listingsSearchField).getAttribute("value"), SessionVariables.getValueFromSessionVariable("Neighborhood_value"));
 	}
 
 	public void clickOnSimilarListingsSection() {
