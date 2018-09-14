@@ -7,35 +7,30 @@ import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileDriver;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.functions.ExpectedCondition;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
-import org.jruby.RubyBoolean;
-import org.jruby.RubyProcess;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.sql.SQLOutput;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class PerchwellPage extends BasePage {
 
 	private int listningsAmount;
 	private int fourDistrictListingsAmount;
+
+	private List<WebElement> initialBedsAndBathsAmountList;
 
 	public static Integer numberOfItemsInListView;
 
@@ -137,6 +132,39 @@ public class PerchwellPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "ADDRESS")
 	private WebElement addressSortButton;
+
+	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
+	private WebElement listingsSearchField;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH'")
+	private List<WebElement> currentBedsAndBathsAmountList;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH'")
+	private WebElement bedsAndBathsAmount;
+
+	@iOSXCUITFindBy(accessibility = "Clear text")
+	private WebElement clearFieldButton;
+
+	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
+	private WebElement discussWithClientHint;
+
+	@iOSXCUITFindBy(accessibility = "240 EAST 35TH ST. #TEST")
+	private WebElement testListing;
+
+	@iOSXCUITFindBy(accessibility = "MORE")
+	private WebElement moreButton;
+
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
+	private WebElement neighborhoodValue;
+
+	@iOSXCUITFindBy(xpath = "//*[contains(@name, 'NEIGHBORHOOD')]")
+	private List<WebElement> neighborhoodValueList;
+
+	@iOSXCUITFindBy(accessibility = "Segmented Control: MORE IN BUILDING")
+	private WebElement moreInBuildingSection;
+
+	@iOSXCUITFindBy(accessibility = "Segmented Control: SIMILAR LISTINGS")
+	private WebElement similarListingsSection;
 
 	//endregion
 
@@ -492,7 +520,92 @@ public class PerchwellPage extends BasePage {
 	public void checkFourDistrictsListings() {
 		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
 		Assert.assertTrue((listingsAmountToCheck > (fourDistrictListingsAmount - 50)) && ((fourDistrictListingsAmount + 50) > listingsAmountToCheck));
+	}
 
+	public void swipeToSimilarListingsSection(){
+		Helper.universalVerticalSwipe(bedsAndBathsAmount);
+	}
 
+	public void fillInSearchField(String value) {
+		element(listingsSearchField).sendKeys(value);
+	}
+
+	public void checkIfListingsAreFilteredByBeds() {
+		boolean result = true;
+
+		for (WebElement listing : currentBedsAndBathsAmountList) {
+			System.out.println(listing.getAttribute("value"));
+			if(!listing.getAttribute("value").contains("2  BEDS")) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
+	}
+
+	public void clickOnClearFieldButton() {
+		element(clearFieldButton).click();
+	}
+
+	public void checkIfListingReturnedToInitialState() {
+		for (int i = 0; i< initialBedsAndBathsAmountList.size(); i++) {
+			Assert.assertEquals(initialBedsAndBathsAmountList.get(i).getAttribute("value"), currentBedsAndBathsAmountList.get(i).getAttribute("value"));
+		}
+	}
+
+	public void getInitialBedsAndBathsAmountList() {
+		initialBedsAndBathsAmountList = currentBedsAndBathsAmountList;
+	}
+
+	public void clickOnTestListing() {
+		element(testListing).click();
+	}
+
+	public void skipDiscussWithClientHint() {
+			element(discussWithClientHint).click();
+	}
+
+	public void checkIfListingsAreFilteredByBaths() {
+		boolean result = true;
+
+		for (WebElement listing : currentBedsAndBathsAmountList) {
+			System.out.println(listing.getAttribute("value"));
+			if(!listing.getAttribute("value").contains("2  BATHS")) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
+	}
+
+	public void checkIfListingsAreFilteredByNeighborhood() {
+		boolean result = true;
+
+		System.out.println("Expected value: " + SessionVariables.getValueFromSessionVariable("Neighborhood value"));
+
+		for (WebElement listing : neighborhoodValueList) {
+			System.out.println("Listings value: " + listing.getAttribute("value"));
+			if(!listing.getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood value"))) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
+	}
+
+	public void getNeighborhoodValue() {
+		SessionVariables.addValueInSessionVariable("Neighborhood value", neighborhoodValue.getAttribute("value"));
+	}
+
+	public void clickOnMoreInBuildingSection() {
+		element(moreInBuildingSection).click();
+	}
+
+	public void checkIfSearchFieldIsFilledByNeighborhood() {
+		Assert.assertEquals(element(listingsSearchField).getAttribute("value"), SessionVariables.getValueFromSessionVariable("Neighborhood value"));
+	}
+
+	public void clickOnSimilarListingsSection() {
+		element(similarListingsSection).click();
 	}
 }

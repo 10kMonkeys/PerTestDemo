@@ -484,6 +484,21 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void deleteYorkvilleFromFilter() {
-		onPage.uncheckYorkvilleFromFilter()	;
+		onPage.uncheckYorkvilleFromFilter();
+	}
+
+	@Step
+	public void clickOnSearchByAddressButton() {
+		onPage.clickOnSearchByAddressButton();
+	}
+
+	@Step
+	public void fillInSearchField(String value) {
+		onPage.fillInSearchField(value);
+	}
+
+	@Step
+	public void clickOnTestBuilding() {
+		onPage.clickOnTestBuilding();
 	}
 }
