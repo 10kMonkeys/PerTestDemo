@@ -149,7 +149,8 @@ public class PerchwellPage extends BasePage {
 	private WebElement discussWithClientHint;
 
 //	@iOSXCUITFindBy(accessibility = "240 EAST 35TH ST. #TEST")
-	@iOSXCUITFindBy(accessibility = "ADDRESS-61 WEST 62ND ST. #TEST")
+//	@iOSXCUITFindBy(accessibility = "ADDRESS-61 WEST 62ND ST. #TEST")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS-61 WEST 62ND ST'")
 	private WebElement testListing;
 
 	@iOSXCUITFindBy(accessibility = "MORE")
@@ -166,6 +167,9 @@ public class PerchwellPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "Segmented Control: SIMILAR LISTINGS")
 	private WebElement similarListingsSection;
+
+	@iOSXCUITFindBy(accessibility = "ADDRESS: 15 West 81st St. #11A")
+	private WebElement twoAgentListing;
 
 	//endregion
 
@@ -603,5 +607,10 @@ public class PerchwellPage extends BasePage {
 
 	public void clickOnSimilarListingsSection() {
 		element(similarListingsSection).click();
+	}
+
+	public void openTwoAgentListing() {
+		Helper.swipeDownUntilElementVisible(twoAgentListing);
+		element(twoAgentListing).click();
 	}
 }

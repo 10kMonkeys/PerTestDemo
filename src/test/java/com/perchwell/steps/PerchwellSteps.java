@@ -356,11 +356,18 @@ public class PerchwellSteps extends ScenarioSteps {
 		onPage.checkIfSearchFieldIsFilledByNeighborhood();
 	}
 
+	@Step
 	public void clickOnSimilarListingsSection() {
 		onPage.clickOnSimilarListingsSection();
 	}
 
+	@Step
 	public void fillInSearchFieldByFilter(String value) {
 		onPage.fillInSearchField(value);
+	}
+
+	@Step
+	public void openTwoAgentListing() {
+		onPage.openTwoAgentListing();
 	}
 }

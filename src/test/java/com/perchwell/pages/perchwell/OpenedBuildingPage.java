@@ -6,6 +6,7 @@ import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
@@ -14,6 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import javax.xml.stream.events.XMLEvent;
 import java.util.List;
 
 public class OpenedBuildingPage extends BasePage {
@@ -107,6 +109,9 @@ public class OpenedBuildingPage extends BasePage {
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/negative_button")
 	@iOSXCUITFindBy(accessibility = "CANCEL")
 	private WebElement cancelButtonInDiscussWithClient;
+
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[6]/XCUIElementTypeImage")
+	private WebElement firstListingPrice;
 
 	//endregion
 
@@ -340,5 +345,16 @@ public class OpenedBuildingPage extends BasePage {
 				isAgentWithDiscussion = true;
 		}
 		return isAgentWithDiscussion;
+	}
+
+	public void fixSearchField() {
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+		int minX = firstListingPrice.getLocation().getX() + 360;
+		int minY = firstListingPrice.getLocation().getY() + 215;
+
+		new TouchAction(appiumDriver).tap(minX, minY).release().perform();
 	}
 }

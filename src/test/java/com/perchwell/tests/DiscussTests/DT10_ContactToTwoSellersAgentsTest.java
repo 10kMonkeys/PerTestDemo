@@ -15,11 +15,12 @@ public class DT10_ContactToTwoSellersAgentsTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.setMaximumPriceFilter("12345600");
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnListingsByButton();
-        user.atPerchwellPage.clickOnMostExpensiveButton();
-        user.atPerchwellPage.openFirstBuilding();
+        user.atSearchPage.setMaximumPriceFilter("13000000");
+        user.atSearchPage.setMinimumPriceFilter("13000000");
+        user.atSearchPage.selectFilter2Beds();
+        user.atSearchPage.selectFilter2Baths();
+        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
+        user.atPerchwellPage.openTwoAgentListing();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atSellersAgentPage.swipeDownUntilSellersSeveralAgentsSection();
         user.atOpenedBuildingPage.clickOnSeveralSellersAgentSection();
