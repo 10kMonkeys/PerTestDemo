@@ -166,7 +166,7 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 
 	@Step
 	public void fillInSearchFieldByNeighborhood() {
-		onPage.fillInSearchField(SessionVariables.getValueFromSessionVariable("Neighborhood value"));
+		onPage.fillInSearchField(SessionVariables.getValueFromSessionVariable("Neighborhood_value"));
 	}
 
 	@Step
@@ -237,6 +237,12 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	@Step
 	public void fillInSearchFieldByFilter(String value) {
 		onPage.fillInSearchField(value);
+	}
+
+	@Step
+	public void fixSearchField() {
+		onPage.fixSearchField();
+		onPage.clickOnSimilarListingsSection();
 	}
 }
 

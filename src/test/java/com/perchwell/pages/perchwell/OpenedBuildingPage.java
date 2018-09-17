@@ -117,7 +117,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
 	private WebElement listingsSearchField;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH' AND visible == 1")
 	private List<WebElement> currentBedsAndBathsAmountList;
 
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH'")
@@ -397,6 +397,8 @@ public class OpenedBuildingPage extends BasePage {
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
+		Helper.universalVerticalSwipe(listingMap);
+
 		int minX = listingMap.getLocation().getX() + 360;
 		int minY = listingMap.getLocation().getY() + 215;
 
@@ -449,6 +451,7 @@ public class OpenedBuildingPage extends BasePage {
 		boolean result = true;
 
 		for (WebElement listing : currentBedsAndBathsAmountList) {
+			System.out.println(listing.getAttribute("value"));
 			if(!listing.getAttribute("value").contains("2  BATHS")) {
 				result = false;
 				break;

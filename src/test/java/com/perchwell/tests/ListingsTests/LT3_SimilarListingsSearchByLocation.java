@@ -21,11 +21,10 @@ public class LT3_SimilarListingsSearchByLocation extends SampleTest {
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
         user.atOpenedBuildingPage.clickOnTestListing();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
-        user.atOpenedBuildingPage.swipeToTheSimilarListings();
-        user.atOpenedBuildingPage.clickOnTestListing();
         user.atOpenedBuildingPage.getNeighborhoodValue();
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
+        user.atOpenedBuildingPage.fixSearchField();
         user.atOpenedBuildingPage.fillInSearchFieldByNeighborhood();
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();

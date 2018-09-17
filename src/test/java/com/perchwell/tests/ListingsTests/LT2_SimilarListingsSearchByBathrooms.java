@@ -26,6 +26,7 @@ public class LT2_SimilarListingsSearchByBathrooms extends SampleTest {
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
+        user.atOpenedBuildingPage.fixSearchField();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BATHS_FILTER);
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByBaths();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
