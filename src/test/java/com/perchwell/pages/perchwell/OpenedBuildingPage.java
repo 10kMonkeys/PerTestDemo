@@ -15,10 +15,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import javax.xml.stream.events.XMLEvent;
 import java.util.List;
 
 public class OpenedBuildingPage extends BasePage {
+
+	private List<WebElement> initialBedsAndBathsAmountList;
 
 	//region WebElements
 
@@ -111,7 +112,51 @@ public class OpenedBuildingPage extends BasePage {
 	private WebElement cancelButtonInDiscussWithClient;
 
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[6]/XCUIElementTypeImage")
-	private WebElement firstListingPrice;
+	private WebElement listingMap;
+
+	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
+	private WebElement listingsSearchField;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH'")
+	private List<WebElement> currentBedsAndBathsAmountList;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH'")
+	private WebElement bedsAndBathsAmount;
+
+	@iOSXCUITFindBy(accessibility = "Clear text")
+	private WebElement clearFieldButton;
+
+	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
+	private WebElement discussWithClientHint;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS-61 WEST 62ND ST'")
+	//	@iOSXCUITFindBy(accessibility = "240 EAST 35TH ST. #TEST")
+//	@iOSXCUITFindBy(accessibility = "ADDRESS-61 WEST 62ND ST. #TEST")
+	private WebElement testListing;
+
+	@iOSXCUITFindBy(accessibility = "MORE")
+	private WebElement moreButton;
+
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
+	private WebElement neighborhoodValue;
+
+	@iOSXCUITFindBy(xpath = "//*[contains(@name, 'NEIGHBORHOOD')]")
+	private List<WebElement> neighborhoodValueList;
+
+	@iOSXCUITFindBy(accessibility = "Segmented Control: MORE IN BUILDING")
+	private WebElement moreInBuildingSection;
+
+	@iOSXCUITFindBy(accessibility = "Segmented Control: SIMILAR LISTINGS")
+	private WebElement similarListingsSection;
+
+	@iOSXCUITFindBy(accessibility = "Nav Back White")
+	private WebElement backFromTagsButton;
+
+	@iOSXCUITFindBy(accessibility = "BuildingViewBackButton")
+	private WebElement buildingViewBackButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name != 'Table View Cell: Show More' AND name BEGINSWITH 'Table View Cell'$][-1]")
+	private WebElement lastListing;
 
 	//endregion
 
@@ -352,9 +397,91 @@ public class OpenedBuildingPage extends BasePage {
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-		int minX = firstListingPrice.getLocation().getX() + 360;
-		int minY = firstListingPrice.getLocation().getY() + 215;
+		int minX = listingMap.getLocation().getX() + 360;
+		int minY = listingMap.getLocation().getY() + 215;
 
 		new TouchAction(appiumDriver).tap(minX, minY).release().perform();
+	}
+
+	public void swipeToSimilarListingsSection(){
+		Helper.universalVerticalSwipe(lastListing);
+	}
+
+	public void fillInSearchField(String value) {
+		element(listingsSearchField).sendKeys(value);
+	}
+
+	public void checkIfListingsAreFilteredByBeds() {
+		boolean result = true;
+
+		for (WebElement listing : currentBedsAndBathsAmountList) {
+			if(!listing.getAttribute("value").contains("2  BEDS")) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
+	}
+
+	public void clickOnClearFieldButton() {
+		element(clearFieldButton).click();
+	}
+
+	public void checkIfListingReturnedToInitialState() {
+		for (int i = 0; i< initialBedsAndBathsAmountList.size(); i++) {
+			Assert.assertEquals(initialBedsAndBathsAmountList.get(i).getAttribute("value"), currentBedsAndBathsAmountList.get(i).getAttribute("value"));
+		}
+	}
+
+	public void getInitialBedsAndBathsAmountList() {
+		initialBedsAndBathsAmountList = currentBedsAndBathsAmountList;
+	}
+
+	public void clickOnTestListing() {
+		element(testListing).click();
+	}
+
+	public void skipDiscussWithClientHint() {
+		element(discussWithClientHint).click();
+	}
+
+	public void checkIfListingsAreFilteredByBaths() {
+		boolean result = true;
+
+		for (WebElement listing : currentBedsAndBathsAmountList) {
+			if(!listing.getAttribute("value").contains("2  BATHS")) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
+	}
+
+	public void checkIfListingsAreFilteredByNeighborhood() {
+		boolean result = true;
+
+		for (WebElement listing : neighborhoodValueList) {
+			if(!listing.getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value"))) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
+	}
+
+	public void getNeighborhoodValue() {
+		SessionVariables.addValueInSessionVariable("Neighborhood_value", neighborhoodValue.getAttribute("value"));
+	}
+
+	public void clickOnMoreInBuildingSection() {
+		element(moreInBuildingSection).click();
+	}
+
+	public void checkIfSearchFieldIsFilledByNeighborhood() {
+		Assert.assertEquals(element(listingsSearchField).getAttribute("value"), SessionVariables.getValueFromSessionVariable("Neighborhood_value"));
+	}
+
+	public void clickOnSimilarListingsSection() {
+		element(similarListingsSection).click();
 	}
 }

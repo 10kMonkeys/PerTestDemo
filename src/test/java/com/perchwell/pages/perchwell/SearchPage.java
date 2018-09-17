@@ -328,6 +328,9 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "THE MURRAY HILL, 240 EAST 35TH STREET")
 	private WebElement testBuilding;
 
+	@iOSXCUITFindBy(accessibility = "AddressSearchCancelButton")
+	private WebElement addressSearchCancelButton;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
