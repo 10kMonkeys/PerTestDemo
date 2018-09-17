@@ -18,19 +18,21 @@ public class LT3_SimilarListingsSearchByLocation extends SampleTest {
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
-        user.atPerchwellPage.swipeToTheSimilarListings();
-        user.atPerchwellPage.clickOnTestListing();
-        user.atPerchwellPage.skipDiscussWithClientHint();
-        user.atPerchwellPage.getNeighborhoodValue();
-        user.atPerchwellPage.swipeToTheSimilarListings();
-        user.atPerchwellPage.getBedsAndBathsListingsAmount();
-        user.atPerchwellPage.fillInSearchFieldByNeighborhood();
-        user.atPerchwellPage.checkIfListingsAreFilteredByNeighborhood();
-        user.atPerchwellPage.clickOnMoreInBuildingSection();
-        user.atPerchwellPage.checkIfSearchFieldIsFilledByNeighborhood();
-        user.atPerchwellPage.checkIfListingsAreFilteredByNeighborhood();
-        user.atPerchwellPage.clickOnSimilarListingsSection();
-        user.atPerchwellPage.clickOnClearFieldButton();
-        user.atPerchwellPage.checkIfListingReturnedToInitialState();
+        user.atOpenedBuildingPage.swipeToTheSimilarListings();
+        user.atOpenedBuildingPage.clickOnTestListing();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.swipeToTheSimilarListings();
+        user.atOpenedBuildingPage.clickOnTestListing();
+        user.atOpenedBuildingPage.getNeighborhoodValue();
+        user.atOpenedBuildingPage.swipeToTheSimilarListings();
+        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
+        user.atOpenedBuildingPage.fillInSearchFieldByNeighborhood();
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByNeighborhood();
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
+        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
+        user.atOpenedBuildingPage.clickOnClearFieldButton();
+        user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }
 }

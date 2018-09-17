@@ -21,14 +21,14 @@ public class LT2_SimilarListingsSearchByBathrooms extends SampleTest {
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
-        user.atPerchwellPage.swipeToTheSimilarListings();
-        user.atPerchwellPage.clickOnTestListing();
-        user.atPerchwellPage.skipDiscussWithClientHint();
-        user.atPerchwellPage.swipeToTheSimilarListings();
-        user.atPerchwellPage.getBedsAndBathsListingsAmount();
-        user.atPerchwellPage.fillInSearchFieldByFilter(Filters.TWO_BATHS_FILTER);
-        user.atPerchwellPage.checkIfListingsAreFilteredByBaths();
-        user.atPerchwellPage.clickOnClearFieldButton();
-        user.atPerchwellPage.checkIfListingReturnedToInitialState();
+        user.atOpenedBuildingPage.swipeToTheSimilarListings();
+        user.atOpenedBuildingPage.clickOnTestListing();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.swipeToTheSimilarListings();
+        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BATHS_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByBaths();
+        user.atOpenedBuildingPage.clickOnClearFieldButton();
+        user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }
 }

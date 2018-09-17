@@ -20,14 +20,14 @@ public class LT1_SimilarListingsSearchByBedroomsTest extends SampleTest {
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
-        user.atPerchwellPage.swipeToTheSimilarListings();
-        user.atPerchwellPage.clickOnTestListing();
-        user.atPerchwellPage.skipDiscussWithClientHint();
-        user.atPerchwellPage.swipeToTheSimilarListings();
-        user.atPerchwellPage.getBedsAndBathsListingsAmount();
-        user.atPerchwellPage.fillInSearchFieldByFilter(Filters.TWO_BEDS_FILTER);
-        user.atPerchwellPage.checkIfListingsAreFilteredByBeds();
-        user.atPerchwellPage.clickOnClearFieldButton();
-        user.atPerchwellPage.checkIfListingReturnedToInitialState();
+        user.atOpenedBuildingPage.swipeToTheSimilarListings();
+        user.atOpenedBuildingPage.clickOnTestListing();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.swipeToTheSimilarListings();
+        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BEDS_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByBeds();
+        user.atOpenedBuildingPage.clickOnClearFieldButton();
+        user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }
 }

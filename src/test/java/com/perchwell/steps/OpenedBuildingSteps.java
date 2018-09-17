@@ -5,7 +5,6 @@ import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.OpenedBuildingPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.junit.Test;
 
 public class OpenedBuildingSteps extends ScenarioSteps {
 
@@ -59,6 +58,7 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 		onPage.openExistingDiscussion(SessionVariables.getValueFromSessionVariable("Client"));
 	}
 
+	@Step
 	public void shouldSeeExistingDiscussion() {
 		onPage.discussionIsDisplayed(SessionVariables.getValueFromSessionVariable("Client"));
 	}
@@ -162,6 +162,81 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 			this.clickShareButton();
 			this.clickOnSendWithinPerchwell();
 		}
+	}
+
+	@Step
+	public void fillInSearchFieldByNeighborhood() {
+		onPage.fillInSearchField(SessionVariables.getValueFromSessionVariable("Neighborhood value"));
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByBeds() {
+		onPage.checkIfListingsAreFilteredByBeds();
+	}
+
+	@Step
+	public void clickOnClearFieldButton() {
+		onPage.clickOnClearFieldButton();
+	}
+
+	@Step
+	public void checkIfListingReturnedToInitialState() {
+		onPage.checkIfListingReturnedToInitialState();
+	}
+
+	@Step
+	public void swipeToTheSimilarListings() {
+		onPage.swipeToSimilarListingsSection();
+	}
+
+	@Step
+	public void getBedsAndBathsListingsAmount() {
+		onPage.getInitialBedsAndBathsAmountList();
+	}
+
+	@Step
+	public void clickOnTestListing() {
+		onPage.clickOnTestListing();
+	}
+
+	@Step
+	public void skipDiscussWithClientHint() {
+		onPage.skipDiscussWithClientHint();
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByBaths() {
+		onPage.checkIfListingsAreFilteredByBaths();
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByNeighborhood() {
+		onPage.checkIfListingsAreFilteredByNeighborhood();
+	}
+
+	@Step
+	public void getNeighborhoodValue() {
+		onPage.getNeighborhoodValue();
+	}
+
+	@Step
+	public void clickOnMoreInBuildingSection() {
+		onPage.clickOnMoreInBuildingSection();
+	}
+
+	@Step
+	public void checkIfSearchFieldIsFilledByNeighborhood() {
+		onPage.checkIfSearchFieldIsFilledByNeighborhood();
+	}
+
+	@Step
+	public void clickOnSimilarListingsSection() {
+		onPage.clickOnSimilarListingsSection();
+	}
+
+	@Step
+	public void fillInSearchFieldByFilter(String value) {
+		onPage.fillInSearchField(value);
 	}
 }
 

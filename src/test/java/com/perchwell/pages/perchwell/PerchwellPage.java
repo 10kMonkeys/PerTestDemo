@@ -29,9 +29,6 @@ public class PerchwellPage extends BasePage {
 
 	private int listningsAmount;
 	private int fourDistrictListingsAmount;
-
-	private List<WebElement> initialBedsAndBathsAmountList;
-
 	public static Integer numberOfItemsInListView;
 
 	//region WebElements
@@ -133,39 +130,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "ADDRESS")
 	private WebElement addressSortButton;
 
-	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
-	private WebElement listingsSearchField;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH'")
-	private List<WebElement> currentBedsAndBathsAmountList;
-
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH'")
-	private WebElement bedsAndBathsAmount;
-
-	@iOSXCUITFindBy(accessibility = "Clear text")
-	private WebElement clearFieldButton;
-
-	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
-	private WebElement discussWithClientHint;
-
-//	@iOSXCUITFindBy(accessibility = "240 EAST 35TH ST. #TEST")
-	@iOSXCUITFindBy(accessibility = "ADDRESS-61 WEST 62ND ST. #TEST")
-	private WebElement testListing;
-
-	@iOSXCUITFindBy(accessibility = "MORE")
-	private WebElement moreButton;
-
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
-	private WebElement neighborhoodValue;
-
-	@iOSXCUITFindBy(xpath = "//*[contains(@name, 'NEIGHBORHOOD')]")
-	private List<WebElement> neighborhoodValueList;
-
-	@iOSXCUITFindBy(accessibility = "Segmented Control: MORE IN BUILDING")
-	private WebElement moreInBuildingSection;
-
-	@iOSXCUITFindBy(accessibility = "Segmented Control: SIMILAR LISTINGS")
-	private WebElement similarListingsSection;
 
 	//endregion
 
@@ -521,87 +486,5 @@ public class PerchwellPage extends BasePage {
 	public void checkFourDistrictsListings() {
 		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
 		Assert.assertTrue((listingsAmountToCheck > (fourDistrictListingsAmount - 50)) && ((fourDistrictListingsAmount + 50) > listingsAmountToCheck));
-	}
-
-	public void swipeToSimilarListingsSection(){
-		Helper.universalVerticalSwipe(bedsAndBathsAmount);
-	}
-
-	public void fillInSearchField(String value) {
-		element(listingsSearchField).sendKeys(value);
-	}
-
-	public void checkIfListingsAreFilteredByBeds() {
-		boolean result = true;
-
-		for (WebElement listing : currentBedsAndBathsAmountList) {
-			if(!listing.getAttribute("value").contains("2  BEDS")) {
-				result = false;
-				break;
-			}
-		}
-		Assert.assertTrue(result);
-	}
-
-	public void clickOnClearFieldButton() {
-		element(clearFieldButton).click();
-	}
-
-	public void checkIfListingReturnedToInitialState() {
-		for (int i = 0; i< initialBedsAndBathsAmountList.size(); i++) {
-			Assert.assertEquals(initialBedsAndBathsAmountList.get(i).getAttribute("value"), currentBedsAndBathsAmountList.get(i).getAttribute("value"));
-		}
-	}
-
-	public void getInitialBedsAndBathsAmountList() {
-		initialBedsAndBathsAmountList = currentBedsAndBathsAmountList;
-	}
-
-	public void clickOnTestListing() {
-		element(testListing).click();
-	}
-
-	public void skipDiscussWithClientHint() {
-			element(discussWithClientHint).click();
-	}
-
-	public void checkIfListingsAreFilteredByBaths() {
-		boolean result = true;
-
-		for (WebElement listing : currentBedsAndBathsAmountList) {
-			if(!listing.getAttribute("value").contains("2  BATHS")) {
-				result = false;
-				break;
-			}
-		}
-		Assert.assertTrue(result);
-	}
-
-	public void checkIfListingsAreFilteredByNeighborhood() {
-		boolean result = true;
-
-		for (WebElement listing : neighborhoodValueList) {
-			if(!listing.getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value"))) {
-				result = false;
-				break;
-			}
-		}
-		Assert.assertTrue(result);
-	}
-
-	public void getNeighborhoodValue() {
-		SessionVariables.addValueInSessionVariable("Neighborhood_value", neighborhoodValue.getAttribute("value"));
-	}
-
-	public void clickOnMoreInBuildingSection() {
-		element(moreInBuildingSection).click();
-	}
-
-	public void checkIfSearchFieldIsFilledByNeighborhood() {
-		Assert.assertEquals(element(listingsSearchField).getAttribute("value"), SessionVariables.getValueFromSessionVariable("Neighborhood_value"));
-	}
-
-	public void clickOnSimilarListingsSection() {
-		element(similarListingsSection).click();
 	}
 }
