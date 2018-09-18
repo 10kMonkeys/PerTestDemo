@@ -244,5 +244,30 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 		onPage.fixSearchField();
 		onPage.clickOnSimilarListingsSection();
 	}
+
+	@Step
+	public void checkIfSearchFieldIsFilledByInContractFilter() {
+		onPage.checkIfSearchFieldIsFilledByInContractFilter();
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByActiveStatus() {
+		onPage.checkIfListingsAreFilteredByActiveStatus();
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByInContractStatus() {
+		onPage.checkIfListingsAreFilteredByInContractStatus();
+	}
+
+	@Step
+	public void clickOnSortButton() {
+		onPage.clickOnSortButton();
+	}
+
+	@Step
+	public void clickOnLeastExpensiveButton() {
+		onPage.clickOnLeastExpensiveButton();
+	}
 }
 

@@ -8,10 +8,11 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
-public class LT1_SimilarListingsSearchByBedroomsTest extends SampleTest {
+public class LT4_SimilarListingsSearchByStatus extends SampleTest {
 
     @Test
-    public void similarListingsSearchByBedroomsTest() {
+    public void similarListingsSearchByStatus() {
+
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -26,8 +27,15 @@ public class LT1_SimilarListingsSearchByBedroomsTest extends SampleTest {
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fixSearchField();
-        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BEDS_FILTER);
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByBeds();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.ACTIVE_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByActiveStatus();
+        user.atOpenedBuildingPage.clickOnClearFieldButton();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.IN_CONTRACT_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByInContractFilter();
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
+        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }

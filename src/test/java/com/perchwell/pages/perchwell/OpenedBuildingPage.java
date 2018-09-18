@@ -1,6 +1,7 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.data.Filters;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
@@ -117,11 +118,8 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
 	private WebElement listingsSearchField;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH' AND visible == 1")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'INFO'")
 	private List<WebElement> currentBedsAndBathsAmountList;
-
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH'")
-	private WebElement bedsAndBathsAmount;
 
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearFieldButton;
@@ -157,6 +155,30 @@ public class OpenedBuildingPage extends BasePage {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name != 'Table View Cell: Show More' AND name BEGINSWITH 'Table View Cell'$][-1]")
 	private WebElement lastListing;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name != 'Table View Cell: Show More' AND name BEGINSWITH 'Table View Cell'$]")
+	private List<WebElement> listingsList;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name == 'InContractBanner'")
+	private WebElement inContractBanner;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Banner'")
+	private WebElement banner;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeImage[$name CONTAINS 'Banner'$]")
+	private List<WebElement> bannerList;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name BEGINSWITH 'Table View Cell' AND visible==1$]/XCUIElementTypeOther/XCUIElementTypeImage[$!name CONTAINS 'Banner'$]")
+	private List<WebElement> imagesList;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'PRICE'$]")
+	private List<WebElement> pricesList;
+
+	@iOSXCUITFindBy(accessibility = "Listing Preview Sort ButtonListing Preview Sort Button: 0")
+	private WebElement sortButton;
+
+	@iOSXCUITFindBy(accessibility = "Collection View Cell: LEAST EXPENSIVE")
+	private WebElement leastExpensiveButton;
 
 	//endregion
 
@@ -461,15 +483,9 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfListingsAreFilteredByNeighborhood() {
-		boolean result = true;
-
 		for (WebElement listing : neighborhoodValueList) {
-			if(!listing.getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value"))) {
-				result = false;
-				break;
-			}
+			Assert.assertEquals(listing.getAttribute("value"), SessionVariables.getValueFromSessionVariable("Neighborhood_value"));
 		}
-		Assert.assertTrue(result);
 	}
 
 	public void getNeighborhoodValue() {
@@ -486,5 +502,28 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void clickOnSimilarListingsSection() {
 		element(similarListingsSection).click();
+	}
+
+	public void checkIfSearchFieldIsFilledByInContractFilter() {
+		Assert.assertEquals(listingsSearchField.getAttribute("value"), Filters.IN_CONTRACT_FILTER);
+	}
+
+	public void checkIfListingsAreFilteredByActiveStatus() {
+		Assert.assertFalse(banner.isDisplayed());
+	}
+
+	public void checkIfListingsAreFilteredByInContractStatus() {
+		for (WebElement item : bannerList) {
+			Assert.assertEquals(item.getAttribute("name"), "InContractBanner");
+		}
+		Assert.assertEquals(bannerList.size(), listingsList.size());
+	}
+
+	public void clickOnSortButton() {
+		element(sortButton).click();
+	}
+
+	public void clickOnLeastExpensiveButton() {
+		element(leastExpensiveButton).click();
 	}
 }

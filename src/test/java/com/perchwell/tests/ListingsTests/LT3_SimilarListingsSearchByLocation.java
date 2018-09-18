@@ -3,8 +3,10 @@ package com.perchwell.tests.ListingsTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
 public class LT3_SimilarListingsSearchByLocation extends SampleTest {
 
     @Test
