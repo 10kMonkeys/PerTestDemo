@@ -8,11 +8,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
-public class LT4_SimilarListingsSearchByStatus extends SampleTest {
+public class LT8_MoreInBuildingSearchByBedroomsTest extends SampleTest {
 
     @Test
-    public void similarListingsSearchByStatus() {
-
+    public void moreInBuildingSearchByBedrooms() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -27,15 +26,13 @@ public class LT4_SimilarListingsSearchByStatus extends SampleTest {
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fixSearchField();
-        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.ACTIVE_FILTER);
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByActiveStatus();
-        user.atOpenedBuildingPage.clickOnClearFieldButton();
-        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.IN_CONTRACT_FILTER);
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
-        user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByInContractFilter();
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BEDS_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByBeds();
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();
+        user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByFilter(Filters.TWO_BEDS_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByBeds();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }

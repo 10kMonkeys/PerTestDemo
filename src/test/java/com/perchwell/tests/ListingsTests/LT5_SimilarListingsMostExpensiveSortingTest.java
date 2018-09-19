@@ -7,10 +7,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
-public class LT6_SimilarListingsLeastExpensiveSorting extends SampleTest {
+public class LT5_SimilarListingsMostExpensiveSortingTest extends SampleTest {
 
     @Test
-    public void similarListingsLeastExpensiveSorting() {
+    public void similarListingsMostExpensiveSorting() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -23,14 +23,13 @@ public class LT6_SimilarListingsLeastExpensiveSorting extends SampleTest {
         user.atOpenedBuildingPage.clickOnTestListing();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
-        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fixSearchField();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.clickOnLeastExpensiveButton();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+//        user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();
+        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+//        user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();
+        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
     }
 }

@@ -269,5 +269,20 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void clickOnLeastExpensiveButton() {
 		onPage.clickOnLeastExpensiveButton();
 	}
+
+	@Step
+	public void clickOnBedroomsButton() {
+		onPage.clickOnBedroomsButton();
+	}
+
+	@Step
+	public void listingsShouldBeSortedByBedrooms() {
+		onPage.listingsShouldBeSortedByBedrooms();
+	}
+
+	@Step
+	public void checkIfSearchFieldIsFilledByFilter(String value) {
+		onPage.checkIfSearchFieldIsFilledByFilter(value);
+	}
 }
 
