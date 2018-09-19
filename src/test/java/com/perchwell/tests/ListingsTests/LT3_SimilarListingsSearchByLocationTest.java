@@ -11,7 +11,6 @@ public class LT3_SimilarListingsSearchByLocationTest extends SampleTest {
 
     @Test
     public void similarListingsSearchByLocation() {
-
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

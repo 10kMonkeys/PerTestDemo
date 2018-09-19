@@ -16,11 +16,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import javax.validation.constraints.Null;
 import java.util.List;
 
 public class OpenedBuildingPage extends BasePage {
 
-	private List<WebElement> initialBedsAndBathsAmountList;
+	private static List<WebElement> initialBedsAndBathsAmountList = null;
 
 	//region WebElements
 
@@ -127,7 +128,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
 	private WebElement discussWithClientHint;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS-61 WEST 62ND ST'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '61 WEST 62ND ST'")
 	//	@iOSXCUITFindBy(accessibility = "240 EAST 35TH ST. #TEST")
 //	@iOSXCUITFindBy(accessibility = "ADDRESS-61 WEST 62ND ST. #TEST")
 	private WebElement testListing;
@@ -165,7 +166,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Banner'")
 	private WebElement banner;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeImage[$name CONTAINS 'Banner'$]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeImage[$name BEGINSWITH 'RIBBON'$]")
 	private List<WebElement> bannerList;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name BEGINSWITH 'Table View Cell' AND visible==1$]/XCUIElementTypeOther/XCUIElementTypeImage[$!name CONTAINS 'Banner'$]")
@@ -182,6 +183,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "Collection View Cell: BEDROOMS")
 	private WebElement bedroomsButton;
+
+	@iOSXCUITFindBy(accessibility = "Collection View Cell Selected: MOST EXPENSIVE")
+	private WebElement mostExpensiveButtonSelected;
 
 	//endregion
 
@@ -476,7 +480,6 @@ public class OpenedBuildingPage extends BasePage {
 		boolean result = true;
 
 		for (WebElement listing : currentBedsAndBathsAmountList) {
-			System.out.println(listing.getAttribute("value"));
 			if(!listing.getAttribute("value").contains("2  BATHS")) {
 				result = false;
 				break;
@@ -487,7 +490,7 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void checkIfListingsAreFilteredByNeighborhood() {
 		for (WebElement listing : neighborhoodValueList) {
-			Assert.assertEquals(listing.getAttribute("value"), SessionVariables.getValueFromSessionVariable("Neighborhood_value"));
+			Assert.assertTrue(listing.getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
 		}
 	}
 
@@ -505,10 +508,6 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void clickOnSimilarListingsSection() {
 		element(similarListingsSection).click();
-	}
-
-	public void checkIfSearchFieldIsFilledByInContractFilter() {
-		Assert.assertEquals(listingsSearchField.getAttribute("value"), Filters.IN_CONTRACT_FILTER);
 	}
 
 	public void checkIfListingsAreFilteredByActiveStatus() {
@@ -553,5 +552,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void checkIfSearchFieldIsFilledByFilter(String value) {
 		Assert.assertEquals(element(listingsSearchField).getAttribute("value"), value);
+	}
+
+	public void checkIfMostExpensiveSortingButtonIsEnabled() {
+		element(mostExpensiveButtonSelected).shouldBeVisible();
 	}
 }

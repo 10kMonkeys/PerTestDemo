@@ -12,7 +12,6 @@ public class LT4_SimilarListingsSearchByStatusTest extends SampleTest {
 
     @Test
     public void similarListingsSearchByStatus() {
-
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
