@@ -7,10 +7,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
-public class LT5_SimilarListingsMostExpensiveSortingTest extends SampleTest {
+public class LT10_MoreInBuildingSearchByLocationTest extends SampleTest {
 
     @Test
-    public void similarListingsMostExpensiveSortingTest() {
+    public void moreInBuildingSearchByLocation() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -22,21 +22,18 @@ public class LT5_SimilarListingsMostExpensiveSortingTest extends SampleTest {
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
         user.atOpenedBuildingPage.clickOnTestListing();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.getNeighborhoodValue();
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
+        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fixSearchField();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.clickOnLeastExpensiveButton();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.clickOnMostExpensiveButton();
-        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
-        user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();
-        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
+        user.atOpenedBuildingPage.fillInSearchFieldByNeighborhood();
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();
-        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
+        user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByNeighborhood();
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.clickOnClearFieldButton();
+        user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }
 }

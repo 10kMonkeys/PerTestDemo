@@ -246,11 +246,6 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkIfSearchFieldIsFilledByInContractFilter() {
-		onPage.checkIfSearchFieldIsFilledByInContractFilter();
-	}
-
-	@Step
 	public void checkIfListingsAreFilteredByActiveStatus() {
 		onPage.checkIfListingsAreFilteredByActiveStatus();
 	}
@@ -288,6 +283,11 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	@Step
 	public void checkIfSearchFieldIsFilledByFilter(String value) {
 		onPage.checkIfSearchFieldIsFilledByFilter(value);
+	}
+
+	@Step
+	public void checkIfMostExpensiveSortingButtonIsEnabled() {
+		onPage.checkIfMostExpensiveSortingButtonIsEnabled();
 	}
 }
 
