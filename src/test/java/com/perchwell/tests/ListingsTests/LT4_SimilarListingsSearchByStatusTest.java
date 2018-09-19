@@ -2,15 +2,17 @@ package com.perchwell.tests.ListingsTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
+import com.perchwell.data.Filters;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
-public class LT6_SimilarListingsLeastExpensiveSorting extends SampleTest {
+public class LT4_SimilarListingsSearchByStatusTest extends SampleTest {
 
     @Test
-    public void similarListingsLeastExpensiveSorting() {
+    public void similarListingsSearchByStatus() {
+
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -25,12 +27,16 @@ public class LT6_SimilarListingsLeastExpensiveSorting extends SampleTest {
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fixSearchField();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.clickOnLeastExpensiveButton();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.ACTIVE_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByActiveStatus();
+        user.atOpenedBuildingPage.clickOnClearFieldButton();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.IN_CONTRACT_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+        user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByFilter(Filters.IN_CONTRACT_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+        user.atOpenedBuildingPage.clickOnClearFieldButton();
+        user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }
 }

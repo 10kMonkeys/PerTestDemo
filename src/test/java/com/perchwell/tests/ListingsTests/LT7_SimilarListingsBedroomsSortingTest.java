@@ -2,17 +2,15 @@ package com.perchwell.tests.ListingsTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
-import com.perchwell.data.Filters;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
-public class LT2_SimilarListingsSearchByBathrooms extends SampleTest {
+public class LT7_SimilarListingsBedroomsSortingTest extends SampleTest {
 
     @Test
-    public void similarListingsSearchByBathrooms() {
-
+    public void similarListingsBedroomsSortingTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -25,11 +23,13 @@ public class LT2_SimilarListingsSearchByBathrooms extends SampleTest {
         user.atOpenedBuildingPage.clickOnTestListing();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
-        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fixSearchField();
-        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BATHS_FILTER);
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByBaths();
-        user.atOpenedBuildingPage.clickOnClearFieldButton();
-        user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
+        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.clickOnBedroomsButton();
+        user.atOpenedBuildingPage.listingsShouldBeSortedByBedrooms();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.listingsShouldBeSortedByBedrooms();
+        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
+        user.atOpenedBuildingPage.listingsShouldBeSortedByBedrooms();
     }
 }
