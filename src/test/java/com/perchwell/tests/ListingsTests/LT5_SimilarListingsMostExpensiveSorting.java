@@ -25,7 +25,11 @@ public class LT5_SimilarListingsMostExpensiveSorting extends SampleTest {
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fixSearchField();
-//        user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();
+        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
+        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.clickOnLeastExpensiveButton();
+        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.clickOnMostExpensiveButton();
         user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
 //        user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();

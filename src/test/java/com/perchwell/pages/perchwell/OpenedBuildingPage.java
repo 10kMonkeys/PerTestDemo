@@ -180,6 +180,9 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Collection View Cell: LEAST EXPENSIVE")
 	private WebElement leastExpensiveButton;
 
+	@iOSXCUITFindBy(accessibility = "Collection View Cell: MOST EXPENSIVE")
+	private WebElement mostExpensiveButton;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -509,7 +512,7 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfListingsAreFilteredByActiveStatus() {
-		Assert.assertFalse(banner.isDisplayed());
+		element(banner).shouldNotBeVisible();
 	}
 
 	public void checkIfListingsAreFilteredByInContractStatus() {
@@ -525,5 +528,13 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void clickOnLeastExpensiveButton() {
 		element(leastExpensiveButton).click();
+	}
+
+	public void clickOnMostExpensiveButton() {
+		element(mostExpensiveButton).click();
+	}
+
+	public void clickOnBedroomsSort() {
+		element(MobileBy.AccessibilityId("Collection View Cell: BEDROOMS")).click();
 	}
 }
