@@ -11,7 +11,7 @@ import org.junit.Test;
 public class LT8_MoreInBuildingSearchByBedroomsTest extends SampleTest {
 
     @Test
-    public void moreInBuildingSearchByBedrooms() {
+    public void moreInBuildingSearchByBedroomsTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

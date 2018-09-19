@@ -10,7 +10,7 @@ import org.junit.Test;
 public class LT5_SimilarListingsMostExpensiveSortingTest extends SampleTest {
 
     @Test
-    public void similarListingsMostExpensiveSorting() {
+    public void similarListingsMostExpensiveSortingTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -27,6 +27,11 @@ public class LT5_SimilarListingsMostExpensiveSortingTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();
         user.atOpenedBuildingPage.clickOnSortButton();
+        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
+        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.clickOnLeastExpensiveButton();
+        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.clickOnMostExpensiveButton();
         user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();

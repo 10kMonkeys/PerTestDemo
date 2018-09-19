@@ -11,7 +11,7 @@ import org.junit.Test;
 public class LT4_SimilarListingsSearchByStatusTest extends SampleTest {
 
     @Test
-    public void similarListingsSearchByStatus() {
+    public void similarListingsSearchByStatusTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
