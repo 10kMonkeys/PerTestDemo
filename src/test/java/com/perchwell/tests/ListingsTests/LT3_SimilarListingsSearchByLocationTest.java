@@ -10,8 +10,7 @@ import org.junit.Test;
 public class LT3_SimilarListingsSearchByLocationTest extends SampleTest {
 
     @Test
-    public void similarListingsSearchByLocation() {
-
+    public void similarListingsSearchByLocationTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

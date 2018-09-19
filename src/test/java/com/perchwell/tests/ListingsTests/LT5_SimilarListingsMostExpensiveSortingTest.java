@@ -10,7 +10,7 @@ import org.junit.Test;
 public class LT5_SimilarListingsMostExpensiveSortingTest extends SampleTest {
 
     @Test
-    public void similarListingsMostExpensiveSorting() {
+    public void similarListingsMostExpensiveSortingTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
