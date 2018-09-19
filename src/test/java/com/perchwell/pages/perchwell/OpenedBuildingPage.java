@@ -127,7 +127,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
 	private WebElement discussWithClientHint;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS-61 WEST 62ND ST'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '61 WEST 62ND ST'")
 	//	@iOSXCUITFindBy(accessibility = "240 EAST 35TH ST. #TEST")
 //	@iOSXCUITFindBy(accessibility = "ADDRESS-61 WEST 62ND ST. #TEST")
 	private WebElement testListing;
@@ -184,7 +184,7 @@ public class OpenedBuildingPage extends BasePage {
 	private WebElement mostExpensiveButton;
 
 	@iOSXCUITFindBy(accessibility = "Collection View Cell: BEDROOMS")
-	private WebElement bedroomsButton;
+	private WebElement sortByBedroomsButton;
 
 	//endregion
 
@@ -541,25 +541,8 @@ public class OpenedBuildingPage extends BasePage {
 		element(MobileBy.AccessibilityId("Collection View Cell: BEDROOMS")).click();
 	}
 
-	public void clickOnBedroomsButton() {
-		element(bedroomsButton).click();
-	}
-
-	public void listingsShouldBeSortedByBedrooms() {
-		boolean result = true;
-		Integer obj1;
-		Integer obj2;
-
-		for (int i = 0; i<currentBedsAndBathsAmountList.size()-1; i++) {
-			obj1 = Integer.parseInt(String.valueOf(currentBedsAndBathsAmountList.get(i).getAttribute("value").charAt(0)));
-			obj2 = Integer.parseInt(String.valueOf(currentBedsAndBathsAmountList.get(i+1).getAttribute("value").charAt(0)));
-
-			if (obj1.compareTo(obj2) > 0); {
-				result = false;
-				break;
-			}
-		}
-		Assert.assertTrue(result);
+	public void clickOnSortByBedroomsButton() {
+		element(sortByBedroomsButton).click();
 	}
 
 	public void checkIfSearchFieldIsFilledByFilter(String value) {
