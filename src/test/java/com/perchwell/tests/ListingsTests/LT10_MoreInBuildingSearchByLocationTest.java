@@ -24,9 +24,9 @@ public class LT10_MoreInBuildingSearchByLocationTest extends SampleTest {
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.getNeighborhoodValue();
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
-        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fixSearchField();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fillInSearchFieldByNeighborhood();
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();

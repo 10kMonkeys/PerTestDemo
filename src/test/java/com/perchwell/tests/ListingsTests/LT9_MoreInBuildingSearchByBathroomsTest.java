@@ -24,9 +24,9 @@ public class LT9_MoreInBuildingSearchByBathroomsTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnTestListing();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
-        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fixSearchField();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BATHS_FILTER);
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByBaths();
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();
