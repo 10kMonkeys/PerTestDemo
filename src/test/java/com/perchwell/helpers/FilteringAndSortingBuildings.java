@@ -28,6 +28,10 @@ public abstract class FilteringAndSortingBuildings {
                 case "bathrooms":
                     p = Pattern.compile("\\d+.?\\d* BA");
                     break;
+
+                case "bedroomsInBuilding":
+                    p = Pattern.compile("\\d+  BED");
+                    break;
             }
             Matcher m = p.matcher(input);
 
@@ -39,6 +43,10 @@ public abstract class FilteringAndSortingBuildings {
                 room = room.substring(0, room.length() - 4);
             } else if (room.contains("BD") || room.contains("BA")) {
                 room = room.substring(0, room.length() - 3);
+            } else if ((room.contains("BED") || room.contains("BATH")) && (room.contains("½"))) {
+                room = room.substring(0, room.length() - 5);
+            } else if (room.contains("BED") || room.contains("BATH")) {
+                room = room.substring(0, room.length() - 4);
             } else {
                 room = "0";
             }
@@ -110,6 +118,11 @@ public abstract class FilteringAndSortingBuildings {
                     case "priceLeast":
                         currentNumber = getNumberFromString("priceLeast", s);
                         buildingSort = FilteringAndSortingBuildings.isBuildingInAscendingOrder(currentNumber, numberToCompare);
+                        break;
+
+                    case "bedroomsInBuilding":
+                        currentNumber = getNumberFromString("bedroomsInBuilding", s);
+                        buildingSort = FilteringAndSortingBuildings.isBuildingInDescendingOrder(currentNumber, numberToCompare);
                         break;
                 }
 

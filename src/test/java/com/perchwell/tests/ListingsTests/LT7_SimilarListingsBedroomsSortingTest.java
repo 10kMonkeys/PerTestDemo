@@ -25,11 +25,11 @@ public class LT7_SimilarListingsBedroomsSortingTest extends SampleTest {
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
         user.atOpenedBuildingPage.fixSearchField();
         user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.clickOnBedroomsButton();
-        user.atOpenedBuildingPage.listingsShouldBeSortedByBedrooms();
+        user.atOpenedBuildingPage.clickOnSortByBedroomsButton();
+        user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
-        user.atOpenedBuildingPage.listingsShouldBeSortedByBedrooms();
+        user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();
-        user.atOpenedBuildingPage.listingsShouldBeSortedByBedrooms();
+        user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
     }
 }

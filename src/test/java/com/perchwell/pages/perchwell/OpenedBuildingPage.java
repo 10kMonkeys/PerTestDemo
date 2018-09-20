@@ -185,7 +185,7 @@ public class OpenedBuildingPage extends BasePage {
 	private WebElement mostExpensiveButton;
 
 	@iOSXCUITFindBy(accessibility = "Collection View Cell: BEDROOMS")
-	private WebElement bedroomsButton;
+	private WebElement sortByBedroomsButton;
 
 	@iOSXCUITFindBy(accessibility = "Collection View Cell Selected: MOST EXPENSIVE")
 	private WebElement mostExpensiveButtonSelected;
@@ -540,25 +540,8 @@ public class OpenedBuildingPage extends BasePage {
 		element(MobileBy.AccessibilityId("Collection View Cell: BEDROOMS")).click();
 	}
 
-	public void clickOnBedroomsButton() {
-		element(bedroomsButton).click();
-	}
-
-	public void listingsShouldBeSortedByBedrooms() {
-		boolean result = true;
-		Integer obj1;
-		Integer obj2;
-
-		for (int i = 0; i<currentBedsAndBathsAmountList.size()-1; i++) {
-			obj1 = Integer.parseInt(String.valueOf(currentBedsAndBathsAmountList.get(i).getAttribute("value").charAt(0)));
-			obj2 = Integer.parseInt(String.valueOf(currentBedsAndBathsAmountList.get(i+1).getAttribute("value").charAt(0)));
-
-			if (obj1.compareTo(obj2) > 0); {
-				result = false;
-				break;
-			}
-		}
-		Assert.assertTrue(result);
+	public void clickOnSortByBedroomsButton() {
+		element(sortByBedroomsButton).click();
 	}
 
 	public void checkIfSearchFieldIsFilledByFilter(String value) {

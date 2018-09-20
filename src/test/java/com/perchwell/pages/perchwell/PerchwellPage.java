@@ -367,6 +367,11 @@ public class PerchwellPage extends BasePage {
 	    Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedrooms", roomsInfoList) == 1);
     }
 
+
+	public void ListingBeSortedByBedroomsInBuilding() {
+		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedroomsInBuilding", roomsInfoList) == 1);
+	}
+
     public void isListingSortedByBathrooms() {
 		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bathrooms", roomsInfoList) == 1);
     }

@@ -191,6 +191,11 @@ public class PerchwellSteps extends ScenarioSteps {
         onPage.isListingSortedByBedrooms();
     }
 
+	@Step
+	public void shouldListingBeSortedByBedroomsInBuilding() {
+		onPage.ListingBeSortedByBedroomsInBuilding();
+	}
+
     @Step
     public void shouldListingBeSortedByBathrooms() {
         onPage.isListingSortedByBathrooms();
