@@ -17,11 +17,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import javax.validation.constraints.Null;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OpenedBuildingPage extends BasePage {
 
-	private static List<WebElement> initialBedsAndBathsAmountList = null;
+	private List<String> initialBedsAndBathsAmountList = new ArrayList<>();
 
 	//region WebElements
 
@@ -462,13 +463,23 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfListingReturnedToInitialState() {
-		for (int i = 0; i< initialBedsAndBathsAmountList.size(); i++) {
-			Assert.assertEquals(initialBedsAndBathsAmountList.get(i).getAttribute("value"), currentBedsAndBathsAmountList.get(i).getAttribute("value"));
+		int counter = 0;
+		boolean isListSizeEquals = false;
+
+		if (initialBedsAndBathsAmountList.size() == currentBedsAndBathsAmountList.size()) {
+			for(String element : initialBedsAndBathsAmountList) {
+				Assert.assertEquals(element, currentBedsAndBathsAmountList.get(counter).getAttribute("value"));
+				counter += 1;
+			}
+			isListSizeEquals = true;
 		}
+		Assert.assertTrue(isListSizeEquals);
 	}
 
 	public void getInitialBedsAndBathsAmountList() {
-		initialBedsAndBathsAmountList = currentBedsAndBathsAmountList;
+		for (WebElement element: currentBedsAndBathsAmountList) {
+			initialBedsAndBathsAmountList.add(element.getAttribute("value"));
+		}
 	}
 
 	public void clickOnTestListing() {
