@@ -28,6 +28,9 @@ public class LT6_SimilarListingsLeastExpensiveSortingTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnLeastExpensiveButton();
         user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.checkIfLeastExpensiveSortingButtonIsEnabled();
+        user.atOpenedBuildingPage.clickOnSortButton();
         user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();
         user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();

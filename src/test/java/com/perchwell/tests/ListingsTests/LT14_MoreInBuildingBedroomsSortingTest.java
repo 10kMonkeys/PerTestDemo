@@ -7,10 +7,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
-public class LT7_SimilarListingsBedroomsSortingTest extends SampleTest {
+public class LT14_MoreInBuildingBedroomsSortingTest extends SampleTest {
 
     @Test
-    public void similarListingsBedroomsSortingTest() {
+    public void moreInBuildingBedroomsSortingTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -24,15 +24,16 @@ public class LT7_SimilarListingsBedroomsSortingTest extends SampleTest {
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.swipeToTheSimilarListings();
         user.atOpenedBuildingPage.fixSearchField();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.clickOnSortByBedroomsButton();
         user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
-        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.bedroomsSortButtonShouldBeEnabled();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
-        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
     }
 }

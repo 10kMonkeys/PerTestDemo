@@ -34,7 +34,9 @@ public class LT5_SimilarListingsMostExpensiveSortingTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnMostExpensiveButton();
         user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();
+        user.atOpenedBuildingPage.clickOnSortButton();
         user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();
         user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
