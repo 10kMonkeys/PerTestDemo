@@ -7,10 +7,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
-public class LT5_SimilarListingsMostExpensiveSortingTest extends SampleTest {
+public class LT13_MoreInBuildingLeastExpensiveSortingTest extends SampleTest {
 
     @Test
-    public void similarListingsMostExpensiveSortingTest() {
+    public void moreInBuildingLeastExpensiveSortingTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -24,21 +24,16 @@ public class LT5_SimilarListingsMostExpensiveSortingTest extends SampleTest {
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.fixSearchField();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.clickOnLeastExpensiveButton();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.clickOnMostExpensiveButton();
-        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
+        user.atOpenedBuildingPage.clickOnLeastExpensiveButton();
+        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();
-        user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
+        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.checkIfLeastExpensiveSortingButtonIsEnabled();
+        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
     }
 }
