@@ -474,15 +474,8 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfListingReturnedToInitialState() {
-//		int counter = 0;
-		System.out.println(initialBedsAndBathsAmountList.size());
 		for (int i = 0; i<initialBedsAndBathsAmountList.size(); i++){
 			Assert.assertEquals(initialBedsAndBathsAmountList.get(i), currentBedsAndBathsAmountList.get(i).getAttribute("value"));
-//			for(String element : initialBedsAndBathsAmountList) {
-//				Assert.assertEquals(element, currentBedsAndBathsAmountList.get(counter).getAttribute("value"));
-//				System.out.println(element + "\n" + currentBedsAndBathsAmountList.get(counter).getAttribute("value"));
-//				counter++;
-//			}
 		}
 	}
 
@@ -490,8 +483,6 @@ public class OpenedBuildingPage extends BasePage {
 		for (WebElement element: currentBedsAndBathsAmountList) {
 			initialBedsAndBathsAmountList.add(element.getAttribute("value"));
 		}
-		System.out.println("Expected values: " + initialBedsAndBathsAmountList);
-		System.out.println("Expected size: " + initialBedsAndBathsAmountList.size());
 	}
 
 	public void clickOnTestListing() {
