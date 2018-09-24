@@ -128,7 +128,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
 	private WebElement discussWithClientHint;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '61 WEST 62ND ST'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '#TEST'")
 	//	@iOSXCUITFindBy(accessibility = "240 EAST 35TH ST. #TEST")
 //	@iOSXCUITFindBy(accessibility = "ADDRESS-61 WEST 62ND ST. #TEST")
 	private WebElement testListing;
@@ -195,6 +195,12 @@ public class OpenedBuildingPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "Collection View Cell Selected: BEDROOMS")
 	private WebElement bedroomsSortButtonSelected;
+
+	@iOSXCUITFindBy(accessibility = "Segmented Control: PAST LISTINGS")
+	private WebElement pastListingsSection;
+
+	@iOSXCUITFindBy(accessibility = "Segmented Control: CURRENT LISTINGS")
+	private WebElement currentListingsSection;
 
 	//endregion
 
@@ -443,7 +449,7 @@ public class OpenedBuildingPage extends BasePage {
 		new TouchAction(appiumDriver).tap(minX, minY).release().perform();
 	}
 
-	public void swipeToSimilarListingsSection(){
+	public void swipeToTheListings(){
 		Helper.universalVerticalSwipe(lastListing);
 	}
 
@@ -468,23 +474,24 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfListingReturnedToInitialState() {
-		int counter = 0;
-		boolean isListSizeEquals = false;
-
-		if (initialBedsAndBathsAmountList.size() == currentBedsAndBathsAmountList.size()) {
-			for(String element : initialBedsAndBathsAmountList) {
-				Assert.assertEquals(element, currentBedsAndBathsAmountList.get(counter).getAttribute("value"));
-				counter += 1;
-			}
-			isListSizeEquals = true;
+//		int counter = 0;
+		System.out.println(initialBedsAndBathsAmountList.size());
+		for (int i = 0; i<initialBedsAndBathsAmountList.size(); i++){
+			Assert.assertEquals(initialBedsAndBathsAmountList.get(i), currentBedsAndBathsAmountList.get(i).getAttribute("value"));
+//			for(String element : initialBedsAndBathsAmountList) {
+//				Assert.assertEquals(element, currentBedsAndBathsAmountList.get(counter).getAttribute("value"));
+//				System.out.println(element + "\n" + currentBedsAndBathsAmountList.get(counter).getAttribute("value"));
+//				counter++;
+//			}
 		}
-		Assert.assertTrue(isListSizeEquals);
 	}
 
 	public void getInitialBedsAndBathsAmountList() {
 		for (WebElement element: currentBedsAndBathsAmountList) {
 			initialBedsAndBathsAmountList.add(element.getAttribute("value"));
 		}
+		System.out.println("Expected values: " + initialBedsAndBathsAmountList);
+		System.out.println("Expected size: " + initialBedsAndBathsAmountList.size());
 	}
 
 	public void clickOnTestListing() {
@@ -574,5 +581,13 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void bedroomsSortButtonShouldBeEnabled() {
 		element(bedroomsSortButtonSelected).shouldBeVisible();
+	}
+
+	public void clickOnPastListingsSection() {
+		element(pastListingsSection).click();
+	}
+
+	public void clickOnCurrentListingsSection() {
+		element(currentListingsSection).click();
 	}
 }

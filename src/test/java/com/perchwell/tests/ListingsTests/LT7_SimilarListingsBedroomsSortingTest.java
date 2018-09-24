@@ -19,10 +19,10 @@ public class LT7_SimilarListingsBedroomsSortingTest extends SampleTest {
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
-        user.atOpenedBuildingPage.swipeToTheSimilarListings();
+        user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.clickOnTestListing();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
-        user.atOpenedBuildingPage.swipeToTheSimilarListings();
+        user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.fixSearchField();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.clickOnSortByBedroomsButton();

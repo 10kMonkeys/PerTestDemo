@@ -185,8 +185,8 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void swipeToTheSimilarListings() {
-		onPage.swipeToSimilarListingsSection();
+	public void swipeToTheListings() {
+		onPage.swipeToTheListings();
 	}
 
 	@Step
@@ -291,13 +291,23 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void clickOnPastListingsSection() {
+		onPage.clickOnPastListingsSection();
+	}
+
+	@Step
+	public void clickOnCurrentListingsSection() {
+		onPage.clickOnCurrentListingsSection();
+	}
+
+	@Step
     public void checkIfLeastExpensiveSortingButtonIsEnabled() {
 		onPage.checkIfLeastExpensiveSortingButtonIsEnabled();
     }
 
     @Step
 	public void bedroomsSortButtonShouldBeEnabled() {
-		onPage.bedroomsSortButtonShouldBeEnabled();
+			onPage.bedroomsSortButtonShouldBeEnabled();
 	}
 }
 
