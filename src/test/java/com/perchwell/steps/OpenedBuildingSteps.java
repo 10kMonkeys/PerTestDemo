@@ -291,7 +291,6 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-
 	public void clickOnPastListingsSection() {
 		onPage.clickOnPastListingsSection();
 	}
