@@ -550,10 +550,6 @@ public class OpenedBuildingPage extends BasePage {
 		element(mostExpensiveButton).click();
 	}
 
-	public void clickOnBedroomsSort() {
-		element(MobileBy.AccessibilityId("Collection View Cell: BEDROOMS")).click();
-	}
-
 	public void clickOnSortByBedroomsButton() {
 		element(sortByBedroomsButton).click();
 	}
