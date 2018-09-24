@@ -271,11 +271,6 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickOnBedroomsSort() {
-		onPage.clickOnBedroomsSort();
-	}
-
-	@Step
 	public void clickOnSortByBedroomsButton() {
 		onPage.clickOnSortByBedroomsButton();
 	}
