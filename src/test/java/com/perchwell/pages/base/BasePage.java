@@ -1,6 +1,7 @@
 package com.perchwell.pages.base;
 
         import com.google.common.base.Predicate;
+        import io.appium.java_client.android.AndroidDriver;
         import io.appium.java_client.ios.IOSDriver;
         import io.appium.java_client.ios.IOSElement;
         import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -12,7 +13,6 @@ package com.perchwell.pages.base;
         import java.util.concurrent.TimeUnit;
 
 public abstract class BasePage extends PageObject {
-
     public BasePage(final WebDriver driver) {
         super(driver, new Predicate<PageObject>() {
             @Override
@@ -21,8 +21,10 @@ public abstract class BasePage extends PageObject {
                 PageFactory
                         .initElements(new AppiumFieldDecorator(((WebDriverFacade) page.getDriver()).getProxiedDriver(),
                                 page.getImplicitWaitTimeout().in(TimeUnit.SECONDS), TimeUnit.SECONDS), page);
+
                 return true;
-            }
+                            }
+
 
         });
     }

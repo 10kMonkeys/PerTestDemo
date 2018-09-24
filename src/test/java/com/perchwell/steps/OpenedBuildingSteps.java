@@ -1,58 +1,303 @@
 package com.perchwell.steps;
 
+import com.perchwell.crossPlatform.Config;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.OpenedBuildingPage;
-import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.junit.Assert;
 
 public class OpenedBuildingSteps extends ScenarioSteps {
 
-OpenedBuildingPage openedBuildingPage;
+	OpenedBuildingPage onPage;
 
-@Step
-public void clickDiscussWithMyClientHint() {
-	openedBuildingPage.clickDiscussWithMyClientHint();
+	@Step
+	public void clickOnDiscussWithMyClientHint() {
+		if (!Config.isAndroid()) {
+			onPage.clickOnDiscussWithMyClientHint();
+		}
+	}
+
+	@Step
+	public void clickOnMyTagsLabel() {
+		onPage.clickOnMyTagsLabel();
+	}
+
+	@Step
+	public void clickOnArrowBackButtonFromListing() {
+		onPage.clickOnArrowBackButtonFromListing();
+	}
+
+	@Step
+	public void clickOnDeleteTagButton() {
+		onPage.clickOnDeleteTagButton();
+	}
+
+	@Step("Add to compare {0}")
+	public void addToCompare(String buildingName) {
+		onPage.clickOnAddToCompareButton();
+		SessionVariables.addValueInSessionVariable(buildingName, onPage.getBuildingAddress());
+	}
+
+	@Step
+	public void clickOnDiscussWithMyClientOption() {
+		onPage.clickOnDiscussWithClientOption();
+	}
+
+	@Step
+	public void clickOnAddDiscusButton() {
+		onPage.clickOnAddDiscus();
+	}
+
+	@Step
+	public void shouldSeeBuildingAddress() {
+		onPage.isBuildingAddressDisplayed();
+	}
+
+	@Step
+	public void openExistingDiscussion() {
+		onPage.openExistingDiscussion(SessionVariables.getValueFromSessionVariable("Client"));
+	}
+
+	@Step
+	public void shouldSeeExistingDiscussion() {
+		onPage.discussionIsDisplayed(SessionVariables.getValueFromSessionVariable("Client"));
+	}
+
+	@Step
+	public void clickOnSendWithinPerchwell() {
+		onPage.clickOnSendWithinPerchwell();
+	}
+
+	@Step
+	public void shouldSeeExistingDiscussionWithAgent() {
+		onPage.discussionIsDisplayed(SessionVariables.getValueFromSessionVariable("Agent"));
+	}
+
+	@Step
+	public void openExistingDiscussionWithAgent() {
+		onPage.openExistingDiscussion(SessionVariables.getValueFromSessionVariable("Agent"));
+	}
+
+	@Step
+	public void isDiscussionWithMyClientDisplayed() {
+		onPage.isDiscussionWithMyClientDisplayed();
+	}
+
+	@Step
+	public void isFilterStudioApplied() {
+		onPage.isTextStudioDisplayed();
+	}
+
+	@Step
+	public void isFilter1BathApplied() {
+		onPage.isText1BathDisplayed();
+	}
+
+	@Step
+	public void shouldFilterFireplaceApplied() throws Exception {
+		onPage.clickFeaturesAmenities();
+		onPage.isFireplaceDisplayed();
+	}
+
+	@Step
+	public void clickShareButton() {
+		onPage.clickOnShareButton();
+	}
+
+	@Step
+	public void isBuildingOpen() {
+		onPage.isBuildingOpen();
+	}
+
+	@Step
+	public void openDiscussionWithJustCreatedClient() {
+		onPage.openDiscussionWithJustCreatedClient(SessionVariables.getValueFromSessionVariable("User_name"));
+	}
+
+	@Step
+	public void shouldFilterLaundryBLDG() throws Exception {
+		onPage.clickFeaturesAmenities();
+		onPage.isLaundryBLDGDisplayed();
+	}
+
+	@Step
+    public void clickOnSeveralSellersAgentSection() {
+		onPage.clickOnSeveralSellersAgentSection();
+    }
+
+    @Step
+    public void removeAllTags() {
+    	onPage.removeAllTAgs();
+	}
+
+	@Step
+	public void shouldSeeAddedTag() {
+		onPage.shouldSeeAddedTag();
+	}
+
+	@Step
+	public void getFirstBuildingAddress() {
+		onPage.saveFirstBuildingAddress();
+	}
+
+	@Step
+	public void getSecondBuildingAddress() {
+		onPage.saveSecondBuildingAddress();
+	}
+
+	@Step
+	public void clickOnCancelButton() {
+		onPage.clickOnCancelButton();
+	}
+
+	@Step
+	public void clickOnCancelButtonInDiscussWithClient() {
+		onPage.clickOnCancelButtonInDiscussWithClient();
+	}
+
+	@Step
+	public void reopenDiscussionsPopUpInListingOnlyForAndroid() {
+		if(Config.isAndroid()) {
+			this.clickOnCancelButtonInDiscussWithClient();
+			this.clickShareButton();
+			this.clickOnSendWithinPerchwell();
+		}
+	}
+
+	@Step
+	public void fillInSearchFieldByNeighborhood() {
+		onPage.fillInSearchField(SessionVariables.getValueFromSessionVariable("Neighborhood_value"));
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByBeds() {
+		onPage.checkIfListingsAreFilteredByBeds();
+	}
+
+	@Step
+	public void clickOnClearFieldButton() {
+		onPage.clickOnClearFieldButton();
+	}
+
+	@Step
+	public void checkIfListingReturnedToInitialState() {
+		onPage.checkIfListingReturnedToInitialState();
+	}
+
+	@Step
+	public void swipeToTheListings() {
+		onPage.swipeToTheListings();
+	}
+
+	@Step
+	public void getBedsAndBathsListingsAmount() {
+		onPage.getInitialBedsAndBathsAmountList();
+	}
+
+	@Step
+	public void clickOnTestListing() {
+		onPage.clickOnTestListing();
+	}
+
+	@Step
+	public void skipDiscussWithClientHint() {
+		onPage.skipDiscussWithClientHint();
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByBaths() {
+		onPage.checkIfListingsAreFilteredByBaths();
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByNeighborhood() {
+		onPage.checkIfListingsAreFilteredByNeighborhood();
+	}
+
+	@Step
+	public void getNeighborhoodValue() {
+		onPage.getNeighborhoodValue();
+	}
+
+	@Step
+	public void clickOnMoreInBuildingSection() {
+		onPage.clickOnMoreInBuildingSection();
+	}
+
+	@Step
+	public void checkIfSearchFieldIsFilledByNeighborhood() {
+		onPage.checkIfSearchFieldIsFilledByNeighborhood();
+	}
+
+	@Step
+	public void clickOnSimilarListingsSection() {
+		onPage.clickOnSimilarListingsSection();
+	}
+
+	@Step
+	public void fillInSearchFieldByFilter(String value) {
+		onPage.fillInSearchField(value);
+	}
+
+	@Step
+	public void fixSearchField() {
+		onPage.fixSearchField();
+		onPage.clickOnSimilarListingsSection();
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByActiveStatus() {
+		onPage.checkIfListingsAreFilteredByActiveStatus();
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByInContractStatus() {
+		onPage.checkIfListingsAreFilteredByInContractStatus();
+	}
+
+	@Step
+	public void clickOnSortButton() {
+		onPage.clickOnSortButton();
+	}
+
+	@Step
+	public void clickOnLeastExpensiveButton() {
+		onPage.clickOnLeastExpensiveButton();
+	}
+
+	@Step
+	public void clickOnMostExpensiveButton() {
+		onPage.clickOnMostExpensiveButton();
+	}
+
+	@Step
+	public void clickOnBedroomsSort() {
+		onPage.clickOnBedroomsSort();
+	}
+
+	@Step
+	public void clickOnSortByBedroomsButton() {
+		onPage.clickOnSortByBedroomsButton();
+	}
+
+	@Step
+	public void checkIfSearchFieldIsFilledByFilter(String value) {
+		onPage.checkIfSearchFieldIsFilledByFilter(value);
+	}
+
+	@Step
+	public void checkIfMostExpensiveSortingButtonIsEnabled() {
+		onPage.checkIfMostExpensiveSortingButtonIsEnabled();
+	}
+
+	@Step
+	public void clickOnPastListingsSection() {
+		onPage.clickOnPastListingsSection();
+	}
+
+	@Step
+	public void clickOnCurrentListingsSection() {
+		onPage.clickOnCurrentListingsSection();
+	}
 }
 
-@Step
-public void clickMyTagsLabel() {
-	openedBuildingPage.clickMyTagsLabel();
-}
-
-@Step
-public void clickBackButton() {
-	openedBuildingPage.clickBackButton();
-}
-
-@Step
-public void ckickDeleteTagButton() {
-	openedBuildingPage.ckickDeleteTagButton();
-}
-
-@Step("Add to compare {0}")
-public void addToCompare(String buildingName) {
-	openedBuildingPage.clickAddToCompareButton();
-	addBuildingAddressInSessionVariable(buildingName, openedBuildingPage.getBuildingAddress());
-
-}
-
-@Step
-public void clickDiscussWithMyClientButton() {
-	openedBuildingPage.clickDiscussWithClientButton();
-}
-
-@Step
-public void clickAddDiscusButton() {
-	openedBuildingPage.clickAddDiscus();
-}
-
-
-private void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
-	openedBuildingPage.addBuildingAddressInSessionVariable(buildingName, buildingAddress);
-}
-
-public void shouldSeeBuildingAddress() {
-	Assert.assertTrue(openedBuildingPage.getBuildingAddress().equalsIgnoreCase(openedBuildingPage.getBuildingAddressFromSessionVariable("buidingAddress")));
-}
-}
