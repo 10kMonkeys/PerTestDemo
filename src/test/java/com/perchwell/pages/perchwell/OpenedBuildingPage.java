@@ -1,7 +1,6 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.crossPlatform.Config;
-import com.perchwell.data.Filters;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
@@ -12,11 +11,11 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -176,7 +175,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'PRICE'$]")
 	private List<WebElement> pricesList;
 
-	@iOSXCUITFindBy(accessibility = "Listing Preview Sort ButtonListing Preview Sort Button: 0")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name BEGINSWITH 'Listing Preview Sort Button'$]")
 	private WebElement sortButton;
 
 	@iOSXCUITFindBy(accessibility = "Collection View Cell: LEAST EXPENSIVE")
@@ -189,7 +188,13 @@ public class OpenedBuildingPage extends BasePage {
 	private WebElement sortByBedroomsButton;
 
 	@iOSXCUITFindBy(accessibility = "Collection View Cell Selected: MOST EXPENSIVE")
-	private WebElement mostExpensiveButtonSelected;
+	private WebElement mostExpensiveSortButtonSelected;
+
+	@iOSXCUITFindBy(accessibility = "Collection View Cell Selected: LEAST EXPENSIVE")
+	private WebElement leastExpensiveSortButtonSelected;
+
+	@iOSXCUITFindBy(accessibility = "Collection View Cell Selected: BEDROOMS")
+	private WebElement bedroomsSortButtonSelected;
 
 	@iOSXCUITFindBy(accessibility = "Segmented Control: PAST LISTINGS")
 	private WebElement pastListingsSection;
@@ -567,7 +572,15 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfMostExpensiveSortingButtonIsEnabled() {
-		element(mostExpensiveButtonSelected).shouldBeVisible();
+		element(mostExpensiveSortButtonSelected).shouldBeVisible();
+	}
+
+    public void checkIfLeastExpensiveSortingButtonIsEnabled() {
+		element(leastExpensiveSortButtonSelected).shouldBeVisible();
+    }
+
+	public void bedroomsSortButtonShouldBeEnabled() {
+		element(bedroomsSortButtonSelected).shouldBeVisible();
 	}
 
 	public void clickOnPastListingsSection() {
