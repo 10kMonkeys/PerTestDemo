@@ -20,10 +20,8 @@ public class BT4_CurrentListingSearchByStatusTest extends SampleTest {
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
-        user.atOpenedBuildingPage.getNeighborhoodValue();
-        user.atOpenedBuildingPage.swipeToTheListings(); //
+        user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
-        user.atOpenedBuildingPage.fixSearchField();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.ACTIVE_FILTER);
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByActiveStatus();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
