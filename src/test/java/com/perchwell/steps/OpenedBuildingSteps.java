@@ -304,5 +304,11 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void bedroomsSortButtonShouldBeEnabled() {
 			onPage.bedroomsSortButtonShouldBeEnabled();
 	}
+
+	@Step
+	public void fixListingsSearchField() {
+		onPage.fixListingsSearchField();
+		onPage.clickOnCurrentListingsSection();
+	}
 }
 
