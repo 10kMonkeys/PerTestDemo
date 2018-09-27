@@ -11,7 +11,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -201,6 +200,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "Segmented Control: CURRENT LISTINGS")
 	private WebElement currentListingsSection;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name != 'Table View Cell: Show More' AND name BEGINSWITH 'Table View Cell'$][1]")
+	private WebElement firstListing;
 
 	//endregion
 
@@ -576,5 +578,18 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void clickOnCurrentListingsSection() {
 		element(currentListingsSection).click();
+	}
+
+	public void fixListingsSearchField() {
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+		Helper.universalVerticalSwipe(firstListing);
+
+		int minX = firstListing.getLocation().getX() + 220;
+		int minY = firstListing.getLocation().getY() - 90;
+
+		new TouchAction(appiumDriver).tap(minX, minY).release().perform();
 	}
 }
