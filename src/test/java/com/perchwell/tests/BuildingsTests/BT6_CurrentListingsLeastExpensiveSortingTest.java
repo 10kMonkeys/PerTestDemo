@@ -25,9 +25,9 @@ public class BT6_CurrentListingsLeastExpensiveSortingTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnLeastExpensiveButton();
         user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
         user.atOpenedBuildingPage.clickOnPastListingsSection();
-//        user.atOpenedBuildingPage.clickOnSortButton();
-//        user.atOpenedBuildingPage.checkIfLeastExpensiveSortingButtonIsEnabled();
-//        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.checkIfLeastExpensiveSortingButtonIsEnabled();
+        user.atOpenedBuildingPage.clickOnSortButton();
         user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
         user.atOpenedBuildingPage.clickOnCurrentListingsSection();
         user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
