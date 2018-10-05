@@ -7,10 +7,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Buildings"})
-public class BT6_CurrentListingsLeastExpensiveSortingTest extends SampleTest {
+public class BT14_PastListingsBedroomsSortingTest extends SampleTest {
 
     @Test
-    public void currentListingsLeastExpensiveSorting() {
+    public void pastListingsBedroomsSorting() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -21,15 +21,16 @@ public class BT6_CurrentListingsLeastExpensiveSortingTest extends SampleTest {
         user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.fixListingsSearchField();
         user.atOpenedBuildingPage.swipeToTheListings();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.clickOnLeastExpensiveButton();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
         user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.checkIfLeastExpensiveSortingButtonIsEnabled();
-        user.atOpenedBuildingPage.closeSortWindow();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+        user.atOpenedBuildingPage.clickOnSortByBedroomsButton();
+        user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
         user.atOpenedBuildingPage.clickOnCurrentListingsSection();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.bedroomsSortButtonShouldBeEnabled();
+        user.atOpenedBuildingPage.closeSortWindow();
+        user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
+        user.atOpenedBuildingPage.clickOnPastListingsSection();
+        user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
     }
 }

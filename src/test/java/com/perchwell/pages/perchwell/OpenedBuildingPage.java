@@ -204,6 +204,9 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name != 'Table View Cell: Show More' AND name BEGINSWITH 'Table View Cell'$][1]")
 	private WebElement firstListing;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name BEGINSWITH 'Collection View Cell Selected'$]")
+	private WebElement selectedSortButton;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -476,6 +479,11 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfListingReturnedToInitialState() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+        appiumDriver.hideKeyboard();
+
 		for (int i = 0; i<initialBedsAndBathsAmountList.size(); i++){
 			Assert.assertEquals(initialBedsAndBathsAmountList.get(i), currentBedsAndBathsAmountList.get(i).getAttribute("value"));
 		}
@@ -591,5 +599,9 @@ public class OpenedBuildingPage extends BasePage {
 		int minY = firstListing.getLocation().getY() - 90;
 
 		new TouchAction(appiumDriver).tap(minX, minY).release().perform();
+	}
+
+	public void closeSortWindow() {
+		element(selectedSortButton).click();
 	}
 }

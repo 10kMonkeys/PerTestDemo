@@ -310,5 +310,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 		onPage.fixListingsSearchField();
 		onPage.clickOnCurrentListingsSection();
 	}
+
+	@Step
+	public void closeSortWindow() {
+		onPage.closeSortWindow();
+	}
 }
 

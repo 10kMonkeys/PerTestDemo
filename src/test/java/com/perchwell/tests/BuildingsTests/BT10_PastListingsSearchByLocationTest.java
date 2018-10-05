@@ -7,10 +7,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Buildings"})
-public class BT6_CurrentListingsLeastExpensiveSortingTest extends SampleTest {
+public class BT10_PastListingsSearchByLocationTest extends SampleTest {
 
     @Test
-    public void currentListingsLeastExpensiveSorting() {
+    public void pastListingsSearchByLocation() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -20,16 +20,17 @@ public class BT6_CurrentListingsLeastExpensiveSortingTest extends SampleTest {
         user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.fixListingsSearchField();
+        user.atOpenedBuildingPage.getNeighborhoodValue();
         user.atOpenedBuildingPage.swipeToTheListings();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.clickOnLeastExpensiveButton();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
         user.atOpenedBuildingPage.clickOnPastListingsSection();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.checkIfLeastExpensiveSortingButtonIsEnabled();
-        user.atOpenedBuildingPage.closeSortWindow();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
+        user.atOpenedBuildingPage.fillInSearchFieldByNeighborhood();
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
         user.atOpenedBuildingPage.clickOnCurrentListingsSection();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+        user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByNeighborhood();
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
+        user.atOpenedBuildingPage.clickOnPastListingsSection();
+        user.atOpenedBuildingPage.clickOnClearFieldButton();
+        user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }
 }
