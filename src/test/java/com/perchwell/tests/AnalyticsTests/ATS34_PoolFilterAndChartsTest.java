@@ -13,6 +13,7 @@ public class ATS34_PoolFilterAndChartsTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
         user.atSearchPage.clickOnPoolFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();

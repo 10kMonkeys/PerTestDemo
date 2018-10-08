@@ -501,4 +501,9 @@ public class SearchSteps extends ScenarioSteps {
 	public void clickOnTestBuilding() {
 		onPage.clickOnTestBuilding();
 	}
+
+	@Step
+	public void clickOnShowMoreFeaturesAndAmenitiesButton() {
+		onPage.clickOnShowMoreFeaturesAndAmenitiesButton();
+	}
 }

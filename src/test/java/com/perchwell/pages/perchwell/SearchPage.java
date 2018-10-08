@@ -55,7 +55,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHS")
 	private WebElement baths;
 
-	@iOSXCUITFindBy(accessibility = "FIREPLACE")
+	@iOSXCUITFindBy(accessibility = "Working Fireplace")
 	private WebElement fireplaceFilter;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/load")
@@ -85,11 +85,11 @@ public class SearchPage extends BasePage {
 	private WebElement filterFor1Bath;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/in_contract")
-	@iOSXCUITFindBy(accessibility = "IN CONTRACT")
+	@iOSXCUITFindBy(accessibility = "In Contract")
 	private WebElement contractButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/off_market")
-	@iOSXCUITFindBy(accessibility = "OFF MARKET")
+	@iOSXCUITFindBy(accessibility = "Off Market")
 	private WebElement offMKTButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/sold_rented")
@@ -228,7 +228,7 @@ public class SearchPage extends BasePage {
 	private WebElement universalNewSearchButton;
 
 	@AndroidFindBy(xpath = "//*[@text='LAUNDRY BLDG']")
-	@iOSXCUITFindBy(accessibility = "Laundry Bldg")
+	@iOSXCUITFindBy(accessibility = "Building Laundry")
 	private WebElement laundryBLDGFilterButton;
 
 	@AndroidFindBy(xpath = "//*[@text='LAUNDRY BLDG']")
@@ -265,7 +265,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Elevator")
 	private WebElement elevatorFilter;
 
-	@iOSXCUITFindBy(accessibility = "New Dev")
+	@iOSXCUITFindBy(accessibility = "New Development")
 	private WebElement developmentFilter;
 
 	@iOSXCUITFindBy(accessibility = "Pets")
@@ -280,7 +280,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS '10,000+'")
 	private WebElement squareFeetMaximumValue;
 
-	@iOSXCUITFindBy(accessibility = "Laundry Unit")
+	@iOSXCUITFindBy(accessibility = "Washer Dryer")
 	private WebElement laundryUnitFilter;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name=='Add Button: Bar'`][1]")
@@ -330,6 +330,9 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "AddressSearchCancelButton")
 	private WebElement addressSearchCancelButton;
+
+	@iOSXCUITFindBy(accessibility = "Show more features & amenities")
+	private WebElement showMoreFeaturesAndAmenitiesButton;
 
 	public SearchPage(WebDriver driver) {
 		super(driver);
@@ -934,5 +937,10 @@ public class SearchPage extends BasePage {
 
 	public void clickOnTestBuilding() {
 		element(testBuilding).click();
+	}
+
+	public void clickOnShowMoreFeaturesAndAmenitiesButton() {
+		Helper.swipeDownUntilElementVisible(showMoreFeaturesAndAmenitiesButton);
+		element(showMoreFeaturesAndAmenitiesButton).click();
 	}
 }

@@ -479,11 +479,6 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfListingReturnedToInitialState() {
-        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-        WebDriver webDriver = webDriverFacade.getProxiedDriver();
-        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-        appiumDriver.hideKeyboard();
-
 		for (int i = 0; i<initialBedsAndBathsAmountList.size(); i++){
 			Assert.assertEquals(initialBedsAndBathsAmountList.get(i), currentBedsAndBathsAmountList.get(i).getAttribute("value"));
 		}

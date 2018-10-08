@@ -15,15 +15,14 @@ public class ATS32_OutdoorSpaceFilterAndChartTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
         user.atSearchPage.selectOutdoorSpaceFilter();
-                user.atSearchPage.clickOnApplyButton();
+        user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
-
         user.atAnalyticsPage.selectREBNYListingsSection();
         user.atRebnyListingsPage.addMKTShareOutdoorSpaceChart();
         user.atAnalyticsPage.skipHints();
         //        checkOnlyOnlyOneValueInDonutIsShown(); //TODO
-
         user.atAnalyticsPage.selectREBNYListingsWithFeatures();
         user.atRebnyListingsPage.addFeaturesOutdoorSpaceChart();
         //        checkOnlyOnlyOneColumnOutdoorIsShown(); //TODO

@@ -13,6 +13,7 @@ public class ATS37_FireplaceFilterAndChartsTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
         user.atSearchPage.clickOnFireplaceFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
@@ -24,5 +25,4 @@ public class ATS37_FireplaceFilterAndChartsTest extends SampleTest {
         user.atRebnyListingsPage.addFeaturesFireplaceChart();
 //        user.atAnalyticsPage.verifyThatChartIsDisplayedWithFilter("");
     }
-
 }

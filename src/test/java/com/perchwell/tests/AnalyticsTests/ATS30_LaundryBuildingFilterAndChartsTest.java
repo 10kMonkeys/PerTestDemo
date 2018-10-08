@@ -13,6 +13,7 @@ public class ATS30_LaundryBuildingFilterAndChartsTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
         user.atSearchPage.clickOnLaundryBuildingFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
