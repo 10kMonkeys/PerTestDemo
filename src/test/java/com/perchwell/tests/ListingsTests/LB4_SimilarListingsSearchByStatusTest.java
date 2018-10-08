@@ -8,10 +8,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
-public class LT8_MoreInBuildingSearchByBedroomsTest extends SampleTest {
+public class LB4_SimilarListingsSearchByStatusTest extends SampleTest {
 
     @Test
-    public void moreInBuildingSearchByBedroomsTest() {
+    public void similarListingsSearchByStatusTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -24,15 +24,17 @@ public class LT8_MoreInBuildingSearchByBedroomsTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnTestListing();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.swipeToTheListings();
-        user.atOpenedBuildingPage.fixSearchField();
-        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
-        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BEDS_FILTER);
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByBeds();
-        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
-        user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByFilter(Filters.TWO_BEDS_FILTER);
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByBeds();
+        user.atOpenedBuildingPage.fixSearchField();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.ACTIVE_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByActiveStatus();
+        user.atOpenedBuildingPage.clickOnClearFieldButton();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.IN_CONTRACT_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByFilter(Filters.IN_CONTRACT_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
+        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }

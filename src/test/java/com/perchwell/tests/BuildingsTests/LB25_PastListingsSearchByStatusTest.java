@@ -7,7 +7,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Buildings"})
-public class BT11_PastListingsSearchByStatusTest extends SampleTest {
+public class LB25_PastListingsSearchByStatusTest extends SampleTest {
 
     public void pastListingsSearchByStatus() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

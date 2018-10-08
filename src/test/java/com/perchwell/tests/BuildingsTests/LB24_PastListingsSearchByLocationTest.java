@@ -1,4 +1,4 @@
-package com.perchwell.tests.ListingsTests;
+package com.perchwell.tests.BuildingsTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
@@ -6,11 +6,11 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
-public class LT10_MoreInBuildingSearchByLocationTest extends SampleTest {
+@WithTagValuesOf({"ListingsAndBuildingsTests", "Buildings"})
+public class LB24_PastListingsSearchByLocationTest extends SampleTest {
 
     @Test
-    public void moreInBuildingSearchByLocation() {
+    public void pastListingsSearchByLocation() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -19,20 +19,17 @@ public class LT10_MoreInBuildingSearchByLocationTest extends SampleTest {
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
-        user.atOpenedBuildingPage.swipeToTheListings();
-        user.atOpenedBuildingPage.clickOnTestListing();
-        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.fixListingsSearchField();
         user.atOpenedBuildingPage.getNeighborhoodValue();
         user.atOpenedBuildingPage.swipeToTheListings();
-        user.atOpenedBuildingPage.fixSearchField();
-        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fillInSearchFieldByNeighborhood();
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
-        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
+        user.atOpenedBuildingPage.clickOnCurrentListingsSection();
         user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByNeighborhood();
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
-        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }
