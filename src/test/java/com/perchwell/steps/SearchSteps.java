@@ -361,11 +361,6 @@ public class SearchSteps extends ScenarioSteps {
 		}
     }
 
-    @Step
-	public void deselectSoldFilter() throws Exception {
-		onPage.clickOnSoldFilter();
-	}
-
 	@Step
     public void selectCondoFilter() throws Exception {
 		onPage.selectCondoFilter();

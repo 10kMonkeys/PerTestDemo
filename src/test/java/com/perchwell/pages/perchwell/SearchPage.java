@@ -42,14 +42,14 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell")
 	private WebElement itemListView;
 
-	@iOSXCUITFindBy(accessibility = "3BathsButton")
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 3")
 	private WebElement filterFor3Baths;
 
-	@iOSXCUITFindBy(accessibility = "2BedsButton")
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 2")
 	private WebElement filterFor2Beds;
 
 	@AndroidFindBy(xpath = "(//*[@text='STUDIO'])[1]")
-	@iOSXCUITFindBy(accessibility = "StudioBedsButton")
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: Studio")
 	private WebElement filterForStudioBeds;
 
 	@iOSXCUITFindBy(accessibility = "BATHS")
@@ -81,25 +81,25 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Asking Price Maximum Value Input")
 	private WebElement maximumPriceTextBox;
 
-	@iOSXCUITFindBy(accessibility = "1BathButton")
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 1")
 	private WebElement filterFor1Bath;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/in_contract")
-	@iOSXCUITFindBy(accessibility = "In Contract")
-	private WebElement contractButton;
+	@iOSXCUITFindBy(accessibility = "Listing Status Suboption: In Contract")
+	private WebElement inContractFilter;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/off_market")
-	@iOSXCUITFindBy(accessibility = "Off Market")
+	@iOSXCUITFindBy(accessibility = "Listing Status Suboption: Off Market")
 	private WebElement offMKTButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/sold_rented")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SOLD/RENTED\"`][1]")
+	@iOSXCUITFindBy(accessibility = "Listing Status Suboption: Sold/Rented")
 	private WebElement soldOrRentedButton;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"EXPIRED\"`][1]")
+	@iOSXCUITFindBy(accessibility = "Listing Status Suboption: Expired")
 	private WebElement expiredButton;
 
-	@iOSXCUITFindBy(accessibility = "ACTIVE")
+	@iOSXCUITFindBy(accessibility = "Listing Status Suboption: Active")
 	private WebElement activeButton;
 
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeStaticText[not(contains(@name,'LISTING STATUS'))]")
@@ -137,8 +137,8 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE AS...")
 	private WebElement save;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/rentals\n")
-	@iOSXCUITFindBy(accessibility = "Rentals")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/rentals")
+	@iOSXCUITFindBy(accessibility = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'INFO'")
 	private WebElement rentalsButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_new_search")
@@ -150,75 +150,75 @@ public class SearchPage extends BasePage {
 	private WebElement resetFiltersButton;
 
 	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
-	@iOSXCUITFindBy(accessibility = "1BedButton")
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 1")
 	private WebElement filterFor1Bed;
 
 	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1BedButton'")
 	private WebElement filter1BedSelectedOrNot;
 
-	@iOSXCUITFindBy(accessibility = "3BedsButton")
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 3")
 	private WebElement filterFor3Beds;
 
 	@AndroidFindBy(xpath = "(//*[@text='4+'])[1]")
-	@iOSXCUITFindBy(accessibility = "4PlusBedsButton")
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 4")
 	private WebElement filterFor4PlusBeds;
 
 	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[2]")
-	@iOSXCUITFindBy(accessibility = "1.5BathsButton")
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 1½")
 	private WebElement filterFor1AndHalfBath;
 
-	@iOSXCUITFindBy(accessibility = "2BathsButton")
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 2")
 	private WebElement filterFor2Baths;
 
-	@iOSXCUITFindBy(accessibility = "4PlusBathsButton")
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 4")
 	private WebElement filterFor4PlusBaths;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton[2]")
 	private WebElement deleteSearchButton;
 
-	@iOSXCUITFindBy(accessibility = "StudioBedsButton-selected")
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: Studio")
 	private WebElement selectedFilterForStudioBeds;
 
 	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
-	@iOSXCUITFindBy(accessibility = "1BedButton-selected")
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 1")
 	private WebElement selectedFilterFor1Bed;
 
-	@iOSXCUITFindBy(accessibility = "2BedsButton-selected")
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 2")
 	private WebElement selectedFilterFor2Beds;
 
-	@iOSXCUITFindBy(accessibility = "3BedsButton-selected")
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 3")
 	private WebElement selectedFilterFor3Beds;
 
-	@iOSXCUITFindBy(accessibility = "4PlusBedsButton-selected")
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 4")
 	private WebElement selectedFilterFor4PlusBeds;
 
-	@iOSXCUITFindBy(accessibility = "1BathButton-selected")
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 1")
 	private WebElement selectedFilterFor1Bath;
 
 	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[2]")
-	@iOSXCUITFindBy(accessibility = "1.5BathsButton-selected")
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 1½")
 	private WebElement selectedFilterFor1AndHalfBath;
 
-	@iOSXCUITFindBy(accessibility = "2BathsButton-selected")
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 2")
 	private WebElement selectedFilter2Baths;
 
-	@iOSXCUITFindBy(accessibility = "3BathsButton-selected")
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 3")
 	private WebElement selectedFilterFor3Baths;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/active")
-    @iOSXCUITFindBy(accessibility = "ACTIVE-Selected")
+    @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: Active")
     private WebElement selectedActiveFilter;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/in_contract")
-    @iOSXCUITFindBy(accessibility = "IN CONTRACT-Selected")
+    @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: In Contract")
     private WebElement selectedContractFilter;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/off_market")
-    @iOSXCUITFindBy(accessibility = "OFF MARKET-Selected")
+    @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: Off Market")
     private WebElement selectedOffMktFilter;
 
-    @iOSXCUITFindBy(accessibility = "Sales-selected")
+    @iOSXCUITFindBy(accessibility = "Option Selected: Sales")
     private WebElement selectedSalesFilter;
 
 	@iOSXCUITFindBy(accessibility = "Fireplace-SELECTED")
@@ -234,9 +234,6 @@ public class SearchPage extends BasePage {
 	@AndroidFindBy(xpath = "//*[@text='LAUNDRY BLDG']")
 	@iOSXCUITFindBy(accessibility = "Laundry Bldg-SELECTED")
 	private WebElement selectedLaundryBLDGFilter;
-
-	@iOSXCUITFindBy(accessibility = "Sales-selected")
-	private WebElement selectedSoldFilter;
 
 	@iOSXCUITFindBy(accessibility = "Condo")
 	private WebElement condoFilter;
@@ -333,6 +330,18 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "Show more features & amenities")
 	private WebElement showMoreFeaturesAndAmenitiesButton;
+
+	@iOSXCUITFindBy(accessibility = "CURRENT STATUS")
+	private WebElement currentStatusSection;
+
+	@iOSXCUITFindBy(accessibility = "PROPERTY TYPE")
+	private WebElement propertyTypeSection;
+
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Option: Range")
+	private WebElement bedroomsRangeOption;
+
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Option: Range")
+	private WebElement bathroomsRangeOption;
 
 	public SearchPage(WebDriver driver) {
 		super(driver);
@@ -434,13 +443,13 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectSoldOrRentFilter() throws Exception {
-		Helper.swipeDownUntilElementVisible(soldOrRentedButton);
+		Helper.universalVerticalSwipe(soldOrRentedButton);
 		element(soldOrRentedButton).click();
 	}
 
 	public void selectContractFilter() {
-		Helper.scrollToElement(contractButton);
-		element(contractButton).click();
+		Helper.universalVerticalSwipe(inContractFilter);
+		element(inContractFilter).click();
 	}
 
 	public void clickDeleteTagButtonQUEENS() {
@@ -704,7 +713,7 @@ public class SearchPage extends BasePage {
 		String maxPriceFilter = element(maximumPriceTextBox).getAttribute("value");
 		String minPriceFilter = element(minimumPriceTextBox).getAttribute("value");
 
-		if (!maxPriceFilter.contains("NO MAX") || !minPriceFilter.contains("NO MIN")) {
+		if (!maxPriceFilter.contains("Max") || !minPriceFilter.contains("Min")) {
 			emptyPricesFilters = false;
 		}
 		return emptyPricesFilters;
@@ -720,7 +729,7 @@ public class SearchPage extends BasePage {
 			Helper.universalVerticalSwipe(selectedActiveFilter);
 			resetImplicitTimeout();
 		} else {
-			Helper.scrollToElement(selectedActiveFilter);
+			Helper.universalVerticalSwipe(selectedActiveFilter);
 		}
 		element(selectedActiveFilter).click();
     }
@@ -735,12 +744,13 @@ public class SearchPage extends BasePage {
 	    element(selectedOffMktFilter).click();
     }
 
-    public void checkSalesAndActiveFiltersSelected() throws Exception {
-        SoftAssertions softAssert = new SoftAssertions();
-        Helper.swipeDownUntilElementVisible(selectedSoldFilter);
-        softAssert.assertThat(Helper.isElementDisplayed(element(selectedActiveFilter))).isTrue();
-        softAssert.assertThat(Helper.isElementDisplayed(element(selectedSalesFilter))).isTrue();
-        softAssert.assertAll();
+    public void checkSalesAndActiveFiltersSelected(){
+		SoftAssertions softAssertions = new SoftAssertions();
+		Helper.universalVerticalSwipe(propertyTypeSection);
+		softAssertions.assertThat(element(selectedSalesFilter).isDisplayed());
+        Helper.universalVerticalSwipe(currentStatusSection);
+		softAssertions.assertThat(element(selectedActiveFilter).isDisplayed());
+		softAssertions.assertAll();
     }
 
 	public void shouldFireplaceFilterBeSelected() {
@@ -778,13 +788,6 @@ public class SearchPage extends BasePage {
 		} else {
 			element(selectedLaundryBLDGFilter).shouldBePresent();
 		}
-	}
-
-
-	public void clickOnSoldFilter() throws Exception {
-		Helper.swipeDownUntilElementVisible(selectedSoldFilter);
-		element(selectedSoldFilter).click();
-
 	}
 
     public void selectCondoFilter() throws Exception {
