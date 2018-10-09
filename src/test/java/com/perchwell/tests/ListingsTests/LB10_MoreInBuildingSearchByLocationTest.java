@@ -7,10 +7,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
-public class LT3_SimilarListingsSearchByLocationTest extends SampleTest {
+public class LB10_MoreInBuildingSearchByLocationTest extends SampleTest {
 
     @Test
-    public void similarListingsSearchByLocationTest() {
+    public void moreInBuildingSearchByLocation() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -24,14 +24,15 @@ public class LT3_SimilarListingsSearchByLocationTest extends SampleTest {
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.getNeighborhoodValue();
         user.atOpenedBuildingPage.swipeToTheListings();
-        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fixSearchField();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fillInSearchFieldByNeighborhood();
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
-        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
         user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByNeighborhood();
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
-        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }

@@ -8,10 +8,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Buildings"})
-public class BT2_CurrentListingsSearchByBathroomsTest extends SampleTest {
+public class LB23_PastListingsSearchByBathroomsTest extends SampleTest {
 
     @Test
-    public void currentListingsSearchByBathrooms() {
+    public void pastListingsSearchByBathrooms() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -20,14 +20,16 @@ public class BT2_CurrentListingsSearchByBathroomsTest extends SampleTest {
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
+        user.atOpenedBuildingPage.fixListingsSearchField();
         user.atOpenedBuildingPage.swipeToTheListings();
+        user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BATHS_FILTER);
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByBaths();
-        user.atOpenedBuildingPage.clickOnPastListingsSection();
+        user.atOpenedBuildingPage.clickOnCurrentListingsSection();
         user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByFilter(Filters.TWO_BATHS_FILTER);
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByBaths();
-        user.atOpenedBuildingPage.clickOnCurrentListingsSection();
+        user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }

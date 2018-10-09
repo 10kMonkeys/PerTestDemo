@@ -1,4 +1,4 @@
-package com.perchwell.tests.BuildingsTests;
+package com.perchwell.tests.ListingsTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
@@ -7,11 +7,11 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"ListingsAndBuildingsTests", "Buildings"})
-public class BT9_PastListingsSearchByBathroomsTest extends SampleTest {
+@WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
+public class LB2_SimilarListingsSearchByBathroomsTest extends SampleTest {
 
     @Test
-    public void pastListingsSearchByBathrooms() {
+    public void similarListingsSearchByBathrooms() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -20,16 +20,18 @@ public class BT9_PastListingsSearchByBathroomsTest extends SampleTest {
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
-        user.atOpenedBuildingPage.fixListingsSearchField();
         user.atOpenedBuildingPage.swipeToTheListings();
-        user.atOpenedBuildingPage.clickOnPastListingsSection();
+        user.atOpenedBuildingPage.clickOnTestListing();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
+        user.atOpenedBuildingPage.fixSearchField();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BATHS_FILTER);
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByBaths();
-        user.atOpenedBuildingPage.clickOnCurrentListingsSection();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByFilter(Filters.TWO_BATHS_FILTER);
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByBaths();
-        user.atOpenedBuildingPage.clickOnPastListingsSection();
+        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }

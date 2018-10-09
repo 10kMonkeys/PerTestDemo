@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Buildings"})
-public class BT13_PastListingsLeastExpensiveSortingTest extends SampleTest {
+public class LB27_PastListingsLeastExpensiveSortingTest extends SampleTest {
 
     @Test
     public void pastListingsLeastExpensiveSorting() {

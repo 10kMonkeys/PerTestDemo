@@ -1,4 +1,4 @@
-package com.perchwell.tests.BuildingsTests;
+package com.perchwell.tests.ListingsTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
@@ -6,11 +6,11 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"ListingsAndBuildingsTests", "Buildings"})
-public class BT14_PastListingsBedroomsSortingTest extends SampleTest {
+@WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
+public class LB14_MoreInBuildingBedroomsSortingTest extends SampleTest {
 
     @Test
-    public void pastListingsBedroomsSorting() {
+    public void moreInBuildingBedroomsSortingTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -19,18 +19,21 @@ public class BT14_PastListingsBedroomsSortingTest extends SampleTest {
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
-        user.atOpenedBuildingPage.fixListingsSearchField();
         user.atOpenedBuildingPage.swipeToTheListings();
-        user.atOpenedBuildingPage.clickOnPastListingsSection();
+        user.atOpenedBuildingPage.clickOnTestListing();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.swipeToTheListings();
+        user.atOpenedBuildingPage.fixSearchField();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.clickOnSortByBedroomsButton();
         user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
-        user.atOpenedBuildingPage.clickOnCurrentListingsSection();
+        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.bedroomsSortButtonShouldBeEnabled();
-        user.atOpenedBuildingPage.closeSortWindow();
+        user.atOpenedBuildingPage.clickOnSortButton();
         user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
-        user.atOpenedBuildingPage.clickOnPastListingsSection();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
     }
 }

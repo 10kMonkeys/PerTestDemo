@@ -2,15 +2,16 @@ package com.perchwell.tests.ListingsTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
+import com.perchwell.data.Filters;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
-public class LT13_MoreInBuildingLeastExpensiveSortingTest extends SampleTest {
+public class LB8_MoreInBuildingSearchByBedroomsTest extends SampleTest {
 
     @Test
-    public void moreInBuildingLeastExpensiveSortingTest() {
+    public void moreInBuildingSearchByBedroomsTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -25,15 +26,14 @@ public class LT13_MoreInBuildingLeastExpensiveSortingTest extends SampleTest {
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.fixSearchField();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.clickOnLeastExpensiveButton();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BEDS_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByBeds();
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.checkIfLeastExpensiveSortingButtonIsEnabled();
-        user.atOpenedBuildingPage.clickOnSortButton();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+        user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByFilter(Filters.TWO_BEDS_FILTER);
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByBeds();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
-        user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
+        user.atOpenedBuildingPage.clickOnClearFieldButton();
+        user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }
 }
