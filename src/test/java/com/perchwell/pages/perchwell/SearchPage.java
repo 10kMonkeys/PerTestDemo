@@ -138,7 +138,7 @@ public class SearchPage extends BasePage {
 	private WebElement save;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/rentals")
-	@iOSXCUITFindBy(accessibility = "Option: Rentals")
+	@iOSXCUITFindBy(accessibility = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'INFO'")
 	private WebElement rentalsButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_new_search")
@@ -707,7 +707,7 @@ public class SearchPage extends BasePage {
 		String maxPriceFilter = element(maximumPriceTextBox).getAttribute("value");
 		String minPriceFilter = element(minimumPriceTextBox).getAttribute("value");
 
-		if (!maxPriceFilter.contains("NO MAX") || !minPriceFilter.contains("NO MIN")) {
+		if (!maxPriceFilter.contains("Max") || !minPriceFilter.contains("Min")) {
 			emptyPricesFilters = false;
 		}
 		return emptyPricesFilters;
