@@ -138,7 +138,7 @@ public class SearchPage extends BasePage {
 	private WebElement save;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/rentals")
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Rentals'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Rentals'")
 	private WebElement rentalsButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_new_search")
@@ -154,14 +154,14 @@ public class SearchPage extends BasePage {
 	private WebElement filterFor1Bed;
 
 	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
-	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '1BedButton'")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'BEDROOMS Suboption' AND name ENDSWITH ': 1'$]")
 	private WebElement filter1BedSelectedOrNot;
 
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 3")
 	private WebElement filterFor3Beds;
 
 	@AndroidFindBy(xpath = "(//*[@text='4+'])[1]")
-	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 4")
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 4+")
 	private WebElement filterFor4PlusBeds;
 
 	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[2]")
@@ -190,7 +190,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 3")
 	private WebElement selectedFilterFor3Beds;
 
-	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 4")
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 4+")
 	private WebElement selectedFilterFor4PlusBeds;
 
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 1")
@@ -280,7 +280,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Washer Dryer")
 	private WebElement laundryUnitFilter;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name=='Add Button: Bar'`][1]")
+	@iOSXCUITFindBy(accessibility = "Tag Cell: Add Button")
 	private WebElement neighborhoodsPlusButton;
 
 	@iOSXCUITFindBy(accessibility = "MY NEW SEARCH")
@@ -581,7 +581,7 @@ public class SearchPage extends BasePage {
 		if(Config.isAndroid())  {
 			selected = name.getAttribute("text");
 		} else {
-			selected = name.getAttribute("name");
+			selected = name.getAttribute("value");
 		}
 
 		if (!selected.contains("selected")) {
@@ -953,5 +953,11 @@ public class SearchPage extends BasePage {
 
 	public void selectBedroomsRangeOption() {
 		element(bedroomsRangeOption).click();
+	}
+
+	public void selectBedroomsRangeOptionIfNotSelected() {
+		if (element(bedroomsRangeOption).isVisible()) {
+			element(bedroomsRangeOption).click();
+		}
 	}
 }

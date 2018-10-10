@@ -107,6 +107,7 @@ public class SearchSteps extends ScenarioSteps {
 		onPage.clickOnThirdSearchInList();
 	}
 
+	@Step
 	private void createNewSearchStudioBeds() {
 		onPage.selectFilterStudioBeds();
 		this.clickOnTapToSaveChanges();
@@ -505,5 +506,15 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void selectBathroomsRangeOption() {
 		onPage.selectBathroomsRangeOption();
+	}
+
+	@Step
+	public void selectBedroomsRangeOption() {
+		onPage.selectBedroomsRangeOption();
+	}
+
+	@Step
+	public void selectBedroomsRangeOptionIfNotSelected() {
+		onPage.selectBedroomsRangeOptionIfNotSelected();
 	}
 }
