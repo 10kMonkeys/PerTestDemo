@@ -138,7 +138,7 @@ public class SearchPage extends BasePage {
 	private WebElement save;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/rentals")
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Rentals'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Rentals'")
 	private WebElement rentalsButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_new_search")
@@ -280,13 +280,13 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Washer Dryer")
 	private WebElement laundryUnitFilter;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name=='Add Button: Bar'`][1]")
+	@iOSXCUITFindBy(accessibility = "Tag Cell: Add Button")
 	private WebElement neighborhoodsPlusButton;
 
 	@iOSXCUITFindBy(accessibility = "MY NEW SEARCH")
 	private WebElement backButtonFromNeighborhoods;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name=='checkboxSelected'`][1]")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeCell' AND name CONTAINS 'City-MANHATTAN'")
 	private WebElement manhattanCheckedCheckbox;
 
 	@iOSXCUITFindBy(accessibility = "Remove Button: BROOKLYN")
@@ -298,7 +298,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Neighborhood-ALPHABET CITY")
 	private WebElement alphabetCityCheckbox;
 
-	@iOSXCUITFindBy(accessibility = "Text Field: Cell")
+	@iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
 	private WebElement searchNeihborhoodsSearchField;
 
 	@iOSXCUITFindBy(accessibility = "Remove Button: MIDWOOD")
@@ -775,7 +775,7 @@ public class SearchPage extends BasePage {
 			Helper.androidSwipeDownUntilElementVisible("LAUNDRY BLDG");
 			resetImplicitTimeout();
 		} else {
-			Helper.scrollToElement(laundryBLDGFilterButton);
+			Helper.universalVerticalSwipe(laundryBLDGFilterButton);
 		}
 	}
 

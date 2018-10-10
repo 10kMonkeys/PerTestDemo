@@ -15,12 +15,15 @@ public class ST12_NewSearch extends SampleTest {
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
 		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atSearchPage.selectBedroomsRangeOption(); //
 		user.atSearchPage.selectFilter1Bed();
+		user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
 		user.atSearchPage.setUpFilterLaundryBLDG();
 		user.atSearchPage.clickOnApplyButton();
 		user.atPerchwellPage.clickOnMap();
 		user.atMapPage.clickOnNotNowButton();
 		user.atMapPage.clickOnMyNewSearch();
+		user.atSearchPage.selectBathroomsRangeOption(); //
 		user.atSearchPage.selectFilter1AndHalfBath();
 		user.atSearchPage.clickOnApplyButton();
 		user.atPerchwellPage.clickOnAnalytics();
@@ -43,6 +46,7 @@ public class ST12_NewSearch extends SampleTest {
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.clickOnLoadSavedSearchButton();
 		user.atSearchPage.clickOnThirdSearchInList();
+		user.atPerchwellPage.waitUntilAccountIconAppears();
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.clickOnLoadSavedSearchButton();
 		user.atSearchPage.clickOnPreviouslyCreatedSearch();
@@ -68,6 +72,7 @@ public class ST12_NewSearch extends SampleTest {
 		user.atAnalyticsPage.clickOnMagnifierIconWithPreviouslySavedSearch();
 		user.atSearchPage.should1AndHalfBathFilterBeApplied();
 		user.atSearchPage.should1BedFilterBeApplied();
+		user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
 		user.atSearchPage.shouldLaundryBLDGFilterBeApplied();
 	}
 }
