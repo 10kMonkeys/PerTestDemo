@@ -501,4 +501,9 @@ public class SearchSteps extends ScenarioSteps {
 	public void clickOnShowMoreFeaturesAndAmenitiesButton() {
 		onPage.clickOnShowMoreFeaturesAndAmenitiesButton();
 	}
+
+	@Step
+	public void selectBathroomsRangeOption() {
+		onPage.selectBathroomsRangeOption();
+	}
 }

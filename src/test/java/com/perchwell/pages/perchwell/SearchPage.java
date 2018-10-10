@@ -430,8 +430,6 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectFilter1Bath() {
-		Helper.universalVerticalSwipe(bathroomsRangeOption);
-		element(bathroomsRangeOption).click();
 		element(filterFor1Bath).click();
 	}
 
@@ -547,26 +545,18 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectFilter1AndHalfBath() {
-		Helper.swipeDownUntilElementVisible(bathroomsRangeOption);
-		element(bathroomsRangeOption).click();
 		element(filterFor1AndHalfBath).click();
 	}
 
 	public void selectFilter2Baths() {
-		Helper.universalVerticalSwipe(bathroomsRangeOption);
-		element(bathroomsRangeOption).click();
 		element(filterFor2Baths).click();
 	}
 
 	public void selectFilter3Baths() {
-		Helper.universalVerticalSwipe(bathroomsRangeOption);
-		element(bathroomsRangeOption).click();
 		element(filterFor3Baths).click();
 	}
 
 	public void selectFilter4PlusBaths() {
-		Helper.universalVerticalSwipe(bathroomsRangeOption);
-		element(bathroomsRangeOption).click();
 		element(filterFor4PlusBaths).click();
 	}
 
@@ -677,26 +667,18 @@ public class SearchPage extends BasePage {
 	}
 
 	public void deselectFilter1Bath() {
-		Helper.universalVerticalSwipe(bathroomsRangeOption);
-		element(bathroomsRangeOption).click();
 		element(selectedFilterFor1Bath).click();
 	}
 
 	public void deselectFilter1AndHalfBath() {
-		Helper.universalVerticalSwipe(bathroomsRangeOption);
-		element(bathroomsRangeOption).click();
 		element(selectedFilterFor1AndHalfBath).click();
 	}
 
 	public void deselectFilter2Baths() {
-		Helper.universalVerticalSwipe(bathroomsRangeOption);
-		element(bathroomsRangeOption).click();
 		element(selectedFilter2Baths).click();
 	}
 
 	public void deselectFilter3Baths() {
-		Helper.universalVerticalSwipe(bathroomsRangeOption);
-		element(bathroomsRangeOption).click();
 		element(selectedFilterFor3Baths).click();
 	}
 
@@ -963,5 +945,13 @@ public class SearchPage extends BasePage {
 	public void clickOnShowMoreFeaturesAndAmenitiesButton() {
 		Helper.swipeDownUntilElementVisible(showMoreFeaturesAndAmenitiesButton);
 		element(showMoreFeaturesAndAmenitiesButton).click();
+	}
+
+	public void selectBathroomsRangeOption() {
+		element(bathroomsRangeOption).click();
+	}
+
+	public void selectBedroomsRangeOption() {
+		element(bedroomsRangeOption).click();
 	}
 }
