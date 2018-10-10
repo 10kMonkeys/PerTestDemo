@@ -16,6 +16,7 @@ public class FT4_ApplyingBedroomsFilterTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.isListingsQuantity();
         user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.selectFilterStudioBeds();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListingOnlyWithStudios();
@@ -47,12 +48,14 @@ public class FT4_ApplyingBedroomsFilterTest extends SampleTest {
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkListingsQuantity();
         user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.checkNoOneBedsFilterSelected();
         user.atSearchPage.clickOnLoadSavedSearchButton();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.shouldSeeListing4AndMoreRooms("bedrooms");
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.clickOnResetFilter();
+        user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.checkNoOneBedsFilterSelected();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkListingsQuantity();

@@ -91,6 +91,7 @@ public class ComplexSteps extends ScenarioSteps{
     @Step
     public void saveNewSearchAndStartNewSearch() {
         atPerchwellPage.clickOnMyNewSearch();
+        atSearchPage.selectBedroomsRangeOptionIfNotSelected();
         atSearchPage.selectFilter1Bed();
         atSearchPage.selectFilter4PlusBeds();
         atSearchPage.saveCurrentSearch();
