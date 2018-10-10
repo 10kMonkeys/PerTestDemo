@@ -301,4 +301,10 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void openTwoAgentListing() {
 		onPage.openTwoAgentListing();
 	}
+
+	@Step
+	public void waitUntilAccountIconAppears() {
+		onPage.waitUntilAccountIconAppears();
+
+	}
 }

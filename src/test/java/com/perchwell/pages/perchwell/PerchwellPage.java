@@ -518,4 +518,8 @@ public class PerchwellPage extends BasePage {
 		Helper.swipeDownUntilElementVisible(twoAgentListing);
 		element(twoAgentListing).click();
 	}
+
+	public void waitUntilAccountIconAppears() {
+		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
+	}
 }
