@@ -170,7 +170,6 @@ public abstract class FilteringAndSortingBuildings {
         if (buildingsElementsList.size() > 0) {
             for (WebElement element : buildingsElementsList) {
                 String roomsString = element.getAttribute("value");
-                System.out.println(rooms + "    " + roomsString);
                 if (!roomsString.contains(rooms)) {
                     return false;
                 }
