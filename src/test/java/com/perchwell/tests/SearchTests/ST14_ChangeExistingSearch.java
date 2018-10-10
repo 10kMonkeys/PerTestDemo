@@ -23,6 +23,7 @@ public class ST14_ChangeExistingSearch extends SampleTest {
 		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTY_BEFORE_SEARCH_CHANGING);
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST14_MIN_PRICE);
+		user.atSearchPage.selectBedroomsRangeOptionIfNotSelected();
 		user.atSearchPage.clickOnFilter1Bed(); // selected filters missed
 		user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
 		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTY_AFTER_SEARCH_CHANGING);
