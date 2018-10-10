@@ -13,7 +13,7 @@ public class ATS28_ElevatorFilterAndParkingChartsTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.AddElevatorFilter();
+        user.atSearchPage.addElevatorFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
         user.atAnalyticsPage.selectREBNYListingsWithMKTShare();

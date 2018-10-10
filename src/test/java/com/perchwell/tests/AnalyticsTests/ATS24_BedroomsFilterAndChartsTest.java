@@ -12,6 +12,7 @@ public class ATS24_BedroomsFilterAndChartsTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.clickOnFilter1Bed();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();

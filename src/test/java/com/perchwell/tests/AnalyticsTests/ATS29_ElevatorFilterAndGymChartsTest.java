@@ -13,7 +13,7 @@ public class ATS29_ElevatorFilterAndGymChartsTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.AddElevatorFilter();
+        user.atSearchPage.addElevatorFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
         user.atAnalyticsPage.selectREBNYListingsWithMKTShare();

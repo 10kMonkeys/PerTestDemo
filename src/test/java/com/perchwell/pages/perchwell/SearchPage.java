@@ -833,7 +833,7 @@ public class SearchPage extends BasePage {
 		element(doormanFilter).click();
 	}
 
-	public void AddElevatorFilter() throws Exception {
+	public void addElevatorFilter() throws Exception {
 		Helper.swipeDownUntilElementVisible(elevatorFilter);
 		element(elevatorFilter).click();
 	}
