@@ -138,7 +138,7 @@ public class SearchPage extends BasePage {
 	private WebElement save;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/rentals")
-	@iOSXCUITFindBy(accessibility = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'INFO'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Rentals'")
 	private WebElement rentalsButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_new_search")
@@ -945,5 +945,13 @@ public class SearchPage extends BasePage {
 	public void clickOnShowMoreFeaturesAndAmenitiesButton() {
 		Helper.swipeDownUntilElementVisible(showMoreFeaturesAndAmenitiesButton);
 		element(showMoreFeaturesAndAmenitiesButton).click();
+	}
+
+	public void selectBathroomsRangeOption() {
+		element(bathroomsRangeOption).click();
+	}
+
+	public void selectBedroomsRangeOption() {
+		element(bedroomsRangeOption).click();
 	}
 }
