@@ -349,6 +349,9 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SQUARE FEET Maximum Value Input")
 	private WebElement squareFeetMaxValueField;
 
+	@iOSXCUITFindBy(accessibility = "MOTHLIES")
+	private WebElement monthliesSection;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -812,7 +815,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void setSquareFeetMinFilterToSixK() throws Exception {
-		Helper.universalVerticalSwipe(squareFeetMinValueField);
+		Helper.universalVerticalSwipe(monthliesSection);
 		element(squareFeetMinValueField).sendKeys("6000");
 	}
 
