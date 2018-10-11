@@ -1,48 +1,75 @@
 package com.perchwell.steps;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.account.AccountPage;
-import org.junit.Assert;
+import net.thucydides.core.webdriver.WebDriverFacade;
+import org.openqa.selenium.WebDriver;
 
-public class AccountSteps extends ScenarioSteps{
-    AccountPage accountPage;
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
+
+public class AccountSteps extends ScenarioSteps {
+
+    AccountPage onPage;
 
     @Step
-    public void clickClientsLabel() {
-        accountPage.clickClientsLabel();
+    public void clickOnClientsLabel() {
+        onPage.clickOnClientsLabel();
     }
 
     @Step
-    public void clickTagsLabel() {
-        accountPage.clickTagsLabel();
+    public void clickOnTagsLabel() {
+        onPage.clickOnTagsLabel();
     }
 
     @Step
-    public void clickCompareLabel() {
-        accountPage.clickCompareLabel();
+    public void clickOnCompareLabel() {
+        onPage.clickOnCompareLabel();
     }
 
     @Step
-    public void shouldSeeOptionClient() throws Exception {
-        Assert.assertTrue(accountPage.optionClientsIsDispalyed());
+    public void shouldSeeOptionClient() {
+        onPage.optionClientsIsDisplayed();
     }
 
     @Step
-    public void shouldSeeOptionCompare() throws Exception {
-        Assert.assertTrue(accountPage.optionCompareIsDispalyed());
-    }
-    @Step
-    public void shouldSeeOptionDisscussions() throws Exception {
-        Assert.assertTrue(accountPage.optionDiscussionsIsDispalyed());
-    }
-    @Step
-    public void shouldSeeOptionTags() throws Exception {
-        Assert.assertTrue(accountPage.optionTagsIsDispalyed());
+    public void shouldSeeOptionCompare() {
+        onPage.optionCompareIsDisplayed();
     }
 
     @Step
-    public void shouldSeeOptionAgents() throws Exception {
-        Assert.assertTrue(accountPage.optionAgentsIsDispalyed());
+    public void shouldSeeOptionDiscussions() {
+        onPage.optionDiscussionsIsDisplayed();
+    }
+
+    @Step
+    public void shouldSeeOptionTags() {
+        onPage.optionTagsIsDisplayed();
+    }
+
+    @Step
+    public void shouldSeeOptionAgents() {
+        onPage.optionAgentsIsDisplayed();
+    }
+
+    @Step
+    public void clickOnDiscussionsLabel() {
+        onPage.clickOnDiscussionsLabel();
+    }
+
+    @Step
+    public void openSettingProfile() {
+        onPage.clickOnSettingProfileButton();
+    }
+
+    @Step
+    public void closeAccountMenu() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        new TouchAction(appiumDriver).tap(60,60).release().perform();
     }
 }
