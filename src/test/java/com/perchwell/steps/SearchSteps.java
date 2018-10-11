@@ -388,8 +388,8 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void AddElevatorFilter() throws Exception {
-		onPage.AddElevatorFilter();
+	public void addElevatorFilter() throws Exception {
+		onPage.addElevatorFilter();
 	}
 
 	@Step

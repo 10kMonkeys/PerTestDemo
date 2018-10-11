@@ -12,9 +12,9 @@ public class ATS41_SquareFeetFilterAndChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-//        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.setSquareFeetMinFilterToSixK();
-//        user.atSearchPage.clickOnApplyButton();
+        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.clickOnAnalytics();
         user.atAnalyticsPage.selectNYCTownhousesSection();
         user.atNycTownhousesPage.addREBNYListingsSquareFeetChart();
