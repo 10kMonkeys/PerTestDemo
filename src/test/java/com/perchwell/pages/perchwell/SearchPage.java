@@ -343,6 +343,12 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Option: Range")
 	private WebElement bathroomsRangeOption;
 
+	@iOSXCUITFindBy(accessibility = "SQUARE FEET Minimum Value Input")
+	private WebElement squareFeetMinValueField;
+
+	@iOSXCUITFindBy(accessibility = "SQUARE FEET Maximum Value Input")
+	private WebElement squareFeetMaxValueField;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -806,17 +812,8 @@ public class SearchPage extends BasePage {
 	}
 
 	public void setSquareFeetMinFilterToSixK() throws Exception {
-		Helper.swipeDownUntilElementVisible(waitElement);
-
-		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-		WebDriver webDriver = webDriverFacade.getProxiedDriver();
-		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
-		int sliderXPositionForSixK = this.getXCoordinateForSixK();
-		int minX = squareFeetMinControl.getLocation().getX() + 13;
-		int minY = squareFeetMinControl.getLocation().getY() + 13;
-
-		new TouchAction(appiumDriver).press(minX, minY).moveTo(sliderXPositionForSixK, 0).release().perform();
+		Helper.universalVerticalSwipe(squareFeetMinValueField);
+		element(squareFeetMinValueField).sendKeys("6000");
 	}
 
 	private int getXCoordinateForSixK() {
