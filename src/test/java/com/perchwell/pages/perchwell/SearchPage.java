@@ -171,7 +171,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 2")
 	private WebElement filterFor2Baths;
 
-	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 4")
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 4+")
 	private WebElement filterFor4PlusBaths;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton[2]")

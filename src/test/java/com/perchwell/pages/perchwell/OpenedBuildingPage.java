@@ -207,6 +207,9 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name BEGINSWITH 'Collection View Cell Selected'$]")
 	private WebElement selectedSortButton;
 
+	@iOSXCUITFindBy(accessibility = "MORTGAGE CALCULATOR")
+	private WebElement mortgageCalculator;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -313,14 +316,22 @@ public class OpenedBuildingPage extends BasePage {
 //			Helper.swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
 			Helper.androidSwipeDownUntilElementVisible(featuresAmenities);
 		} else {
-			WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-			WebDriver webDriver = webDriverFacade.getProxiedDriver();
-			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
-			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
+//			WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+//			WebDriver webDriver = webDriverFacade.getProxiedDriver();
+//			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+//			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
+//			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
+			Helper.universalVerticalSwipe(mortgageCalculator);
 		}
-		element(featuresAmenities).click();
+//		element(featuresAmenities).click();
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
+		int minX = mortgageCalculator.getLocation().getX();
+		int minY = mortgageCalculator.getLocation().getY() - 290;
+
+		new TouchAction(appiumDriver).tap(minX, minY).release().perform();
 	}
 
 	public void isFireplaceDisplayed() {
