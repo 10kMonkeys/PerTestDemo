@@ -352,6 +352,40 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MOTHLIES")
 	private WebElement monthliesSection;
 
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: Studio +")
+	private WebElement studioBedsMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 1+")
+	private WebElement oneBedMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 2+")
+	private WebElement twoBedsMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 3+")
+	private WebElement threeBedsMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 4+")
+	private WebElement fourBedsMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 1+")
+	private WebElement oneBathMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 1½+")
+	private WebElement oneAndHalfBathsMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 2+")
+	private WebElement twoBathsMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 3+")
+	private WebElement threeBathsMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 4+")
+	private WebElement fourBathsMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "TOTAL ROOMS")
+	private WebElement totalRoomsSection;
+
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -959,5 +993,59 @@ public class SearchPage extends BasePage {
 		if (element(bedroomsRangeOption).isVisible()) {
 			element(bedroomsRangeOption).click();
 		}
+	}
+
+	public void selectStudioBedsMinimumFilter() {
+		element(studioBedsMinimumFilter).click();
+	}
+
+	public void checkIfStudioBedsFilterIsDeselected() {
+		Assert.assertTrue(element(studioBedsMinimumFilter).isDisplayed());
+	}
+
+	public void selectOneBedMinimumFilter() {
+		element(oneBedMinimumFilter).click();
+	}
+
+	public void selectTwoBedsMinimumFilter() {
+		element(twoBedsMinimumFilter).click();
+	}
+
+	public void selectThreeBedsMinimumFilter() {
+		element(threeBedsMinimumFilter).click();
+	}
+
+	public void selectFourBedsMinimumFilter() {
+		element(fourBedsMinimumFilter).click();
+	}
+
+	public void selectOneBathMinimumFilter() {
+		Helper.universalVerticalSwipe(totalRoomsSection);
+		element(oneBathMinimumFilter).click();
+	}
+
+	public void selectOneAndHalfBathroomsFilter() {
+		element(oneAndHalfBathsMinimumFilter).click();
+	}
+
+	public void selectTwoBathsMinimumFilter() {
+		element(twoBathsMinimumFilter).click();
+	}
+
+	public void selectThreeBathsMinimumFilter() {
+		element(threeBathsMinimumFilter).click();
+	}
+
+	public void selectFourBathsMinimumFilter() {
+		element(fourBathsMinimumFilter).click();
+	}
+
+	public void checkIfOneBathMinimumFilterIsDeselected() {
+		Helper.universalVerticalSwipe(totalRoomsSection);
+		Assert.assertTrue(element(oneBathMinimumFilter).isDisplayed());
+	}
+
+	public void deselectFilter4Beds() {
+		element(selectedFilterFor4PlusBeds).click();
 	}
 }

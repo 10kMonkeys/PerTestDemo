@@ -517,4 +517,69 @@ public class SearchSteps extends ScenarioSteps {
 	public void selectBedroomsRangeOptionIfNotSelected() {
 		onPage.selectBedroomsRangeOptionIfNotSelected();
 	}
+
+	@Step
+    public void selectStudioBedsMinimumFilter() {
+		onPage.selectStudioBedsMinimumFilter();
+    }
+
+    @Step
+	public void checkIfStudioBedsFilterIsDeselected() {
+		onPage.checkIfStudioBedsFilterIsDeselected();
+	}
+
+	@Step
+	public void selectOneBedMinimumFilter() {
+		onPage.selectOneBedMinimumFilter();
+	}
+
+	@Step
+	public void selectTwoBedsMinimumFilter() {
+		onPage.selectTwoBedsMinimumFilter();
+	}
+
+	@Step
+	public void selectThreeBedsMinimumFilter() {
+		onPage.selectThreeBedsMinimumFilter();
+	}
+
+	@Step
+	public void selectFourBedsMinimumFilter() {
+		onPage.selectFourBedsMinimumFilter();
+	}
+
+	@Step
+	public void selectOneBathMinimumFilter() {
+		onPage.selectOneBathMinimumFilter();
+	}
+
+	@Step
+	public void selectOneAndHalfBathroomsFilter() {
+		onPage.selectOneAndHalfBathroomsFilter();
+	}
+
+	@Step
+	public void selectTwoBathsMinimumFilter() {
+		onPage.selectTwoBathsMinimumFilter();
+	}
+
+	@Step
+	public void selectThreeBathsMinimumFilter() {
+		onPage.selectThreeBathsMinimumFilter();
+	}
+
+	@Step
+	public void selectFourBathsMinimumFilter() {
+		onPage.selectFourBathsMinimumFilter();
+	}
+
+	@Step
+	public void checkIfOneBathMinimumFilterIsDeselected() {
+		onPage.checkIfOneBathMinimumFilterIsDeselected();
+	}
+
+	@Step
+	public void deselectFilter4Beds() {
+		onPage.deselectFilter4Beds();
+	}
 }
