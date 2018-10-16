@@ -72,7 +72,7 @@ public class OpenedBuildingPage extends BasePage {
 	private WebElement shareBitton;
 
 	@AndroidFindBy(xpath = "//*[@text='FEATURES & AMENITIES']")
-	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'FEATURES & AMENITIES'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeOther' AND name CONTAINS 'FEATURES & AMENITIES'")
 	private WebElement featuresAmenities;
 
 	@iOSXCUITFindBy(accessibility = "FIREPLACE")
@@ -209,6 +209,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "MORTGAGE CALCULATOR")
 	private WebElement mortgageCalculator;
+
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeCell[position()<9]/XCUIElementTypeStaticText[starts-with(@name, 'INFO')]")
+	private List<WebElement> currentFiveBedsAndBathsAmountList;
 
 	//endregion
 
@@ -491,7 +494,7 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void checkIfListingReturnedToInitialState() {
 		for (int i = 0; i<initialBedsAndBathsAmountList.size(); i++){
-			Assert.assertEquals(initialBedsAndBathsAmountList.get(i), currentBedsAndBathsAmountList.get(i).getAttribute("value"));
+			Assert.assertEquals(initialBedsAndBathsAmountList.get(i), currentFiveBedsAndBathsAmountList.get(i).getAttribute("value"));
 		}
 	}
 
