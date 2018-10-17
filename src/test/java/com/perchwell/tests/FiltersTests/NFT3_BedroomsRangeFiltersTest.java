@@ -41,7 +41,6 @@ public class NFT3_BedroomsRangeFiltersTest extends SampleTest {
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.deselectFilter4Beds();
         user.atSearchPage.selectFilter1Bed();
-        user.atSearchPage.selectFilter2Beds();
         user.atSearchPage.selectFilter3Beds();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsAreFilteredByMultipleBedroomsFilters();

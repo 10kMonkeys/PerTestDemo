@@ -2,14 +2,12 @@ package com.perchwell.tests.FiltersTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
-import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"FiltersTests", "FiltersSearchesMapView"})
-public class FT3_ApplyingBathroomsFilterTest extends SampleTest {
+public class NFT4_BathroomsRangeFiltersTest extends SampleTest {
 
     @Test
-    public void resultAfterApplyingBathroomFilter()  {
+    public void bathroomsRangeFiltersTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -41,23 +39,10 @@ public class FT3_ApplyingBathroomsFilterTest extends SampleTest {
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListing4AndMoreRooms("bathrooms");
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.saveCurrentSearch();
-        user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
-        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.deselectFilter4Baths();
+        user.atSearchPage.selectFilter1Bath();
+        user.atSearchPage.selectFilter3Baths();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkListingsQuantity();
-        user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.selectBathroomsRangeOption();
-        user.atSearchPage.checkNoOneBathsRangeFilterSelected();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
-        user.atSearchPage.clickOnPreviouslyCreatedSearch();
-        user.atPerchwellPage.shouldSeeListing4AndMoreRooms("bathrooms");
-        user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.clickOnResetFilter();
-        user.atSearchPage.selectBathroomsRangeOption();
-        user.atSearchPage.checkNoOneBathsRangeFilterSelected();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkListingsQuantity();
+        user.atPerchwellPage.listingsFilteredByMultiBathroomsFilters();
     }
 }

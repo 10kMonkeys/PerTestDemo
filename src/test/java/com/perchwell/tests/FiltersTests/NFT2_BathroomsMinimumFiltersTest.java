@@ -18,23 +18,23 @@ public class NFT2_BathroomsMinimumFiltersTest extends SampleTest {
         user.atSearchPage.selectOneBathMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsWereChanged();
-        user.atPerchwellPage.verifyThatThereIsNoListingsWithoutBaths();
+        user.atPerchwellPage.checkIfThereIsNoListingsWithoutBaths();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.checkIfOneBathMinimumFilterIsDeselected();
         user.atSearchPage.selectOneAndHalfBathroomsFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsAreFilteredByMinimumBaths(Filters.ONE_AND_HALF_BATHS_MINIMUM_FILTER);
+        user.atPerchwellPage.checkIfListingsAreFilteredByMinBaths(Filters.ONE_AND_HALF_BATHS_MINIMUM_FILTER);
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.selectTwoBathsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsAreFilteredByMinimumBaths(Filters.TWO_BATHS_MINIMUM_FILTER);
+        user.atPerchwellPage.checkIfListingsAreFilteredByMinBaths(Filters.TWO_BATHS_MINIMUM_FILTER);
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.selectThreeBathsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsAreFilteredByMinimumBaths(Filters.THREE_BATHS_MINIMUM_FILTER);
+        user.atPerchwellPage.checkIfListingsAreFilteredByMinBaths(Filters.THREE_BATHS_MINIMUM_FILTER);
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.selectFourBathsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsAreFilteredByMinimumBaths(Filters.FOUR_BATHS_MINIMUM_FILTER);
+        user.atPerchwellPage.checkIfListingsAreFilteredByMinBaths(Filters.FOUR_BATHS_MINIMUM_FILTER);
     }
 }

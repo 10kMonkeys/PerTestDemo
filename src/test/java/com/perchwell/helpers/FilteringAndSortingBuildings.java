@@ -156,7 +156,6 @@ public abstract class FilteringAndSortingBuildings {
 
             for (WebElement element : roomsInfoList) {
                 String s = element.getAttribute("value");
-                System.out.println(s);
                 currentNumber = getNumberFromString(roomType, s);
                 if (currentNumber < 4) {
                     return false;

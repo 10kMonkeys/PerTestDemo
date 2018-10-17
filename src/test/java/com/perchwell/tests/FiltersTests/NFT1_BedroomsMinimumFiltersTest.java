@@ -18,23 +18,23 @@ public class NFT1_BedroomsMinimumFiltersTest extends SampleTest {
         user.atSearchPage.selectStudioBedsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsWereChanged();
-        user.atPerchwellPage.verifyThatThereIsNoListingsWithoutBeds();
+        user.atPerchwellPage.checkIfThereIsNoListingsWithoutBeds();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.checkIfStudioBedsFilterIsDeselected();
         user.atSearchPage.selectOneBedMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsAreFilteredByMinimumBeds(Filters.ONE_BED_MINIMUM_FILTER);
+        user.atPerchwellPage.checkIfListingsAreFilteredByMinBeds(Filters.ONE_BED_MINIMUM_FILTER);
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.selectTwoBedsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsAreFilteredByMinimumBeds(Filters.TWO_BEDS_MINIMUM_FILTER);
+        user.atPerchwellPage.checkIfListingsAreFilteredByMinBeds(Filters.TWO_BEDS_MINIMUM_FILTER);
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.selectThreeBedsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsAreFilteredByMinimumBeds(Filters.THREE_BEDS_MINIMUM_FILTER);
+        user.atPerchwellPage.checkIfListingsAreFilteredByMinBeds(Filters.THREE_BEDS_MINIMUM_FILTER);
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.selectFourBedsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsAreFilteredByMinimumBeds(Filters.FOUR_BEDS_MINIMUM_FILTER);
+        user.atPerchwellPage.checkIfListingsAreFilteredByMinBeds(Filters.FOUR_BEDS_MINIMUM_FILTER);
     }
 }

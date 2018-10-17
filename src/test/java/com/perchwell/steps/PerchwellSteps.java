@@ -309,13 +309,13 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkIfListingsAreFilteredByMinimumBeds(int value) {
-		onPage.checkIfListingsAreFilteredByMinimumBeds(value);
+	public void checkIfListingsAreFilteredByMinBeds(int value) {
+		onPage.checkIfListingsAreFilteredByMinBeds(value);
 	}
 
 	@Step
-	public void checkIfListingsAreFilteredByMinimumBaths(double value) {
-		onPage.checkIfListingsAreFilteredByMinimumBaths(value);
+	public void checkIfListingsAreFilteredByMinBaths(double value) {
+		onPage.checkIfListingsAreFilteredByMinBaths(value);
 	}
 
 	@Step
@@ -329,12 +329,17 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void verifyThatThereIsNoListingsWithoutBeds() {
-		onPage.verifyThatThereIsNoListingsWithoutBeds();
+	public void checkIfThereIsNoListingsWithoutBeds() {
+		onPage.checkIfThereIsNoListingsWithoutBeds();
 	}
 
 	@Step
-	public void verifyThatThereIsNoListingsWithoutBaths() {
-		onPage.verifyThatThereIsNoListingsWithoutBaths();
+	public void checkIfThereIsNoListingsWithoutBaths() {
+		onPage.checkIfThereIsNoListingsWithoutBaths();
+	}
+
+	@Step
+	public void listingsFilteredByMultiBathroomsFilters() {
+		onPage.listingsFilteredByMultiBathroomsFilters();
 	}
 }

@@ -191,8 +191,8 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkNoOneBedsFilterSelected() {
-		onPage.checkNoOneBedsFilterSelected();
+	public void checkNoOneBedsRangeFilterSelected() {
+		onPage.checkNoOneBedsRangeFilterSelected();
 	}
 
 	@Step
@@ -285,8 +285,8 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkNoOneBathsFilterSelected() {
-		onPage.checkNoOneBathsFilterSelected();
+	public void checkNoOneBathsRangeFilterSelected() {
+		onPage.checkNoOneBathsRangeFilterSelected();
 	}
 
 	@Step
@@ -581,5 +581,30 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void deselectFilter4Beds() {
 		onPage.deselectFilter4Beds();
+	}
+
+	@Step
+	public void deselectFilter4Baths() {
+		onPage.deselectFilter4Baths();
+	}
+
+	@Step
+	public void selectBedroomsMinimumOption() {
+		onPage.selectBedroomsMinimumOption();
+	}
+
+	@Step
+	public void checkNoOneBedsMinimumFilterSelected() {
+		onPage.checkNoOneBedsMinimumFilterSelected();
+	}
+
+	@Step
+	public void checkNoOneBathsMinimumFilterSelected() {
+		onPage.checkNoOneBathsMinimumFilterSelected();
+	}
+
+	@Step
+	public void selectBathroomsMinimumOption() {
+		onPage.selectBathroomsMinimumOption();
 	}
 }

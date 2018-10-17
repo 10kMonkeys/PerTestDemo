@@ -524,10 +524,13 @@ public class PerchwellPage extends BasePage {
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 	}
 
-	public void checkIfListingsAreFilteredByMinimumBeds(int value) {
+	public void checkIfListingsAreFilteredByMinBeds(int value) {
 		boolean result = true;
+
 		for (WebElement element : currentBedsAndBathsAmountList) {
-			if (element.getAttribute("value").charAt(0)<value) {
+			String str = element.getAttribute("value");
+			int i = Integer.parseInt(str.substring(0, str.indexOf(" ")));
+			if (i<value) {
 				result = false;
 				break;
 			}
@@ -535,12 +538,14 @@ public class PerchwellPage extends BasePage {
 		Assert.assertTrue(result);
 	}
 
-	public void checkIfListingsAreFilteredByMinimumBaths(double expectedValue) {
+	public void checkIfListingsAreFilteredByMinBaths(double expectedValue) {
 		boolean result = true;
 
 		for (WebElement element : currentBedsAndBathsAmountList) {
 			String actualValue = element.getAttribute("value");
-			double processedActualValue = Double.parseDouble(actualValue.substring(actualValue.length()-6).replaceAll("BA| ", "").replace("1½", "1.5"));
+			double processedActualValue = Double.parseDouble(
+					actualValue.substring(actualValue.indexOf("|"+2), actualValue.indexOf(" BA"))
+							.replace("1½", "1.5"));
 			if (processedActualValue<expectedValue) {
 				result = false;
 				break;
@@ -553,25 +558,9 @@ public class PerchwellPage extends BasePage {
 		boolean result = true;
 
 		for (WebElement element : currentBedsAndBathsAmountList) {
-			int i = element.getAttribute("value").charAt(0);
-			if (i!=1 && i!=2 && i!=3) {
-				result = false;
-			}
-			Assert.assertTrue(result);
-		}
-	}
-
-	public void checkIfListingsWereChanged() {
-		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
-		Assert.assertTrue(listningsAmount!=listingsAmountToCheck);
-	}
-
-	public void verifyThatThereIsNoListingsWithoutBeds() {
-		boolean result = true;
-
-		for (WebElement element : currentBedsAndBathsAmountList) {
-			String value = element.getAttribute("value");
-			if (!value.contains("BD") && !value.contains("STUDIO")) {
+			String str = element.getAttribute("value");
+			int i = Integer.parseInt(str.substring(0, str.indexOf(" ")));
+			if (i!=1 & i!=2 & i!=3) {
 				result = false;
 				break;
 			}
@@ -579,9 +568,49 @@ public class PerchwellPage extends BasePage {
 		Assert.assertTrue(result);
 	}
 
-	public void verifyThatThereIsNoListingsWithoutBaths() {
+	public void checkIfListingsWereChanged() {
+		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
+		Assert.assertTrue(listningsAmount!=listingsAmountToCheck);
+	}
+
+	public void checkIfThereIsNoListingsWithoutBeds() {
+		boolean result = true;
+
 		for (WebElement element : currentBedsAndBathsAmountList) {
-			Assert.assertTrue(element.getAttribute("value").contains("BA"));
+			String value = element.getAttribute("value");
+			if (!value.contains("BD") & !value.contains("STUDIO")) {
+				result = false;
+				break;
+			}
 		}
+		Assert.assertTrue(result);
+	}
+
+	public void checkIfThereIsNoListingsWithoutBaths() {
+		boolean result = true;
+
+		for (WebElement element : currentBedsAndBathsAmountList) {
+			if (!element.getAttribute("value").contains("BA")) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
+	}
+
+	public void listingsFilteredByMultiBathroomsFilters() {
+		boolean result = true;
+
+		for (WebElement element : currentBedsAndBathsAmountList) {
+			String actualValue = element.getAttribute("value");
+			double value = Double.parseDouble(
+					actualValue.substring(actualValue.indexOf("|"+2), actualValue.indexOf(" BA"))
+							.replace("1½", "1.5"));
+			if (value !=1 & value !=1.5 & value !=2 & value != 3) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
 	}
 }
