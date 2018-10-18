@@ -7,13 +7,11 @@ import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -362,6 +360,9 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 2+")
 	private WebElement twoBedsMinimumFilter;
 
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 2+")
+	private WebElement selectedTwoBedsMinimumFilter;
+
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 3+")
 	private WebElement threeBedsMinimumFilter;
 
@@ -377,6 +378,9 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 2+")
 	private WebElement twoBathsMinimumFilter;
 
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 2+")
+	private WebElement selectedTwoBathsMinFilter;
+
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 3+")
 	private WebElement threeBathsMinimumFilter;
 
@@ -387,7 +391,7 @@ public class SearchPage extends BasePage {
 	private WebElement totalRoomsSection;
 
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 4+")
-	private WebElement fourBathsMinFilterSelected;
+	private WebElement selectedFilterFor4PlusBaths;
 
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Option: Minimum")
 	private WebElement bedroomsMinimumOption;
@@ -737,6 +741,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void checkNoOneBathsRangeFilterSelected() {
+		Helper.universalVerticalShortSwipe(totalRoomsSection);
 		SoftAssertions softAssert = new SoftAssertions();
 		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor1Bath))).isTrue();
 		softAssert.assertThat(Helper.isElementDisplayed(element(filterFor1AndHalfBath))).isTrue();
@@ -1061,7 +1066,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void deselectFilter4Baths() {
-		element(fourBathsMinFilterSelected).click();
+		element(selectedFilterFor4PlusBaths).click();
 	}
 
 	public void selectBedroomsMinimumOption() {
@@ -1079,8 +1084,9 @@ public class SearchPage extends BasePage {
 	}
 
 	public void checkNoOneBathsMinimumFilterSelected() {
+		Helper.universalVerticalShortSwipe(totalRoomsSection);
 		SoftAssertions softAssert = new SoftAssertions();
-		softAssert.assertThat(Helper.isElementDisplayed(element(oneBathMinimumFilter))).isTrue();
+		softAssert.assertThat(element(oneBathMinimumFilter).isPresent());
 		softAssert.assertThat(Helper.isElementDisplayed(element(oneAndHalfBathsMinimumFilter))).isTrue();
 		softAssert.assertThat(Helper.isElementDisplayed(element(twoBathsMinimumFilter))).isTrue();
 		softAssert.assertThat(Helper.isElementDisplayed(element(threeBathsMinimumFilter))).isTrue();
@@ -1090,5 +1096,41 @@ public class SearchPage extends BasePage {
 
 	public void selectBathroomsMinimumOption() {
 		element(bathroomsMinimumOption).click();
+	}
+
+	public void check2BedsMinFilterSelected() {
+		element(selectedTwoBedsMinimumFilter).shouldBeVisible();
+	}
+
+	public void check2BedsRangeFilterSelected() {
+		element(selectedFilterFor2Beds).shouldBeVisible();
+	}
+
+	public void checkMultiBedroomsFiltersSelected() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(selectedFilterFor2Beds).isDisplayed());
+		softAssertions.assertThat(element(selectedFilterFor3Beds).isDisplayed());
+		softAssertions.assertThat(element(selectedFilterFor4PlusBeds).isDisplayed());
+		softAssertions.assertAll();
+	}
+
+	public void check2BathsMinFilterSelected() {
+		element(selectedTwoBathsMinFilter).shouldBeVisible();
+	}
+
+	public void check2BathsRangeFilterSelected() {
+		element(selectedFilter2Baths).shouldBeVisible();
+	}
+
+	public void checkMultiBathroomsFiltersSelected() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(selectedFilter2Baths).isDisplayed());
+		softAssertions.assertThat(element(selectedFilterFor3Baths).isDisplayed());
+		softAssertions.assertThat(element(selectedFilterFor4PlusBaths).isDisplayed());
+		softAssertions.assertAll();
+	}
+
+	public void checkBedroomsRangeButtonIsNotSelected() {
+		element(bedroomsRangeOption).shouldBeVisible();
 	}
 }
