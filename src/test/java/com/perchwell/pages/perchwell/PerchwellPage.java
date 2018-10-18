@@ -527,6 +527,8 @@ public class PerchwellPage extends BasePage {
 	public void checkIfListingsAreFilteredByMinBeds(int value) {
 		boolean result = true;
 
+		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
+
 		for (WebElement element : currentBedsAndBathsAmountList) {
 			String stringValue = element.getAttribute("value");
 			int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
@@ -540,6 +542,8 @@ public class PerchwellPage extends BasePage {
 
 	public void checkIfListingsAreFilteredByMinBaths(double expectedValue) {
 		boolean result = true;
+
+		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
 		for (WebElement element : currentBedsAndBathsAmountList) {
 			String actualValue = element.getAttribute("value");
@@ -556,6 +560,8 @@ public class PerchwellPage extends BasePage {
 
 	public void checkIfListingsAreFilteredByMultipleBedroomsFilters() {
 		boolean result = true;
+
+		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
 		for (WebElement element : currentBedsAndBathsAmountList) {
 			String stringValue = element.getAttribute("value");
@@ -576,6 +582,8 @@ public class PerchwellPage extends BasePage {
 	public void checkIfThereIsNoListingsWithoutBeds() {
 		boolean result = true;
 
+		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
+
 		for (WebElement element : currentBedsAndBathsAmountList) {
 			String value = element.getAttribute("value");
 			if (!value.contains("BD") & !value.contains("STUDIO")) {
@@ -589,6 +597,8 @@ public class PerchwellPage extends BasePage {
 	public void checkIfThereIsNoListingsWithoutBaths() {
 		boolean result = true;
 
+		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
+
 		for (WebElement element : currentBedsAndBathsAmountList) {
 			if (!element.getAttribute("value").contains("BA")) {
 				result = false;
@@ -600,6 +610,8 @@ public class PerchwellPage extends BasePage {
 
 	public void listingsFilteredByMultiBathroomsFilters() {
 		boolean result = true;
+
+		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
 		for (WebElement element : currentBedsAndBathsAmountList) {
 			String actualValue = element.getAttribute("value");

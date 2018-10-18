@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.perchwell.PerchwellPage;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class PerchwellSteps extends ScenarioSteps {
 
