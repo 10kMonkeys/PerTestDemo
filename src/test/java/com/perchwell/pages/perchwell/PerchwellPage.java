@@ -528,9 +528,9 @@ public class PerchwellPage extends BasePage {
 		boolean result = true;
 
 		for (WebElement element : currentBedsAndBathsAmountList) {
-			String str = element.getAttribute("value");
-			int i = Integer.parseInt(str.substring(0, str.indexOf(" ")));
-			if (i<value) {
+			String stringValue = element.getAttribute("value");
+			int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
+			if (processedValue<value) {
 				result = false;
 				break;
 			}
@@ -558,9 +558,9 @@ public class PerchwellPage extends BasePage {
 		boolean result = true;
 
 		for (WebElement element : currentBedsAndBathsAmountList) {
-			String str = element.getAttribute("value");
-			int i = Integer.parseInt(str.substring(0, str.indexOf(" ")));
-			if (i!=1 & i!=2 & i!=3) {
+			String stringValue = element.getAttribute("value");
+			int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
+			if (processedValue!=1 & processedValue!=2 & processedValue!=3) {
 				result = false;
 				break;
 			}
