@@ -2,14 +2,12 @@ package com.perchwell.tests.FiltersTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
-import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"FiltersTests", "FiltersSearchesMapView"})
-public class FT4_ApplyingBedroomsFilterTest extends SampleTest {
+public class NFT3_BedroomsRangeFiltersTest extends SampleTest {
 
     @Test
-    public void resultAfterApplyingBedroomFilter() {
+    public void bedroomsRangeFilters() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -41,23 +39,10 @@ public class FT4_ApplyingBedroomsFilterTest extends SampleTest {
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListing4AndMoreRooms("bedrooms");
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.saveCurrentSearch();
-        user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
-        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.deselectFilter4Beds();
+        user.atSearchPage.selectFilter1Bed();
+        user.atSearchPage.selectFilter3Beds();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkListingsQuantity();
-        user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.selectBedroomsRangeOption();
-        user.atSearchPage.checkNoOneBedsRangeFilterSelected();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
-        user.atSearchPage.clickOnPreviouslyCreatedSearch();
-        user.atPerchwellPage.shouldSeeListing4AndMoreRooms("bedrooms");
-        user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.clickOnResetFilter();
-        user.atSearchPage.selectBedroomsRangeOption();
-        user.atSearchPage.checkNoOneBedsRangeFilterSelected();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkListingsQuantity();
+        user.atPerchwellPage.checkIfListingsAreFilteredByMultipleBedroomsFilters();
     }
 }

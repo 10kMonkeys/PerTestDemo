@@ -18,6 +18,7 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.yecht.Data;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -133,10 +134,10 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
 	private WebElement listingsSearchField;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH'")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'INFO'$]")
 	private List<WebElement> currentBedsAndBathsAmountList;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'BATH'")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'INFO'$]")
 	private WebElement bedsAndBathsAmount;
 
 	@iOSXCUITFindBy(accessibility = "Clear text")
@@ -521,5 +522,95 @@ public class PerchwellPage extends BasePage {
 
 	public void waitUntilAccountIconAppears() {
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
+	}
+
+	public void checkIfListingsAreFilteredByMinBeds(int value) {
+		boolean result = true;
+
+		for (WebElement element : currentBedsAndBathsAmountList) {
+			String stringValue = element.getAttribute("value");
+			int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
+			if (processedValue<value) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
+	}
+
+	public void checkIfListingsAreFilteredByMinBaths(double expectedValue) {
+		boolean result = true;
+
+		for (WebElement element : currentBedsAndBathsAmountList) {
+			String actualValue = element.getAttribute("value");
+			double processedActualValue = Double.parseDouble(
+					actualValue.substring(actualValue.indexOf("|")+2, actualValue.indexOf(" BA"))
+							.replace("1½", "1.5"));
+			if (processedActualValue<expectedValue) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
+	}
+
+	public void checkIfListingsAreFilteredByMultipleBedroomsFilters() {
+		boolean result = true;
+
+		for (WebElement element : currentBedsAndBathsAmountList) {
+			String stringValue = element.getAttribute("value");
+			int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
+			if (processedValue!=1 & processedValue!=2 & processedValue!=3) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
+	}
+
+	public void checkIfListingsWereChanged() {
+		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
+		Assert.assertTrue(listningsAmount!=listingsAmountToCheck);
+	}
+
+	public void checkIfThereIsNoListingsWithoutBeds() {
+		boolean result = true;
+
+		for (WebElement element : currentBedsAndBathsAmountList) {
+			String value = element.getAttribute("value");
+			if (!value.contains("BD") & !value.contains("STUDIO")) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
+	}
+
+	public void checkIfThereIsNoListingsWithoutBaths() {
+		boolean result = true;
+
+		for (WebElement element : currentBedsAndBathsAmountList) {
+			if (!element.getAttribute("value").contains("BA")) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
+	}
+
+	public void listingsFilteredByMultiBathroomsFilters() {
+		boolean result = true;
+
+		for (WebElement element : currentBedsAndBathsAmountList) {
+			String actualValue = element.getAttribute("value");
+			double value = Double.parseDouble(
+					actualValue.substring(actualValue.indexOf("|")+2, actualValue.indexOf(" BA"))
+							.replace("1½", "1.5"));
+			if (value !=1 & value !=1.5 & value !=2 & value != 3) {
+				result = false;
+				break;
+			}
+		}
+		Assert.assertTrue(result);
 	}
 }
