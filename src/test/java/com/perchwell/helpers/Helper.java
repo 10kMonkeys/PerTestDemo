@@ -22,6 +22,8 @@ public abstract class Helper {
         int anchor = (int) (size.width * anchorPercentage);
         int startPoint = (int) (size.height * startPercentage);
         int endPoint = (int) (size.height * finalPercentage * (-1));
+
+//        new TouchAction(driver).longPress(anchor, startPoint).moveTo(10, endPoint).release().perform();
         new TouchAction(driver).press(anchor, startPoint).waitAction(Duration.ofMillis(duration)).moveTo(10, endPoint).release().perform();
     }
 
@@ -54,7 +56,7 @@ public abstract class Helper {
         Dimension size = driver.manage().window().getSize();
         int startPoint = (int) (size.width * startPercentage);
         int endPoint = (int) (size.width * finalPercentage);
-        new TouchAction(driver).longPress(startPoint, y).moveTo(endPoint, 0).release().perform();
+        new TouchAction(driver).press(startPoint, y).waitAction(Duration.ofSeconds(1)).moveTo(endPoint, y).release().perform();
     }
 
     public static void swipeVerticalAndroid(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage) {
@@ -97,6 +99,21 @@ public abstract class Helper {
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
         if (isFoundTheElement) {
             swipeHorizontalWithSetY(appiumDriver, 0.9, 0.5, y, 1);
+            isFoundTheElement = getDriver().findElements(byElement).size() > 0;
+
+        }
+        return isFoundTheElement;
+    }
+
+    public static boolean swipeRightElementWithSetYAndroid(String elementName, int y) throws Exception {
+
+        By byElement = MobileBy.xpath("//*[contains(@text,'" + elementName + "')]");
+        boolean isFoundTheElement = getDriver().findElements(byElement).size() > 0;
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+        if (isFoundTheElement) {
+            swipeHorizontalWithSetYAndroid(appiumDriver, 0.9, 0.5, y);
             isFoundTheElement = getDriver().findElements(byElement).size() > 0;
 
         }

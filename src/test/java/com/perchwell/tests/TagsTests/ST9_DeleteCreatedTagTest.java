@@ -20,7 +20,7 @@ public class ST9_DeleteCreatedTagTest extends SampleTest {
 		user.atTagsPage.setRandomTagAndSave();
 		user.atTagsPage.clickOnArrowBackFromTagsButton();
 		user.atOpenedBuildingPage.clickOnDeleteTagButton();
-		user.atTagsPage.shouldNotSeeCreatedTagUpperCase();
+		user.atTagsPage.shouldNotSeeCreatedTagUpperCase(); /// reduce wait
 		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnTagsLabel();
