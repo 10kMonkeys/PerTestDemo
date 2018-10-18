@@ -544,7 +544,7 @@ public class PerchwellPage extends BasePage {
 		for (WebElement element : currentBedsAndBathsAmountList) {
 			String actualValue = element.getAttribute("value");
 			double processedActualValue = Double.parseDouble(
-					actualValue.substring(actualValue.indexOf("|"+2), actualValue.indexOf(" BA"))
+					actualValue.substring(actualValue.indexOf("|")+2, actualValue.indexOf(" BA"))
 							.replace("1½", "1.5"));
 			if (processedActualValue<expectedValue) {
 				result = false;
@@ -604,7 +604,7 @@ public class PerchwellPage extends BasePage {
 		for (WebElement element : currentBedsAndBathsAmountList) {
 			String actualValue = element.getAttribute("value");
 			double value = Double.parseDouble(
-					actualValue.substring(actualValue.indexOf("|"+2), actualValue.indexOf(" BA"))
+					actualValue.substring(actualValue.indexOf("|")+2, actualValue.indexOf(" BA"))
 							.replace("1½", "1.5"));
 			if (value !=1 & value !=1.5 & value !=2 & value != 3) {
 				result = false;
