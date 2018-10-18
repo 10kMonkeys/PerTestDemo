@@ -307,4 +307,39 @@ public class PerchwellSteps extends ScenarioSteps {
 		onPage.waitUntilAccountIconAppears();
 
 	}
+
+	@Step
+	public void checkIfListingsAreFilteredByMinBeds(int value) {
+		onPage.checkIfListingsAreFilteredByMinBeds(value);
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByMinBaths(double value) {
+		onPage.checkIfListingsAreFilteredByMinBaths(value);
+	}
+
+	@Step
+	public void checkIfListingsAreFilteredByMultipleBedroomsFilters() {
+		onPage.checkIfListingsAreFilteredByMultipleBedroomsFilters();
+	}
+
+	@Step
+	public void checkIfListingsWereChanged() {
+		onPage.checkIfListingsWereChanged();
+	}
+
+	@Step
+	public void checkIfThereIsNoListingsWithoutBeds() {
+		onPage.checkIfThereIsNoListingsWithoutBeds();
+	}
+
+	@Step
+	public void checkIfThereIsNoListingsWithoutBaths() {
+		onPage.checkIfThereIsNoListingsWithoutBaths();
+	}
+
+	@Step
+	public void listingsFilteredByMultiBathroomsFilters() {
+		onPage.listingsFilteredByMultiBathroomsFilters();
+	}
 }
