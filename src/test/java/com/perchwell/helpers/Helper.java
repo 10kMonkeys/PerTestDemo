@@ -258,7 +258,6 @@ public abstract class Helper {
     }
 
     public static void universalVerticalSwipe(WebElement element) {
-
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
@@ -270,6 +269,22 @@ public abstract class Helper {
         } else {
             while (!isElementDisplayed(element)) {
                 swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+            }
+        }
+    }
+
+    public static void universalVerticalShortSwipe(WebElement element) {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        if(Config.isAndroid()) {
+            while (!isElementDisplayed(element)) {
+                swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
+            }
+        } else {
+            while (!isElementDisplayed(element)) {
+                swipeVertical(appiumDriver, 0.4, 0.1, 0.5, 1);
             }
         }
     }

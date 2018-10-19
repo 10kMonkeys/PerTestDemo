@@ -607,4 +607,39 @@ public class SearchSteps extends ScenarioSteps {
 	public void selectBathroomsMinimumOption() {
 		onPage.selectBathroomsMinimumOption();
 	}
+
+	@Step
+	public void check2BedsMinFilterSelected() {
+		onPage.check2BedsMinFilterSelected();
+	}
+
+	@Step
+	public void check2BedsRangeFilterSelected() {
+		onPage.check2BedsRangeFilterSelected();
+	}
+
+	@Step
+	public void checkMultiBedroomsFiltersSelected() {
+		onPage.checkMultiBedroomsFiltersSelected();
+	}
+
+	@Step
+	public void check2BathsMinFilterSelected() {
+		onPage.check2BathsMinFilterSelected();
+	}
+
+	@Step
+	public void check2BathsRangeFilterSelected() {
+		onPage.check2BathsRangeFilterSelected();
+	}
+
+	@Step
+	public void checkMultiBathroomsFiltersSelected() {
+		onPage.checkMultiBathroomsFiltersSelected();
+	}
+
+	@Step
+	public void checkBedroomsRangeButtonIsNotSelected() {
+		onPage.checkBedroomsRangeButtonIsNotSelected();
+	}
 }
