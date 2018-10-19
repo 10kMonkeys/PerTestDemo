@@ -6,35 +6,30 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"FiltersTests", "AdditionalFiltersTest"})
-public class NFT8_ResetBathroomsFiltersTest extends SampleTest {
+public class NFT15_CollapseExpandBathroomsTest extends SampleTest {
 
     @Test
-    public void resetBathroomsFilters() {
+    public void collapseExpandBathrooms() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.selectTwoBathsMinimumFilter();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.collapseBathroomsFilters();
+        user.atSearchPage.collapseBathroomsFilters();
+        user.atSearchPage.checkBathroomsRangeButtonIsNotSelected();
         user.atSearchPage.check2BathsMinFilterSelected();
-        user.atSearchPage.clickOnResetFilter();
-        user.atSearchPage.checkNoOneBathsMinimumFilterSelected();
         user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.selectFilter2Baths();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.collapseBathroomsFilters();
+        user.atSearchPage.collapseBathroomsFilters();
+        user.atSearchPage.checkBathroomsRangeButtonSelected();
         user.atSearchPage.check2BathsRangeFilterSelected();
-        user.atSearchPage.clickOnResetFilter();
-        user.atSearchPage.selectBathroomsRangeOption();
-        user.atSearchPage.selectFilter2Baths();
         user.atSearchPage.selectFilter4PlusBaths();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.collapseBathroomsFilters();
+        user.atSearchPage.collapseBathroomsFilters();
+        user.atSearchPage.checkBathroomsRangeButtonSelected();
         user.atSearchPage.checkMultiBathroomsFiltersSelected();
-        user.atSearchPage.clickOnResetFilter();
-        user.atSearchPage.selectBathroomsRangeOption();
-        user.atSearchPage.checkNoOneBathsRangeFilterSelected();
     }
 }
