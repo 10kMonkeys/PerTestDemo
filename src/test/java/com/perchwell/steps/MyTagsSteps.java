@@ -32,8 +32,10 @@ public class MyTagsSteps extends ScenarioSteps {
 		}
 	}
 
+	@Step
 	public void checkTwoJustCreatedTags() throws Exception {
 		onPage.checkJustCreatedTag(SessionVariables.getValueFromSessionVariable("First_tag"));
+		onPage.clearSearchField();
 		onPage.checkJustCreatedTag(SessionVariables.getValueFromSessionVariable("Second_tag"));
 	}
 }
