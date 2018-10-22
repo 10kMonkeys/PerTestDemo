@@ -642,4 +642,29 @@ public class SearchSteps extends ScenarioSteps {
 	public void checkBedroomsRangeButtonIsNotSelected() {
 		onPage.checkBedroomsRangeButtonIsNotSelected();
 	}
+
+	@Step
+	public void checkBathroomsRangeButtonIsNotSelected() {
+		onPage.checkBathroomsRangeButtonIsNotSelected();
+	}
+
+	@Step
+	public void collapseBedroomsFilters() {
+		onPage.collapseBedroomsFilters();
+	}
+
+	@Step
+	public void collapseBathroomsFilters() {
+		onPage.collapseBathroomsFilters();
+	}
+
+	@Step
+	public void checkBedroomsRangeButtonSelected() {
+		onPage.checkBedroomsRangeButtonSelected();
+	}
+
+	@Step
+	public void checkBathroomsRangeButtonSelected() {
+		onPage.checkBathroomsRangeButtonSelected();
+	}
 }
