@@ -6,41 +6,41 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"FiltersTests", "AdditionalFiltersTest"})
-public class NFT9_BedroomsFiltersNewSearchTest extends SampleTest {
+public class NFT10_BathroomsFiltersNewSearchTest extends SampleTest {
 
     @Test
-    public void bedroomsFiltersNewSearch() {
+    public void bathroomsFiltersNewSearch() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.selectTwoBedsMinimumFilter();
+        user.atSearchPage.selectTwoBathsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.check2BedsMinFilterSelected();
+        user.atSearchPage.check2BathsMinFilterSelected();
         user.atSearchPage.clickOnLoadSavedSearchButton();
         user.atSearchPage.createNewSearchClick();
-        user.atSearchPage.checkNoOneBedsMinimumFilterSelected();
-        user.atSearchPage.selectBedroomsRangeOption();
-        user.atSearchPage.selectFilter2Beds();
+        user.atSearchPage.checkNoOneBathsMinimumFilterSelected();
+        user.atSearchPage.selectBathroomsRangeOption();
+        user.atSearchPage.selectFilter2Baths();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.check2BedsRangeFilterSelected();
+        user.atSearchPage.check2BathsRangeFilterSelected();
         user.atSearchPage.clickOnLoadSavedSearchButton();
         user.atSearchPage.createNewSearchClick();
-        user.atSearchPage.checkBedroomsRangeButtonIsNotSelected();
-        user.atSearchPage.selectBedroomsRangeOption();
-        user.atSearchPage.checkNoOneBedsRangeFilterSelected();
-        user.atSearchPage.selectFilter2Beds();
-        user.atSearchPage.selectFilter4PlusBeds();
+        user.atSearchPage.checkBathroomsRangeButtonIsNotSelected();
+        user.atSearchPage.selectBathroomsRangeOption();
+        user.atSearchPage.checkNoOneBathsRangeFilterSelected();
+        user.atSearchPage.selectFilter2Baths();
+        user.atSearchPage.selectFilter4PlusBaths();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.checkMultiBedroomsFiltersSelected();
+        user.atSearchPage.checkMultiBathroomsFiltersSelected();
         user.atSearchPage.clickOnLoadSavedSearchButton();
         user.atSearchPage.createNewSearchClick();
-        user.atSearchPage.checkBedroomsRangeButtonIsNotSelected();
-        user.atSearchPage.selectBedroomsRangeOption();
-        user.atSearchPage.checkNoOneBedsRangeFilterSelected();
+        user.atSearchPage.checkBathroomsRangeButtonIsNotSelected();
+        user.atSearchPage.selectBathroomsRangeOption();
+        user.atSearchPage.checkNoOneBathsRangeFilterSelected();
     }
 }

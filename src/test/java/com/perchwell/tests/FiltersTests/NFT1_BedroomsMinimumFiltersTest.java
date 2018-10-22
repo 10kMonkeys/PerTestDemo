@@ -3,8 +3,10 @@ package com.perchwell.tests.FiltersTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.Filters;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"FiltersTests", "AdditionalFiltersTest"})
 public class NFT1_BedroomsMinimumFiltersTest extends SampleTest {
 
     @Test

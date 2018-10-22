@@ -399,6 +399,18 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Option: Minimum")
 	private WebElement bathroomsMinimumOption;
 
+	@iOSXCUITFindBy(accessibility = "Cell Collapsible Button: BEDROOMS")
+	private WebElement bedroomsCollapseButton;
+
+	@iOSXCUITFindBy(accessibility = "Cell Collapsible Button: BATHROOMS")
+	private WebElement bathroomsCollapseButton;
+
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Option Selected: Range")
+	private WebElement selectedBedroomsRangeOption;
+
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Option Selected: Range")
+	private WebElement selectedBathroomsRangeOption;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -1132,5 +1144,25 @@ public class SearchPage extends BasePage {
 
 	public void checkBedroomsRangeButtonIsNotSelected() {
 		element(bedroomsRangeOption).shouldBeVisible();
+	}
+
+	public void checkBathroomsRangeButtonIsNotSelected() {
+		element(bathroomsRangeOption).shouldBeVisible();
+	}
+
+	public void collapseBedroomsFilters() {
+		element(bedroomsCollapseButton).click();
+	}
+
+	public void collapseBathroomsFilters() {
+		element(bathroomsCollapseButton).click();
+	}
+
+	public void checkBedroomsRangeButtonSelected() {
+		element(selectedBedroomsRangeOption).shouldBeVisible();
+	}
+
+	public void checkBathroomsRangeButtonSelected() {
+		element(selectedBathroomsRangeOption).shouldBeVisible();
 	}
 }
