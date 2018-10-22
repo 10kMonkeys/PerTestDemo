@@ -2,10 +2,12 @@ package com.perchwell.tests.AnalyticsTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class ATS28_ElevatorFilterAndParkingChartsTest extends SampleTest {
 
+    @Ignore
     @Test
     public void elevatorFilterAndParkingCharts() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

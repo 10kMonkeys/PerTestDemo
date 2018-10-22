@@ -7,7 +7,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"ListingsAndBuildingsTests", "Listings"})
+@WithTagValuesOf({"ListingsAndBuildingsTests", "ListingsTests"})
 public class LB2_SimilarListingsSearchByBathroomsTest extends SampleTest {
 
     @Test

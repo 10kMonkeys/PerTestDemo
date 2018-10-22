@@ -19,7 +19,7 @@ public class ST8_ShareTagTest extends SampleTest {
 		user.usingComplexSteps.addTagToTheSecondListing();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnTagsLabel();
-		user.atMyTagsPage.checkTwoJustCreatedTags();
+		user.atMyTagsPage.checkTwoJustCreatedTags(); //temp solution for iOS
 		user.atMyTagsPage.clickOnTagSearchButton();
 		user.atSelectResultPage.clickOnTagPDFExportButton();
 		user.atSelectResultPage.selectShareTaggedItems();

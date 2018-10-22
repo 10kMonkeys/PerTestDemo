@@ -24,7 +24,7 @@ public class ST6_CreateNewTagForListingTest extends SampleTest {
 		user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnTagsLabel();
-		user.atTagsPage.shouldSeeJustCreatedTag();
+		user.atTagsPage.shouldSeeJustCreatedTag(); //temp solution for iOS
 		user.atTagsPage.clickOnCreatedTag();
 		user.atTagsPage.clickOnSearchButton();
 		user.atTagsPage.shouldSeeTaggedListing();

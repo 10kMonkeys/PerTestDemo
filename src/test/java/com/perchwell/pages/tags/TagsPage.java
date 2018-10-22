@@ -49,7 +49,8 @@ public class TagsPage extends BasePage {
 	private WebElement moreTagIcon;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/tag_name")
-	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '11CLIENTNAME'")
+//	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '11CLIENTNAME'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'TAGNAME'")
 	private WebElement firstTag;
 
 	@iOSXCUITFindBy(id = "TagsViewControllerCancelButton")
@@ -140,9 +141,11 @@ public class TagsPage extends BasePage {
 			resetImplicitTimeout();
 			element(MobileBy.xpath("//*[contains(@text, '" + tagName + "')]")).shouldBeVisible();
 		} else {
-			WebElement justCreatedTag = getDriver().findElement(MobileBy.AccessibilityId(tagName));
-			Helper.swipeDownUntilElementVisible(justCreatedTag);
-			element(justCreatedTag).shouldBeVisible();
+			element(searchTagTexBox).sendKeys(tagName);
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS '" + tagName + "'$]")).shouldBeVisible();
+//			WebElement justCreatedTag = getDriver().findElement(MobileBy.AccessibilityId(tagName));
+//			Helper.swipeDownUntilElementVisible(justCreatedTag);
+//			element(justCreatedTag).shouldBeVisible();
 		}
 	}
 
