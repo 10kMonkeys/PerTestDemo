@@ -27,6 +27,13 @@ public class MyTagsPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "TagsTableView")
 	private WebElement tagTable;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSearchField")
+	private WebElement searchTagTexField;
+
+	@iOSXCUITFindBy(accessibility = "Clear text")
+	private WebElement clearIcon;
+
 	//endregion
 
 	public MyTagsPage(WebDriver driver) {
@@ -63,12 +70,18 @@ public class MyTagsPage extends BasePage {
 			resetImplicitTimeout();
 			element(MobileBy.xpath("//*[contains(@text, '" + tag + "')]")).click();
 		} else {
-			WebElement justCreatedTag = getDriver().findElement(MobileBy.AccessibilityId(tag));
-			setImplicitTimeout(1, SECONDS);
-			Helper.swipeDownUntilElementVisible(justCreatedTag);
-			element(justCreatedTag).click();
-			resetImplicitTimeout();
+			element(searchTagTexField).sendKeys(tag);
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS '" + tag + "'$]")).click();
+//			WebElement justCreatedTag = getDriver().findElement(MobileBy.AccessibilityId(tag));
+//			setImplicitTimeout(1, SECONDS);
+//			Helper.swipeDownUntilElementVisible(justCreatedTag);
+//			element(justCreatedTag).click();
+//			resetImplicitTimeout();
 		}
     }
+
+	public void clearSearchField() {
+		element(clearIcon).click();
+	}
 }
 
