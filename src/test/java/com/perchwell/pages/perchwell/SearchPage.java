@@ -481,7 +481,6 @@ public class SearchPage extends BasePage {
 	}
 
 	public void setMinimumPriceFilter(String price) {
-		Helper.universalVerticalShortSwipe(minimumPriceTextBox);
 		element(minimumPriceTextBox).sendKeys(price);
 		if(!Config.isAndroid()) {
 			getDriver().findElement(By.name("Done")).click();
