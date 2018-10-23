@@ -481,15 +481,9 @@ public class SearchPage extends BasePage {
 	}
 
 	public void setMinimumPriceFilter(String price) {
-
-//		element(minimumPriceTextBox).type(price);
 		element(minimumPriceTextBox).sendKeys(price);
 		if(!Config.isAndroid()) {
-			WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-			WebDriver webDriver = webDriverFacade.getProxiedDriver();
-			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
-			appiumDriver.hideKeyboard();
+			getDriver().findElement(By.name("Done")).click();
 		}
 	}
 

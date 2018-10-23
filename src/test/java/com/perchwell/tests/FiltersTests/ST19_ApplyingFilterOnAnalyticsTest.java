@@ -22,9 +22,9 @@ public class ST19_ApplyingFilterOnAnalyticsTest extends SampleTest {
         user.atAnalyticsPage.getBedroomsChartValue(); //// No such element in DOM
         user.atAnalyticsPage.getAskingPriceChartValue(); //// No such element in DOM
         user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.setMinimumPriceFilter("600000");
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.selectFilterStudioBeds();
+        user.atSearchPage.setMinimumPriceFilter("600000");
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atAnalyticsPage.isBedroomsChartChange(); //// No such element in DOM
         user.atAnalyticsPage.isAskingPriceChartChange(); //// No such element in DOM

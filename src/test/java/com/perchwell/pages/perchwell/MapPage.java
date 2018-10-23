@@ -140,7 +140,7 @@ public class MapPage extends BasePage {
 	}
 
 	public void clickOnSecondPin() {
-		clusterList.get(0).click();
+		clusterList.get(1).click();
 
 	}
 
