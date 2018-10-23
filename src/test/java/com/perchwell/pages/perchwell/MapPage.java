@@ -39,7 +39,8 @@ public class MapPage extends BasePage {
 	private WebElement myNewSearch;
 
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View")
-    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'GMSMarker'")
+//    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'GMSMarker'")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'GMSMarker'$]")
 	private List<WebElement> clusterList;
 
 	@AndroidFindBy(xpath = "//*[@text='1½ BA']")

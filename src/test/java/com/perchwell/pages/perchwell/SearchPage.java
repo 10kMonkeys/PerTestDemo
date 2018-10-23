@@ -288,13 +288,13 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeCell' AND name CONTAINS 'City-MANHATTAN'")
 	private WebElement manhattanCheckedCheckbox;
 
-	@iOSXCUITFindBy(accessibility = "Remove Button: BROOKLYN")
+	@iOSXCUITFindBy(accessibility = "Remove Button: Brooklyn")
 	private WebElement brooklynRemoveIcon;
 
-	@iOSXCUITFindBy(accessibility = "Remove Button: QUEENS")
+	@iOSXCUITFindBy(accessibility = "Remove Button: Queens")
 	private WebElement queensRemoveIcon;
 
-	@iOSXCUITFindBy(accessibility = "Neighborhood-ALPHABET CITY")
+	@iOSXCUITFindBy(accessibility = "Neighborhood-Alphabet City")
 	private WebElement alphabetCityCheckbox;
 
 	@iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
@@ -411,6 +411,9 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Option Selected: Range")
 	private WebElement selectedBathroomsRangeOption;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name CONTAINS 'City-Manhattan'$]/XCUIElementTypeButton")
+	private WebElement manhattanSection;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -481,16 +484,12 @@ public class SearchPage extends BasePage {
 	}
 
 	public void setMinimumPriceFilter(String price) {
-
 //		element(minimumPriceTextBox).type(price);
 		element(minimumPriceTextBox).sendKeys(price);
 		if(!Config.isAndroid()) {
-			WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-			WebDriver webDriver = webDriverFacade.getProxiedDriver();
-			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
-			appiumDriver.hideKeyboard();
+			getDriver().findElement(By.name("Done")).click();
 		}
+
 	}
 
 	public void selectFilterStudioBeds() {
@@ -1173,5 +1172,9 @@ public class SearchPage extends BasePage {
 
 	public void checkBathroomsRangeButtonSelected() {
 		element(selectedBathroomsRangeOption).shouldBeVisible();
+	}
+
+	public void expandManhattanSection() {
+		element(manhattanSection).click();
 	}
 }

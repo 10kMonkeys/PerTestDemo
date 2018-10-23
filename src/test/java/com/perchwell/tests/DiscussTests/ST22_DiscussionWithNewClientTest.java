@@ -17,7 +17,6 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
 		user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
-		user.atDiscussThisListingPage.deleteDiscussionWithClientIfExist(); //need to remove
 		user.atOpenedBuildingPage.clickOnAddDiscusButton();
 		user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
 		user.atClientPage.invitationEmailSent();

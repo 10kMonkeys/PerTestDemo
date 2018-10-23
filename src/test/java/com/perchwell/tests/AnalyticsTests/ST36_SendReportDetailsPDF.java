@@ -18,6 +18,7 @@ public class ST36_SendReportDetailsPDF extends SampleTest {
 		user.atRebnyListingsPage.addChartFromREBNYSection();
 		user.atAnalyticsPage.skipHints();
 		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atSearchPage.selectBedroomsRangeOption();
 		user.atSearchPage.selectFilterStudioBeds();
 		user.atSearchPage.clickOnApplyButton();
 		user.atRebnyListingsPage.rebnyMKTShareAskingPriceChartTitle();

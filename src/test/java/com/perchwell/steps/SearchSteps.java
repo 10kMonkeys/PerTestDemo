@@ -667,4 +667,9 @@ public class SearchSteps extends ScenarioSteps {
 	public void checkBathroomsRangeButtonSelected() {
 		onPage.checkBathroomsRangeButtonSelected();
 	}
+
+	@Step
+	public void expandManhattanSection() {
+		onPage.expandManhattanSection();
+	}
 }

@@ -75,7 +75,8 @@ public class DiscussionsListPage extends BasePage {
 	}
 
 	public void clickOnFirstDiscussion() {
-		element(firstItem).click();
+//		element(firstItem).click();
+		element(firstDiscussionMessage).click();
 	}
 
 	public void shouldBeCreatedDiscussionFirst() {

@@ -16,7 +16,7 @@ public class ST23_DiscussionWithExistingClient extends SampleTest {
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
 		user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
-		user.atDiscussThisListingPage.deleteDiscussionWithClientIfExist();
+		user.atDiscussThisListingPage.deleteDiscussionWithClientIfExist(); //reduce waiter
 		user.usingComplexSteps.sendMessageToClientAndCloseDiscussion(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
 		user.atOpenedBuildingPage.shouldSeeExistingDiscussion();
 		user.atOpenedBuildingPage.openExistingDiscussion();

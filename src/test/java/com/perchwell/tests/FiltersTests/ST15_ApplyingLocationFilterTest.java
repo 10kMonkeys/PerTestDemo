@@ -18,6 +18,7 @@ public class ST15_ApplyingLocationFilterTest extends SampleTest {
 		user.atPerchPopup.clickNotNowButton();
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.clickOnNeighborhoodsPlusButton();
+		user.atSearchPage.expandManhattanSection();
 		user.atSearchPage.addAlphabetCity();
 		user.atSearchPage.deleteBrooklyn();
 		user.atSearchPage.deleteQueens();

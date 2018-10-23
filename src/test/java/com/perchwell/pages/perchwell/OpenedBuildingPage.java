@@ -89,7 +89,7 @@ public class OpenedBuildingPage extends BasePage {
     private WebElement clientWithDiscussion;
 
 	@AndroidFindBy(xpath = "//*[contains(@text,'TEST TEST-IOS+MGMT-CORE@PERCHWELL.COM')]")
-	@iOSXCUITFindBy(accessibility = "Test test-ios+mgmt-core@perchwell.com")
+	@iOSXCUITFindBy(accessibility = "TEST TEST-IOS+MGMT-CORE@PERCHWELL.COM")
 	private WebElement agentWithDiscussion;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/view_all_discussions")
@@ -386,6 +386,7 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void openDiscussionWithJustCreatedClient(String client) {
+		waitABit(60000);
 		if(Config.isAndroid()) {
 			element(By.xpath("//*[contains(@text,'" + client + "')]")).click();
 		} else {
