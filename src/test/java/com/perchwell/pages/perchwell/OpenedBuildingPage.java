@@ -326,15 +326,15 @@ public class OpenedBuildingPage extends BasePage {
 			Helper.swipeVertical(appiumDriver, 0.4, 0.1, 0.5, 1);
 //			Helper.universalVerticalSwipe(mortgageCalculator);
 		}
-//		element(featuresAmenities).click();
-		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-		WebDriver webDriver = webDriverFacade.getProxiedDriver();
-		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
-		int minX = myTagsLabel.getLocation().getX() + 115;
-		int minY = myTagsLabel.getLocation().getY() + 175;
-
-		new TouchAction(appiumDriver).tap(minX, minY).release().perform();
+		element(featuresAmenities).click();
+//		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+//		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+//		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+//
+//		int minX = myTagsLabel.getLocation().getX() + 115;
+//		int minY = myTagsLabel.getLocation().getY() + 175;
+//
+//		new TouchAction(appiumDriver).tap(minX, minY).release().perform();
 	}
 
 	public void isFireplaceDisplayed() {
