@@ -72,7 +72,7 @@ public class OpenedBuildingPage extends BasePage {
 	private WebElement shareBitton;
 
 	@AndroidFindBy(xpath = "//*[@text='FEATURES & AMENITIES']")
-	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeOther' AND name CONTAINS 'FEATURES & AMENITIES'")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$value = 'FEATURES & AMENITIES'$]")
 	private WebElement featuresAmenities;
 
 	@iOSXCUITFindBy(accessibility = "FIREPLACE")
@@ -319,20 +319,20 @@ public class OpenedBuildingPage extends BasePage {
 //			Helper.swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
 			Helper.androidSwipeDownUntilElementVisible(featuresAmenities);
 		} else {
-//			WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-//			WebDriver webDriver = webDriverFacade.getProxiedDriver();
-//			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-//			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
-//			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
-			Helper.universalVerticalSwipe(mortgageCalculator);
+			WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+			WebDriver webDriver = webDriverFacade.getProxiedDriver();
+			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+//			Helper.universalVerticalShortSwipe(myTagsLabel);
+			Helper.swipeVertical(appiumDriver, 0.4, 0.1, 0.5, 1);
+//			Helper.universalVerticalSwipe(mortgageCalculator);
 		}
 //		element(featuresAmenities).click();
 		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-		int minX = mortgageCalculator.getLocation().getX();
-		int minY = mortgageCalculator.getLocation().getY() - 290;
+		int minX = myTagsLabel.getLocation().getX() + 115;
+		int minY = myTagsLabel.getLocation().getY() + 175;
 
 		new TouchAction(appiumDriver).tap(minX, minY).release().perform();
 	}
@@ -398,17 +398,17 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void isLaundryBLDGDisplayed() {
-		if(Config.isAndroid()) {
-//			Helper.swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
-			Helper.androidSwipeDownUntilElementVisible(LaundryBLDGD);
-		} else {
-			WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-			WebDriver webDriver = webDriverFacade.getProxiedDriver();
-			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
-			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
-			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
-		}
+//		if(Config.isAndroid()) {
+////			Helper.swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
+//			Helper.androidSwipeDownUntilElementVisible(LaundryBLDGD);
+//		} else {
+//			WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+//			WebDriver webDriver = webDriverFacade.getProxiedDriver();
+//			AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+//
+//			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
+//			Helper.swipeVertical(appiumDriver, 0.9, 0.1, 0.5, 1);
+//		}
 
 		element(LaundryBLDGD).shouldBeVisible();
 	}
