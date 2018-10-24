@@ -16,7 +16,7 @@ public class ST4_LogInAfterResetPasswordTest extends SampleTest {
         user.atResetPasswordPage.resetPasswordButtonClick();
         user.atResetPasswordPage.shouldFindSentEmail();
         user.atResetPasswordPage.getResetToken();
-        user.atResetPasswordPage.setNewPassword();
+        user.atResetPasswordPage.setNewPassword();  //change to check Chrome
         user.atResetPasswordPage.backButtonClick();
         user.atResetPasswordPage.login(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("old_reset_password"));
@@ -29,6 +29,6 @@ public class ST4_LogInAfterResetPasswordTest extends SampleTest {
         user.atPerchwellPage.shouldSeeEditSearchFiltersHint();
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.usingComplexSteps.returnOldPassword();
+        user.usingComplexSteps.returnOldPassword();  //change to check Chrome
     }
 }

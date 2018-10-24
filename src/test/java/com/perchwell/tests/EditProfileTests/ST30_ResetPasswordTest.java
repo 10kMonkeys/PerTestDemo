@@ -20,7 +20,7 @@ public class ST30_ResetPasswordTest extends SampleTest {
         user.atResetPasswordPage.resetPasswordButtonClick();
         user.atResetPasswordPage.shouldFindSentEmail();
         user.atResetPasswordPage.getResetToken();
-        user.atResetPasswordPage.setNewPassword();
+        user.atResetPasswordPage.setNewPassword(); //change to check Chrome
         user.atSettingsProfilePage.backButtonClick();
         user.atSettingsProfilePage.cancelButtonClick();
         user.atClientPage.logOut();
@@ -34,6 +34,6 @@ public class ST30_ResetPasswordTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("new_reset_password"));
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.shouldSeeInitialIcon();
-        user.usingComplexSteps.returnOldPassword();
+        user.usingComplexSteps.returnOldPassword(); //change to check Chrome
     }
 }

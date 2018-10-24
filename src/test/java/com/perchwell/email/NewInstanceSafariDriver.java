@@ -72,19 +72,19 @@ public abstract class NewInstanceSafariDriver {
     }
 
     public static void resetPasswordBySafariOrChrome(String newPassword){ ////
-        if (Config.isAndroid()){
+//        if (Config.isAndroid()){
             resetPasswordInChrome(newPassword);
-        }else {
-            resetPasswordInSafari(newPassword);
-        }
+//        }else {
+//            resetPasswordInSafari(newPassword);
+//        }
     }
 
     public static void returnOldPasswordBySafariOrChrome(){
-        if (Config.isAndroid()){
+//        if (Config.isAndroid()){
             returnOldPasswordInChrome();
-        }else {
-            returnOldPasswordInSafari();
-        }
+//        }else {
+//            returnOldPasswordInSafari();
+//        }
     }
 
     private static void returnOldPasswordInChrome() { ////
