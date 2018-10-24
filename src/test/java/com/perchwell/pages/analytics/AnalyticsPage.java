@@ -186,7 +186,7 @@ public class AnalyticsPage extends BasePage {
     private WebElement iPadChart;
 
     @AndroidFindBy(xpath = "//*[@text='NOTHING TO SEE HERE']")
-    @iOSXCUITFindBy(accessibility = "nothingToSeeHere")
+    @iOSXCUITFindBy(accessibility = "NOTHING TO SEE HERE")
     private WebElement nothingToSeeHere;
 
 //    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'RESET'")
