@@ -4,11 +4,13 @@ import com.perchwell.SampleTest;
 import com.perchwell.data.ListingLabels;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.Ignore;
 import org.junit.Test;
 
 @WithTagValuesOf({"SmokeTestSuit", "FiltersTests", "Third"})
 public class ST17_ApplyingStatusTypeFilter extends SampleTest {
 
+    @Ignore
     @Test
     public void applyingStatusTypeFilter() throws Exception {
             user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

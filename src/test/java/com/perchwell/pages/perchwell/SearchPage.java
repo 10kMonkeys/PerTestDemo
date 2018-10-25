@@ -16,6 +16,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -1021,6 +1022,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectBedroomsRangeOption() {
+		waitFor(ExpectedConditions.visibilityOf(bedroomsRangeOption));
 		element(bedroomsRangeOption).click();
 	}
 

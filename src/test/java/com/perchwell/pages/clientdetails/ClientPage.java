@@ -135,6 +135,9 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "AddClientViewControllerBackButton")
 	private WebElement backButtonCreateClient;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeSearchField' AND name CONTAINS 'SEARCH'")
+	private WebElement searchClientField;
+
 	public ClientPage(WebDriver driver) {
 		super(driver);
 	}
@@ -202,7 +205,18 @@ public class ClientPage extends BasePage {
 		resetImplicitTimeout();
 	}
 
-	public void isClientOrAgentDisplayed(String name){
+	public void isClientDisplayed(String name){
+//		this.swipeDownUntilElementVisible(name);
+		element(searchClientField).sendKeys(name);
+		element(searchFrozenArea).click();
+		if (Config.isAndroid()){
+			element(By.xpath("//*[contains(@text,'" + name + "')]")).shouldBeVisible();
+		} else {
+			element(MobileBy.AccessibilityId(name)).shouldBeVisible();
+		}
+	}
+
+	public void isAgentDisplayed(String name){
 		this.swipeDownUntilElementVisible(name);
 		if (Config.isAndroid()){
 			element(By.xpath("//*[contains(@text,'" + name + "')]")).shouldBeVisible();

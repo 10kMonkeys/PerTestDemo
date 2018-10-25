@@ -39,7 +39,8 @@ public class TagsSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldNotSeeCreatedTagUpperCase() {
-		Assert.assertFalse(onPage.isTagDisplayed(tag.getUniqueTagName().toUpperCase()));
+//		Assert.assertFalse(onPage.isTagDisplayed(tag.getUniqueTagName().toUpperCase()));
+		onPage.shouldNotSeeCreatedTagUpperCase(tag.getUniqueTagName().toUpperCase());
 	}
 
 	@Step

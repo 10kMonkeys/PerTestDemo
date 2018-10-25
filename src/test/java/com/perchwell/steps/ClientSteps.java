@@ -26,7 +26,7 @@ public class ClientSteps extends ScenarioSteps {
 		if(Config.isAndroid()) {
 			onPage.isClientOrAgentDisplayedAndroid(SessionVariables.getValueFromSessionVariable("User_name"));
 		} else {
-			onPage.isClientOrAgentDisplayed(SessionVariables.getValueFromSessionVariable("User_name"));
+			onPage.isClientDisplayed(SessionVariables.getValueFromSessionVariable("User_name"));
 		}
 	}
 
@@ -104,7 +104,7 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnExistingClient() throws Exception {
-		onPage.isClientOrAgentDisplayed(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
+		onPage.isClientDisplayed(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
 		onPage.clickOnDesiredClientOrAgent(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
 		SessionVariables.addValueInSessionVariable("Client", AppProperties.INSTANCE.getProperty("client_name"));
 	}
@@ -135,7 +135,7 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnExistingAgent() throws Exception {
-		onPage.isClientOrAgentDisplayed(AppProperties.INSTANCE.getProperty("broker_name").toUpperCase());
+		onPage.isAgentDisplayed(AppProperties.INSTANCE.getProperty("broker_name").toUpperCase());
 		onPage.clickOnDesiredClientOrAgent(AppProperties.INSTANCE.getProperty("broker_name").toUpperCase());
 		SessionVariables.addValueInSessionVariable("Agent", AppProperties.INSTANCE.getProperty("broker_name"));
 	}
@@ -224,7 +224,7 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnExistingClientForRemoveMessage() throws Exception {
-		onPage.isClientOrAgentDisplayed(SessionVariables.getValueFromSessionVariable("User_name").toUpperCase());
+		onPage.isClientDisplayed(SessionVariables.getValueFromSessionVariable("User_name").toUpperCase());
 		onPage.clickOnDesiredClientOrAgent(SessionVariables.getValueFromSessionVariable("User_name").toUpperCase());
 	}
 

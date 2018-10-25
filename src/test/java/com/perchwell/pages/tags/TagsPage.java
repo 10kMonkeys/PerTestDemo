@@ -190,4 +190,12 @@ public class TagsPage extends BasePage {
 			element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).click();
 		}
 	}
+
+	public void shouldNotSeeCreatedTagUpperCase(String tag) {
+		if (Config.isAndroid()) {
+			element(MobileBy.xpath("//*[contains(@text, '" + tag + "')]")).shouldNotBeVisible();
+		} else {
+			element(MobileBy.AccessibilityId(tag)).shouldNotBeVisible();
+		}
+	}
 }
