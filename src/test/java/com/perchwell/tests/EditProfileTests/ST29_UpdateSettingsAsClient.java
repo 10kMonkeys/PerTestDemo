@@ -9,11 +9,10 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "EditProfileTests", "Third"})
 public class ST29_UpdateSettingsAsClient extends SampleTest {
 
-    @Ignore //temp solution until new clients will be added
     @Test
     public void updateSettingAsClientTest() {
-        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_test_email"),
-                AppProperties.INSTANCE.getProperty("client_test_password"));
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("updated_client_email"),
+                AppProperties.INSTANCE.getProperty("updated_client_password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
@@ -22,8 +21,8 @@ public class ST29_UpdateSettingsAsClient extends SampleTest {
         user.atSettingsProfilePage.backButtonClick();
         user.atClientPage.logOut();
         user.atClientPage.clickOnYesButtonLogOutWindow();
-        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_test_email"),
-                AppProperties.INSTANCE.getProperty("client_test_password"));
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("updated_client_email"),
+                AppProperties.INSTANCE.getProperty("updated_client_password"));
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.openSettingProfile();

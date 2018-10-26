@@ -26,6 +26,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class AnalyticsPage extends BasePage {
 
     private int numberOfReportDetailEmails;
@@ -537,7 +539,7 @@ public class AnalyticsPage extends BasePage {
             element(iPadChart).shouldBeVisible();
         } else {
             element(chart).shouldBeVisible();
-        }
+       }
         element(nothingToSeeHere).shouldNotBeVisible();
     }
 
