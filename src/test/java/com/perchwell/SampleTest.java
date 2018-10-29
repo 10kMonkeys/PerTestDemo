@@ -1,5 +1,6 @@
 package com.perchwell;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.TravisAlive;
 import com.perchwell.helpers.stepListener.StepTestListener;
 import com.perchwell.helpers.stepListener.TestResult;
@@ -10,6 +11,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.StepEventBus;
 import net.thucydides.core.steps.StepListener;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -24,6 +26,12 @@ public abstract class SampleTest {
 
     static TimerTask task = new TravisAlive();
     static Timer timer;
+
+    public static StepTestListener listener;
+    public TestResult testResult;
+
+//    private StepTestListener listener;
+//    private TestResult testResult;
 
     @Managed
     WebDriver driver;
@@ -43,39 +51,29 @@ public abstract class SampleTest {
         }
     }
 
-//    private StepTestListener listener;
-//    private TestResult testResult;
-//
-//    protected StepListener getStepListener(TestResult testResult) {
-//        if (listener == null) {
-//            listener = new StepTestListener(testResult);
-//        }
-//        return listener;
-//    }
-//
-//    protected TestResult getTestResult() {
-//        if (testResult == null) {
-//            testResult = new TestResult();
-//        }
-//        return testResult;
-//    }
-//
-//    public void setStepListener(StepTestListener stepListener) {
-//        listener = stepListener;
-//    }
-//
-//    @Before
-//    public void before() {
-//        StepEventBus.getEventBus().registerListener(getStepListener(getTestResult()));
-//    }
-//
-//    @After
-//    public void after(){
-//                driver.quit();
-//                if (listener != null) {
-//                        StepEventBus.getEventBus().dropListener(listener);
-//                }
-//    }
 
+    protected StepListener getStepListener(TestResult testResult) {
+        if (listener == null) {
+            listener = new StepTestListener(testResult);
+        }
+        return listener;
+    }
 
+    protected TestResult getTestResult() {
+        if (testResult == null) {
+            testResult = new TestResult();
+        }
+        return testResult;
+    }
+
+    public void setStepListener(StepTestListener stepListener) {
+        listener = stepListener;
+    }
+
+    @Before
+    public void before() {
+        if(Config.isOnTravis()) {
+            StepEventBus.getEventBus().registerListener(getStepListener(getTestResult()));
+        }
+    }
 }

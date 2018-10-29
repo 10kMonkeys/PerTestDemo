@@ -1,6 +1,7 @@
 package com.perchwell.steps;
 
 import com.perchwell.entity.AppProperties;
+import com.perchwell.helpers.SlackMessageSender;
 import com.perchwell.pages.starting.GoogleLoginPage;
 import com.perchwell.pages.starting.LoginPage;
 import com.perchwell.pages.starting.WelcomePage;
@@ -14,7 +15,7 @@ public class LoginSteps extends ScenarioSteps {
  	GoogleLoginPage googleLoginPage;
 
     private void login (String email, String password) {
-        welcomePage.clickOnLoginButton();
+//        welcomePage.clickOnLoginButton();
         loginPage.setEmail(email);
         loginPage.setPassword(password);
         loginPage.clickOnLoginButton();
