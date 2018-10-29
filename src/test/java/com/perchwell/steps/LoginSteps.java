@@ -15,7 +15,7 @@ public class LoginSteps extends ScenarioSteps {
  	GoogleLoginPage googleLoginPage;
 
     private void login (String email, String password) {
-//        welcomePage.clickOnLoginButton();
+        welcomePage.clickOnLoginButton();
         loginPage.setEmail(email);
         loginPage.setPassword(password);
         loginPage.clickOnLoginButton();
