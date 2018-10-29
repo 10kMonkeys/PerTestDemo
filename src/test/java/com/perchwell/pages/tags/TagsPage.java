@@ -19,7 +19,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class TagsPage extends BasePage {
 
-	List<WebElement> tagsList = new ArrayList<>();
+	private List<WebElement> tagsList = new ArrayList<>();
 
 	//region WebElements
 
@@ -197,7 +197,8 @@ public class TagsPage extends BasePage {
 
 	public void shouldNotSeeCreatedTagUpperCase(String tag) {
 		if (Config.isAndroid()) {
-			tagsList.add(element(MobileBy.xpath("*//android.widget.TextView[contains(@text, '" + tag + "')]")));
+			tagsList = getDriver().findElements(By.xpath("*//android.widget.TextView[contains(@text, '" + tag + "')]"));
+//			tagsList.add(element(MobileBy.xpath("*//android.widget.TextView[contains(@text, '" + tag + "')]")));
 		} else {
 			tagsList.add(element(MobileBy.AccessibilityId(tag)));
 		}
