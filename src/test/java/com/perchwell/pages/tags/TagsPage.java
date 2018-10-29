@@ -197,11 +197,9 @@ public class TagsPage extends BasePage {
 
 	public void shouldNotSeeCreatedTagUpperCase(String tag) {
 		if (Config.isAndroid()) {
-			tagsList = getDriver().findElements(By.xpath("*//android.widget.TextView[contains(@text, '" + tag + "')]"));
-//			tagsList.add(element(MobileBy.xpath("*//android.widget.TextView[contains(@text, '" + tag + "')]")));
+			element(MobileBy.xpath("//*[contains(@text, '" + tag + "')]")).shouldNotBeVisible();
 		} else {
-			tagsList.add(element(MobileBy.AccessibilityId(tag)));
+			element(MobileBy.AccessibilityId(tag)).shouldNotBeVisible();
 		}
-		Assert.assertTrue(tagsList.isEmpty());
 	}
 }
