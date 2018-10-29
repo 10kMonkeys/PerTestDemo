@@ -9,22 +9,22 @@ import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver
 public class Config {
 
     public static boolean isAndroid () {
-//        return getPlatformCapability().equals("ANDROID");
-        return getPlatformCapability().equals("LINUX");
+//        return getCapability().equals("ANDROID");
+        return getCapability("platformName").equals("LINUX");
     }
 
-    private static String getPlatformCapability() {
-        Capabilities capabilities = ((RemoteWebDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).getCapabilities();
-        return String.valueOf(capabilities.getCapability("platformName"));
+    public static boolean isOnTravis() {
+        return getCapability("app").contains("travis1");
     }
 
     public static boolean isIPad() {
-        return getDeviceNameCapability().contains("iPad");
+        return getCapability("deviceName").contains("iPad");
     }
 
-    private static String getDeviceNameCapability() {
+
+    private static String getCapability(String Capability) {
         Capabilities capabilities = ((RemoteWebDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).getCapabilities();
-        return String.valueOf(capabilities.getCapability("deviceName"));
+        return String.valueOf(capabilities.getCapability(Capability));
     }
 }
 

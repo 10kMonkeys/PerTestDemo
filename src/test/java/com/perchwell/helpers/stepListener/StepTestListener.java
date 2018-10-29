@@ -1,5 +1,6 @@
 package com.perchwell.helpers.stepListener;
 
+import com.perchwell.helpers.SlackMessageBuilder;
 import net.thucydides.core.model.DataTable;
 import net.thucydides.core.model.Story;
 import net.thucydides.core.model.TestOutcome;
@@ -8,6 +9,7 @@ import net.thucydides.core.steps.StepFailure;
 import net.thucydides.core.steps.StepListener;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.IOException;
 import java.util.Map;
 
 public class StepTestListener implements StepListener {
@@ -15,7 +17,7 @@ public class StepTestListener implements StepListener {
     private TestResult testResult;
     private int order;
 
-    public StepTestListener(TestResult result){
+    public StepTestListener(TestResult result) {
         super();
         testResult = result;
         order = 0;
@@ -27,7 +29,6 @@ public class StepTestListener implements StepListener {
 
     @Override
     public void testSuiteStarted(Story story) {
-
     }
 
     @Override
@@ -50,7 +51,6 @@ public class StepTestListener implements StepListener {
                 StringUtils.isEmpty(getCurrentStepresult().getResult())) {
             getCurrentStepresult().setResult("2");
         }
-
         addNewStep(executedStepDescription.getTitle());
     }
 
@@ -106,22 +106,14 @@ public class StepTestListener implements StepListener {
 
     @Override
     public void testFailed(TestOutcome testOutcome, Throwable throwable) {
-
-        System.out.println("/////////////////////////////////////////////");
-        System.out.println("getErrorMessage = " + testOutcome.getErrorMessage());
-        System.out.println("/////////////////////////////////////////////");
-
-        System.out.println("/////////////////////////////////////////////");
-        System.out.println("getTestCase = " + testOutcome.getTestCase());
-        System.out.println("/////////////////////////////////////////////");
-
-
         if (getCurrentStepresult() != null &&
                 StringUtils.isEmpty(getCurrentStepresult().getResult())) {
             getCurrentStepresult().setResult("2");
 
         }
 
+        SlackMessageBuilder slack = new SlackMessageBuilder();
+        slack.buildMessage(String.valueOf(testOutcome.getTestCase()), testOutcome.getErrorMessage(), String.valueOf(testOutcome.getFailingStep()));
     }
 
     @Override

@@ -24,8 +24,8 @@ public class REBNYListingsPage extends BasePage {
     private int previousMKTShareAskingPriceStartListingsAmount = 0;
     private String[] previousLocationAskingPriceListingsLocationsStringList = new String[5];
 
-    @AndroidFindBy(xpath = "//*[@text='ASKING PRICE']")
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE")
+    @AndroidFindBy(xpath = "//*[@text='PRICE']")
+    @iOSXCUITFindBy(accessibility = "PRICE")
     private WebElement askingPriceButton;
 
     @AndroidFindBy(xpath = "//*[@text='BEDROOMS']")
@@ -156,22 +156,22 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "$/FT² BY PRICE SEGMENT")
     private WebElement dollarPerFTByPriceSegmentButton;
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE BY # BEDS")
+    @iOSXCUITFindBy(accessibility = "PRICE BY # BEDS")
     private WebElement askingPriceByBedsButton;
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE BY PRICE SEGMENT")
+    @iOSXCUITFindBy(accessibility = "PRICE BY PRICE SEGMENT")
     private WebElement askingPriceByPriceSegmentButton;
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE BY TYPE")
+    @iOSXCUITFindBy(accessibility = "PRICE BY TYPE")
     private WebElement askingPriceByTypeButton;
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE PER BED")
+    @iOSXCUITFindBy(accessibility = "PRICE PER BED")
     private WebElement askingPricePerBedButton;
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE PER BED_PERCENTILES_LISTING_PRICE_PER_BR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "PRICE PER BED_PERCENTILES_LISTING_PRICE_PER_BR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPricePerBedChart;
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE PER FT²")
+    @iOSXCUITFindBy(accessibility = "PRICE PER FT²")
     private WebElement askingPricePerFTButton;
 
     @iOSXCUITFindBy(accessibility = "DOM BY # BEDS")
@@ -204,19 +204,19 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "PROPERTY TAXES")
     private WebElement propertyTaxesButton;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/BED_MEDIAN_LISTING_PRICE_PER_BR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN $/BED_MEDIAN_LISTING_PRICE_PER_BR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianAskingPricePerBedChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/BED_BAR_LISTING_PRICE_PER_BR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN $/BED_BAR_LISTING_PRICE_PER_BR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationAskingPricePerBedChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/SQFT_MEDIAN_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN $/SQFT_MEDIAN_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianAskingPerFTChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING $/SQFT_BAR_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN $/SQFT_BAR_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationAskingPerFTChart;
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE $/SQFT_PERCENTILES_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "PRICE $/SQFT_PERCENTILES_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPricePerFTChart;
 
     @iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES_MEDIAN_MONTHLY_PAYMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
@@ -238,16 +238,16 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "$/SQFT BY SEGMENT_MEDIANPERPRICETRANCHE_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionDollarPerFTByPriceSegmentChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE BY SEGMENT_MEDIANPERPRICETRANCHE_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN PRICE BY SEGMENT_MEDIANPERPRICETRANCHE_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPriceByPriceSegmentChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE_MEDIAN_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN PRICE_MEDIAN_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianAskingPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE_MEDIANPERPROPERTYCODE_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN PRICE_MEDIANPERPROPERTYCODE_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPriceByTypeChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE_MEDIANPERBR_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN PRICE_MEDIANPERBR_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPriceByNumberBedsChart;
 
     @iOSXCUITFindBy(accessibility = "DOM BY NUMBER BEDROOMS_DAYSONMARKETBEDROOM_DAYS_ON_MARKET_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
@@ -259,17 +259,17 @@ public class REBNYListingsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "NEW DEVELOPMENT_PREMIUM_NEW_DEVELOPMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresNewDevelopmentChart;
 
-    @AndroidFindBy(xpath = "//*[@text='ASKING PRICE']")
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @AndroidFindBy(xpath = "//*[@text='PRICE']")
+    @iOSXCUITFindBy(accessibility = "PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareAskingPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE_PERCENTILES_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "PRICE_PERCENTILES_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "MEDIAN ASKING PRICE_BAR_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN PRICE_BAR_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationAskingPriceChart;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL:'")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL:'")
     private WebElement mktShareAskingPriceListingsAmount;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeOther' AND name CONTAINS 'location -'")
@@ -655,7 +655,7 @@ public class REBNYListingsPage extends BasePage {
 
     public void checkMKTShareAskingPriceListingsAmountAfterFilterChanging() {
         waitFor(ExpectedConditions.invisibilityOfElementLocated(MobileBy.AccessibilityId(
-                "ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL: "
+                "PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL: "
                         + Integer.toString(previousMKTShareAskingPriceStartListingsAmount) + ".0")));
 
         String str = element(mktShareAskingPriceListingsAmount).getAttribute("value");
@@ -713,7 +713,7 @@ public class REBNYListingsPage extends BasePage {
         boolean listingsAmountsAreDifferent = false;
 
         waitFor(ExpectedConditions.invisibilityOfElementLocated(MobileBy.AccessibilityId(
-                "ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL: "
+                "PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL: "
                         + Integer.toString(previousMKTShareAskingPriceStartListingsAmount) + ".0")));
 
         String str = element(mktShareAskingPriceListingsAmount).getAttribute("value");

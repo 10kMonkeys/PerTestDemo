@@ -16,8 +16,9 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
 		user.atPerchwellPage.clickOnMyNewSearch();
-		user.atSearchPage.clickOnLoadSavedSearchButton();
-		user.atSearchPage.clickOnExistingSearchInList();
+		user.atSearchPage.clickOnTapToSaveChanges();
+		user.atSearchPage.setSearchName();
+		user.atSearchPage.clickOnSaveButton();
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST13_MIN_PRICE);
 		user.atSearchPage.selectBedroomsRangeOptionIfNotSelected();

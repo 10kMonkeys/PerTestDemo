@@ -13,7 +13,7 @@ public class ManagementPage extends BasePage {
 
     //region WebElements
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE")
+    @iOSXCUITFindBy(accessibility = "PRICE")
     private WebElement askingPriceButton;
 
     @AndroidFindBy(xpath = "//*[@text='BEDROOMS']")
@@ -37,16 +37,13 @@ public class ManagementPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT")
     private WebElement firmListingCountButton;
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE")
-    private WebElement askingPriceChart;
-
     @iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT")
     private WebElement distributionFirmListingCountButton;
 
     @iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT_COUNTPER_BROKERAGE_DISPLAY_NAME_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionFirmListingCountChart;
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement mktShareAskingPriceChart;
 
     @iOSXCUITFindBy(accessibility = "BEDROOMS_ROOMS_NUM_BEDROOMS_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
