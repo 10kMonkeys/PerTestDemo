@@ -6,7 +6,6 @@ import net.thucydides.core.steps.StepEventBus;
 public class SlackMessageBuilder {
 
     private String slackTestFailedMessage;
-//    private String formattedTestName;
 
     public void buildMessage(String testName, String testError, String failedStep) {
         SlackMessageSender slackSender = new SlackMessageSender();
@@ -26,6 +25,4 @@ public class SlackMessageBuilder {
             StepEventBus.getEventBus().dropListener(SampleTest.listener );
         }
     }
-
-
 }
