@@ -190,16 +190,16 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "NUMBER OF RECENTLY ALTERED LISTINGS_FILTEREDCOUNT_IS_RECENTLY_ALTERED_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement rebnyTHListingsNumRecentlyAlertedChart;
 
-    @iOSXCUITFindBy(accessibility = "ASKING $/FT²")
+    @iOSXCUITFindBy(accessibility = "PRICE PER FT²")
     private WebElement rebnyTHListingsAskingDollarsPerFT2Button;
 
-    @iOSXCUITFindBy(accessibility = "ASKING $/SQFT_BAR_LISTING_PRICE_PER_SQFT_LISTINGS_HOUSES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN $/SQFT_BAR_LISTING_PRICE_PER_SQFT_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement rebnyTHListingsAskingDollarsPerFT2Chart;
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE")
+    @iOSXCUITFindBy(accessibility = "PRICE")
     private WebElement rebnyTHListingsAskingPriceChartButton;
 
-    @iOSXCUITFindBy(accessibility = "ASKING PRICE_BAR_LISTING_PRICE_LISTINGS_HOUSES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "PRICE_BAR_LISTING_PRICE_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement rebnyTHListingsAskingPriceChartChart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"MEDIAN WIDTH\"`][1]")
