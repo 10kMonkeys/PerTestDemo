@@ -8,8 +8,6 @@ import net.thucydides.core.steps.ExecutedStepDescription;
 import net.thucydides.core.steps.StepFailure;
 import net.thucydides.core.steps.StepListener;
 import org.apache.commons.lang3.StringUtils;
-
-import java.io.IOException;
 import java.util.Map;
 
 public class StepTestListener implements StepListener {
@@ -38,7 +36,6 @@ public class StepTestListener implements StepListener {
 
     @Override
     public void testStarted(String s) {
-
     }
 
     @Override
@@ -69,7 +66,6 @@ public class StepTestListener implements StepListener {
 
     @Override
     public void skippedStepStarted(ExecutedStepDescription executedStepDescription) {
-
     }
 
     @Override
@@ -100,7 +96,6 @@ public class StepTestListener implements StepListener {
     public void stepFinished() {
         if (StringUtils.isEmpty(getCurrentStepresult().getResult())) {
             getCurrentStepresult().setResult("1");
-
         }
     }
 
@@ -109,7 +104,6 @@ public class StepTestListener implements StepListener {
         if (getCurrentStepresult() != null &&
                 StringUtils.isEmpty(getCurrentStepresult().getResult())) {
             getCurrentStepresult().setResult("2");
-
         }
 
         SlackMessageBuilder slack = new SlackMessageBuilder();

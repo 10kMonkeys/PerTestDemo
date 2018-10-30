@@ -2,10 +2,9 @@ package com.perchwell.tests.LogInTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
-import com.perchwell.helpers.Helper;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
+
 
 @WithTagValuesOf({"SmokeTestSuit", "LogInTests", "First"})
 public class ST2_LoginAsBrokerTest extends SampleTest {
