@@ -145,39 +145,43 @@ public abstract class Helper {
     }
 
     public static void swipeDownUntilElementVisible(String elementName) throws Exception {
-
+        int counter = 0;
         By byElement = MobileBy.iOSNsPredicateString("name == '" + elementName + "' AND visible==1");
         boolean isFoundTheElement = getDriver().findElements(byElement).size() > 0;
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-        while (!isFoundTheElement) {
+        while (!(isFoundTheElement) && counter < 5) {
 
             swipeVertical(appiumDriver, 0.9, 0.2, 0.5, 1);
 
             isFoundTheElement = getDriver().findElements(byElement).size() > 0;
-
+            counter += 1;
         }
     }
 
     public static void swipeDownUntilElementVisible(WebElement element) {
+        int counter = 0;
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        while (!isElementDisplayed(element)) {
+        while (!(isElementDisplayed(element)) && counter < 5) {
             swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+            counter += 1;
         }
     }
 
     public static void androidSwipeDownUntilElementVisible(WebElement element) {
+        int counter = 0;
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        while (!isElementDisplayed(element)) {
+        while (!(isElementDisplayed(element)) && counter < 5) {
             swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
+            counter += 1;
         }
     }
 
@@ -221,7 +225,7 @@ public abstract class Helper {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        while (!isElementDisplayed(element) && counter < 6) {
+        while (!isElementDisplayed(element) && counter < 5) {
             swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
             counter += 1;
         }
@@ -229,19 +233,19 @@ public abstract class Helper {
 
 
     public static void androidSwipeDownUntilElementVisible(String elementName) {
-
+        int counter = 0;
         By byElement = MobileBy.xpath("//*[contains(@text, '" + elementName + "')]");
         boolean isFoundTheElement = getDriver().findElements(byElement).size() > 0;
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
 
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-        while (!isFoundTheElement) {
+        while (!(isFoundTheElement) && counter < 5) {
 
             swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
 
             isFoundTheElement = getDriver().findElements(byElement).size() > 0;
-
+            counter += 1;
         }
     }
 
@@ -251,53 +255,59 @@ public abstract class Helper {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        while (!isElementDisplayed(element) && counter < 6) {
+        while (!(isElementDisplayed(element)) && counter < 5) {
             swipeVertical(appiumDriver, 0.5, 0.3, 0.5, 1);
             counter += 1;
         }
     }
 
     public static void universalVerticalSwipe(WebElement element) {
+        int counter = 0;
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
         if(Config.isAndroid()) {
-            while (!isElementDisplayed(element)) {
+            while (!(isElementDisplayed(element)) && counter < 5) {
                 swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
+                counter += 1;
             }
         } else {
-            while (!isElementDisplayed(element)) {
+            while (!(isElementDisplayed(element)) && counter < 5) {
                 swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+                counter += 1;
             }
         }
     }
 
     public static void universalVerticalShortSwipe(WebElement element) {
+        int counter = 0;
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
         if(Config.isAndroid()) {
-            while (!isElementDisplayed(element)) {
+            while (!(isElementDisplayed(element) && counter < 5)) {
                 swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
+                counter += 1;
             }
         } else {
-            while (!isElementDisplayed(element)) {
+            while (!(isElementDisplayed(element) && counter < 5)) {
                 swipeVertical(appiumDriver, 0.4, 0.1, 0.5, 1);
+                counter += 1;
             }
         }
     }
 
     public static void universalHorizontalSwipe(WebElement element, int y) throws Exception {
-       WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-       WebDriver webDriver = webDriverFacade.getProxiedDriver();
-       AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-       if(Config.isAndroid()){
-           swipeHorizontalWithSetYAndroid(appiumDriver, 0.9, 0.5, y);
-       } else {
-           swipeHorizontalWithSetY(appiumDriver, 0.9, 0.5, y, 1);
-       }
+        if(Config.isAndroid()) {
+            swipeHorizontalWithSetYAndroid(appiumDriver, 0.9, 0.5, y);
+            } else {
+            swipeHorizontalWithSetY(appiumDriver, 0.9, 0.5, y, 1);
+        }
     }
 }
