@@ -2,8 +2,10 @@ package com.perchwell.pages.perchwell;
 
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,7 +28,7 @@ public class DiscussionPage extends BasePage {
 //	@iOSXCUITFindBy(accessibility = "SEND")
 	private WebElement sendButton;
 
-	@AndroidFindBy(xpath = "//*[contains(@text, 'MESSAGE')]")
+	@AndroidFindBy(xpath = "*//android.widget.EditText[@text = 'MESSAGE']")
 	@iOSXCUITFindBy(accessibility = "MessageTextField")
 	private WebElement message;
 

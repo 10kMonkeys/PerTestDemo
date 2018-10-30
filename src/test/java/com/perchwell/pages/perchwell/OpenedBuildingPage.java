@@ -38,9 +38,13 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "ListingViewBackButton")
 	private WebElement arrowBackButtonFromListing;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ImageView")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/remove_icon")
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeButton' AND name CONTAINS 'DeleteTagBubbleButton'")
 	private WebElement deleteTagButton;
+
+	@AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='RemoveButton']")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeButton' AND name CONTAINS 'DeleteTagBubbleButton'")
+	private List<WebElement> deleteButtonList;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
@@ -213,6 +217,10 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeCell[position()<9]/XCUIElementTypeStaticText[starts-with(@name, 'INFO')]")
 	private List<WebElement> currentFiveBedsAndBathsAmountList;
 
+	@AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, 'More')]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name ENDSWITH 'More'$]")
+	private WebElement notVisibleTagsAmount;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -240,8 +248,34 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void clickOnDeleteTagButton() {
-		while (element(deleteTagButton).isPresent()) {
+//		while (element(deleteTagButton).isPresent()) {
+//			element(deleteTagButton).click();
+//		}
+		int iterator;
+
+		if (Config.isAndroid()) {
+			iterator = getAndroidIterator();
+		} else {
+			iterator = getIOSIterator();
+		}
+		for (int i=0; i<iterator + deleteButtonList.size(); i++) {
 			element(deleteTagButton).click();
+		}
+	}
+
+	private int getAndroidIterator() {
+		if (element(notVisibleTagsAmount).isVisible()) {
+			return Character.getNumericValue(notVisibleTagsAmount.getAttribute("text").charAt(1));
+		} else {
+			return 0;
+		}
+	}
+
+	private int getIOSIterator() {
+		if (element(notVisibleTagsAmount).isVisible()) {
+			return Character.getNumericValue(notVisibleTagsAmount.getAttribute("value").charAt(1));
+		} else {
+			return 0;
 		}
 	}
 

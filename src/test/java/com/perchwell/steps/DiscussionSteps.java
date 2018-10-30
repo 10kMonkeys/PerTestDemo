@@ -3,8 +3,11 @@ package com.perchwell.steps;
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.DiscussionPage;
+import io.appium.java_client.AppiumDriver;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import net.thucydides.core.webdriver.WebDriverFacade;
+import org.openqa.selenium.WebDriver;
 
 public class DiscussionSteps extends ScenarioSteps {
 	DiscussionPage onPage;
@@ -26,6 +29,7 @@ public class DiscussionSteps extends ScenarioSteps {
 		}
 	}
 
+	@Step
 	private void typeMessage(String text) {
 		onPage.typeMessage(text);
 		SessionVariables.addValueInSessionVariable("message", text);
