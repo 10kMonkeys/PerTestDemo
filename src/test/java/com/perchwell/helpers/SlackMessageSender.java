@@ -11,6 +11,6 @@ public class SlackMessageSender {
     public void sendMessage(String slackTestFailedMessage) {
 
         SlackApi api = new SlackApi("https://hooks.slack.com/services/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");
-        api.call(new SlackMessage("#ios-tests", "Perchwell Bot", slackTestFailedMessage));
+        api.call(new SlackMessage("#ios_tests", "Perchwell Bot", slackTestFailedMessage));
     }
 }

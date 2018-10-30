@@ -1,10 +1,12 @@
 package com.perchwell.helpers.stepListener;
 
+import com.perchwell.SampleTest;
 import com.perchwell.helpers.SlackMessageBuilder;
 import net.thucydides.core.model.DataTable;
 import net.thucydides.core.model.Story;
 import net.thucydides.core.model.TestOutcome;
 import net.thucydides.core.steps.ExecutedStepDescription;
+import net.thucydides.core.steps.StepEventBus;
 import net.thucydides.core.steps.StepFailure;
 import net.thucydides.core.steps.StepListener;
 import org.apache.commons.lang3.StringUtils;
@@ -53,6 +55,11 @@ public class StepTestListener implements StepListener {
 
     @Override
     public void testFinished(TestOutcome testOutcome) {
+
+        if (SampleTest.listener != null) {
+            StepEventBus.getEventBus().dropListener(SampleTest.listener);
+        }
+
         if (getCurrentStepresult() != null
                 && StringUtils.isEmpty(getCurrentStepresult().getResult())) {
             getCurrentStepresult().setResult("2");
@@ -132,7 +139,6 @@ public class StepTestListener implements StepListener {
 
     @Override
     public void testRunFinished() {
-
     }
 
     @Override
