@@ -28,7 +28,7 @@ public class DiscussionPage extends BasePage {
 //	@iOSXCUITFindBy(accessibility = "SEND")
 	private WebElement sendButton;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/message")
+	@AndroidFindBy(xpath = "*//android.widget.EditText[@text = 'MESSAGE']")
 	@iOSXCUITFindBy(accessibility = "MessageTextField")
 	private WebElement message;
 
