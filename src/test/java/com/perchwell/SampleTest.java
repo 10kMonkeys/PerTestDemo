@@ -10,8 +10,6 @@ import net.thucydides.core.annotations.Steps;
 
 import net.thucydides.core.steps.StepEventBus;
 import net.thucydides.core.steps.StepListener;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;

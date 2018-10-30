@@ -11,7 +11,7 @@ import org.junit.Test;
 public class ST14_ChangeExistingSearch extends SampleTest {
 
 	@Test
-	public void changeExistingSearch() {
+	public void saveChangesAsNewSearch() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
