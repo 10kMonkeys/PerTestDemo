@@ -114,7 +114,9 @@ public class StepTestListener implements StepListener {
         }
 
         SlackMessageBuilder slack = new SlackMessageBuilder();
-        slack.buildMessage(String.valueOf(testOutcome.getTestCase()), testOutcome.getErrorMessage(), String.valueOf(testOutcome.getFailingStep()));
+        slack.buildMessage(String.valueOf(testOutcome.getTestCase()),
+                String.valueOf(testOutcome.getFailingStep()),
+                testOutcome.getConciseErrorMessage());
     }
 
     @Override

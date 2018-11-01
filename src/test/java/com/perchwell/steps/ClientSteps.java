@@ -312,4 +312,9 @@ public class ClientSteps extends ScenarioSteps {
 			onPage.clickOnBackButtonCreateClientOnlyIOS();
 		}
 	}
+
+	@Step
+	public void shouldSeeJustCreatedClientWithoutActions() {
+		onPage.shouldSeeJustCreatedClientWithoutActions(SessionVariables.getValueFromSessionVariable("User_name"));
+	}
 }

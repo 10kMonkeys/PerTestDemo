@@ -7,7 +7,7 @@ public class SlackMessageBuilder {
 
     private String slackTestFailedMessage;
 
-    public void buildMessage(String testName, String testError, String failedStep) {
+    public void buildMessage(String testName, String failedStep, String AdditionalErrorMessage) {
         SlackMessageSender slackSender = new SlackMessageSender();
 
         //FAILED TEST
@@ -16,7 +16,7 @@ public class SlackMessageBuilder {
 
         slackTestFailedMessage = ":no_entry: FAILED TEST: " + splittedTestName[splittedTestName.length-1]
                 + "\n\nFAILED STEP: " + failedStep
-                + "\r\n ```" + testError + "```";
+                + "\r\n ```" + AdditionalErrorMessage + "```";
         slackSender.sendMessage(slackTestFailedMessage);
 
 

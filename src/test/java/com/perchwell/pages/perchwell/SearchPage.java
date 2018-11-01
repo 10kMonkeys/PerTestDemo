@@ -48,7 +48,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 2")
 	private WebElement filterFor2Beds;
 
-	@AndroidFindBy(xpath = "(//*[@text='STUDIO'])[1]")
+	@AndroidFindBy(xpath = "//*[@text='Studio']")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: Studio")
 	private WebElement filterForStudioBeds;
 
@@ -74,7 +74,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/min_price")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
 	@iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
 	private WebElement minimumPriceTextBox;
 
@@ -149,18 +149,18 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "RESET FILTERS")
 	private WebElement resetFiltersButton;
 
-	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
+	@AndroidFindBy(xpath = "//*[@content-desc='1BedButton']")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 1")
 	private WebElement filterFor1Bed;
 
-	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
+	@AndroidFindBy(xpath = "//*[contains(@content-desc,'1BedButton')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'BEDROOMS Suboption' AND name ENDSWITH ': 1'$]")
 	private WebElement filter1BedSelectedOrNot;
 
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 3")
 	private WebElement filterFor3Beds;
 
-	@AndroidFindBy(xpath = "(//*[@text='4+'])[1]")
+	@AndroidFindBy(xpath = "//*[@content-desc='4PlusBedsButton']")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 4+")
 	private WebElement filterFor4PlusBeds;
 
@@ -177,6 +177,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton[2]")
 	private WebElement deleteSearchButton;
 
+	@AndroidFindBy(xpath = "//*[@content-desc='StudioBedsButton-selected']")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: Studio")
 	private WebElement selectedFilterForStudioBeds;
 
@@ -280,21 +281,26 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Washer Dryer")
 	private WebElement laundryUnitFilter;
 
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.ImageView")
 	@iOSXCUITFindBy(accessibility = "Tag Cell: Add Button")
 	private WebElement neighborhoodsPlusButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "MY NEW SEARCH")
 	private WebElement backButtonFromNeighborhoods;
 
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeCell' AND name CONTAINS 'City-MANHATTAN'")
 	private WebElement manhattanCheckedCheckbox;
 
+	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"BROOKLYN\"]/android.widget.ImageView")
 	@iOSXCUITFindBy(accessibility = "Remove Button: Brooklyn")
 	private WebElement brooklynRemoveIcon;
 
+	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"QUEENS\"]/android.widget.ImageView")
 	@iOSXCUITFindBy(accessibility = "Remove Button: Queens")
 	private WebElement queensRemoveIcon;
 
+	@AndroidFindBy(accessibility = "Alphabet City")
 	@iOSXCUITFindBy(accessibility = "Neighborhood-Alphabet City")
 	private WebElement alphabetCityCheckbox;
 
@@ -337,6 +343,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "PROPERTY TYPE")
 	private WebElement propertyTypeSection;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/range")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Option: Range")
 	private WebElement bedroomsRangeOption;
 
@@ -412,8 +419,12 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Option Selected: Range")
 	private WebElement selectedBathroomsRangeOption;
 
+	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Manhattan\"]/android.widget.RelativeLayout/android.widget.ImageView")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name CONTAINS 'City-Manhattan'$]/XCUIElementTypeButton")
 	private WebElement manhattanSection;
+
+	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"All Downtown\"]/android.widget.RelativeLayout/android.widget.ImageView")
+	private WebElement allDownTownSection;
 
 	public SearchPage(WebDriver driver) {
 		super(driver);
@@ -1177,5 +1188,9 @@ public class SearchPage extends BasePage {
 
 	public void expandManhattanSection() {
 		element(manhattanSection).click();
+	}
+
+	public void expandAllDownTownSection() {
+		element(allDownTownSection).click();
 	}
 }

@@ -310,4 +310,16 @@ public abstract class Helper {
             swipeHorizontalWithSetY(appiumDriver, 0.9, 0.5, y, 1);
         }
     }
+
+    public static void universalSingleSwipe() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        if(Config.isAndroid()) {
+            swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
+        } else {
+            swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
+        }
+    }
 }

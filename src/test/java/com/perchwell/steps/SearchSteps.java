@@ -672,4 +672,11 @@ public class SearchSteps extends ScenarioSteps {
 	public void expandManhattanSection() {
 		onPage.expandManhattanSection();
 	}
+
+	@Step
+	public void expandAllDownTownSection() {
+		if(Config.isAndroid()) {
+			onPage.expandAllDownTownSection();
+		}
+	}
 }

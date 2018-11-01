@@ -214,11 +214,15 @@ public class ClientPage extends BasePage {
 
 	public void isClientDisplayed(String name){
 //		this.swipeDownUntilElementVisible(name);
-		element(searchClientField).sendKeys(name);
-		element(searchFrozenArea).click();
-		if (Config.isAndroid()){
+
+		if (Config.isAndroid()) {
+			setImplicitTimeout(1, SECONDS);
+			Helper.androidSwipeDownUntilElementVisible(name);
+			resetImplicitTimeout();
 			element(By.xpath("//*[contains(@text,'" + name + "')]")).shouldBeVisible();
 		} else {
+			element(searchClientField).sendKeys(name);
+			element(searchFrozenArea).click();
 			element(MobileBy.AccessibilityId(name)).shouldBeVisible();
 		}
 	}
@@ -233,7 +237,7 @@ public class ClientPage extends BasePage {
 	}
 
 	public void isClientOrAgentDisplayedAndroid(String name) {
-		this.swipeDownUntilElementVisibleAndroid(name);
+//		this.swipeDownUntilElementVisibleAndroid(name);
 		element(MobileBy.xpath("//*[contains(@text, '" + name + "')]")).shouldBeVisible();
 	}
 
@@ -413,5 +417,14 @@ public class ClientPage extends BasePage {
 
 	public void clickOnBackButtonCreateClientOnlyIOS() {
 		element(backButtonCreateClient).click();
+	}
+
+	public void shouldSeeJustCreatedClientWithoutActions(String clientName) {
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//*[contains(@text, '" + clientName + "')]")).shouldBeVisible();
+		} else {
+			element(MobileBy.AccessibilityId(clientName)).shouldBeVisible();
+		}
+
 	}
 }

@@ -273,13 +273,28 @@ public class PerchwellPage extends BasePage {
 
 	public void isElementExistsInEachCell(String element) {
 		boolean isAllCellsContain = true;
-		WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
-		List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
-		if (listCells.size() > 0) {
-			for (int i = 0; (i < 10 || i < listCells.size()); i++) {
-				if (listCells.get(i).findElements(By.name(element)).size() == 0) {
-					isAllCellsContain = false;
-					break;
+		if(Config.isAndroid()) {
+			List<WebElement> listingList;
+			for(int i = 0; i < 2; i++) {
+				listingList = getDriver().findElements(By.id("listing_canonical_nh_name"));
+
+				for(WebElement district: listingList) {
+					if(!district.getAttribute("text").contains(element)) {
+						isAllCellsContain = false;
+						break;
+					}
+				}
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
+			List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
+			if (listCells.size() > 0) {
+				for (int i = 0; (i < 10 || i < listCells.size()); i++) {
+					if (listCells.get(i).findElements(By.name(element)).size() == 0) {
+						isAllCellsContain = false;
+						break;
+					}
 				}
 			}
 		}
