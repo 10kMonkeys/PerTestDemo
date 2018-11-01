@@ -6,7 +6,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "ClientsTests", "First"})
+@WithTagValuesOf({"SmokeTestSuit", "ClientsTests", "iOS_First", "Android_First", "First"})
 public class ST5_AddClientTest extends SampleTest {
 
 	@Test
@@ -18,7 +18,7 @@ public class ST5_AddClientTest extends SampleTest {
 		user.atPerchwellPage.clickOnOpenAccountButton();
 		user.atAccountPage.clickOnClientsLabel();
 		user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
-		user.atClientPage.shouldSeeRecentlyCreatedClient();
+		user.atClientPage.shouldSeeJustCreatedClientWithoutActions();
 		user.atClientPage.invitationEmailSent();
 	}
 }

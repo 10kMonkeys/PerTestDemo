@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "FiltersTests", "Second"})
+@WithTagValuesOf({"SmokeTestSuit", "FiltersTests", "iOS_Second", "Android_Second", "Second"})
 public class ST15_ApplyingLocationFilterTest extends SampleTest {
 
 	@Test
@@ -19,6 +19,7 @@ public class ST15_ApplyingLocationFilterTest extends SampleTest {
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.clickOnNeighborhoodsPlusButton();
 		user.atSearchPage.expandManhattanSection();
+		user.atSearchPage.expandAllDownTownSection();
 		user.atSearchPage.addAlphabetCity();
 		user.atSearchPage.deleteBrooklyn();
 		user.atSearchPage.deleteQueens();

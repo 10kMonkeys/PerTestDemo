@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"MapTests", "Third"})
+@WithTagValuesOf({"MapTests", "iOS_Third", "Android_Third", "Third"})
 public class ST21_MapView extends SampleTest {
 
     @Test

@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "EditProfileTests", "Third"})
+@WithTagValuesOf({"SmokeTestSuit", "EditProfileTests", "iOS_Third", "Android_Third", "Third"})
 public class ST28_UpdateSettingsAsBroker extends SampleTest {
 
     @Test

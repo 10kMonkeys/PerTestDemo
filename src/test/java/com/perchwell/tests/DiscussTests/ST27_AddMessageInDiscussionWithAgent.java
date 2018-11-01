@@ -6,7 +6,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "DiscussTests", "Second"})
+@WithTagValuesOf({"SmokeTestSuit", "DiscussTests", "iOS_Second", "Android_Second", "Second"})
 public class ST27_AddMessageInDiscussionWithAgent extends SampleTest {
 
 	@Test
