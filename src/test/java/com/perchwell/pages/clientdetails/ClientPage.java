@@ -63,7 +63,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "contactsViewCloseButton")
 	private WebElement crossBackButtonFromClients;
 
-	@iOSXCUITFindBy(accessibility = "Nav Back White")
+	@iOSXCUITFindBy(accessibility = "chevronLeft")
 	private WebElement backButtonCreateAgent;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/negative_button")
