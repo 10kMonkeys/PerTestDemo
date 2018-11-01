@@ -35,7 +35,7 @@ public class TagsPage extends BasePage {
 	private WebElement createTagLabel;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
-	@iOSXCUITFindBy(accessibility = "Nav Back White")
+	@iOSXCUITFindBy(accessibility = "chevronLeft")
 	private WebElement arrowBackFromTagsButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_by_tags")
