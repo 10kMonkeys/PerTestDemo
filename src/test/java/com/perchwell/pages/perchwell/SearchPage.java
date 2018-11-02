@@ -74,7 +74,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/min_price")
+	@AndroidFindBy(xpath = "*//android.widget.EditText[@text = 'Min']")
 	@iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
 	private WebElement minimumPriceTextBox;
 
@@ -149,18 +149,18 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "RESET FILTERS")
 	private WebElement resetFiltersButton;
 
-	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
+	@AndroidFindBy(xpath = "//android.widget.TextView[@content-desc='1BedButton']")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 1")
 	private WebElement filterFor1Bed;
 
-	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, '1BedButton')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'BEDROOMS Suboption' AND name ENDSWITH ': 1'$]")
 	private WebElement filter1BedSelectedOrNot;
 
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 3")
 	private WebElement filterFor3Beds;
 
-	@AndroidFindBy(xpath = "(//*[@text='4+'])[1]")
+	@AndroidFindBy(xpath = "//android.widget.TextView[@content-desc='4PlusBedsButton']")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 4+")
 	private WebElement filterFor4PlusBeds;
 
@@ -337,9 +337,11 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "PROPERTY TYPE")
 	private WebElement propertyTypeSection;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/range")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Option: Range")
 	private WebElement bedroomsRangeOption;
 
+	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/range'])[2]")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Option: Range")
 	private WebElement bathroomsRangeOption;
 
