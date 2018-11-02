@@ -421,8 +421,10 @@ public class ClientPage extends BasePage {
 
 	public void shouldSeeJustCreatedClientWithoutActions(String clientName) {
 		if(Config.isAndroid()) {
+			waitFor(ExpectedConditions.visibilityOfElementLocated(MobileBy.xpath("//*[contains(@text, '" + clientName + "')]")));
 			element(MobileBy.xpath("//*[contains(@text, '" + clientName + "')]")).shouldBeVisible();
 		} else {
+			waitFor(ExpectedConditions.visibilityOfElementLocated(MobileBy.AccessibilityId(clientName)));
 			element(MobileBy.AccessibilityId(clientName)).shouldBeVisible();
 		}
 

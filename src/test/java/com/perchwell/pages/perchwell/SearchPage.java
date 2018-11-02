@@ -164,7 +164,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 4+")
 	private WebElement filterFor4PlusBeds;
 
-	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[2]")
+	@AndroidFindBy(accessibility = "1.5BathsButton")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 1½")
 	private WebElement filterFor1AndHalfBath;
 
@@ -347,6 +347,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Option: Range")
 	private WebElement bedroomsRangeOption;
 
+	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/range'])[2]")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Option: Range")
 	private WebElement bathroomsRangeOption;
 
@@ -1024,7 +1025,8 @@ public class SearchPage extends BasePage {
 	}
 
 	public void clickOnShowMoreFeaturesAndAmenitiesButton() {
-		Helper.swipeDownUntilElementVisible(showMoreFeaturesAndAmenitiesButton);
+		Helper.universalVerticalSwipe(showMoreFeaturesAndAmenitiesButton);
+//		Helper.swipeDownUntilElementVisible(showMoreFeaturesAndAmenitiesButton);
 		element(showMoreFeaturesAndAmenitiesButton).click();
 	}
 

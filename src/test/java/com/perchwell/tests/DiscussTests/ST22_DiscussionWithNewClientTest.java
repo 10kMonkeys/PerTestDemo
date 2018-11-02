@@ -5,11 +5,13 @@ import com.perchwell.data.ClientGroups;
 import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.Ignore;
 import org.junit.Test;
 
 @WithTagValuesOf({"SmokeTestSuit", "DiscussTests", "iOS_Second", "Android_Second", "Second"})
 public class ST22_DiscussionWithNewClientTest extends SampleTest {
 
+	@Ignore
 	@Test
 	public void discussionWithNewClientTest() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

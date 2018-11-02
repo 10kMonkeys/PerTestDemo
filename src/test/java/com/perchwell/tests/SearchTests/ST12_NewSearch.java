@@ -3,11 +3,13 @@ package com.perchwell.tests.SearchTests;
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.Ignore;
 import org.junit.Test;
 
 @WithTagValuesOf({"SmokeTestSuit", "SearchTests", "First"})
 public class ST12_NewSearch extends SampleTest {
 
+	@Ignore
 	@Test
 	public void newSearch() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
@@ -17,7 +19,7 @@ public class ST12_NewSearch extends SampleTest {
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.selectBedroomsRangeOption(); //
 		user.atSearchPage.selectFilter1Bed();
-		user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
+		user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton(); //updated for A
 		user.atSearchPage.setUpFilterLaundryBLDG();
 		user.atSearchPage.clickOnApplyButton();
 		user.atPerchwellPage.clickOnMap();

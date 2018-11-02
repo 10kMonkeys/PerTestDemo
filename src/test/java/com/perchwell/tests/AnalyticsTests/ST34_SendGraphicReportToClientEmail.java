@@ -6,7 +6,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "Third"})
+@WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "iOS_Third", "Android_Third", "Third"})
 public class ST34_SendGraphicReportToClientEmail extends SampleTest {
 
 	@Test
@@ -25,7 +25,7 @@ public class ST34_SendGraphicReportToClientEmail extends SampleTest {
 		user.atAnalyticsPage.clickClientEmailOption();
 		user.atAnalyticsPage.createReportWithNameAndSave(Reports.ANALYTICS_CLIENT_REPORT);
 		user.atAnalyticsPage.setClientAddress();
-//		user.atAnalyticsPage.clickReportSentOkButton();
+		user.atAnalyticsPage.clickReportSentOkButton();
 		user.atAnalyticsPage.shouldFindSentEmail();
 	}
 }
