@@ -74,7 +74,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
+	@AndroidFindBy(xpath = "*//android.widget.EditText[@text = 'Min']")
 	@iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
 	private WebElement minimumPriceTextBox;
 

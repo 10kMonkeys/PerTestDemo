@@ -248,34 +248,8 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void clickOnDeleteTagButton() {
-//		while (element(deleteTagButton).isPresent()) {
-//			element(deleteTagButton).click();
-//		}
-		int iterator;
-
-		if (Config.isAndroid()) {
-			iterator = getAndroidIterator();
-		} else {
-			iterator = getIOSIterator();
-		}
-		for (int i=0; i<iterator + deleteButtonList.size(); i++) {
+		while (element(deleteTagButton).isPresent()) {
 			element(deleteTagButton).click();
-		}
-	}
-
-	private int getAndroidIterator() {
-		if (element(notVisibleTagsAmount).isVisible()) {
-			return Character.getNumericValue(notVisibleTagsAmount.getAttribute("text").charAt(1));
-		} else {
-			return 0;
-		}
-	}
-
-	private int getIOSIterator() {
-		if (element(notVisibleTagsAmount).isVisible()) {
-			return Character.getNumericValue(notVisibleTagsAmount.getAttribute("value").charAt(1));
-		} else {
-			return 0;
 		}
 	}
 
