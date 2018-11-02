@@ -117,13 +117,13 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnExistingSearchInList() {
-		if (!onPage.isAnySearchExist()) {
-			PerchwellSteps perchwellSteps = new PerchwellSteps();
-			onPage.savedSearchCancelButtonClick();
-			createNewSearchStudioBeds();
-			perchwellSteps.clickOnMyNewSearch();
-			this.clickOnLoadSavedSearchButton();
-		}
+//		if (!onPage.isAnySearchExist()) {
+//			PerchwellSteps perchwellSteps = new PerchwellSteps();
+//			onPage.savedSearchCancelButtonClick();
+//			createNewSearchStudioBeds();
+//			perchwellSteps.clickOnMyNewSearch();
+//			this.clickOnLoadSavedSearchButton();
+//		}
 		onPage.selectFirstSearchAndSaveName();
 	}
 

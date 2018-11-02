@@ -19,7 +19,7 @@ public class ST14_ChangeExistingSearch extends SampleTest {
 		user.usingComplexSteps.saveNewSearchAndStartNewSearch();
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.clickOnLoadSavedSearchButton();
-		user.atSearchPage.clickOnExistingSearchInList();
+		user.atSearchPage.clickOnExistingSearchInList(); //temp comment inside
 		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTY_BEFORE_SEARCH_CHANGING);
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST14_MIN_PRICE);
