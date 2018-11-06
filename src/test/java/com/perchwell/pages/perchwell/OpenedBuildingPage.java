@@ -100,7 +100,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "VIEW ALL DISCUSSIONS FOR THIS LISTING")
     private WebElement viewAllDiscussionsButton;
 
-	@AndroidFindBy(xpath = "//*[@text='LAUNDRY - BUILDING']")
+	@AndroidFindBy(accessibility = "Laundry - Building")
 	@iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING")
 	private WebElement LaundryBLDGD;
 
