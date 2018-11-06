@@ -45,13 +45,15 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell")
 	private WebElement itemListView;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 3")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 3")
 	private WebElement filterFor3Baths;
 
+	@AndroidFindBy(accessibility = "Bedrooms: 2")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 2")
 	private WebElement filterFor2Beds;
 
-	@AndroidFindBy(xpath = "//*[@text='Studio']")
+	@AndroidFindBy(accessibility = "Bedrooms: Studio")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: Studio")
 	private WebElement filterForStudioBeds;
 
@@ -84,6 +86,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Asking Price Maximum Value Input")
 	private WebElement maximumPriceTextBox;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 1")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 1")
 	private WebElement filterFor1Bath;
 
@@ -153,61 +156,70 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "RESET FILTERS")
 	private WebElement resetFiltersButton;
 
-	@AndroidFindBy(xpath = "//*[@content-desc='1BedButton']")
+	@AndroidFindBy(accessibility = "Bedrooms: 1")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 1")
 	private WebElement filterFor1Bed;
 
-	@AndroidFindBy(xpath = "//*[contains(@content-desc,'1BedButton')]")
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'Bedrooms: 1')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'BEDROOMS Suboption' AND name ENDSWITH ': 1'$]")
 	private WebElement filter1BedSelectedOrNot;
 
+	@AndroidFindBy(accessibility = "Bedrooms: 3")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 3")
 	private WebElement filterFor3Beds;
 
-	@AndroidFindBy(xpath = "//*[@content-desc='4PlusBedsButton']")
+	@AndroidFindBy(accessibility = "Bedrooms: 4+")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 4+")
 	private WebElement filterFor4PlusBeds;
 
-	@AndroidFindBy(accessibility = "1.5BathsButton")
+	@AndroidFindBy(accessibility = "Bathrooms: 1½")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 1½")
 	private WebElement filterFor1AndHalfBath;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 2")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 2")
 	private WebElement filterFor2Baths;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 4+")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 4+")
 	private WebElement filterFor4PlusBaths;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton[2]")
 	private WebElement deleteSearchButton;
 
-	@AndroidFindBy(xpath = "//*[@content-desc='StudioBedsButton-selected']")
+	@AndroidFindBy(accessibility = "Bedrooms: Studio-selected")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: Studio")
 	private WebElement selectedFilterForStudioBeds;
 
-	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[1]")
+	@AndroidFindBy(accessibility = "Bedrooms: 1-selected")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 1")
 	private WebElement selectedFilterFor1Bed;
 
+	@AndroidFindBy(accessibility = "Bedrooms: 2-selected")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 2")
 	private WebElement selectedFilterFor2Beds;
 
+	@AndroidFindBy(accessibility = "Bedrooms: 3-selected")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 3")
 	private WebElement selectedFilterFor3Beds;
 
+	@AndroidFindBy(accessibility = "Bedrooms: 4+-selected")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 4+")
 	private WebElement selectedFilterFor4PlusBeds;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 1-selected")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 1")
 	private WebElement selectedFilterFor1Bath;
 
-	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/one_room'])[2]")
+	@AndroidFindBy(accessibility = "Bathrooms: 1½-selected")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 1½")
 	private WebElement selectedFilterFor1AndHalfBath;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 2-selected")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 2")
 	private WebElement selectedFilter2Baths;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 3-selected")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 3")
 	private WebElement selectedFilterFor3Baths;
 
@@ -232,7 +244,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement universalNewSearchButton;
 
-	@AndroidFindBy(xpath = "//*[@text='LAUNDRY BLDG']")
+	@AndroidFindBy(accessibility = "Building Laundry")
 	@iOSXCUITFindBy(accessibility = "Building Laundry")
 	private WebElement laundryBLDGFilterButton;
 
@@ -338,6 +350,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "AddressSearchCancelButton")
 	private WebElement addressSearchCancelButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/show_more_features_and_amenities_button")
 	@iOSXCUITFindBy(accessibility = "Show more features & amenities")
 	private WebElement showMoreFeaturesAndAmenitiesButton;
 
@@ -347,11 +360,11 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "PROPERTY TYPE")
 	private WebElement propertyTypeSection;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/range")
+	@AndroidFindBy(accessibility = "Bedrooms: Range")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Option: Range")
 	private WebElement bedroomsRangeOption;
 
-	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/range'])[2]")
+	@AndroidFindBy(accessibility = "Bathrooms: Range")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Option: Range")
 	private WebElement bathroomsRangeOption;
 
@@ -364,51 +377,64 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MOTHLIES")
 	private WebElement monthliesSection;
 
+	@AndroidFindBy(accessibility = "Bedrooms: Studio +")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: Studio +")
 	private WebElement studioBedsMinimumFilter;
 
+	@AndroidFindBy(accessibility = "Bedrooms: 1+")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 1+")
 	private WebElement oneBedMinimumFilter;
 
+	@AndroidFindBy(accessibility = "Bedrooms: 2+")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 2+")
 	private WebElement twoBedsMinimumFilter;
 
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 2+")
 	private WebElement selectedTwoBedsMinimumFilter;
 
+	@AndroidFindBy(accessibility = "Bedrooms: 3+")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 3+")
 	private WebElement threeBedsMinimumFilter;
 
+	@AndroidFindBy(accessibility = "Bedrooms: 4+")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 4+")
 	private WebElement fourBedsMinimumFilter;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 1+")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 1+")
 	private WebElement oneBathMinimumFilter;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 1½+")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 1½+")
 	private WebElement oneAndHalfBathsMinimumFilter;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 2+")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 2+")
 	private WebElement twoBathsMinimumFilter;
 
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 2+")
 	private WebElement selectedTwoBathsMinFilter;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 3+")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 3+")
 	private WebElement threeBathsMinimumFilter;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 4+")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 4+")
 	private WebElement fourBathsMinimumFilter;
 
 	@iOSXCUITFindBy(accessibility = "TOTAL ROOMS")
 	private WebElement totalRoomsSection;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 4+-selected")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 4+")
 	private WebElement selectedFilterFor4PlusBaths;
 
+	@AndroidFindBy(accessibility = "Bedrooms: Minimum")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Option: Minimum")
 	private WebElement bedroomsMinimumOption;
 
+	@AndroidFindBy(accessibility = "Bathrooms: Minimum")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Option: Minimum")
 	private WebElement bathroomsMinimumOption;
 
@@ -418,9 +444,11 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Cell Collapsible Button: BATHROOMS")
 	private WebElement bathroomsCollapseButton;
 
+	@AndroidFindBy(accessibility = "Bedrooms: Range-selected")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Option Selected: Range")
 	private WebElement selectedBedroomsRangeOption;
 
+	@AndroidFindBy(accessibility = "Bathrooms: Range-selected")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Option Selected: Range")
 	private WebElement selectedBathroomsRangeOption;
 
