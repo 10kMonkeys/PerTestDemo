@@ -7,6 +7,7 @@ import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
@@ -19,8 +20,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class SearchPage extends BasePage {
 
@@ -427,6 +430,12 @@ public class SearchPage extends BasePage {
 
 	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"All Downtown\"]/android.widget.RelativeLayout/android.widget.ImageView")
 	private WebElement allDownTownSection;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'Add Button: Bar'$][1]")
+	private WebElement customBoundariesPlusButton;
+
+	@iOSXCUITFindBy(accessibility = "iOsButtonFloatingIconAddNew")
+	private WebElement cancelBoundaryDrawButton;
 
 	public SearchPage(WebDriver driver) {
 		super(driver);
@@ -1195,5 +1204,40 @@ public class SearchPage extends BasePage {
 
 	public void expandAllDownTownSection() {
 		element(allDownTownSection).click();
+	}
+
+	public void openCustomBoundariesPage() {
+		element(customBoundariesPlusButton).click();
+	}
+
+	public void getCenterPointOfMap() {
+
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+		Dimension size = getDriver().manage().window().getSize();
+		int deviceWidth = size.width;
+		int deviceHigh = size.height;
+
+		System.out.println("width = " + deviceWidth);
+		System.out.println("high = " + deviceHigh);
+
+		int centerWidth = deviceWidth / 2;
+		int centerHifh =  deviceHigh / 2;
+
+		TouchAction action = new TouchAction(appiumDriver);
+
+		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
+		waitABit(1000);
+//		element(cancelBoundaryDrawButton).click();
+		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
+		waitABit(1000);
+//		element(cancelBoundaryDrawButton).click();
+		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
+		waitABit(1000);
+//		element(cancelBoundaryDrawButton).click();
+		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
+		waitABit(100000);
 	}
 }

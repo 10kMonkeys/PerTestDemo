@@ -679,4 +679,14 @@ public class SearchSteps extends ScenarioSteps {
 			onPage.expandAllDownTownSection();
 		}
 	}
+
+	@Step
+	public void openCustomBoundariesPage() {
+		onPage.openCustomBoundariesPage();
+	}
+
+	@Step
+	public void getCenterPointOfMap() {
+		onPage.getCenterPointOfMap();
+	}
 }
