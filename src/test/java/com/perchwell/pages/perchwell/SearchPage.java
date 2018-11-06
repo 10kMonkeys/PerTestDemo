@@ -79,7 +79,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
-	@AndroidFindBy(xpath = "*//android.widget.EditText[@text = 'Min']")
+	@AndroidFindBy(xpath = "//android.widget.LinearLayout/android.widget.EditText")
 	@iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
 	private WebElement minimumPriceTextBox;
 
@@ -127,7 +127,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[3]")
 	private WebElement thirdSearchInList;
 
-	@AndroidFindBy(xpath = "//android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.view.ViewGroup[1]")
+	@AndroidFindBy(xpath = "//android.support.v7.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.RelativeLayout/android.widget.TextView[1]")
 //	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
 	private WebElement firstSearchInList;
@@ -723,7 +723,14 @@ public class SearchPage extends BasePage {
 	}
 
 	private String getValueFromMinPriceFilter() {
-		String minPrice = minimumPriceTextBox.getAttribute("value");
+		String minPrice;
+
+		if (Config.isAndroid()) {
+			minPrice = minimumPriceTextBox.getAttribute("text");
+		}else {
+			minPrice = minimumPriceTextBox.getAttribute("value");
+		}
+
 		minPrice = Helper.removeChar(minPrice, '$');
 		minPrice = Helper.removeChar(minPrice, ',');
 		return minPrice;
@@ -901,7 +908,7 @@ public class SearchPage extends BasePage {
 	public void scrollToLaundryBLDG() {
 		if (Config.isAndroid()) {
 			setImplicitTimeout(1, SECONDS);
-			Helper.androidSwipeDownUntilElementVisible("LAUNDRY BLDG");
+			Helper.universalVerticalSwipe(laundryBLDGFilterButton);
 			resetImplicitTimeout();
 		} else {
 			Helper.universalVerticalSwipe(laundryBLDGFilterButton);
@@ -1063,7 +1070,9 @@ public class SearchPage extends BasePage {
 	}
 
 	public void clickOnShowMoreFeaturesAndAmenitiesButton() {
+		getDriver().manage().timeouts().implicitlyWait(1,SECONDS);
 		Helper.universalVerticalSwipe(showMoreFeaturesAndAmenitiesButton);
+		resetImplicitTimeout();
 //		Helper.swipeDownUntilElementVisible(showMoreFeaturesAndAmenitiesButton);
 		element(showMoreFeaturesAndAmenitiesButton).click();
 	}
