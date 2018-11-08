@@ -253,6 +253,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Laundry Bldg-SELECTED")
 	private WebElement selectedLaundryBLDGFilter;
 
+	@AndroidFindBy(accessibility = "CONDO")
 	@iOSXCUITFindBy(accessibility = "Condo")
 	private WebElement condoFilter;
 
@@ -886,9 +887,9 @@ public class SearchPage extends BasePage {
 
     public void checkSalesAndActiveFiltersSelected(){
 		SoftAssertions softAssertions = new SoftAssertions();
-		Helper.universalVerticalSwipe(propertyTypeSection);
+		Helper.universalVerticalSwipe(condoFilter);
 		softAssertions.assertThat(element(selectedSalesFilter).isDisplayed());
-        Helper.universalVerticalSwipe(currentStatusSection);
+        Helper.universalVerticalSwipe(listingActivitySection);
 		softAssertions.assertThat(element(selectedActiveFilter).isDisplayed());
 		softAssertions.assertAll();
     }
