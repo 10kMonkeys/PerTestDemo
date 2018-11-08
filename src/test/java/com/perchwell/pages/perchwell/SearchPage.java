@@ -80,7 +80,6 @@ public class SearchPage extends BasePage {
 	private WebElement saveButton;
 
 	@AndroidFindBy(xpath = "//android.widget.LinearLayout/android.widget.EditText")
-//	@AndroidFindBy(xpath = "*//android.widget.EditText[@text = 'Min']")
 	@iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
 	private WebElement minimumPriceTextBox;
 
@@ -909,7 +908,7 @@ public class SearchPage extends BasePage {
 	public void scrollToLaundryBLDG() {
 		if (Config.isAndroid()) {
 			setImplicitTimeout(1, SECONDS);
-			Helper.androidSwipeDownUntilElementVisible("LAUNDRY BLDG");
+			Helper.universalVerticalSwipe(laundryBLDGFilterButton);
 			resetImplicitTimeout();
 		} else {
 			Helper.universalVerticalSwipe(laundryBLDGFilterButton);
@@ -1072,7 +1071,9 @@ public class SearchPage extends BasePage {
 	}
 
 	public void clickOnShowMoreFeaturesAndAmenitiesButton() {
+		getDriver().manage().timeouts().implicitlyWait(1,SECONDS);
 		Helper.universalVerticalSwipe(showMoreFeaturesAndAmenitiesButton);
+		resetImplicitTimeout();
 //		Helper.swipeDownUntilElementVisible(showMoreFeaturesAndAmenitiesButton);
 		element(showMoreFeaturesAndAmenitiesButton).click();
 	}
