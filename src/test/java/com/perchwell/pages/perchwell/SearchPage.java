@@ -887,9 +887,9 @@ public class SearchPage extends BasePage {
 
     public void checkSalesAndActiveFiltersSelected(){
 		SoftAssertions softAssertions = new SoftAssertions();
-		Helper.universalVerticalSwipe(condoFilter);
+		Helper.universalVerticalSwipe(propertyTypeSection);
 		softAssertions.assertThat(element(selectedSalesFilter).isDisplayed());
-        Helper.universalVerticalSwipe(listingActivitySection);
+		Helper.universalVerticalSwipe(currentStatusSection);
 		softAssertions.assertThat(element(selectedActiveFilter).isDisplayed());
 		softAssertions.assertAll();
     }
