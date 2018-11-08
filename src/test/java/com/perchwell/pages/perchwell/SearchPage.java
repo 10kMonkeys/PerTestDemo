@@ -90,15 +90,15 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 1")
 	private WebElement filterFor1Bath;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/in_contract")
+	@AndroidFindBy(accessibility = "In Contract")
 	@iOSXCUITFindBy(accessibility = "Listing Status Suboption: In Contract")
 	private WebElement inContractFilter;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/off_market")
+	@AndroidFindBy(accessibility = "Off Market")
 	@iOSXCUITFindBy(accessibility = "Listing Status Suboption: Off Market")
 	private WebElement offMKTButton;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/sold_rented")
+	@AndroidFindBy(accessibility = "Sold/Rented")
 	@iOSXCUITFindBy(accessibility = "Listing Status Suboption: Sold/Rented")
 	private WebElement soldOrRentedButton;
 
@@ -144,7 +144,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE AS...")
 	private WebElement save;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/rentals")
+	@AndroidFindBy(accessibility = "Rentals")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Rentals'")
 	private WebElement rentalsButton;
 
@@ -223,18 +223,19 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 3")
 	private WebElement selectedFilterFor3Baths;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/active")
+	@AndroidFindBy(accessibility = "Active-selected")
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: Active")
     private WebElement selectedActiveFilter;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/in_contract")
+	@AndroidFindBy(accessibility = "In Contract-selected")
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: In Contract")
     private WebElement selectedContractFilter;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/off_market")
+	@AndroidFindBy(accessibility = "Off Market-selected")
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: Off Market")
     private WebElement selectedOffMktFilter;
 
+	@AndroidFindBy(accessibility = "Sales-selected")
     @iOSXCUITFindBy(accessibility = "Option Selected: Sales")
     private WebElement selectedSalesFilter;
 
@@ -252,6 +253,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Laundry Bldg-SELECTED")
 	private WebElement selectedLaundryBLDGFilter;
 
+	@AndroidFindBy(accessibility = "CONDO")
 	@iOSXCUITFindBy(accessibility = "Condo")
 	private WebElement condoFilter;
 
@@ -464,6 +466,9 @@ public class SearchPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "iOsButtonFloatingIconAddNew")
 	private WebElement cancelBoundaryDrawButton;
+
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_activity")
+	private WebElement listingActivitySection;
 
 	public SearchPage(WebDriver driver) {
 		super(driver);
@@ -862,7 +867,7 @@ public class SearchPage extends BasePage {
     public void deselectActiveFilter() {
 		if (Config.isAndroid()) {
 			setImplicitTimeout(1, SECONDS);
-			Helper.universalVerticalSwipe(selectedActiveFilter);
+			Helper.universalVerticalSwipe(listingActivitySection);
 			resetImplicitTimeout();
 		} else {
 			Helper.universalVerticalSwipe(selectedActiveFilter);
@@ -882,9 +887,9 @@ public class SearchPage extends BasePage {
 
     public void checkSalesAndActiveFiltersSelected(){
 		SoftAssertions softAssertions = new SoftAssertions();
-		Helper.universalVerticalSwipe(propertyTypeSection);
+		Helper.universalVerticalSwipe(condoFilter);
 		softAssertions.assertThat(element(selectedSalesFilter).isDisplayed());
-        Helper.universalVerticalSwipe(currentStatusSection);
+        Helper.universalVerticalSwipe(listingActivitySection);
 		softAssertions.assertThat(element(selectedActiveFilter).isDisplayed());
 		softAssertions.assertAll();
     }

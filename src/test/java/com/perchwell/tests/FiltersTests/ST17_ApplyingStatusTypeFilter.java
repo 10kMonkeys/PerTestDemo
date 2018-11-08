@@ -19,6 +19,7 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
             user.atPerchPopup.clickNotNowButton();
             user.atPerchwellPage.isListingsQuantity();
             user.atPerchwellPage.clickOnMyNewSearch();
+            user.atSearchPage.selectFilter4PlusBaths();
             user.atSearchPage.deselectActiveFilter();
             user.atSearchPage.selectContractFilter();
             user.atSearchPage.clickOnApplyButton();
