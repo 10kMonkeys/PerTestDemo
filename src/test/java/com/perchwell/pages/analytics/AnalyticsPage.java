@@ -39,7 +39,7 @@ public class AnalyticsPage extends BasePage {
     private WebElement rebnyListingsButton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/add")
-    @iOSXCUITFindBy(accessibility = "plus white")
+    @iOSXCUITFindBy(accessibility = "iconAddNew2")
     private WebElement plusWhiteButton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/acris_closings")
