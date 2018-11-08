@@ -123,7 +123,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void resultsCountIsEqual(String s2, String s1) {
 		int number1 = Integer.parseInt(SessionVariables.getValueFromSessionVariable(s1));
 		int number2 = Integer.parseInt(SessionVariables.getValueFromSessionVariable(s2));
-		Assert.assertTrue(number1 == number2);
+		Assert.assertEquals(number1, number2);
 	}
 
 	@Step
