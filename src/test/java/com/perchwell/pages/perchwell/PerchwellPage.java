@@ -457,16 +457,30 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void isContainLabel(String label){
+		List<WebElement> labelsList;
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
-		List<WebElement> labelsList = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label + "'"));
-		Assert.assertEquals(20, labelsList.size());
+		if (Config.isAndroid()) {
+			labelsList = getDriver().findElements(By.xpath("//*[contains(@content-desc, '" + label + "')]"));
+			Assert.assertEquals(2, labelsList.size());
+		} else {
+			labelsList = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label + "'"));
+			Assert.assertEquals(20, labelsList.size());
+		}
 	}
 
 	public void isContainLabels(String label1, String label2){
+		List<WebElement> labelsList1;
+		List<WebElement> labelsList2;
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
-		List<WebElement> labelsList1 = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label1 + "'"));
-		List<WebElement> labelsList2 = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label2 + "'"));
-		Assert.assertEquals(20, labelsList1.size() + labelsList2.size());
+		if (Config.isAndroid()) {
+			labelsList1 = getDriver().findElements(By.xpath("//*[contains(@content-desc, '" + label1 + "')]"));
+			labelsList2 = getDriver().findElements(By.xpath("//*[contains(@content-desc, '" + label2 + "')]"));
+			Assert.assertEquals(2, labelsList1.size() + labelsList2.size());
+		} else {
+			labelsList1 = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label1 + "'"));
+			labelsList2 = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label2 + "'"));
+			Assert.assertEquals(20, labelsList1.size() + labelsList2.size());
+		}
 	}
 
 	public void clickOnAddressSortButton() {
