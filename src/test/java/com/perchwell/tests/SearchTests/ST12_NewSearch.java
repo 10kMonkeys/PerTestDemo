@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "SearchTests", "First"})
+@WithTagValuesOf({"SmokeTestSuit", "SearchTests", "iOS_First", "Android_First", "First"})
 public class ST12_NewSearch extends SampleTest {
 
 	@Ignore
@@ -19,7 +19,7 @@ public class ST12_NewSearch extends SampleTest {
 		user.atPerchwellPage.clickOnMyNewSearch();
 		user.atSearchPage.selectBedroomsRangeOption(); //
 		user.atSearchPage.selectFilter1Bed();
-		user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton(); //updated for A
+		user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
 		user.atSearchPage.setUpFilterLaundryBLDG();
 		user.atSearchPage.clickOnApplyButton();
 		user.atPerchwellPage.clickOnMap();
@@ -45,10 +45,10 @@ public class ST12_NewSearch extends SampleTest {
 		user.atSearchPage.clickOnTapToSaveChanges();
 		user.atSearchPage.setSearchName();
 		user.atSearchPage.clickOnSaveButton();
-		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atPerchwellPage.clickOnMyNewSearchWithWait();
 		user.atSearchPage.clickOnLoadSavedSearchButton();
-//		user.atSearchPage.clickOnThirdSearchInList();
-//		user.atPerchwellPage.waitUntilAccountIconAppears();
+		user.atSearchPage.clickOnThirdSearchInList();
+		user.atPerchwellPage.waitUntilAccountIconAppears();
 		user.atSearchPage.createNewSearchClick(); //new
 		user.atSearchPage.clickOnApplyButton(); //new
 		user.atPerchwellPage.clickOnMyNewSearch();

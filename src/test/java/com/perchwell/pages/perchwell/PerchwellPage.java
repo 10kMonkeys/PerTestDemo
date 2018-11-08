@@ -71,7 +71,7 @@ public class PerchwellPage extends BasePage {
 	private WebElement map;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_analytics")
-	@iOSXCUITFindBy(accessibility = "market report logo")
+	@iOSXCUITFindBy(accessibility = "analytics")
 	private WebElement analyticsButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_listings")
@@ -171,6 +171,11 @@ public class PerchwellPage extends BasePage {
 	public void clickOnMagnifier() {
 		element(magnifierIcon).click();
 	}
+
+    public void clickOnMagnifierWithWait() {
+	    waitABit(3000);
+        element(magnifierIcon).click();
+    }
 
 	public void clickOnEditSearchFiltersHint() {
 		setImplicitTimeout(1, SECONDS);

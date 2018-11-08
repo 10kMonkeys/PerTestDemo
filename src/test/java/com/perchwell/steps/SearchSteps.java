@@ -342,7 +342,7 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void setUpFilterLaundryBLDG() {
-		onPage.scrollToLaundryBLDG();
+//		onPage.scrollToLaundryBLDG();
 		onPage.setUpFilterLaundryBLDG();
 	}
 
