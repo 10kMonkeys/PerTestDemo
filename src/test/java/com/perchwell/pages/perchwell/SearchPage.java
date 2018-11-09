@@ -153,7 +153,7 @@ public class SearchPage extends BasePage {
 	private WebElement createNewSearchButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/reset_filters")
-	@iOSXCUITFindBy(accessibility = "RESET FILTERS")
+	@iOSXCUITFindBy(accessibility = "Reset Filters")
 	private WebElement resetFiltersButton;
 
 	@AndroidFindBy(accessibility = "Bedrooms: 1")
