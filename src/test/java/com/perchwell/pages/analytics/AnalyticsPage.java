@@ -65,7 +65,7 @@ public class AnalyticsPage extends BasePage {
     private WebElement managementButton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/remove_button")
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[3]")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name = 'home x'$][1]")
     private WebElement deleteChartButton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/done_moving_charts")
@@ -132,9 +132,10 @@ public class AnalyticsPage extends BasePage {
 	private WebElement domByPrice2Chart;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/upload")
-	@iOSXCUITFindBy(accessibility = "share")
+	@iOSXCUITFindBy(accessibility = "iconUndo")
 	private WebElement shareButton;
 
+	@AndroidFindBy(xpath = "//*[contains(@content-desc, ': VALUE_LABEL:')]")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
     private List<WebElement> valueChartList;
 
@@ -357,12 +358,12 @@ public class AnalyticsPage extends BasePage {
 	}
 
 	public String getValueBedroomsChart(){
-	    Helper.scrollToElement(valueChartList.get(0));
+//	    Helper.scrollToElement(valueChartList.get(0));
 	  return element(valueChartList.get(0)).getText();
     }
 
     public String getValueAskingPriceChart(){
-        Helper.scrollToElement(valueChartList.get(1));
+//        Helper.scrollToElement(valueChartList.get(1));
 	    return element(valueChartList.get(1)).getText();
     }
 
