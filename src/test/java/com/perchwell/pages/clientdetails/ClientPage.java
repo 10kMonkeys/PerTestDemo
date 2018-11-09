@@ -314,10 +314,9 @@ public class ClientPage extends BasePage {
 	}
 
 	public void swipeCreatedClientName(String name) throws Exception {
-		swipeDownUntilElementVisible(name);
 		WebElement client = getDriver().findElement(MobileBy.AccessibilityId(name));
 		int y = client.getLocation().getY();
-		Helper.swipeRightElementWithSetY(name, y+1);
+		Helper.universalHorizontalSwipe(client, y+1);
 	}
 
 	public void clickOnDeleteButton() {

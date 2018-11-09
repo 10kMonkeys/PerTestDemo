@@ -47,8 +47,10 @@ public abstract class Helper {
 
         Dimension size = driver.manage().window().getSize();
         int startPoint = (int) (size.width * startPercentage);
-        int endPoint = (int) (size.width * finalPercentage * (-1));
-        new TouchAction(driver).press(startPoint, y).waitAction(Duration.ofSeconds(duration)).moveTo(endPoint, 0).release().perform();
+        int endPoint = (int) (size.width * finalPercentage/* * (-1)*/);
+
+        new TouchAction(driver).longPress(startPoint, y).moveTo(endPoint, y).release().perform();
+//        new TouchAction(driver).press(startPoint, y).waitAction(Duration.ofSeconds(duration)).moveTo(endPoint, 0).release().perform();
     }
 
     public static void swipeHorizontalWithSetYAndroid(AppiumDriver driver, double startPercentage, double finalPercentage, int y) throws Exception {
