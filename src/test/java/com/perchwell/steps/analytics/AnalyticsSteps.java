@@ -441,4 +441,9 @@ public class AnalyticsSteps extends ScenarioSteps {
 		onPage.addButtonClick();
 		onPage.acrisClosingsButtonClick();
 	}
+
+	@Step
+	public void shareButtonInChartClick() {
+		onPage.shareButtonInChartClick();
+	}
 }

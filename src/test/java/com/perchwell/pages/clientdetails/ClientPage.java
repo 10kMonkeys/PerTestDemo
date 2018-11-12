@@ -314,7 +314,14 @@ public class ClientPage extends BasePage {
 	}
 
 	public void swipeCreatedClientName(String name) throws Exception {
-		WebElement client = getDriver().findElement(MobileBy.AccessibilityId(name));
+		WebElement client;
+
+		if(Config.isAndroid()) {
+			client = getDriver().findElement(MobileBy.xpath("//*[@content-desc = '" + name + " ']"));
+		} else {
+			client = getDriver().findElement(MobileBy.AccessibilityId(name));
+		}
+
 		int y = client.getLocation().getY();
 		Helper.universalHorizontalSwipe(client, y+1);
 	}

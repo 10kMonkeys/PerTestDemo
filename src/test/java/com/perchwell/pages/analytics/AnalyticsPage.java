@@ -210,6 +210,11 @@ public class AnalyticsPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "$12M+")
     private WebElement legendTwelvePlusMillionButton;
 
+
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/upload")
+    @iOSXCUITFindBy(accessibility = "share")
+    private WebElement shareButtonInChart;
+
     //endregion
 
 	public AnalyticsPage(WebDriver driver){
@@ -592,5 +597,9 @@ public class AnalyticsPage extends BasePage {
     public void getNumberOfReportDetailEmails() {
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_REPORT_DETAILS_ANALYTICS"));
         numberOfReportDetailEmails = mailTrapResponse.length;
+    }
+
+    public void shareButtonInChartClick() {
+        element(shareButtonInChart).click();
     }
 }
