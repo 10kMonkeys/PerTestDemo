@@ -3,10 +3,13 @@ package com.perchwell.pages.perchwell;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
+import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -90,14 +93,13 @@ public class ComparePage extends BasePage {
 	}
 
 	public boolean isBuildingDisplayedWithSwipe(String building) throws Exception {
-		boolean result = false;
+		WebElement compareTitle = getDriver().findElement(MobileBy.AccessibilityId("COMPARE LISTINGS"));
+		Dimension size = getDriver().manage().window().getSize();
+		int deviceHigh = size.height;
 
-		if (getDriver().findElements(MobileBy.AccessibilityId(building)).size() > 0) {
-			setImplicitTimeout(1, SECONDS);
-			result = Helper.swipeRightUntilElementVisible(building);
-			resetImplicitTimeout();
-		}
-		return result;
+		Helper.universalHorizontalSwipe(compareTitle, (deviceHigh / 2) +1);
+
+		return element(MobileBy.AccessibilityId(building)).isDisplayed();
 	}
 
 	public void shouldSeeSecondBuildingInCompare(String building) {
