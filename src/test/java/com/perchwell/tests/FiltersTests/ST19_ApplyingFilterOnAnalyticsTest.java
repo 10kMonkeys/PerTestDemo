@@ -19,14 +19,14 @@ public class ST19_ApplyingFilterOnAnalyticsTest extends SampleTest {
         user.atAnalyticsPage.skipHints();
         user.atAnalyticsPage.addButtonClick();
         user.atManagementPage.addChartBedroomsFromManagementSection();
-        user.atAnalyticsPage.getBedroomsChartValue(); //// No such element in DOM
-        user.atAnalyticsPage.getAskingPriceChartValue(); //// No such element in DOM
+        user.atAnalyticsPage.getBedroomsChartValue();
+        user.atAnalyticsPage.getAskingPriceChartValue();
         user.atAnalyticsPage.clickMyNewSearch();
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.selectFilterStudioBeds();
         user.atSearchPage.setMinimumPriceFilter("600000");
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
-        user.atAnalyticsPage.isBedroomsChartChange(); //// No such element in DOM
-        user.atAnalyticsPage.isAskingPriceChartChange(); //// No such element in DOM
+        user.atAnalyticsPage.isBedroomsChartChange();
+        user.atAnalyticsPage.isAskingPriceChartChange();
     }
 }

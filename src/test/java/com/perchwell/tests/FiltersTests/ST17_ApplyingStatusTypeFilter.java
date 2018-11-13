@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "FiltersTests", "Third"})
+@WithTagValuesOf({"SmokeTestSuit", "FiltersTests", "iOS_Third", "Android_Third", "Third"})
 public class ST17_ApplyingStatusTypeFilter extends SampleTest {
 
     @Ignore
