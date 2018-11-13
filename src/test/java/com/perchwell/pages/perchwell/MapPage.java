@@ -76,7 +76,7 @@ public class MapPage extends BasePage {
 	private List<WebElement> bathroomsList;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]")
 	private WebElement mapFirstAddress;
 
 	public void clickOnNotNowButton() {

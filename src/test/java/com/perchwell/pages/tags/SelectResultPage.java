@@ -117,9 +117,9 @@ public class SelectResultPage extends BasePage {
 				textBody = getTextBody(my_responce.getTxt_path()).toUpperCase();
 
 				if (textBody.contains(customMessage.toUpperCase())
-						& textBody.contains(
+						&& textBody.contains(
 						SessionVariables.getValueFromSessionVariable("Second_building_address"))
-						& textBody.toUpperCase().contains(
+						&& textBody.toUpperCase().contains(
 						SessionVariables.getValueFromSessionVariable("First_building_address"))) {
 					//Get attachments
 					MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(my_responce.getId());

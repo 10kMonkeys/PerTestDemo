@@ -47,8 +47,8 @@ public class ST12_NewSearch extends SampleTest {
 		user.atSearchPage.clickOnSaveButton();
 		user.atPerchwellPage.clickOnMyNewSearchWithWait();
 		user.atSearchPage.clickOnLoadSavedSearchButton();
-		user.atSearchPage.clickOnThirdSearchInList();
-		user.atPerchwellPage.waitUntilAccountIconAppears();
+//		user.atSearchPage.clickOnThirdSearchInList();
+//		user.atPerchwellPage.waitUntilAccountIconAppears();
 		user.atSearchPage.createNewSearchClick(); //new
 		user.atSearchPage.clickOnApplyButton(); //new
 		user.atPerchwellPage.clickOnMyNewSearch();

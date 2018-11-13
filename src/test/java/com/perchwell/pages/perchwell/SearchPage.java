@@ -246,11 +246,11 @@ public class SearchPage extends BasePage {
 	private WebElement universalNewSearchButton;
 
 	@AndroidFindBy(accessibility = "Building Laundry")
-	@iOSXCUITFindBy(accessibility = "Building Laundry")
+	@iOSXCUITFindBy(accessibility = "Building Laundry-checkmark")
 	private WebElement laundryBLDGFilterButton;
 
 	@AndroidFindBy(xpath = "//*[@content-desc='Building Laundry-selected']")
-	@iOSXCUITFindBy(accessibility = "Laundry Bldg-SELECTED")
+	@iOSXCUITFindBy(accessibility = "Building Laundry-checkmark-SELECTED")
 	private WebElement selectedLaundryBLDGFilter;
 
 	@AndroidFindBy(accessibility = "CONDO")
@@ -300,7 +300,7 @@ public class SearchPage extends BasePage {
 	private WebElement laundryUnitFilter;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.ImageView")
-	@iOSXCUITFindBy(accessibility = "Tag Cell: Add Button")
+	@iOSXCUITFindBy(accessibility = "Tag Cell NEIGHBORHOODS: Add Button")
 	private WebElement neighborhoodsPlusButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
@@ -461,7 +461,7 @@ public class SearchPage extends BasePage {
 	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"All Downtown\"]/android.widget.RelativeLayout/android.widget.ImageView")
 	private WebElement allDownTownSection;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'Add Button: Bar'$][1]")
+	@iOSXCUITFindBy(accessibility = "Add Button: CUSTOM BOUNDARIES")
 	private WebElement customBoundariesPlusButton;
 
 	@iOSXCUITFindBy(accessibility = "iOsButtonFloatingIconAddNew")
@@ -1267,20 +1267,34 @@ public class SearchPage extends BasePage {
 		System.out.println("high = " + deviceHigh);
 
 		int centerWidth = deviceWidth / 2;
-		int centerHifh =  deviceHigh / 2;
+		int centerHifh =  (deviceHigh / 3) * 2;
 
 		TouchAction action = new TouchAction(appiumDriver);
 
 		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
 		waitABit(1000);
-//		element(cancelBoundaryDrawButton).click();
+		element(cancelBoundaryDrawButton).click();
 		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
 		waitABit(1000);
-//		element(cancelBoundaryDrawButton).click();
+		element(cancelBoundaryDrawButton).click();
 		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
 		waitABit(1000);
-//		element(cancelBoundaryDrawButton).click();
+		element(cancelBoundaryDrawButton).click();
 		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
+		waitABit(1000);
+		element(cancelBoundaryDrawButton).click();
+		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
+		waitABit(1000);
+		element(cancelBoundaryDrawButton).click();
+		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
+		waitABit(1000);
+		element(cancelBoundaryDrawButton).click();
+		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
+		waitABit(1000);
+		element(cancelBoundaryDrawButton).click();
+		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
+
+
 		waitABit(100000);
 	}
 }
