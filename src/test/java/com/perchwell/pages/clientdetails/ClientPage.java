@@ -63,6 +63,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "contactsViewCloseButton")
 	private WebElement crossBackButtonFromClients;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "chevronLeft")
 	private WebElement backButtonCreateAgent;
 
@@ -89,15 +90,19 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton")
 	private WebElement deleteButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
 	@iOSXCUITFindBy(accessibility = "ContactsSearchBar")
 	private WebElement contactsSearchBar;
 
+	@AndroidFindBy(accessibility = "Clear query")
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearTextButton;
 
+	@AndroidFindBy(accessibility = "CLIENT TEST+CLIENT-TH-CHARTS")
 	@iOSXCUITFindBy(accessibility = "CLIENT TEST+CLIENT-TH-CHARTS")
 	private WebElement testClient;
 
+	@AndroidFindBy(xpath = "//android.widget.RelativeLayout/android.view.ViewGroup/android.widget.TextView[@text != 'DELETE']")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[`visible==1`]/XCUIElementTypeCell")
 	private List<WebElement> clients;
 
@@ -314,7 +319,12 @@ public class ClientPage extends BasePage {
 	}
 
 	public void swipeCreatedClientName(String name) throws Exception {
-		WebElement client = getDriver().findElement(MobileBy.AccessibilityId(name));
+		WebElement client;
+		if (Config.isAndroid()) {
+			client = element(MobileBy.xpath("//*[@content-desc = '" + name + " ']"));
+		} else {
+			client = element(MobileBy.AccessibilityId(name));
+		}
 		int y = client.getLocation().getY();
 		Helper.universalHorizontalSwipe(client, y+1);
 	}
@@ -325,10 +335,15 @@ public class ClientPage extends BasePage {
 
 	public void enterValueInSearchField(String text) {
 		element(contactsSearchBar).sendKeys(text);
+		if (Config.isAndroid()) {
+			element(contactsSearchBar).click();
+		}
 	}
 
 	public void clickOutsideSearchField() {
-		element(searchFrozenArea).click();
+		if (!Config.isAndroid()) {
+			element(searchFrozenArea).click();
+		}
 	}
 
 	public void clickOnClearTextButton() {
@@ -347,8 +362,14 @@ public class ClientPage extends BasePage {
 	public void isTestClientPresent() {
 		boolean onlyTestClientDisplayed = false;
 
-		if (((listOfClientsAndListings.size() - 20 == 1) && element(testClient).isDisplayed())) {
-			onlyTestClientDisplayed = true;
+		if (Config.isAndroid()) {
+			if (clients.size() == 1 && element(testClient).isDisplayed()) {
+				onlyTestClientDisplayed = true;
+			}
+		} else {
+			if (((listOfClientsAndListings.size() - 20 == 1) && element(testClient).isDisplayed())) {
+				onlyTestClientDisplayed = true;
+			}
 		}
 		Assert.assertTrue(onlyTestClientDisplayed);
 	}
@@ -407,7 +428,11 @@ public class ClientPage extends BasePage {
 	}
 
 	public void shouldSeeClientGroup(String clientGroup) {
-		element(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group")).shouldBeVisible();
+		if (Config.isAndroid()) {
+			Assert.assertEquals(element(groupField).getAttribute("text"), clientGroup);
+		} else {
+			element(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group")).shouldBeVisible();
+		}
 	}
 
 	public void clickOnCancelButton() { ///////
