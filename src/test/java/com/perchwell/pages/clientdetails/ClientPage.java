@@ -19,6 +19,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -416,8 +417,15 @@ public class ClientPage extends BasePage {
 	public void checkFilteredClients(String clientGroup) {
 		boolean clientsFilteredCorrectly = true;
 
-		for (WebElement client : clientList) {
-			element(client).click();
+		int clientsCount;
+		if (clientList.size()<5) {
+			clientsCount = clientList.size();
+		} else {
+			clientsCount = 5;
+		}
+
+		for (int i = 0; i<clientsCount; i++) {
+			element(clientList.get(i)).click();
 			List<WebElement> clientGroups = getDriver().findElements(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group"));
 
 			if (clientGroups.isEmpty()) {
