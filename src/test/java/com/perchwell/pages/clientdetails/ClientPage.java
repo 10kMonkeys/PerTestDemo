@@ -150,9 +150,6 @@ public class ClientPage extends BasePage {
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_mag_icon")
 	private WebElement magnifierIcon;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/client_group_text_view")
-	private WebElement groupField;
-
 	public ClientPage(WebDriver driver) {
 		super(driver);
 	}
