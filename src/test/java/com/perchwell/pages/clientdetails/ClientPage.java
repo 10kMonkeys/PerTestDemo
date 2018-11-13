@@ -104,7 +104,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "GROUPS")
 	private WebElement groupsButton;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]")
 //	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
 	private WebElement searchFrozenArea;
 

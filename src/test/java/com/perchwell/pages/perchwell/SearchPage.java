@@ -1267,13 +1267,10 @@ public class SearchPage extends BasePage {
 		System.out.println("high = " + deviceHigh);
 
 		int centerWidth = deviceWidth / 2;
-		int centerHifh =  (deviceHigh / 3) * 2;
+		int centerHifh =  deviceHigh / 2;
 
 		TouchAction action = new TouchAction(appiumDriver);
 
-		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-		waitABit(1000);
-		element(cancelBoundaryDrawButton).click();
 		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
 		waitABit(1000);
 		element(cancelBoundaryDrawButton).click();
