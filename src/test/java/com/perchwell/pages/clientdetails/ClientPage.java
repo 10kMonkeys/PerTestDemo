@@ -63,6 +63,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "contactsViewCloseButton")
 	private WebElement crossBackButtonFromClients;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "chevronLeft")
 	private WebElement backButtonCreateAgent;
 
@@ -427,7 +428,11 @@ public class ClientPage extends BasePage {
 	}
 
 	public void shouldSeeClientGroup(String clientGroup) {
-		element(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group")).shouldBeVisible();
+		if (Config.isAndroid()) {
+			Assert.assertEquals(element(groupField).getAttribute("text"), clientGroup);
+		} else {
+			element(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group")).shouldBeVisible();
+		}
 	}
 
 	public void clickOnCancelButton() { ///////
