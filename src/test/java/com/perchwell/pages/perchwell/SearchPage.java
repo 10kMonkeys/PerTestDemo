@@ -185,6 +185,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 4+")
 	private WebElement filterFor4PlusBaths;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/delete")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton[2]")
 	private WebElement deleteSearchButton;
 
@@ -696,7 +697,13 @@ public class SearchPage extends BasePage {
 	}
 
 	public void swipeCreatedSearch(String name) throws Exception {
-		WebElement search = getDriver().findElement(MobileBy.AccessibilityId(name));
+		WebElement search;
+
+		if (Config.isAndroid()) {
+			search = element(MobileBy.xpath("//*[@text = '" + name + "']"));
+		} else {
+			search = getDriver().findElement(MobileBy.AccessibilityId(name));
+		}
 		int y = search.getLocation().getY();
 		Helper.swipeRightElementWithSetY(search, y+1);
 	}
@@ -707,7 +714,11 @@ public class SearchPage extends BasePage {
 
 	public void shouldDeleteSearch() {
 		String search = SessionVariables.getValueFromSessionVariable("Search");
-		element(MobileBy.AccessibilityId(search)).shouldNotBeVisible();
+		if (Config.isAndroid()) {
+			element(MobileBy.xpath("//*[@text = '" + search + "']")).shouldNotBeVisible();
+		} else {
+			element(MobileBy.AccessibilityId(search)).shouldNotBeVisible();
+		}
 	}
 
 	public void setUpSessionVariableForStatusFilter(WebElement name) {
