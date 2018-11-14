@@ -40,6 +40,7 @@ public class DiscussionsListPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DiscussionsCancelButton")
 	private WebElement closeButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
 	@iOSXCUITFindBy(accessibility = "DiscussionsSearchBar")
 	private WebElement discussionsSearchBar;
 

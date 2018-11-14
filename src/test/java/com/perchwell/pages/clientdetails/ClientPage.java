@@ -95,6 +95,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearTextButton;
 
+	@AndroidFindBy(accessibility = "CLIENT TEST+CLIENT-TH-CHARTS")
 	@iOSXCUITFindBy(accessibility = "CLIENT TEST+CLIENT-TH-CHARTS")
 	private WebElement testClient;
 
@@ -361,7 +362,8 @@ public class ClientPage extends BasePage {
 	}
 
 	public void clickOnTestClient() throws Exception {
-		Helper.swipeDownUntilElementVisible(testClient);
+//		Helper.swipeDownUntilElementVisible(testClient);
+		Helper.universalVerticalSwipe(testClient);
 		element(testClient).click();
 	}
 
