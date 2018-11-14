@@ -107,6 +107,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[`visible==1`]/XCUIElementTypeCell")
 	private List<WebElement> clients;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_button")
 	@iOSXCUITFindBy(accessibility = "GROUPS")
 	private WebElement groupsButton;
 
@@ -114,27 +115,34 @@ public class ClientPage extends BasePage {
 //	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
 	private WebElement searchFrozenArea;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_button")
 	@iOSXCUITFindBy(accessibility = "Done")
 	private WebElement doneButton;
 
+	@AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, '11CLIENT')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS '11CLIENT'")
 	private List<WebElement> clientList;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell")
 	private List<WebElement> listOfClientsAndListings;
 
+	@AndroidFindBy(xpath = "//*[@text = 'Actively Searching']")
 	@iOSXCUITFindBy(accessibility = "Table View Cell: Actively Searching")
 	private WebElement activelySearchingGroup;
 
+    @AndroidFindBy(xpath = "//*[@text = 'Inactive']")
 	@iOSXCUITFindBy(accessibility = "Table View Cell: Inactive")
 	private WebElement inactiveGroup;
 
+    @AndroidFindBy(xpath = "//*[@text = 'New Contacts']")
 	@iOSXCUITFindBy(accessibility = "Table View Cell: New Contacts")
 	private WebElement newContactsGroup;
 
+    @AndroidFindBy(xpath = "//*[@text = 'Passively Searching']")
 	@iOSXCUITFindBy(accessibility = "Table View Cell: Passively Searching")
 	private WebElement passivelySearchingGroup;
 
+    @AndroidFindBy(xpath = "//*[@text = 'Not Grouped']")
 	@iOSXCUITFindBy(accessibility = "Table View Cell: Not Grouped")
 	private WebElement notGroupedGroup;
 
@@ -387,7 +395,11 @@ public class ClientPage extends BasePage {
 	}
 
 	public void isClientNotPresented(String name) {
-		element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND name CONTAINS '" + name  + "'")).shouldNotBeVisible();
+		if (Config.isAndroid()) {
+			element(MobileBy.xpath("//*[@text = '" + name + " ']")).shouldNotBeVisible();
+		} else {
+			element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND name CONTAINS '" + name  + "'")).shouldNotBeVisible();
+		}
 	}
 
 	public void clickOnDoneButton() {
@@ -416,8 +428,9 @@ public class ClientPage extends BasePage {
 
 	public void checkFilteredClients(String clientGroup) {
 		boolean clientsFilteredCorrectly = true;
-
+        List<WebElement> clientGroups;
 		int clientsCount;
+
 		if (clientList.size()<5) {
 			clientsCount = clientList.size();
 		} else {
@@ -426,7 +439,11 @@ public class ClientPage extends BasePage {
 
 		for (int i = 0; i<clientsCount; i++) {
 			element(clientList.get(i)).click();
-			List<WebElement> clientGroups = getDriver().findElements(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group"));
+			if (Config.isAndroid()) {
+                clientGroups = getDriver().findElements(MobileBy.xpath("//*[@text = '" + clientGroup + "']"));
+            } else {
+                clientGroups = getDriver().findElements(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group"));
+            }
 
 			if (clientGroups.isEmpty()) {
 				clientsFilteredCorrectly = false;
