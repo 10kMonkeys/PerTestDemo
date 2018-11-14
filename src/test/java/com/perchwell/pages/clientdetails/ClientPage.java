@@ -19,6 +19,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -63,6 +64,7 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "contactsViewCloseButton")
 	private WebElement crossBackButtonFromClients;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "chevronLeft")
 	private WebElement backButtonCreateAgent;
 
@@ -89,18 +91,23 @@ public class ClientPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton")
 	private WebElement deleteButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
 	@iOSXCUITFindBy(accessibility = "ContactsSearchBar")
 	private WebElement contactsSearchBar;
 
+	@AndroidFindBy(accessibility = "Clear query")
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearTextButton;
 
+	@AndroidFindBy(accessibility = "CLIENT TEST+CLIENT-TH-CHARTS")
 	@iOSXCUITFindBy(accessibility = "CLIENT TEST+CLIENT-TH-CHARTS")
 	private WebElement testClient;
 
+	@AndroidFindBy(xpath = "//android.widget.RelativeLayout/android.view.ViewGroup/android.widget.TextView[@text != 'DELETE']")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[`visible==1`]/XCUIElementTypeCell")
 	private List<WebElement> clients;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_button")
 	@iOSXCUITFindBy(accessibility = "GROUPS")
 	private WebElement groupsButton;
 
@@ -108,27 +115,34 @@ public class ClientPage extends BasePage {
 //	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
 	private WebElement searchFrozenArea;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_button")
 	@iOSXCUITFindBy(accessibility = "Done")
 	private WebElement doneButton;
 
+	@AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, '11CLIENT')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS '11CLIENT'")
 	private List<WebElement> clientList;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell")
 	private List<WebElement> listOfClientsAndListings;
 
+	@AndroidFindBy(xpath = "//*[@text = 'Actively Searching']")
 	@iOSXCUITFindBy(accessibility = "Table View Cell: Actively Searching")
 	private WebElement activelySearchingGroup;
 
+    @AndroidFindBy(xpath = "//*[@text = 'Inactive']")
 	@iOSXCUITFindBy(accessibility = "Table View Cell: Inactive")
 	private WebElement inactiveGroup;
 
+    @AndroidFindBy(xpath = "//*[@text = 'New Contacts']")
 	@iOSXCUITFindBy(accessibility = "Table View Cell: New Contacts")
 	private WebElement newContactsGroup;
 
+    @AndroidFindBy(xpath = "//*[@text = 'Passively Searching']")
 	@iOSXCUITFindBy(accessibility = "Table View Cell: Passively Searching")
 	private WebElement passivelySearchingGroup;
 
+    @AndroidFindBy(xpath = "//*[@text = 'Not Grouped']")
 	@iOSXCUITFindBy(accessibility = "Table View Cell: Not Grouped")
 	private WebElement notGroupedGroup;
 
@@ -145,6 +159,8 @@ public class ClientPage extends BasePage {
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_mag_icon")
 	private WebElement magnifierIcon;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/client_group_text_view")
+	private WebElement groupField;
 	public ClientPage(WebDriver driver) {
 		super(driver);
 	}
@@ -315,13 +331,11 @@ public class ClientPage extends BasePage {
 
 	public void swipeCreatedClientName(String name) throws Exception {
 		WebElement client;
-
-		if(Config.isAndroid()) {
-			client = getDriver().findElement(MobileBy.xpath("//*[@content-desc = '" + name + " ']"));
+		if (Config.isAndroid()) {
+			client = element(MobileBy.xpath("//*[@content-desc = '" + name + " ']"));
 		} else {
-			client = getDriver().findElement(MobileBy.AccessibilityId(name));
+			client = element(MobileBy.AccessibilityId(name));
 		}
-
 		int y = client.getLocation().getY();
 		Helper.universalHorizontalSwipe(client, y+1);
 	}
@@ -332,10 +346,15 @@ public class ClientPage extends BasePage {
 
 	public void enterValueInSearchField(String text) {
 		element(contactsSearchBar).sendKeys(text);
+		if (Config.isAndroid()) {
+			element(contactsSearchBar).click();
+		}
 	}
 
 	public void clickOutsideSearchField() {
-		element(searchFrozenArea).click();
+		if (!Config.isAndroid()) {
+			element(searchFrozenArea).click();
+		}
 	}
 
 	public void clickOnClearTextButton() {
@@ -354,8 +373,14 @@ public class ClientPage extends BasePage {
 	public void isTestClientPresent() {
 		boolean onlyTestClientDisplayed = false;
 
-		if (((listOfClientsAndListings.size() - 20 == 1) && element(testClient).isDisplayed())) {
-			onlyTestClientDisplayed = true;
+		if (Config.isAndroid()) {
+			if (clients.size() == 1 && element(testClient).isDisplayed()) {
+				onlyTestClientDisplayed = true;
+			}
+		} else {
+			if (((listOfClientsAndListings.size() - 20 == 1) && element(testClient).isDisplayed())) {
+				onlyTestClientDisplayed = true;
+			}
 		}
 		Assert.assertTrue(onlyTestClientDisplayed);
 	}
@@ -370,7 +395,11 @@ public class ClientPage extends BasePage {
 	}
 
 	public void isClientNotPresented(String name) {
-		element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND name CONTAINS '" + name  + "'")).shouldNotBeVisible();
+		if (Config.isAndroid()) {
+			element(MobileBy.xpath("//*[@text = '" + name + " ']")).shouldNotBeVisible();
+		} else {
+			element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND name CONTAINS '" + name  + "'")).shouldNotBeVisible();
+		}
 	}
 
 	public void clickOnDoneButton() {
@@ -399,10 +428,22 @@ public class ClientPage extends BasePage {
 
 	public void checkFilteredClients(String clientGroup) {
 		boolean clientsFilteredCorrectly = true;
+        List<WebElement> clientGroups;
+		int clientsCount;
 
-		for (WebElement client : clientList) {
-			element(client).click();
-			List<WebElement> clientGroups = getDriver().findElements(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group"));
+		if (clientList.size()<5) {
+			clientsCount = clientList.size();
+		} else {
+			clientsCount = 5;
+		}
+
+		for (int i = 0; i<clientsCount; i++) {
+			element(clientList.get(i)).click();
+			if (Config.isAndroid()) {
+                clientGroups = getDriver().findElements(MobileBy.xpath("//*[@text = '" + clientGroup + "']"));
+            } else {
+                clientGroups = getDriver().findElements(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group"));
+            }
 
 			if (clientGroups.isEmpty()) {
 				clientsFilteredCorrectly = false;
@@ -414,7 +455,11 @@ public class ClientPage extends BasePage {
 	}
 
 	public void shouldSeeClientGroup(String clientGroup) {
-		element(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group")).shouldBeVisible();
+		if (Config.isAndroid()) {
+			Assert.assertEquals(element(groupField).getAttribute("text"), clientGroup);
+		} else {
+			element(MobileBy.AccessibilityId("Text Field: " + clientGroup + " Group")).shouldBeVisible();
+		}
 	}
 
 	public void clickOnCancelButton() { ///////

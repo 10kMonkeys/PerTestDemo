@@ -27,6 +27,7 @@ public class DT10_ContactToTwoSellersAgentsTest extends SampleTest {
         user.atSellersAgentPage.updateMessage();
         user.atSellersAgentPage.clickOnSendEmailButton();
         user.atSellersAgentPage.selectConfirmOption();
+        user.atSellersAgentPage.clickOnPositiveButton();
         user.atSellersAgentPage.shouldInterestEmailSentToTwoAgent();
 
     }

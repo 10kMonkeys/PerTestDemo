@@ -174,7 +174,7 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickOutsideSearchSection() {
+	public void clickOutsideSearchSectionOnlyForIOS() {
 		onPage.clickOutsideSearchField();
 	}
 

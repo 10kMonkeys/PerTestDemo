@@ -8,15 +8,15 @@ import org.openqa.selenium.WebElement;
 
 public class AccountPage extends BasePage {
 
-    @AndroidFindBy(xpath = "//*[@text='CLIENTS']")
+    @AndroidFindBy(accessibility = "CLIENTS")
     @iOSXCUITFindBy(accessibility = "CLIENTS")
     private WebElement clientLabel;
 
-    @AndroidFindBy(xpath = "(//*[@text='TAGS'])[3]")
+    @AndroidFindBy(accessibility = "TAGS")
     @iOSXCUITFindBy(accessibility = "TAGS")
     private WebElement tagsLabel;
 
-    @AndroidFindBy(xpath = "//*[@text='DISCUSSIONS']")
+    @AndroidFindBy(accessibility = "DISCUSSIONS")
     @iOSXCUITFindBy(accessibility = "DISCUSSIONS")
     private WebElement discussionsLabel;
 
