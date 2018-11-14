@@ -68,4 +68,10 @@ public class SellersAgentSteps extends ScenarioSteps {
     public void shouldInterestEmailSentToTwoAgent() {
         sellersAgentPage.shouldInterestEmailSentToTwoAgent();
     }
+
+    @Step
+    public void clickOnPositiveButton() {
+        openedBuildingPage.clickOnPositiveButton();
+
+    }
 }

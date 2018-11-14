@@ -221,6 +221,9 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name ENDSWITH 'More'$]")
 	private WebElement notVisibleTagsAmount;
 
+	@iOSXCUITFindBy(accessibility = "OK")
+	private WebElement positiveButton;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -621,5 +624,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void closeSortWindow() {
 		element(selectedSortButton).click();
+	}
+
+	public void clickOnPositiveButton() {
+		element(positiveButton).click();
 	}
 }

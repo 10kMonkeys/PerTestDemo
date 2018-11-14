@@ -151,7 +151,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS-61 WEST 62ND ST'")
 	private WebElement testListing;
 
-	@iOSXCUITFindBy(accessibility = "ADDRESS: 15 West 81st St. #11A")
+	@iOSXCUITFindBy(accessibility = "15 West 81st St. #11A")
 	private WebElement twoAgentListing;
 
 	//endregion

@@ -20,6 +20,7 @@ public class DT9_ContactToOneSellersAgentTest extends SampleTest {
         user.atSellersAgentPage.updateMessage();
         user.atSellersAgentPage.clickOnSendEmailButton();
         user.atSellersAgentPage.selectConfirmOption();
+        user.atSellersAgentPage.clickOnPositiveButton();
         user.atSellersAgentPage.shouldInterestEmailSentToAgent();
     }
 }

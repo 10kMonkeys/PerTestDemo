@@ -497,6 +497,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectFilterFor2Beds() {
+		element(bedroomsRangeOption).click();
 		element(filterFor2Beds).click();
 	}
 
@@ -681,6 +682,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectFilter2Baths() {
+		element(bathroomsRangeOption).click();
 		element(filterFor2Baths).click();
 	}
 
