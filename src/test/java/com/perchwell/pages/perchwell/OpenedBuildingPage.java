@@ -82,9 +82,11 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "FIREPLACE")
 	private WebElement FIREPLACE;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/more_agents")
 	@iOSXCUITFindBy(accessibility = "SELLER'S AGENTS")
 	private WebElement severalSellersAgentsSection;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_agent")
 	@iOSXCUITFindBy(accessibility = "SELLER'S AGENT")
 	private WebElement oneSellerAgentSection;
 
@@ -221,6 +223,13 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name ENDSWITH 'More'$]")
 	private WebElement notVisibleTagsAmount;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/ok")
+	@iOSXCUITFindBy(accessibility = "OK")
+	private WebElement positiveButton;
+
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/more_agents")
+	private WebElement moreAgentsButton;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -236,7 +245,9 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void clickOnDiscussWithMyClientHint() {
-		element(discussThisHint).click();
+		if (!Config.isAndroid()) {
+			element(discussThisHint).click();
+		}
 	}
 
 	public void clickOnMyTagsLabel() {
@@ -359,8 +370,8 @@ public class OpenedBuildingPage extends BasePage {
 		return severalSellersAgentsSection;
 	}
 
-	public void swipeDownUntilElementVisible(WebElement name) throws Exception {
-		Helper.swipeDownUntilElementVisible(name);
+	public void swipeDownUntilElementVisible(WebElement name) {
+		Helper.universalVerticalSwipe(name);
 	}
 
 	public boolean isSeveralSellersAgentsPresent() {
@@ -368,10 +379,16 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public boolean isOneSellersAgent() {
-		return element(oneSellerAgentSection).isPresent();
+		if (Config.isAndroid()) {
+			Helper.universalVerticalSwipe(oneSellerAgentSection);
+			return element(oneSellerAgentSection).isPresent();
+		} else {
+			return element(oneSellerAgentSection).isPresent();
+		}
 	}
 
 	public void clickOnOneSellersAgentSection() {
+		Helper.universalVerticalSwipe(oneSellerAgentSection);
 		element(oneSellerAgentSection).click();
 	}
 
@@ -621,5 +638,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void closeSortWindow() {
 		element(selectedSortButton).click();
+	}
+
+	public void clickOnPositiveButton() {
+		element(positiveButton).click();
 	}
 }

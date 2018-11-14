@@ -14,6 +14,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Iterator;
 import java.util.List;
@@ -34,6 +35,7 @@ public class DiscussionsListPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[1]/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[3]")
 	private WebElement firstDiscussionMessage;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/delete_button")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton")
 	private WebElement deleteButton;
 
@@ -120,17 +122,22 @@ public class DiscussionsListPage extends BasePage {
 	public void swipeFirstDiscussionName(WebElement name) throws Exception {
 		Helper.swipeDownUntilElementVisible(name);
 		int y = name.getLocation().getY();
-		Helper.swipeRightElementWithSetY(name, y+1);
+		Helper.universalHorizontalSwipe(name, y+1);
 	}
 
 	public void clickOnDeleteButton() {
 		element(deleteButton).click();
+		waitFor(ExpectedConditions.invisibilityOf(deleteButton));
 	}
 
 	public void shouldBeDiscussionDeletedFromDiscussionsList() {
 		String message = SessionVariables.getValueFromSessionVariable("message");
 
-		element(MobileBy.AccessibilityId(message)).shouldNotBePresent();
+		if (Config.isAndroid()) {
+			element(MobileBy.xpath("//*[@text = '" + message + "']")).shouldNotBePresent();
+		} else {
+			element(MobileBy.AccessibilityId(message)).shouldNotBePresent();
+		}
 	}
 
 	public void closePage() {
@@ -186,6 +193,10 @@ public class DiscussionsListPage extends BasePage {
 	}
 
 	public WebElement getJustCreatedDiscussion(String message) {
-		return getDriver().findElement(MobileBy.AccessibilityId(message));
+		if (Config.isAndroid()) {
+			return element(MobileBy.xpath("//*[@text = '" + message + "']"));
+		} else {
+			return getDriver().findElement(MobileBy.AccessibilityId(message));
+		}
 	}
 }

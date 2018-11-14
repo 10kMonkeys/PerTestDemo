@@ -7,6 +7,7 @@ import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
@@ -20,12 +21,15 @@ public class SellersAgentPage extends BasePage {
 
     //region WebElements
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/send_email_button")
     @iOSFindBy(accessibility = "SendEmailButton")
     private WebElement sendEmailButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
     @iOSFindBy(accessibility = "CONFIRM")
     private WebElement confirmButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/email_body")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTextView")
 //    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTextView")
     private WebElement agentMessagetextBox;

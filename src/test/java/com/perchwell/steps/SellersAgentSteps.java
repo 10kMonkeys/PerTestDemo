@@ -29,12 +29,12 @@ public class SellersAgentSteps extends ScenarioSteps {
     }
 
     @Step
-    public void swipeDownUntilSellersAgentSection() throws Exception {
+    public void swipeDownUntilSellersAgentSection(){
         openedBuildingPage.swipeDownUntilElementVisible(openedBuildingPage.getOneSellersAgentElement());
     }
 
     @Step
-    public void swipeDownUntilSellersSeveralAgentsSection() throws Exception {
+    public void swipeDownUntilSellersSeveralAgentsSection(){
         openedBuildingPage.swipeDownUntilElementVisible(openedBuildingPage.getSeveralSellersAgentsElement());
     }
 
@@ -67,5 +67,11 @@ public class SellersAgentSteps extends ScenarioSteps {
     @Step
     public void shouldInterestEmailSentToTwoAgent() {
         sellersAgentPage.shouldInterestEmailSentToTwoAgent();
+    }
+
+    @Step
+    public void clickOnPositiveButton() {
+        openedBuildingPage.clickOnPositiveButton();
+
     }
 }
