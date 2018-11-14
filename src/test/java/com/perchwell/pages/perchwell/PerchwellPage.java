@@ -151,6 +151,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS-61 WEST 62ND ST'")
 	private WebElement testListing;
 
+	@AndroidFindBy(xpath = "//*[@text = '15 WEST 81ST ST. #11A']")
 	@iOSXCUITFindBy(accessibility = "15 West 81st St. #11A")
 	private WebElement twoAgentListing;
 
@@ -356,7 +357,11 @@ public class PerchwellPage extends BasePage {
 
 	public void swipeDownUntilNextBuildingVisible () throws Exception {
 		setImplicitTimeout(1, SECONDS);
-		Helper.swipeDownUntilElementVisible(getDriver().findElement(By.xpath("//XCUIElementTypeCell[@visible=\"true\"][last()]/following::XCUIElementTypeCell[1]")));
+		if (Config.isAndroid()) {
+			Helper.universalVerticalSwipe(element(MobileBy.xpath("//android.view.ViewGroup[last()]/android.widget.RelativeLayout[@resource-id = 'com.perchwell.re.staging:id/foreground_container']/following::android.widget.RelativeLayout[1]")));
+		} else  {
+			Helper.swipeDownUntilElementVisible(getDriver().findElement(By.xpath("//XCUIElementTypeCell[@visible=\"true\"][last()]/following::XCUIElementTypeCell[1]")));
+		}
 		resetImplicitTimeout();
 	}
 
@@ -551,7 +556,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void openTwoAgentListing() {
-		Helper.swipeDownUntilElementVisible(twoAgentListing);
+		Helper.universalVerticalSwipe(twoAgentListing);
 		element(twoAgentListing).click();
 	}
 

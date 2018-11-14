@@ -83,6 +83,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
 	private WebElement minimumPriceTextBox;
 
+	@AndroidFindBy(xpath = "//android.support.v7.widget.LinearLayoutCompat[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText")
 	@iOSXCUITFindBy(accessibility = "Asking Price Maximum Value Input")
 	private WebElement maximumPriceTextBox;
 
