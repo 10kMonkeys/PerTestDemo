@@ -7,7 +7,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"DiscussTests", "DiscussionsContacts"})
+@WithTagValuesOf({"DiscussTests", "iOS_DiscContSavedSearch", "Android_DiscContSavedSearch", "DiscContSavedSearch"})
 public class DTS8_FilterByClientTest extends SampleTest {
 
     @Test
@@ -21,7 +21,7 @@ public class DTS8_FilterByClientTest extends SampleTest {
         user.atOpenedBuildingPage.clickShareButton();
         user.atOpenedBuildingPage.clickOnSendWithinPerchwell();
         user.atOpenedBuildingPage.clickOnAddDiscusButton();
-        user.atClientPage.selectTestClient();
+        user.atClientPage.selectTestClient(SearchRequests.TEST_CLIENT);
         user.atDiscussionPage.sendMessage(DiscussionMessages.I_D_LIKE_TO_DISCUSS_WITH_YOU);
         user.atDiscussionPage.clickOnBackButtonFromDiscussion();
         user.atClientPage.clickOnCrossBackButtonFromClients();

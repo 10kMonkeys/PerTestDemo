@@ -1,6 +1,7 @@
 package com.perchwell.pages.clientdetails;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.data.SearchRequests;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
@@ -385,9 +386,11 @@ public class ClientPage extends BasePage {
 		Assert.assertTrue(onlyTestClientDisplayed);
 	}
 
-	public void clickOnTestClient() throws Exception {
+	public void clickOnTestClient(String clientName) throws Exception {
 //		Helper.swipeDownUntilElementVisible(testClient);
-		Helper.universalVerticalSwipe(testClient);
+//		Helper.universalVerticalSwipe(testClient);
+		element(searchClientField).sendKeys(clientName);
+		element(searchFrozenArea).click();
 		element(testClient).click();
 	}
 
@@ -432,10 +435,10 @@ public class ClientPage extends BasePage {
         List<WebElement> clientGroups;
 		int clientsCount;
 
-		if (clientList.size()<5) {
+		if (clientList.size()<3) {
 			clientsCount = clientList.size();
 		} else {
-			clientsCount = 5;
+			clientsCount = 3;
 		}
 
 		for (int i = 0; i<clientsCount; i++) {

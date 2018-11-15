@@ -6,7 +6,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "CompareTests", "DiscussionsContacts"})
+@WithTagValuesOf({"DiscussTests", "iOS_DiscContSavedSearch", "Android_DiscContSavedSearch", "DiscContSavedSearch"})
 public class DT6_FilterByGroupsTest extends SampleTest {
 
     @Test
@@ -22,6 +22,8 @@ public class DT6_FilterByGroupsTest extends SampleTest {
         user.atClientPage.addNewClient(ClientGroups.NEW_CONTACTS);
         user.atClientPage.addNewClient(ClientGroups.PASSIVELY_SEARCHING);
         user.atClientPage.addNewClient(ClientGroups.NOT_GROUPED);
+        user.atClientPage.clickOnCrossBackButtonFromClients();
+        user.atAccountPage.clickOnClientsLabel();
         user.atClientPage.clickOnGroupsButton();
         user.atClientPage.deselectInactiveGroup();
         user.atClientPage.deselectNewContactsGroup();

@@ -199,8 +199,8 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void selectTestClient() throws Exception {
-		onPage.clickOnTestClient();
+	public void selectTestClient(String clientName) throws Exception {
+		onPage.clickOnTestClient(clientName);
 	}
 
 	@Step

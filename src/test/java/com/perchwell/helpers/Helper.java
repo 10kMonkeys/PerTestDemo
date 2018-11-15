@@ -154,7 +154,7 @@ public abstract class Helper {
 
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-        while (!(isFoundTheElement) && counter < 5) {
+        while (!(isFoundTheElement) && counter < 10) {
 
             swipeVertical(appiumDriver, 0.9, 0.2, 0.5, 1);
 
@@ -169,7 +169,7 @@ public abstract class Helper {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        while (!(isElementDisplayed(element)) && counter < 5) {
+        while (!(isElementDisplayed(element)) && counter < 10) {
             swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
             counter += 1;
         }
@@ -181,7 +181,7 @@ public abstract class Helper {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        while (!(isElementDisplayed(element)) && counter < 5) {
+        while (!(isElementDisplayed(element)) && counter < 10) {
             swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
             counter += 1;
         }
@@ -227,7 +227,7 @@ public abstract class Helper {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        while (!isElementDisplayed(element) && counter < 5) {
+        while (!isElementDisplayed(element) && counter < 10) {
             swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
             counter += 1;
         }
@@ -242,7 +242,7 @@ public abstract class Helper {
 
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-        while (!(isFoundTheElement) && counter < 5) {
+        while (!(isFoundTheElement) && counter < 10) {
 
             swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
 
@@ -257,7 +257,7 @@ public abstract class Helper {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        while (!(isElementDisplayed(element)) && counter < 5) {
+        while (!(isElementDisplayed(element)) && counter < 10) {
             swipeVertical(appiumDriver, 0.5, 0.3, 0.5, 1);
             counter += 1;
         }
@@ -270,12 +270,12 @@ public abstract class Helper {
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
         if(Config.isAndroid()) {
-            while (!(isElementDisplayed(element)) && counter < 5) {
+            while (!(isElementDisplayed(element)) && counter < 10) {
                 swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
                 counter += 1;
             }
         } else {
-            while (!(isElementDisplayed(element)) && counter < 5) {
+            while (!(isElementDisplayed(element)) && counter < 10) {
                 swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
                 counter += 1;
             }
@@ -289,12 +289,12 @@ public abstract class Helper {
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
         if(Config.isAndroid()) {
-            while (!(isElementDisplayed(element) && counter < 5)) {
+            while (!(isElementDisplayed(element) && counter < 10)) {
                 swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
                 counter += 1;
             }
         } else {
-            while (!(isElementDisplayed(element) && counter < 5)) {
+            while (!(isElementDisplayed(element) && counter < 10)) {
                 swipeVertical(appiumDriver, 0.4, 0.1, 0.5, 1);
                 counter += 1;
             }
