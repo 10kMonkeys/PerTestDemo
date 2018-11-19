@@ -20,10 +20,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class SearchPage extends BasePage {
 
@@ -466,9 +464,6 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Add Button: CUSTOM BOUNDARIES")
 	private WebElement customBoundariesPlusButton;
 
-	@iOSXCUITFindBy(accessibility = "iOsButtonFloatingIconAddNew")
-	private WebElement cancelBoundaryDrawButton;
-
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_activity")
 	private WebElement listingActivitySection;
 
@@ -499,7 +494,6 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectFilterFor2Beds() {
-		element(bedroomsRangeOption).click();
 		element(filterFor2Beds).click();
 	}
 
@@ -564,7 +558,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectFilter1Bath() {
-		Helper.universalVerticalSwipe(totalRoomsSection);
+//		Helper.universalVerticalSwipe(totalRoomsSection);
 		element(filterFor1Bath).click();
 	}
 
@@ -684,7 +678,6 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectFilter2Baths() {
-		element(bathroomsRangeOption).click();
 		element(filterFor2Baths).click();
 	}
 
@@ -820,7 +813,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void deselectFilter1Bath() {
-		Helper.universalVerticalSwipe(totalRoomsSection);
+//		Helper.universalVerticalSwipe(totalRoomsSection);
 		element(selectedFilterFor1Bath).click();
 	}
 
@@ -1137,7 +1130,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectOneBathMinimumFilter() {
-		Helper.universalVerticalSwipe(totalRoomsSection);
+//		Helper.universalVerticalSwipe(totalRoomsSection);
 		element(oneBathMinimumFilter).click();
 	}
 
@@ -1158,7 +1151,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void checkIfOneBathMinimumFilterIsDeselected() {
-		Helper.universalVerticalSwipe(totalRoomsSection);
+//		Helper.universalVerticalSwipe(totalRoomsSection);
 		element(oneBathMinimumFilter).shouldBeVisible();
 	}
 
@@ -1267,45 +1260,20 @@ public class SearchPage extends BasePage {
 		element(customBoundariesPlusButton).click();
 	}
 
-	public void getCenterPointOfMap() {
+	public void checkMultiBathroomsFiltersSelected1To3() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(selectedFilterFor1Bath).isDisplayed());
+		softAssertions.assertThat(element(selectedFilterFor1AndHalfBath).isDisplayed());
+		softAssertions.assertThat(element(selectedFilter2Baths).isDisplayed());
+		softAssertions.assertThat(element(selectedFilterFor3Baths).isDisplayed());
+		softAssertions.assertAll();
+	}
 
-		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-		WebDriver webDriver = webDriverFacade.getProxiedDriver();
-		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
-		Dimension size = getDriver().manage().window().getSize();
-		int deviceWidth = size.width;
-		int deviceHigh = size.height;
-
-		System.out.println("width = " + deviceWidth);
-		System.out.println("high = " + deviceHigh);
-
-		int centerWidth = deviceWidth / 2;
-		int centerHifh =  deviceHigh / 2;
-
-		TouchAction action = new TouchAction(appiumDriver);
-
-		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-		waitABit(1000);
-		element(cancelBoundaryDrawButton).click();
-		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-		waitABit(1000);
-		element(cancelBoundaryDrawButton).click();
-		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-		waitABit(1000);
-		element(cancelBoundaryDrawButton).click();
-		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-		waitABit(1000);
-		element(cancelBoundaryDrawButton).click();
-		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-		waitABit(1000);
-		element(cancelBoundaryDrawButton).click();
-		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-		waitABit(1000);
-		element(cancelBoundaryDrawButton).click();
-		action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-
-
-		waitABit(100000);
+	public void checkMultiBedroomsFiltersSelectedFrom1To3() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(selectedFilterFor1Bed).isDisplayed());
+		softAssertions.assertThat(element(selectedFilterFor2Beds).isDisplayed());
+		softAssertions.assertThat(element(selectedFilterFor3Beds).isDisplayed());
+		softAssertions.assertAll();
 	}
 }

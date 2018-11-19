@@ -329,8 +329,8 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkIfListingsWereChanged() {
-		onPage.checkIfListingsWereChanged();
+	public void checkIfListingsWereNotChanged() {
+		onPage.checkIfListingsWereNotChanged();
 	}
 
 	@Step

@@ -19,28 +19,24 @@ public class NFT10_BathroomsFiltersNewSearchTest extends SampleTest {
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.check2BathsMinFilterSelected();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
-        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkNoOneBathsMinimumFilterSelected();
         user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.selectFilter2Baths();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.check2BathsRangeFilterSelected();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
-        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkBathroomsRangeButtonIsNotSelected();
         user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.checkNoOneBathsRangeFilterSelected();
-        user.atSearchPage.selectFilter2Baths();
-        user.atSearchPage.selectFilter4PlusBaths();
+        user.atSearchPage.selectFilter1Bath();
+        user.atSearchPage.selectFilter3Baths();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.checkMultiBathroomsFiltersSelected();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
-        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.checkMultiBathroomsFiltersSelected1To3();
+        user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkBathroomsRangeButtonIsNotSelected();
-        user.atSearchPage.selectBathroomsRangeOption();
-        user.atSearchPage.checkNoOneBathsRangeFilterSelected();
+        user.atSearchPage.checkNoOneBathsMinimumFilterSelected();
     }
 }

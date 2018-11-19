@@ -47,13 +47,13 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
             user.atSearchPage.clickOnApplyButton();
             user.atPerchwellPage.checkListingsQuantity();
             user.atPerchwellPage.clickOnMyNewSearch();
-            user.atSearchPage.checkSalesAndActiveFiltersSelected();
+//            user.atSearchPage.checkSalesAndActiveFiltersSelected();
             user.atSearchPage.clickOnLoadSavedSearchButton();
             user.atSearchPage.clickOnPreviouslyCreatedSearch();
             user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.RENTED);
             user.atPerchwellPage.clickOnMyNewSearch();
             user.atSearchPage.clickOnResetFilter();
-            user.atSearchPage.checkSalesAndActiveFiltersSelected();
+//            user.atSearchPage.checkSalesAndActiveFiltersSelected();
             user.atSearchPage.clickOnApplyButton();
             user.atPerchwellPage.checkListingsQuantity();
     }

@@ -48,15 +48,12 @@ public class FT3_ApplyingBathroomsFilterTest extends SampleTest {
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkListingsQuantity();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.selectBathroomsRangeOption();
-        user.atSearchPage.checkNoOneBathsRangeFilterSelected();
         user.atSearchPage.clickOnLoadSavedSearchButton();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.shouldSeeListing4AndMoreRooms("bathrooms");
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.clickOnResetFilter();
-        user.atSearchPage.selectBathroomsRangeOption();
-        user.atSearchPage.checkNoOneBathsRangeFilterSelected();
+        user.atSearchPage.checkNoOneBathsMinimumFilterSelected();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkListingsQuantity();
     }

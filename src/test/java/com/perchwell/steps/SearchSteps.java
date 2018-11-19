@@ -204,6 +204,7 @@ public class SearchSteps extends ScenarioSteps {
 	public void selectFilter1AndHalfBath() {
 		onPage.selectFilter1AndHalfBath();
 	}
+
 	@Step
 	public void selectFilter2Baths() {
 		onPage.selectFilter2Baths();
@@ -292,6 +293,11 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void eraseMinValueOfPriceFilter() {
 		onPage.clearPriceFilterValue("minPrice");
+	}
+
+	@Step
+	public void eraseMaxValueOfPriceFilter() {
+		onPage.clearPriceFilterValue("maxPrice");
 	}
 
 	@Step
@@ -624,6 +630,11 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void checkMultiBedroomsFiltersSelectedFrom1To3() {
+		onPage.checkMultiBedroomsFiltersSelectedFrom1To3();
+	}
+
+	@Step
 	public void check2BathsMinFilterSelected() {
 		onPage.check2BathsMinFilterSelected();
 	}
@@ -636,6 +647,11 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void checkMultiBathroomsFiltersSelected() {
 		onPage.checkMultiBathroomsFiltersSelected();
+	}
+
+	@Step
+	public void checkMultiBathroomsFiltersSelected1To3() {
+		onPage.checkMultiBathroomsFiltersSelected1To3();
 	}
 
 	@Step
@@ -683,10 +699,5 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void openCustomBoundariesPage() {
 		onPage.openCustomBoundariesPage();
-	}
-
-	@Step
-	public void getCenterPointOfMap() {
-		onPage.getCenterPointOfMap();
 	}
 }

@@ -48,15 +48,12 @@ public class FT4_ApplyingBedroomsFilterTest extends SampleTest {
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkListingsQuantity();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.selectBedroomsRangeOption();
-        user.atSearchPage.checkNoOneBedsRangeFilterSelected();
         user.atSearchPage.clickOnLoadSavedSearchButton();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.shouldSeeListing4AndMoreRooms("bedrooms");
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.clickOnResetFilter();
-        user.atSearchPage.selectBedroomsRangeOption();
-        user.atSearchPage.checkNoOneBedsRangeFilterSelected();
+        user.atSearchPage.checkNoOneBedsMinimumFilterSelected();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkListingsQuantity();
     }

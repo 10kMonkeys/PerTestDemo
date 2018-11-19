@@ -21,7 +21,10 @@ public class NFT11_SaveSearchAndReopen1RangeOptionTest extends SampleTest {
         user.atSearchPage.selectFilter2Baths();
         user.atSearchPage.saveCurrentSearch();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.clickOnResetFilter();
+        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.clickOnApplyButton();
+        user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.clickOnLoadSavedSearchButton();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.clickOnMyNewSearch();

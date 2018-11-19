@@ -19,7 +19,10 @@ public class NFT13_SaveSearchAndReopenMinOptionTest extends SampleTest {
         user.atSearchPage.selectTwoBathsMinimumFilter();
         user.atSearchPage.saveCurrentSearch();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.clickOnResetFilter();
+        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.clickOnApplyButton();
+        user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.clickOnLoadSavedSearchButton();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.clickOnMyNewSearch();

@@ -55,7 +55,7 @@ public class ST12_NewSearch extends SampleTest {
 		user.atSearchPage.clickOnLoadSavedSearchButton();
 		user.atSearchPage.clickOnPreviouslyCreatedSearch();
 		user.atPerchwellPage.clickOnList();
-		user.atPerchwellPage.shouldFilter1Bed1AndHalfBathBeApplied();
+		user.atPerchwellPage.shouldFilter1Bed1AndHalfBathBeApplied(); //should be fixed
 		user.atPerchwellPage.openFirstBuilding();
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
 		user.atOpenedBuildingPage.shouldFilterLaundryBLDG();

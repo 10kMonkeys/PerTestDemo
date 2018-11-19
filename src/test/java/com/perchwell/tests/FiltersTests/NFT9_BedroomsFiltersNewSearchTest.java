@@ -19,28 +19,24 @@ public class NFT9_BedroomsFiltersNewSearchTest extends SampleTest {
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.check2BedsMinFilterSelected();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
-        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkNoOneBedsMinimumFilterSelected();
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.selectFilter2Beds();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.check2BedsRangeFilterSelected();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
-        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkBedroomsRangeButtonIsNotSelected();
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.checkNoOneBedsRangeFilterSelected();
-        user.atSearchPage.selectFilter2Beds();
-        user.atSearchPage.selectFilter4PlusBeds();
+        user.atSearchPage.selectFilter1Bed();
+        user.atSearchPage.selectFilter3Beds();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.checkMultiBedroomsFiltersSelected();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
-        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.checkMultiBedroomsFiltersSelectedFrom1To3();
+        user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkBedroomsRangeButtonIsNotSelected();
-        user.atSearchPage.selectBedroomsRangeOption();
-        user.atSearchPage.checkNoOneBedsRangeFilterSelected();
+        user.atSearchPage.checkNoOneBedsMinimumFilterSelected();
     }
 }

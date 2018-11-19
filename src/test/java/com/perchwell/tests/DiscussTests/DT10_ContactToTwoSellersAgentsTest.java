@@ -17,7 +17,9 @@ public class DT10_ContactToTwoSellersAgentsTest extends SampleTest {
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.setMaximumPriceFilter("13000000");
         user.atSearchPage.setMinimumPriceFilter("13000000");
+        user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.selectFilter2Beds();
+        user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.selectFilter2Baths();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.openTwoAgentListing();

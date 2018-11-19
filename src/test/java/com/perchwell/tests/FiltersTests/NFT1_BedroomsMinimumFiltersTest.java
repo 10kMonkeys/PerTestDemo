@@ -19,8 +19,8 @@ public class NFT1_BedroomsMinimumFiltersTest extends SampleTest {
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.selectStudioBedsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsWereChanged();
-        user.atPerchwellPage.checkIfThereIsNoListingsWithoutBeds();
+        user.atPerchwellPage.checkIfListingsWereNotChanged();
+//        user.atPerchwellPage.checkIfThereIsNoListingsWithoutBeds(); //deprecated
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.checkIfStudioBedsFilterIsDeselected();
         user.atSearchPage.selectOneBedMinimumFilter();

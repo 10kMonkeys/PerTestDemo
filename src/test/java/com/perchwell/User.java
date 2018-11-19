@@ -3,6 +3,7 @@ package com.perchwell;
 import com.perchwell.steps.*;
 import com.perchwell.steps.analytics.*;
 import com.perchwell.steps.complex.ComplexSteps;
+import com.perchwell.steps.complex.CustomBoundarySteps;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -85,4 +86,7 @@ public class User extends ScenarioSteps {
 
     @Steps
     public ComplexSteps usingComplexSteps;
+
+    @Steps
+    public CustomBoundarySteps customBoundaryPage;
 }

@@ -18,7 +18,6 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.yecht.Data;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -90,8 +89,15 @@ public class PerchwellPage extends BasePage {
 	private WebElement bedroomsSortButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_beds")
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'INFO'")
-	private List<WebElement> roomsInfoList;
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Bath '")
+	private List<WebElement> bathsInfoList;
+
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_beds")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Bed 7'")
+	private List<WebElement> bedInfoList;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'STUDIO'")
+	private List<WebElement> studioList;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name CONTAINS 'PRICE'")
     private List<WebElement> pricesList;
@@ -134,7 +140,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
 	private WebElement listingsSearchField;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'INFO'$]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'Bed 7'$]")
 	private List<WebElement> currentBedsAndBathsAmountList;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'INFO'$]")
@@ -327,15 +333,24 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void isContainParticularRooms(String rooms) {
-		Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRoomsOrLabels(roomsInfoList, rooms));
+		if(rooms.contains("BD")) {
+			Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRoomsOrLabels(bedInfoList, rooms));
+		} else {
+			Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRoomsOrLabels(bathsInfoList, rooms));
+		}
 	}
 
 	public void isContainsStudios() {
-		Assert.assertTrue(FilteringAndSortingBuildings.isContainsStudios(roomsInfoList));
+		Assert.assertTrue(FilteringAndSortingBuildings.isContainsStudios(bedInfoList));
 	}
 
 	public void isContains4PlusParticularRooms(String roomType) {
-		Assert.assertTrue(FilteringAndSortingBuildings.isContains4PlusParticularRooms(roomsInfoList, roomType));
+		if(roomType.contains("bedrooms")) {
+			Assert.assertTrue(FilteringAndSortingBuildings.isContains4PlusParticularRooms(bedInfoList, roomType));
+		} else {
+			Assert.assertTrue(FilteringAndSortingBuildings.isContains4PlusParticularRooms(bathsInfoList, roomType));
+		}
+
 	}
 
     public void clickOnListingsByButton() {
@@ -390,16 +405,16 @@ public class PerchwellPage extends BasePage {
     }
 
     public void isListingSortedByBedrooms() {
-	    Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedrooms", roomsInfoList) == 1);
+	    Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedrooms", bathsInfoList) == 1);
     }
 
 
 	public void ListingBeSortedByBedroomsInBuilding() {
-		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedroomsInBuilding", roomsInfoList) == 1);
+		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedroomsInBuilding", bathsInfoList) == 1);
 	}
 
     public void isListingSortedByBathrooms() {
-		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bathrooms", roomsInfoList) == 1);
+		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bathrooms", bathsInfoList) == 1);
     }
 
 	public void isInitialIconDispalyed(){
@@ -407,7 +422,7 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void shouldFilter1Bed1AndHalfBathApplied(String search) {
-		boolean roomInfo = FilteringAndSortingBuildings.isSomeInfoPresentInBuildings(search, roomsInfoList);
+		boolean roomInfo = FilteringAndSortingBuildings.isSomeInfoPresentInBuildings(search, bathsInfoList);
 		Assert.assertTrue(roomInfo);
 	}
 
@@ -468,7 +483,7 @@ public class PerchwellPage extends BasePage {
 			labelsList = getDriver().findElements(By.xpath("//*[contains(@content-desc, '" + label + "')]"));
 			Assert.assertEquals(2, labelsList.size());
 		} else {
-			labelsList = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label + "'"));
+			labelsList = getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'Listing Status:' AND name CONTAINS '" + label + "'"));
 			Assert.assertEquals(20, labelsList.size());
 		}
 	}
@@ -482,8 +497,8 @@ public class PerchwellPage extends BasePage {
 			labelsList2 = getDriver().findElements(By.xpath("//*[contains(@content-desc, '" + label2 + "')]"));
 			Assert.assertEquals(2, labelsList1.size() + labelsList2.size());
 		} else {
-			labelsList1 = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label1 + "'"));
-			labelsList2 = getDriver().findElements(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeImage' AND name CONTAINS 'BANNER: " + label2 + "'"));
+			labelsList1 = getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'Listing Status:' AND name CONTAINS '" + label1 + "'"));
+			labelsList2 = getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'Listing Status:' AND name CONTAINS '" + label2 + "'"));
 			Assert.assertEquals(20, labelsList1.size() + labelsList2.size());
 		}
 	}
@@ -565,16 +580,19 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void checkIfListingsAreFilteredByMinBeds(int value) {
-		boolean result = true;
+		boolean result = false;
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
-		for (WebElement element : currentBedsAndBathsAmountList) {
-			String stringValue = element.getAttribute("value");
-			int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
-			if (processedValue<value) {
-				result = false;
-				break;
+		if(currentBedsAndBathsAmountList.size() == 20 && studioList.isEmpty()) {
+
+			for (WebElement element : currentBedsAndBathsAmountList) {
+				String stringValue = element.getAttribute("value");
+				int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
+				if (processedValue<value) {
+					break;
+				}
+				result = true;
 			}
 		}
 		Assert.assertTrue(result);
@@ -614,9 +632,9 @@ public class PerchwellPage extends BasePage {
 		Assert.assertTrue(result);
 	}
 
-	public void checkIfListingsWereChanged() {
+	public void checkIfListingsWereNotChanged() {
 		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
-		Assert.assertTrue(listningsAmount!=listingsAmountToCheck);
+		Assert.assertEquals(listningsAmount, listingsAmountToCheck);
 	}
 
 	public void checkIfThereIsNoListingsWithoutBeds() {

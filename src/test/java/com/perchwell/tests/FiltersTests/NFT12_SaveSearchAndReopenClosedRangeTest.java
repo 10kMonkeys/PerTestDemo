@@ -16,18 +16,21 @@ public class NFT12_SaveSearchAndReopenClosedRangeTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.selectBedroomsRangeOption();
-        user.atSearchPage.selectFilter2Beds();
-        user.atSearchPage.selectFilter4PlusBeds();
+        user.atSearchPage.selectFilter1Bed();
+        user.atSearchPage.selectFilter3Beds();
         user.atSearchPage.selectBathroomsRangeOption();
-        user.atSearchPage.selectFilter2Baths();
-        user.atSearchPage.selectFilter4PlusBaths();
+        user.atSearchPage.selectFilter1Bath();
+        user.atSearchPage.selectFilter3Baths();
         user.atSearchPage.saveCurrentSearch();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.clickOnResetFilter();
+        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.createNewSearchClick();
+        user.atSearchPage.clickOnApplyButton();
+        user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.clickOnLoadSavedSearchButton();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.checkMultiBedroomsFiltersSelected();
-        user.atSearchPage.checkMultiBathroomsFiltersSelected();
+        user.atSearchPage.checkMultiBedroomsFiltersSelectedFrom1To3();
+        user.atSearchPage.checkMultiBathroomsFiltersSelected1To3();
     }
 }
