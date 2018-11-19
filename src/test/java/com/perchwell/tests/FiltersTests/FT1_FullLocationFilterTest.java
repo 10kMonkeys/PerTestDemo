@@ -39,6 +39,7 @@ public class FT1_FullLocationFilterTest extends SampleTest {
                 Districts.UPPER_EAST_SIDE, Districts.YORKVILLE);
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.clickOnNeighborhoodsPlusButton();
+        user.atSearchPage.deleteAllUpperEastSideFromFilter();
         user.atSearchPage.selectDistrict(Districts.CARNEGIE_HILL, Districts.CARNEGIE_HILL_ID);
         user.atSearchPage.selectDistrict(Districts.LENOX_HILL, Districts.LENOX_HILL_ID);
         user.atSearchPage.selectDistrict(Districts.UPPER_EAST_SIDE, Districts.UPPER_EAST_SIDE_ID);
