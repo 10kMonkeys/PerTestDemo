@@ -5,22 +5,20 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"FiltersTests", "AdditionalFiltersTest"})
-public class NFT12_SaveSearchAndReopenClosedRangeTest extends SampleTest {
+@WithTagValuesOf({"FiltersTests", "FiltersSearchesSecond", "iOS_FiltersSearchesSecond", "Android_FiltersSearchesSecond"})
+public class NFT15_SaveSearchAndReopen1RangeOptionTest extends SampleTest {
 
     @Test
-    public void saveSearchAndReopenClosedRange() {
+    public void saveSearchAndReopen1RangeOption() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.selectBedroomsRangeOption();
-        user.atSearchPage.selectFilter1Bed();
-        user.atSearchPage.selectFilter3Beds();
+        user.atSearchPage.selectFilter2Beds();
         user.atSearchPage.selectBathroomsRangeOption();
-        user.atSearchPage.selectFilter1Bath();
-        user.atSearchPage.selectFilter3Baths();
+        user.atSearchPage.selectFilter2Baths();
         user.atSearchPage.saveCurrentSearch();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.clickOnLoadSavedSearchButton();
@@ -30,7 +28,7 @@ public class NFT12_SaveSearchAndReopenClosedRangeTest extends SampleTest {
         user.atSearchPage.clickOnLoadSavedSearchButton();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.checkMultiBedroomsFiltersSelectedFrom1To3();
-        user.atSearchPage.checkMultiBathroomsFiltersSelected1To3();
+        user.atSearchPage.check2BedsRangeFilterSelected();
+        user.atSearchPage.check2BathsRangeFilterSelected();
     }
 }

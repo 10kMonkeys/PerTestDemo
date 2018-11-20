@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"FiltersTests", "AdditionalFiltersTest"})
-public class NFT8_ResetBathroomsFiltersTest extends SampleTest {
+public class NFT12_ResetBathroomsFiltersTest extends SampleTest {
 
     @Test
     public void resetBathroomsFilters() {
@@ -28,11 +28,11 @@ public class NFT8_ResetBathroomsFiltersTest extends SampleTest {
         user.atSearchPage.check2BathsRangeFilterSelected();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.selectBathroomsRangeOption();
-        user.atSearchPage.selectFilter2Baths();
-        user.atSearchPage.selectFilter4PlusBaths();
+        user.atSearchPage.selectFilter1Bath();
+        user.atSearchPage.selectFilter3Baths();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.checkMultiBathroomsFiltersSelected();
+        user.atSearchPage.checkMultiBathroomsFiltersSelected1To3();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.checkNoOneBathsRangeFilterSelected();

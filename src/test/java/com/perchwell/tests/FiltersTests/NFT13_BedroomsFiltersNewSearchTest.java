@@ -5,11 +5,11 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"FiltersTests", "AdditionalFiltersTest"})
-public class NFT7_ResetBedroomsFiltersTest extends SampleTest {
+@WithTagValuesOf({"FiltersTests", "FiltersSearchesSecond", "iOS_FiltersSearchesSecond", "Android_FiltersSearchesSecond"})
+public class NFT13_BedroomsFiltersNewSearchTest extends SampleTest {
 
     @Test
-    public void resetBedroomsFilters() {
+    public void bedroomsFiltersNewSearch() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -27,14 +27,16 @@ public class NFT7_ResetBedroomsFiltersTest extends SampleTest {
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.check2BedsRangeFilterSelected();
         user.atSearchPage.clickOnResetFilter();
-        user.atSearchPage.selectBedroomsRangeOption();
-        user.atSearchPage.selectFilter2Beds();
-        user.atSearchPage.selectFilter4PlusBeds();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.checkMultiBedroomsFiltersSelected();
-        user.atSearchPage.clickOnResetFilter();
+        user.atSearchPage.checkBedroomsRangeButtonIsNotSelected();
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.checkNoOneBedsRangeFilterSelected();
+        user.atSearchPage.selectFilter1Bed();
+        user.atSearchPage.selectFilter3Beds();
+        user.atSearchPage.clickOnApplyButton();
+        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atSearchPage.checkMultiBedroomsFiltersSelectedFrom1To3();
+        user.atSearchPage.clickOnResetFilter();
+        user.atSearchPage.checkBedroomsRangeButtonIsNotSelected();
+        user.atSearchPage.checkNoOneBedsMinimumFilterSelected();
     }
 }

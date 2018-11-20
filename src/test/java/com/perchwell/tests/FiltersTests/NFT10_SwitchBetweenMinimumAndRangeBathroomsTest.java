@@ -5,8 +5,8 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"FiltersTests", "AdditionalFiltersTest"})
-public class NFT6_SwitchBetweenMinimumAndRangeBathroomsTest extends SampleTest {
+@WithTagValuesOf({"FiltersTests", "FiltersSearchesSecond", "iOS_FiltersSearchesSecond", "Android_FiltersSearchesSecond"})
+public class NFT10_SwitchBetweenMinimumAndRangeBathroomsTest extends SampleTest {
 
     @Test
     public void switchBetweenMinimumAndRangeBathrooms() {
