@@ -531,22 +531,22 @@ public class PerchwellPage extends BasePage {
 
 	public void shouldSeeListingsFromAllUpperEastSideDistricts(String carnegieHill, String lenoxHill, String upperEastSide, String yorkville) {
 		List<WebElement> districtList1 = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NEIGHBORHOOD: " + carnegieHill + "'"));
+				"value == '" + carnegieHill + "'"));
 		List<WebElement> districtList2 = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NEIGHBORHOOD: " + lenoxHill + "'"));
+				"value == '" + lenoxHill + "'"));
 		List<WebElement> districtList3 = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NEIGHBORHOOD: " + upperEastSide + "'"));
+				"value == '" + upperEastSide + "'"));
 		List<WebElement> districtList4 = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NEIGHBORHOOD: " + yorkville + "'"));
+				"value == '" + yorkville + "'"));
 		Assert.assertEquals(20, districtList1.size() + districtList2.size() + districtList3.size() + districtList4.size());
 		fourDistrictListingsAmount = getNumberOfListings(listingsByButton);
 	}
 
 	public void shouldSeeListingsTwoDistricts(String firstDist, String secondDist) {
 		List<WebElement> districtList1 = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NEIGHBORHOOD: " + firstDist + "'"));
+				"value == '" + firstDist + "'"));
 		List<WebElement> districtList2 = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NEIGHBORHOOD: " + secondDist + "'"));
+				"value == '" + secondDist + "'"));
 		Assert.assertEquals(20, districtList1.size() + districtList2.size());
 	}
 
