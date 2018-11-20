@@ -307,7 +307,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MY NEW SEARCH")
 	private WebElement backButtonFromNeighborhoods;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeCell' AND name CONTAINS 'City-MANHATTAN'")
+	@iOSXCUITFindBy(accessibility = "Remove Button: Manhattan")
 	private WebElement manhattanCheckedCheckbox;
 
 	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"BROOKLYN\"]/android.widget.ImageView")
@@ -325,19 +325,19 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
 	private WebElement searchNeihborhoodsSearchField;
 
-	@iOSXCUITFindBy(accessibility = "Remove Button: MIDWOOD")
+	@iOSXCUITFindBy(accessibility = "Remove Button: Midwood")
 	private WebElement midwoodRemoveIcon;
 
-	@iOSXCUITFindBy(accessibility = "Remove Button: ALL UPPER EAST SIDE")
+	@iOSXCUITFindBy(accessibility = "Remove Button: All Upper East Side")
 	private WebElement allUpperEastSideRemoveIcon;
 
-	@iOSXCUITFindBy(accessibility = "Remove Button: CARNEGIE HILL")
+	@iOSXCUITFindBy(accessibility = "Remove Button: Carnegie Hill")
 	private WebElement carnegieHillsRemoveIcon;
 
-	@iOSXCUITFindBy(accessibility = "Remove Button: UPPER EAST SIDE")
+	@iOSXCUITFindBy(accessibility = "Remove Button: Upper East Side")
 	private WebElement upperEastSideRemoveIcon;
 
-	@iOSXCUITFindBy(accessibility = "Remove Button: YORKVILLE")
+	@iOSXCUITFindBy(accessibility = "Remove Button: Yorkville")
 	private WebElement yorkvilleRemoveIcon;
 
 	@iOSXCUITFindBy(accessibility = "ADDRESS")
@@ -1047,6 +1047,12 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectDistrict(String districtID) {
+		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+		if(!Config.isAndroid()) {
+			appiumDriver.hideKeyboard();
+		}
 		element(MobileBy.AccessibilityId(districtID)).click();
 	}
 
