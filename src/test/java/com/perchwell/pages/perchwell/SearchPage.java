@@ -61,7 +61,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Working Fireplace")
 	private WebElement fireplaceFilter;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/load")
+	@AndroidFindBy(accessibility = "LoadSavedSearchesButton")
 	@iOSXCUITFindBy(accessibility = "LoadSavedSearchButton")
 	private WebElement loadSavedSearchButton;
 
@@ -299,7 +299,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Washer Dryer")
 	private WebElement laundryUnitFilter;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.ImageView")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/add_neighborhood_tag")
 	@iOSXCUITFindBy(accessibility = "Tag Cell NEIGHBORHOODS: Add Button")
 	private WebElement neighborhoodsPlusButton;
 
@@ -307,6 +307,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MY NEW SEARCH")
 	private WebElement backButtonFromNeighborhoods;
 
+	@AndroidFindBy(accessibility = "Remove Button: Manhattan")
 	@iOSXCUITFindBy(accessibility = "Remove Button: Manhattan")
 	private WebElement manhattanCheckedCheckbox;
 
@@ -314,7 +315,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Remove Button: Brooklyn")
 	private WebElement brooklynRemoveIcon;
 
-	@AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"QUEENS\"]/android.widget.ImageView")
+	@AndroidFindBy(accessibility = "Remove Button: Queens")
 	@iOSXCUITFindBy(accessibility = "Remove Button: Queens")
 	private WebElement queensRemoveIcon;
 
@@ -322,21 +323,27 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Neighborhood-Alphabet City")
 	private WebElement alphabetCityCheckbox;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
 	@iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
 	private WebElement searchNeihborhoodsSearchField;
 
+	@AndroidFindBy(accessibility = "Remove Button: Midwood")
 	@iOSXCUITFindBy(accessibility = "Remove Button: Midwood")
 	private WebElement midwoodRemoveIcon;
 
+	@AndroidFindBy(accessibility = "Remove Button: All Upper East Side")
 	@iOSXCUITFindBy(accessibility = "Remove Button: All Upper East Side")
 	private WebElement allUpperEastSideRemoveIcon;
 
+	@AndroidFindBy(accessibility = "Remove Button: Carnegie Hill")
 	@iOSXCUITFindBy(accessibility = "Remove Button: Carnegie Hill")
 	private WebElement carnegieHillsRemoveIcon;
 
+	@AndroidFindBy(accessibility = "Remove Button: Upper East Side")
 	@iOSXCUITFindBy(accessibility = "Remove Button: Upper East Side")
 	private WebElement upperEastSideRemoveIcon;
 
+	@AndroidFindBy(accessibility = "Remove Button: Yorkville")
 	@iOSXCUITFindBy(accessibility = "Remove Button: Yorkville")
 	private WebElement yorkvilleRemoveIcon;
 
@@ -391,6 +398,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 2+")
 	private WebElement twoBedsMinimumFilter;
 
+	@AndroidFindBy(accessibility = "Bedrooms: 2+-selected")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 2+")
 	private WebElement selectedTwoBedsMinimumFilter;
 
@@ -414,6 +422,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 2+")
 	private WebElement twoBathsMinimumFilter;
 
+	@AndroidFindBy(accessibility = "Bathrooms: 2+-selected")
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 2+")
 	private WebElement selectedTwoBathsMinFilter;
 
@@ -425,6 +434,7 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 4+")
 	private WebElement fourBathsMinimumFilter;
 
+	@AndroidFindBy(xpath = "//*[@text = 'TOTAL ROOMS']")
 	@iOSXCUITFindBy(accessibility = "TOTAL ROOMS")
 	private WebElement totalRoomsSection;
 
@@ -440,9 +450,11 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "BATHROOMS Option: Minimum")
 	private WebElement bathroomsMinimumOption;
 
+	@AndroidFindBy(xpath = "*//android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.ImageView")
 	@iOSXCUITFindBy(accessibility = "Cell Collapsible Button: BEDROOMS")
 	private WebElement bedroomsCollapseButton;
 
+	@AndroidFindBy(xpath = "*//android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.ImageView")
 	@iOSXCUITFindBy(accessibility = "Cell Collapsible Button: BATHROOMS")
 	private WebElement bathroomsCollapseButton;
 
@@ -558,7 +570,9 @@ public class SearchPage extends BasePage {
 	}
 
 	public void selectFilter1Bath() {
-//		Helper.universalVerticalSwipe(totalRoomsSection);
+		if (Config.isAndroid()) {
+			Helper.universalVerticalShortSwipe(totalRoomsSection);
+		}
 		element(filterFor1Bath).click();
 	}
 
@@ -1052,8 +1066,11 @@ public class SearchPage extends BasePage {
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 		if(!Config.isAndroid()) {
 			appiumDriver.hideKeyboard();
+			element(MobileBy.AccessibilityId(districtID)).click();
+		} else {
+			element(By.xpath("//*[@text = '" + districtID.replaceAll("District-", "").replaceAll("Neighborhood-", "") + "']")).click();
 		}
-		element(MobileBy.AccessibilityId(districtID)).click();
+
 	}
 
 	public void uncheckMidwoodFromFilter() {
@@ -1137,6 +1154,9 @@ public class SearchPage extends BasePage {
 
 	public void selectOneBathMinimumFilter() {
 //		Helper.universalVerticalSwipe(totalRoomsSection);
+		if (Config.isAndroid()) {
+			Helper.universalVerticalSwipe(totalRoomsSection);
+		}
 		element(oneBathMinimumFilter).click();
 	}
 

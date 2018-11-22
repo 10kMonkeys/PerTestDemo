@@ -347,4 +347,8 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void listingsFilteredByMultiBathroomsFilters() {
 		onPage.listingsFilteredByMultiBathroomsFilters();
 	}
+
+	@Step
+	public void checkIfListingsWereChanged() {
+	}
 }

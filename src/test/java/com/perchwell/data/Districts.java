@@ -6,7 +6,7 @@ public class Districts {
     public static final String MIDWOOD_ID = "Neighborhood-Midwood";
     public static final String MIDWOOD = "MIDWOOD";
     public static final String ALL_UPPER_EAST_SIDE = "ALL UPPER EAST SIDE";
-    public static final String ALL_UPPER_EAST_SIDE_ID = "District-All Upper East Side ";
+    public static final String ALL_UPPER_EAST_SIDE_ID = "District-All Upper East Side";
     public static final String CARNEGIE_HILL = "CARNEGIE HILL";
     public static final String LENOX_HILL = "LENOX HILL";
     public static final String UPPER_EAST_SIDE = "UPPER EAST SIDE";

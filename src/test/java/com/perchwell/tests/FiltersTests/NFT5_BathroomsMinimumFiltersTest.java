@@ -19,8 +19,8 @@ public class NFT5_BathroomsMinimumFiltersTest extends SampleTest {
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.selectOneBathMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsWereNotChanged();
-//        user.atPerchwellPage.checkIfThereIsNoListingsWithoutBaths(); //deprecated
+        user.atPerchwellPage.checkIfListingsWereChanged();
+        user.atPerchwellPage.checkIfThereIsNoListingsWithoutBaths(); //deprecated
         user.atPerchwellPage.clickOnMyNewSearch();
         user.atSearchPage.checkIfOneBathMinimumFilterIsDeselected();
         user.atSearchPage.selectOneAndHalfBathroomsFilter();
