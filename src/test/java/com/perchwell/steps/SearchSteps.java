@@ -31,13 +31,15 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickOnLoadSavedSearchButton() {
-		onPage.clickLoadSavedSearchButton();
+	public void clickOnMySavedSearches() {
+		if(Config.isAndroid()) {
+			onPage.clickLoadSavedSearchButton();
+		}
 	}
 
 	@Step
-	public void clickOnTapToSaveChanges() {
-		onPage.clickOnTapToSaveChanges();
+	public void clickOnSaveSearchButton() {
+		onPage.clickOnSaveSearchButton();
 	}
 
 	@Step
@@ -110,7 +112,7 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	private void createNewSearchStudioBeds() {
 		onPage.selectFilterStudioBeds();
-		this.clickOnTapToSaveChanges();
+		this.clickOnSaveSearchButton();
 		this.setSearchName();
 		this.clickOnSaveButton();
 	}
@@ -122,7 +124,7 @@ public class SearchSteps extends ScenarioSteps {
 //			onPage.savedSearchCancelButtonClick();
 //			createNewSearchStudioBeds();
 //			perchwellSteps.clickOnMyNewSearch();
-//			this.clickOnLoadSavedSearchButton();
+//			this.clickOnMySavedSearches();
 //		}
 		onPage.selectFirstSearchAndSaveName();
 	}
@@ -185,7 +187,7 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void saveCurrentSearch() {
-		this.clickOnTapToSaveChanges();
+		this.clickOnSaveSearchButton();
 		this.setSearchName();
 		this.clickOnSaveButton();
 	}

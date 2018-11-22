@@ -46,6 +46,9 @@ public class ComplexSteps extends ScenarioSteps{
     @Steps
     private AnalyticsSteps atAnalyticsPage;
 
+    @Steps
+    private SearchMenuSteps inSearchMenuSteps;
+
     @Step
     private void openFirstBuildingSkipHintClickOnShareButton() {
         atPerchwellPage.openFirstBuilding();
@@ -90,18 +93,20 @@ public class ComplexSteps extends ScenarioSteps{
 
     @Step
     public void saveNewSearchAndStartNewSearch() {
-        atPerchwellPage.clickOnMyNewSearch();
+        atPerchwellPage.clickOnMyNewSearch(); //search old
+        inSearchMenuSteps.openSearchPage(); //new search
         atSearchPage.selectBedroomsRangeOptionIfNotSelected();
         atSearchPage.selectFilter1Bed();
         atSearchPage.selectFilter4PlusBeds();
         atSearchPage.saveCurrentSearch();
-        this.startNewSearch();
+        this.startNewSearch(); //search new and old inside
     }
 
     @Step
     public void startNewSearch() {
-        atPerchwellPage.clickOnMyNewSearch();
-        atSearchPage.clickOnLoadSavedSearchButton();
+        atPerchwellPage.clickOnMyNewSearch(); //search old
+        atSearchPage.clickOnMySavedSearches(); //search old
+        inSearchMenuSteps.openSavedSearches(); //search new
         atSearchPage.createNewSearchClick();
         atSearchPage.clickOnApplyButton();
     }

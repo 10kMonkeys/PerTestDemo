@@ -14,10 +14,12 @@ public class SET1_DeleteSearchTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.saveCurrentSearch();
-        user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atPerchwellPage.clickOnMyNewSearch();  //search old
+        user.atSearchPage.clickOnMySavedSearches();  //search old
+        user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.swipeCreatedSearch();
         user.atSearchPage.clickOnDeleteSearchButton();
         user.atSearchPage.shouldDeleteSearch();

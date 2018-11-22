@@ -551,11 +551,12 @@ public class AnalyticsPage extends BasePage {
 
     public void clickOnMagnifierIconWithPreviouslySavedSearch() {
         String search = SessionVariables.getValueFromSessionVariable("Search");
-        if (Config.isAndroid()) {
+//        if (Config.isAndroid()) {
             getDriver().findElement(By.xpath("//*[@text='" + search + "']")).click();
-        } else {
-            getDriver().findElement(MobileBy.AccessibilityId(search)).click();
-        }
+//        }
+//        else {
+//            getDriver().findElement(MobileBy.AccessibilityId(search)).click();
+//        }
     }
 
     public void REBNYListingsButtonClick() {

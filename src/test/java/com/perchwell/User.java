@@ -88,5 +88,8 @@ public class User extends ScenarioSteps {
     public ComplexSteps usingComplexSteps;
 
     @Steps
-    public CustomBoundarySteps customBoundaryPage;
+    public CustomBoundarySteps atCustomBoundaryPage;
+
+    @Steps
+    public SearchMenuSteps inSearchMenu;
 }

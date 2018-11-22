@@ -16,20 +16,23 @@ public class FT1_FullLocationFilterTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.isListingsQuantity();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.clickOnNeighborhoodsPlusButton();
         user.atSearchPage.deleteManhattan();
         user.atSearchPage.deleteQueens();
         user.atSearchPage.clickOnBackFromNeighborhoodsPage();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkFilterIsApplied();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.clickOnNeighborhoodsPlusButton();
         user.atSearchPage.selectDistrict(Districts.MIDWOOD, Districts.MIDWOOD_ID);
         user.atSearchPage.clickOnBackFromNeighborhoodsPage();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListingsOnlyFromSelectedDistrict(Districts.MIDWOOD_UP);
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.clickOnNeighborhoodsPlusButton();
         user.atSearchPage.selectDistrict(Districts.ALL_UPPER_EAST_SIDE, Districts.ALL_UPPER_EAST_SIDE_ID);
         user.atSearchPage.deleteMidwoodFromFilter();
@@ -37,7 +40,8 @@ public class FT1_FullLocationFilterTest extends SampleTest {
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListingsFromAllUpperEastSideDistricts(Districts.CARNEGIE_HILL, Districts.LENOX_HILL,
                 Districts.UPPER_EAST_SIDE, Districts.YORKVILLE);
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.clickOnNeighborhoodsPlusButton();
         user.atSearchPage.deleteAllUpperEastSideFromFilter();
         user.atSearchPage.selectDistrict(Districts.CARNEGIE_HILL, Districts.CARNEGIE_HILL_ID);
@@ -47,7 +51,8 @@ public class FT1_FullLocationFilterTest extends SampleTest {
         user.atSearchPage.clickOnBackFromNeighborhoodsPage();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkFourDistrictsListings();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.clickOnNeighborhoodsPlusButton();
         user.atSearchPage.deleteCarnegieHillsFromFilter();
         user.atSearchPage.deleteUpperEastSideFromFilter();
@@ -56,19 +61,22 @@ public class FT1_FullLocationFilterTest extends SampleTest {
         user.atSearchPage.clickOnBackFromNeighborhoodsPage();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListingsTwoDistricts(Districts.LENOX_HILL, Districts.MIDWOOD);
-        user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnTapToSaveChanges();
+        user.atAnalyticsPage.clickMyNewSearch(); //search old
+        user.atSearchPage.clickOnSaveSearchButton();
         user.atSearchPage.setSearchName();
         user.atSearchPage.clickOnSaveButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.atSearchPage.clickOnMySavedSearches(); //search old
+        user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.createNewSearchClick();
         user.atSearchPage.clickOnApplyButton();
-        user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atAnalyticsPage.clickMyNewSearch(); //search old
+        user.atSearchPage.clickOnMySavedSearches(); //search old
+        user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.shouldSeeListingsTwoDistricts(Districts.LENOX_HILL, Districts.MIDWOOD);
-        user.atAnalyticsPage.clickMyNewSearch();
+        user.atAnalyticsPage.clickMyNewSearch(); //search old
+        user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkListingsQuantity();

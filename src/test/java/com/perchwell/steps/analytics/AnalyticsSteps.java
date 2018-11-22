@@ -1,14 +1,17 @@
 package com.perchwell.steps.analytics;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.analytics.AnalyticsPage;
+import com.perchwell.pages.perchwell.PerchwellPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 
 public class AnalyticsSteps extends ScenarioSteps {
 	AnalyticsPage onPage;
+	PerchwellPage perchwellPage;
 
 	@Step
 	public void clickMyEmailOption() {
@@ -121,7 +124,9 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void clickMyNewSearch() {
-		onPage.clickMyNewSearch();
+		if(Config.isAndroid()) {
+			onPage.clickMyNewSearch();
+		}
 	}
 
 	@Step
@@ -304,7 +309,9 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnMagnifierIconWithPreviouslySavedSearch() {
-		onPage.clickOnMagnifierIconWithPreviouslySavedSearch();
+		if(Config.isAndroid()) {
+			onPage.clickOnMagnifierIconWithPreviouslySavedSearch();
+		}
 	}
 
 	@Step

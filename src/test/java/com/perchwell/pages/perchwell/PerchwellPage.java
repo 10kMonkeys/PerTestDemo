@@ -50,7 +50,7 @@ public class PerchwellPage extends BasePage {
 	private WebElement magnifierIcon;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/profile_image")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton[3]")
 	private WebElement openAccountButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_image")
@@ -180,7 +180,6 @@ public class PerchwellPage extends BasePage {
 	}
 
     public void clickOnMagnifierWithWait() {
-	    waitABit(3000);
         element(magnifierIcon).click();
     }
 

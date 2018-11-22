@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"FiltersTests", "FiltersSearchesFirst", "iOS_FiltersSearchesFirst", "Android_FiltersSearchesFirst"})
-public class NFT5_BathroomsMinimumFiltersTest extends SampleTest {
+public class NFT6_BathroomsMinimumFiltersTest extends SampleTest {
 
     @Test
     public void bathroomsMinimumFilters() {
@@ -16,25 +16,30 @@ public class NFT5_BathroomsMinimumFiltersTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.isListingsQuantity();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.selectOneBathMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsWereNotChanged();
 //        user.atPerchwellPage.checkIfThereIsNoListingsWithoutBaths(); //deprecated
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.checkIfOneBathMinimumFilterIsDeselected();
         user.atSearchPage.selectOneAndHalfBathroomsFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsAreFilteredByMinBaths(Filters.ONE_AND_HALF_BATHS_MINIMUM_FILTER);
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.selectTwoBathsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsAreFilteredByMinBaths(Filters.TWO_BATHS_MINIMUM_FILTER);
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.selectThreeBathsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsAreFilteredByMinBaths(Filters.THREE_BATHS_MINIMUM_FILTER);
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.selectFourBathsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsAreFilteredByMinBaths(Filters.FOUR_BATHS_MINIMUM_FILTER);

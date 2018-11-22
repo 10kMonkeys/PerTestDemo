@@ -32,7 +32,7 @@ public class AT7_AddREBNYListingsMKTShareChartsTest extends SampleTest {
         user.atAnalyticsPage.selectREBNYListingsWithMKTShare();
         user.atRebnyListingsPage.addAndVerifyMKTShareFireplaceChart();
         user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.clickOnMySavedSearches();
         user.atSearchPage.createNewSearchClick();
         user.atSearchPage.clickOnApplyButton();
         user.atAnalyticsPage.rebnyListingsButtonClick();
@@ -49,7 +49,7 @@ public class AT7_AddREBNYListingsMKTShareChartsTest extends SampleTest {
         user.atAnalyticsPage.selectREBNYListingsWithMKTShare();
         user.atRebnyListingsPage.addAndVerifyMKTSharePoolChart();
         user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.clickOnMySavedSearches();
         user.atSearchPage.createNewSearchClick();
         user.atSearchPage.clickOnApplyButton();
         user.atAnalyticsPage.rebnyListingsButtonClick();

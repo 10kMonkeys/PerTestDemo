@@ -42,7 +42,7 @@ public class AT29_AskingPriceFilterAndChartsTest extends SampleTest {
         user.atAcrisClosingPage.addDistributionPriceByPriceSegmentChart();
         //        checkOnlyOnlyOneColumn1to3dollarsIsShown(); //TODO
         user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.clickOnMySavedSearches();
         user.atSearchPage.createNewSearchClick();
         user.atSearchPage.setMinimumPriceFilter("1000000");
         user.atSearchPage.setMaximumPriceFilter("2900000");

@@ -45,8 +45,11 @@ public class MapSteps extends ScenarioSteps {
 
 	}
 
+	@Step
 	public void clickOnMyNewSearch() {
-		onPage.clickOnMyNewSearch();
+		if(Config.isAndroid()) {
+			onPage.clickOnMyNewSearch();
+		}
 	}
 
 	@Step

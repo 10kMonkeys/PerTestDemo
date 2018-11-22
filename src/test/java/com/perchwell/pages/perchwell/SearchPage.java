@@ -7,7 +7,6 @@ import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
@@ -66,15 +65,15 @@ public class SearchPage extends BasePage {
 	private WebElement loadSavedSearchButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
-	@iOSXCUITFindBy(accessibility = "TAP TO SAVE CHANGES")
-	private WebElement tapToSaveChanges;
+	@iOSXCUITFindBy(accessibility = "SAVE")
+	private WebElement searchSavebutton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/rename_group_edit_text")
 	@iOSXCUITFindBy(accessibility = "generic_text_input_field")
 	private WebElement searchName;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
-	@iOSXCUITFindBy(accessibility = "SAVE")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name='SAVE'$][2]")
 	private WebElement saveButton;
 
 	@AndroidFindBy(xpath = "//android.widget.LinearLayout/android.widget.EditText")
@@ -501,8 +500,8 @@ public class SearchPage extends BasePage {
 		element(loadSavedSearchButton).click();
 	}
 
-	public void clickOnTapToSaveChanges() {
-		element(tapToSaveChanges).click();
+	public void clickOnSaveSearchButton() {
+		element(searchSavebutton).click();
 	}
 
 	public void clickOnSaveButton() {

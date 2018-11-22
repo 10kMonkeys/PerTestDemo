@@ -14,24 +14,28 @@ public class NFT12_ResetBathroomsFiltersTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.selectTwoBathsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.check2BathsMinFilterSelected();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkNoOneBathsMinimumFilterSelected();
         user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.selectFilter2Baths();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.check2BathsRangeFilterSelected();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.selectFilter1Bath();
         user.atSearchPage.selectFilter3Baths();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.checkMultiBathroomsFiltersSelected1To3();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.selectBathroomsRangeOption();

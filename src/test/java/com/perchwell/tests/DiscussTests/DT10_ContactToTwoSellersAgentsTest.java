@@ -14,7 +14,8 @@ public class DT10_ContactToTwoSellersAgentsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.setMaximumPriceFilter("13000000");
         user.atSearchPage.setMinimumPriceFilter("13000000");
         user.atSearchPage.selectBedroomsRangeOption();

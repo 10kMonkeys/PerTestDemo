@@ -36,12 +36,17 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnMyNewSearch() {
-		onPage.clickOnMagnifier();
+		if(Config.isAndroid()) {
+			onPage.clickOnMagnifier();
+		}
 	}
 
 	@Step
 	public void clickOnMyNewSearchWithWait() {
-		onPage.clickOnMagnifierWithWait();
+		waitABit(3000);
+		if(Config.isAndroid()) {
+			onPage.clickOnMagnifierWithWait();
+		}
 	}
 
 	@Step

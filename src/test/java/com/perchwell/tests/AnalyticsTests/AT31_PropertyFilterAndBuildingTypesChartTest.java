@@ -47,7 +47,7 @@ public class AT31_PropertyFilterAndBuildingTypesChartTest extends SampleTest {
         //        checkOnlyOnlyColumnsCondoAreShown(); //TODO
 
         user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.clickOnMySavedSearches();
         user.atSearchPage.createNewSearchClick();
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButton();

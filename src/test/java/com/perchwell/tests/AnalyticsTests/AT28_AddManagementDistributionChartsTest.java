@@ -31,7 +31,7 @@ public class AT28_AddManagementDistributionChartsTest extends SampleTest {
         user.atAnalyticsPage.selectManagementWithDistribution();
         user.atManagementPage.addAndVerifyDistributionFirmMedianDollarPerSQFTChart();
         user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.clickOnMySavedSearches();
         user.atSearchPage.createNewSearchClick();
         user.atSearchPage.clickOnApplyButton();
         user.atAnalyticsPage.selectManagementSection();

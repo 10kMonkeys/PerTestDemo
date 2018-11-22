@@ -14,7 +14,8 @@ public class NFT10_SwitchBetweenMinimumAndRangeBathroomsTest extends SampleTest 
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.selectOneBathMinimumFilter();
         user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.selectBathroomsMinimumOption();

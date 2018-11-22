@@ -16,7 +16,8 @@ public class ST15_ApplyingLocationFilterTest extends SampleTest {
 					AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
-		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atPerchwellPage.clickOnMyNewSearch(); //search old
+		user.inSearchMenu.openSearchPage(); //search new
 		user.atSearchPage.clickOnNeighborhoodsPlusButton();
 		user.atSearchPage.expandManhattanSection();
 		user.atSearchPage.expandAllDownTownSection();

@@ -15,21 +15,24 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
-		user.atPerchwellPage.clickOnMyNewSearch();
-		user.atSearchPage.clickOnTapToSaveChanges();
+		user.atPerchwellPage.clickOnMyNewSearch(); //search old
+//		user.inSearchMenu.openSearchPage(); //new search
+		user.atSearchPage.clickOnSaveSearchButton();
 		user.atSearchPage.setSearchName();
 		user.atSearchPage.clickOnSaveButton();
-		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atPerchwellPage.clickOnMyNewSearch(); //search old
+		user.inSearchMenu.openSearchPage(); //new search
 		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST13_MIN_PRICE);
 		user.atSearchPage.selectBedroomsRangeOptionIfNotSelected();
 		user.atSearchPage.clickOnFilterStudioBeds(); //add (No 'selected' attribute)
-		user.atSearchPage.clickOnTapToSaveChanges();
+		user.atSearchPage.clickOnSaveSearchButton();
 		user.atSearchPage.saveAsOptionSelect();
 		user.atSearchPage.setSearchName();
 		user.atSearchPage.clickOnSaveButton();
 		user.atPerchwellPage.shouldSeePreviouslyCreatedNameOfSearch();
-		user.atPerchwellPage.clickOnMyNewSearch();
-		user.atSearchPage.clickOnLoadSavedSearchButton();
-		user.atSearchPage.shouldSeePreviouslyCreatedSearch(); //
+		user.atPerchwellPage.clickOnMyNewSearch(); //search old
+		user.atSearchPage.clickOnMySavedSearches(); //search old
+		user.inSearchMenu.openSavedSearches(); //search new
+		user.atSearchPage.shouldSeePreviouslyCreatedSearch();
 	}
 }

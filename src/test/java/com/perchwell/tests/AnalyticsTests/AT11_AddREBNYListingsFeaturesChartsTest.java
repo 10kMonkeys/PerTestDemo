@@ -31,7 +31,7 @@ public class AT11_AddREBNYListingsFeaturesChartsTest extends SampleTest {
         user.atAnalyticsPage.selectREBNYListingsWithFeatures();
         user.atRebnyListingsPage.addAndVerifyFeaturesLaundryBuildingChart();
         user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnLoadSavedSearchButton();
+        user.atSearchPage.clickOnMySavedSearches();
         user.atSearchPage.createNewSearchClick();
         user.atSearchPage.clickOnApplyButton();
         user.atAnalyticsPage.rebnyListingsButtonClick();
