@@ -356,4 +356,20 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void checkIfListingsWereChanged() {
 	}
+
+	@Step
+	public void shouldSeeListingWithSqFeetEqualAndMore(String minValue) {
+		onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
+	}
+
+	@Step
+	public void shouldSeeListingWithSqFeetEqualAndLess(String maxValue) {
+		onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
+	}
+
+	@Step
+	public void shouldSeeListingWithSqFeetEqualAndBetween(String minValue, String maxValue) {
+		onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
+		onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
+	}
 }

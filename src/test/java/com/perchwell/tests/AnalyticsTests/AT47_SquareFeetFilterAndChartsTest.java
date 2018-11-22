@@ -15,7 +15,7 @@ public class AT47_SquareFeetFilterAndChartsTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.setSquareFeetMinFilterToSixK();
+        user.atSearchPage.setSquareFeetMinFilter("6000");
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.clickOnAnalytics();
         user.atAnalyticsPage.selectNYCTownhousesSection();

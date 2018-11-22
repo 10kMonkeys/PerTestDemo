@@ -161,6 +161,9 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "15 West 81st St. #11A")
 	private WebElement twoAgentListing;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'sqft: '")
+	private List<WebElement> sqFeetList;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -682,5 +685,39 @@ public class PerchwellPage extends BasePage {
 			}
 		}
 		Assert.assertTrue(result);
+	}
+
+	public void shouldSeeListingWithSqFeetEqualAndMore(String minValue) {
+		boolean correctValue = true;
+		int min = Integer.parseInt(minValue);
+
+		for(WebElement element: sqFeetList) {
+			String sqFeet = element.getAttribute("value");
+			sqFeet = sqFeet.replace(" FT2", "");
+			int sqFeetValue = Integer.parseInt(sqFeet.replaceAll("\\D+",""));
+
+			if(sqFeetValue < min) {
+				correctValue = false;
+				break;
+			}
+		}
+		Assert.assertTrue(correctValue);
+	}
+
+	public void shouldSeeListingWithSqFeetEqualAndLess(String maxValue) {
+		boolean correctValue = true;
+		int max = Integer.parseInt(maxValue);
+
+		for(WebElement element: sqFeetList) {
+			String sqFeet = element.getAttribute("value");
+			sqFeet = sqFeet.replace(" FT2", "");
+			int sqFeetValue = Integer.parseInt(sqFeet.replaceAll("\\D+",""));
+
+			if(sqFeetValue > max) {
+				correctValue = false;
+				break;
+			}
+		}
+		Assert.assertTrue(correctValue);
 	}
 }

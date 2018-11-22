@@ -371,7 +371,7 @@ public class SearchSteps extends ScenarioSteps {
     }
 
 	@Step
-    public void selectCondoFilter() throws Exception {
+    public void selectCondoFilter() {
 		onPage.selectCondoFilter();
     }
 
@@ -386,8 +386,8 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void setSquareFeetMinFilterToSixK() throws Exception {
-		onPage.setSquareFeetMinFilterToSixK();
+	public void setSquareFeetMinFilter(String value) {
+		onPage.setSquareFeetMinFilter(value);
 	}
 
 	@Step
@@ -699,7 +699,18 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void openCustomBoundariesPage() {
-		onPage.openCustomBoundariesPage();
+	public void clearSquareFeetMinFilter() {
+		onPage.clearSquareFeetMinFilter();
+	}
+
+	@Step
+	public void setSquareFeetMaxFilter(String value) {
+		onPage.setSquareFeetMaxFilter(value);
+	}
+
+	@Step
+	public void shouldSqFeetMinAndMaxFieldsCleared() {
+		onPage.checkSqFeetMinFieldIsEmpty();
+		onPage.checkSqFeetMaxFieldIsEmpty();
 	}
 }

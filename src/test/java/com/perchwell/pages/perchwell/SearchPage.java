@@ -952,7 +952,7 @@ public class SearchPage extends BasePage {
 		}
 	}
 
-    public void selectCondoFilter() throws Exception {
+    public void selectCondoFilter() {
 		Helper.swipeDownUntilElementVisible(condoFilter);
 		element(condoFilter).click();
     }
@@ -967,9 +967,9 @@ public class SearchPage extends BasePage {
 		element(prewarFilter).click();
 	}
 
-	public void setSquareFeetMinFilterToSixK() throws Exception {
+	public void setSquareFeetMinFilter(String value) {
 		Helper.universalVerticalSwipe(monthliesSection);
-		element(squareFeetMinValueField).sendKeys("6000");
+		element(squareFeetMinValueField).sendKeys(value);
 	}
 
 	private int getXCoordinateForSixK() {
@@ -1300,5 +1300,24 @@ public class SearchPage extends BasePage {
 		softAssertions.assertThat(element(selectedFilterFor2Beds).isDisplayed());
 		softAssertions.assertThat(element(selectedFilterFor3Beds).isDisplayed());
 		softAssertions.assertAll();
+	}
+
+	public void clearSquareFeetMinFilter() {
+		element(squareFeetMinValueField).clear();
+	}
+
+	public void setSquareFeetMaxFilter(String value) {
+		Helper.universalVerticalSwipe(monthliesSection);
+		element(squareFeetMaxValueField).sendKeys(value);
+	}
+
+	public void checkSqFeetMinFieldIsEmpty() {
+		Helper.universalVerticalSwipe(squareFeetMinValueField);
+		Assert.assertEquals("Min", squareFeetMaxValueField.getAttribute("value"));
+	}
+
+	public void checkSqFeetMaxFieldIsEmpty() {
+		Helper.universalVerticalSwipe(squareFeetMaxValueField);
+		Assert.assertEquals("Max", squareFeetMaxValueField.getAttribute("value"));
 	}
 }
