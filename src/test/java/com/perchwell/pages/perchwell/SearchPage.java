@@ -1068,7 +1068,6 @@ public class SearchPage extends BasePage {
 			appiumDriver.hideKeyboard();
 			element(MobileBy.AccessibilityId(districtID)).click();
 		} else {
-			System.out.println(districtID.replaceAll("District-", "").replaceAll("Neighborhood-", ""));
 			element(By.xpath("//*[@text = '" + districtID.replaceAll("District-", "").replaceAll("Neighborhood-", "") + "']")).click();
 		}
 
