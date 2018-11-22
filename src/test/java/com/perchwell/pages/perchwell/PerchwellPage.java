@@ -652,17 +652,18 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void checkIfThereIsNoListingsWithoutBaths() {
-		boolean result = true;
-
-		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
-
-		for (WebElement element : currentBedsAndBathsAmountList) {
-			if (!element.getAttribute("value").contains("BA")) {
-				result = false;
-				break;
-			}
-		}
-		Assert.assertTrue(result);
+//		boolean result = true;
+//
+//		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
+//
+//		for (WebElement element : currentBedsAndBathsAmountList) {
+//			if (!element.getAttribute("value").contains("BA")) {
+//				result = false;
+//				break;
+//			}
+//		}
+//		Assert.assertTrue(result);
+		Assert.assertEquals(20, bathsInfoList.size());
 	}
 
 	public void listingsFilteredByMultiBathroomsFilters() {
