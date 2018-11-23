@@ -143,7 +143,7 @@ public class SearchPage extends BasePage {
 	private WebElement save;
 
 	@AndroidFindBy(accessibility = "Rentals")
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Rentals'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option: Rentals'")
 	private WebElement rentalsButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_new_search")
@@ -235,8 +235,8 @@ public class SearchPage extends BasePage {
     private WebElement selectedOffMktFilter;
 
 	@AndroidFindBy(accessibility = "Sales-selected")
-    @iOSXCUITFindBy(accessibility = "Option Selected: Sales")
-    private WebElement selectedSalesFilter;
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option Selected: Sales'")
+    private WebElement selectedSalesProperty;
 
 	@iOSXCUITFindBy(accessibility = "Fireplace-SELECTED")
 	private WebElement selectedFireplaceFilter;
@@ -478,6 +478,36 @@ public class SearchPage extends BasePage {
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_activity")
 	private WebElement listingActivitySection;
 
+	@iOSXCUITFindBy(accessibility = "Condo-selected")
+	private WebElement selectedCondoFilter;
+
+	@iOSXCUITFindBy(accessibility = "Co-op")
+	private WebElement coopFilter;
+
+	@iOSXCUITFindBy(accessibility = "Townhouse")
+	private WebElement townhouseFilter;
+
+	@iOSXCUITFindBy(accessibility = "Co-op-selected")
+	private WebElement selectedCoopFilter;
+
+	@iOSXCUITFindBy(accessibility = "Townhouse-selected")
+	private WebElement selectedTownhouseFilter;
+
+	@iOSXCUITFindBy(accessibility = "Rental")
+	private WebElement rentalFilter;
+
+	@iOSXCUITFindBy(accessibility = "Rental-selected")
+	private WebElement selectedRentalFilter;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option: Sales'")
+	private WebElement salesProperty;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option Selected: Rentals'")
+	private WebElement selectedRentalsProperty;
+
+	@iOSXCUITFindBy(accessibility = "Cell Collapsible Button: PROPERTY TYPE")
+	private WebElement propertyTypeCollapseButton;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -657,7 +687,7 @@ public class SearchPage extends BasePage {
 		return isAllCellsContain;
 	}
 
-	public void selectRentedFilter() {
+	public void selectRentalsProperty() {
 		Helper.universalVerticalSwipe(rentalsButton);
 		element(rentalsButton).click();
 	}
@@ -908,7 +938,7 @@ public class SearchPage extends BasePage {
     public void checkSalesAndActiveFiltersSelected(){
 		SoftAssertions softAssertions = new SoftAssertions();
 		Helper.universalVerticalSwipe(propertyTypeSection);
-		softAssertions.assertThat(element(selectedSalesFilter).isDisplayed());
+		softAssertions.assertThat(element(selectedSalesProperty).isDisplayed());
 		Helper.universalVerticalSwipe(currentStatusSection);
 		softAssertions.assertThat(element(selectedActiveFilter).isDisplayed());
 		softAssertions.assertAll();
@@ -952,8 +982,8 @@ public class SearchPage extends BasePage {
 		}
 	}
 
-    public void selectCondoFilter() {
-		Helper.swipeDownUntilElementVisible(condoFilter);
+    public void selectCondoFilter(){
+		Helper.universalVerticalSwipe(condoFilter);
 		element(condoFilter).click();
     }
 
@@ -1317,7 +1347,79 @@ public class SearchPage extends BasePage {
 	}
 
 	public void checkSqFeetMaxFieldIsEmpty() {
-		Helper.universalVerticalSwipe(squareFeetMaxValueField);
-		Assert.assertEquals("Max", squareFeetMaxValueField.getAttribute("value"));
+        Helper.universalVerticalSwipe(squareFeetMaxValueField);
+        Assert.assertEquals("Max", squareFeetMaxValueField.getAttribute("value"));
+    }
+
+	public void deselectCondoFilter() {
+		Helper.universalVerticalSwipe(selectedCondoFilter);
+		element(selectedCondoFilter).click();
+	}
+
+	public void selectCoopFilter() {
+		element(coopFilter).click();
+	}
+
+	public void deselectCoopFilter() {
+		Helper.universalVerticalSwipe(selectedCoopFilter);
+		element(selectedCoopFilter).click();
+	}
+
+	public void selectTownhouseFilter() {
+		element(townhouseFilter).click();
+	}
+
+	public void selectSalesProperty() {
+		element(salesProperty).click();
+	}
+
+	public void checkNoOnePropertyIsSelectedInSales() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(selectedSalesProperty).isDisplayed());
+		softAssertions.assertThat(element(condoFilter).isDisplayed());
+		softAssertions.assertThat(element(coopFilter).isDisplayed());
+		softAssertions.assertThat(element(townhouseFilter).isDisplayed());
+		softAssertions.assertAll();
+	}
+
+	public void checkNoOnePropertyIsSelectedInRentals() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(selectedRentalsProperty).isDisplayed());
+		softAssertions.assertThat(element(condoFilter).isDisplayed());
+		softAssertions.assertThat(element(coopFilter).isDisplayed());
+		softAssertions.assertThat(element(townhouseFilter).isDisplayed());
+		softAssertions.assertThat(element(rentalFilter).isDisplayed());
+		softAssertions.assertAll();
+	}
+
+	public void swipeToPropertiesSection() {
+		Helper.universalVerticalSwipe(propertyTypeSection);
+	}
+
+	public void deselectTownhouseFilter() {
+		Helper.universalVerticalSwipe(selectedTownhouseFilter);
+		element(selectedTownhouseFilter).click();
+	}
+
+	public void selectRentalFilter() {
+		element(rentalFilter).click();
+	}
+
+	public void clickOnCollapsePropertyButton() {
+		element(propertyTypeCollapseButton).click();
+	}
+
+	public void checkCondoFilterIsSelectedInSalesProperty() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(selectedSalesProperty).isDisplayed());
+		softAssertions.assertThat(element(selectedCondoFilter).isDisplayed());
+		softAssertions.assertAll();
+	}
+
+	public void checkCondoFilterIsSelectedInRentalsProperty() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(selectedRentalsProperty).isDisplayed());
+		softAssertions.assertThat(element(selectedCondoFilter).isDisplayed());
+		softAssertions.assertAll();
 	}
 }

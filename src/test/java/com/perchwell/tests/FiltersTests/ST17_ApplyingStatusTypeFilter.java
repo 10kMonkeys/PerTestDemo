@@ -38,7 +38,7 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
             user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.SOLD);
             user.atPerchwellPage.clickOnMyNewSearch(); //search old
             user.inSearchMenu.openSearchPage(); //search new
-            user.atSearchPage.selectRentedFilter();
+            user.atSearchPage.selectRentalsProperty();
             user.atSearchPage.clickOnApplyButton();
             user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.RENTED);
             user.atPerchwellPage.clickOnMyNewSearch(); //search old
