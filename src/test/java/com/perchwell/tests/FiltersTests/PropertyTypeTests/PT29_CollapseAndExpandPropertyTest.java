@@ -12,7 +12,7 @@ public class PT29_CollapseAndExpandPropertyTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.inSearchMenu.openSearchPage();
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnCollapsePropertyButton();
         user.atSearchPage.clickOnCollapsePropertyButton();

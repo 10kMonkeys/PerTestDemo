@@ -1375,20 +1375,20 @@ public class SearchPage extends BasePage {
 
 	public void checkNoOnePropertyIsSelectedInSales() {
 		SoftAssertions softAssertions = new SoftAssertions();
-		softAssertions.assertThat(element(selectedSalesProperty).isVisible());
-		softAssertions.assertThat(element(condoFilter).isVisible());
-		softAssertions.assertThat(element(coopFilter).isVisible());
-		softAssertions.assertThat(element(townhouseFilter).isVisible());
+		softAssertions.assertThat(element(selectedSalesProperty).isDisplayed());
+		softAssertions.assertThat(element(condoFilter).isDisplayed());
+		softAssertions.assertThat(element(coopFilter).isDisplayed());
+		softAssertions.assertThat(element(townhouseFilter).isDisplayed());
 		softAssertions.assertAll();
 	}
 
 	public void checkNoOnePropertyIsSelectedInRentals() {
 		SoftAssertions softAssertions = new SoftAssertions();
-		softAssertions.assertThat(element(selectedRentalsProperty).isVisible());
-		softAssertions.assertThat(element(condoFilter).isVisible());
-		softAssertions.assertThat(element(coopFilter).isVisible());
-		softAssertions.assertThat(element(townhouseFilter).isVisible());
-		softAssertions.assertThat(element(rentalFilter).isVisible());
+		softAssertions.assertThat(element(selectedRentalsProperty).isDisplayed());
+		softAssertions.assertThat(element(condoFilter).isDisplayed());
+		softAssertions.assertThat(element(coopFilter).isDisplayed());
+		softAssertions.assertThat(element(townhouseFilter).isDisplayed());
+		softAssertions.assertThat(element(rentalFilter).isDisplayed());
 		softAssertions.assertAll();
 	}
 
@@ -1411,15 +1411,15 @@ public class SearchPage extends BasePage {
 
 	public void checkCondoFilterIsSelectedInSalesProperty() {
 		SoftAssertions softAssertions = new SoftAssertions();
-		softAssertions.assertThat(element(selectedSalesProperty).isVisible());
-		softAssertions.assertThat(element(selectedCondoFilter).isVisible());
+		softAssertions.assertThat(element(selectedSalesProperty).isDisplayed());
+		softAssertions.assertThat(element(selectedCondoFilter).isDisplayed());
 		softAssertions.assertAll();
 	}
 
 	public void checkCondoFilterIsSelectedInRentalsProperty() {
 		SoftAssertions softAssertions = new SoftAssertions();
-		softAssertions.assertThat(element(selectedRentalsProperty).isVisible());
-		softAssertions.assertThat(element(selectedCondoFilter).isVisible());
+		softAssertions.assertThat(element(selectedRentalsProperty).isDisplayed());
+		softAssertions.assertThat(element(selectedCondoFilter).isDisplayed());
 		softAssertions.assertAll();
 	}
 }

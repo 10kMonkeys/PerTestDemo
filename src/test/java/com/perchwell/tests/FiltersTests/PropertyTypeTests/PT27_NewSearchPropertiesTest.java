@@ -13,24 +13,27 @@ public class PT27_NewSearchPropertiesTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.inSearchMenu.openSearchPage();
+        user.inSearchMenu.openSearchPage();  //search new
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
-        user.inSearchMenu.openSavedSearches();
+        user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.createNewSearchClick();
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.swipeToPropertiesSection();
         user.atSearchPage.checkNoOnePropertyIsSelectedInSales();
         user.atSearchPage.selectRentalsProperty();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
-        user.inSearchMenu.openSavedSearches();
+        user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.createNewSearchClick();
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.swipeToPropertiesSection();
         user.atSearchPage.checkNoOnePropertyIsSelectedInSales();
         user.atSearchPage.selectRentalsProperty();
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
-        user.inSearchMenu.openSavedSearches();
+        user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.createNewSearchClick();
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.swipeToPropertiesSection();
         user.atSearchPage.checkNoOnePropertyIsSelectedInSales();
         user.atSearchPage.selectRentalsProperty();

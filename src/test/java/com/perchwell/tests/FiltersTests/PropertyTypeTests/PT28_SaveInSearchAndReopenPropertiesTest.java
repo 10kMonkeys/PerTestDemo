@@ -12,23 +12,24 @@ public class PT28_SaveInSearchAndReopenPropertiesTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.inSearchMenu.openSearchPage();
+        user.inSearchMenu.openSearchPage();  //search new
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.saveCurrentFirstSearch();
-        user.inSearchMenu.openSavedSearchesWithCrossButton();
+        user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.createNewSearchClick();
-        user.inSearchMenu.openSearchPageWithCrossButton();
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.selectRentalsProperty();
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.saveCurrentSecondSearch();
-        user.inSearchMenu.openSavedSearchesWithCrossButton();
+        user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.clickOnPreviouslyCreatedFirstSearch();
-        user.inSearchMenu.openSearchPageWithCrossButton();
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.swipeToPropertiesSection();
         user.atSearchPage.checkCondoFilterIsSelectedInSalesProperty();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
-        user.inSearchMenu.openSavedSearches();
+        user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.clickOnPreviouslyCreatedSecondSearch();
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.swipeToPropertiesSection();
         user.atSearchPage.checkCondoFilterIsSelectedInRentalsProperty();
     }

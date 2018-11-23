@@ -21,14 +21,14 @@ public class PT26_ResetPropertiesTest extends SampleTest {
         user.atSearchPage.checkNoOnePropertyIsSelectedInSales();
         user.atSearchPage.selectRentalsProperty();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
-        user.inSearchMenu.openSearchPage();
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.swipeToPropertiesSection();
         user.atSearchPage.checkNoOnePropertyIsSelectedInSales();
         user.atSearchPage.selectRentalsProperty();
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
-        user.inSearchMenu.openSearchPage();
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.swipeToPropertiesSection();
         user.atSearchPage.checkNoOnePropertyIsSelectedInSales();
