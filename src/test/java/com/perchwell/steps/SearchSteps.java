@@ -155,8 +155,8 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void selectRentedFilter() {
-		onPage.selectRentedFilter();
+	public void selectRentalsProperty() {
+		onPage.selectRentalsProperty();
 	}
 
 	@Step
@@ -712,5 +712,106 @@ public class SearchSteps extends ScenarioSteps {
 	public void shouldSqFeetMinAndMaxFieldsCleared() {
 		onPage.checkSqFeetMinFieldIsEmpty();
 		onPage.checkSqFeetMaxFieldIsEmpty();
+	}
+
+	@Step
+	public void deselectCondoFilter() {
+		onPage.deselectCondoFilter();
+	}
+
+	@Step
+	public void selectCoopFilter() {
+		onPage.selectCoopFilter();
+	}
+
+	@Step
+	public void deselectCoopFilter() {
+		onPage.deselectCoopFilter();
+	}
+
+	@Step
+	public void selectTownhouseFilter() {
+		onPage.selectTownhouseFilter();
+	}
+
+	@Step
+	public void selectSalesProperty() {
+		onPage.selectSalesProperty();
+	}
+
+	@Step
+	public void checkNoOnePropertyIsSelectedInSales() {
+		onPage.checkNoOnePropertyIsSelectedInSales();
+	}
+
+	@Step
+	public void checkNoOnePropertyIsSelectedInRentals() {
+		onPage.checkNoOnePropertyIsSelectedInRentals();
+	}
+
+	@Step
+	public void swipeToPropertiesSection() {
+		onPage.swipeToPropertiesSection();
+	}
+
+	@Step
+	public void deselectTownhouseFilter() {
+		onPage.deselectTownhouseFilter();
+	}
+
+	@Step
+	public void selectRentalFilter() {
+		onPage.selectRentalFilter();
+	}
+
+	@Step
+	public void clickOnCollapsePropertyButton() {
+		onPage.clickOnCollapsePropertyButton();
+	}
+
+	@Step
+	public void checkCondoFilterIsSelectedInSalesProperty() {
+		onPage.checkCondoFilterIsSelectedInSalesProperty();
+	}
+
+	@Step
+	public void checkCondoFilterIsSelectedInRentalsProperty() {
+		onPage.checkCondoFilterIsSelectedInRentalsProperty();
+	}
+
+	@Step
+	public void saveCurrentFirstSearch() {
+		this.clickOnSaveSearchButton();
+		this.setFirstSearchName();
+		this.clickOnSaveButton();
+	}
+
+	@Step
+	public void saveCurrentSecondSearch() {
+		this.clickOnSaveSearchButton();
+		this.setSecondSearchName();
+		this.clickOnSaveButton();
+	}
+
+	@Step
+	private void setFirstSearchName() {
+		SessionVariables.addValueInSessionVariable("FirstSearch", onPage.generateRandomString("SEARCH"));
+		onPage.setSearchName(SessionVariables.getValueFromSessionVariable("FirstSearch"));
+	}
+
+	@Step
+	private void setSecondSearchName() {
+		SessionVariables.addValueInSessionVariable("SecondSearch", onPage.generateRandomString("SEARCH"));
+		onPage.setSearchName(SessionVariables.getValueFromSessionVariable("SecondSearch"));
+	}
+
+	@Step
+	public void clickOnPreviouslyCreatedFirstSearch() {
+		onPage.clickOnPreviouslyCreatedSearch(SessionVariables.getValueFromSessionVariable("FirstSearch"));
+	}
+
+	@Step
+	public void clickOnPreviouslyCreatedSecondSearch() {
+		onPage.clickOnPreviouslyCreatedSearch(SessionVariables.getValueFromSessionVariable("SecondSearch"));
 	}
 }

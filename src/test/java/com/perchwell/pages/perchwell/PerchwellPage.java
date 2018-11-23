@@ -708,16 +708,21 @@ public class PerchwellPage extends BasePage {
 		boolean correctValue = true;
 		int max = Integer.parseInt(maxValue);
 
-		for(WebElement element: sqFeetList) {
+		for (WebElement element : sqFeetList) {
 			String sqFeet = element.getAttribute("value");
 			sqFeet = sqFeet.replace(" FT2", "");
-			int sqFeetValue = Integer.parseInt(sqFeet.replaceAll("\\D+",""));
+			int sqFeetValue = Integer.parseInt(sqFeet.replaceAll("\\D+", ""));
 
-			if(sqFeetValue > max) {
+			if (sqFeetValue > max) {
 				correctValue = false;
 				break;
 			}
 		}
 		Assert.assertTrue(correctValue);
+	}
+
+	public void checkListingsType(String property) {
+		List<WebElement> propertyList = getDriver().findElements(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + property + "'"));
+		Assert.assertEquals(propertyList.size(), 20);
 	}
 }

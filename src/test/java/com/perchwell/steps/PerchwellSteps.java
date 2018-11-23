@@ -372,4 +372,10 @@ public class PerchwellSteps extends ScenarioSteps {
 		onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
 		onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
 	}
+
+	@Step
+    public void checkListingsType(String property) {
+		onPage.checkListingsType(property);
+    }
+
 }

@@ -1,10 +1,15 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import javax.swing.*;
 
 public class SearchMenu extends BasePage {
 
@@ -22,6 +27,9 @@ public class SearchMenu extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton[3]")
     private WebElement openAccountButton;
 
+    @iOSXCUITFindBy(accessibility = "x")
+    private WebElement crossButton;
+
     //endregion
 
     public SearchMenu(WebDriver driver) {
@@ -33,16 +41,55 @@ public class SearchMenu extends BasePage {
     }
 
     public void clickOnEditSearchButton() {
-        element(editSearchButton).click();
+        //        element(editSearchButton).click();
+
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        int x = element(searchMenuIcon).getLocation().getX() + 45;
+        int y = element(searchMenuIcon).getLocation().getY() + 80;
+        new TouchAction(appiumDriver).tap(x, y).release().perform();
     }
 
     public void clickOnMySavedSearches() {
-        element(mySavedSearchesButton).click();
+//        element(mySavedSearchesButton).click();
 
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        int x = element(searchMenuIcon).getLocation().getX() + 45;
+        int y = element(searchMenuIcon).getLocation().getY() + 160;
+        new TouchAction(appiumDriver).tap(x, y).release().perform();
     }
 
     public void clickOnSearchMenuIconWithPause() {
         waitFor(ExpectedConditions.visibilityOf(openAccountButton));
         this.clickOnSearchMenuIcon();
+    }
+
+    public void clickOnCrossButton() {
+        element(crossButton).click();
+    }
+
+    public void clickOnMySavedSearchesWithCrossButton() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        int x = element(crossButton).getLocation().getX() + 45;
+        int y = element(crossButton).getLocation().getY() + 160;
+        new TouchAction(appiumDriver).tap(x, y).release().perform();
+    }
+
+    public void clickOnEditSearchButtonWithCrossButton() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        int x = element(crossButton).getLocation().getX() + 45;
+        int y = element(crossButton).getLocation().getY() + 51;
+        new TouchAction(appiumDriver).tap(x, y).release().perform();
     }
 }
