@@ -14,16 +14,16 @@ public class PT25_ApplyAndSwitchBetweenSalesAndRentalsTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.inSearchMenu.openSearchPage(); //search new
-//        user.atSearchPage.selectCondoFilter();
-//        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
-//        user.atPerchwellPage.checkListingsType(Properties.CONDO);
-//        user.inSearchMenu.openSearchPage(); //search new
-//        user.atSearchPage.deselectCondoFilter();
-//        user.atSearchPage.selectCoopFilter();
-//        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
-//        user.atPerchwellPage.checkListingsType(Properties.COOP);
-//        user.inSearchMenu.openSearchPage(); //search new
-//        user.atSearchPage.deselectCoopFilter();
+        user.atSearchPage.selectCondoFilter();
+        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
+        user.atPerchwellPage.checkListingsType(Properties.CONDO);
+        user.inSearchMenu.openSearchPage(); //search new
+        user.atSearchPage.deselectCondoFilter();
+        user.atSearchPage.selectCoopFilter();
+        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
+        user.atPerchwellPage.checkListingsType(Properties.COOP);
+        user.inSearchMenu.openSearchPage(); //search new
+        user.atSearchPage.deselectCoopFilter();
         user.atSearchPage.swipeToPropertiesSection(); ///////////
         user.atSearchPage.selectTownhouseFilter();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();

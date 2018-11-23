@@ -143,7 +143,7 @@ public class SearchPage extends BasePage {
 	private WebElement save;
 
 	@AndroidFindBy(accessibility = "Rentals")
-	@iOSXCUITFindBy(accessibility = " Option: Rentals")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option: Rentals'")
 	private WebElement rentalsButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_new_search")
@@ -235,7 +235,7 @@ public class SearchPage extends BasePage {
     private WebElement selectedOffMktFilter;
 
 	@AndroidFindBy(accessibility = "Sales-selected")
-    @iOSXCUITFindBy(accessibility = " Option Selected: Sales")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option Selected: Sales'")
     private WebElement selectedSalesProperty;
 
 	@iOSXCUITFindBy(accessibility = "Fireplace-SELECTED")
@@ -499,10 +499,10 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Rental-selected")
 	private WebElement selectedRentalFilter;
 
-	@iOSXCUITFindBy(accessibility = " Option: Sales")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option: Sales'")
 	private WebElement salesProperty;
 
-	@iOSXCUITFindBy(accessibility = "Option Selected: Rentals")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option Selected: Rentals'")
 	private WebElement selectedRentalsProperty;
 
 	@iOSXCUITFindBy(accessibility = "Cell Collapsible Button: PROPERTY TYPE")
