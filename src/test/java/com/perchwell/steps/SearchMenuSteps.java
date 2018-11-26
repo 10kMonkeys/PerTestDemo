@@ -32,20 +32,4 @@ public class SearchMenuSteps extends ScenarioSteps {
             inMenu.clickOnMySavedSearches();
         }
     }
-
-    @Step
-    public void openSavedSearchesWithCrossButton() {
-        if (!Config.isAndroid()) {
-            inMenu.clickOnCrossButton();
-            inMenu.clickOnMySavedSearchesWithCrossButton();
-        }
-    }
-
-    @Step
-    public void openSearchPageWithCrossButton() {
-        if (!Config.isAndroid()) {
-            inMenu.clickOnCrossButton();
-            inMenu.clickOnEditSearchButtonWithCrossButton();
-        }
-    }
 }
