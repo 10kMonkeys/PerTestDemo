@@ -34,16 +34,17 @@ public class FT2_AskingPriceFilterTest extends SampleTest {
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.shouldSeeListingsBetweenMinAndMaxPrices();
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.saveCurrentSearch();
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.atSearchPage.clickOnMySavedSearches();//search old
         user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.createNewSearchClick();
-        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.checkListingsQuantity();
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.checkNoOnePriceFilterSelected();
+        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atSearchPage.clickOnMySavedSearches(); //search old
         user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.clickOnPreviouslyCreatedSearch();

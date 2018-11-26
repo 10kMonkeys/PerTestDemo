@@ -25,7 +25,6 @@ public class NFT15_SaveSearchAndReopen1RangeOptionTest extends SampleTest {
         user.atSearchPage.clickOnMySavedSearches(); //search old
         user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.createNewSearchClick();
-        user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.atSearchPage.clickOnMySavedSearches(); //search old
         user.inSearchMenu.openSavedSearches(); //search new

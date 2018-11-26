@@ -51,7 +51,6 @@ public class FT3_ApplyingBathroomsFilterTest extends SampleTest {
         user.atSearchPage.clickOnMySavedSearches(); //search old
         user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.createNewSearchClick();
-        user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkListingsQuantity();
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.atSearchPage.clickOnMySavedSearches(); //search old

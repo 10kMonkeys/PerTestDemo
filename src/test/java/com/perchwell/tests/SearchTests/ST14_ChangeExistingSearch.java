@@ -32,7 +32,7 @@ public class ST14_ChangeExistingSearch extends SampleTest {
 		user.atPerchwellPage.resultsCountIsChanged(ElementsNumberTitles.QTY_BEFORE_SEARCH_CHANGING,
 				ElementsNumberTitles.QTY_AFTER_SEARCH_CHANGING);
 		user.atPerchwellPage.clickOnMyNewSearch(); //search old
-//		user.inSearchMenu.openSearchPage(); //search new
+		user.inSearchMenu.openSearchPage(); //search new
 		user.atSearchPage.clickOnSaveSearchButton();
 		user.atSearchPage.overwriteOptionSelect();
 		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTY_AFTER_OVERWRITE);

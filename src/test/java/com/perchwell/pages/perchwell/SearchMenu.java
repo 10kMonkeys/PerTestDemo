@@ -68,28 +68,4 @@ public class SearchMenu extends BasePage {
         waitFor(ExpectedConditions.visibilityOf(openAccountButton));
         this.clickOnSearchMenuIcon();
     }
-
-    public void clickOnCrossButton() {
-        element(crossButton).click();
-    }
-
-    public void clickOnMySavedSearchesWithCrossButton() {
-        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-        WebDriver webDriver = webDriverFacade.getProxiedDriver();
-        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
-        int x = element(crossButton).getLocation().getX() + 45;
-        int y = element(crossButton).getLocation().getY() + 160;
-        new TouchAction(appiumDriver).tap(x, y).release().perform();
-    }
-
-    public void clickOnEditSearchButtonWithCrossButton() {
-        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-        WebDriver webDriver = webDriverFacade.getProxiedDriver();
-        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
-        int x = element(crossButton).getLocation().getX() + 45;
-        int y = element(crossButton).getLocation().getY() + 51;
-        new TouchAction(appiumDriver).tap(x, y).release().perform();
-    }
 }

@@ -62,6 +62,7 @@ public class FT1_FullLocationFilterTest extends SampleTest {
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListingsTwoDistricts(Districts.LENOX_HILL, Districts.MIDWOOD);
         user.atAnalyticsPage.clickMyNewSearch(); //search old
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.clickOnSaveSearchButton();
         user.atSearchPage.setSearchName();
         user.atSearchPage.clickOnSaveButton();
@@ -69,14 +70,13 @@ public class FT1_FullLocationFilterTest extends SampleTest {
         user.atSearchPage.clickOnMySavedSearches(); //search old
         user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.createNewSearchClick();
-        user.atSearchPage.clickOnApplyButton();
         user.atAnalyticsPage.clickMyNewSearch(); //search old
         user.atSearchPage.clickOnMySavedSearches(); //search old
         user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.shouldSeeListingsTwoDistricts(Districts.LENOX_HILL, Districts.MIDWOOD);
         user.atAnalyticsPage.clickMyNewSearch(); //search old
-        user.inSearchMenu.openSavedSearches(); //search new
+        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkListingsQuantity();
