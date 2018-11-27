@@ -22,6 +22,7 @@ public class ST30_ResetPasswordTest extends SampleTest {
         user.atResetPasswordPage.getResetToken();
         user.atResetPasswordPage.setNewPassword(); //change to check Chrome
         user.atSettingsProfilePage.backButtonClick();
+        user.atSettingsProfilePage.backFromEmailButtonClick();
         user.atSettingsProfilePage.cancelButtonClick();
         user.atClientPage.logOut();
         user.atClientPage.clickOnYesButtonLogOutWindow();

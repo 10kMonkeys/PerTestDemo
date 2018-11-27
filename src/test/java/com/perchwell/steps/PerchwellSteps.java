@@ -15,9 +15,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void skipAllHints() {
 		if(!Config.isAndroid()) {
 			onPage.clickOnEditSearchFiltersHint();
-			if (onPage.isEditSearchFiltersHintIsDisplayed()) {
-				onPage.clickOnEditSearchFiltersHint();
-			}
+//			if (onPage.isEditSearchFiltersHintIsDisplayed()) {
+//				onPage.clickOnEditSearchFiltersHint();
+//			}
 			onPage.clickOnManageYourProfileHint();
 			onPage.clickOnTransformDataHint();
 			onPage.clickExploreSearchResultHint();

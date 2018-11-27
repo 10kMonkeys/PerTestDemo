@@ -15,7 +15,8 @@ public class SearchMenu extends BasePage {
 
     //region WebElements
 
-    @iOSXCUITFindBy(accessibility = "chevronDown")
+//    @iOSXCUITFindBy(accessibility = "chevronDown")
+    @iOSXCUITFindBy(accessibility = "MY NEW SEARCH")
     private WebElement searchMenuIcon;
 
     @iOSXCUITFindBy(accessibility = "EDIT SEARCH")
@@ -47,8 +48,8 @@ public class SearchMenu extends BasePage {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        int x = element(searchMenuIcon).getLocation().getX() + 45;
-        int y = element(searchMenuIcon).getLocation().getY() + 80;
+        int x = element(searchMenuIcon).getLocation().getX() + 3;
+        int y = element(searchMenuIcon).getLocation().getY() + 38;
         new TouchAction(appiumDriver).tap(x, y).release().perform();
     }
 
@@ -59,8 +60,8 @@ public class SearchMenu extends BasePage {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        int x = element(searchMenuIcon).getLocation().getX() + 45;
-        int y = element(searchMenuIcon).getLocation().getY() + 160;
+        int x = element(searchMenuIcon).getLocation().getX() + 3;
+        int y = element(searchMenuIcon).getLocation().getY() + 146;
         new TouchAction(appiumDriver).tap(x, y).release().perform();
     }
 
