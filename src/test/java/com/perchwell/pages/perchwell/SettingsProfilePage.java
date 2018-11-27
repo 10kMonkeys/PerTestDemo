@@ -40,6 +40,9 @@ public class SettingsProfilePage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar[$name=='SettingsViewController'$]/XCUIElementTypeButton")
     private WebElement backButton;
 
+    @iOSXCUITFindBy(accessibility = "Back")
+    private WebElement backFromEmailButton;
+
     //endregion
     
     public SettingsProfilePage(WebDriver driver) {
@@ -88,5 +91,9 @@ public class SettingsProfilePage extends BasePage {
 
     public void isTextBoxChange(String previousText,String newText){
         Assert.assertTrue(previousText.contains(newText));
+    }
+
+    public void backFromEmailButtonClick() {
+        element(backFromEmailButton).click();
     }
 }

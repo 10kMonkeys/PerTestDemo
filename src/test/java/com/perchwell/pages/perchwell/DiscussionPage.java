@@ -20,7 +20,7 @@ public class DiscussionPage extends BasePage {
 	private WebElement ccMyEmailText;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
-	@iOSXCUITFindBy(accessibility = "ChatViewBackButton")
+	@iOSXCUITFindBy(accessibility = "Back")
 	private WebElement backButtonFromDiscussion;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/send")

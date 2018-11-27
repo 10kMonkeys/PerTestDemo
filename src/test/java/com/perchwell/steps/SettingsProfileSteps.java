@@ -68,4 +68,9 @@ public class SettingsProfileSteps {
         this.saveButtonClick();
         this.okButtonClick();
     }
+
+    @Step
+    public void backFromEmailButtonClick() {
+        onPage.backFromEmailButtonClick();
+    }
 }
