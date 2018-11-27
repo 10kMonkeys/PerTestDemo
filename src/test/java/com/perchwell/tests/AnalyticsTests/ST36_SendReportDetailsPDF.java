@@ -17,7 +17,8 @@ public class ST36_SendReportDetailsPDF extends SampleTest {
 		user.atPerchwellPage.clickOnAnalytics();
 		user.atRebnyListingsPage.addChartFromREBNYSection();
 		user.atAnalyticsPage.skipHints();
-		user.atPerchwellPage.clickOnMyNewSearch();
+		user.atPerchwellPage.clickOnMyNewSearch(); //search old
+		user.inSearchMenu.openSearchPage(); //search new
 		user.atSearchPage.selectBedroomsRangeOption();
 		user.atSearchPage.selectFilterStudioBeds();
 		user.atSearchPage.clickOnApplyButton();

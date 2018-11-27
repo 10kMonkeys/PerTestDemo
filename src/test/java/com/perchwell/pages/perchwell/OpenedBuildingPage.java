@@ -35,7 +35,7 @@ public class OpenedBuildingPage extends BasePage {
 	private WebElement myTagsLabel;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
-	@iOSXCUITFindBy(accessibility = "ListingViewBackButton")
+	@iOSXCUITFindBy(accessibility = "Back")
 	private WebElement arrowBackButtonFromListing;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/remove_icon")

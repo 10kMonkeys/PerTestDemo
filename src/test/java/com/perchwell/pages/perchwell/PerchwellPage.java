@@ -82,7 +82,7 @@ public class PerchwellPage extends BasePage {
 	private WebElement currentSearchInTitle;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/sort")
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'LISTINGS BY'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Listing Results:'")
 	private WebElement listingsByButton;
 
 	@iOSXCUITFindBy(accessibility = "BEDROOMS")

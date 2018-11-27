@@ -113,7 +113,7 @@ public class AnalyticsPage extends BasePage {
 	private WebElement reportSentOkButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
-	@iOSXCUITFindBy(accessibility = "SAVE")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'SAVE'$][2]")
 	private WebElement saveButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/first_option")
@@ -136,7 +136,7 @@ public class AnalyticsPage extends BasePage {
 	private WebElement shareButton;
 
 	@AndroidFindBy(xpath = "//*[contains(@content-desc, ': VALUE_LABEL:')]")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
     private List<WebElement> valueChartList;
 
 	@iOSXCUITFindBy(accessibility = "SEND")

@@ -15,7 +15,7 @@ public class SearchMenu extends BasePage {
 
     //region WebElements
 
-    @iOSXCUITFindBy(accessibility = "chevronDown")
+    @iOSXCUITFindBy(accessibility = "MY NEW SEARCH")
     private WebElement searchMenuIcon;
 
     @iOSXCUITFindBy(accessibility = "EDIT SEARCH")

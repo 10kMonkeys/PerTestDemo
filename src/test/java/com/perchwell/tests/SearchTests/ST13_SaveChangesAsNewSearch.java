@@ -16,7 +16,7 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
 		user.atPerchwellPage.clickOnMyNewSearch(); //search old
-//		user.inSearchMenu.openSearchPage(); //new search
+		user.inSearchMenu.openSearchPage(); //new search
 		user.atSearchPage.clickOnSaveSearchButton();
 		user.atSearchPage.setSearchName();
 		user.atSearchPage.clickOnSaveButton();
