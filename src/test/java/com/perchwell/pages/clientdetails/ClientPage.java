@@ -66,7 +66,7 @@ public class ClientPage extends BasePage {
 	private WebElement crossBackButtonFromClients;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
-	@iOSXCUITFindBy(accessibility = "chevronLeft")
+	@iOSXCUITFindBy(accessibility = "ADD CLIENT")
 	private WebElement backButtonCreateAgent;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/negative_button")
