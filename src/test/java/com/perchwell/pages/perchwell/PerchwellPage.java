@@ -50,7 +50,7 @@ public class PerchwellPage extends BasePage {
 	private WebElement magnifierIcon;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/profile_image")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton[3]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
 	private WebElement openAccountButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_image")
@@ -163,6 +163,9 @@ public class PerchwellPage extends BasePage {
 
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'sqft: '")
 	private List<WebElement> sqFeetList;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Sort Button: '")
+	private WebElement sortType;
 
 	//endregion
 
@@ -363,9 +366,9 @@ public class PerchwellPage extends BasePage {
 		element(bedroomsSortButton).click();
 	}
 
-	public void checkSortLabel(String sortType) {
-		waitFor(listingsByButton);
-		Assert.assertTrue(element(listingsByButton).getAttribute("value").contains(sortType));
+	public void checkSortLabel(String stringSortType) {
+		waitFor(sortType);
+		Assert.assertTrue(element(sortType).getAttribute("name").contains(stringSortType));
 	}
 
 	public void clickOnBathroomsSortButton() {
@@ -407,7 +410,7 @@ public class PerchwellPage extends BasePage {
     }
 
     public void isListingSortedByBedrooms() {
-	    Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedrooms", bathsInfoList) == 1);
+	    Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedrooms", bedInfoList) == 1);
     }
 
 
