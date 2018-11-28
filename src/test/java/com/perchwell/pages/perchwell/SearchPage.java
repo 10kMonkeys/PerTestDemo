@@ -591,11 +591,7 @@ public class SearchPage extends BasePage {
 	}
 
 	public void clickOnFilterStudioBeds() {
-		if (element(selectedFilterForStudioBeds).isPresent()) {
-			element(selectedFilterForStudioBeds).click();
-		} else {
 			element(filterForStudioBeds).click();
-		}
 	}
 
 	public void selectFilter1Bath() {
