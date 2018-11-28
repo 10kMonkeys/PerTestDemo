@@ -130,10 +130,10 @@ public abstract class FilteringAndSortingBuildings {
                 if (!buildingSort) {
                     k++;
                 }
-
                 numberToCompare = currentNumber;
             }
         }
+
         return k;
     }
 
