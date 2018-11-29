@@ -167,6 +167,9 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Sort Button: '")
 	private WebElement sortType;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
+	private WebElement searchMenuIcon;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -483,7 +486,7 @@ public class PerchwellPage extends BasePage {
 
 	public void isContainLabel(String label){
 		List<WebElement> labelsList;
-		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
+		waitFor(ExpectedConditions.visibilityOf(searchMenuIcon));
 		if (Config.isAndroid()) {
 			labelsList = getDriver().findElements(By.xpath("//*[contains(@content-desc, '" + label + "')]"));
 			Assert.assertEquals(2, labelsList.size());
