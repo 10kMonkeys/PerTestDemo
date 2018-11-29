@@ -486,7 +486,7 @@ public class PerchwellPage extends BasePage {
 
 	public void isContainLabel(String label){
 		List<WebElement> labelsList;
-		waitFor(ExpectedConditions.visibilityOf(searchMenuIcon));
+		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 		if (Config.isAndroid()) {
 			labelsList = getDriver().findElements(By.xpath("//*[contains(@content-desc, '" + label + "')]"));
 			Assert.assertEquals(2, labelsList.size());

@@ -65,7 +65,7 @@ public class SearchMenu extends BasePage {
     }
 
     public void clickOnSearchMenuIconWithPause() {
-        waitFor(ExpectedConditions.visibilityOf(searchMenuIcon));
+        waitFor(ExpectedConditions.visibilityOf(openAccountButton));
         this.clickOnSearchMenuIcon();
     }
 }
