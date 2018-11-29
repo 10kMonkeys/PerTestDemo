@@ -167,6 +167,9 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Sort Button: '")
 	private WebElement sortType;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
+	private WebElement searchMenuIcon;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
