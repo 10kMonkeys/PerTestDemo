@@ -25,7 +25,7 @@ public class ST19_ApplyingFilterOnAnalyticsTest extends SampleTest {
         user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.selectFilterStudioBeds();
-        user.atSearchPage.setMinimumPriceFilter("600000");
+        user.atSearchPage.setMinimumPriceFilter("300000");
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atAnalyticsPage.isBedroomsChartChange();
         user.atAnalyticsPage.isAskingPriceChartChange();

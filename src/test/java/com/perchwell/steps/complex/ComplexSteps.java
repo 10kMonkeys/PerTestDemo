@@ -108,7 +108,7 @@ public class ComplexSteps extends ScenarioSteps{
         atSearchPage.clickOnMySavedSearches(); //search old
         inSearchMenuSteps.openSavedSearches(); //search new
         atSearchPage.createNewSearchClick();
-//        atSearchPage.clickOnApplyButton();
+//        atSearchPage.clickOnApplyButton(); //do not uncomment
     }
 
     @Step

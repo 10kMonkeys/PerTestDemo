@@ -517,12 +517,12 @@ public class SearchPage extends BasePage {
 	}
 
 	public void clickOnApplyButton() {
-		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-		WebDriver webDriver = webDriverFacade.getProxiedDriver();
-		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-		if(!Config.isAndroid()) {
-			appiumDriver.hideKeyboard();
-		}
+//		WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+//		WebDriver webDriver = webDriverFacade.getProxiedDriver();
+//		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+//		if(!Config.isAndroid()) {
+//			appiumDriver.hideKeyboard();
+//		}
 		element(applySearchButton).click();
 	}
 
