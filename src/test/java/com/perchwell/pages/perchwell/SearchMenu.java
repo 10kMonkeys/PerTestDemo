@@ -18,13 +18,13 @@ public class SearchMenu extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
     private WebElement searchMenuIcon;
 
-    @iOSXCUITFindBy(accessibility = "EDIT SEARCH")
+    @iOSXCUITFindBy(accessibility = "Edit Search Button")
     private WebElement editSearchButton;
 
-    @iOSXCUITFindBy(accessibility = "MY SAVED SEARCHES")
+    @iOSXCUITFindBy(accessibility = "My Saved Searches Button")
     private WebElement mySavedSearchesButton;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton[3]")
+    @iOSXCUITFindBy(accessibility = "Account Bar Button")
     private WebElement openAccountButton;
 
     @iOSXCUITFindBy(accessibility = "x")
@@ -41,7 +41,7 @@ public class SearchMenu extends BasePage {
     }
 
     public void clickOnEditSearchButton() {
-                element(editSearchButton).click();
+        element(editSearchButton).click();
     }
 
     public void clickOnMySavedSearches() {

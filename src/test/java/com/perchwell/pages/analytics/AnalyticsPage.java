@@ -196,7 +196,7 @@ public class AnalyticsPage extends BasePage {
 
 //    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'RESET'")
 //    @iOSXCUITFindBy(accessibility = "RESET")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='RESET']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name='RESET']")
     private WebElement resetButton;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypePickerWheel[1]")
