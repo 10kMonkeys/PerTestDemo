@@ -173,7 +173,6 @@ public class TagsPage extends BasePage {
 		if(Config.isAndroid()) {
 			element(MobileBy.xpath("//*[contains(@text,'" + stringBuildingAddress + "')]")).shouldBeVisible();
 		} else {
-			System.out.println(stringBuildingAddress);
 			Assert.assertEquals(stringBuildingAddress.toLowerCase(), buildingAddress.getAttribute("value").toLowerCase());
 		}
 	}
