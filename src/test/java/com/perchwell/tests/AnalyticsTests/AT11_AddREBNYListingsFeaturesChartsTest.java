@@ -30,10 +30,10 @@ public class AT11_AddREBNYListingsFeaturesChartsTest extends SampleTest {
         user.atRebnyListingsPage.addAndVerifyFeaturesGymChart();
         user.atAnalyticsPage.selectREBNYListingsWithFeatures();
         user.atRebnyListingsPage.addAndVerifyFeaturesLaundryBuildingChart();
-        user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnMySavedSearches();
+        user.atAnalyticsPage.clickMyNewSearch(); // old search
+        user.atSearchPage.clickOnMySavedSearches(); // old search
+        user.inSearchMenu.openSavedSearches(); // new search
         user.atSearchPage.createNewSearchClick();
-        user.atSearchPage.clickOnApplyButton();
         user.atAnalyticsPage.rebnyListingsButtonClick();
         user.atAnalyticsPage.featureButtonClick();
         user.atRebnyListingsPage.addAndVerifyFeaturesNewDevelopmentChart();

@@ -50,7 +50,7 @@ public class PerchwellPage extends BasePage {
 	private WebElement magnifierIcon;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/profile_image")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+	@iOSXCUITFindBy(accessibility = "Account Bar Button")
 	private WebElement openAccountButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_image")
