@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class AnalyticsPage extends BasePage {
 
@@ -548,7 +549,7 @@ public class AnalyticsPage extends BasePage {
             element(chart).shouldBeVisible();
        }
         setImplicitTimeout(3, SECONDS);
-        Assert.assertFalse(element(nothingToSeeHere).isVisible());
+        Assert.assertEquals(0, getDriver().findElements(MobileBy.AccessibilityId("NOTHING TO SEE HERE")).size());
         resetImplicitTimeout();
     }
 

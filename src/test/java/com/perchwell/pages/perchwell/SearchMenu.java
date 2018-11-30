@@ -41,27 +41,11 @@ public class SearchMenu extends BasePage {
     }
 
     public void clickOnEditSearchButton() {
-        //        element(editSearchButton).click();
-
-        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-        WebDriver webDriver = webDriverFacade.getProxiedDriver();
-        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
-        int x = element(searchMenuIcon).getLocation().getX() + 3;
-        int y = element(searchMenuIcon).getLocation().getY() + 38;
-        new TouchAction(appiumDriver).tap(x, y).release().perform();
+                element(editSearchButton).click();
     }
 
     public void clickOnMySavedSearches() {
-//        element(mySavedSearchesButton).click();
-
-        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-        WebDriver webDriver = webDriverFacade.getProxiedDriver();
-        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
-        int x = element(searchMenuIcon).getLocation().getX() + 3;
-        int y = element(searchMenuIcon).getLocation().getY() + 146;
-        new TouchAction(appiumDriver).tap(x, y).release().perform();
+        element(mySavedSearchesButton).click();
     }
 
     public void clickOnSearchMenuIconWithPause() {
