@@ -59,6 +59,9 @@ public class TagsPage extends BasePage {
 	@iOSXCUITFindBy(id = "TagsViewControllerCancelButton")
 	private WebElement tagsPageCloseButton;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'ADDRESS: '$][$visible = 1$]")
+	private WebElement buildingAddress;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -166,11 +169,11 @@ public class TagsPage extends BasePage {
 		}
 	}
 
-	public void shouldSeeTaggedListing(String buildingAddress) {
+	public void shouldSeeTaggedListing(String stringBuildingAddress) {
 		if(Config.isAndroid()) {
-			element(MobileBy.xpath("//*[contains(@text,'" + buildingAddress + "')]")).shouldBeVisible();
+			element(MobileBy.xpath("//*[contains(@text,'" + stringBuildingAddress + "')]")).shouldBeVisible();
 		} else {
-			element(MobileBy.AccessibilityId(buildingAddress)).shouldBeVisible();
+			Assert.assertEquals(stringBuildingAddress.toLowerCase(), buildingAddress.getAttribute("value").toLowerCase());
 		}
 	}
 
