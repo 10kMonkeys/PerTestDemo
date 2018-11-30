@@ -18,6 +18,7 @@ public class ST4_LogInAfterResetPasswordTest extends SampleTest {
         user.atResetPasswordPage.getResetToken();
         user.atResetPasswordPage.setNewPassword();  //change to check Chrome
         user.atResetPasswordPage.backButtonClick();
+        user.atResetPasswordPage.backFromEmailPageClick();
         user.atResetPasswordPage.login(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("old_reset_password"));
         user.atResetPasswordPage.isAccountNeededToSignInMessageDisplayed();

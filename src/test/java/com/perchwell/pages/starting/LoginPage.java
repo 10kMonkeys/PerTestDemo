@@ -56,6 +56,9 @@ public class LoginPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[1]")
     private WebElement loginBackButton;
 
+    @iOSXCUITFindBy(accessibility = "Back")
+    private WebElement backFromEmailButton;
+
     //endregion
 
     public LoginPage(WebDriver driver) {
@@ -141,5 +144,9 @@ public class LoginPage extends BasePage {
         } else {
             element(loginBackButton).click();
         }
+    }
+
+    public void backFromEmailPageClick() {
+        element(backFromEmailButton).click();
     }
 }
