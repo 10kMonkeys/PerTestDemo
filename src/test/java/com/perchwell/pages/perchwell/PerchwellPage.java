@@ -632,7 +632,7 @@ public class PerchwellPage extends BasePage {
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
-		for (WebElement element : currentBathsAmountList) {
+		for (WebElement element : currentBedsAmountList) {
 			String stringValue = element.getAttribute("value");
 			int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
 			if (processedValue!=1 & processedValue!=2 & processedValue!=3) {
@@ -683,7 +683,7 @@ public class PerchwellPage extends BasePage {
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
-		for (WebElement element : currentBedsAmountList) {
+		for (WebElement element : currentBathsAmountList) {
 			String actualValue = element.getAttribute("value");
 			double value = Double.parseDouble(
 					actualValue.substring(actualValue.indexOf("|")+2, actualValue.indexOf(" BA"))
