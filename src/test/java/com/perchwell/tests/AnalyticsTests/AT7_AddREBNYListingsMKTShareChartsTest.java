@@ -31,10 +31,10 @@ public class AT7_AddREBNYListingsMKTShareChartsTest extends SampleTest {
         user.atRebnyListingsPage.addAndVerifyMKTShareElevatorChart();
         user.atAnalyticsPage.selectREBNYListingsWithMKTShare();
         user.atRebnyListingsPage.addAndVerifyMKTShareFireplaceChart();
-        user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnMySavedSearches();
+        user.atAnalyticsPage.clickMyNewSearch(); // old search
+        user.atSearchPage.clickOnMySavedSearches(); // old search
+        user.inSearchMenu.openSavedSearches(); // new search
         user.atSearchPage.createNewSearchClick();
-        user.atSearchPage.clickOnApplyButton();
         user.atAnalyticsPage.rebnyListingsButtonClick();
         user.atAnalyticsPage.mktShareButtonClick();
         user.atRebnyListingsPage.addAndVerifyMKTShareGarageChart();
@@ -48,10 +48,10 @@ public class AT7_AddREBNYListingsMKTShareChartsTest extends SampleTest {
         user.atRebnyListingsPage.addAndVerifyMKTSharePetsChart();
         user.atAnalyticsPage.selectREBNYListingsWithMKTShare();
         user.atRebnyListingsPage.addAndVerifyMKTSharePoolChart();
-        user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnMySavedSearches();
+        user.atAnalyticsPage.clickMyNewSearch(); // old search
+        user.atSearchPage.clickOnMySavedSearches(); // old search
+        user.inSearchMenu.openSavedSearches(); // new search
         user.atSearchPage.createNewSearchClick();
-        user.atSearchPage.clickOnApplyButton();
         user.atAnalyticsPage.rebnyListingsButtonClick();
         user.atAnalyticsPage.mktShareButtonClick();
         user.atRebnyListingsPage.addAndVerifyMKTSharePrewarChart();

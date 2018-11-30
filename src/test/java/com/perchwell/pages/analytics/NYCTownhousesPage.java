@@ -232,7 +232,7 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "MEDIAN WIDTH_BAR_WIDTH_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement locationACRISClosingMedianWidthChart;
 
-    @iOSXCUITFindBy(accessibility = "SALE PRICE_BAR_SALE_PRICE_HISTORICALS_HOUSES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "PRICE_BAR_LISTING_PRICE_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement locationACRISClosingPriceChart;
 
     @iOSXCUITFindBy(accessibility = "SALE $/SQFT_BAR_SALE_PRICE_PER_SQFT_HISTORICALS_HOUSES: HEADER TITLE LABEL")
