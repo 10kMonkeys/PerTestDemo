@@ -20,7 +20,7 @@ public class ST14_ChangeExistingSearch extends SampleTest {
 		user.atPerchwellPage.clickOnMyNewSearch(); //search old
 		user.atSearchPage.clickOnMySavedSearches(); //search old
 		user.inSearchMenu.openSavedSearches(); //search new
-		user.atSearchPage.clickOnExistingSearchInList(); //temp comment inside
+		user.atSearchPage.clickOnExistingSearchInList(); //temp comment inside + update to select just created search, not 1st
 		user.atPerchwellPage.countItemsInListView(ElementsNumberTitles.QTY_BEFORE_SEARCH_CHANGING);
 		user.atPerchwellPage.clickOnMyNewSearch(); //search old
 		user.inSearchMenu.openSearchPage(); //search new

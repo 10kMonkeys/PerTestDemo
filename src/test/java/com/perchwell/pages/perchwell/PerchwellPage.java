@@ -140,8 +140,11 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
 	private WebElement listingsSearchField;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'Bed 7'$]")
-	private List<WebElement> currentBedsAndBathsAmountList;
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'Bed:'$]")
+	private List<WebElement> currentBedsAmountList;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'Bath:'$]")
+	private List<WebElement> currentBathsAmountList;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'INFO'$]")
 	private WebElement bedsAndBathsAmount;
@@ -592,9 +595,9 @@ public class PerchwellPage extends BasePage {
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
-		if(currentBedsAndBathsAmountList.size() == 20 && studioList.isEmpty()) {
+		if(currentBedsAmountList.size() == 20 && studioList.isEmpty()) {
 
-			for (WebElement element : currentBedsAndBathsAmountList) {
+			for (WebElement element : currentBedsAmountList) {
 				String stringValue = element.getAttribute("value");
 				int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
 				if (processedValue<value) {
@@ -611,7 +614,7 @@ public class PerchwellPage extends BasePage {
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
-		for (WebElement element : currentBedsAndBathsAmountList) {
+		for (WebElement element : currentBathsAmountList) {
 			String actualValue = element.getAttribute("value");
 			double processedActualValue = Double.parseDouble(
 					actualValue.substring(actualValue.indexOf("|")+2, actualValue.indexOf(" BA"))
@@ -629,7 +632,7 @@ public class PerchwellPage extends BasePage {
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
-		for (WebElement element : currentBedsAndBathsAmountList) {
+		for (WebElement element : currentBathsAmountList) {
 			String stringValue = element.getAttribute("value");
 			int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
 			if (processedValue!=1 & processedValue!=2 & processedValue!=3) {
@@ -650,7 +653,7 @@ public class PerchwellPage extends BasePage {
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
-		for (WebElement element : currentBedsAndBathsAmountList) {
+		for (WebElement element : currentBedsAmountList) {
 			String value = element.getAttribute("value");
 			if (!value.contains("BD") & !value.contains("STUDIO")) {
 				result = false;
@@ -665,7 +668,7 @@ public class PerchwellPage extends BasePage {
 //
 //		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 //
-//		for (WebElement element : currentBedsAndBathsAmountList) {
+//		for (WebElement element : currentBedsAmountList) {
 //			if (!element.getAttribute("value").contains("BA")) {
 //				result = false;
 //				break;
@@ -680,7 +683,7 @@ public class PerchwellPage extends BasePage {
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
-		for (WebElement element : currentBedsAndBathsAmountList) {
+		for (WebElement element : currentBedsAmountList) {
 			String actualValue = element.getAttribute("value");
 			double value = Double.parseDouble(
 					actualValue.substring(actualValue.indexOf("|")+2, actualValue.indexOf(" BA"))
