@@ -382,8 +382,8 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SQUARE FEET Maximum Value Input")
 	private WebElement squareFeetMaxValueField;
 
-	@iOSXCUITFindBy(accessibility = "MOTHLIES")
-	private WebElement monthliesSection;
+	@iOSXCUITFindBy(accessibility = "% FINANCING Option: Exclude Unknown")
+	private WebElement excludeUnknownButton;
 
 	@AndroidFindBy(accessibility = "Bedrooms: Studio +")
 	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: Studio +")
@@ -994,8 +994,8 @@ public class SearchPage extends BasePage {
 	}
 
 	public void setSquareFeetMinFilter(String value) {
-		Helper.universalVerticalSwipe(monthliesSection);
-		element(squareFeetMinValueField).sendKeys(value);
+		Helper.universalVerticalSwipe(excludeUnknownButton);
+		element(squareFeetMinValueField).typeAndEnter(value);
 	}
 
 	private int getXCoordinateForSixK() {
@@ -1333,8 +1333,8 @@ public class SearchPage extends BasePage {
 	}
 
 	public void setSquareFeetMaxFilter(String value) {
-		Helper.universalVerticalSwipe(monthliesSection);
-		element(squareFeetMaxValueField).sendKeys(value);
+		Helper.universalVerticalSwipe(excludeUnknownButton);
+		element(squareFeetMaxValueField).typeAndEnter(value);
 	}
 
 	public void checkSqFeetMinFieldIsEmpty() {

@@ -3,8 +3,10 @@ package com.perchwell.tests.FiltersTests.PropertyTypeTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.Properties;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"FiltersTests", "FiltersSearchesThird", "iOS_FiltersSearchesThird", "Android_FiltersSearchesThird"})
 public class PT25_ApplyAndSwitchBetweenSalesAndRentalsTest extends SampleTest {
 
     @Test
