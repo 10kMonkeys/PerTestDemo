@@ -613,11 +613,10 @@ public class PerchwellPage extends BasePage {
 		boolean result = true;
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
-
 		for (WebElement element : currentBathsAmountList) {
 			String actualValue = element.getAttribute("value");
 			double processedActualValue = Double.parseDouble(
-					actualValue.substring(actualValue.indexOf("|")+2, actualValue.indexOf(" BA"))
+					actualValue.replaceAll(" BA", " ")
 							.replace("½", ".5"));
 			if (processedActualValue<expectedValue) {
 				result = false;
@@ -686,9 +685,9 @@ public class PerchwellPage extends BasePage {
 		for (WebElement element : currentBathsAmountList) {
 			String actualValue = element.getAttribute("value");
 			double value = Double.parseDouble(
-					actualValue.substring(actualValue.indexOf("|")+2, actualValue.indexOf(" BA"))
+					actualValue.replaceAll(" BA", "")
 							.replace("½", ".5"));
-			if (value !=1 & value !=1.5 & value !=2 & value != 3) {
+			if (value < 1 && value > 3) {
 				result = false;
 				break;
 			}
