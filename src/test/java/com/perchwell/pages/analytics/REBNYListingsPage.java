@@ -710,6 +710,7 @@ public class REBNYListingsPage extends BasePage {
 
 
     public void checkMKTShareAskingPriceListingsAmountAfterResetFilters() {
+        waitFor(ExpectedConditions.visibilityOf(mktShareAskingPriceChart));
         boolean listingsAmountsAreDifferent = false;
 
         waitFor(ExpectedConditions.invisibilityOfElementLocated(MobileBy.AccessibilityId(
