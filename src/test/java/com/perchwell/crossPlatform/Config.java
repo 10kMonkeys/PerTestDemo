@@ -14,7 +14,7 @@ public class Config {
     }
 
     public static boolean isOnTravis() {
-        return getCapability("app").contains("travis1");
+        return getCapability("app").contains("travis");
     }
 
     public static boolean isIPad() {
