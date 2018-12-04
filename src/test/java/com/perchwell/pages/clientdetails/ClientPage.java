@@ -74,7 +74,7 @@ public class ClientPage extends BasePage {
 	private WebElement closeButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/invite_button")
-	@iOSXCUITFindBy(accessibility = "invite_agent_label")
+	@iOSXCUITFindBy(accessibility = "invite_client_label")
 	private WebElement inviteButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/logout")
@@ -162,6 +162,10 @@ public class ClientPage extends BasePage {
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/client_group_text_view")
 	private WebElement groupField;
+
+	@iOSXCUITFindBy(accessibility = "invite_agent_label")
+	private WebElement inviteAgentButton;
+
 	public ClientPage(WebDriver driver) {
 		super(driver);
 	}
@@ -483,5 +487,9 @@ public class ClientPage extends BasePage {
 			element(MobileBy.AccessibilityId(clientName)).shouldBeVisible();
 		}
 
+	}
+
+	public void clickOnInviteAgentButton() {
+		element(inviteAgentButton).click();
 	}
 }

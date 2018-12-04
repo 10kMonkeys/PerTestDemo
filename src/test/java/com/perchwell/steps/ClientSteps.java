@@ -317,4 +317,9 @@ public class ClientSteps extends ScenarioSteps {
 	public void shouldSeeJustCreatedClientWithoutActions() {
 		onPage.shouldSeeJustCreatedClientWithoutActions(SessionVariables.getValueFromSessionVariable("User_name"));
 	}
+
+	@Step
+	public void clickOnInviteAgentButton() {
+		onPage.clickOnInviteAgentButton();
+	}
 }
