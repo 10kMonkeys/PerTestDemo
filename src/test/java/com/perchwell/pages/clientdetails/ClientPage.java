@@ -66,7 +66,7 @@ public class ClientPage extends BasePage {
 	private WebElement crossBackButtonFromClients;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
-	@iOSXCUITFindBy(accessibility = "ADD CLIENT")
+	@iOSXCUITFindBy(accessibility = "chevronLeft")
 	private WebElement backButtonCreateAgent;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/negative_button")
@@ -74,7 +74,7 @@ public class ClientPage extends BasePage {
 	private WebElement closeButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/invite_button")
-	@iOSXCUITFindBy(accessibility = "INVITE")
+	@iOSXCUITFindBy(accessibility = "invite_agent_label")
 	private WebElement inviteButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/logout")

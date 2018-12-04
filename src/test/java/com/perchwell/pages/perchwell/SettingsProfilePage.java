@@ -3,8 +3,10 @@ package com.perchwell.pages.perchwell;
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,7 +24,7 @@ public class SettingsProfilePage extends BasePage {
     private WebElement companyTextBox;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/action_button")
-    @iOSXCUITFindBy(accessibility = "SAVE")
+    @iOSXCUITFindBy(accessibility = "AccountDetailsSaveButton")
     private WebElement saveButton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/ok")
@@ -37,7 +39,7 @@ public class SettingsProfilePage extends BasePage {
     @iOSXCUITFindBy(accessibility = "AccountDetailsCancelButton")
     private WebElement cancelButton;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar[$name=='SettingsViewController'$]/XCUIElementTypeButton")
+    @iOSXCUITFindBy(accessibility = "AccountDetailsCancelButton")
     private WebElement backButton;
 
     @iOSXCUITFindBy(accessibility = "Back")

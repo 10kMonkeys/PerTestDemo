@@ -54,7 +54,6 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
             user.atSearchPage.checkSalesAndActiveFiltersSelected();
             user.atSearchPage.clickOnApplyButton();
             user.atSearchPage.clickOnMySavedSearches(); //search old
-            user.atSearchPage.clickOnApplyButton();
             user.inSearchMenu.openSavedSearches(); //search new
             user.atSearchPage.clickOnPreviouslyCreatedSearch();
             user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.RENTED);
