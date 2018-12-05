@@ -73,4 +73,9 @@ public class SettingsProfileSteps {
     public void backFromEmailButtonClick() {
         onPage.backFromEmailButtonClick();
     }
+
+    @Step
+    public void backButtonFromResetPasswordClick() {
+        onPage.backButtonFromResetPasswordClick();
+    }
 }

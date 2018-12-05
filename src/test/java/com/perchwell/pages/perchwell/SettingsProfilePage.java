@@ -45,6 +45,9 @@ public class SettingsProfilePage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Back")
     private WebElement backFromEmailButton;
 
+    @iOSXCUITFindBy(accessibility = "Back")
+    private WebElement backButtonFromResetPasswordButton;
+
     //endregion
     
     public SettingsProfilePage(WebDriver driver) {
@@ -97,5 +100,9 @@ public class SettingsProfilePage extends BasePage {
 
     public void backFromEmailButtonClick() {
         element(backFromEmailButton).click();
+    }
+
+    public void backButtonFromResetPasswordClick() {
+        element(backButtonFromResetPasswordButton).click();
     }
 }

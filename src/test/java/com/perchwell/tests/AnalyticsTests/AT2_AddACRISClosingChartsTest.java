@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"DiscussTests", "Analytics"})
+@WithTagValuesOf({"AnalyticTests", "Analytics"})
 public class AT2_AddACRISClosingChartsTest extends SampleTest {
 
     @Test

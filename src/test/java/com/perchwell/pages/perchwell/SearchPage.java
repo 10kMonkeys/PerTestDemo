@@ -346,10 +346,10 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Remove Button: Yorkville")
 	private WebElement yorkvilleRemoveIcon;
 
-	@iOSXCUITFindBy(accessibility = "ADDRESS")
+	@iOSXCUITFindBy(accessibility = "Add Button: BUILDINGS")
 	private WebElement searchByAddressButton;
 
-	@iOSXCUITFindBy(accessibility = "AddressSearchBar")
+	@iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
 	private WebElement addressSearchField;
 
 	@iOSXCUITFindBy(accessibility = "THE MURRAY HILL, 240 EAST 35TH STREET")
@@ -1339,7 +1339,7 @@ public class SearchPage extends BasePage {
 
 	public void checkSqFeetMinFieldIsEmpty() {
 		Helper.universalVerticalSwipe(squareFeetMinValueField);
-		Assert.assertEquals("Min", squareFeetMaxValueField.getAttribute("value"));
+		Assert.assertEquals("Min", squareFeetMinValueField.getAttribute("value"));
 	}
 
 	public void checkSqFeetMaxFieldIsEmpty() {
