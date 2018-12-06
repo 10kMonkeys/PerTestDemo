@@ -17,14 +17,15 @@ public class LB9_MoreInBuildingSearchByBathroomsTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openAddressSearch(); //search new
+        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.clickOnTestListing();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
-        user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.fixSearchField();
+        user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BATHS_FILTER);
