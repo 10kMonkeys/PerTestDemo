@@ -235,7 +235,7 @@ public class NYCTownhousesPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "PRICE_BAR_LISTING_PRICE_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement locationACRISClosingPriceChart;
 
-    @iOSXCUITFindBy(accessibility = "SALE $/SQFT_BAR_SALE_PRICE_PER_SQFT_HISTORICALS_HOUSES: HEADER TITLE LABEL")
+    @iOSXCUITFindBy(accessibility = "MEDIAN SALE $/SQFT_BAR_SALE_PRICE_PER_SQFT_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement locationACRISClosingPricePerFT2Chart;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"# RECENTLY ALTERED\"`][2]")
