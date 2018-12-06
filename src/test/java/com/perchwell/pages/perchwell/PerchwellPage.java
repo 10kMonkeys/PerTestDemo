@@ -93,6 +93,10 @@ public class PerchwellPage extends BasePage {
 	private List<WebElement> bathsInfoList;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_beds")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'INFO'")
+	private List<WebElement> bedAndBathListInBuilding;
+
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_beds")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Bed:'")
 	private List<WebElement> bedInfoList;
 
@@ -421,7 +425,7 @@ public class PerchwellPage extends BasePage {
 
 
 	public void ListingBeSortedByBedroomsInBuilding() {
-		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedroomsInBuilding", bathsInfoList) == 1);
+		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedroomsInBuilding", bedAndBathListInBuilding) == 1);
 	}
 
     public void isListingSortedByBathrooms() {
