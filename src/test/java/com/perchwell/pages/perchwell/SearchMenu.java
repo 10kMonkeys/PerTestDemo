@@ -30,6 +30,9 @@ public class SearchMenu extends BasePage {
     @iOSXCUITFindBy(accessibility = "x")
     private WebElement crossButton;
 
+    @iOSXCUITFindBy(accessibility = "Search By Address Button")
+    private WebElement searchByAddressButton;
+
     //endregion
 
     public SearchMenu(WebDriver driver) {
@@ -51,5 +54,9 @@ public class SearchMenu extends BasePage {
     public void clickOnSearchMenuIconWithPause() {
         waitFor(ExpectedConditions.visibilityOf(openAccountButton));
         this.clickOnSearchMenuIcon();
+    }
+
+    public void clickOnSearchByAddressButton() {
+        element(searchByAddressButton).click();
     }
 }

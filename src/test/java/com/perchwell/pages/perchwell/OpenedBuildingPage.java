@@ -118,7 +118,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "CANCEL")
 	private WebElement cancelButtonInDiscussWithClient;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[6]/XCUIElementTypeImage")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeImage")
 	private WebElement listingMap;
 
 	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
@@ -216,7 +216,8 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MORTGAGE CALCULATOR")
 	private WebElement mortgageCalculator;
 
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeCell[position()<9]/XCUIElementTypeStaticText[starts-with(@name, 'INFO')]")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'INFO'")
+//	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeCell[position()<9]/XCUIElementTypeStaticText[starts-with(@name, 'INFO')]")
 	private List<WebElement> currentFiveBedsAndBathsAmountList;
 
 	@AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, 'More')]")

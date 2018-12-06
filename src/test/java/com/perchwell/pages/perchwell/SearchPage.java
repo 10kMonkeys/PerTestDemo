@@ -508,6 +508,9 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Cell Collapsible Button: PROPERTY TYPE")
 	private WebElement propertyTypeCollapseButton;
 
+	@iOSXCUITFindBy(accessibility = "AddressSearchBar")
+	private WebElement searchAddressField;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -1417,5 +1420,9 @@ public class SearchPage extends BasePage {
 		softAssertions.assertThat(element(selectedRentalsProperty).isDisplayed());
 		softAssertions.assertThat(element(selectedCondoFilter).isDisplayed());
 		softAssertions.assertAll();
+	}
+
+	public void fillInAddressSearchField(String address) {
+		element(searchAddressField).sendKeys(address);
 	}
 }

@@ -17,16 +17,15 @@ public class LB1_SimilarListingsSearchByBedroomsTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
-        user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
+        user.inSearchMenu.openAddressSearch(); //search new
+        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.clickOnTestListing();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.fixSearchField(); //new
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
-        user.atOpenedBuildingPage.fixSearchField();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TWO_BEDS_FILTER);
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByBeds();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
