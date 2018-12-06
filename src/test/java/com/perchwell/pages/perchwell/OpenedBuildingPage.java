@@ -165,8 +165,8 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name != 'Table View Cell: Show More' AND name != 'Table View Cell: Show Message' AND name BEGINSWITH 'Table View Cell'$]")
 	private List<WebElement> listingsList;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name == 'InContractBanner'")
-	private WebElement inContractBanner;
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'InContractBanner'")
+	private List<WebElement> inContractBannerList;
 
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Banner'")
 	private WebElement banner;
@@ -578,10 +578,15 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfListingsAreFilteredByInContractStatus() {
-		for (WebElement item : bannerList) {
-			Assert.assertTrue(item.getAttribute("name").contains("InContractBanner"));
+		boolean isListingsAreFiltered = false;
+		if (currentFiveBedsAndBathsAmountList.size()==0) {
+			isListingsAreFiltered = true;
+		} else {
+			if (inContractBannerList.size() == currentFiveBedsAndBathsAmountList.size()) {
+				isListingsAreFiltered = true;
+			}
 		}
-		Assert.assertEquals(bannerList.size(), listingsList.size());
+		Assert.assertFalse(isListingsAreFiltered);
 	}
 
 	public void clickOnSortButton() {
