@@ -16,9 +16,9 @@ public class LB23_PastListingsSearchByBathroomsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
-        user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
+        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+        user.inSearchMenu.openAddressSearch(); //search new
+        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.fixListingsSearchField();
         user.atOpenedBuildingPage.swipeToTheListings();
@@ -31,6 +31,6 @@ public class LB23_PastListingsSearchByBathroomsTest extends SampleTest {
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByBaths();
         user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
-        user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
+        user.atOpenedBuildingPage.checkIfTenListingsReturnedToInitialState();
     }
 }
