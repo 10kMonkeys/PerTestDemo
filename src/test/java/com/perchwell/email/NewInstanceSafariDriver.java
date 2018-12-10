@@ -48,12 +48,13 @@ public abstract class NewInstanceSafariDriver {
     }
 
     public static void acceptInvitation() {
-        WebDriver safariDriver = new SafariDriver();
+        WebDriverManager.chromedriver().setup();
+        WebDriver chromeDriver = new ChromeDriver();
 
-        safariDriver.navigate().to("https://staging.perchwell.com/accept_invitation?invitation_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));
-        WebDriverWait wait = new WebDriverWait(safariDriver,60);
+        chromeDriver.navigate().to("https://staging.perchwell.com/accept_invitation?invitation_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));
+        WebDriverWait wait = new WebDriverWait(chromeDriver,60);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[contains(@class, 'ui-modals-title')]")));
-        safariDriver.quit();
+        chromeDriver.quit();
     }
 
     public static void returnOldPasswordInSafari(){
