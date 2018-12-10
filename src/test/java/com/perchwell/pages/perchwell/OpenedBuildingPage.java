@@ -548,19 +548,33 @@ public class OpenedBuildingPage extends BasePage {
 	public void checkIfListingsAreFilteredByBaths() {
 		boolean result = true;
 
-		for (WebElement listing : currentBedsAndBathsAmountList) {
-			if(!listing.getAttribute("value").contains("2  BATHS")) {
-				result = false;
-				break;
+		if (currentBedsAndBathsAmountList.isEmpty()) {
+			result = false;
+		} else {
+			for (WebElement listing : currentBedsAndBathsAmountList) {
+				if(!listing.getAttribute("value").contains("2  BATHS")) {
+					result = false;
+					break;
+				}
 			}
 		}
 		Assert.assertTrue(result);
 	}
 
 	public void checkIfListingsAreFilteredByNeighborhood() {
-		for (WebElement listing : neighborhoodValueList) {
-			Assert.assertTrue(listing.getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
-		}
+	    boolean result = true;
+
+	    if (neighborhoodValueList.isEmpty()) {
+            result = false;
+        } else {
+            for (WebElement listing : neighborhoodValueList) {
+                if (!listing.getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value"))) {
+                    result = false;
+                    break;
+                }
+            }
+        }
+        Assert.assertTrue(result);
 	}
 
 	public void getNeighborhoodValue() {
