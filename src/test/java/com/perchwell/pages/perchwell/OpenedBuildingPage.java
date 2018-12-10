@@ -506,12 +506,16 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfListingsAreFilteredByBeds() {
-		boolean result = true;
 
-		for (WebElement listing : currentBedsAndBathsAmountList) {
-			if(!listing.getAttribute("value").contains("2  BEDS")) {
-				result = false;
-				break;
+		boolean result = true;
+		if (currentBedsAndBathsAmountList.isEmpty()) {
+			result = false;
+		} else {
+			for (WebElement listing : currentBedsAndBathsAmountList) {
+				if(!listing.getAttribute("value").contains("2  BEDS")) {
+					result = false;
+					break;
+				}
 			}
 		}
 		Assert.assertTrue(result);
