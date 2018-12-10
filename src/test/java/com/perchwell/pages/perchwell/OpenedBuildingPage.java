@@ -217,8 +217,10 @@ public class OpenedBuildingPage extends BasePage {
 	private WebElement mortgageCalculator;
 
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'INFO'")
-//	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeCell[position()<9]/XCUIElementTypeStaticText[starts-with(@name, 'INFO')]")
-	private List<WebElement> currentFiveBedsAndBathsAmountList;
+	private List<WebElement> bedsAndBathsAmountList;
+
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeCell[position()<12]/XCUIElementTypeStaticText[starts-with(@name, 'INFO')]")
+	private List<WebElement> currentTenBedsAndBathsAmountList;
 
 	@AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, 'More')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name ENDSWITH 'More'$]")
@@ -504,12 +506,16 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfListingsAreFilteredByBeds() {
-		boolean result = true;
 
-		for (WebElement listing : currentBedsAndBathsAmountList) {
-			if(!listing.getAttribute("value").contains("2  BEDS")) {
-				result = false;
-				break;
+		boolean result = true;
+		if (currentBedsAndBathsAmountList.isEmpty()) {
+			result = false;
+		} else {
+			for (WebElement listing : currentBedsAndBathsAmountList) {
+				if(!listing.getAttribute("value").contains("2  BEDS")) {
+					result = false;
+					break;
+				}
 			}
 		}
 		Assert.assertTrue(result);
@@ -521,7 +527,7 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void checkIfListingReturnedToInitialState() {
 		for (int i = 0; i<initialBedsAndBathsAmountList.size(); i++){
-			Assert.assertEquals(initialBedsAndBathsAmountList.get(i), currentFiveBedsAndBathsAmountList.get(i).getAttribute("value"));
+			Assert.assertEquals(initialBedsAndBathsAmountList.get(i), bedsAndBathsAmountList.get(i).getAttribute("value"));
 		}
 	}
 
@@ -542,19 +548,33 @@ public class OpenedBuildingPage extends BasePage {
 	public void checkIfListingsAreFilteredByBaths() {
 		boolean result = true;
 
-		for (WebElement listing : currentBedsAndBathsAmountList) {
-			if(!listing.getAttribute("value").contains("2  BATHS")) {
-				result = false;
-				break;
+		if (currentBedsAndBathsAmountList.isEmpty()) {
+			result = false;
+		} else {
+			for (WebElement listing : currentBedsAndBathsAmountList) {
+				if(!listing.getAttribute("value").contains("2  BATHS")) {
+					result = false;
+					break;
+				}
 			}
 		}
 		Assert.assertTrue(result);
 	}
 
 	public void checkIfListingsAreFilteredByNeighborhood() {
-		for (WebElement listing : neighborhoodValueList) {
-			Assert.assertTrue(listing.getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
-		}
+	    boolean result = true;
+
+	    if (neighborhoodValueList.isEmpty()) {
+            result = false;
+        } else {
+            for (WebElement listing : neighborhoodValueList) {
+                if (!listing.getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value"))) {
+                    result = false;
+                    break;
+                }
+            }
+        }
+        Assert.assertTrue(result);
 	}
 
 	public void getNeighborhoodValue() {
@@ -579,10 +599,10 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void checkIfListingsAreFilteredByInContractStatus() {
 		boolean isListingsAreFiltered = false;
-		if (currentFiveBedsAndBathsAmountList.size()==0) {
+		if (bedsAndBathsAmountList.size()==0) {
 			isListingsAreFiltered = true;
 		} else {
-			if (inContractBannerList.size() == currentFiveBedsAndBathsAmountList.size()) {
+			if (inContractBannerList.size() == bedsAndBathsAmountList.size()) {
 				isListingsAreFiltered = true;
 			}
 		}
@@ -648,5 +668,10 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void clickOnPositiveButton() {
 		element(positiveButton).click();
+	}
+
+	public void checkIfTenListingsReturnedToInitialState() {
+		for (int i = 0; i<initialBedsAndBathsAmountList.size(); i++)
+			Assert.assertEquals(initialBedsAndBathsAmountList.get(i), currentTenBedsAndBathsAmountList.get(i).getAttribute("value"));
 	}
 }

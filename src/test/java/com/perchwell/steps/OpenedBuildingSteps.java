@@ -315,5 +315,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void closeSortWindow() {
 		onPage.closeSortWindow();
 	}
+
+	@Step
+	public void checkIfTenListingsReturnedToInitialState() {
+		onPage.checkIfTenListingsReturnedToInitialState();
+	}
 }
 
