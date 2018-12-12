@@ -18,6 +18,8 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static io.appium.java_client.MobileBy.iOSClassChain;
+
 public class OpenedBuildingPage extends BasePage {
 
 	private List<String> initialBedsAndBathsAmountList = new ArrayList<>();
@@ -418,6 +420,7 @@ public class OpenedBuildingPage extends BasePage {
 		if(Config.isAndroid()) {
 			element(By.xpath("//*[contains(@text,'" + client + "')]")).click();
 		} else {
+//			element(iOSClassChain("**/XCUIElementTypeOther/XCUIElementTypeStaticText[$name == '"
 			element(MobileBy.iOSClassChain("**/XCUIElementTypeOther/XCUIElementTypeStaticText[$name == '"
 					+ client + "'$]")).click();
 		}
@@ -673,5 +676,6 @@ public class OpenedBuildingPage extends BasePage {
 	public void checkIfTenListingsReturnedToInitialState() {
 		for (int i = 0; i<initialBedsAndBathsAmountList.size(); i++)
 			Assert.assertEquals(initialBedsAndBathsAmountList.get(i), currentTenBedsAndBathsAmountList.get(i).getAttribute("value"));
+
 	}
 }
