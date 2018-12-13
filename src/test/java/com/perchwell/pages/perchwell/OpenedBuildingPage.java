@@ -126,7 +126,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
 	private WebElement listingsSearchField;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'INFO'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'Info:'")
 	private List<WebElement> currentBedsAndBathsAmountList;
 
 	@iOSXCUITFindBy(accessibility = "Clear text")
@@ -234,6 +234,18 @@ public class OpenedBuildingPage extends BasePage {
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/more_agents")
 	private WebElement moreAgentsButton;
+
+	@iOSXCUITFindBy(accessibility = "Segmented Control: selected MORE IN BUILDING")
+	private WebElement selectedMoreInBuildingSection;
+
+	@iOSXCUITFindBy(accessibility = "Segmented Control: selected SIMILAR LISTINGS")
+	private WebElement selectedSimilarListingsSection;
+
+	@iOSXCUITFindBy(accessibility = "Segmented Control: selected PAST LISTINGS")
+	private WebElement selectedPastListingsSection;
+
+	@iOSXCUITFindBy(accessibility = "Segmented Control: selected CURRENT LISTINGS")
+	private WebElement selectedCurrentListingsSection;
 
 	//endregion
 
@@ -674,8 +686,29 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfTenListingsReturnedToInitialState() {
-		for (int i = 0; i<initialBedsAndBathsAmountList.size(); i++)
-			Assert.assertEquals(initialBedsAndBathsAmountList.get(i), currentTenBedsAndBathsAmountList.get(i).getAttribute("value"));
+//		for (int i = 0; i<initialBedsAndBathsAmountList.size(); i++) {
+//			Assert.assertEquals(initialBedsAndBathsAmountList.get(i), currentTenBedsAndBathsAmountList.get(i).getAttribute("value"));
+		Assert.assertEquals(initialBedsAndBathsAmountList.get(0), element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Info:'$][1]")).getAttribute("value"));
+		Assert.assertEquals(initialBedsAndBathsAmountList.get(1), element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Info:'$][2]")).getAttribute("value"));
+		Assert.assertEquals(initialBedsAndBathsAmountList.get(2), element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Info:'$][3]")).getAttribute("value"));
+		Assert.assertEquals(initialBedsAndBathsAmountList.get(3), element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Info:'$][4]")).getAttribute("value"));
+		Assert.assertEquals(initialBedsAndBathsAmountList.get(4), element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Info:'$][5]")).getAttribute("value"));
+//	}
+	}
 
+	public void checkMoreInBuildingSectionIsOpened() {
+		element(selectedMoreInBuildingSection).shouldBeVisible();
+	}
+
+	public void checkSimilarListingsSectionIsOpened() {
+		element(selectedSimilarListingsSection).shouldBeVisible();
+	}
+
+	public void checkPastListingsSectionIsOpened() {
+		element(selectedPastListingsSection).shouldBeVisible();
+	}
+
+	public void checkCurrentListingsSectionIsOpened() {
+		element(selectedCurrentListingsSection).shouldBeVisible();
 	}
 }

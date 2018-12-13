@@ -31,6 +31,6 @@ public class LB23_PastListingsSearchByBathroomsTest extends SampleTest {
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByBaths();
         user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
-        user.atOpenedBuildingPage.checkIfTenListingsReturnedToInitialState();
+        user.atOpenedBuildingPage.checkIfTenListingsReturnedToInitialState(); //temp fix inside
     }
 }

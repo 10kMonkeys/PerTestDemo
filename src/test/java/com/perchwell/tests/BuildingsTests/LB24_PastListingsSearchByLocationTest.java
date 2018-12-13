@@ -31,6 +31,6 @@ public class LB24_PastListingsSearchByLocationTest extends SampleTest {
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
         user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
-        user.atOpenedBuildingPage.checkIfTenListingsReturnedToInitialState();
+        user.atOpenedBuildingPage.checkIfTenListingsReturnedToInitialState(); //temp fix inside
     }
 }

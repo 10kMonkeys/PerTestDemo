@@ -33,6 +33,6 @@ public class LB25_PastListingsSearchByStatusTest extends SampleTest {
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
         user.atOpenedBuildingPage.clickOnCurrentListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
-        user.atOpenedBuildingPage.checkIfTenListingsReturnedToInitialState();
+        user.atOpenedBuildingPage.checkIfTenListingsReturnedToInitialState(); //temp fix inside
     }
 }

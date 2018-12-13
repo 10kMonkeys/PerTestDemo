@@ -222,6 +222,7 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	@Step
 	public void clickOnMoreInBuildingSection() {
 		onPage.clickOnMoreInBuildingSection();
+		onPage.checkMoreInBuildingSectionIsOpened();
 	}
 
 	@Step
@@ -232,6 +233,7 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	@Step
 	public void clickOnSimilarListingsSection() {
 		onPage.clickOnSimilarListingsSection();
+		onPage.checkSimilarListingsSectionIsOpened();
 	}
 
 	@Step
@@ -288,11 +290,14 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	@Step
 	public void clickOnPastListingsSection() {
 		onPage.clickOnPastListingsSection();
+		onPage.checkPastListingsSectionIsOpened();
+
 	}
 
 	@Step
 	public void clickOnCurrentListingsSection() {
 		onPage.clickOnCurrentListingsSection();
+		onPage.checkCurrentListingsSectionIsOpened();
 	}
 
 	@Step

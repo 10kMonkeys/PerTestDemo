@@ -31,6 +31,6 @@ public class LB22_PastListingsSearchByBedroomsTest extends SampleTest {
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByBeds();
         user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
-        user.atOpenedBuildingPage.checkIfTenListingsReturnedToInitialState();
+        user.atOpenedBuildingPage.checkIfTenListingsReturnedToInitialState(); //temp fix inside
     }
 }
