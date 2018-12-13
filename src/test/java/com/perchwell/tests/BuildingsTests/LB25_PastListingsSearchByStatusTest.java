@@ -22,17 +22,21 @@ public class LB25_PastListingsSearchByStatusTest extends SampleTest {
         user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.fixListingsSearchField();
         user.atOpenedBuildingPage.swipeToTheListings();
-        user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
-        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.ACTIVE_FILTER);
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByActiveStatus();
-        user.atOpenedBuildingPage.clickOnClearFieldButton();
-        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.IN_CONTRACT_FILTER);
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
         user.atOpenedBuildingPage.clickOnPastListingsSection();
-        user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByFilter(Filters.IN_CONTRACT_FILTER);
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
-        user.atOpenedBuildingPage.clickOnCurrentListingsSection();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.PERM_OFF_MARKET_FILTER);
+        user.atOpenedBuildingPage.checkListingsStatus(Filters.PERM_OFF_MARKET_STATUS);
         user.atOpenedBuildingPage.clickOnClearFieldButton();
-        user.atOpenedBuildingPage.checkIfTenListingsReturnedToInitialState(); //temp fix inside
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.SOLD_FILTER);
+        user.atOpenedBuildingPage.checkListingsStatus(Filters.SOLD_STATUS);
+        user.atOpenedBuildingPage.clickOnClearFieldButton();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.RENTED_FILTER);
+        user.atOpenedBuildingPage.checkListingsStatus(Filters.RENTED_STATUS);
+        user.atOpenedBuildingPage.clickOnCurrentListingsSection();
+        user.atOpenedBuildingPage.shouldSeeNoMatchLabel();
+        user.atOpenedBuildingPage.clickOnPastListingsSection();
+        user.atOpenedBuildingPage.checkListingsStatus(Filters.RENTED_STATUS);
+        user.atOpenedBuildingPage.clickOnClearFieldButton();
+        user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TEMP_OFF_MARKET_FILTER);
+        user.atOpenedBuildingPage.checkListingsStatus(Filters.TEMP_OFF_MARKET_STATUS);
     }
 }

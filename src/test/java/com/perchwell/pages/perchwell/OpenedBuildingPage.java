@@ -146,7 +146,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
 	private WebElement neighborhoodValue;
 
-	@iOSXCUITFindBy(xpath = "//*[contains(@name, 'NEIGHBORHOOD')]")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'Neighborhood'")
 	private List<WebElement> neighborhoodValueList;
 
 	@iOSXCUITFindBy(accessibility = "Segmented Control: MORE IN BUILDING")
@@ -218,10 +218,10 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "MORTGAGE CALCULATOR")
 	private WebElement mortgageCalculator;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'INFO'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'Info'")
 	private List<WebElement> bedsAndBathsAmountList;
 
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeCell[position()<12]/XCUIElementTypeStaticText[starts-with(@name, 'INFO')]")
+	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeCell[position()<12]/XCUIElementTypeStaticText[starts-with(@name, 'Info')]")
 	private List<WebElement> currentTenBedsAndBathsAmountList;
 
 	@AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, 'More')]")
@@ -246,6 +246,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "Segmented Control: selected CURRENT LISTINGS")
 	private WebElement selectedCurrentListingsSection;
+
+	@iOSXCUITFindBy(accessibility = "NO MATCH")
+	private WebElement noMatchLabel;
 
 	//endregion
 
@@ -621,7 +624,7 @@ public class OpenedBuildingPage extends BasePage {
 				isListingsAreFiltered = true;
 			}
 		}
-		Assert.assertFalse(isListingsAreFiltered);
+		Assert.assertTrue(isListingsAreFiltered);
 	}
 
 	public void clickOnSortButton() {
@@ -710,5 +713,14 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void checkCurrentListingsSectionIsOpened() {
 		element(selectedCurrentListingsSection).shouldBeVisible();
+	}
+
+	public void checkListingsStatus(String status) {
+		List<WebElement> statusList = getDriver().findElements(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value == '" + status + "'"));
+		Assert.assertEquals(statusList.size(), currentBedsAndBathsAmountList.size());
+	}
+
+	public void shouldSeeNoMatchLabel() {
+		element(noMatchLabel).shouldBeVisible();
 	}
 }

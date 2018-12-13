@@ -325,5 +325,15 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void checkIfTenListingsReturnedToInitialState() {
 		onPage.checkIfTenListingsReturnedToInitialState();
 	}
+
+	@Step
+	public void checkListingsStatus(String status) {
+		onPage.checkListingsStatus(status);
+	}
+
+	@Step
+	public void shouldSeeNoMatchLabel() {
+		onPage.shouldSeeNoMatchLabel();
+	}
 }
 
