@@ -85,7 +85,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Listing Results:'")
 	private WebElement listingsByButton;
 
-	@iOSXCUITFindBy(accessibility = "BEDROOMS")
+	@iOSXCUITFindBy(accessibility = "Bedrooms")
 	private WebElement bedroomsSortButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_beds")
@@ -106,16 +106,16 @@ public class PerchwellPage extends BasePage {
     @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name CONTAINS 'PRICE'")
     private List<WebElement> pricesList;
 
-    @iOSXCUITFindBy(accessibility = "LEAST EXPENSIVE")
+    @iOSXCUITFindBy(accessibility = "Least Expensive")
     private WebElement leastExpensiveButton;
 
-    @iOSXCUITFindBy(accessibility = "MOST EXPENSIVE")
+    @iOSXCUITFindBy(accessibility = "Most Expensive")
     private WebElement mostExpensiveButton;
 
-	@iOSXCUITFindBy(accessibility = "BATHROOMS")
+	@iOSXCUITFindBy(accessibility = "Bathrooms")
 	private WebElement bathroomsSortButton;
 
-	@iOSXCUITFindBy(accessibility = "TOTAL ROOMS")
+	@iOSXCUITFindBy(accessibility = "Total Rooms")
     private WebElement totalRoomsSortButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[`visible==1`][-1]")
@@ -138,7 +138,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "TBI")
 	private List<WebElement> buildingsLabels;
 
-	@iOSXCUITFindBy(accessibility = "ADDRESS")
+	@iOSXCUITFindBy(accessibility = "Address")
 	private WebElement addressSortButton;
 
 	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
