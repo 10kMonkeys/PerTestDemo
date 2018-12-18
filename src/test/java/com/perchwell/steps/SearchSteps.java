@@ -819,4 +819,14 @@ public class SearchSteps extends ScenarioSteps {
 	public void fillInAddressSearchField(String address) {
 		onPage.fillInAddressSearchField(address);
 	}
+
+	@Step
+	public void closeSearch() {
+		onPage.closeSearch();
+	}
+
+	@Step
+	public void checkManhattanIsNotVisible() {
+		onPage.checkManhattanIsNotVisible();
+	}
 }
