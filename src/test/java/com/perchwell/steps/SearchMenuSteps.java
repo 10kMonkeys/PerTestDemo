@@ -43,4 +43,13 @@ public class SearchMenuSteps extends ScenarioSteps {
             inMenu.clickOnSearchByAddressButton();
         }
     }
+
+    public void shouldSeeSaveButton() {
+        inMenu.shouldSeeSaveButton();
+    }
+
+    @Step
+    public void shouldNotSeeSaveButton() {
+        inMenu.shouldNotSeeSaveButton();
+    }
 }

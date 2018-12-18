@@ -115,7 +115,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Bathrooms")
 	private WebElement bathroomsSortButton;
 
-	@iOSXCUITFindBy(accessibility = "Total Rooms")
+	@iOSXCUITFindBy(accessibility = "cell: deselected Total Rooms")
     private WebElement totalRoomsSortButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[`visible==1`][-1]")
@@ -176,6 +176,9 @@ public class PerchwellPage extends BasePage {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
 	private WebElement searchMenuIcon;
+
+	@iOSXCUITFindBy(accessibility = "SAVE")
+	private WebElement saveButton;
 
 	//endregion
 
@@ -736,5 +739,9 @@ public class PerchwellPage extends BasePage {
 	public void checkListingsType(String property) {
 		List<WebElement> propertyList = getDriver().findElements(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + property + "'"));
 		Assert.assertEquals(propertyList.size(), 20);
+	}
+
+	public void clickOnSaveButton() {
+		element(saveButton).click();
 	}
 }

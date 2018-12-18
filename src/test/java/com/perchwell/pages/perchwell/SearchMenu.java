@@ -5,11 +5,13 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import javax.swing.*;
+import java.util.concurrent.TimeUnit;
 
 public class SearchMenu extends BasePage {
 
@@ -32,6 +34,9 @@ public class SearchMenu extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "Search By Address Button")
     private WebElement searchByAddressButton;
+
+    @iOSXCUITFindBy(accessibility = "SAVE")
+    private WebElement saveButton;
 
     //endregion
 
@@ -58,5 +63,15 @@ public class SearchMenu extends BasePage {
 
     public void clickOnSearchByAddressButton() {
         element(searchByAddressButton).click();
+    }
+
+    public void shouldSeeSaveButton() {
+        element(saveButton).shouldBeVisible();
+    }
+
+    public void shouldNotSeeSaveButton() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        Assert.assertFalse(element(saveButton).isVisible());
+        resetImplicitTimeout();
     }
 }
