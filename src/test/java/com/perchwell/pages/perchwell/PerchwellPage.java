@@ -115,7 +115,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Bathrooms")
 	private WebElement bathroomsSortButton;
 
-	@iOSXCUITFindBy(accessibility = "cell: deselected Total Rooms")
+	@iOSXCUITFindBy(accessibility = "Total Rooms")
     private WebElement totalRoomsSortButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[`visible==1`][-1]")
