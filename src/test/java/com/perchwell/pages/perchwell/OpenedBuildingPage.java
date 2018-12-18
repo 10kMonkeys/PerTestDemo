@@ -135,24 +135,23 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
 	private WebElement discussWithClientHint;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '#TEST'")
-	//	@iOSXCUITFindBy(accessibility = "240 EAST 35TH ST. #TEST")
-//	@iOSXCUITFindBy(accessibility = "ADDRESS-61 WEST 62ND ST. #TEST")
+//	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '#TEST'")
+	@iOSXCUITFindBy(accessibility = "Address: 15 WEST 81ST ST. #11A 474823") //temp
 	private WebElement testListing;
 
 	@iOSXCUITFindBy(accessibility = "MORE")
 	private WebElement moreButton;
 
-	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
 	private WebElement neighborhoodValue;
 
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'Neighborhood'")
 	private List<WebElement> neighborhoodValueList;
 
-	@iOSXCUITFindBy(accessibility = "Segmented Control: MORE IN BUILDING")
+	@iOSXCUITFindBy(accessibility = "Segmented Control: deselected MORE IN BUILDING")
 	private WebElement moreInBuildingSection;
 
-	@iOSXCUITFindBy(accessibility = "Segmented Control: SIMILAR LISTINGS")
+	@iOSXCUITFindBy(accessibility = "Segmented Control: deselected SIMILAR LISTINGS")
 	private WebElement similarListingsSection;
 
 	@iOSXCUITFindBy(accessibility = "Nav Back White")
@@ -203,10 +202,10 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Collection View Cell Selected: BEDROOMS")
 	private WebElement bedroomsSortButtonSelected;
 
-	@iOSXCUITFindBy(accessibility = "Segmented Control: PAST LISTINGS")
+	@iOSXCUITFindBy(accessibility = "Segmented Control: deselected PAST LISTINGS")
 	private WebElement pastListingsSection;
 
-	@iOSXCUITFindBy(accessibility = "Segmented Control: CURRENT LISTINGS")
+	@iOSXCUITFindBy(accessibility = "Segmented Control: deselected CURRENT LISTINGS")
 	private WebElement currentListingsSection;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name != 'Table View Cell: Show More' AND name BEGINSWITH 'Table View Cell'$][1]")
@@ -596,7 +595,9 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void getNeighborhoodValue() {
-		SessionVariables.addValueInSessionVariable("Neighborhood_value", neighborhoodValue.getAttribute("value"));
+		Assert.assertTrue(neighborhoodValue.getAttribute("value").contains("MURRAY HILL"));
+		SessionVariables.addValueInSessionVariable("Neighborhood_value", "MURRAY HILL");
+		//		SessionVariables.addValueInSessionVariable("Neighborhood_value", neighborhoodValue.getAttribute("value"));
 	}
 
 	public void clickOnMoreInBuildingSection() {

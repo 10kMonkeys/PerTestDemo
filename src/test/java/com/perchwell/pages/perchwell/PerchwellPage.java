@@ -93,14 +93,14 @@ public class PerchwellPage extends BasePage {
 	private List<WebElement> bathsInfoList;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_beds")
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'INFO'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Info:'")
 	private List<WebElement> bedAndBathListInBuilding;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_beds")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Bed:'")
 	private List<WebElement> bedInfoList;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'STUDIO'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Bed: STUDIO'")
 	private List<WebElement> studioList;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name CONTAINS 'PRICE'")
@@ -150,7 +150,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'Bath:'$]")
 	private List<WebElement> currentBathsAmountList;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'INFO'$]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'Info:'$]")
 	private WebElement bedsAndBathsAmount;
 
 	@iOSXCUITFindBy(accessibility = "Clear text")
