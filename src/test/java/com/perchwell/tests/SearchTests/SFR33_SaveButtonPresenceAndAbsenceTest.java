@@ -48,6 +48,7 @@ public class SFR33_SaveButtonPresenceAndAbsenceTest extends SampleTest {
         user.atSearchPage.clickOnSaveButton();
         user.atPerchwellPage.clickOnAnalytics();
         user.atAcrisClosingPage.addChartFromACRISSection();
+        user.atAnalyticsPage.skipHints();
         user.inSearchMenu.shouldSeeSaveButton();
     }
 }
