@@ -380,4 +380,8 @@ public class PerchwellSteps extends ScenarioSteps {
 		onPage.checkListingsType(property);
     }
 
+    @Step
+	public void clickOnSaveButton() {
+		onPage.clickOnSaveButton();
+	}
 }

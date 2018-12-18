@@ -177,6 +177,9 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
 	private WebElement searchMenuIcon;
 
+	@iOSXCUITFindBy(accessibility = "SAVE")
+	private WebElement saveButton;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -736,5 +739,9 @@ public class PerchwellPage extends BasePage {
 	public void checkListingsType(String property) {
 		List<WebElement> propertyList = getDriver().findElements(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + property + "'"));
 		Assert.assertEquals(propertyList.size(), 20);
+	}
+
+	public void clickOnSaveButton() {
+		element(saveButton).click();
 	}
 }
