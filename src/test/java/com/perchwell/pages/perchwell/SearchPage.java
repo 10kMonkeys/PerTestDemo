@@ -514,6 +514,15 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "bar button: close search view")
 	private WebElement closeSearchButton;
 
+	@iOSXCUITFindBy(accessibility = "Tag Cell BUILDINGS: Add Button")
+	private WebElement addBuildingFilterButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeCell' AND visible = 1")
+	private List<WebElement> buildingsList;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: ' ")
+	private List<WebElement> removeButtonList;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -1435,5 +1444,27 @@ public class SearchPage extends BasePage {
 
 	public void checkManhattanIsNotVisible() {
 		element(manhattanCheckedCheckbox).shouldNotBeVisible();
+	}
+
+	public void clickOnAddBuildingFilterButton() {
+		element(addBuildingFilterButton).click();
+	}
+
+	public void fillInBuildingSearchField() {
+	}
+
+	public void clickOnFirstThreeListings() {
+		waitABit(3000);
+		for (int i =0; i<3; i++) {
+			buildingsList.get(i).click();
+		}
+	}
+
+	public void checkIfBuildingsFilterChangesAreSaved() {
+		Assert.assertEquals(3, removeButtonList.size());
+	}
+
+	public void deleteFirstBuildingFilter() {
+		removeButtonList.get(1).click();
 	}
 }
