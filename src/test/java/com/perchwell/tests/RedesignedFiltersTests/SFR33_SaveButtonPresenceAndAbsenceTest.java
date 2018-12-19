@@ -1,4 +1,4 @@
-package com.perchwell.tests.FiltersTests.RedesignedFiltersTests;
+package com.perchwell.tests.RedesignedFiltersTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
