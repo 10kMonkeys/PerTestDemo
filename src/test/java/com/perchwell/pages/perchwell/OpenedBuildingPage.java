@@ -120,7 +120,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "CANCEL")
 	private WebElement cancelButtonInDiscussWithClient;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeImage")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[6]/XCUIElementTypeImage")
 	private WebElement listingMap;
 
 	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
@@ -135,8 +135,7 @@ public class OpenedBuildingPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
 	private WebElement discussWithClientHint;
 
-//	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '#TEST'")
-	@iOSXCUITFindBy(accessibility = "Address: 15 WEST 81ST ST. #11A 474823") //temp
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '#TEST'")
 	private WebElement testListing;
 
 	@iOSXCUITFindBy(accessibility = "MORE")
