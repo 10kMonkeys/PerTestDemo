@@ -9,7 +9,6 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "FiltersTests", "iOS_Second", "Android_Second", "Second"})
 public class ST18_ApplyingFilterOnMapView extends SampleTest {
 
-    @Ignore
     @Test
     public void applyingFilterOnMapViewTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

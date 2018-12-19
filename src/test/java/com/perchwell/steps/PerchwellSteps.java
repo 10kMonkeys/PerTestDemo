@@ -116,11 +116,13 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
     @Step("Should see listing with filters are applyed {0}")
-    public void shouldFilter1Bed1AndHalfBathBeApplied() {
+    public void shouldFilter1Bed1AndHalfBathBeApplied(String beds, String baths) {
 		if(Config.isAndroid()) {
 			onPage.shouldFilter1Bed1AndHalfBathApplied("1 BD | 1½ BA");
 		} else {
-			onPage.shouldFilter1Bed1AndHalfBathApplied("1 BD  |  1½ BA");
+//			onPage.shouldFilter1Bed1AndHalfBathApplied("1 BD  |  1½ BA");
+			onPage.isContainParticularRooms(beds);
+			onPage.isContainParticularRooms(baths);
 		}
     }
 
