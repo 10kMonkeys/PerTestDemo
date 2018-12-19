@@ -45,11 +45,13 @@ public class SearchMenuSteps extends ScenarioSteps {
     }
 
     public void shouldSeeSaveButton() {
+        waitABit(1000);
         inMenu.shouldSeeSaveButton();
     }
 
     @Step
     public void shouldNotSeeSaveButton() {
+        waitABit(1000);
         inMenu.shouldNotSeeSaveButton();
     }
 }
