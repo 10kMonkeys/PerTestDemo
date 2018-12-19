@@ -511,6 +511,9 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "AddressSearchBar")
 	private WebElement searchAddressField;
 
+	@iOSXCUITFindBy(accessibility = "bar button: close search view")
+	private WebElement closeSearchButton;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -1424,5 +1427,13 @@ public class SearchPage extends BasePage {
 
 	public void fillInAddressSearchField(String address) {
 		element(searchAddressField).sendKeys(address);
+	}
+
+	public void closeSearch() {
+		element(closeSearchButton).click();
+	}
+
+	public void checkManhattanIsNotVisible() {
+		element(manhattanCheckedCheckbox).shouldNotBeVisible();
 	}
 }

@@ -357,6 +357,7 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void checkIfListingsWereChanged() {
+		Assert.assertFalse(onPage.checkListingsQuantity());
 	}
 
 	@Step
