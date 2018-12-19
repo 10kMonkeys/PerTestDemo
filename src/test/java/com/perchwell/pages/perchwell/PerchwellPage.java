@@ -749,4 +749,9 @@ public class PerchwellPage extends BasePage {
 		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
 		Assert.assertEquals(listingsAmountToCheck, listningsAmount);
 	}
+
+	public void checkIfListingsAmountIsLessThenInitial() {
+		int realListingsAmount = getNumberOfListings(listingsByButton);
+		Assert.assertTrue(realListingsAmount < listningsAmount);
+	}
 }

@@ -848,7 +848,33 @@ public class SearchSteps extends ScenarioSteps {
 		onPage.deleteFirstBuildingFilter();
 	}
 
+	@Step
 	public void deleteThreeFirstBuildingFilters() {
 		onPage.deleteFirstBuildingFilter();
+	}
+
+	@Step
+	public void checkIfBedAndBathThreeMinimumFiltersAreSelected() {
+		onPage.checkIfBedAndBathThreeMinimumFiltersAreSelected();
+	}
+
+	@Step
+	public void checkIfBedAndBathThreeRangeFiltersAreSelected() {
+		onPage.checkIfBedAndBathThreeRangeFiltersAreSelected();
+	}
+
+	@Step
+	public void fillInTotalRoomsMinField(String value) {
+		onPage.fillInTotalRoomsMinField(value);
+	}
+
+	@Step
+	public void checkIfTotalRoomsFieldIsFilledByCorrectNumber(String value) {
+		onPage.checkIfTotalRoomsFieldIsFilledByCorrectNumber(value);
+	}
+
+	@Step
+	public void clearTotalRoomsMinValueFiled() {
+		onPage.clearTotalRoomsMinValueFiled();
 	}
 }
