@@ -21,7 +21,7 @@ public class RFT34_LocationCloseFiltersByXButtonTest extends SampleTest {
         user.atSearchPage.deleteManhattan();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkListingsQuantity();
-//        user.atPerchwellPage.checkIfListingsWereChanged();
+        user.atPerchwellPage.checkIfListingsWereChanged();
         user.atPerchwellPage.isListingsQuantity();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnResetFilter();
