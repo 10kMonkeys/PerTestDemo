@@ -597,7 +597,6 @@ public class SearchPage extends BasePage {
 		if(!Config.isAndroid()) {
 			getDriver().findElement(By.name("Done")).click();
 		}
-
 	}
 
 	public void selectFilterStudioBeds() {
@@ -1466,5 +1465,20 @@ public class SearchPage extends BasePage {
 
 	public void deleteFirstBuildingFilter() {
 		removeButtonList.get(1).click();
+	}
+
+	public void checkPriceChangesShown() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(minimumPriceTextBox).getValue()).isNotEmpty();
+		softAssertions.assertThat(element(maximumPriceTextBox).getValue()).isNotEmpty();
+		softAssertions.assertAll();
+	}
+
+	public void clearMinimumAndMaximumPriceFilters() {
+		element(minimumPriceTextBox).clear();
+		element(maximumPriceTextBox).clear();
+		if(!Config.isAndroid()) {
+			getDriver().findElement(By.name("Done")).click();
+		}
 	}
 }

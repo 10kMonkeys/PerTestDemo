@@ -847,4 +847,14 @@ public class SearchSteps extends ScenarioSteps {
 	public void deleteFirstBuildingFilter() {
 		onPage.deleteFirstBuildingFilter();
 	}
+
+	@Step
+	public void checkPriceChangesShown() {
+		onPage.checkPriceChangesShown();
+	}
+
+	@Step
+	public void clearMinimumAndMaximumPriceFilters() {
+		onPage.clearMinimumAndMaximumPriceFilters();
+	}
 }

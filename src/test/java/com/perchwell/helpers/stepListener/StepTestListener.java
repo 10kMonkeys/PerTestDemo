@@ -182,6 +182,6 @@ public class StepTestListener implements StepListener {
     }
 
     public TestStepResult getCurrentStepresult() {
-        return testResult.getStepresults().get(order);
+        return testResult.getStepResults().get(order);
     }
 }

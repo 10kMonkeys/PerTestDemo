@@ -10,7 +10,7 @@ public class TestResult {
     private String reportFilePath;
     private String className;
     private boolean reported = false;
-    private Map<Integer, TestStepResult> stepresults;
+    private Map<Integer, TestStepResult> stepResults;
     /**
      * Default constructor
      */
@@ -65,27 +65,27 @@ public class TestResult {
     }
 
     /**
-     * @return the stepresults
+     * @return the stepResults
      */
-    public Map<Integer, TestStepResult> getStepresults() {
-        if (stepresults == null) {
-            stepresults = new HashMap<Integer, TestStepResult>();
+    public Map<Integer, TestStepResult> getStepResults() {
+        if (stepResults == null) {
+            stepResults = new HashMap<Integer, TestStepResult>();
         }
-        return stepresults;
+        return stepResults;
     }
 
     /**
      *
      */
-    public void cleanStepresults() {
-        this.getStepresults().clear();
+    public void cleanStepResults() {
+        this.getStepResults().clear();
     }
 
     /**
      *
      */
     public void addStepResult(int order, TestStepResult result) {
-        this.getStepresults().put(order, result);
+        this.getStepResults().put(order, result);
     }
 
     /**
@@ -123,7 +123,7 @@ public class TestResult {
                 ", reportFilePath='" + reportFilePath + '\'' +
                 ", className='" + className + '\'' +
                 ", reported=" + reported +
-                ", stepresults=" + stepresults +
+                ", stepResults=" + stepResults +
                 '}';
     }
 }
