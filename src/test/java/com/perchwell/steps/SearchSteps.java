@@ -829,4 +829,22 @@ public class SearchSteps extends ScenarioSteps {
 	public void checkManhattanIsNotVisible() {
 		onPage.checkManhattanIsNotVisible();
 	}
+
+	@Step
+	public void addBuildingFilter(String value) {
+		onPage.clickOnSearchByAddressButton();
+		onPage.searchDistrict(value);
+		onPage.clickOnFirstThreeListings();
+		onPage.clickOnBackFromNeighborhoodsPage();
+	}
+
+	@Step
+	public void checkIfBuildingsFilterChangesAreSaved() {
+		onPage.checkIfBuildingsFilterChangesAreSaved();
+	}
+
+	@Step
+	public void deleteFirstBuildingFilter() {
+		onPage.deleteFirstBuildingFilter();
+	}
 }
