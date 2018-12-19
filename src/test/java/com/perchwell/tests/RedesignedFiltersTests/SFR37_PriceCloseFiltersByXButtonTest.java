@@ -4,7 +4,7 @@ import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class RFT37_PriceCloseFiltersByXButtonTest extends SampleTest {
+public class SFR37_PriceCloseFiltersByXButtonTest extends SampleTest {
 
     @Test
     public void priceCloseFiltersByXButton() {
@@ -31,8 +31,8 @@ public class RFT37_PriceCloseFiltersByXButtonTest extends SampleTest {
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.checkPriceChangesShown();
         user.atSearchPage.clearMinimumAndMaximumPriceFilters();
-        user.atSearchPage.setMinimumPriceFilter("5000");
-        user.atSearchPage.setMaximumPriceFilter("30000");
+        user.atSearchPage.setMinimumPriceFilter("100000");
+        user.atSearchPage.setMaximumPriceFilter("500000");
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantity();
         user.atPerchwellPage.clickOnSaveButton();
@@ -40,8 +40,8 @@ public class RFT37_PriceCloseFiltersByXButtonTest extends SampleTest {
         user.atSearchPage.clickOnSaveButton();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clearMinimumAndMaximumPriceFilters();
-        user.atSearchPage.setMinimumPriceFilter("10000");
-        user.atSearchPage.setMaximumPriceFilter("20000");
+        user.atSearchPage.setMinimumPriceFilter("100000");
+        user.atSearchPage.setMaximumPriceFilter("500000");
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantity();
         user.inSearchMenu.openSearchPage();
