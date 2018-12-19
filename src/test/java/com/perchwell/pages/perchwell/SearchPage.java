@@ -523,6 +523,9 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: ' ")
 	private List<WebElement> removeButtonList;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
+	private WebElement firstBuilding;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -1450,11 +1453,8 @@ public class SearchPage extends BasePage {
 		element(addBuildingFilterButton).click();
 	}
 
-	public void fillInBuildingSearchField() {
-	}
-
-	public void clickOnFirstThreeListings() {
-		waitABit(3000);
+	public void clickOnFirstSixListings() {
+		waitFor(ExpectedConditions.visibilityOf(firstBuilding));
 		for (int i =0; i<3; i++) {
 			buildingsList.get(i).click();
 		}
@@ -1465,6 +1465,9 @@ public class SearchPage extends BasePage {
 	}
 
 	public void deleteFirstBuildingFilter() {
-		removeButtonList.get(1).click();
+//		removeButtonList.get(0).click();
+		for (int i =0; i<3; i++) {
+			removeButtonList.get(i).click();
+		}
 	}
 }

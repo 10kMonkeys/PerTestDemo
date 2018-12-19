@@ -387,4 +387,10 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void clickOnSaveButton() {
 		onPage.clickOnSaveButton();
 	}
+
+	@Step
+	public void checkListingsQuantityIsEqual() {
+		onPage.checkListingsQuantityIsEqual();
+
+	}
 }

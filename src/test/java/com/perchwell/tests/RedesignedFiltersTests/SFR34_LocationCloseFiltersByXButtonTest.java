@@ -4,7 +4,7 @@ import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class RFT34_LocationCloseFiltersByXButtonTest extends SampleTest {
+public class SFR34_LocationCloseFiltersByXButtonTest extends SampleTest {
 
     @Test
     public void locationCloseFiltersByXButton() {

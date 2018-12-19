@@ -744,4 +744,9 @@ public class PerchwellPage extends BasePage {
 	public void clickOnSaveButton() {
 		element(saveButton).click();
 	}
+
+	public void checkListingsQuantityIsEqual() {
+		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
+		Assert.assertEquals(listingsAmountToCheck, listningsAmount);
+	}
 }

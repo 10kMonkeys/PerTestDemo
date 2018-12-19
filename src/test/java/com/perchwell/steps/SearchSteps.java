@@ -831,10 +831,10 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void addBuildingFilter(String value) {
+	public void addThreeBuildingFilters(String value) {
 		onPage.clickOnSearchByAddressButton();
 		onPage.searchDistrict(value);
-		onPage.clickOnFirstThreeListings();
+		onPage.clickOnFirstSixListings();
 		onPage.clickOnBackFromNeighborhoodsPage();
 	}
 
@@ -845,6 +845,10 @@ public class SearchSteps extends ScenarioSteps {
 
 	@Step
 	public void deleteFirstBuildingFilter() {
+		onPage.deleteFirstBuildingFilter();
+	}
+
+	public void deleteThreeFirstBuildingFilters() {
 		onPage.deleteFirstBuildingFilter();
 	}
 }
