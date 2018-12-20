@@ -1550,7 +1550,7 @@ public class SearchPage extends BasePage {
 
     public void checkLaundryBuildingAndOutdoorSpaceFiltersAreSelected() {
         SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(element(laundryBLDGFilterButton).isDisplayed());
+        softAssertions.assertThat(element(selectedLaundryBLDGFilter).isDisplayed());
         softAssertions.assertThat(element(selectedOutdoorSpaceCheckmarkFilter).isDisplayed());
         softAssertions.assertAll();
     }
