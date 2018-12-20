@@ -40,8 +40,8 @@ public class SFR37_PriceCloseFiltersByXButtonTest extends SampleTest {
         user.atSearchPage.clickOnSaveButton();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clearMinimumAndMaximumPriceFilters();
-        user.atSearchPage.setMinimumPriceFilter("1000");
-        user.atSearchPage.setMaximumPriceFilter("2000");
+        user.atSearchPage.setMinimumPriceFilter("100000");
+        user.atSearchPage.setMaximumPriceFilter("500000");
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantity();
         user.inSearchMenu.openSearchPage();
