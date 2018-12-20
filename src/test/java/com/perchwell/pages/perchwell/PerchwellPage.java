@@ -27,7 +27,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class PerchwellPage extends BasePage {
 
-	private int listningsAmount;
+	private int listingsAmount;
 	private int fourDistrictListingsAmount;
 	public static Integer numberOfItemsInListView;
 
@@ -453,12 +453,12 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void isListingsQuantity() {
-		listningsAmount = getNumberOfListings(listingsByButton);
+		listingsAmount = getNumberOfListings(listingsByButton);
 	}
 
 	public boolean checkListingsQuantity() {
 		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
-		return ((listingsAmountToCheck > (listningsAmount - 50)) && ((listningsAmount + 50) > listingsAmountToCheck));
+		return ((listingsAmountToCheck > (listingsAmount - 50)) && ((listingsAmount + 50) > listingsAmountToCheck));
 	}
 	
 	private int getNumberOfListings(WebElement listingsByButton) {
@@ -559,7 +559,7 @@ public class PerchwellPage extends BasePage {
 
     public void checkFilterIsApplied() {
 		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
-		Assert.assertTrue((listningsAmount - 3000) > listingsAmountToCheck);
+		Assert.assertTrue((listingsAmount - 3000) > listingsAmountToCheck);
     }
 
 	public void shouldSeeListingsFromAllUpperEastSideDistricts(String carnegieHill, String lenoxHill, String upperEastSide, String yorkville) {
@@ -651,7 +651,7 @@ public class PerchwellPage extends BasePage {
 
 	public void checkIfListingsWereNotChanged() {
 		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
-		Assert.assertEquals(listningsAmount, listingsAmountToCheck);
+		Assert.assertEquals(listingsAmount, listingsAmountToCheck);
 	}
 
 	public void checkIfThereIsNoListingsWithoutBeds() {
@@ -747,11 +747,11 @@ public class PerchwellPage extends BasePage {
 
 	public void checkListingsQuantityIsEqual() {
 		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
-		Assert.assertEquals(listingsAmountToCheck, listningsAmount);
+		Assert.assertEquals(listingsAmountToCheck, listingsAmount);
 	}
 
 	public void checkIfListingsAmountIsLessThenInitial() {
 		int realListingsAmount = getNumberOfListings(listingsByButton);
-		Assert.assertTrue(realListingsAmount < listningsAmount);
+		Assert.assertTrue(realListingsAmount < listingsAmount);
 	}
 }
