@@ -831,10 +831,10 @@ public class SearchSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void addBuildingFilter(String value) {
+	public void addThreeBuildingFilters(String value) {
 		onPage.clickOnSearchByAddressButton();
 		onPage.searchDistrict(value);
-		onPage.clickOnFirstThreeListings();
+		onPage.clickOnFirstSixListings();
 		onPage.clickOnBackFromNeighborhoodsPage();
 	}
 
@@ -856,5 +856,35 @@ public class SearchSteps extends ScenarioSteps {
 	@Step
 	public void clearMinimumAndMaximumPriceFilters() {
 		onPage.clearMinimumAndMaximumPriceFilters();
+  }
+  
+  @Step
+	public void deleteThreeFirstBuildingFilters() {
+		onPage.deleteFirstBuildingFilter();
+	}
+
+	@Step
+	public void checkIfBedAndBathThreeMinimumFiltersAreSelected() {
+		onPage.checkIfBedAndBathThreeMinimumFiltersAreSelected();
+	}
+
+	@Step
+	public void checkIfBedAndBathThreeRangeFiltersAreSelected() {
+		onPage.checkIfBedAndBathThreeRangeFiltersAreSelected();
+	}
+
+	@Step
+	public void fillInTotalRoomsMinField(String value) {
+		onPage.fillInTotalRoomsMinField(value);
+	}
+
+	@Step
+	public void checkIfTotalRoomsFieldIsFilledByCorrectNumber(String value) {
+		onPage.checkIfTotalRoomsFieldIsFilledByCorrectNumber(value);
+	}
+
+	@Step
+	public void clearTotalRoomsMinValueFiled() {
+		onPage.clearTotalRoomsMinValueFiled();
 	}
 }

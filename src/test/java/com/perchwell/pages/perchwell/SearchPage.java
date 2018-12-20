@@ -523,6 +523,18 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: ' ")
 	private List<WebElement> removeButtonList;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
+	private WebElement firstBuilding;
+
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 3+")
+	private WebElement selectedThreeBedsMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 3+")
+	private WebElement selectedThreeBathsMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "TOTAL ROOMS Minimum Value Input")
+	private WebElement totalRoomsMinValueField;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -1449,11 +1461,8 @@ public class SearchPage extends BasePage {
 		element(addBuildingFilterButton).click();
 	}
 
-	public void fillInBuildingSearchField() {
-	}
-
-	public void clickOnFirstThreeListings() {
-		waitABit(3000);
+	public void clickOnFirstSixListings() {
+		waitFor(ExpectedConditions.visibilityOf(firstBuilding));
 		for (int i =0; i<3; i++) {
 			buildingsList.get(i).click();
 		}
@@ -1464,7 +1473,42 @@ public class SearchPage extends BasePage {
 	}
 
 	public void deleteFirstBuildingFilter() {
-		removeButtonList.get(1).click();
+//		removeButtonList.get(0).click();
+		for (int i =0; i<3; i++) {
+			removeButtonList.get(i).click();
+		}
+	}
+
+	public void checkIfBedAndBathThreeMinimumFiltersAreSelected() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(selectedThreeBathsMinimumFilter).isDisplayed());
+		softAssertions.assertThat(element(selectedThreeBedsMinimumFilter).isDisplayed());
+		softAssertions.assertAll();
+	}
+
+	public void checkIfBedAndBathThreeRangeFiltersAreSelected() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(selectedFilterFor3Beds).isDisplayed());
+		softAssertions.assertThat(element(selectedFilterFor3Baths).isDisplayed());
+		softAssertions.assertAll();
+	}
+
+	public void fillInTotalRoomsMinField(String value) {
+		Helper.universalVerticalSwipe(totalRoomsSection);
+		element(totalRoomsMinValueField).sendKeys(value);
+		if(!Config.isAndroid()) {
+			getDriver().findElement(By.name("Done")).click();
+		}
+	}
+
+	public void checkIfTotalRoomsFieldIsFilledByCorrectNumber(String value) {
+		Helper.universalVerticalSwipe(totalRoomsSection);
+		Assert.assertEquals(value, element(totalRoomsMinValueField).getAttribute("value").substring(0,1));
+	}
+
+	public void clearTotalRoomsMinValueFiled() {
+		Helper.universalVerticalSwipe(totalRoomsSection);
+		element(totalRoomsMinValueField).clear();
 	}
 
 	public void checkPriceChangesShown() {

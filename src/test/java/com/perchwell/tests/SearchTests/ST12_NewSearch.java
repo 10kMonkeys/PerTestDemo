@@ -9,7 +9,6 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "SearchTests", "iOS_First", "Android_First", "First"})
 public class ST12_NewSearch extends SampleTest {
 
-	@Ignore
 	@Test
 	public void newSearch() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
@@ -58,7 +57,7 @@ public class ST12_NewSearch extends SampleTest {
 		user.inSearchMenu.openSavedSearches(); //search new
 		user.atSearchPage.clickOnPreviouslyCreatedSearch();
 		user.atPerchwellPage.clickOnList();
-		user.atPerchwellPage.shouldFilter1Bed1AndHalfBathBeApplied(); //should be fixed
+		user.atPerchwellPage.shouldFilter1Bed1AndHalfBathBeApplied("1 BD", "1½ BA");
 		user.atPerchwellPage.openFirstBuilding();
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
 		user.atOpenedBuildingPage.shouldFilterLaundryBLDG();
