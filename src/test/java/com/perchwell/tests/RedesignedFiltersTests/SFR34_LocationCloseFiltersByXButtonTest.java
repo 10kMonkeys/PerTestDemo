@@ -16,31 +16,31 @@ public class SFR34_LocationCloseFiltersByXButtonTest extends SampleTest {
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.deleteManhattan();
         user.atSearchPage.closeSearch();
-        user.atPerchwellPage.checkListingsQuantity();
+        user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.deleteManhattan();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsWereChanged();
+        user.atPerchwellPage.checkFilterIsApplied();
         user.atPerchwellPage.isListingsQuantity();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.closeSearch();
-        user.atPerchwellPage.checkListingsQuantity();
+        user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.checkManhattanIsNotVisible();
         user.atSearchPage.deleteBrooklyn();
         user.atSearchPage.closeSearch();
-        user.atPerchwellPage.checkListingsQuantity();
+        user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.atPerchwellPage.clickOnSaveButton();
         user.atSearchPage.setSearchName();
         user.atSearchPage.clickOnSaveButton();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.deleteBrooklyn();
         user.atSearchPage.closeSearch();
-        user.atPerchwellPage.checkListingsQuantity();
+        user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.closeSearch();
-        user.atPerchwellPage.checkListingsQuantity();
+        user.atPerchwellPage.checkListingsQuantityIsEqual();
     }
 }
