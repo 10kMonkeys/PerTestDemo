@@ -902,4 +902,79 @@ public class SearchSteps extends ScenarioSteps {
     public void deselectOutDoorSpaceCheckmarkFilter() {
         onPage.deselectOutDoorSpaceCheckmarkFilter();
     }
+
+    @Step
+    public void selectSponsorOption() {
+        onPage.selectSponsorOption();
+    }
+
+    @Step
+    public void checkIfSponsorOptionIsSelected() {
+        onPage.checkIfSponsorOptionIsSelected();
+    }
+
+    @Step
+    public void selectResaleOption() {
+        onPage.selectResaleOption();
+    }
+
+    @Step
+    public void fillInPricePerSquareFeetMinField(String value) {
+        onPage.fillInPricePerSquareFeetMinField(value);
+    }
+
+    @Step
+    public void checkIfMinPricePerSFTFieldIsFilledByCorrectNumber(String value) {
+        onPage.checkIfMinPricePerSFTFieldIsFilledByCorrectNumber(value);
+    }
+
+    @Step
+    public void clearMinPricePerSFTField() {
+        onPage.clearMinPricePerSFTField();
+    }
+
+    @Step
+    public void fillInMonthliesMinField(String value) {
+        onPage.fillInMonthliesMinField(value);
+    }
+
+    @Step
+    public void checkIfMinMonthliesFieldIsFilledByCorrectNumber(String value) {
+        onPage.checkIfMinMonthliesFieldIsFilledByCorrectNumber(value);
+    }
+
+    @Step
+    public void clearMinMonthliesField() {
+        onPage.clearMinMonthliesField();
+    }
+
+    @Step
+    public void fillInFinancingMinField(String value) {
+        onPage.fillInFinancingMinField(value);
+    }
+
+    @Step
+    public void checkIfMinFinancingFieldIsFilledByCorrectNumber(String value) {
+        onPage.checkIfMinFinancingFieldIsFilledByCorrectNumber(value);
+    }
+
+    @Step
+    public void clearMinFinancingField() {
+        onPage.clearMinFinancingField();
+    }
+
+    @Step
+    public void selectCorePublicOption() {
+        onPage.selectCorePublicOption();
+    }
+
+    @Step
+    public void checkIfCorePublicOptionIsSelected() {
+        onPage.checkIfCorePublicOptionIsSelected();
+    }
+
+    @Step
+    public void selectOtherPublicOption() {
+        onPage.selectOtherPublicOption();
+    }
 }

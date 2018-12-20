@@ -12,6 +12,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -546,6 +547,33 @@ public class SearchPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "Outdoor Space-checkmark-SELECTED")
     private WebElement selectedOutdoorSpaceCheckmarkFilter;
+
+    @iOSXCUITFindBy(accessibility = " Option: Sponsor")
+    private WebElement sponsorOption;
+
+    @iOSXCUITFindBy(accessibility = " Option Selected: Sponsor")
+    private WebElement selectedSponsorOption;
+
+    @iOSXCUITFindBy(accessibility = "RESALE/SPONSOR")
+    private WebElement resaleSponsorSection;
+
+    @iOSXCUITFindBy(accessibility = " Option: Resale")
+    private WebElement resaleOption;
+
+    @iOSXCUITFindBy(accessibility = "Asking Price Per FT² Minimum Value Input")
+    private WebElement minPricePerFTField;
+
+    @iOSXCUITFindBy(accessibility = "Monthlies Minimum Value Input")
+    private WebElement minMonthliesInputFiled;
+
+    @iOSXCUITFindBy(accessibility = "% Financing Minimum Value Input")
+    private WebElement financingMinValueField;
+
+    @iOSXCUITFindBy(accessibility = "CORE Public")
+    private WebElement corePublicOption;
+
+    @iOSXCUITFindBy(accessibility = "Other Public")
+    private WebElement otherPublicOption;
 
     public SearchPage(WebDriver driver) {
         super(driver);
@@ -1553,5 +1581,86 @@ public class SearchPage extends BasePage {
         softAssertions.assertThat(element(selectedLaundryBLDGFilter).isDisplayed());
         softAssertions.assertThat(element(selectedOutdoorSpaceCheckmarkFilter).isDisplayed());
         softAssertions.assertAll();
+    }
+
+    public void selectSponsorOption() {
+        Helper.universalVerticalSwipe(resaleSponsorSection);
+        element(sponsorOption).click();
+    }
+
+    public void checkIfSponsorOptionIsSelected() {
+        Helper.universalVerticalSwipe(resaleSponsorSection);
+        element(selectedSponsorOption).shouldBeVisible();
+    }
+
+    public void selectResaleOption() {
+        Helper.universalVerticalSwipe(resaleSponsorSection);
+        element(resaleOption).click();
+    }
+
+    public void fillInPricePerSquareFeetMinField(String value) {
+        Helper.universalVerticalSwipe(minPricePerFTField);
+        element(minPricePerFTField).sendKeys(value);
+        if (!Config.isAndroid()) {
+            getDriver().findElement(By.name("Done")).click();
+        }
+    }
+
+    public void checkIfMinPricePerSFTFieldIsFilledByCorrectNumber(String value) {
+        Helper.universalVerticalSwipe(minPricePerFTField);
+        System.out.println(minPricePerFTField.getAttribute("value").replace("$", "").replace(",", ""));
+        Assert.assertEquals(value, minPricePerFTField.getAttribute("value").replace("$", "").replace(",", ""));
+    }
+
+    public void clearMinPricePerSFTField() {
+        element(minPricePerFTField).clear();
+    }
+
+    public void fillInMonthliesMinField(String value) {
+        Helper.universalVerticalSwipe(minMonthliesInputFiled);
+        element(minMonthliesInputFiled).sendKeys(value);
+        if (!Config.isAndroid()) {
+            getDriver().findElement(By.name("Done")).click();
+        }
+    }
+
+    public void checkIfMinMonthliesFieldIsFilledByCorrectNumber(String value) {
+        Helper.universalVerticalSwipe(minMonthliesInputFiled);
+        System.out.println(minMonthliesInputFiled.getAttribute("value").replace("$", "").replace(",", ""));
+        Assert.assertEquals(value, minMonthliesInputFiled.getAttribute("value").replace("$", "").replace(",", ""));
+    }
+
+    public void clearMinMonthliesField() {
+        element(minMonthliesInputFiled).clear();
+    }
+
+    public void fillInFinancingMinField(String value) {
+        Helper.universalVerticalSwipe(financingMinValueField);
+        element(financingMinValueField).sendKeys(value);
+        if (!Config.isAndroid()) {
+            getDriver().findElement(By.name("Done")).click();
+        }
+    }
+
+    public void checkIfMinFinancingFieldIsFilledByCorrectNumber(String value) {
+        Helper.universalVerticalSwipe(financingMinValueField);
+        System.out.println(financingMinValueField.getAttribute("value").replace("%", ""));
+        Assert.assertEquals(value, financingMinValueField.getAttribute("value").replace("%", "").replace(" ", ""));
+    }
+
+    public void clearMinFinancingField() {
+        element(financingMinValueField).clear();
+    }
+
+    public void selectCorePublicOption() {
+        Helper.universalVerticalSwipe(corePublicOption);
+        element(corePublicOption).click();
+    }
+
+    public void checkIfCorePublicOptionIsSelected() {
+    }
+
+    public void selectOtherPublicOption() {
+        element(otherPublicOption).click();
     }
 }
