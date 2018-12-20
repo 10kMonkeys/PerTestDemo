@@ -526,6 +526,15 @@ public class SearchPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
 	private WebElement firstBuilding;
 
+	@iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 3+")
+	private WebElement selectedThreeBedsMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 3+")
+	private WebElement selectedThreeBathsMinimumFilter;
+
+	@iOSXCUITFindBy(accessibility = "TOTAL ROOMS Minimum Value Input")
+	private WebElement totalRoomsMinValueField;
+
 	public SearchPage(WebDriver driver) {
 		super(driver);
 	}
@@ -1469,5 +1478,37 @@ public class SearchPage extends BasePage {
 		for (int i =0; i<3; i++) {
 			removeButtonList.get(i).click();
 		}
+	}
+
+	public void checkIfBedAndBathThreeMinimumFiltersAreSelected() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(selectedThreeBathsMinimumFilter).isDisplayed());
+		softAssertions.assertThat(element(selectedThreeBedsMinimumFilter).isDisplayed());
+		softAssertions.assertAll();
+	}
+
+	public void checkIfBedAndBathThreeRangeFiltersAreSelected() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(element(selectedFilterFor3Beds).isDisplayed());
+		softAssertions.assertThat(element(selectedFilterFor3Baths).isDisplayed());
+		softAssertions.assertAll();
+	}
+
+	public void fillInTotalRoomsMinField(String value) {
+		Helper.universalVerticalSwipe(totalRoomsSection);
+		element(totalRoomsMinValueField).sendKeys(value);
+		if(!Config.isAndroid()) {
+			getDriver().findElement(By.name("Done")).click();
+		}
+	}
+
+	public void checkIfTotalRoomsFieldIsFilledByCorrectNumber(String value) {
+		Helper.universalVerticalSwipe(totalRoomsSection);
+		Assert.assertEquals(value, element(totalRoomsMinValueField).getAttribute("value").substring(0,1));
+	}
+
+	public void clearTotalRoomsMinValueFiled() {
+		Helper.universalVerticalSwipe(totalRoomsSection);
+		element(totalRoomsMinValueField).clear();
 	}
 }

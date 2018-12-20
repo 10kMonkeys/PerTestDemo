@@ -393,4 +393,9 @@ public class PerchwellSteps extends ScenarioSteps {
 		onPage.checkListingsQuantityIsEqual();
 
 	}
+
+	@Step
+	public void checkIfListingsAmountIsLessThenInitial() {
+		onPage.checkIfListingsAmountIsLessThenInitial();
+	}
 }
