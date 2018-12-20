@@ -1057,7 +1057,7 @@ public class SearchPage extends BasePage {
 
     public void clickOnLaundryBuildingFilter() {
         Helper.swipeDownUntilElementVisible(laundryBLDGFilterButton);
-        element(laundryBLDGFilterButton);
+        element(laundryBLDGFilterButton).click();
     }
 
     public void clickOnPetsFilter() {
@@ -1538,14 +1538,9 @@ public class SearchPage extends BasePage {
         }
     }
 
-    public void selectOutdoorSpaceCheckmarkFilter() {
+    public void clickOnOutdoorSpaceFilter() {
         Helper.universalVerticalSwipe(outdoorSpaceCheckmarkFiler);
         element(outdoorSpaceCheckmarkFiler).click();
-    }
-
-    public void selectPrewarCheckmarkFilter() {
-        Helper.universalVerticalSwipe(prewarCheckmarkFilter);
-        element(prewarCheckmarkFilter).click();
     }
 
     public void deselectOutDoorSpaceCheckmarkFilter() {
@@ -1553,10 +1548,9 @@ public class SearchPage extends BasePage {
         element(selectedOutdoorSpaceCheckmarkFilter).click();
     }
 
-    public void checkPrewarAndOutdoorSpaceFiltersAreSelected() {
-        Helper.universalVerticalSwipe(selectedPrewarCheckmarkFilter);
+    public void checkLaundryBuildingAndOutdoorSpaceFiltersAreSelected() {
         SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(element(selectedPrewarCheckmarkFilter).isDisplayed());
+        softAssertions.assertThat(element(laundryBLDGFilterButton).isDisplayed());
         softAssertions.assertThat(element(selectedOutdoorSpaceCheckmarkFilter).isDisplayed());
         softAssertions.assertAll();
     }

@@ -889,18 +889,13 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectOutdoorSpaceCheckmarkFilter() {
-        onPage.selectOutdoorSpaceCheckmarkFilter();
+    public void clickOnOutdoorSpaceFilter() {
+        onPage.clickOnOutdoorSpaceFilter();
     }
 
     @Step
-    public void selectPrewarCheckmarkFilter() {
-        onPage.selectPrewarCheckmarkFilter();
-    }
-
-    @Step
-    public void checkPrewarAndOutdoorSpaceFiltersAreSelected() {
-        onPage.checkPrewarAndOutdoorSpaceFiltersAreSelected();
+    public void checkLaundryBuildingAndOutdoorSpaceFiltersAreSelected() {
+        onPage.checkLaundryBuildingAndOutdoorSpaceFiltersAreSelected();
     }
 
     @Step

@@ -15,14 +15,14 @@ public class SFR43_CloseFeaturesAndAmenitiesFiltersByXButton extends SampleTest 
         user.atPerchwellPage.isListingsQuantity();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
-        user.atSearchPage.selectPrewarCheckmarkFilter();
-        user.atSearchPage.selectOutdoorSpaceCheckmarkFilter();
+        user.atSearchPage.clickOnLaundryBuildingFilter();
+        user.atSearchPage.clickOnOutdoorSpaceFilter();
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
-        user.atSearchPage.selectPrewarCheckmarkFilter();
-        user.atSearchPage.selectOutdoorSpaceCheckmarkFilter();
+        user.atSearchPage.clickOnLaundryBuildingFilter();
+        user.atSearchPage.clickOnOutdoorSpaceFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkFilterIsApplied();
         user.atPerchwellPage.isListingsQuantity();
@@ -32,7 +32,7 @@ public class SFR43_CloseFeaturesAndAmenitiesFiltersByXButton extends SampleTest 
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
-        user.atSearchPage.checkPrewarAndOutdoorSpaceFiltersAreSelected();
+        user.atSearchPage.checkLaundryBuildingAndOutdoorSpaceFiltersAreSelected();
         user.atSearchPage.deselectOutDoorSpaceCheckmarkFilter();
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
@@ -41,7 +41,7 @@ public class SFR43_CloseFeaturesAndAmenitiesFiltersByXButton extends SampleTest 
         user.atSearchPage.clickOnSaveButton();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
-        user.atSearchPage.checkPrewarAndOutdoorSpaceFiltersAreSelected();
+        user.atSearchPage.checkLaundryBuildingAndOutdoorSpaceFiltersAreSelected();
         user.atSearchPage.deselectOutDoorSpaceCheckmarkFilter();
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
