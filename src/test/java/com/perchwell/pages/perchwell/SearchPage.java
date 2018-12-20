@@ -1504,7 +1504,7 @@ public class SearchPage extends BasePage {
 
 	public void checkIfTotalRoomsFieldIsFilledByCorrectNumber(String value) {
 		Helper.universalVerticalSwipe(totalRoomsSection);
-		Assert.assertEquals(Integer.parseInt(value), Integer.parseInt(element(totalRoomsMinValueField).getAttribute("value").substring(0,1)));
+		Assert.assertEquals(value, element(totalRoomsMinValueField).getAttribute("value").substring(0,1));
 	}
 
 	public void clearTotalRoomsMinValueFiled() {

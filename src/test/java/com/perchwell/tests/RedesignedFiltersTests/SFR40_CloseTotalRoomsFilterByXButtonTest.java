@@ -20,7 +20,7 @@ public class SFR40_CloseTotalRoomsFilterByXButtonTest extends SampleTest {
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.fillInTotalRoomsMinField("8");
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsAmountIsLessThenInitial();
+        user.atPerchwellPage.checkFilterIsApplied();
         user.atPerchwellPage.isListingsQuantity();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnResetFilter();

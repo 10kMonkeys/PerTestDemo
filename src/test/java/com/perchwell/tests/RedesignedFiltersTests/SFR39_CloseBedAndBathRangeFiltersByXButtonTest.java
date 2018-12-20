@@ -26,7 +26,7 @@ public class SFR39_CloseBedAndBathRangeFiltersByXButtonTest extends SampleTest {
         user.atSearchPage.selectFilter3Beds();
         user.atSearchPage.selectFilter3Baths();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfListingsAmountIsLessThenInitial();
+        user.atPerchwellPage.checkFilterIsApplied();
         user.atPerchwellPage.isListingsQuantity();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnResetFilter();
