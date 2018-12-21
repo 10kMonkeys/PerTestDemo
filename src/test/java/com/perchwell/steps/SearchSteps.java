@@ -947,4 +947,34 @@ public class SearchSteps extends ScenarioSteps {
     public void checkIfFieldIsFilledByCorrectValue(String element, String value) {
         onPage.checkIfFieldIsFilledByCorrectValue(element, value);
     }
+
+    @Step
+    public void enterTextInTextSearchField(String value) {
+        onPage.enterTextInTextSearchField(value);
+    }
+
+    @Step
+    public void clearTextSearchField() {
+        onPage.clearTextSearchField();
+    }
+
+    @Step
+    public void checkThatAllOfTheseTermsButtonSelectedAndTextSearchFieldSavedText(String value) {
+        onPage.checkThatAllOfTheseTermsButtonSelectedAndTextSearchFieldSavedText(value);
+    }
+
+    @Step
+    public void clickOnAllOfTheseTermsButton() {
+        onPage.clickOnAllOfTheseTermsButton();
+    }
+
+    @Step
+    public void clickOnAnyOfTheseTermsButton() {
+        onPage.clickOnAnyOfTheseTermsButton();
+    }
+
+    @Step
+    public void checkThatAnyOfTheseTermsButtonNotSelectedAndTextSearchFieldNotSavedText(String value) {
+        onPage.checkThatAnyOfTheseTermsButtonNotSelectedAndTextSearchFieldNotSavedText(value);
+    }
 }

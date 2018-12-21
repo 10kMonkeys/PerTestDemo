@@ -575,6 +575,24 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Other Public")
     private WebElement otherPublicOption;
 
+    @iOSXCUITFindBy(accessibility = " Option Selected: Any of these terms")
+    private WebElement selectedAnyOfTheseTermsButton;
+
+    @iOSXCUITFindBy(accessibility = " Option: Any of these terms")
+    private WebElement anyOfTheseTermsButton;
+
+    @iOSXCUITFindBy(accessibility = " Option Selected: All of these terms")
+    private WebElement selectedAllOfTheseTermsButton;
+
+    @iOSXCUITFindBy(accessibility = " Option: All of these terms")
+    private WebElement allOfTheseTermsButton;
+
+    @iOSXCUITFindBy(xpath = "//*/XCUIElementTypeWindow[1]/*/*/*/*/*/*/XCUIElementTypeCell[11]/XCUIElementTypeTextField")
+    private WebElement textSearchField;
+
+    @iOSXCUITFindBy(accessibility = "Return")
+    private WebElement returnButtonOnKeyboard;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -1632,5 +1650,38 @@ public class SearchPage extends BasePage {
         String elementsValue = elementToCheck.getAttribute("value").replaceAll("[%$, .]", "");
         Helper.universalVerticalSwipe(elementToCheck);
         Assert.assertEquals(value, elementsValue);
+    }
+
+    public void enterTextInTextSearchField(String value) {
+        Helper.universalVerticalSwipe(textSearchField);
+        element(textSearchField).sendKeys(value);
+        element(returnButtonOnKeyboard).click();
+    }
+
+    public void clearTextSearchField() {
+        Helper.universalVerticalSwipe(textSearchField);
+        element(textSearchField).clear();
+    }
+
+    public void checkThatAllOfTheseTermsButtonSelectedAndTextSearchFieldSavedText(String value) {
+        SoftAssertions softAssertions = new SoftAssertions();
+        softAssertions.assertThat(element(selectedAllOfTheseTermsButton).isDisplayed());
+        softAssertions.assertThat(element(textSearchField).getAttribute("value")).isEqualTo(value);
+        softAssertions.assertAll();
+    }
+
+    public void clickOnAllOfTheseTermsButton() {
+        element(allOfTheseTermsButton).click();
+    }
+
+    public void clickOnAnyOfTheseTermsButton() {
+        element(anyOfTheseTermsButton).click();
+    }
+
+    public void checkThatAnyOfTheseTermsButtonNotSelectedAndTextSearchFieldNotSavedText(String value) {
+        SoftAssertions softAssertions = new SoftAssertions();
+        softAssertions.assertThat(element(anyOfTheseTermsButton).isDisplayed());
+        softAssertions.assertThat(element(textSearchField).getAttribute("value")).isNotEqualTo(value);
+        softAssertions.assertAll();
     }
 }
