@@ -959,8 +959,8 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkThatAllOfTheseTermsButtonSelectedAndTextSearchFieldSavedText(String value) {
-        onPage.checkThatAllOfTheseTermsButtonSelectedAndTextSearchFieldSavedText(value);
+    public void checkThatAllOfTheseTermsButtonSelected() {
+        onPage.checkThatAllOfTheseTermsButtonSelected();
     }
 
     @Step
@@ -974,7 +974,7 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkThatAnyOfTheseTermsButtonNotSelectedAndTextSearchFieldNotSavedText(String value) {
-        onPage.checkThatAnyOfTheseTermsButtonNotSelectedAndTextSearchFieldNotSavedText(value);
+    public void checkThatTextSearchFieldSavedText(String value) {
+        onPage.checkThatTextSearchFieldSavedTest(value);
     }
 }

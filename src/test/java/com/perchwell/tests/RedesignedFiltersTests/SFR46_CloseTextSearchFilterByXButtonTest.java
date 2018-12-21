@@ -28,7 +28,8 @@ public class SFR46_CloseTextSearchFilterByXButtonTest extends SampleTest {
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.checkThatAllOfTheseTermsButtonSelectedAndTextSearchFieldSavedText("Outdoor Patio");
+        user.atSearchPage.checkThatAllOfTheseTermsButtonSelected();
+        user.atSearchPage.checkThatTextSearchFieldSavedText("Outdoor Patio");
         user.atSearchPage.clearTextSearchField();
         user.atSearchPage.enterTextInTextSearchField("Gym");
         user.atSearchPage.clickOnAnyOfTheseTermsButton();
@@ -38,7 +39,6 @@ public class SFR46_CloseTextSearchFilterByXButtonTest extends SampleTest {
         user.atSearchPage.setSearchName();
         user.atSearchPage.clickOnSaveButton();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.checkThatAnyOfTheseTermsButtonNotSelectedAndTextSearchFieldNotSavedText("Gym");
         user.atSearchPage.clearTextSearchField();
         user.atSearchPage.enterTextInTextSearchField("Gym");
         user.atSearchPage.clickOnAnyOfTheseTermsButton();

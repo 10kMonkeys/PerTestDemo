@@ -587,7 +587,7 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = " Option: All of these terms")
     private WebElement allOfTheseTermsButton;
 
-    @iOSXCUITFindBy(xpath = "//*/XCUIElementTypeWindow[1]/*/*/*/*/*/*/XCUIElementTypeCell[11]/XCUIElementTypeTextField")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[11]/XCUIElementTypeTextField")
     private WebElement textSearchField;
 
     @iOSXCUITFindBy(accessibility = "Return")
@@ -1663,11 +1663,14 @@ public class SearchPage extends BasePage {
         element(textSearchField).clear();
     }
 
-    public void checkThatAllOfTheseTermsButtonSelectedAndTextSearchFieldSavedText(String value) {
-        SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(element(selectedAllOfTheseTermsButton).isDisplayed());
-        softAssertions.assertThat(element(textSearchField).getAttribute("value")).isEqualTo(value);
-        softAssertions.assertAll();
+    public void checkThatAllOfTheseTermsButtonSelected() {
+        Helper.universalVerticalSwipe(selectedAllOfTheseTermsButton);
+        Assert.assertTrue(element(selectedAllOfTheseTermsButton).isDisplayed());
+    }
+
+    public void checkThatTextSearchFieldSavedTest(String value) {
+        Helper.universalVerticalSwipe(textSearchField);
+        Assert.assertEquals(value, element(textSearchField).getAttribute("value"));
     }
 
     public void clickOnAllOfTheseTermsButton() {
@@ -1676,12 +1679,5 @@ public class SearchPage extends BasePage {
 
     public void clickOnAnyOfTheseTermsButton() {
         element(anyOfTheseTermsButton).click();
-    }
-
-    public void checkThatAnyOfTheseTermsButtonNotSelectedAndTextSearchFieldNotSavedText(String value) {
-        SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(element(anyOfTheseTermsButton).isDisplayed());
-        softAssertions.assertThat(element(textSearchField).getAttribute("value")).isNotEqualTo(value);
-        softAssertions.assertAll();
     }
 }
