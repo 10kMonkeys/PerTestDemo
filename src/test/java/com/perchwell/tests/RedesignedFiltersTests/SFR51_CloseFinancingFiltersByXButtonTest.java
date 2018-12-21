@@ -1,6 +1,7 @@
 package com.perchwell.tests.RedesignedFiltersTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.Filters;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
@@ -27,7 +28,7 @@ public class SFR51_CloseFinancingFiltersByXButtonTest extends SampleTest {
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.checkIfMinFinancingFieldIsFilledByCorrectNumber("80");
+        user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.FINANCING_MIN_VALUE, "80");
         user.atSearchPage.clearMinFinancingField();
         user.atSearchPage.fillInFinancingMinField("40");
         user.atSearchPage.closeSearch();

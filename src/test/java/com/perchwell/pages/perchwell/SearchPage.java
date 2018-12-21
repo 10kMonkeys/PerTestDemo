@@ -1497,10 +1497,6 @@ public class SearchPage extends BasePage {
         element(manhattanCheckedCheckbox).shouldNotBeVisible();
     }
 
-    public void clickOnAddBuildingFilterButton() {
-        element(addBuildingFilterButton).click();
-    }
-
     public void clickOnFirstSixListings() {
         waitFor(ExpectedConditions.visibilityOf(firstBuilding));
         for (int i = 0; i < 3; i++) {
@@ -1541,21 +1537,9 @@ public class SearchPage extends BasePage {
         }
     }
 
-    public void checkIfTotalRoomsFieldIsFilledByCorrectNumber(String value) {
-        Helper.universalVerticalSwipe(totalRoomsSection);
-        Assert.assertEquals(value, element(totalRoomsMinValueField).getAttribute("value").substring(0, 1));
-    }
-
     public void clearTotalRoomsMinValueFiled() {
         Helper.universalVerticalSwipe(totalRoomsSection);
         element(totalRoomsMinValueField).clear();
-    }
-
-    public void checkPriceChangesShown() {
-        SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(element(minimumPriceTextBox).getValue()).isNotEmpty();
-        softAssertions.assertThat(element(maximumPriceTextBox).getValue()).isNotEmpty();
-        softAssertions.assertAll();
     }
 
     public void clearMinimumAndMaximumPriceFilters() {
@@ -1606,12 +1590,6 @@ public class SearchPage extends BasePage {
         }
     }
 
-    public void checkIfMinPricePerSFTFieldIsFilledByCorrectNumber(String value) {
-        Helper.universalVerticalSwipe(minPricePerFTField);
-        System.out.println(minPricePerFTField.getAttribute("value").replace("$", "").replace(",", ""));
-        Assert.assertEquals(value, minPricePerFTField.getAttribute("value").replace("$", "").replace(",", ""));
-    }
-
     public void clearMinPricePerSFTField() {
         element(minPricePerFTField).clear();
     }
@@ -1622,12 +1600,6 @@ public class SearchPage extends BasePage {
         if (!Config.isAndroid()) {
             getDriver().findElement(By.name("Done")).click();
         }
-    }
-
-    public void checkIfMinMonthliesFieldIsFilledByCorrectNumber(String value) {
-        Helper.universalVerticalSwipe(minMonthliesInputFiled);
-        System.out.println(minMonthliesInputFiled.getAttribute("value").replace("$", "").replace(",", ""));
-        Assert.assertEquals(value, minMonthliesInputFiled.getAttribute("value").replace("$", "").replace(",", ""));
     }
 
     public void clearMinMonthliesField() {
@@ -1642,12 +1614,6 @@ public class SearchPage extends BasePage {
         }
     }
 
-    public void checkIfMinFinancingFieldIsFilledByCorrectNumber(String value) {
-        Helper.universalVerticalSwipe(financingMinValueField);
-        System.out.println(financingMinValueField.getAttribute("value").replace("%", ""));
-        Assert.assertEquals(value, financingMinValueField.getAttribute("value").replace("%", "").replace(" ", ""));
-    }
-
     public void clearMinFinancingField() {
         element(financingMinValueField).clear();
     }
@@ -1657,10 +1623,14 @@ public class SearchPage extends BasePage {
         element(corePublicOption).click();
     }
 
-    public void checkIfCorePublicOptionIsSelected() {
-    }
-
     public void selectOtherPublicOption() {
         element(otherPublicOption).click();
+    }
+
+    public void checkIfFieldIsFilledByCorrectValue(String element, String value) {
+        WebElement elementToCheck = getDriver().findElement(MobileBy.AccessibilityId(element));
+        String elementsValue = elementToCheck.getAttribute("value").replaceAll("[%$, .]", "");
+        Helper.universalVerticalSwipe(elementToCheck);
+        Assert.assertEquals(value, elementsValue);
     }
 }

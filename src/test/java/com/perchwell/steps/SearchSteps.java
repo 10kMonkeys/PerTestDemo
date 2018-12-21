@@ -844,16 +844,6 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void deleteFirstBuildingFilter() {
-        onPage.deleteFirstBuildingFilter();
-    }
-
-    @Step
-    public void checkPriceChangesShown() {
-        onPage.checkPriceChangesShown();
-    }
-
-    @Step
     public void clearMinimumAndMaximumPriceFilters() {
         onPage.clearMinimumAndMaximumPriceFilters();
     }
@@ -876,11 +866,6 @@ public class SearchSteps extends ScenarioSteps {
     @Step
     public void fillInTotalRoomsMinField(String value) {
         onPage.fillInTotalRoomsMinField(value);
-    }
-
-    @Step
-    public void checkIfTotalRoomsFieldIsFilledByCorrectNumber(String value) {
-        onPage.checkIfTotalRoomsFieldIsFilledByCorrectNumber(value);
     }
 
     @Step
@@ -924,11 +909,6 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkIfMinPricePerSFTFieldIsFilledByCorrectNumber(String value) {
-        onPage.checkIfMinPricePerSFTFieldIsFilledByCorrectNumber(value);
-    }
-
-    @Step
     public void clearMinPricePerSFTField() {
         onPage.clearMinPricePerSFTField();
     }
@@ -936,11 +916,6 @@ public class SearchSteps extends ScenarioSteps {
     @Step
     public void fillInMonthliesMinField(String value) {
         onPage.fillInMonthliesMinField(value);
-    }
-
-    @Step
-    public void checkIfMinMonthliesFieldIsFilledByCorrectNumber(String value) {
-        onPage.checkIfMinMonthliesFieldIsFilledByCorrectNumber(value);
     }
 
     @Step
@@ -954,11 +929,6 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkIfMinFinancingFieldIsFilledByCorrectNumber(String value) {
-        onPage.checkIfMinFinancingFieldIsFilledByCorrectNumber(value);
-    }
-
-    @Step
     public void clearMinFinancingField() {
         onPage.clearMinFinancingField();
     }
@@ -969,12 +939,12 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkIfCorePublicOptionIsSelected() {
-        onPage.checkIfCorePublicOptionIsSelected();
+    public void selectOtherPublicOption() {
+        onPage.selectOtherPublicOption();
     }
 
     @Step
-    public void selectOtherPublicOption() {
-        onPage.selectOtherPublicOption();
+    public void checkIfFieldIsFilledByCorrectValue(String element, String value) {
+        onPage.checkIfFieldIsFilledByCorrectValue(element, value);
     }
 }

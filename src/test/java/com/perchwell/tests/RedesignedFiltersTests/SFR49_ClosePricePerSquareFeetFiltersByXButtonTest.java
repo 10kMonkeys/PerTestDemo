@@ -1,6 +1,7 @@
 package com.perchwell.tests.RedesignedFiltersTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.Filters;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
@@ -27,7 +28,7 @@ public class SFR49_ClosePricePerSquareFeetFiltersByXButtonTest extends SampleTes
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.checkIfMinPricePerSFTFieldIsFilledByCorrectNumber("2000");
+        user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.PRICE_PER_SQFT, "2000");
         user.atSearchPage.clearMinPricePerSFTField();
         user.atSearchPage.fillInPricePerSquareFeetMinField("3000");
         user.atSearchPage.closeSearch();

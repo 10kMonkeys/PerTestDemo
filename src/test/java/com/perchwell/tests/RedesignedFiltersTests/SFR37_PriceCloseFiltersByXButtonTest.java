@@ -1,6 +1,7 @@
 package com.perchwell.tests.RedesignedFiltersTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.Filters;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
@@ -29,7 +30,8 @@ public class SFR37_PriceCloseFiltersByXButtonTest extends SampleTest {
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.checkPriceChangesShown();
+        user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.ASKING_PRICE_MIN_VALUE, "1000");
+        user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.ASKING_PRICE_MAX_VALUE, "2000");
         user.atSearchPage.clearMinimumAndMaximumPriceFilters();
         user.atSearchPage.setMinimumPriceFilter("100000");
         user.atSearchPage.setMaximumPriceFilter("500000");

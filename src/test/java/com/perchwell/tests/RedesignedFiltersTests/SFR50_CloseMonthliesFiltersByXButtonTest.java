@@ -1,6 +1,7 @@
 package com.perchwell.tests.RedesignedFiltersTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.Filters;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
@@ -27,7 +28,7 @@ public class SFR50_CloseMonthliesFiltersByXButtonTest extends SampleTest {
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.checkIfMinMonthliesFieldIsFilledByCorrectNumber("3000");
+        user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.MONTHLIES_MIN_VALUE, "3000");
         user.atSearchPage.clearMinMonthliesField();
         user.atSearchPage.fillInMonthliesMinField("2000");
         user.atSearchPage.closeSearch();
