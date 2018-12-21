@@ -12,6 +12,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -546,6 +547,51 @@ public class SearchPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "Outdoor Space-checkmark-SELECTED")
     private WebElement selectedOutdoorSpaceCheckmarkFilter;
+
+    @iOSXCUITFindBy(accessibility = " Option: Sponsor")
+    private WebElement sponsorOption;
+
+    @iOSXCUITFindBy(accessibility = " Option Selected: Sponsor")
+    private WebElement selectedSponsorOption;
+
+    @iOSXCUITFindBy(accessibility = "RESALE/SPONSOR")
+    private WebElement resaleSponsorSection;
+
+    @iOSXCUITFindBy(accessibility = " Option: Resale")
+    private WebElement resaleOption;
+
+    @iOSXCUITFindBy(accessibility = "Asking Price Per FT² Minimum Value Input")
+    private WebElement minPricePerFTField;
+
+    @iOSXCUITFindBy(accessibility = "Monthlies Minimum Value Input")
+    private WebElement minMonthliesInputFiled;
+
+    @iOSXCUITFindBy(accessibility = "% Financing Minimum Value Input")
+    private WebElement financingMinValueField;
+
+    @iOSXCUITFindBy(accessibility = "CORE Public")
+    private WebElement corePublicOption;
+
+    @iOSXCUITFindBy(accessibility = "Other Public")
+    private WebElement otherPublicOption;
+
+    @iOSXCUITFindBy(accessibility = " Option Selected: Any of these terms")
+    private WebElement selectedAnyOfTheseTermsButton;
+
+    @iOSXCUITFindBy(accessibility = " Option: Any of these terms")
+    private WebElement anyOfTheseTermsButton;
+
+    @iOSXCUITFindBy(accessibility = " Option Selected: All of these terms")
+    private WebElement selectedAllOfTheseTermsButton;
+
+    @iOSXCUITFindBy(accessibility = " Option: All of these terms")
+    private WebElement allOfTheseTermsButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[11]/XCUIElementTypeTextField")
+    private WebElement textSearchField;
+
+    @iOSXCUITFindBy(accessibility = "Return")
+    private WebElement returnButtonOnKeyboard;
 
     public SearchPage(WebDriver driver) {
         super(driver);
@@ -1469,10 +1515,6 @@ public class SearchPage extends BasePage {
         element(manhattanCheckedCheckbox).shouldNotBeVisible();
     }
 
-    public void clickOnAddBuildingFilterButton() {
-        element(addBuildingFilterButton).click();
-    }
-
     public void clickOnFirstSixListings() {
         waitFor(ExpectedConditions.visibilityOf(firstBuilding));
         for (int i = 0; i < 3; i++) {
@@ -1513,21 +1555,9 @@ public class SearchPage extends BasePage {
         }
     }
 
-    public void checkIfTotalRoomsFieldIsFilledByCorrectNumber(String value) {
-        Helper.universalVerticalSwipe(totalRoomsSection);
-        Assert.assertEquals(value, element(totalRoomsMinValueField).getAttribute("value").substring(0, 1));
-    }
-
     public void clearTotalRoomsMinValueFiled() {
         Helper.universalVerticalSwipe(totalRoomsSection);
         element(totalRoomsMinValueField).clear();
-    }
-
-    public void checkPriceChangesShown() {
-        SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(element(minimumPriceTextBox).getValue()).isNotEmpty();
-        softAssertions.assertThat(element(maximumPriceTextBox).getValue()).isNotEmpty();
-        softAssertions.assertAll();
     }
 
     public void clearMinimumAndMaximumPriceFilters() {
@@ -1553,5 +1583,101 @@ public class SearchPage extends BasePage {
         softAssertions.assertThat(element(selectedLaundryBLDGFilter).isDisplayed());
         softAssertions.assertThat(element(selectedOutdoorSpaceCheckmarkFilter).isDisplayed());
         softAssertions.assertAll();
+    }
+
+    public void selectSponsorOption() {
+        Helper.universalVerticalSwipe(resaleSponsorSection);
+        element(sponsorOption).click();
+    }
+
+    public void checkIfSponsorOptionIsSelected() {
+        Helper.universalVerticalSwipe(resaleSponsorSection);
+        element(selectedSponsorOption).shouldBeVisible();
+    }
+
+    public void selectResaleOption() {
+        Helper.universalVerticalSwipe(resaleSponsorSection);
+        element(resaleOption).click();
+    }
+
+    public void fillInPricePerSquareFeetMinField(String value) {
+        Helper.universalVerticalSwipe(minPricePerFTField);
+        element(minPricePerFTField).sendKeys(value);
+        if (!Config.isAndroid()) {
+            getDriver().findElement(By.name("Done")).click();
+        }
+    }
+
+    public void clearMinPricePerSFTField() {
+        element(minPricePerFTField).clear();
+    }
+
+    public void fillInMonthliesMinField(String value) {
+        Helper.universalVerticalSwipe(minMonthliesInputFiled);
+        element(minMonthliesInputFiled).sendKeys(value);
+        if (!Config.isAndroid()) {
+            getDriver().findElement(By.name("Done")).click();
+        }
+    }
+
+    public void clearMinMonthliesField() {
+        element(minMonthliesInputFiled).clear();
+    }
+
+    public void fillInFinancingMinField(String value) {
+        Helper.universalVerticalSwipe(financingMinValueField);
+        element(financingMinValueField).sendKeys(value);
+        if (!Config.isAndroid()) {
+            getDriver().findElement(By.name("Done")).click();
+        }
+    }
+
+    public void clearMinFinancingField() {
+        element(financingMinValueField).clear();
+    }
+
+    public void selectCorePublicOption() {
+        Helper.universalVerticalSwipe(corePublicOption);
+        element(corePublicOption).click();
+    }
+
+    public void selectOtherPublicOption() {
+        element(otherPublicOption).click();
+    }
+
+    public void checkIfFieldIsFilledByCorrectValue(String element, String value) {
+        WebElement elementToCheck = getDriver().findElement(MobileBy.AccessibilityId(element));
+        String elementsValue = elementToCheck.getAttribute("value").replaceAll("[%$, .]", "");
+        Helper.universalVerticalSwipe(elementToCheck);
+        Assert.assertEquals(value, elementsValue);
+    }
+
+    public void enterTextInTextSearchField(String value) {
+        Helper.universalVerticalSwipe(textSearchField);
+        element(textSearchField).sendKeys(value);
+        element(returnButtonOnKeyboard).click();
+    }
+
+    public void clearTextSearchField() {
+        Helper.universalVerticalSwipe(textSearchField);
+        element(textSearchField).clear();
+    }
+
+    public void checkThatAllOfTheseTermsButtonSelected() {
+        Helper.universalVerticalSwipe(selectedAllOfTheseTermsButton);
+        Assert.assertTrue(element(selectedAllOfTheseTermsButton).isDisplayed());
+    }
+
+    public void checkThatTextSearchFieldSavedTest(String value) {
+        Helper.universalVerticalSwipe(textSearchField);
+        Assert.assertEquals(value, element(textSearchField).getAttribute("value"));
+    }
+
+    public void clickOnAllOfTheseTermsButton() {
+        element(allOfTheseTermsButton).click();
+    }
+
+    public void clickOnAnyOfTheseTermsButton() {
+        element(anyOfTheseTermsButton).click();
     }
 }

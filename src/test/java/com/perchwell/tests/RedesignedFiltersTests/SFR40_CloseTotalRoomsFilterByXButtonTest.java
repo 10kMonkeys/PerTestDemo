@@ -1,6 +1,7 @@
 package com.perchwell.tests.RedesignedFiltersTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.Filters;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
@@ -27,7 +28,7 @@ public class SFR40_CloseTotalRoomsFilterByXButtonTest extends SampleTest {
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.checkIfTotalRoomsFieldIsFilledByCorrectNumber("8");
+        user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.TOTAL_ROOMS_MIN_VALUE, "8");
         user.atSearchPage.clearTotalRoomsMinValueFiled();
         user.atSearchPage.fillInTotalRoomsMinField("4");
         user.atSearchPage.closeSearch();
