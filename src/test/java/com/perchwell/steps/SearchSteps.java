@@ -844,16 +844,6 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void deleteFirstBuildingFilter() {
-        onPage.deleteFirstBuildingFilter();
-    }
-
-    @Step
-    public void checkPriceChangesShown() {
-        onPage.checkPriceChangesShown();
-    }
-
-    @Step
     public void clearMinimumAndMaximumPriceFilters() {
         onPage.clearMinimumAndMaximumPriceFilters();
     }
@@ -876,11 +866,6 @@ public class SearchSteps extends ScenarioSteps {
     @Step
     public void fillInTotalRoomsMinField(String value) {
         onPage.fillInTotalRoomsMinField(value);
-    }
-
-    @Step
-    public void checkIfTotalRoomsFieldIsFilledByCorrectNumber(String value) {
-        onPage.checkIfTotalRoomsFieldIsFilledByCorrectNumber(value);
     }
 
     @Step
@@ -921,6 +906,95 @@ public class SearchSteps extends ScenarioSteps {
     @Step
     public void removeJustCreatedCustomBoundary() {
         onPage.removeJustCreatedCustomBoundary();
+    }
 
+    @Step
+    public void selectSponsorOption() {
+        onPage.selectSponsorOption();
+    }
+
+    @Step
+    public void checkIfSponsorOptionIsSelected() {
+        onPage.checkIfSponsorOptionIsSelected();
+    }
+
+    @Step
+    public void selectResaleOption() {
+        onPage.selectResaleOption();
+    }
+
+    @Step
+    public void fillInPricePerSquareFeetMinField(String value) {
+        onPage.fillInPricePerSquareFeetMinField(value);
+    }
+
+    @Step
+    public void clearMinPricePerSFTField() {
+        onPage.clearMinPricePerSFTField();
+    }
+
+    @Step
+    public void fillInMonthliesMinField(String value) {
+        onPage.fillInMonthliesMinField(value);
+    }
+
+    @Step
+    public void clearMinMonthliesField() {
+        onPage.clearMinMonthliesField();
+    }
+
+    @Step
+    public void fillInFinancingMinField(String value) {
+        onPage.fillInFinancingMinField(value);
+    }
+
+    @Step
+    public void clearMinFinancingField() {
+        onPage.clearMinFinancingField();
+    }
+
+    @Step
+    public void selectCorePublicOption() {
+        onPage.selectCorePublicOption();
+    }
+
+    @Step
+    public void selectOtherPublicOption() {
+        onPage.selectOtherPublicOption();
+    }
+
+    @Step
+    public void checkIfFieldIsFilledByCorrectValue(String element, String value) {
+        onPage.checkIfFieldIsFilledByCorrectValue(element, value);
+    }
+
+    @Step
+    public void enterTextInTextSearchField(String value) {
+        onPage.enterTextInTextSearchField(value);
+    }
+
+    @Step
+    public void clearTextSearchField() {
+        onPage.clearTextSearchField();
+    }
+
+    @Step
+    public void checkThatAllOfTheseTermsButtonSelected() {
+        onPage.checkThatAllOfTheseTermsButtonSelected();
+    }
+
+    @Step
+    public void clickOnAllOfTheseTermsButton() {
+        onPage.clickOnAllOfTheseTermsButton();
+    }
+
+    @Step
+    public void clickOnAnyOfTheseTermsButton() {
+        onPage.clickOnAnyOfTheseTermsButton();
+    }
+
+    @Step
+    public void checkThatTextSearchFieldSavedText(String value) {
+        onPage.checkThatTextSearchFieldSavedTest(value);
     }
 }

@@ -1,27 +1,25 @@
 package com.perchwell.tests.RedesignedFiltersTests;
 
 import com.perchwell.SampleTest;
-import com.perchwell.data.Filters;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class SFR37_PriceCloseFiltersByXButtonTest extends SampleTest {
+public class SFR46_CloseTextSearchFilterByXButtonTest extends SampleTest {
 
     @Test
-    public void priceCloseFiltersByXButton() {
+    public void closeTextSearchFilterByXButton() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.isListingsQuantity();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.setMinimumPriceFilter("1000");
-        user.atSearchPage.setMaximumPriceFilter("2000");
+        user.atSearchPage.enterTextInTextSearchField("Outdoor Patio");
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.setMinimumPriceFilter("1000");
-        user.atSearchPage.setMaximumPriceFilter("2000");
+        user.atSearchPage.enterTextInTextSearchField("Outdoor Patio");
+        user.atSearchPage.clickOnAllOfTheseTermsButton();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkFilterIsApplied();
         user.atPerchwellPage.isListingsQuantity();
@@ -30,20 +28,20 @@ public class SFR37_PriceCloseFiltersByXButtonTest extends SampleTest {
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.ASKING_PRICE_MIN_VALUE, "1000");
-        user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.ASKING_PRICE_MAX_VALUE, "2000");
-        user.atSearchPage.clearMinimumAndMaximumPriceFilters();
-        user.atSearchPage.setMinimumPriceFilter("100000");
-        user.atSearchPage.setMaximumPriceFilter("500000");
+        user.atSearchPage.checkThatAllOfTheseTermsButtonSelected();
+        user.atSearchPage.checkThatTextSearchFieldSavedText("Outdoor Patio");
+        user.atSearchPage.clearTextSearchField();
+        user.atSearchPage.enterTextInTextSearchField("Gym");
+        user.atSearchPage.clickOnAnyOfTheseTermsButton();
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.atPerchwellPage.clickOnSaveButton();
         user.atSearchPage.setSearchName();
         user.atSearchPage.clickOnSaveButton();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.clearMinimumAndMaximumPriceFilters();
-        user.atSearchPage.setMinimumPriceFilter("100000");
-        user.atSearchPage.setMaximumPriceFilter("500000");
+        user.atSearchPage.clearTextSearchField();
+        user.atSearchPage.enterTextInTextSearchField("Gym");
+        user.atSearchPage.clickOnAnyOfTheseTermsButton();
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
