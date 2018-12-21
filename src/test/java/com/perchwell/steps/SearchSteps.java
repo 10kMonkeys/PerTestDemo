@@ -997,4 +997,9 @@ public class SearchSteps extends ScenarioSteps {
     public void checkThatTextSearchFieldSavedText(String value) {
         onPage.checkThatTextSearchFieldSavedTest(value);
     }
+
+    @Step
+    public void clearSquareFeetMaxFilter() {
+        onPage.clearSquareFeetMaxFilter();
+    }
 }

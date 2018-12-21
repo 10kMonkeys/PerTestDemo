@@ -1693,4 +1693,8 @@ public class SearchPage extends BasePage {
     public void clickOnAnyOfTheseTermsButton() {
         element(anyOfTheseTermsButton).click();
     }
+
+    public void clearSquareFeetMaxFilter() {
+        element(squareFeetMaxValueField).clear();
+    }
 }
