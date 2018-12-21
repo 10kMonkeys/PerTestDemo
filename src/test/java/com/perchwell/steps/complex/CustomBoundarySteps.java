@@ -10,8 +10,8 @@ public class CustomBoundarySteps extends ScenarioSteps {
 
 
     @Step
-    public void getCenterPointOfMap() {
-        onPage.getCenterPointOfMap();
+    public void zoomMapOneTime() {
+        onPage.zoomMapOneTime();
     }
 
 
@@ -38,5 +38,13 @@ public class CustomBoundarySteps extends ScenarioSteps {
     @Step
     public void justDrawnFinishedPolygonIsShown() {
         onPage.justDrawnFinishedPolygonIsShown();
+    }
+
+    @Step
+    public void drawAndSaveLargeSquare() {
+        onPage.drawSquareFinishedPolygonManually();
+        onPage.getCustomBoundaryName();
+        onPage.clickOnSaveButton();
+        onPage.clickOnBackToSearchPageButton();
     }
 }

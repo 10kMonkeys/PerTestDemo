@@ -902,4 +902,25 @@ public class SearchSteps extends ScenarioSteps {
     public void deselectOutDoorSpaceCheckmarkFilter() {
         onPage.deselectOutDoorSpaceCheckmarkFilter();
     }
+
+    @Step
+    public void openCustomBoundariesPage() {
+        onPage.openCustomBoundariesPage();
+    }
+
+    @Step
+    public void checkJustCreatedCustomBoundaryIsDisplayed() {
+        onPage.checkJustCreatedCustomBoundaryIsDisplayed();
+    }
+
+    @Step
+    public void openJustCreatedCustomBoundary() {
+        onPage.openJustCreatedCustomBoundary();
+    }
+
+    @Step
+    public void removeJustCreatedCustomBoundary() {
+        onPage.removeJustCreatedCustomBoundary();
+
+    }
 }

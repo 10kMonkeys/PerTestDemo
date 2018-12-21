@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
@@ -49,13 +50,19 @@ public class CustomBoundaryPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Circle at (32.0000534057617, 345.000007629395)")
     private WebElement newBoundarySquarePointEight;
 
+    @iOSXCUITFindBy(accessibility = "Polygon Editing Button")
+    private WebElement saveButton;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'MY NEW SEARCH'")
+    private String backToSearchButton;
+
     //endregion
 
     public CustomBoundaryPage(WebDriver driver) {
         super(driver);
     }
 
-    public void getCenterPointOfMap() {
+    public void zoomMapOneTime() {
 
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
@@ -65,36 +72,17 @@ public class CustomBoundaryPage extends BasePage {
         int deviceWidth = size.width;
         int deviceHigh = size.height;
 
-        System.out.println("width = " + deviceWidth);
-        System.out.println("high = " + deviceHigh);
+//        System.out.println("width = " + deviceWidth);
+//        System.out.println("high = " + deviceHigh);
 
         int centerWidth = deviceWidth / 2;
-        int centerHifh =  deviceHigh / 2;
+        int centerHigh =  deviceHigh / 2;
 
         TouchAction action = new TouchAction(appiumDriver);
 
-        action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
+        action.tap(centerWidth, centerHigh).release().perform().tap(centerWidth, centerHigh).release().perform();
         waitABit(1000);
         element(cancelBoundaryDrawButton).click();
-        action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-        waitABit(1000);
-        element(cancelBoundaryDrawButton).click();
-        action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-        waitABit(1000);
-        element(cancelBoundaryDrawButton).click();
-        action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-        waitABit(1000);
-        element(cancelBoundaryDrawButton).click();
-        action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-        waitABit(1000);
-        element(cancelBoundaryDrawButton).click();
-        action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-        waitABit(1000);
-        element(cancelBoundaryDrawButton).click();
-        action.tap(centerWidth, centerHifh).release().perform().tap(centerWidth, centerHifh).release().perform();
-
-
-        waitABit(100000);
     }
 
     public void clickOnDefaultColorIcon() {
@@ -107,6 +95,7 @@ public class CustomBoundaryPage extends BasePage {
 
     public void setCustomBoundaryName(String name) {
         element(customBoundaryNameField).sendKeys(name);
+        SessionVariables.addValueInSessionVariable("Custom_Boundary_name", name);
     }
 
     public void drawSquareFinishedPolygonManually() {
@@ -132,7 +121,6 @@ public class CustomBoundaryPage extends BasePage {
         action.tap(firstAndLastPointWidth, firstAndLastPointHigh + 70).release().perform();
         waitABit(1000);
         action.tap(firstAndLastPointWidth , firstAndLastPointHigh).release().perform();
-        waitABit(1000000);
     }
 
     public void justDrawnFinishedPolygonIsShown() {
@@ -140,5 +128,24 @@ public class CustomBoundaryPage extends BasePage {
         element(newBoundarySquarePointThree).shouldBeVisible();
         element(newBoundarySquarePointFive).shouldBeVisible();
         element(newBoundarySquarePointSeven).shouldBeVisible();
+    }
+
+    public void clickOnSaveButton() {
+        element(saveButton).click();
+    }
+
+    public void clickOnBackToSearchPageButton() {
+//        element(backToSearchButton).click();
+
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+        TouchAction action = new TouchAction(appiumDriver);
+
+        action.tap(20, 60).release().perform();
+    }
+
+    public void getCustomBoundaryName() {
+        SessionVariables.addValueInSessionVariable("Custom_Boundary_name", element(customBoundaryNameField).getAttribute("value"));
     }
 }

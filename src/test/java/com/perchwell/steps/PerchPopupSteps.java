@@ -16,6 +16,11 @@ public class PerchPopupSteps extends ScenarioSteps {
         }
     }
 
+    @Step
+    public void clickOnYesButton () {
+        onPage.clickOnYesButton();
+    }
+
     /* Not use in the new version
     @Step
     public void shouldSeePopupText() throws Exception {

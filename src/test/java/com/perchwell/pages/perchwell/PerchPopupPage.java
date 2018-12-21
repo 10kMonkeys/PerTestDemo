@@ -16,6 +16,9 @@ public class PerchPopupPage extends BasePage {
     @iOSXCUITFindBy(accessibility ="WOULD YOU LIKE TO RECEIVE NOTIFICATIONS FROM PERCHWELL?")
     private WebElement text;
 
+    @iOSXCUITFindBy(accessibility ="YES")
+    private WebElement yesButton;
+
     //endregion
 
     public PerchPopupPage(WebDriver driver){
@@ -24,6 +27,11 @@ public class PerchPopupPage extends BasePage {
 
     public void clickOnNotNowButton() {
         element(notNowButton).click();
+    }
+
+    public void clickOnYesButton() {
+        waitABit(3000);
+        element(yesButton).click();
     }
 
     public boolean isPopupTextDispalyed() {

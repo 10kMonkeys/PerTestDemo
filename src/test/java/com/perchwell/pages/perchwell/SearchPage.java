@@ -1554,4 +1554,16 @@ public class SearchPage extends BasePage {
         softAssertions.assertThat(element(selectedOutdoorSpaceCheckmarkFilter).isDisplayed());
         softAssertions.assertAll();
     }
+
+    public void checkJustCreatedCustomBoundaryIsDisplayed() {
+        element(MobileBy.AccessibilityId("Remove Button: " + SessionVariables.getValueFromSessionVariable("Custom_Boundary_name"))).shouldBeVisible();
+    }
+
+    public void openJustCreatedCustomBoundary() {
+        element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Custom_Boundary_name"))).click();
+    }
+
+    public void removeJustCreatedCustomBoundary() {
+        element(MobileBy.AccessibilityId("Remove Button: " + SessionVariables.getValueFromSessionVariable("Custom_Boundary_name"))).click();
+    }
 }
