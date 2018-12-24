@@ -1002,4 +1002,57 @@ public class SearchSteps extends ScenarioSteps {
     public void clearSquareFeetMaxFilter() {
         onPage.clearSquareFeetMaxFilter();
     }
+
+    @Step
+    public void setMinBldgWidthValue(String value) {
+        onPage.setMinBldgWidthValue(value);
+    }
+
+    @Step
+    public void setDateRangeForNextMonth(String firstDate, String secondDate) {
+        onPage.openNextMonthPage();
+        onPage.setDateRange(firstDate);
+        onPage.setDateRange(secondDate);
+    }
+
+    @Step
+    public void checkIfOpenHouseDateRangeIsCorrect(String firstDate, String secondDate) {
+        onPage.checkIfOpenHouseDateRangeIsCorrect(firstDate, secondDate);
+    }
+
+    @Step
+    public void setDateRangeForPreviousMonth(String firstDate, String secondDate) {
+        onPage.openPreviousMonthPage();
+        onPage.setDateRange(firstDate);
+        onPage.setDateRange(secondDate);
+    }
+
+    @Step
+    public void selectListedListingActivityOption() {
+        onPage.selectListedListingActivityOption();
+    }
+
+    @Step
+    public void clickOnResetDateButton() {
+        onPage.clickOnResetDataButton();
+    }
+
+    @Step
+    public void clickOnListingActivityMinValueField() {
+        onPage.clickOnListingActivityMinValueField();
+    }
+
+    @Step
+    public void closeCalendar() {
+        onPage.clickOnCloseCalendarButton();
+    }
+
+    @Step
+    public void clickOnOpenHouseMinValueField() {
+        onPage.clickOnOpenHouseMinValueField();
+    }
+
+    public void checkIfListingStatusDateRangeIsCorrect(String firstDate, String secondDate) {
+        onPage.checkIfListingStatusDateRangeIsCorrect(firstDate, secondDate);
+    }
 }
