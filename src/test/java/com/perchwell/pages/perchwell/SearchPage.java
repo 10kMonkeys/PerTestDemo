@@ -616,6 +616,12 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Listing Activity Suboption: Listed")
     private WebElement listedOption;
 
+    @iOSXCUITFindBy(accessibility = "refresh")
+    private WebElement resetDateButton;
+
+    @iOSXCUITFindBy(accessibility = "x")
+    private WebElement closeCalendarButton;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -1725,16 +1731,11 @@ public class SearchPage extends BasePage {
         Helper.universalVerticalSwipe(bldgWidthSection);
     }
 
-    public void setDateRange(String firstDate, String secondDate) {
-        if (secondDate.equals("0")) {
-            element(MobileBy.AccessibilityId(firstDate)).click();
-        } else{
-            element(MobileBy.AccessibilityId(firstDate)).click();
-            element(MobileBy.AccessibilityId(secondDate)).click();
-        }
+    public void setDateRange(String date) {
+       element(MobileBy.AccessibilityId(date)).click();
     }
 
-    public void clickOnOpenHouseFilter() {
+    public void clickOnOpenHouseMinValueField() {
         Helper.universalVerticalSwipe(openHouseMinValueInput);
         element(openHouseMinValueInput).click();
     }
@@ -1745,15 +1746,13 @@ public class SearchPage extends BasePage {
 
     public void checkIfOpenHouseDateRangeIsCorrect(String firstDate, String secondDate) {
         Helper.universalVerticalSwipe(openHouseMinValueInput);
-        String firstValueToCheck = openHouseMaxValueInput.getAttribute("value").substring(3,5);
+        String firstValueToCheck = openHouseMinValueInput.getAttribute("value").substring(3,5);
         String secondValueToCheck = openHouseMaxValueInput.getAttribute("value").substring(3,5);
-        SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(firstValueToCheck.equals(firstDate));
-        softAssertions.assertThat(secondValueToCheck.equals(secondDate));
-        softAssertions.assertAll();
+        Assert.assertEquals(firstDate, firstValueToCheck);
+        Assert.assertEquals(secondDate, secondValueToCheck);
     }
 
-    public void clickOnListingActivityFilter() {
+    public void clickOnListingActivityMinValueField() {
         Helper.universalVerticalSwipe(listingActivityMinValueInput);
         element(listingActivityMinValueInput).click();
     }
@@ -1764,5 +1763,21 @@ public class SearchPage extends BasePage {
 
     public void selectListedListingActivityOption() {
         element(listedOption).click();
+    }
+
+    public void clickOnResetDataButton() {
+        element(resetDateButton).click();
+    }
+
+    public void clickOnCloseCalendarButton() {
+        element(closeCalendarButton).click();
+    }
+
+    public void checkIfListingStatusDateRangeIsCorrect(String firstDate, String secondDate) {
+        Helper.universalVerticalSwipe(listingActivityMinValueInput);
+        String firstValueToCheck = listingActivityMinValueInput.getAttribute("value").substring(3,5);
+        String secondValueToCheck = listingActivityMaxValueInput.getAttribute("value").substring(3,5);
+        Assert.assertEquals(firstDate, firstValueToCheck);
+        Assert.assertEquals(secondDate, secondValueToCheck);
     }
 }

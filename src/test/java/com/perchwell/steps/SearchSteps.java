@@ -1009,10 +1009,10 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void setOpenHouseDateRange(String firstDate, String secondDate) {
-        onPage.clickOnOpenHouseFilter();
+    public void setDateRangeForNextMonth(String firstDate, String secondDate) {
         onPage.openNextMonthPage();
-        onPage.setDateRange(firstDate, secondDate);
+        onPage.setDateRange(firstDate);
+        onPage.setDateRange(secondDate);
     }
 
     @Step
@@ -1021,14 +1021,38 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void setStatusActivityDateRange(String firstDate, String secondDate) {
-        onPage.clickOnListingActivityFilter();
+    public void setDateRangeForPreviousMonth(String firstDate, String secondDate) {
         onPage.openPreviousMonthPage();
-        onPage.setDateRange(firstDate, secondDate);
+        onPage.setDateRange(firstDate);
+        onPage.setDateRange(secondDate);
     }
 
     @Step
     public void selectListedListingActivityOption() {
         onPage.selectListedListingActivityOption();
+    }
+
+    @Step
+    public void clickOnResetDateButton() {
+        onPage.clickOnResetDataButton();
+    }
+
+    @Step
+    public void clickOnListingActivityMinValueField() {
+        onPage.clickOnListingActivityMinValueField();
+    }
+
+    @Step
+    public void closeCalendar() {
+        onPage.clickOnCloseCalendarButton();
+    }
+
+    @Step
+    public void clickOnOpenHouseMinValueField() {
+        onPage.clickOnOpenHouseMinValueField();
+    }
+
+    public void checkIfListingStatusDateRangeIsCorrect(String firstDate, String secondDate) {
+        onPage.checkIfListingStatusDateRangeIsCorrect(firstDate, secondDate);
     }
 }
