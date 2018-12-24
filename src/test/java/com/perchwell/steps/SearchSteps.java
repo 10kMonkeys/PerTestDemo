@@ -1002,4 +1002,33 @@ public class SearchSteps extends ScenarioSteps {
     public void clearSquareFeetMaxFilter() {
         onPage.clearSquareFeetMaxFilter();
     }
+
+    @Step
+    public void setMinBldgWidthValue(String value) {
+        onPage.setMinBldgWidthValue(value);
+    }
+
+    @Step
+    public void setOpenHouseDateRange(String firstDate, String secondDate) {
+        onPage.clickOnOpenHouseFilter();
+        onPage.openNextMonthPage();
+        onPage.setDateRange(firstDate, secondDate);
+    }
+
+    @Step
+    public void checkIfOpenHouseDateRangeIsCorrect(String firstDate, String secondDate) {
+        onPage.checkIfOpenHouseDateRangeIsCorrect(firstDate, secondDate);
+    }
+
+    @Step
+    public void setStatusActivityDateRange(String firstDate, String secondDate) {
+        onPage.clickOnListingActivityFilter();
+        onPage.openPreviousMonthPage();
+        onPage.setDateRange(firstDate, secondDate);
+    }
+
+    @Step
+    public void selectListedListingActivityOption() {
+        onPage.selectListedListingActivityOption();
+    }
 }

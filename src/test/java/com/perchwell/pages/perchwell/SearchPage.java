@@ -12,7 +12,6 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -592,6 +591,30 @@ public class SearchPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "Return")
     private WebElement returnButtonOnKeyboard;
+
+    @iOSXCUITFindBy(accessibility = "BUILDING WIDTH")
+    private WebElement bldgWidthSection;
+
+    @iOSXCUITFindBy(accessibility = "Open Houses Minimum Value Input")
+    private WebElement openHouseMinValueInput;
+
+    @iOSXCUITFindBy(accessibility = "Open Houses Maximum Value Input")
+    private WebElement openHouseMaxValueInput;
+
+    @iOSXCUITFindBy(accessibility = "chevronRight")
+    private WebElement nextMonthPageButton;
+
+    @iOSXCUITFindBy(accessibility = "Listing Activity Minimum Value Input")
+    private WebElement listingActivityMinValueInput;
+
+    @iOSXCUITFindBy(accessibility = "Listing Activity Maximum Value Input")
+    private WebElement listingActivityMaxValueInput;
+
+    @iOSXCUITFindBy(accessibility = "chevronLeft")
+    private WebElement previousMonthPageButton;
+
+    @iOSXCUITFindBy(accessibility = "Listing Activity Suboption: Listed")
+    private WebElement listedOption;
 
     public SearchPage(WebDriver driver) {
         super(driver);
@@ -1696,5 +1719,50 @@ public class SearchPage extends BasePage {
 
     public void clearSquareFeetMaxFilter() {
         element(squareFeetMaxValueField).clear();
+    }
+
+    public void setMinBldgWidthValue(String value) {
+        Helper.universalVerticalSwipe(bldgWidthSection);
+    }
+
+    public void setDateRange(String firstDate, String secondDate) {
+        if (secondDate.equals("0")) {
+            element(MobileBy.AccessibilityId(firstDate)).click();
+        } else{
+            element(MobileBy.AccessibilityId(firstDate)).click();
+            element(MobileBy.AccessibilityId(secondDate)).click();
+        }
+    }
+
+    public void clickOnOpenHouseFilter() {
+        Helper.universalVerticalSwipe(openHouseMinValueInput);
+        element(openHouseMinValueInput).click();
+    }
+
+    public void openNextMonthPage() {
+        element(nextMonthPageButton).click();
+    }
+
+    public void checkIfOpenHouseDateRangeIsCorrect(String firstDate, String secondDate) {
+        Helper.universalVerticalSwipe(openHouseMinValueInput);
+        String firstValueToCheck = openHouseMaxValueInput.getAttribute("value").substring(3,5);
+        String secondValueToCheck = openHouseMaxValueInput.getAttribute("value").substring(3,5);
+        SoftAssertions softAssertions = new SoftAssertions();
+        softAssertions.assertThat(firstValueToCheck.equals(firstDate));
+        softAssertions.assertThat(secondValueToCheck.equals(secondDate));
+        softAssertions.assertAll();
+    }
+
+    public void clickOnListingActivityFilter() {
+        Helper.universalVerticalSwipe(listingActivityMinValueInput);
+        element(listingActivityMinValueInput).click();
+    }
+
+    public void openPreviousMonthPage() {
+        element(previousMonthPageButton).click();
+    }
+
+    public void selectListedListingActivityOption() {
+        element(listedOption).click();
     }
 }
