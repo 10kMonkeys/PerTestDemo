@@ -29,4 +29,6 @@ public class Filters {
     public static final String TOTAL_ROOMS_MIN_VALUE = "TOTAL ROOMS Minimum Value Input";
     public static final String MONTHLIES_MIN_VALUE = "Monthlies Minimum Value Input";
     public static final String FINANCING_MIN_VALUE = "% Financing Minimum Value Input";
+    public static final String SQUARE_FEET_MIN_VALUE = "SQUARE FEET Minimum Value Input";
+    public static final String SQUARE_FEET_MAX_VALUE = "SQUARE FEET Maximum Value Input";
 }
