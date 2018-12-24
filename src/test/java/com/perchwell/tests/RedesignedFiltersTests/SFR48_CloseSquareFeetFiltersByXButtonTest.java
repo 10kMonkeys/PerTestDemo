@@ -34,8 +34,6 @@ public class SFR48_CloseSquareFeetFiltersByXButtonTest extends SampleTest {
         user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.SQUARE_FEET_MAX_VALUE, "300");
         user.atSearchPage.clearSquareFeetMinFilter();
         user.atSearchPage.clearSquareFeetMaxFilter();
-        user.atSearchPage.setSquareFeetMinFilter("300");
-        user.atSearchPage.setSquareFeetMaxFilter("600");
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.atPerchwellPage.clickOnSaveButton();
@@ -44,8 +42,6 @@ public class SFR48_CloseSquareFeetFiltersByXButtonTest extends SampleTest {
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clearSquareFeetMinFilter();
         user.atSearchPage.clearSquareFeetMaxFilter();
-        user.atSearchPage.setSquareFeetMinFilter("300");
-        user.atSearchPage.setSquareFeetMaxFilter("600");
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();

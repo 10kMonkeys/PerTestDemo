@@ -12,7 +12,6 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
