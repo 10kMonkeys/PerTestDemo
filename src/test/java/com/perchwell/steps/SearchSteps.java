@@ -844,8 +844,13 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clearMinimumAndMaximumPriceFilters() {
-        onPage.clearMinimumAndMaximumPriceFilters();
+    public void clearMinimumPriceFilters() {
+        onPage.clearMinimumPriceFilters();
+    }
+
+    @Step
+    public void clearMaximumPriceFilters() {
+        onPage.clearMaximumPriceFilters();
     }
 
     @Step
