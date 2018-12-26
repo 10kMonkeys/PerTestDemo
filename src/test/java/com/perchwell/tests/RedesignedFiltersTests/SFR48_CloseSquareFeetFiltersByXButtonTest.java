@@ -15,13 +15,13 @@ public class SFR48_CloseSquareFeetFiltersByXButtonTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.isListingsQuantity();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.setSquareFeetMinFilter("100");
-        user.atSearchPage.setSquareFeetMaxFilter("300");
+        user.atSearchPage.setSquareFeetMinFilter("1");
+        user.atSearchPage.setSquareFeetMaxFilter("1000");
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.setSquareFeetMinFilter("100");
-        user.atSearchPage.setSquareFeetMaxFilter("300");
+        user.atSearchPage.setSquareFeetMinFilter("1");
+        user.atSearchPage.setSquareFeetMaxFilter("1000");
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkFilterIsApplied();
         user.atPerchwellPage.isListingsQuantity();
@@ -30,8 +30,8 @@ public class SFR48_CloseSquareFeetFiltersByXButtonTest extends SampleTest {
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.SQUARE_FEET_MIN_VALUE, "100");
-        user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.SQUARE_FEET_MAX_VALUE, "300");
+        user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.SQUARE_FEET_MIN_VALUE, "1");
+        user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.SQUARE_FEET_MAX_VALUE, "1000");
         user.atSearchPage.clearSquareFeetMinFilter();
         user.atSearchPage.clearSquareFeetMaxFilter();
         user.atSearchPage.closeSearch();
