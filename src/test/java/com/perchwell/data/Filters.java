@@ -23,12 +23,15 @@ public class Filters {
     public static final String TEMP_OFF_MARKET_STATUS = "TOM";
     public static final String RENTED_FILTER = "Rented";
     public static final String RENTED_STATUS = "RENTED";
-    public static final String PRICE_PER_SQFT = "Asking Price Per FT² Minimum Value Input";
+    public static final String PRICE_PER_SQFT_MIN_VALUE = "Asking Price Per FT² Minimum Value Input";
+    public static final String PRICE_PER_SQFT_MAX_VALUE = "Asking Price Per FT² Maximum Value Input";
     public static final String ASKING_PRICE_MIN_VALUE = "Asking Price Minimum Value Input";
     public static final String ASKING_PRICE_MAX_VALUE = "Asking Price Maximum Value Input";
     public static final String TOTAL_ROOMS_MIN_VALUE = "TOTAL ROOMS Minimum Value Input";
     public static final String MONTHLIES_MIN_VALUE = "Monthlies Minimum Value Input";
+    public static final String MONTHLIES_MAX_VALUE = "Monthlies Maximum Value Input";
     public static final String FINANCING_MIN_VALUE = "% Financing Minimum Value Input";
+    public static final String FINANCING_MAX_VALUE = "% Financing Maximum Value Input";
     public static final String SQUARE_FEET_MIN_VALUE = "SQUARE FEET Minimum Value Input";
     public static final String SQUARE_FEET_MAX_VALUE = "SQUARE FEET Maximum Value Input";
 }

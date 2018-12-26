@@ -562,11 +562,20 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Asking Price Per FT² Minimum Value Input")
     private WebElement minPricePerFTField;
 
+    @iOSXCUITFindBy(accessibility = "Asking Price Per FT² Maximum Value Input")
+    private WebElement maxPricePerFTField;
+
     @iOSXCUITFindBy(accessibility = "Monthlies Minimum Value Input")
     private WebElement minMonthliesInputFiled;
 
+    @iOSXCUITFindBy(accessibility = "Monthlies Maximum Value Input")
+    private WebElement maxMonthliesInputFiled;
+
     @iOSXCUITFindBy(accessibility = "% Financing Minimum Value Input")
     private WebElement financingMinValueField;
+
+    @iOSXCUITFindBy(accessibility = "% Financing Maximum Value Input")
+    private WebElement financingMaxValueField;
 
     @iOSXCUITFindBy(accessibility = "CORE Public")
     private WebElement corePublicOption;
@@ -1442,6 +1451,7 @@ public class SearchPage extends BasePage {
     }
 
     public void clearSquareFeetMinFilter() {
+        Helper.universalVerticalSwipe(squareFeetMinValueField);
         element(squareFeetMinValueField).clear();
     }
 
@@ -1650,8 +1660,20 @@ public class SearchPage extends BasePage {
         }
     }
 
+    public void fillInPricePerSquareFeetMaxField(String value) {
+        element(maxPricePerFTField).sendKeys(value);
+        if (!Config.isAndroid()) {
+            getDriver().findElement(By.name("Done")).click();
+        }
+    }
+
     public void clearMinPricePerSFTField() {
+        Helper.universalVerticalSwipe(minPricePerFTField);
         element(minPricePerFTField).clear();
+    }
+
+    public void clearMaxPricePerSFTField() {
+        element(maxPricePerFTField).clear();
     }
 
     public void fillInMonthliesMinField(String value) {
@@ -1662,8 +1684,20 @@ public class SearchPage extends BasePage {
         }
     }
 
+    public void fillInMonthliesMaxField(String value) {
+        element(maxMonthliesInputFiled).sendKeys(value);
+        if (!Config.isAndroid()) {
+            getDriver().findElement(By.name("Done")).click();
+        }
+    }
+
     public void clearMinMonthliesField() {
+        Helper.universalVerticalSwipe(minMonthliesInputFiled);
         element(minMonthliesInputFiled).clear();
+    }
+
+    public void clearMaxMonthliesField() {
+        element(maxMonthliesInputFiled).clear();
     }
 
     public void fillInFinancingMinField(String value) {
@@ -1674,8 +1708,20 @@ public class SearchPage extends BasePage {
         }
     }
 
+    public void fillInFinancingMaxField(String value) {
+        element(financingMaxValueField).sendKeys(value);
+        if (!Config.isAndroid()) {
+            getDriver().findElement(By.name("Done")).click();
+        }
+    }
+
     public void clearMinFinancingField() {
+        Helper.universalVerticalSwipe(financingMinValueField);
         element(financingMinValueField).clear();
+    }
+
+    public void clearMaxFinancingField() {
+        element(financingMaxValueField).clear();
     }
 
     public void selectCorePublicOption() {
