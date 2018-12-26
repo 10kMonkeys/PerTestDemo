@@ -934,8 +934,18 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
+    public void fillInPricePerSquareFeetMaxField(String value) {
+        onPage.fillInPricePerSquareFeetMaxField(value);
+    }
+
+    @Step
     public void clearMinPricePerSFTField() {
         onPage.clearMinPricePerSFTField();
+    }
+
+    @Step
+    public void clearMaxPricePerSFTField() {
+        onPage.clearMaxPricePerSFTField();
     }
 
     @Step
@@ -944,8 +954,18 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
+    public void fillInMonthliesMaxField(String value) {
+        onPage.fillInMonthliesMaxField(value);
+    }
+
+    @Step
     public void clearMinMonthliesField() {
         onPage.clearMinMonthliesField();
+    }
+
+    @Step
+    public void clearMaxMonthliesField() {
+        onPage.clearMaxMonthliesField();
     }
 
     @Step
@@ -954,8 +974,18 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
+    public void fillInFinancingMaxField(String value) {
+        onPage.fillInFinancingMaxField(value);
+    }
+
+    @Step
     public void clearMinFinancingField() {
         onPage.clearMinFinancingField();
+    }
+
+    @Step
+    public void clearMaxFinancingField() {
+        onPage.clearMaxFinancingField();
     }
 
     @Step
