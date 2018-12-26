@@ -1589,8 +1589,14 @@ public class SearchPage extends BasePage {
         element(totalRoomsMinValueField).clear();
     }
 
-    public void clearMinimumAndMaximumPriceFilters() {
+    public void clearMinimumPriceFilters() {
         element(minimumPriceTextBox).clear();
+        if (!Config.isAndroid()) {
+            getDriver().findElement(By.name("Done")).click();
+        }
+    }
+
+    public void clearMaximumPriceFilters() {
         element(maximumPriceTextBox).clear();
         if (!Config.isAndroid()) {
             getDriver().findElement(By.name("Done")).click();

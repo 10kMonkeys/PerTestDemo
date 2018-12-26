@@ -19,8 +19,8 @@ public class SFR35_LocationCustBndryCloseFiltersByXButtonTest extends SampleTest
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.openCustomBoundariesPage(); //new
-        user.atCustomBoundaryPage.drawAndSaveLargeSquare(); //new
+        user.atSearchPage.openCustomBoundariesPage();
+        user.atCustomBoundaryPage.drawAndSaveLargeSquare();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkFilterIsApplied();
         user.atPerchwellPage.isListingsQuantity();
@@ -29,17 +29,17 @@ public class SFR35_LocationCustBndryCloseFiltersByXButtonTest extends SampleTest
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.checkJustCreatedCustomBoundaryIsDisplayed(); //new
-        user.atSearchPage.removeJustCreatedCustomBoundary(); //new
-        user.atPerchPopup.clickOnYesButton(); //new
+        user.atSearchPage.checkJustCreatedCustomBoundaryIsDisplayed();
+        user.atSearchPage.removeJustCreatedCustomBoundary();
+        user.atPerchPopup.clickOnYesButton();
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.atPerchwellPage.clickOnSaveButton();
         user.atSearchPage.setSearchName();
         user.atSearchPage.clickOnSaveButton();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.removeJustCreatedCustomBoundary(); //new
-        user.atPerchPopup.clickOnYesButton(); //new
+        user.atSearchPage.removeJustCreatedCustomBoundary();
+        user.atPerchPopup.clickOnYesButton();
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
