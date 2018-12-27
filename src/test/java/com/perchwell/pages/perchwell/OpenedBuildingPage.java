@@ -739,10 +739,11 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfBuildingsAreFilteredByNeighborhood() {
-		Assert.assertTrue(neighborhoodValueList.get(0).getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
-		Assert.assertTrue(neighborhoodValueList.get(1).getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
-		Assert.assertTrue(neighborhoodValueList.get(2).getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
-		Assert.assertTrue(neighborhoodValueList.get(3).getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
-		Assert.assertTrue(neighborhoodValueList.get(4).getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
+		String location = SessionVariables.getValueFromSessionVariable("Neighborhood_value");
+		Assert.assertTrue(element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Neighborhood:'$][1]")).getAttribute("value").contains(location));
+		Assert.assertTrue(element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Neighborhood:'$][2]")).getAttribute("value").contains(location));
+		Assert.assertTrue(element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Neighborhood:'$][3]")).getAttribute("value").contains(location));
+		Assert.assertTrue(element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Neighborhood:'$][4]")).getAttribute("value").contains(location));
+		Assert.assertTrue(element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Neighborhood:'$][5]")).getAttribute("value").contains(location));
 	}
 }
