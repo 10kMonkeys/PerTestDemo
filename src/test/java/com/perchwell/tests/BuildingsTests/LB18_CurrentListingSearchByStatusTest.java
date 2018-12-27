@@ -30,7 +30,7 @@ public class LB18_CurrentListingSearchByStatusTest extends SampleTest {
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
         user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByFilter(Filters.IN_CONTRACT_FILTER);
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatusWithoutLabel();
         user.atOpenedBuildingPage.clickOnCurrentListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();

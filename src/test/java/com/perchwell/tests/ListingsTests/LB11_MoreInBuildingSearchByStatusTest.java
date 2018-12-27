@@ -25,17 +25,19 @@ public class LB11_MoreInBuildingSearchByStatusTest extends SampleTest {
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.fixSearchField();
         user.atOpenedBuildingPage.swipeToTheListings();
+        user.atOpenedBuildingPage.clickOnMoreInBuildingSection(); //new
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.ACTIVE_FILTER);
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByActiveStatus();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.IN_CONTRACT_FILTER);
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
-        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
+        user.atOpenedBuildingPage.clickOnSimilarListingsSection(); //new
+//        user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByFilter(Filters.IN_CONTRACT_FILTER);
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
-        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
-        user.atOpenedBuildingPage.clickOnClearFieldButton();
-        user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatusWithoutLabel();
+//        user.atOpenedBuildingPage.clickOnSimilarListingsSection();
+//        user.atOpenedBuildingPage.clickOnClearFieldButton();
+//        user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
     }
 }

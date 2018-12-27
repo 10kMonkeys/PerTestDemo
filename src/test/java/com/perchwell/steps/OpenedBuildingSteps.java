@@ -258,6 +258,11 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void checkIfListingsAreFilteredByInContractStatusWithoutLabel() {
+		onPage.checkIfListingsAreFilteredByInContractStatusWithoutLabel();
+	}
+
+	@Step
 	public void clickOnSortButton() {
 		onPage.clickOnSortButton();
 	}
@@ -329,6 +334,11 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	@Step
 	public void checkListingsStatus(String status) {
 		onPage.checkListingsStatus(status);
+	}
+
+	@Step
+	public void checkListingsStatusNormal(String status) {
+		onPage.checkListingsStatusNormal(status);
 	}
 
 	@Step

@@ -30,7 +30,7 @@ public class LB4_SimilarListingsSearchByStatusTest extends SampleTest {
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByActiveStatus();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.IN_CONTRACT_FILTER);
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();
+        user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatusWithoutLabel();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByFilter(Filters.IN_CONTRACT_FILTER);
         user.atOpenedBuildingPage.checkIfListingsAreFilteredByInContractStatus();

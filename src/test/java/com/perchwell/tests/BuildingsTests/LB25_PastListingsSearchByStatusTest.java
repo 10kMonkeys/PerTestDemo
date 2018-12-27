@@ -37,6 +37,6 @@ public class LB25_PastListingsSearchByStatusTest extends SampleTest {
         user.atOpenedBuildingPage.checkListingsStatus(Filters.RENTED_STATUS);
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.TEMP_OFF_MARKET_FILTER);
-        user.atOpenedBuildingPage.checkListingsStatus(Filters.TEMP_OFF_MARKET_STATUS);
+        user.atOpenedBuildingPage.checkListingsStatusNormal(Filters.TEMP_OFF_MARKET_STATUS);
     }
 }

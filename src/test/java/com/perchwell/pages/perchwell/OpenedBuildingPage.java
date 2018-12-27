@@ -616,6 +616,10 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkIfListingsAreFilteredByInContractStatus() {
+		Assert.assertTrue(inContractBannerList.size() == bedsAndBathsAmountList.size());
+	}
+
+	public void checkIfListingsAreFilteredByInContractStatusWithoutLabel() {
 		boolean isListingsAreFiltered = false;
 		if (bedsAndBathsAmountList.size()==0) {
 			isListingsAreFiltered = true;
@@ -716,6 +720,16 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void checkListingsStatus(String status) {
+//		List<WebElement> statusList = getDriver().findElements(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value == '" + status + "'"));
+//		Assert.assertEquals(statusList.size(), currentBedsAndBathsAmountList.size());
+		Assert.assertEquals(status, element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Listing Status:'$][1]")).getAttribute("value"));
+		Assert.assertEquals(status, element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Listing Status:'$][2]")).getAttribute("value"));
+		Assert.assertEquals(status, element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Listing Status:'$][3]")).getAttribute("value"));
+		Assert.assertEquals(status, element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Listing Status:'$][4]")).getAttribute("value"));
+		Assert.assertEquals(status, element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Listing Status:'$][5]")).getAttribute("value"));
+	}
+
+	public void checkListingsStatusNormal(String status) {
 		List<WebElement> statusList = getDriver().findElements(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value == '" + status + "'"));
 		Assert.assertEquals(statusList.size(), currentBedsAndBathsAmountList.size());
 	}
