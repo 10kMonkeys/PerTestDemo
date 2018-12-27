@@ -25,10 +25,10 @@ public class LB24_PastListingsSearchByLocationTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fillInSearchFieldByNeighborhood();
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
+        user.atOpenedBuildingPage.checkIfBuildingsAreFilteredByNeighborhood();
         user.atOpenedBuildingPage.clickOnCurrentListingsSection();
         user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByNeighborhood();
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
+        user.atOpenedBuildingPage.checkIfBuildingsAreFilteredByNeighborhood();
         user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.checkIfTenListingsReturnedToInitialState(); //temp fix inside
