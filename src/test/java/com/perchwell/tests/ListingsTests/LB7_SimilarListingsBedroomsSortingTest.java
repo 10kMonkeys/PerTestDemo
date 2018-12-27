@@ -30,7 +30,7 @@ public class LB7_SimilarListingsBedroomsSortingTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.bedroomsSortButtonShouldBeEnabled();
-        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.closeSortWindow();
         user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();
         user.atPerchwellPage.shouldListingBeSortedByBedroomsInBuilding();

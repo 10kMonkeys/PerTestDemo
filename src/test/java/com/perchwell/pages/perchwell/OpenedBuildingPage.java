@@ -594,9 +594,9 @@ public class OpenedBuildingPage extends BasePage {
 	}
 
 	public void getNeighborhoodValue() {
-		Assert.assertTrue(neighborhoodValue.getAttribute("value").contains("MURRAY HILL"));
-		SessionVariables.addValueInSessionVariable("Neighborhood_value", "MURRAY HILL");
-		//		SessionVariables.addValueInSessionVariable("Neighborhood_value", neighborhoodValue.getAttribute("value"));
+//		Assert.assertTrue(neighborhoodValue.getAttribute("value").contains("MURRAY HILL"));
+//		SessionVariables.addValueInSessionVariable("Neighborhood_value", "MURRAY HILL");
+		SessionVariables.addValueInSessionVariable("Neighborhood_value", neighborhoodValue.getAttribute("value").replaceFirst("THE ", ""));
 	}
 
 	public void clickOnMoreInBuildingSection() {
@@ -722,5 +722,13 @@ public class OpenedBuildingPage extends BasePage {
 
 	public void shouldSeeNoMatchLabel() {
 		element(noMatchLabel).shouldBeVisible();
+	}
+
+	public void checkIfBuildingsAreFilteredByNeighborhood() {
+		Assert.assertTrue(neighborhoodValueList.get(0).getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
+		Assert.assertTrue(neighborhoodValueList.get(1).getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
+		Assert.assertTrue(neighborhoodValueList.get(2).getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
+		Assert.assertTrue(neighborhoodValueList.get(3).getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
+		Assert.assertTrue(neighborhoodValueList.get(4).getAttribute("value").contains(SessionVariables.getValueFromSessionVariable("Neighborhood_value")));
 	}
 }

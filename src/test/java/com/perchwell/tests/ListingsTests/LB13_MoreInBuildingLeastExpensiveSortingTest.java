@@ -31,7 +31,7 @@ public class LB13_MoreInBuildingLeastExpensiveSortingTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnSimilarListingsSection();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.checkIfLeastExpensiveSortingButtonIsEnabled();
-        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.closeSortWindow();
         user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atPerchwellPage.shouldListingBeSortedByLeastExpensive();

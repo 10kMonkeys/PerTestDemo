@@ -23,10 +23,10 @@ public class LB17_CurrentListingsSearchByLocationTest extends SampleTest {
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
         user.atOpenedBuildingPage.fillInSearchFieldByNeighborhood();
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
+        user.atOpenedBuildingPage.checkIfBuildingsAreFilteredByNeighborhood();
         user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.checkIfSearchFieldIsFilledByNeighborhood();
-        user.atOpenedBuildingPage.checkIfListingsAreFilteredByNeighborhood();
+        user.atOpenedBuildingPage.checkIfBuildingsAreFilteredByNeighborhood();
         user.atOpenedBuildingPage.clickOnCurrentListingsSection();
         user.atOpenedBuildingPage.clickOnClearFieldButton();
         user.atOpenedBuildingPage.checkIfListingReturnedToInitialState();
