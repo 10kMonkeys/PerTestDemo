@@ -345,5 +345,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void shouldSeeNoMatchLabel() {
 		onPage.shouldSeeNoMatchLabel();
 	}
+
+	@Step
+	public void checkIfBuildingsAreFilteredByNeighborhood() {
+		onPage.checkIfBuildingsAreFilteredByNeighborhood();
+	}
 }
 

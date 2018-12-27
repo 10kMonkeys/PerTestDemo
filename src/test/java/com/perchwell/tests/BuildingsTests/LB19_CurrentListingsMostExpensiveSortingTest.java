@@ -33,7 +33,7 @@ public class LB19_CurrentListingsMostExpensiveSortingTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();
-        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.closeSortWindow();
         user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
         user.atOpenedBuildingPage.clickOnCurrentListingsSection();
         user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
