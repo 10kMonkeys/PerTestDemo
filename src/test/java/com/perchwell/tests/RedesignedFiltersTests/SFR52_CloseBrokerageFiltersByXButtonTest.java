@@ -2,8 +2,10 @@ package com.perchwell.tests.RedesignedFiltersTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"FiltersTests", "RedesignFiltersSearchesSecond", "iOS_RedesignFiltersSearchesSecond", "Android_RedesignFiltersSearchesSecond"})
 public class SFR52_CloseBrokerageFiltersByXButtonTest extends SampleTest {
 
     @Test
@@ -27,7 +29,7 @@ public class SFR52_CloseBrokerageFiltersByXButtonTest extends SampleTest {
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-//        user.atSearchPage.checkIfCorePublicOptionIsSelected(); //"selected" attribute is missed
+        user.atSearchPage.checkIfCorePublicOptionIsSelected(); //need to explore visible trouble; temp solution inside
         user.atSearchPage.selectOtherPublicOption();
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();

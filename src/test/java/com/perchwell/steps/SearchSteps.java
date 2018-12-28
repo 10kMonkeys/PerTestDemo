@@ -1039,8 +1039,8 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void setMinBldgWidthValue(String value) {
-        onPage.setMinBldgWidthValue(value);
+    public void setMaxBldgWidthValue() throws Exception {
+        onPage.setMaxBldgWidthValue();
     }
 
     @Step
@@ -1089,5 +1089,15 @@ public class SearchSteps extends ScenarioSteps {
 
     public void checkIfListingStatusDateRangeIsCorrect(String firstDate, String secondDate) {
         onPage.checkIfListingStatusDateRangeIsCorrect(firstDate, secondDate);
+    }
+
+    @Step
+    public void checkIfCorePublicOptionIsSelected() {
+        onPage.checkIfCorePublicOptionIsSelected();
+    }
+
+    @Step
+    public void checkIfMaxBldgWidthValueIsCorrect(String maxFilterValue) {
+        onPage.checkIfMaxBldgWidthValueIsCorrect(maxFilterValue);
     }
 }

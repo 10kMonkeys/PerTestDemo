@@ -3,8 +3,10 @@ package com.perchwell.tests.RedesignedFiltersTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.Filters;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"FiltersTests", "RedesignFiltersSearchesFirst", "iOS_RedesignFiltersSearchesFirst", "Android_RedesignFiltersSearchesFirst"})
 public class SFR40_CloseTotalRoomsFilterByXButtonTest extends SampleTest {
 
     @Test

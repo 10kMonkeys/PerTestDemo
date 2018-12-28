@@ -12,8 +12,8 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
-import org.openqa.selenium.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -577,10 +577,10 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "% Financing Maximum Value Input")
     private WebElement financingMaxValueField;
 
-    @iOSXCUITFindBy(accessibility = "CORE Public")
+    @iOSXCUITFindBy(accessibility = "brokerage: deselected CORE Public")
     private WebElement corePublicOption;
 
-    @iOSXCUITFindBy(accessibility = "Other Public")
+    @iOSXCUITFindBy(accessibility = "brokerage: deselected Other Public")
     private WebElement otherPublicOption;
 
     @iOSXCUITFindBy(accessibility = " Option Selected: Any of these terms")
@@ -630,6 +630,24 @@ public class SearchPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "x")
     private WebElement closeCalendarButton;
+
+    @iOSXCUITFindBy(accessibility = "brokerage: selected CORE Public")
+    private String selectedCorePublickButton;
+
+    @iOSXCUITFindBy(accessibility = "% Financing Minimum Value Input")
+    private WebElement buildingWidthHeader;
+
+    @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: RESALE/SPONSOR")
+    private WebElement collapseReleaseSponsorArrow;
+
+    @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: LOCATION")
+    private WebElement collapseLocationArrow;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeImage' AND name CONTAINS 'slider max:'")
+    private WebElement buildWightMaxControl;
+
+    @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: BEDROOMS")
+    private WebElement collapseBedroomsArrow;
 
     public SearchPage(WebDriver driver) {
         super(driver);
@@ -1731,11 +1749,14 @@ public class SearchPage extends BasePage {
     }
 
     public void selectCorePublicOption() {
-        Helper.universalVerticalSwipe(corePublicOption);
+        Helper.universalVerticalSwipe(buildingWidthHeader);
+        element(collapseReleaseSponsorArrow).click();
         element(corePublicOption).click();
     }
 
     public void selectOtherPublicOption() {
+        Helper.universalVerticalSwipe(buildingWidthHeader);
+        element(collapseReleaseSponsorArrow).click();
         element(otherPublicOption).click();
     }
 
@@ -1779,8 +1800,15 @@ public class SearchPage extends BasePage {
         element(squareFeetMaxValueField).clear();
     }
 
-    public void setMinBldgWidthValue(String value) {
+    public void setMaxBldgWidthValue() throws Exception {
+        element(collapseLocationArrow).click();
+        element(collapseBedroomsArrow).click();
         Helper.universalVerticalSwipe(bldgWidthSection);
+
+//        int x = buildWightMaxControl.getLocation().getX() + 3;
+        int y = buildWightMaxControl.getLocation().getY();
+
+        Helper.universalHorizontalSwipe(buildWightMaxControl, y);
     }
 
     public void setDateRange(String date) {
@@ -1831,5 +1859,19 @@ public class SearchPage extends BasePage {
         String secondValueToCheck = listingActivityMaxValueInput.getAttribute("value").substring(3,5);
         Assert.assertEquals(firstDate, firstValueToCheck);
         Assert.assertEquals(secondDate, secondValueToCheck);
+    }
+
+    public void checkIfCorePublicOptionIsSelected() {
+        Helper.universalVerticalSwipe(buildingWidthHeader);
+        element(collapseReleaseSponsorArrow).click();
+//        element(selectedCorePublickButton).shouldBeVisible();
+        setImplicitTimeout(3, SECONDS);
+        Assert.assertEquals(0, getDriver().findElements(MobileBy.AccessibilityId("brokerage: deselected CORE Public")).size());
+        resetImplicitTimeout();
+    }
+
+    public void checkIfMaxBldgWidthValueIsCorrect(String maxFilterValue) {
+//        element(MobileBy.AccessibilityId(maxFilterValue)).getAttribute("value");
+        Assert.assertEquals(maxFilterValue, element(MobileBy.AccessibilityId(maxFilterValue)).getAttribute("value"));
     }
 }

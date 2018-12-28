@@ -2,8 +2,10 @@ package com.perchwell.tests.RedesignedFiltersTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"FiltersTests", "RedesignFiltersSearchesSecond", "iOS_RedesignFiltersSearchesSecond", "Android_RedesignFiltersSearchesSecond"})
 public class SFR46_CloseTextSearchFilterByXButtonTest extends SampleTest {
 
     @Test
