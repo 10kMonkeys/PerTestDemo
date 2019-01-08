@@ -180,6 +180,18 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "label == 'unselectedCheckboxCircle'")
+	private List<WebElement> listOfUnselectedCheckboxCircles;
+
+	@iOSXCUITFindBy(accessibility = "button: more multi-select options")
+	private WebElement multiselectOptionsButton;
+
+	@iOSXCUITFindBy(accessibility = "cell: Contact Listing Agents")
+	private WebElement contactListiningAgentsButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "label == 'selectedCheckboxCircle'")
+	private List<WebElement> listOfSelectedListings;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -753,5 +765,33 @@ public class PerchwellPage extends BasePage {
 	public void checkIfListingsAmountIsLessThenInitial() {
 		int realListingsAmount = getNumberOfListings(listingsByButton);
 		Assert.assertTrue(realListingsAmount < listingsAmount);
+	}
+
+	public void selectThreeContactListings() {
+		for (WebElement element : listOfUnselectedCheckboxCircles) {
+			Helper.universalVerticalSwipe(element);
+			element.click();
+		}
+	}
+
+	public void clickOnMultiselectOptionsButton() {
+		element(multiselectOptionsButton).click();
+	}
+
+	public void clickOnContactListingAgentsButton() {
+		element(contactListiningAgentsButton).click();
+	}
+
+	public void checkThatSelectionMenuIsShown() {
+		element(multiselectOptionsButton).isVisible();
+	}
+
+	public void checkThatListingsAreSelected() {
+		int count = 0;
+		for (WebElement element : listOfSelectedListings) {
+			element(element).isVisible();
+			count++;
+		}
+		Assert.assertEquals(3, count);
 	}
 }

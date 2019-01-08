@@ -398,4 +398,29 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void checkIfListingsAmountIsLessThenInitial() {
 		onPage.checkIfListingsAmountIsLessThenInitial();
 	}
+
+	@Step
+	public void selectThreeContactListings() {
+		onPage.selectThreeContactListings();
+	}
+
+	@Step
+	public void clickOnMultiselectOptionsButton() {
+		onPage.clickOnMultiselectOptionsButton();
+	}
+
+	@Step
+	public void clickOnContactListingAgentsButton() {
+		onPage.clickOnContactListingAgentsButton();
+	}
+
+	@Step
+	public void checkThatSelectionMenuIsShown() {
+		onPage.checkThatSelectionMenuIsShown();
+	}
+
+	@Step
+	public void checkThatListingsAreSelected() {
+		onPage.checkThatListingsAreSelected();
+	}
 }
