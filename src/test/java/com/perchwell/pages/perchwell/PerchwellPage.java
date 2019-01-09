@@ -767,14 +767,11 @@ public class PerchwellPage extends BasePage {
 	public void clickOnSelectionButtonByAddress(String address) {
 		int selectionButtonIndex = 0;
 		for (int i = 0; i<addressesList.size(); i++) {
-			System.out.println(addressesList.get(i).getAttribute("value").toUpperCase());
-			System.out.println(address);
 			if (addressesList.get(i).getAttribute("value").toUpperCase().equals(address.toUpperCase())) {
 				selectionButtonIndex = i + 1;
 				break;
 			}
 		}
-		System.out.println(selectionButtonIndex);
 		element(MobileBy.iOSClassChain("**/XCUIElementTypeButton[$label = 'unselectedCheckboxCircle'$][" + selectionButtonIndex + "]")).click();
 	}
 
