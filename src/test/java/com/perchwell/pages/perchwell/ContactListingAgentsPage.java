@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 public class ContactListingAgentsPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "Back")
-    private WebElement backButtonFromConstactListingAgentsPage;
+    private WebElement backButtonFromContactListingAgentsPage;
 
     @iOSXCUITFindBy(accessibility = "Write message here (you will be copied on the email)")
     private WebElement messageField;
@@ -24,7 +24,7 @@ public class ContactListingAgentsPage extends BasePage {
     }
 
     public void clickOnBackButton() {
-        element(backButtonFromConstactListingAgentsPage).click();
+        element(backButtonFromContactListingAgentsPage).click();
     }
 
     public void fillMessageField(String message) {

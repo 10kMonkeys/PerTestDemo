@@ -180,7 +180,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "label == 'unselectedCheckboxCircle'")
+	@iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'CheckboxCircle'")
 	private List<WebElement> listOfUnselectedCheckboxCircles;
 
 	@iOSXCUITFindBy(accessibility = "button: more multi-select options")
@@ -768,9 +768,9 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void selectThreeContactListings() {
-		for (WebElement element : listOfUnselectedCheckboxCircles) {
-			Helper.universalVerticalSwipe(element);
-			element.click();
+		for (int i = 0; i<3; i++) {
+			Helper.universalVerticalSwipe(listOfUnselectedCheckboxCircles.get(i));
+			listOfUnselectedCheckboxCircles.get(i).click();
 		}
 	}
 
@@ -789,7 +789,7 @@ public class PerchwellPage extends BasePage {
 	public void checkThatListingsAreSelected() {
 		int count = 0;
 		for (WebElement element : listOfSelectedListings) {
-			element(element).isVisible();
+			element(element).shouldBeVisible();
 			count++;
 		}
 		Assert.assertEquals(3, count);
