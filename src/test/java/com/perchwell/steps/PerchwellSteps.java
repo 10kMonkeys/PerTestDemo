@@ -420,7 +420,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkThatListingsAreSelected() {
-		onPage.checkThatListingsAreSelected();
+	public void checkThatThreeListingsAreSelected() {
+		onPage.checkThatThreeListingsAreSelected();
 	}
 }

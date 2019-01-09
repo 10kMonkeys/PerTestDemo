@@ -786,7 +786,7 @@ public class PerchwellPage extends BasePage {
 		element(multiselectOptionsButton).isVisible();
 	}
 
-	public void checkThatListingsAreSelected() {
+	public void checkThatThreeListingsAreSelected() {
 		int count = 0;
 		for (WebElement element : listOfSelectedListings) {
 			element(element).shouldBeVisible();
