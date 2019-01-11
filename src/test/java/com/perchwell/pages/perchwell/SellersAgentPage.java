@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.data.EmailAddresses;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
@@ -13,8 +14,6 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import static com.perchwell.email.MailTrap.getTextBody;
 
 public class SellersAgentPage extends BasePage {
@@ -144,4 +143,25 @@ public class SellersAgentPage extends BasePage {
     public void shouldInterestEmailSentToTwoAgent() {
         Assert.assertTrue(countNumberEmailsSentToTwoSellersAgents());
     }
+
+    public void shouldContactEmailSentToOneAgent() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String subject = SessionVariables.getValueFromSessionVariable("Contact_subject");
+        String message = SessionVariables.getValueFromSessionVariable("Contact_message");
+        String rawBody;
+
+        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
+        rawBody = getTextBody(mailTrapResponse[0].getRaw_path());
+
+        Assert.assertTrue(rawBody.contains("Subject: " + subject));
+        Assert.assertTrue(rawBody.contains(message));
+        Assert.assertTrue(rawBody.contains("To: " + EmailAddresses.IOS_BROKER));
+        Assert.assertTrue(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER));
+        Assert.assertFalse(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ","));
+        }
 }
