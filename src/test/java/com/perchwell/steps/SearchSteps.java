@@ -817,7 +817,7 @@ public class SearchSteps extends ScenarioSteps {
 
     @Step
     public void fillInAddressSearchField(String address) {
-        onPage.fillInAddressSearchField(address);
+        onPage.searchDistrict(address);
     }
 
     @Step
@@ -1099,5 +1099,10 @@ public class SearchSteps extends ScenarioSteps {
     @Step
     public void checkIfMaxBldgWidthValueIsCorrect(String maxFilterValue) {
         onPage.checkIfMaxBldgWidthValueIsCorrect(maxFilterValue);
+    }
+
+    @Step
+    public void clickOnListingByAddress(String address) {
+        onPage.clickOnListingByAddress(address);
     }
 }

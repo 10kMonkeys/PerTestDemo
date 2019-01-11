@@ -189,6 +189,9 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "cell: Contact Listing Agents")
 	private WebElement contactListingAgentsOption;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'ADDRESS:' AND visible == 1")
+	private List<WebElement> visibleAddressesList;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -766,13 +769,15 @@ public class PerchwellPage extends BasePage {
 
 	public void clickOnSelectionButtonByAddress(String address) {
 		int selectionButtonIndex = 0;
-		for (int i = 0; i<addressesList.size(); i++) {
-			if (addressesList.get(i).getAttribute("value").toUpperCase().equals(address.toUpperCase())) {
+
+		Helper.universalVerticalSwipe(element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value ==  '" + address + "'")));
+		for (int i = 0; i<visibleAddressesList.size(); i++) {
+			if (visibleAddressesList.get(i).getAttribute("value").equals(address)) {
 				selectionButtonIndex = i + 1;
-				break;
 			}
 		}
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeButton[$label = 'unselectedCheckboxCircle'$][" + selectionButtonIndex + "]")).click();
+				element(MobileBy.iOSClassChain(
+				"**/XCUIElementTypeButton[$label = 'unselectedCheckboxCircle'$][" + selectionButtonIndex + "]")).click();
 	}
 
 	public void clickOnMoreOptionsButton() {

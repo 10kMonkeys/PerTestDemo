@@ -15,12 +15,10 @@ public class DT12_TwoAgentsListingDefaultSubjectTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openSearchPage(); //search new
-        user.atSearchPage.setMaximumPriceFilter("13000000");
-        user.atSearchPage.setMinimumPriceFilter("13000000");
-        user.atSearchPage.selectBedroomsRangeOption();
-        user.atSearchPage.selectFilter2Beds();
-        user.atSearchPage.selectBathroomsRangeOption();
-        user.atSearchPage.selectFilter2Baths();
+        user.atSearchPage.clickOnSearchByAddressButton();
+        user.atSearchPage.fillInAddressSearchField("240 EAST 35TH");
+        user.atSearchPage.clickOnListingByAddress("240 EAST 35TH");
+        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.clickOnSelectionButtonByAddress("240 East 35th St. #11A");
         user.atPerchwellPage.clickOnMoreOptionsButton();
