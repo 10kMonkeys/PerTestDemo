@@ -23,10 +23,10 @@ public class DT12_TwoAgentsListingDefaultSubjectTest extends SampleTest {
         user.atPerchwellPage.clickOnSelectionButtonByAddress("240 East 35th St. #11A");
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.selectContactListingAgentsOption();
-        user.atDiscussThisListingPage.fillInMessageField(DiscussionMessages.LETS_START_DISCUSSION);
-        user.atDiscussThisListingPage.clickOnCollapseIcon();
-        user.atDiscussThisListingPage.fillInEmailField(AppProperties.INSTANCE.getProperty("client_email"));
-        user.atDiscussThisListingPage.checkIfEmailIsAdded(AppProperties.INSTANCE.getProperty("client_email"));
-        user.atDiscussThisListingPage.clickOnSendEmailButton();
+        user.atContactListingAgentSteps.fillInMessageField(DiscussionMessages.LETS_START_DISCUSSION);
+        user.atContactListingAgentSteps.clickOnCollapseIcon();
+        user.atContactListingAgentSteps.fillInEmailField(AppProperties.INSTANCE.getProperty("client_email"));
+        user.atContactListingAgentSteps.checkIfEmailIsAdded(AppProperties.INSTANCE.getProperty("client_email"));
+        user.atContactListingAgentSteps.clickOnSendEmailButton();
     }
 }

@@ -19,14 +19,14 @@ public class DT11_OneListingAgentMandatoryFieldsAndCustomSubjectTest extends Sam
         user.atPerchwellPage.clickOnSelectionButtonByAddress(SessionVariables.getValueFromSessionVariable("building address"));
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.selectContactListingAgentsOption();
-        user.atDiscussThisListingPage.checkIfSendEmailButtonIsDisabled();
-        user.atDiscussThisListingPage.fillInMessageField(DiscussionMessages.LETS_START_DISCUSSION);
-        user.atDiscussThisListingPage.clickOnCollapseIcon();
-        user.atDiscussThisListingPage.checkIfSendEmailButtonIsEnabled();
-        user.atDiscussThisListingPage.clearSubjectField();
-        user.atDiscussThisListingPage.checkIfSendEmailButtonIsDisabled();
-        user.atDiscussThisListingPage.fillInSubjectField(DiscussionMessages.HELLO);
-        user.atDiscussThisListingPage.checkIfSendEmailButtonIsEnabled();
-        user.atDiscussThisListingPage.clickOnSendEmailButton();
+        user.atContactListingAgentSteps.checkIfSendEmailButtonIsDisabled();
+        user.atContactListingAgentSteps.fillInMessageField(DiscussionMessages.LETS_START_DISCUSSION);
+        user.atContactListingAgentSteps.clickOnCollapseIcon();
+        user.atContactListingAgentSteps.checkIfSendEmailButtonIsEnabled();
+        user.atContactListingAgentSteps.clearSubjectField();
+        user.atContactListingAgentSteps.checkIfSendEmailButtonIsDisabled();
+        user.atContactListingAgentSteps.fillInSubjectField(DiscussionMessages.HELLO);
+        user.atContactListingAgentSteps.checkIfSendEmailButtonIsEnabled();
+        user.atContactListingAgentSteps.clickOnSendEmailButton();
     }
 }
