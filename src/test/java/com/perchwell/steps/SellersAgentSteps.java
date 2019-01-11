@@ -13,7 +13,7 @@ public class SellersAgentSteps extends ScenarioSteps {
     SellersAgentPage sellersAgentPage;
 
     @Step
-    public void findBuildingWithOneSellersAgent() throws Exception {
+    public void findBuildingWithOneSellersAgent() {
         perchwellPage.openFirstBuilding();
         openedBuildingPage.clickOnDiscussWithMyClientHint();
         if (!openedBuildingPage.isOneSellersAgent()) {

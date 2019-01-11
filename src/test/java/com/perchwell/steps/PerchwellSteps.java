@@ -400,27 +400,22 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void selectThreeContactListings() {
-		onPage.selectThreeContactListings();
+    public void clickOnSelectionButtonByAddress(String address) {
+		onPage.clickOnSelectionButtonByAddress(address);
 	}
 
 	@Step
-	public void clickOnMultiselectOptionsButton() {
-		onPage.clickOnMultiselectOptionsButton();
+	public void clickOnMoreOptionsButton() {
+		onPage.clickOnMoreOptionsButton();
 	}
 
 	@Step
-	public void clickOnContactListingAgentsButton() {
-		onPage.clickOnContactListingAgentsButton();
+	public void selectContactListingAgentsOption() {
+		onPage.selectContactListingAgentsOption();
 	}
 
 	@Step
-	public void checkThatSelectionMenuIsShown() {
-		onPage.checkThatSelectionMenuIsShown();
-	}
-
-	@Step
-	public void checkThatThreeListingsAreSelected() {
-		onPage.checkThatThreeListingsAreSelected();
-	}
+    public void selectTestListingWithOneAgent() {
+		onPage.selectTestListingWithOneAgent();
+    }
 }

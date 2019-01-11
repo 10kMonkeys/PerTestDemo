@@ -9,7 +9,7 @@ import org.junit.Test;
 public class DT10_ContactToTwoSellersAgentsTest extends SampleTest {
 
     @Test
-    public void contactToTwoSellersAgents() throws Exception {
+    public void contactToTwoSellersAgents() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

@@ -165,7 +165,7 @@ public class PerchwellPage extends BasePage {
 	private WebElement testListing;
 
 	@AndroidFindBy(xpath = "//*[@text = '15 WEST 81ST ST. #11A']")
-	@iOSXCUITFindBy(accessibility = "15 West 81st St. #11A")
+	@iOSXCUITFindBy(accessibility = "ADDRESS: 240 East 35th St. #11A 474823")
 	private WebElement twoAgentListing;
 
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'sqft: '")
@@ -180,17 +180,20 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'CheckboxCircle'")
-	private List<WebElement> listOfUnselectedCheckboxCircles;
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'ADDRESS:'")
+	private List<WebElement> addressesList;
 
 	@iOSXCUITFindBy(accessibility = "button: more multi-select options")
-	private WebElement multiselectOptionsButton;
+	private WebElement moreOptionsButton;
 
 	@iOSXCUITFindBy(accessibility = "cell: Contact Listing Agents")
-	private WebElement contactListiningAgentsButton;
+	private WebElement contactListingAgentsOption;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "label == 'selectedCheckboxCircle'")
-	private List<WebElement> listOfSelectedListings;
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'ADDRESS:' AND visible == 1")
+	private List<WebElement> visibleAddressesList;
+
+	@iOSXCUITFindBy(accessibility = "Select button: unselected 484859 240 East 35th St. #6F")
+	private WebElement testListingWithOneAgentCheckbox;
 
 	//endregion
 
@@ -400,7 +403,7 @@ public class PerchwellPage extends BasePage {
 		element(bathroomsSortButton).click();
 	}
 
-	public void swipeDownUntilNextBuildingVisible () throws Exception {
+	public void swipeDownUntilNextBuildingVisible () {
 		setImplicitTimeout(1, SECONDS);
 		if (Config.isAndroid()) {
 			Helper.universalVerticalSwipe(element(MobileBy.xpath("//android.view.ViewGroup[last()]/android.widget.RelativeLayout[@resource-id = 'com.perchwell.re.staging:id/foreground_container']/following::android.widget.RelativeLayout[1]")));
@@ -767,31 +770,29 @@ public class PerchwellPage extends BasePage {
 		Assert.assertTrue(realListingsAmount < listingsAmount);
 	}
 
-	public void selectThreeContactListings() {
-		for (int i = 0; i<3; i++) {
-			Helper.universalVerticalSwipe(listOfUnselectedCheckboxCircles.get(i));
-			listOfUnselectedCheckboxCircles.get(i).click();
+	public void clickOnSelectionButtonByAddress(String address) {
+		int selectionButtonIndex = 0;
+
+		Helper.universalVerticalSwipe(element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value ==  '" + address + "'")));
+		for (int i = 0; i<visibleAddressesList.size(); i++) {
+			if (visibleAddressesList.get(i).getAttribute("value").equals(address)) {
+				selectionButtonIndex = i + 1;
+			}
 		}
+				element(MobileBy.iOSClassChain(
+				"**/XCUIElementTypeButton[$label = 'unselectedCheckboxCircle'$][" + selectionButtonIndex + "]")).click();
 	}
 
-	public void clickOnMultiselectOptionsButton() {
-		element(multiselectOptionsButton).click();
+	public void clickOnMoreOptionsButton() {
+		element(moreOptionsButton).click();
 	}
 
-	public void clickOnContactListingAgentsButton() {
-		element(contactListiningAgentsButton).click();
+	public void selectContactListingAgentsOption() {
+		element(contactListingAgentsOption).click();
 	}
 
-	public void checkThatSelectionMenuIsShown() {
-		element(multiselectOptionsButton).isVisible();
-	}
-
-	public void checkThatThreeListingsAreSelected() {
-		int count = 0;
-		for (WebElement element : listOfSelectedListings) {
-			element(element).shouldBeVisible();
-			count++;
-		}
-		Assert.assertEquals(3, count);
+	public void selectTestListingWithOneAgent() {
+		Helper.universalVerticalSwipe(testListingWithOneAgentCheckbox);
+		element(testListingWithOneAgentCheckbox).click();
 	}
 }
