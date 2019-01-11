@@ -1,6 +1,7 @@
 package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.Addresses;
 import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
@@ -16,16 +17,17 @@ public class DT12_TwoAgentsListingDefaultSubjectTest extends SampleTest {
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInAddressSearchField("240 EAST 35TH");
-        user.atSearchPage.clickOnListingByAddress("240 EAST 35TH");
+        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
+        user.atSearchPage.clickOnListingByAddress(Addresses.EAST_35TH);
         user.atSearchPage.clickOnBackFromNeighborhoodsPage();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnSelectionButtonByAddress("240 East 35th St. #11A");
+        user.atPerchwellPage.selectTestListingWithTwoAgents();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.selectContactListingAgentsOption();
-        user.atContactListingAgentSteps.fillInMessageField(DiscussionMessages.LETS_START_DISCUSSION);
+        user.atContactListingAgentSteps.fillInMessageField(DiscussionMessages.MESSAGE);
         user.atContactListingAgentSteps.clickOnCollapseIcon();
         user.atContactListingAgentSteps.fillInEmailField(AppProperties.INSTANCE.getProperty("client_email"));
+        user.atContactListingAgentSteps.hideKeyboard();
         user.atContactListingAgentSteps.checkIfEmailIsAdded(AppProperties.INSTANCE.getProperty("client_email"));
         user.atContactListingAgentSteps.clickOnSendEmailButton();
     }

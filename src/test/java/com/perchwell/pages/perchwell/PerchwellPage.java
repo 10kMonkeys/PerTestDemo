@@ -195,6 +195,10 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Select button: unselected 484859 240 East 35th St. #6F")
 	private WebElement testListingWithOneAgentCheckbox;
 
+	@iOSXCUITFindBy(accessibility = "Select button: unselected 474823 240 East 35th St. #6K")
+	private WebElement testListingWithTwoAgentsCheckbox;
+
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -794,5 +798,10 @@ public class PerchwellPage extends BasePage {
 	public void selectTestListingWithOneAgent() {
 		Helper.universalVerticalSwipe(testListingWithOneAgentCheckbox);
 		element(testListingWithOneAgentCheckbox).click();
+	}
+
+	public void selectTestListingWithTwoAgents() {
+		Helper.universalVerticalSwipe(testListingWithTwoAgentsCheckbox);
+		element(testListingWithTwoAgentsCheckbox).click();
 	}
 }
