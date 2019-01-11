@@ -80,4 +80,9 @@ public class SellersAgentSteps extends ScenarioSteps {
     public void shouldContactEmailSentToOneAgent() {
         sellersAgentPage.shouldContactEmailSentToOneAgent();
     }
+
+    @Step
+    public void shouldContactEmailSentToTwoAgents() {
+        sellersAgentPage.shouldContactEmailSentToTwoAgents();
+    }
 }

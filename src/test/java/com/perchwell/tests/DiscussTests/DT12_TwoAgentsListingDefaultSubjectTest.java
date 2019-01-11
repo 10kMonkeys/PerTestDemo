@@ -24,11 +24,15 @@ public class DT12_TwoAgentsListingDefaultSubjectTest extends SampleTest {
         user.atPerchwellPage.selectTestListingWithTwoAgents();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.selectContactListingAgentsOption();
-        user.atContactListingAgentSteps.fillInMessageField(DiscussionMessages.MESSAGE);
-        user.atContactListingAgentSteps.clickOnCollapseIcon();
-        user.atContactListingAgentSteps.fillInEmailField(AppProperties.INSTANCE.getProperty("client_email"));
-        user.atContactListingAgentSteps.hideKeyboard();
-        user.atContactListingAgentSteps.checkIfEmailIsAdded(AppProperties.INSTANCE.getProperty("client_email"));
-        user.atContactListingAgentSteps.clickOnSendEmailButton();
+        user.atContactListingAgentPage.fillInMessageField(DiscussionMessages.MESSAGE);
+        user.atContactListingAgentPage.clickOnCollapseIcon();
+        user.atContactListingAgentPage.clearSubjectField();
+        user.atContactListingAgentPage.fillInSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
+        user.atContactListingAgentPage.hideKeyboard();
+        user.atContactListingAgentPage.fillInEmailField(AppProperties.INSTANCE.getProperty("client_email"));
+        user.atContactListingAgentPage.hideKeyboard();
+        user.atContactListingAgentPage.checkIfEmailIsAdded(AppProperties.INSTANCE.getProperty("client_email"));
+        user.atContactListingAgentPage.clickOnSendEmailButton();
+        user.atSellersAgentPage.shouldContactEmailSentToTwoAgents();
     }
 }

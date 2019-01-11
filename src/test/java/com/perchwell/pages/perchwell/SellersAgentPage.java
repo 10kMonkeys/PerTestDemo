@@ -163,5 +163,27 @@ public class SellersAgentPage extends BasePage {
         Assert.assertTrue(rawBody.contains("To: " + EmailAddresses.IOS_BROKER));
         Assert.assertTrue(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER));
         Assert.assertFalse(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ","));
+    }
+
+    public void shouldContactEmailSentToTwoAgents() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
+        String subject = SessionVariables.getValueFromSessionVariable("Contact_subject");
+        String message = SessionVariables.getValueFromSessionVariable("Contact_message");
+        String rawBody;
+
+        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
+        rawBody = getTextBody(mailTrapResponse[0].getRaw_path());
+
+        Assert.assertTrue(rawBody.contains("Subject: " + subject));
+        Assert.assertTrue(rawBody.contains(message));
+        Assert.assertTrue(rawBody.contains("To: " + EmailAddresses.AGENT_1));
+        Assert.assertTrue(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ",\n" +
+                AppProperties.INSTANCE.getProperty("client_email") + ",\n" + EmailAddresses.AGENT_2));
+        Assert.assertFalse(rawBody.contains(EmailAddresses.AGENT_2 + ","));
+    }
 }

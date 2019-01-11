@@ -94,5 +94,5 @@ public class User extends ScenarioSteps {
     public SearchMenuSteps inSearchMenu;
 
     @Steps
-    public ContactListingAgentSteps atContactListingAgentSteps;
+    public ContactListingAgentSteps atContactListingAgentPage;
 }
