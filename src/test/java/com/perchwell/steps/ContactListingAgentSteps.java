@@ -52,4 +52,14 @@ public class ContactListingAgentSteps extends ScenarioSteps {
     public void checkIfEmailIsAdded(String email) {
         onPage.checkIfEmailIsAdded(email);
     }
+
+    @Step
+    public void checkDefaultAgentCCAddress() {
+        onPage.checkDefaultAgentCCAddress();
+    }
+
+    @Step
+    public void hideKeyboard() {
+        onPage.hideKeyboard();
+    }
 }

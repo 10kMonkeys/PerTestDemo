@@ -13,4 +13,6 @@ public class DiscussionMessages {
     public static final String I_D_LIKE_TO_DISCUSS_WITH_YOU = "I_d_like_to_discuss_with_you "
             + simpleDateFormat.format(new Date());
     public static final String MESSAGE_FOR_REMOVING = "This_message_for_removing" + simpleDateFormat.format(new Date());
+    public static final String MESSAGE = "Message " + simpleDateFormat.format(new Date());
+    public static final String CONTACT_AGENT_SUBJECT = "Subject " + simpleDateFormat.format(new Date());
 }

@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
@@ -28,6 +29,9 @@ public class ContactListingAgentPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
     private WebElement emailField;
 
+    @iOSXCUITFindBy(accessibility = "test-ios+mgmt-core@perchwell.com")
+    private WebElement defaultAgentCCAddress;
+
     //endregion
     
     public ContactListingAgentPage(WebDriver driver) {
@@ -35,11 +39,12 @@ public class ContactListingAgentPage extends BasePage {
     }
 
     public void checkIfSendEmailButtonIsDisabled() {
-        Assert.assertFalse(element(sendEmailButton).isEnabled());
+        element(sendEmailButton).shouldNotBeEnabled();
     }
 
     public void fillInMessageField(String message) {
         element(messageField).sendKeys(message);
+        SessionVariables.addValueInSessionVariable("Contact_message", message);
     }
 
     public void clickOnCollapseIcon() {
@@ -47,25 +52,16 @@ public class ContactListingAgentPage extends BasePage {
     }
 
     public void checkIfSendEmailButtonIsEnabled() {
-        Assert.assertTrue(element(sendEmailButton).isEnabled());
+        element(sendEmailButton).shouldBeEnabled();
     }
 
     public void clearSubjectField() {
-        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-        WebDriver webDriver = webDriverFacade.getProxiedDriver();
-        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
         element(subjectField).clear();
-        appiumDriver.hideKeyboard();
     }
 
     public void fillInSubjectField(String message) {
-        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-        WebDriver webDriver = webDriverFacade.getProxiedDriver();
-        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
         element(subjectField).sendKeys(message);
-        appiumDriver.hideKeyboard();
+        SessionVariables.addValueInSessionVariable("Contact_subject", message);
     }
 
     public void clickOnSendEmailButton() {
@@ -85,4 +81,15 @@ public class ContactListingAgentPage extends BasePage {
         element(MobileBy.AccessibilityId(email)).shouldBeVisible();
     }
 
+    public void checkDefaultAgentCCAddress() {
+        element(defaultAgentCCAddress).shouldBeVisible();
+    }
+
+    public void hideKeyboard() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        appiumDriver.hideKeyboard();
+    }
 }

@@ -19,7 +19,7 @@ public class DT12_TwoAgentsListingDefaultSubjectTest extends SampleTest {
         user.atSearchPage.fillInAddressSearchField("240 EAST 35TH");
         user.atSearchPage.clickOnListingByAddress("240 EAST 35TH");
         user.atSearchPage.clickOnBackFromNeighborhoodsPage();
-        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
+        user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnSelectionButtonByAddress("240 East 35th St. #11A");
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.selectContactListingAgentsOption();
