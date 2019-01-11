@@ -14,6 +14,7 @@ public class MailTrapResponse {
 	private String html_body;
 	private String text_body;
 	private String txt_path;
+	private String raw_path;
 
 
 	public String getSubject() {
@@ -99,4 +100,9 @@ public class MailTrapResponse {
 	public String getTxt_path() {
 		return txt_path;
 	}
+
+	public String getRaw_path() {
+		return raw_path;
+	}
+
 }
