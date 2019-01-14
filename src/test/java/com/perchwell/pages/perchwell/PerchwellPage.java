@@ -198,6 +198,15 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Select button: unselected 474823 240 East 35th St. #6K")
 	private WebElement testListingWithTwoAgentsCheckbox;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
+	private WebElement firstContactListingCheckbox;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][2]")
+	private WebElement secondContactListingCheckbox;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][3]")
+	private WebElement thirdContactListingCheckbox;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -478,7 +487,7 @@ public class PerchwellPage extends BasePage {
 		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
 		return ((listingsAmountToCheck > (listingsAmount - 50)) && ((listingsAmount + 50) > listingsAmountToCheck));
 	}
-	
+
 	private int getNumberOfListings(WebElement listingsByButton) {
 //		String listingsByText = element(listingsByButton).getAttribute("value");
 		String listingsByText;
@@ -802,5 +811,40 @@ public class PerchwellPage extends BasePage {
 	public void selectTestListingWithTwoAgents() {
 		Helper.universalVerticalSwipe(testListingWithTwoAgentsCheckbox);
 		element(testListingWithTwoAgentsCheckbox).click();
+	}
+
+	public void clickOnContactListingAgentsButton() {
+		element(contactListingAgentsOption).click();
+	}
+
+	public void checkThatSelectionMenuIsShown() {
+		element(moreOptionsButton).shouldBeVisible();
+	}
+
+	public void checkThatThreeListingsAreSelected() {
+
+	}
+
+	public void selectFirstListings() {
+		Helper.universalVerticalSwipe(firstContactListingCheckbox);
+		SessionVariables.addValueInSessionVariable("listingAddress1", firstBuildingAddress.getAttribute("value"));
+//		element(firstContactListingCheckbox).click();
+	}
+
+	public void selectSecondListings() {
+		Helper.universalVerticalSwipe(secondContactListingCheckbox);
+		SessionVariables.addValueInSessionVariable("listingAddress2", secondBuildingAddress.getAttribute("value"));
+//		element(secondContactListingCheckbox).click();
+
+		for(int i = 1; i < 3; i++) {
+			System.out.println(SessionVariables.getValueFromSessionVariable("listingAddress" + i));
+
+		}
+	}
+
+	public void selectThirdListings() {
+		Helper.universalVerticalSwipe(thirdContactListingCheckbox);
+		SessionVariables.addValueInSessionVariable("listingAddress3", thirdBuilding.getAttribute("value"));
+		element(thirdContactListingCheckbox).click();
 	}
 }

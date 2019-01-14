@@ -1,12 +1,9 @@
 package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
-<<<<<<< HEAD
 import com.perchwell.data.DiscussionMessages;
-=======
 import com.perchwell.data.Addresses;
 import com.perchwell.data.EmailAddresses;
->>>>>>> Alex
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 

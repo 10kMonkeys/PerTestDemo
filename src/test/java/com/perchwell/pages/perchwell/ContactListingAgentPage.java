@@ -6,7 +6,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -23,11 +22,7 @@ public class ContactListingAgentPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "shrink")
     private WebElement collapseButton;
 
-<<<<<<< HEAD
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeTextField")
-=======
     @iOSXCUITFindBy(accessibility = "Subject textField")
->>>>>>> Alex
     private WebElement subjectField;
 
     @iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
@@ -35,6 +30,9 @@ public class ContactListingAgentPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "test-ios+mgmt-core@perchwell.com")
     private WebElement defaultAgentCCAddress;
+
+    @iOSXCUITFindBy(accessibility = "Back")
+    private WebElement backButtonFromContactListingAgentPage;
 
     //endregion
     
@@ -90,5 +88,9 @@ public class ContactListingAgentPage extends BasePage {
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
         appiumDriver.hideKeyboard();
+    }
+
+    public void clickOnBackButton() {
+        element(backButtonFromContactListingAgentPage).click();
     }
 }

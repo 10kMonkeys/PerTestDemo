@@ -192,4 +192,22 @@ public class SellersAgentPage extends BasePage {
         }
         Assert.assertTrue(isMessageSentToTwoAgents);
     }
+
+     public void shouldContactEmailSentToThreeMessage() {
+
+         try {
+             Thread.sleep(10000);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+        String subject = SessionVariables.getValueFromSessionVariable("Contact_subject");
+        String textBody;
+
+        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
+
+        for (MailTrapResponse email : mailTrapResponse) {
+            textBody = getTextBody(email.getTxt_path());
+            System.out.println(textBody);
+        }
+    }
 }

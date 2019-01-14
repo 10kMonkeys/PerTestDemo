@@ -423,4 +423,34 @@ public class PerchwellSteps extends ScenarioSteps {
     public void selectTestListingWithTwoAgents() {
 		onPage.selectTestListingWithTwoAgents();
     }
+
+	@Step
+	public void clickOnContactListingAgentsButton() {
+		onPage.clickOnContactListingAgentsButton();
+	}
+
+	@Step
+	public void checkThatSelectionMenuIsShown() {
+		onPage.checkThatSelectionMenuIsShown();
+	}
+
+	@Step
+	public void checkThatThreeListingsAreSelected() {
+		onPage.checkThatThreeListingsAreSelected();
+	}
+
+	@Step
+	public void selectFirstListings() {
+		onPage.selectFirstListings();
+	}
+
+	@Step
+	public void selectSecondListings() {
+		onPage.selectSecondListings();
+	}
+
+	@Step
+	public void selectThirdListings() {
+		onPage.selectThirdListings();
+	}
 }
