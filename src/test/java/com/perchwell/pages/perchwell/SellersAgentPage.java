@@ -1,7 +1,7 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.data.EmailAddresses;
-import com.perchwell.email.Email;
+import com.perchwell.data.EmailData;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
@@ -174,7 +174,7 @@ public class SellersAgentPage extends BasePage {
         }
 
         String subject = SessionVariables.getValueFromSessionVariable("Contact_subject");
-        String message = SessionVariables.getValueFromSessionVariable("Contact_message");
+        String message = EmailData.DEFAULT_SUBJECT;
         String rawBody;
         boolean isMessageSentToTwoAgents = false;
 

@@ -61,6 +61,7 @@ public class ContactListingAgentPage extends BasePage {
 
     public void fillInSubjectField(String message) {
         element(subjectField).sendKeys(message);
+        SessionVariables.addValueInSessionVariable("Contact_subject", message);
     }
 
     public void clickOnSendEmailButton() {
@@ -85,9 +86,5 @@ public class ContactListingAgentPage extends BasePage {
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
         appiumDriver.hideKeyboard();
-    }
-
-    public void getCurrentSubject() {
-        SessionVariables.addValueInSessionVariable("Contact_subject", element(subjectField).getAttribute("value"));
     }
 }

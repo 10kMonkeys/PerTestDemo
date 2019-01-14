@@ -31,7 +31,6 @@ public class DT12_TwoAgentsListingDefaultSubjectTest extends SampleTest {
         user.atContactListingAgentPage.fillInEmailField(EmailAddresses.CLIENT0);
         user.atContactListingAgentPage.hideKeyboard();
         user.atContactListingAgentPage.checkIfEmailIsAdded(EmailAddresses.CLIENT0);
-        user.atContactListingAgentPage.getCurrentSubject();
         user.atContactListingAgentPage.clickOnSendEmailButton();
         user.atSellersAgentPage.shouldContactEmailSentToTwoAgents();
     }

@@ -35,7 +35,6 @@ public class DT11_OneListingAgentMandatoryFieldsAndCustomSubjectTest extends Sam
         user.atContactListingAgentPage.fillInSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
         user.atContactListingAgentPage.hideKeyboard();
         user.atContactListingAgentPage.checkIfSendEmailButtonIsEnabled();
-        user.atContactListingAgentPage.getCurrentSubject();
         user.atContactListingAgentPage.clickOnSendEmailButton();
         user.atSellersAgentPage.shouldContactEmailSentToOneAgent();
     }
