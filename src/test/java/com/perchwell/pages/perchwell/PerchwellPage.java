@@ -126,7 +126,7 @@ public class PerchwellPage extends BasePage {
 	private WebElement firstBuildingAddress;
 
 	@iOSXCUITFindBy(xpath = "com.perchwell.re.staging:id/listing_address")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS'$][2]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS:'$][2]")
 	private WebElement secondBuildingAddress;
 
 	@iOSXCUITFindBy(accessibility = "AccountDetailsHeader")
@@ -826,25 +826,24 @@ public class PerchwellPage extends BasePage {
 	}
 
 	public void selectFirstListings() {
-		Helper.universalVerticalSwipe(firstContactListingCheckbox);
-		SessionVariables.addValueInSessionVariable("listingAddress1", firstBuildingAddress.getAttribute("value"));
-//		element(firstContactListingCheckbox).click();
+//		String firstAddress = firstBuildingAddress.getAttribute("value");
+////
+//		SessionVariables.addValueInSessionVariable("listingAddress1", firstAddress);
+//		System.out.println(SessionVariables.getValueFromSessionVariable("listingAddress1"));
+		element(firstContactListingCheckbox).click();
 	}
 
 	public void selectSecondListings() {
-		Helper.universalVerticalSwipe(secondContactListingCheckbox);
-		SessionVariables.addValueInSessionVariable("listingAddress2", secondBuildingAddress.getAttribute("value"));
-//		element(secondContactListingCheckbox).click();
-
-		for(int i = 1; i < 3; i++) {
-			System.out.println(SessionVariables.getValueFromSessionVariable("listingAddress" + i));
-
-		}
+//		String secondAddress = secondBuildingAddress.getAttribute("name");
+//
+//		SessionVariables.addValueInSessionVariable("listingAddress2", secondAddress);
+//		System.out.println(SessionVariables.getValueFromSessionVariable("listingAddress2"));
+		element(secondContactListingCheckbox).click();
 	}
 
 	public void selectThirdListings() {
-		Helper.universalVerticalSwipe(thirdContactListingCheckbox);
-		SessionVariables.addValueInSessionVariable("listingAddress3", thirdBuilding.getAttribute("value"));
+		Helper.universalVerticalShortSwipe(thirdContactListingCheckbox);
+//		SessionVariables.addValueInSessionVariable("listingAddress3", thirdBuilding.getAttribute("value"));
 		element(thirdContactListingCheckbox).click();
 	}
 }

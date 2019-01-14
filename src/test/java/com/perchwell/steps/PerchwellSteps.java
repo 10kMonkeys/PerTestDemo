@@ -430,7 +430,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkThatSelectionMenuIsShown() {
+	public void checkSelectionMenuIsShown() {
 		onPage.checkThatSelectionMenuIsShown();
 	}
 
