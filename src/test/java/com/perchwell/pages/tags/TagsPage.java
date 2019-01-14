@@ -82,7 +82,6 @@ public class TagsPage extends BasePage {
 
 
 	public void clickOnTagLabel(String TagName) {
-		System.out.println(TagName);
 		this.getCreatedTagLabel(TagName).click();
 	}
 
