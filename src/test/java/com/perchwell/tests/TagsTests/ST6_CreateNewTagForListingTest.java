@@ -18,6 +18,7 @@ public class ST6_CreateNewTagForListingTest extends SampleTest {
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
 		user.atOpenedBuildingPage.getFirstBuildingAddress();
 		user.atOpenedBuildingPage.clickOnMyTagsLabel();
+		user.atOpenedBuildingPage.clearTagsList();
 		user.atTagsPage.setRandomTagAndSave();
 		user.atTagsPage.clickOnArrowBackFromTagsButton();
 		user.atTagsPage.justCreatedTagIsAddedToListing();

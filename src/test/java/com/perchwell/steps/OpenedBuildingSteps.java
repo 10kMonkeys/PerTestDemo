@@ -355,5 +355,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
     public void getTestAgentEmail() {
 		onPage.getTestAgentEmail();
     }
+
+    @Step
+    public void clearTagsList() {
+		onPage.clearTagsList();
+    }
 }
 

@@ -163,9 +163,9 @@ public class TagsPage extends BasePage {
 			}
 			element(MobileBy.xpath("//*[contains(@text, '" + tagName + "')]")).shouldBeVisible();
 		} else {
-			while((!(element(MobileBy.AccessibilityId(tagName)).isPresent()))/* && Helper.isElementDisplayed(moreTagIcon)*/) {
-				element(deleteTagButton).click();
-			}
+//			while((!(element(MobileBy.AccessibilityId(tagName)).isPresent()))/* && Helper.isElementDisplayed(moreTagIcon)*/) {
+//				element(deleteTagButton).click();
+//			}
 			element(MobileBy.AccessibilityId(tagName)).shouldBeVisible();
 		}
 	}
@@ -182,7 +182,8 @@ public class TagsPage extends BasePage {
 		if(Config.isAndroid()) {
 			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("text"));
 		} else {
-			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("name"));
+			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("name")
+					.substring(0, firstTag.getAttribute("name").indexOf(" ")));
 		}
 		element(firstTag).click();
 	}
@@ -195,7 +196,7 @@ public class TagsPage extends BasePage {
 		if(Config.isAndroid()) {
 			element(MobileBy.xpath("//*[contains(@text,'" + SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "')]")).click();
 		} else {
-			element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).click();
+			element(MobileBy.iOSNsPredicateString("value CONTAINS '" + SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).click();
 		}
 	}
 
