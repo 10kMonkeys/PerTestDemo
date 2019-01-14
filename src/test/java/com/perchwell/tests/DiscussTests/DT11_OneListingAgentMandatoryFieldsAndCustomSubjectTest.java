@@ -21,8 +21,8 @@ public class DT11_OneListingAgentMandatoryFieldsAndCustomSubjectTest extends Sam
         user.atSearchPage.clickOnListingByAddress(Addresses.EAST_35TH);
         user.atSearchPage.clickOnBackFromNeighborhoodsPage();
         user.atSearchPage.clickOnApplyButton();
-//        user.atPerchwellPage.selectTestListingWithOneAgent();
-//        user.atPerchwellPage.clickOnMoreOptionsButton();
+        user.atPerchwellPage.selectTestListingWithOneAgent();
+        user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.selectContactListingAgentsOption();
         user.atContactListingAgentSteps.checkDefaultAgentCCAddress();
         user.atContactListingAgentSteps.checkIfSendEmailButtonIsDisabled();
@@ -36,7 +36,6 @@ public class DT11_OneListingAgentMandatoryFieldsAndCustomSubjectTest extends Sam
         user.atContactListingAgentSteps.hideKeyboard();
         user.atContactListingAgentSteps.checkIfSendEmailButtonIsEnabled();
         user.atContactListingAgentSteps.clickOnSendEmailButton();
-
         user.atSellersAgentPage.shouldContactEmailSentToOneAgent();
     }
 }
