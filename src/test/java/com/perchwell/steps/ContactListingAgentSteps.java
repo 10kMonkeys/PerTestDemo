@@ -62,4 +62,9 @@ public class ContactListingAgentSteps extends ScenarioSteps {
     public void hideKeyboard() {
         onPage.hideKeyboard();
     }
+
+    @Step
+    public void getCurrentSubject() {
+        onPage.getCurrentSubject();
+    }
 }

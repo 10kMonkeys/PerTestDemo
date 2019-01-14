@@ -3,6 +3,7 @@ package com.perchwell.tests.DiscussTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
 import com.perchwell.data.DiscussionMessages;
+import com.perchwell.data.EmailAddresses;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
@@ -24,14 +25,13 @@ public class DT12_TwoAgentsListingDefaultSubjectTest extends SampleTest {
         user.atPerchwellPage.selectTestListingWithTwoAgents();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.selectContactListingAgentsOption();
+        user.atContactListingAgentPage.checkDefaultAgentCCAddress();
         user.atContactListingAgentPage.fillInMessageField(DiscussionMessages.MESSAGE);
         user.atContactListingAgentPage.clickOnCollapseIcon();
-        user.atContactListingAgentPage.clearSubjectField();
-        user.atContactListingAgentPage.fillInSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
+        user.atContactListingAgentPage.fillInEmailField(EmailAddresses.CLIENT0);
         user.atContactListingAgentPage.hideKeyboard();
-        user.atContactListingAgentPage.fillInEmailField(AppProperties.INSTANCE.getProperty("client_email"));
-        user.atContactListingAgentPage.hideKeyboard();
-        user.atContactListingAgentPage.checkIfEmailIsAdded(AppProperties.INSTANCE.getProperty("client_email"));
+        user.atContactListingAgentPage.checkIfEmailIsAdded(EmailAddresses.CLIENT0);
+        user.atContactListingAgentPage.getCurrentSubject();
         user.atContactListingAgentPage.clickOnSendEmailButton();
         user.atSellersAgentPage.shouldContactEmailSentToTwoAgents();
     }

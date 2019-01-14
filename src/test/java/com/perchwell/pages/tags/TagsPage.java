@@ -31,7 +31,7 @@ public class TagsPage extends BasePage {
 	private WebElement searchTagTexBox;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_tag")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '+ Create tag'")
 	private WebElement createTagLabel;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
@@ -82,6 +82,7 @@ public class TagsPage extends BasePage {
 
 
 	public void clickOnTagLabel(String TagName) {
+		System.out.println(TagName);
 		this.getCreatedTagLabel(TagName).click();
 	}
 
