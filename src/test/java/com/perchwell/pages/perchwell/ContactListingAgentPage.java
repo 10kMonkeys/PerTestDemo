@@ -23,7 +23,7 @@ public class ContactListingAgentPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "shrink")
     private WebElement collapseButton;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeTextField")
+    @iOSXCUITFindBy(accessibility = "Subject textField")
     private WebElement subjectField;
 
     @iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
@@ -69,12 +69,7 @@ public class ContactListingAgentPage extends BasePage {
     }
 
     public void fillInEmailField(String email) {
-        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-        WebDriver webDriver = webDriverFacade.getProxiedDriver();
-        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-
         element(emailField).sendKeys(email);
-        appiumDriver.hideKeyboard();
     }
 
     public void checkIfEmailIsAdded(String email) {

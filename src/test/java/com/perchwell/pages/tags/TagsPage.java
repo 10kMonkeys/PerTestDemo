@@ -31,7 +31,7 @@ public class TagsPage extends BasePage {
 	private WebElement searchTagTexBox;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_tag")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '+ Create tag'")
 	private WebElement createTagLabel;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
@@ -39,7 +39,7 @@ public class TagsPage extends BasePage {
 	private WebElement arrowBackFromTagsButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_by_tags")
-	@iOSXCUITFindBy(accessibility = "SHOW LISTINGS IN SELECTED TAGS")
+	@iOSXCUITFindBy(accessibility = "SHOW ITEMS IN SELECTED TAGS")
 	private WebElement searchButton;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.ImageView")
@@ -134,7 +134,7 @@ public class TagsPage extends BasePage {
 		if(Config.isAndroid()) {
 			tag = getDriver().findElement(MobileBy.xpath("//*[contains(@text, '" + uniqueTagName + "')]"));
 		} else {
-			tag = element(MobileBy.iOSClassChain(
+			tag = element(MobileBy.iOSNsPredicateString(
 					"type == 'XCUIElementTypeStaticText' AND name CONTAINS '" + uniqueTagName + "'"));
 		}
 

@@ -418,4 +418,9 @@ public class PerchwellSteps extends ScenarioSteps {
     public void selectFirstTestListingWithOneAgent() {
 		onPage.selectFirstTestListingWithOneAgent();
     }
+
+    @Step
+    public void selectTestListingWithTwoAgents() {
+		onPage.selectTestListingWithTwoAgents();
+    }
 }

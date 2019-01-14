@@ -1,6 +1,7 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.data.EmailAddresses;
+import com.perchwell.data.EmailData;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
@@ -164,5 +165,31 @@ public class SellersAgentPage extends BasePage {
         Assert.assertTrue(rawBody.contains("To: " + SessionVariables.getValueFromSessionVariable("Test_agent")));
         Assert.assertTrue(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER));
         Assert.assertFalse(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ","));
+    }
+
+    public void shouldContactEmailSentToTwoAgents() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
+        String subject = SessionVariables.getValueFromSessionVariable("Contact_subject");
+        String message = EmailData.DEFAULT_SUBJECT;
+        String rawBody;
+        boolean isMessageSentToTwoAgents = false;
+
+        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
+
+        for (MailTrapResponse email : mailTrapResponse) {
+            rawBody = getTextBody(email.getRaw_path());
+            if (rawBody.contains(message) && rawBody.contains("To: " + EmailAddresses.AGENT_1) && rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ",\n" +
+                    EmailAddresses.CLIENT0 + ",\n" + EmailAddresses.AGENT_2) && !rawBody.contains(EmailAddresses.AGENT_2 + ",")) {
+                isMessageSentToTwoAgents = true;
+                break;
+            }
+
+        }
+        Assert.assertTrue(isMessageSentToTwoAgents);
+    }
 }
