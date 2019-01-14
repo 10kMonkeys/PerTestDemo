@@ -14,14 +14,12 @@ public class DT11_OneListingAgentMandatoryFieldsAndCustomSubjectTest extends Sam
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
-        user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
-        user.atSearchPage.clickOnListingByAddress(Addresses.EAST_35TH);
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.selectTestListingWithOneAgent();
+        user.atPerchwellPage.openFirstBuilding();
+        user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+        user.atSellersAgentPage.swipeDownUntilSellersAgentSection();
+        user.atOpenedBuildingPage.getTestAgentEmail();
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
+        user.atPerchwellPage.selectFirstTestListingWithOneAgent();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.selectContactListingAgentsOption();
         user.atContactListingAgentPage.checkDefaultAgentCCAddress();

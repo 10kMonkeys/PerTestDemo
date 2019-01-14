@@ -9,6 +9,7 @@ import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -161,7 +162,7 @@ public class SellersAgentPage extends BasePage {
 
         Assert.assertTrue(rawBody.contains("Subject: " + subject));
         Assert.assertTrue(rawBody.contains(message));
-        Assert.assertTrue(rawBody.contains("To: " + EmailAddresses.IOS_BROKER));
+        Assert.assertTrue(rawBody.contains("To: " + SessionVariables.getValueFromSessionVariable("Test_agent")));
         Assert.assertTrue(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER));
         Assert.assertFalse(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ","));
     }

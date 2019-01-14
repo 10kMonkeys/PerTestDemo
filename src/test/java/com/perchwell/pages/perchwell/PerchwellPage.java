@@ -192,8 +192,8 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'ADDRESS:' AND visible == 1")
 	private List<WebElement> visibleAddressesList;
 
-	@iOSXCUITFindBy(accessibility = "Select button: unselected 484859 240 East 35th St. #6F")
-	private WebElement testListingWithOneAgentCheckbox;
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
+	private WebElement firstTestListingWithOneAgentCheckbox;
 
 	@iOSXCUITFindBy(accessibility = "Select button: unselected 474823 240 East 35th St. #6K")
 	private WebElement testListingWithTwoAgentsCheckbox;
@@ -795,9 +795,9 @@ public class PerchwellPage extends BasePage {
 		element(contactListingAgentsOption).click();
 	}
 
-	public void selectTestListingWithOneAgent() {
-		Helper.universalVerticalSwipe(testListingWithOneAgentCheckbox);
-		element(testListingWithOneAgentCheckbox).click();
+	public void selectFirstTestListingWithOneAgent() {
+		Helper.universalVerticalSwipe(firstTestListingWithOneAgentCheckbox);
+		element(firstTestListingWithOneAgentCheckbox).click();
 	}
 
 	public void selectTestListingWithTwoAgents() {

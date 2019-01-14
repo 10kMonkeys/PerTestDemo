@@ -247,6 +247,7 @@ public class OpenedBuildingPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "NO MATCH")
 	private WebElement noMatchLabel;
+	private WebElement sellersAgentsSection;
 
 	//endregion
 
@@ -745,5 +746,13 @@ public class OpenedBuildingPage extends BasePage {
 		Assert.assertTrue(element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Neighborhood:'$][3]")).getAttribute("value").contains(location));
 		Assert.assertTrue(element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Neighborhood:'$][4]")).getAttribute("value").contains(location));
 		Assert.assertTrue(element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Neighborhood:'$][5]")).getAttribute("value").contains(location));
+	}
+
+	public void getTestAgentEmail() {
+		String agentEmail = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND " +
+				"name CONTAINS 'TEST TEST'")).getValue().toLowerCase();
+
+		SessionVariables.addValueInSessionVariable("Test_agent",
+				agentEmail.replace("test ", ""));
 	}
 }
