@@ -174,8 +174,8 @@ public class SellersAgentPage extends BasePage {
             e.printStackTrace();
         }
 
-        String subject = SessionVariables.getValueFromSessionVariable("Contact_subject");
-        String message = EmailData.DEFAULT_SUBJECT;
+        String subject = EmailData.DEFAULT_SUBJECT;
+        String message = SessionVariables.getValueFromSessionVariable("Contact_message");
         String rawBody;
         boolean isMessageSentToTwoAgents = false;
 
