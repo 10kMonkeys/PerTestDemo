@@ -134,10 +134,10 @@ public class TagsPage extends BasePage {
 		if(Config.isAndroid()) {
 			tag = getDriver().findElement(MobileBy.xpath("//*[contains(@text, '" + uniqueTagName + "')]"));
 		} else {
+
 			tag = element(MobileBy.iOSNsPredicateString(
 					"type == 'XCUIElementTypeStaticText' AND name CONTAINS '" + uniqueTagName + "'"));
 		}
-
 		return tag;
 	}
 

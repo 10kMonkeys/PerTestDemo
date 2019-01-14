@@ -1,8 +1,8 @@
 package com.perchwell.tests.DiscussTests;
 
 import com.perchwell.SampleTest;
-import com.perchwell.data.Addresses;
 import com.perchwell.data.DiscussionMessages;
+import com.perchwell.data.Addresses;
 import com.perchwell.data.EmailAddresses;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
