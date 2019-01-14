@@ -18,7 +18,7 @@ public class TagsSteps extends ScenarioSteps {
 	public void setRandomTagAndSave() {
 		tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
 		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
-//		this.onPage.clickOnCreateTagLabel();
+		this.onPage.clickOnCreateTagLabel();
 	}
 
 	@Step

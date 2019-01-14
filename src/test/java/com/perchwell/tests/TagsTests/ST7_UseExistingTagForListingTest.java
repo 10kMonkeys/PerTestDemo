@@ -19,9 +19,7 @@ public class ST7_UseExistingTagForListingTest extends SampleTest {
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
 		user.atOpenedBuildingPage.clickOnMyTagsLabel();
 		user.atTagsPage.setRandomTagAndSave();
-		user.atTagsPage.clickOnArrowBackFromTagsButton();
-		user.atOpenedBuildingPage.removeAllTags();
-		user.atOpenedBuildingPage.clickOnMyTagsLabel();
+		user.atOpenedBuildingPage.clearTagsList();
 		user.atTagsPage.clickOnFirstTag();
 		user.atTagsPage.clickOnArrowBackFromTagsButton();
 		user.atOpenedBuildingPage.shouldSeeAddedTag();
