@@ -350,5 +350,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void checkIfBuildingsAreFilteredByNeighborhood() {
 		onPage.checkIfBuildingsAreFilteredByNeighborhood();
 	}
+
+	@Step
+    public void getTestAgentEmail() {
+		onPage.getTestAgentEmail();
+    }
 }
 

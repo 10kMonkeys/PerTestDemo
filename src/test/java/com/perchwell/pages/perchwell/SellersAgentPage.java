@@ -1,5 +1,7 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.data.EmailAddresses;
+import com.perchwell.data.EmailData;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
@@ -7,14 +9,13 @@ import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import static com.perchwell.email.MailTrap.getTextBody;
 
 public class SellersAgentPage extends BasePage {
@@ -143,5 +144,52 @@ public class SellersAgentPage extends BasePage {
 
     public void shouldInterestEmailSentToTwoAgent() {
         Assert.assertTrue(countNumberEmailsSentToTwoSellersAgents());
+    }
+
+    public void shouldContactEmailSentToOneAgent() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String subject = SessionVariables.getValueFromSessionVariable("Contact_subject");
+        String message = SessionVariables.getValueFromSessionVariable("Contact_message");
+        String rawBody;
+
+        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
+        rawBody = getTextBody(mailTrapResponse[0].getRaw_path());
+
+        Assert.assertTrue(rawBody.contains("Subject: " + subject));
+        Assert.assertTrue(rawBody.contains(message));
+        Assert.assertTrue(rawBody.contains("To: " + SessionVariables.getValueFromSessionVariable("Test_agent")));
+        Assert.assertTrue(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER));
+        Assert.assertFalse(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ","));
+    }
+
+    public void shouldContactEmailSentToTwoAgents() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String subject = EmailData.DEFAULT_SUBJECT;
+        String message = SessionVariables.getValueFromSessionVariable("Contact_message");
+        String rawBody;
+        boolean isMessageSentToTwoAgents = false;
+
+        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
+
+        for (MailTrapResponse email : mailTrapResponse) {
+            rawBody = getTextBody(email.getRaw_path());
+            if (rawBody.contains(message) && rawBody.contains("To: " + EmailAddresses.AGENT_1) && rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ",\n" +
+                    EmailAddresses.CLIENT0 + ",\n" + EmailAddresses.AGENT_2) && !rawBody.contains(EmailAddresses.AGENT_2 + ",")) {
+                isMessageSentToTwoAgents = true;
+                break;
+            }
+
+        }
+        Assert.assertTrue(isMessageSentToTwoAgents);
     }
 }

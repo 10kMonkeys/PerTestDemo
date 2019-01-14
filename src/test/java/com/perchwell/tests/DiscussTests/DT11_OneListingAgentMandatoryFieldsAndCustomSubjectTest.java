@@ -14,27 +14,26 @@ public class DT11_OneListingAgentMandatoryFieldsAndCustomSubjectTest extends Sam
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
-        user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
-        user.atSearchPage.clickOnListingByAddress(Addresses.EAST_35TH);
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.selectTestListingWithOneAgent();
+        user.atPerchwellPage.openFirstBuilding();
+        user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+        user.atSellersAgentPage.swipeDownUntilSellersAgentSection();
+        user.atOpenedBuildingPage.getTestAgentEmail();
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
+        user.atPerchwellPage.selectFirstTestListingWithOneAgent();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.selectContactListingAgentsOption();
-        user.atContactListingAgentSteps.checkDefaultAgentCCAddress();
-        user.atContactListingAgentSteps.checkIfSendEmailButtonIsDisabled();
-        user.atContactListingAgentSteps.fillInMessageField(DiscussionMessages.MESSAGE);
-        user.atContactListingAgentSteps.clickOnCollapseIcon();
-        user.atContactListingAgentSteps.checkIfSendEmailButtonIsEnabled();
-        user.atContactListingAgentSteps.clearSubjectField();
-        user.atContactListingAgentSteps.hideKeyboard();
-        user.atContactListingAgentSteps.checkIfSendEmailButtonIsDisabled();
-        user.atContactListingAgentSteps.fillInSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
-        user.atContactListingAgentSteps.hideKeyboard();
-        user.atContactListingAgentSteps.checkIfSendEmailButtonIsEnabled();
-        user.atContactListingAgentSteps.clickOnSendEmailButton();
+        user.atContactListingAgentPage.checkDefaultAgentCCAddress();
+        user.atContactListingAgentPage.checkIfSendEmailButtonIsDisabled();
+        user.atContactListingAgentPage.fillInMessageField(DiscussionMessages.MESSAGE);
+        user.atContactListingAgentPage.clickOnCollapseIcon();
+        user.atContactListingAgentPage.checkIfSendEmailButtonIsEnabled();
+        user.atContactListingAgentPage.clearSubjectField();
+        user.atContactListingAgentPage.hideKeyboard();
+        user.atContactListingAgentPage.checkIfSendEmailButtonIsDisabled();
+        user.atContactListingAgentPage.fillInSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
+        user.atContactListingAgentPage.hideKeyboard();
+        user.atContactListingAgentPage.checkIfSendEmailButtonIsEnabled();
+        user.atContactListingAgentPage.clickOnSendEmailButton();
+        user.atSellersAgentPage.shouldContactEmailSentToOneAgent();
     }
 }

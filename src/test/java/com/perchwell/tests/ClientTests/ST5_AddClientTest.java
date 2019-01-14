@@ -10,7 +10,7 @@ import org.junit.Test;
 public class ST5_AddClientTest extends SampleTest {
 
 	@Test
-	public void addClient() throws Exception {
+	public void addClient() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
