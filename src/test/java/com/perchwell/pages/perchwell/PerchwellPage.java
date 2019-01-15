@@ -195,7 +195,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
 	private WebElement firstTestListingWithOneAgentCheckbox;
 
-	@iOSXCUITFindBy(accessibility = "Select button: unselected 240 East 35th St. #6K 733613")
+	@iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH 'Select button: unselected 240 East 35th St. #11A'")
 	private WebElement testListingWithTwoAgentsCheckbox;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
