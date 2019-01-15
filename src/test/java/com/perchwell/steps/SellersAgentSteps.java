@@ -6,6 +6,7 @@ import com.perchwell.pages.perchwell.PerchwellPage;
 import com.perchwell.pages.perchwell.SellersAgentPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 
 public class SellersAgentSteps extends ScenarioSteps {
     PerchwellPage perchwellPage;
@@ -13,7 +14,7 @@ public class SellersAgentSteps extends ScenarioSteps {
     SellersAgentPage sellersAgentPage;
 
     @Step
-    public void findBuildingWithOneSellersAgent() throws Exception {
+    public void findBuildingWithOneSellersAgent() {
         perchwellPage.openFirstBuilding();
         openedBuildingPage.clickOnDiscussWithMyClientHint();
         if (!openedBuildingPage.isOneSellersAgent()) {
@@ -73,5 +74,20 @@ public class SellersAgentSteps extends ScenarioSteps {
     public void clickOnPositiveButton() {
         openedBuildingPage.clickOnPositiveButton();
 
+    }
+
+    @Step
+    public void shouldContactEmailSentToOneAgent() {
+        sellersAgentPage.shouldContactEmailSentToOneAgent();
+    }
+
+    @Step
+    public void shouldContactEmailSentToTwoAgents() {
+        sellersAgentPage.shouldContactEmailSentToTwoAgents();
+    }
+
+    @Step
+    public void shouldContactEmailSentToThreeMessage() {
+        sellersAgentPage.shouldContactEmailSentToThreeMessage();
     }
 }

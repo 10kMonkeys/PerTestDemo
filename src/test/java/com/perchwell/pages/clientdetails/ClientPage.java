@@ -270,7 +270,7 @@ public class ClientPage extends BasePage {
 		}
 
 		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(SessionVariables.getValueFromSessionVariable(email));
-		Assert.assertTrue(mailTrapResponse.length > 0);
+		Assert.assertEquals(1, mailTrapResponse.length);
 //		Boolean invitationWasFound = false;
 //
 //		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(SessionVariables.getValueFromSessionVariable(email));

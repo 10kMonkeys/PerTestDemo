@@ -15,8 +15,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import javax.naming.NamingSecurityException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static io.appium.java_client.MobileBy.iOSClassChain;
 
@@ -247,6 +249,9 @@ public class OpenedBuildingPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "NO MATCH")
 	private WebElement noMatchLabel;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'removeBubble'")
+	private WebElement removeButton;
 
 	//endregion
 
@@ -746,4 +751,20 @@ public class OpenedBuildingPage extends BasePage {
 		Assert.assertTrue(element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Neighborhood:'$][4]")).getAttribute("value").contains(location));
 		Assert.assertTrue(element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS 'Neighborhood:'$][5]")).getAttribute("value").contains(location));
 	}
+
+	public void getTestAgentEmail() {
+		String agentEmail = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND " +
+				"name CONTAINS 'TEST TEST'")).getValue().toLowerCase();
+
+		SessionVariables.addValueInSessionVariable("Test_agent",
+				agentEmail.replace("test ", ""));
+	}
+
+    public void clearTagsList() {
+		setImplicitTimeout(3, TimeUnit.SECONDS);
+		while (element(MobileBy.iOSNsPredicateString("label CONTAINS 'removeBubble'")).isVisible()) {
+			element(removeButton).click();
+		}
+		resetImplicitTimeout();
+    }
 }

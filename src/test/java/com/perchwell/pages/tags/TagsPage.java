@@ -27,11 +27,11 @@ public class TagsPage extends BasePage {
 	private WebElement tagSearchButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSearchField")
+	@iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
 	private WebElement searchTagTexBox;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_tag")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '+ Create tag'")
 	private WebElement createTagLabel;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
@@ -39,7 +39,7 @@ public class TagsPage extends BasePage {
 	private WebElement arrowBackFromTagsButton;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_by_tags")
-	@iOSXCUITFindBy(accessibility = "search")
+	@iOSXCUITFindBy(accessibility = "SHOW ITEMS IN SELECTED TAGS")
 	private WebElement searchButton;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.ImageView")
@@ -134,9 +134,10 @@ public class TagsPage extends BasePage {
 		if(Config.isAndroid()) {
 			tag = getDriver().findElement(MobileBy.xpath("//*[contains(@text, '" + uniqueTagName + "')]"));
 		} else {
-			tag = getDriver().findElement(MobileBy.AccessibilityId(uniqueTagName));
-		}
 
+			tag = element(MobileBy.iOSNsPredicateString(
+					"type == 'XCUIElementTypeStaticText' AND name CONTAINS '" + uniqueTagName + "'"));
+		}
 		return tag;
 	}
 
@@ -162,9 +163,9 @@ public class TagsPage extends BasePage {
 			}
 			element(MobileBy.xpath("//*[contains(@text, '" + tagName + "')]")).shouldBeVisible();
 		} else {
-			while((!(element(MobileBy.AccessibilityId(tagName)).isPresent()))/* && Helper.isElementDisplayed(moreTagIcon)*/) {
-				element(deleteTagButton).click();
-			}
+//			while((!(element(MobileBy.AccessibilityId(tagName)).isPresent()))/* && Helper.isElementDisplayed(moreTagIcon)*/) {
+//				element(deleteTagButton).click();
+//			}
 			element(MobileBy.AccessibilityId(tagName)).shouldBeVisible();
 		}
 	}
@@ -181,7 +182,8 @@ public class TagsPage extends BasePage {
 		if(Config.isAndroid()) {
 			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("text"));
 		} else {
-			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("name"));
+			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("name")
+					.substring(0, firstTag.getAttribute("name").indexOf(" ")));
 		}
 		element(firstTag).click();
 	}
@@ -194,7 +196,7 @@ public class TagsPage extends BasePage {
 		if(Config.isAndroid()) {
 			element(MobileBy.xpath("//*[contains(@text,'" + SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "')]")).click();
 		} else {
-			element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).click();
+			element(MobileBy.iOSNsPredicateString("value CONTAINS '" + SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).click();
 		}
 	}
 

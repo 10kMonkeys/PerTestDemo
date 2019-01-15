@@ -1874,4 +1874,8 @@ public class SearchPage extends BasePage {
 //        element(MobileBy.AccessibilityId(maxFilterValue)).getAttribute("value");
         Assert.assertEquals(maxFilterValue, element(MobileBy.AccessibilityId(maxFilterValue)).getAttribute("value"));
     }
+
+    public void clickOnListingByAddress(String address) {
+        element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value CONTAINS '" + address + "'")).click();
+    }
 }

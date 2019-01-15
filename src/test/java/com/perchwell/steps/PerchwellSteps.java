@@ -398,4 +398,68 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void checkIfListingsAmountIsLessThenInitial() {
 		onPage.checkIfListingsAmountIsLessThenInitial();
 	}
+
+	@Step
+    public void clickOnSelectionButtonByAddress(String address) {
+		onPage.clickOnSelectionButtonByAddress(address);
+	}
+
+	@Step
+	public void clickOnMoreOptionsButton() {
+		onPage.clickOnMoreOptionsButton();
+	}
+
+	@Step
+	public void selectContactListingAgentsOption() {
+		onPage.selectContactListingAgentsOption();
+	}
+
+	@Step
+    public void selectFirstTestListingWithOneAgent() {
+		onPage.selectFirstTestListingWithOneAgent();
+    }
+
+    @Step
+    public void selectTestListingWithTwoAgents() {
+		onPage.selectTestListingWithTwoAgents();
+    }
+
+	@Step
+	public void clickOnContactListingAgentsButton() {
+		onPage.clickOnContactListingAgentsButton();
+	}
+
+	@Step
+	public void checkSelectionMenuIsShown() {
+		onPage.checkMoreButtonIsShown();
+		onPage.checkSelectAllButtonIsShown();
+		onPage.checkDeselectAllButtonIsShown();
+		onPage.checkCounterWithValueThreeIsShown();
+		onPage.checkSelectedWordIsShown();
+	}
+
+	@Step
+	public void checkThatThreeListingsAreSelected() {
+		onPage.checkThatThreeListingsAreSelected();
+	}
+
+	@Step
+	public void selectFirstListing() {
+		onPage.selectFirstListings();
+	}
+
+	@Step
+	public void selectSecondListingAfterFirst() {
+		onPage.selectFirstListings();
+	}
+
+	@Step
+	public void selectThirdListingAfterSecond() {
+		onPage.selectFirstListings();
+	}
+
+	@Step
+	public void getThreeFirstAddresses() {
+		onPage.getThreeFirstAddresses();
+	}
 }
