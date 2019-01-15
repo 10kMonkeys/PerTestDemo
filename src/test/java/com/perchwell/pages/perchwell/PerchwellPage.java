@@ -195,7 +195,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
 	private WebElement firstTestListingWithOneAgentCheckbox;
 
-	@iOSXCUITFindBy(accessibility = "Select button: unselected 474823 240 East 35th St. #6K")
+	@iOSXCUITFindBy(accessibility = "Select button: unselected 240 East 35th St. #6K 733613")
 	private WebElement testListingWithTwoAgentsCheckbox;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
@@ -206,6 +206,24 @@ public class PerchwellPage extends BasePage {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][3]")
 	private WebElement thirdContactListingCheckbox;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS:'$][3]")
+	private WebElement thirdBuildingAddress;
+
+	@iOSXCUITFindBy(accessibility = "Select all button")
+	private WebElement slectAllButton;
+
+	@iOSXCUITFindBy(accessibility = "Deselect all button")
+	private WebElement deselectAllButton;
+
+	@iOSXCUITFindBy(accessibility = "Number of selected listings: 3")
+	private WebElement counterWithValueThree;
+
+	@iOSXCUITFindBy(accessibility = "Selected")
+	private WebElement selectedWord;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: selected'")
+	private List<WebElement> selectedListingsList;
 
 	//endregion
 
@@ -817,33 +835,48 @@ public class PerchwellPage extends BasePage {
 		element(contactListingAgentsOption).click();
 	}
 
-	public void checkThatSelectionMenuIsShown() {
+	public void checkMoreButtonIsShown() {
 		element(moreOptionsButton).shouldBeVisible();
 	}
 
 	public void checkThatThreeListingsAreSelected() {
+		Assert.assertEquals(3, selectedListingsList.size());
 
 	}
 
 	public void selectFirstListings() {
-//		String firstAddress = firstBuildingAddress.getAttribute("value");
-////
-//		SessionVariables.addValueInSessionVariable("listingAddress1", firstAddress);
-//		System.out.println(SessionVariables.getValueFromSessionVariable("listingAddress1"));
 		element(firstContactListingCheckbox).click();
 	}
 
 	public void selectSecondListings() {
-//		String secondAddress = secondBuildingAddress.getAttribute("name");
-//
-//		SessionVariables.addValueInSessionVariable("listingAddress2", secondAddress);
-//		System.out.println(SessionVariables.getValueFromSessionVariable("listingAddress2"));
 		element(secondContactListingCheckbox).click();
 	}
 
 	public void selectThirdListings() {
-		Helper.universalVerticalShortSwipe(thirdContactListingCheckbox);
-//		SessionVariables.addValueInSessionVariable("listingAddress3", thirdBuilding.getAttribute("value"));
 		element(thirdContactListingCheckbox).click();
+	}
+
+	public void getThreeFirstAddresses() {
+		int c = 1;
+
+		for(int i = 0; i < 3; i++) {
+			SessionVariables.addValueInSessionVariable("listingAddress" + (i + c), addressesList.get(i).getAttribute("value"));
+		}
+	}
+
+	public void checkSelectAllButtonIsShown() {
+		element(slectAllButton).shouldBeVisible();
+	}
+
+	public void checkDeselectAllButtonIsShown() {
+		element(deselectAllButton).shouldBeVisible();
+	}
+
+	public void checkCounterWithValueThreeIsShown() {
+		element(counterWithValueThree).shouldBeVisible();
+	}
+
+	public void checkSelectedWordIsShown() {
+		element(selectedWord).shouldBeVisible();
 	}
 }

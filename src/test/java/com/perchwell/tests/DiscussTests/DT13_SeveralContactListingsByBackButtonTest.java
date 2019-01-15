@@ -13,32 +13,23 @@ public class DT13_SeveralContactListingsByBackButtonTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-//        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-//        user.inSearchMenu.openSearchPage(); //search new
-//        user.atSearchPage.clickOnSearchByAddressButton();
-//        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
-//        user.atSearchPage.clickOnListingByAddress(Addresses.EAST_35TH);
-//        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
-//        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.selectFirstListings(); //update
-        user.atPerchwellPage.selectSecondListings(); //update
-        user.atPerchwellPage.selectThirdListings(); //update
+        user.atPerchwellPage.getThreeFirstAddresses();
+        user.atPerchwellPage.selectFirstListing();
+        user.atPerchwellPage.selectSecondListingAfterFirst();
+        user.atPerchwellPage.selectThirdListingAfterSecond();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnContactListingAgentsButton();
         user.atContactListingAgentPage.clickOnBackButton();
-
-        user.atPerchwellPage.checkSelectionMenuIsShown(); //update
-        user.atPerchwellPage.checkThatThreeListingsAreSelected(); //update
-
+        user.atPerchwellPage.checkSelectionMenuIsShown();
+        user.atPerchwellPage.checkThatThreeListingsAreSelected();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnContactListingAgentsButton();
         user.atContactListingAgentPage.clearSubjectField();
-        user.atContactListingAgentPage.hideKeyboard();
         user.atContactListingAgentPage.fillInSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
-        user.atContactListingAgentPage.fillInMessageField(DiscussionMessages.HELLO);
         user.atContactListingAgentPage.hideKeyboard();
+        user.atContactListingAgentPage.fillInMessageField(DiscussionMessages.HELLO);
+        user.atContactListingAgentPage.clickOnCollapseIcon();
         user.atContactListingAgentPage.clickOnSendEmailButton();
         user.atSellersAgentPage.shouldContactEmailSentToThreeMessage();
-
     }
 }
