@@ -1105,4 +1105,14 @@ public class SearchSteps extends ScenarioSteps {
     public void clickOnListingByAddress(String address) {
         onPage.clickOnListingByAddress(address);
     }
+
+    @Step
+    public void fillInTotalRoomsMaxField(String value) {
+        onPage.fillInTotalRoomsMaxField(value);
+    }
+
+    @Step
+    public void clearTotalRoomsMaxValueFiled() {
+        onPage.clearTotalRoomsMaxValueFiled();
+    }
 }

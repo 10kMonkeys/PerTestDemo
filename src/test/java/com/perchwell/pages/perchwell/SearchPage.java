@@ -649,6 +649,9 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: BEDROOMS")
     private WebElement collapseBedroomsArrow;
 
+    @iOSXCUITFindBy(accessibility = "TOTAL ROOMS Maximum Value Input")
+    private WebElement totalRoomsMaxValueField;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -1877,5 +1880,18 @@ public class SearchPage extends BasePage {
 
     public void clickOnListingByAddress(String address) {
         element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value CONTAINS '" + address + "'")).click();
+    }
+
+    public void fillInTotalRoomsMaxField(String value) {
+        Helper.universalVerticalSwipe(totalRoomsSection);
+        element(totalRoomsMaxValueField).sendKeys(value);
+        if (!Config.isAndroid()) {
+            getDriver().findElement(By.name("Done")).click();
+        }
+    }
+
+    public void clearTotalRoomsMaxValueFiled() {
+        Helper.universalVerticalSwipe(totalRoomsSection);
+        element(totalRoomsMaxValueField).clear();
     }
 }

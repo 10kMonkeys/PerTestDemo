@@ -28,6 +28,7 @@ public class Filters {
     public static final String ASKING_PRICE_MIN_VALUE = "Asking Price Minimum Value Input";
     public static final String ASKING_PRICE_MAX_VALUE = "Asking Price Maximum Value Input";
     public static final String TOTAL_ROOMS_MIN_VALUE = "TOTAL ROOMS Minimum Value Input";
+    public static final String TOTAL_ROOMS_MAX_VALUE = "TOTAL ROOMS Maximum Value Input";
     public static final String MONTHLIES_MIN_VALUE = "Monthlies Minimum Value Input";
     public static final String MONTHLIES_MAX_VALUE = "Monthlies Maximum Value Input";
     public static final String FINANCING_MIN_VALUE = "% Financing Minimum Value Input";
