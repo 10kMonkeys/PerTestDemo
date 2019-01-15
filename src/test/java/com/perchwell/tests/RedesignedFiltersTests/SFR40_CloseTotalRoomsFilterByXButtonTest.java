@@ -36,16 +36,14 @@ public class SFR40_CloseTotalRoomsFilterByXButtonTest extends SampleTest {
         user.atSearchPage.checkIfFieldIsFilledByCorrectValue(Filters.TOTAL_ROOMS_MAX_VALUE, "9");
         user.atSearchPage.clearTotalRoomsMinValueFiled();
         user.atSearchPage.clearTotalRoomsMaxValueFiled();
-        user.atSearchPage.fillInTotalRoomsMinField("3");
-        user.atSearchPage.fillInTotalRoomsMaxField("5");
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.atPerchwellPage.clickOnSaveButton();
         user.atSearchPage.setSearchName();
         user.atSearchPage.clickOnSaveButton();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.fillInTotalRoomsMinField("3");
-        user.atSearchPage.fillInTotalRoomsMaxField("5");
+        user.atSearchPage.clearTotalRoomsMinValueFiled();
+        user.atSearchPage.clearTotalRoomsMaxValueFiled();
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
