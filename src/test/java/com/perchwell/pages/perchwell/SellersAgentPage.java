@@ -194,7 +194,6 @@ public class SellersAgentPage extends BasePage {
     }
 
      public void shouldContactEmailSentToThreeMessage() {
-
          try {
              Thread.sleep(10000);
          } catch (InterruptedException e) {
@@ -203,12 +202,18 @@ public class SellersAgentPage extends BasePage {
 
         String subject = SessionVariables.getValueFromSessionVariable("Contact_subject");
         String textBody;
+        boolean emailsSent = true;
 
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
 
-        for (MailTrapResponse email : mailTrapResponse) {
-            textBody = getTextBody(email.getTxt_path());
-            System.out.println(textBody);
+        for(int i = 0; i < 3; i++) {
+            textBody = getTextBody(mailTrapResponse[i].getTxt_path());
+            if(!(textBody.contains(SessionVariables.getValueFromSessionVariable("listingAddress1"))
+                    || textBody.contains(SessionVariables.getValueFromSessionVariable("listingAddress2"))
+                    || textBody.contains(SessionVariables.getValueFromSessionVariable("listingAddress3" )))) {
+                emailsSent = false;
+            }
+            Assert.assertTrue(emailsSent);
         }
     }
 }
