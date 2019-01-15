@@ -183,8 +183,8 @@ public class SellersAgentPage extends BasePage {
 
         for (MailTrapResponse email : mailTrapResponse) {
             rawBody = getTextBody(email.getRaw_path());
-            if (rawBody.contains(message) && rawBody.contains("To: " + EmailAddresses.AGENT_1) && rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ",\n" +
-                    EmailAddresses.CLIENT0 + ",\n" + EmailAddresses.AGENT_2) && !rawBody.contains(EmailAddresses.AGENT_2 + ",")) {
+            if (rawBody.contains(message) && rawBody.contains("To: " + EmailAddresses.AGENT_1) && rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ", \n " +
+                    EmailAddresses.CLIENT0 + ", \n " + EmailAddresses.AGENT_2) && !rawBody.contains(EmailAddresses.AGENT_2 + ",")) {
                 isMessageSentToTwoAgents = true;
                 break;
             }
