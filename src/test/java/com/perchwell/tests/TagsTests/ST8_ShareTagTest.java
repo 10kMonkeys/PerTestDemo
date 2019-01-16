@@ -10,7 +10,7 @@ import org.junit.Test;
 public class ST8_ShareTagTest extends SampleTest {
 
 	@Test
-	public void shareTagTest() throws Exception {
+	public void shareTagTest() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();

@@ -44,7 +44,7 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldSeeCreatedTagUpperCase() throws Exception {
+	public void shouldSeeCreatedTagUpperCase() {
 		Assert.assertTrue(onPage.isTagDisplayedWithSwipe(tag.getUniqueTagName().toUpperCase()));
 	}
 

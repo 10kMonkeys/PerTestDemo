@@ -141,7 +141,7 @@ public class TagsPage extends BasePage {
 		return tag;
 	}
 
-	public void shouldSeeJustCreatedTagUpCaseWithSwipe(String tagName) throws Exception {
+	public void shouldSeeJustCreatedTagUpCaseWithSwipe(String tagName) {
 		if (Config.isAndroid()) {
 			setImplicitTimeout(1, SECONDS);
 			Helper.androidSwipeDownUntilElementVisible(tagName);
