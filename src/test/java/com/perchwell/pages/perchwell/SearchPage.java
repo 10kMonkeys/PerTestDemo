@@ -7,6 +7,7 @@ import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
@@ -1808,10 +1809,8 @@ public class SearchPage extends BasePage {
         element(collapseBedroomsArrow).click();
         Helper.universalVerticalSwipe(bldgWidthSection);
 
-//        int x = buildWightMaxControl.getLocation().getX() + 3;
-        int y = buildWightMaxControl.getLocation().getY();
-
-        Helper.universalHorizontalSwipe(buildWightMaxControl, y);
+        Helper.horizontalElementSwipeForIOS(buildWightMaxControl, 20);
+//        Helper.universalHorizontalSwipe(buildWightMaxControl, y);
     }
 
     public void setDateRange(String date) {

@@ -324,4 +324,17 @@ public abstract class Helper {
             swipeVertical(appiumDriver, 0.8, 0.2, 0.5, 1);
         }
     }
+
+    public static void horizontalElementSwipeForIOS(WebElement element, int swipeLength) {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+//        Dimension size = getDriver().manage().window().getSize();
+        int startPoint = (int) (element.getLocation().getX());
+        int endPoint = (int) (element.getLocation().getX()-swipeLength);
+        int y = (int) (element.getLocation().getY());
+
+        new TouchAction(appiumDriver).longPress(startPoint, y).moveTo(endPoint, y).release().perform();
+    }
 }
