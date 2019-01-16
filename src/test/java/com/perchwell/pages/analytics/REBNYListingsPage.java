@@ -733,7 +733,7 @@ public class REBNYListingsPage extends BasePage {
         element(mktShareAskingPriceChart).click();
     }
 
-    private void swipeUntilButtonShown(WebElement button) throws Exception {
+    private void swipeUntilButtonShown(WebElement button) {
         setImplicitTimeout(1, SECONDS);
         Helper.universalVerticalSwipe(button);
         resetImplicitTimeout();
