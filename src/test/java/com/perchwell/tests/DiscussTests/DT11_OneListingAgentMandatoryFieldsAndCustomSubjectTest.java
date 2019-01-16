@@ -4,8 +4,10 @@ import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
 import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"DiscussTests", "iOS_DiscContSavedSearch", "Android_DiscContSavedSearch", "DiscContSavedSearch"})
 public class DT11_OneListingAgentMandatoryFieldsAndCustomSubjectTest extends SampleTest {
 
     @Test

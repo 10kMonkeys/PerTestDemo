@@ -29,7 +29,7 @@ public class SFR53_CloseBuildingFiltersByXButtonTest extends SampleTest {
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.checkIfMaxBldgWidthValueIsCorrect("35"); //recheck
+        user.atSearchPage.checkIfMaxBldgWidthValueIsCorrect("38"); //recheck
         user.atSearchPage.setMaxBldgWidthValue();
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();

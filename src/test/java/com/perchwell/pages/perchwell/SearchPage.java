@@ -1809,7 +1809,7 @@ public class SearchPage extends BasePage {
         element(collapseBedroomsArrow).click();
         Helper.universalVerticalSwipe(bldgWidthSection);
 
-        Helper.horizontalElementSwipeForIOS(buildWightMaxControl, 20);
+        Helper.horizontalElementSwipeForIOS(buildWightMaxControl, 120);
 //        Helper.universalHorizontalSwipe(buildWightMaxControl, y);
     }
 
