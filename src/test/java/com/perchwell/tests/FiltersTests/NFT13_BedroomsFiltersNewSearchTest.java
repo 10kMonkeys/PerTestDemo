@@ -14,20 +14,17 @@ public class NFT13_BedroomsFiltersNewSearchTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectTwoBedsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.check2BedsMinFilterSelected();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkNoOneBedsMinimumFilterSelected();
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.selectFilter2Beds();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.check2BedsRangeFilterSelected();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkBedroomsRangeButtonIsNotSelected();
@@ -36,8 +33,7 @@ public class NFT13_BedroomsFiltersNewSearchTest extends SampleTest {
         user.atSearchPage.selectFilter1Bed();
         user.atSearchPage.selectFilter3Beds();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.checkMultiBedroomsFiltersSelectedFrom1To3();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkBedroomsRangeButtonIsNotSelected();

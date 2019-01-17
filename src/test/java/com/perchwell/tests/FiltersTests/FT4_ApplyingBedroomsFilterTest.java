@@ -24,30 +24,30 @@ public class FT4_ApplyingBedroomsFilterTest extends SampleTest {
         user.atSearchPage.deselectFilterStudioBeds();
         user.atSearchPage.selectFilter1Bed();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.shouldSeeListingOnlyWithSelectedRooms("1 BD");
+        user.atPerchwellPage.shouldSeeListingOnlyWithSelectedBeds("1 BD");
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.deselectFilter1Bed();
         user.atSearchPage.selectFilter2Beds();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.shouldSeeListingOnlyWithSelectedRooms("2 BD");
+        user.atPerchwellPage.shouldSeeListingOnlyWithSelectedBeds("2 BD");
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.deselectFilter2Beds();
         user.atSearchPage.selectFilter3Beds();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.shouldSeeListingOnlyWithSelectedRooms("3 BD");
+        user.atPerchwellPage.shouldSeeListingOnlyWithSelectedBeds("3 BD");
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.deselectFilter3Beds();
         user.atSearchPage.selectFilter4PlusBeds();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.shouldSeeListing4AndMoreRooms("bedrooms");
+        user.atPerchwellPage.shouldSeeListing4AndMoreBeds("bedrooms");
         user.atSearchPage.saveCurrentSearch();
         user.inSearchMenu.openSavedSearches();
         user.atSearchPage.createNewSearchClick();
         user.atPerchwellPage.checkListingsQuantity();
-        user.inSearchMenu.openSavedSearches(); //search new
+        user.inSearchMenu.openSavedSearches();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
-        user.atPerchwellPage.shouldSeeListing4AndMoreRooms("bedrooms");
-        user.inSearchMenu.openSearchPage(); //search new
+        user.atPerchwellPage.shouldSeeListing4AndMoreBeds("bedrooms");
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkNoOneBedsMinimumFilterSelected();
         user.atSearchPage.clickOnApplyButton();
