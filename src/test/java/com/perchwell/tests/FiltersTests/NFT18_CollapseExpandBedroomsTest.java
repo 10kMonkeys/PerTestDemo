@@ -14,8 +14,7 @@ public class NFT18_CollapseExpandBedroomsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectTwoBedsMinimumFilter();
         user.atSearchPage.collapseBedroomsFilters();
         user.atSearchPage.collapseBedroomsFilters();
