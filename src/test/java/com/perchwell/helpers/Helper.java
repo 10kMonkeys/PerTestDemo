@@ -337,4 +337,12 @@ public abstract class Helper {
 
         new TouchAction(appiumDriver).longPress(startPoint, y).moveTo(endPoint, y).release().perform();
     }
+
+    public static void singleUpShortSwipeAndroid() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        swipeVerticalAndroid(appiumDriver, 0.2, 0.9, 0.5);
+    }
 }
