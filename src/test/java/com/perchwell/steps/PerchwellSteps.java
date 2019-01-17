@@ -332,7 +332,14 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void checkIfListingsAreFilteredByMinBeds(int value) {
-		onPage.checkIfListingsAreFilteredByMinBeds(value);
+		if(Config.isAndroid()) {
+			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.checkIfListingsAreFilteredByMinBeds(value);
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.checkIfListingsAreFilteredByMinBeds(value);
+		}
 	}
 
 	@Step
