@@ -4,6 +4,7 @@ import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
@@ -18,15 +19,19 @@ public class SearchMenu extends BasePage {
 
     //region WebElements
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/arrow")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
     private WebElement searchMenuIcon;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/edit_search_button")
     @iOSXCUITFindBy(accessibility = "Edit Search Button")
     private WebElement editSearchButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/my_saved_searches_button")
     @iOSXCUITFindBy(accessibility = "My Saved Searches Button")
     private WebElement mySavedSearchesButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/profile_image")
     @iOSXCUITFindBy(accessibility = "Account Bar Button")
     private WebElement openAccountButton;
 

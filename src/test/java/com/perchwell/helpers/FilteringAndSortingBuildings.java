@@ -138,9 +138,15 @@ public abstract class FilteringAndSortingBuildings {
     }
 
     public static boolean isContainsStudios(List<WebElement> roomsInfoList) {
+        String studioString;
+
         if (roomsInfoList.size() > 0) {
             for (WebElement element : roomsInfoList) {
-                String studioString = element.getAttribute("value");
+                if (Config.isAndroid()) {
+                    studioString = element.getAttribute("text");
+                } else {
+                    studioString = element.getAttribute("value");
+                }
 
                 if (studioString.contains(" BD")) {
                     return false;
@@ -153,10 +159,16 @@ public abstract class FilteringAndSortingBuildings {
 
     public static boolean isContains4PlusParticularRooms(List<WebElement> roomsInfoList, String roomType) {
         float currentNumber;
+        String s;
+
         if (roomsInfoList.size() > 0) {
 
             for (WebElement element : roomsInfoList) {
-                String s = element.getAttribute("value");
+                if (Config.isAndroid()) {
+                    s = element.getAttribute("text");
+                } else {
+                    s = element.getAttribute("value");
+                }
                 currentNumber = getNumberFromString(roomType, s);
                 if (currentNumber < 4) {
                     return false;
@@ -167,9 +179,15 @@ public abstract class FilteringAndSortingBuildings {
     }
 
     public static boolean isContainParticularRoomsOrLabels(List<WebElement> buildingsElementsList, String rooms) {
+        String roomsString;
+
         if (buildingsElementsList.size() > 0) {
             for (WebElement element : buildingsElementsList) {
-                String roomsString = element.getAttribute("value");
+                if (Config.isAndroid()) {
+                    roomsString = element.getAttribute("text");
+                } else {
+                    roomsString = element.getAttribute("value");
+                }
                 if (!roomsString.contains(rooms)) {
                     return false;
                 }

@@ -1,6 +1,7 @@
 package com.perchwell.steps;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -145,12 +146,26 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeListingOnlyWithSelectedRooms(String rooms) {
-		onPage.isContainParticularRooms(rooms);
+		if (Config.isAndroid()) {
+			for (int i = 0; i<PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.isContainParticularRooms(rooms);
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.isContainParticularRooms(rooms);
+		}
 	}
 
 	@Step
 	public void shouldSeeListing4AndMoreRooms(String roomType) {
-		onPage.isContains4PlusParticularRooms(roomType);
+		if (Config.isAndroid()) {
+			for (int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.isContains4PlusParticularRooms(roomType);
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.isContains4PlusParticularRooms(roomType);
+		}
 	}
 
 	@Step

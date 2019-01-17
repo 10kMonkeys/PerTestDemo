@@ -33,7 +33,7 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeButton")
     private WebElement deleteFirstLocationButton;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/apply")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/show_listings")
     @iOSXCUITFindBy(accessibility = "ApplySearchButton")
     private WebElement applySearchButton;
 
@@ -65,7 +65,7 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "LoadSavedSearchButton")
     private WebElement loadSavedSearchButton;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/save")
     @iOSXCUITFindBy(accessibility = "SAVE")
     private WebElement searchSavebutton;
 
@@ -996,19 +996,30 @@ public class SearchPage extends BasePage {
     }
 
     public void deselectFilter1Bath() {
-//		Helper.universalVerticalSwipe(totalRoomsSection);
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilterFor1Bath);
+        }
         element(selectedFilterFor1Bath).click();
     }
 
     public void deselectFilter1AndHalfBath() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilterFor1AndHalfBath);
+        }
         element(selectedFilterFor1AndHalfBath).click();
     }
 
     public void deselectFilter2Baths() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilter2Baths);
+        }
         element(selectedFilter2Baths).click();
     }
 
     public void deselectFilter3Baths() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilterFor3Baths);
+        }
         element(selectedFilterFor3Baths).click();
     }
 
@@ -1283,6 +1294,9 @@ public class SearchPage extends BasePage {
     }
 
     public void selectBathroomsRangeOption() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(bathroomsRangeOption);
+        }
         element(bathroomsRangeOption).click();
     }
 
