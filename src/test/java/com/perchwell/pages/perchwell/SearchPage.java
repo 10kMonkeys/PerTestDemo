@@ -70,7 +70,7 @@ public class SearchPage extends BasePage {
     private WebElement searchSavebutton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/rename_group_edit_text")
-    @iOSXCUITFindBy(accessibility = "com.perchwell.re.staging:id/rename_group_edit_text")
+    @iOSXCUITFindBy(accessibility = "generic_text_input_field")
     private WebElement searchName;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
