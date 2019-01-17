@@ -30,6 +30,7 @@ public class PerchwellPage extends BasePage {
 	private int listingsAmount;
 	private int fourDistrictListingsAmount;
 	public static Integer numberOfItemsInListView;
+	public static final int ANDROID__LOOP_COUNTER = 3;
 
 	//region WebElements
 
@@ -292,7 +293,7 @@ public class PerchwellPage extends BasePage {
 		element(thirdBuilding).click();
 	}
 
-	public boolean isBuildingDisplayedWithSwipe(WebElement element) throws Exception {
+	public boolean isBuildingDisplayedWithSwipe(WebElement element) {
 		setImplicitTimeout(1, SECONDS);
 		Helper.swipeDownUntilElementVisible(element);
 		resetImplicitTimeout();
@@ -580,7 +581,7 @@ public class PerchwellPage extends BasePage {
 		action.tap(magnifierLocation.x, magnifierLocation.y).release().perform();
 	}
 
-	public void openSpecificBuilding() throws Exception {
+	public void openSpecificBuilding() {
 //		WebElement specificAddress = getDriver().findElement(
 //				MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_building_address")));
 //
@@ -648,31 +649,23 @@ public class PerchwellPage extends BasePage {
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
-		if(!Config.isAndroid()) {
-		if(currentBedsAmountList.size() == 20 && studioList.isEmpty()) {
+		if(!currentBedsAmountList.isEmpty() && studioList.isEmpty()) {
 
 			for (WebElement element : currentBedsAmountList) {
+				String stringValue;
+				int processedValue;
 				result = true;
-				String stringValue = element.getAttribute("value");
-				int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
+				if(Config.isAndroid()) {
+					stringValue = element.getAttribute("text");
+					processedValue = Integer.parseInt(stringValue.replace(" BD", ""));
+				}
+				else {
+					stringValue = element.getAttribute("value");
+					processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
+				}
 				if (processedValue<value) {
 					result = false;
 					break;
-				}
-			}
-		}
-		}
-		else {
-			if(currentBedsAmountList.size() == 1 && studioList.isEmpty()) {
-
-				for (WebElement element : currentBedsAmountList) {
-					result = true;
-					String stringValue = element.getAttribute("text");
-					int processedValue = Integer.parseInt(stringValue.replace(" BD", ""));
-					if (processedValue<value) {
-						result = false;
-						break;
-					}
 				}
 			}
 		}

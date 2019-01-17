@@ -1,6 +1,7 @@
 package com.perchwell.steps;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -245,7 +246,14 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeListingsEqualOrMoreMinPrice() {
-		Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
+		if(Config.isAndroid()) {
+			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
+		}
 	}
 
 	@Step
