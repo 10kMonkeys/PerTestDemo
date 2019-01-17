@@ -14,29 +14,28 @@ public class NFT12_ResetBathroomsFiltersTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectTwoBathsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.check2BathsMinFilterSelected();
+        user.atSearchPage.singleUpSwipeForAndroid();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkNoOneBathsMinimumFilterSelected();
         user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.selectFilter2Baths();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.check2BathsRangeFilterSelected();
+        user.atSearchPage.singleUpSwipeForAndroid();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.selectFilter1Bath();
         user.atSearchPage.selectFilter3Baths();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.checkMultiBathroomsFiltersSelected1To3();
+        user.atSearchPage.singleUpSwipeForAndroid();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.checkNoOneBathsRangeFilterSelected();

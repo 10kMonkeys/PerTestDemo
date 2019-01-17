@@ -14,8 +14,7 @@ public class NFT9_SwitchBetweenMinimumAndRangeBedroomsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectOneBedMinimumFilter();
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.selectBedroomsMinimumOption();
