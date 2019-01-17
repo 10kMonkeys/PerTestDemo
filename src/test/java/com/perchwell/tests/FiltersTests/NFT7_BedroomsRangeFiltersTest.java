@@ -26,25 +26,25 @@ public class NFT7_BedroomsRangeFiltersTest extends SampleTest {
         user.atSearchPage.deselectFilterStudioBeds();
         user.atSearchPage.selectFilter1Bed();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.shouldSeeListingOnlyWithSelectedRooms("1 BD");
+        user.atPerchwellPage.shouldSeeListingOnlyWithSelectedBeds("1 BD");
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.deselectFilter1Bed();
         user.atSearchPage.selectFilter2Beds();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.shouldSeeListingOnlyWithSelectedRooms("2 BD");
+        user.atPerchwellPage.shouldSeeListingOnlyWithSelectedBeds("2 BD");
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.deselectFilter2Beds();
         user.atSearchPage.selectFilter3Beds();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.shouldSeeListingOnlyWithSelectedRooms("3 BD");
+        user.atPerchwellPage.shouldSeeListingOnlyWithSelectedBeds("3 BD");
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.deselectFilter3Beds();
         user.atSearchPage.selectFilter4PlusBeds();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.shouldSeeListing4AndMoreRooms("bedrooms");
+        user.atPerchwellPage.shouldSeeListing4AndMoreBeds("bedrooms");
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.deselectFilter4Beds();

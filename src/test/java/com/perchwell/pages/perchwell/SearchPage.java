@@ -859,6 +859,7 @@ public class SearchPage extends BasePage {
     }
 
     public void selectFilter2Baths() {
+        Helper.universalVerticalShortSwipe(filterFor2Baths);
         element(filterFor2Baths).click();
     }
 
@@ -1433,6 +1434,7 @@ public class SearchPage extends BasePage {
     }
 
     public void check2BathsRangeFilterSelected() {
+        Helper.universalVerticalShortSwipe(selectedFilter2Baths);
         element(selectedFilter2Baths).shouldBeVisible();
     }
 
