@@ -144,6 +144,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
 	private WebElement listingsSearchField;
 
+	@AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, ' BD')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'Bed:'$]")
 	private List<WebElement> currentBedsAmountList;
 
@@ -647,6 +648,7 @@ public class PerchwellPage extends BasePage {
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
+		if(!Config.isAndroid()) {
 		if(currentBedsAmountList.size() == 20 && studioList.isEmpty()) {
 
 			for (WebElement element : currentBedsAmountList) {
@@ -656,6 +658,20 @@ public class PerchwellPage extends BasePage {
 					break;
 				}
 				result = true;
+			}
+		}
+		}
+		else {
+			if(currentBedsAmountList.size() == 1 && studioList.isEmpty()) {
+
+				for (WebElement element : currentBedsAmountList) {
+					String stringValue = element.getAttribute("text");
+					int processedValue = Integer.parseInt(stringValue.replace(" BD", ""));
+					if (processedValue<value) {
+						break;
+					}
+					result = true;
+				}
 			}
 		}
 		Assert.assertTrue(result);

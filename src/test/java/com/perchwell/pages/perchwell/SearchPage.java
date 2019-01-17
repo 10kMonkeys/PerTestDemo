@@ -33,7 +33,7 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeButton")
     private WebElement deleteFirstLocationButton;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/apply")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/show_listings")
     @iOSXCUITFindBy(accessibility = "ApplySearchButton")
     private WebElement applySearchButton;
 
