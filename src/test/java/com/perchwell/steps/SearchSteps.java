@@ -1115,4 +1115,9 @@ public class SearchSteps extends ScenarioSteps {
     public void clearTotalRoomsMaxValueFiled() {
         onPage.clearTotalRoomsMaxValueFiled();
     }
+
+    @Step
+    public void singleUpSwipeForAndroid() {
+        onPage.singleUpSwipeForAndroid();
+    }
 }
