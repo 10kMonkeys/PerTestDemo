@@ -324,7 +324,7 @@ public class SearchPage extends BasePage {
     private WebElement alphabetCityCheckbox;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
-    @iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
+    @iOSXCUITFindBy(accessibility = "AddressSearchBar")
     private WebElement searchNeihborhoodsSearchField;
 
     @AndroidFindBy(accessibility = "Remove Button: Midwood")
