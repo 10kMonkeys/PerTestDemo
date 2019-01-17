@@ -690,7 +690,6 @@ public class PerchwellPage extends BasePage {
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
 		if(!currentBedsAmountList.isEmpty() && studioList.isEmpty()) {
-			System.out.println(currentBedsAmountList.size());
 			for (WebElement element : currentBedsAmountList) {
 				String stringValue;
 				result = true;
