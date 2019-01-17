@@ -210,8 +210,8 @@ public abstract class FilteringAndSortingBuildings {
 
     private static boolean checkBuildingOnMinFilterApplied(float currentPrice, String min) {
         boolean listingWithPriceFilter = true;
-
         float minPrice = Float.parseFloat(min);
+
         if (currentPrice < minPrice) {
             listingWithPriceFilter = false;
         }
@@ -243,12 +243,18 @@ public abstract class FilteringAndSortingBuildings {
         boolean listingWithPriceFilter = true;
         int numberCheckedPrices = 0;
         int numberPricesToCheck = pricesList.size() < 10 ? pricesList.size() : 10;
+        String s;
 
         if (pricesList.size() > 0) {
             Iterator<WebElement> iterator = pricesList.iterator();
 
             while (iterator.hasNext() && (numberCheckedPrices < numberPricesToCheck)) {
-                String s = iterator.next().getAttribute("value");
+                if(Config.isAndroid()) {
+                    s = iterator.next().getAttribute("text");
+                } else {
+                    s = iterator.next().getAttribute("value");
+                }
+
                 float currentPrice = FilteringAndSortingBuildings.getNumberFromString("price", s);
 
                 switch (typePriceFilter) {
@@ -273,6 +279,4 @@ public abstract class FilteringAndSortingBuildings {
         }
         return listingWithPriceFilter;
     }
-
-
 }

@@ -1,6 +1,7 @@
 package com.perchwell.steps;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -245,17 +246,38 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeListingsEqualOrMoreMinPrice() {
-		Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
+		if(Config.isAndroid()) {
+			for(int i = 0; i < 3; i++) {
+			Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
+			Helper.universalSingleSwipe();
+			}
+		} else {
+			Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
+		}
 	}
 
 	@Step
 	public void shouldSeeListingsEqualOrLessMaxPrice() {
-		Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("max"));
+		if(Config.isAndroid()) {
+			for(int i = 0; i < 3; i++) {
+				Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("max"));
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("max"));
+		}
 	}
 
 	@Step
 	public void shouldSeeListingsBetweenMinAndMaxPrices() {
-		Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("between min and max"));
+		if(Config.isAndroid()) {
+			for(int i = 0; i < 3; i++) {
+				Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("between min and max"));
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("between min and max"));
+		}
 	}
 
 	@Step

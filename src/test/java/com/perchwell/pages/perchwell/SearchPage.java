@@ -33,7 +33,7 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeButton")
     private WebElement deleteFirstLocationButton;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/apply")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/show_listings")
     @iOSXCUITFindBy(accessibility = "ApplySearchButton")
     private WebElement applySearchButton;
 
@@ -65,12 +65,12 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "LoadSavedSearchButton")
     private WebElement loadSavedSearchButton;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/save")
     @iOSXCUITFindBy(accessibility = "SAVE")
     private WebElement searchSavebutton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/rename_group_edit_text")
-    @iOSXCUITFindBy(accessibility = "generic_text_input_field")
+    @iOSXCUITFindBy(accessibility = "com.perchwell.re.staging:id/rename_group_edit_text")
     private WebElement searchName;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
@@ -1024,7 +1024,11 @@ public class SearchPage extends BasePage {
     }
 
     public void setMaximumPriceFilter(String price) {
-        element(maximumPriceTextBox).typeAndEnter(price);
+        if (Config.isAndroid()) {
+            element(maximumPriceTextBox).sendKeys(price);
+        } else {
+            element(maximumPriceTextBox).typeAndEnter(price);
+        }
     }
 
     public void clearPriceFilterValue(String typePrice) {
@@ -1041,8 +1045,16 @@ public class SearchPage extends BasePage {
 
     private boolean isMinAndMaxPricesNotSet() {
         boolean emptyPricesFilters = true;
-        String maxPriceFilter = element(maximumPriceTextBox).getAttribute("value");
-        String minPriceFilter = element(minimumPriceTextBox).getAttribute("value");
+        String maxPriceFilter;
+        String minPriceFilter;
+
+        if(Config.isAndroid()) {
+            maxPriceFilter = element(maximumPriceTextBox).getAttribute("text");
+            minPriceFilter = element(minimumPriceTextBox).getAttribute("text");
+        } else {
+            maxPriceFilter = element(maximumPriceTextBox).getAttribute("value");
+            minPriceFilter = element(minimumPriceTextBox).getAttribute("value");
+        }
 
         if (!maxPriceFilter.contains("Max") || !minPriceFilter.contains("Min")) {
             emptyPricesFilters = false;

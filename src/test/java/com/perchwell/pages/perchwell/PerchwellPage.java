@@ -103,6 +103,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Bed: STUDIO'")
 	private List<WebElement> studioList;
 
+    @AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, '$')]")
     @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name CONTAINS 'PRICE'")
     private List<WebElement> pricesList;
 
@@ -351,7 +352,7 @@ public class PerchwellPage extends BasePage {
 		if(Config.isAndroid()) {
 			List<WebElement> listingList;
 			for(int i = 0; i < 2; i++) {
-				listingList = getDriver().findElements(By.id("listing_canonical_nh_name"));
+				listingList = getDriver().findElements(By.id("com.perchwell.re.staging:id/listing_neighborhood"));
 
 				for(WebElement district: listingList) {
 					if(!district.getAttribute("text").contains(element)) {
@@ -525,7 +526,7 @@ public class PerchwellPage extends BasePage {
 		return Integer.parseInt(String.valueOf(listingsQty));
 	}
 
-	public boolean isPriceFilterAppliedOnListings(String typePriceFilter) {
+	public boolean  isPriceFilterAppliedOnListings(String typePriceFilter) {
 		String min = "0";
 		String max = "1000000";
 
@@ -608,24 +609,63 @@ public class PerchwellPage extends BasePage {
     }
 
 	public void shouldSeeListingsFromAllUpperEastSideDistricts(String carnegieHill, String lenoxHill, String upperEastSide, String yorkville) {
-		List<WebElement> districtList1 = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"value == '" + carnegieHill + "'"));
-		List<WebElement> districtList2 = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"value == '" + lenoxHill + "'"));
-		List<WebElement> districtList3 = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"value == '" + upperEastSide + "'"));
-		List<WebElement> districtList4 = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"value == '" + yorkville + "'"));
-		Assert.assertEquals(20, districtList1.size() + districtList2.size() + districtList3.size() + districtList4.size());
-		fourDistrictListingsAmount = getNumberOfListings(listingsByButton);
-	}
+	    if(Config.isAndroid()) {
+            boolean isAllCellsContain = true;
+                List<WebElement> listingList;
+                for (int i = 0; i < 3; i++) {
+                    listingList = getDriver().findElements(By.id("com.perchwell.re.staging:id/listing_neighborhood"));
+
+                    for (WebElement district : listingList) {
+                        if (!(district.getAttribute("text").contains(carnegieHill)
+                                || district.getAttribute("text").contains(lenoxHill)
+                                || district.getAttribute("text").contains(upperEastSide)
+                                || district.getAttribute("text").contains(yorkville))) {
+                            isAllCellsContain = false;
+                            break;
+                        }
+
+                    }
+                    Helper.universalSingleSwipe();
+                }
+                Assert.assertTrue(isAllCellsContain);
+        } else {
+            List<WebElement> districtList1 = getDriver().findElements(MobileBy.iOSNsPredicateString(
+                    "value == '" + carnegieHill + "'"));
+            List<WebElement> districtList2 = getDriver().findElements(MobileBy.iOSNsPredicateString(
+                    "value == '" + lenoxHill + "'"));
+            List<WebElement> districtList3 = getDriver().findElements(MobileBy.iOSNsPredicateString(
+                    "value == '" + upperEastSide + "'"));
+            List<WebElement> districtList4 = getDriver().findElements(MobileBy.iOSNsPredicateString(
+                    "value == '" + yorkville + "'"));
+            Assert.assertEquals(20, districtList1.size() + districtList2.size() + districtList3.size() + districtList4.size());
+        }
+        fourDistrictListingsAmount = getNumberOfListings(listingsByButton);
+    }
 
 	public void shouldSeeListingsTwoDistricts(String firstDist, String secondDist) {
-		List<WebElement> districtList1 = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"value == '" + firstDist + "'"));
-		List<WebElement> districtList2 = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"value == '" + secondDist + "'"));
-		Assert.assertEquals(20, districtList1.size() + districtList2.size());
+        if(Config.isAndroid()) {
+            boolean isAllCellsContain = true;
+            List<WebElement> listingList;
+            for (int i = 0; i < 3; i++) {
+                listingList = getDriver().findElements(By.id("com.perchwell.re.staging:id/listing_neighborhood"));
+
+                for (WebElement district : listingList) {
+                    if (!(district.getAttribute("text").contains(firstDist) || district.getAttribute("text").contains(secondDist))) {
+                        isAllCellsContain = false;
+                        break;
+                    }
+
+                }
+                Helper.universalSingleSwipe();
+            }
+            Assert.assertTrue(isAllCellsContain);
+        } else {
+            List<WebElement> districtList1 = getDriver().findElements(MobileBy.iOSNsPredicateString(
+                    "value == '" + firstDist + "'"));
+            List<WebElement> districtList2 = getDriver().findElements(MobileBy.iOSNsPredicateString(
+                    "value == '" + secondDist + "'"));
+            Assert.assertEquals(20, districtList1.size() + districtList2.size());
+        }
 	}
 
 	public void checkFourDistrictsListings() {
