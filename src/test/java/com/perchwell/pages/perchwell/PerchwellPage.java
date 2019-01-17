@@ -652,12 +652,13 @@ public class PerchwellPage extends BasePage {
 		if(currentBedsAmountList.size() == 20 && studioList.isEmpty()) {
 
 			for (WebElement element : currentBedsAmountList) {
+				result = true;
 				String stringValue = element.getAttribute("value");
 				int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
 				if (processedValue<value) {
+					result = false;
 					break;
 				}
-				result = true;
 			}
 		}
 		}
@@ -665,12 +666,13 @@ public class PerchwellPage extends BasePage {
 			if(currentBedsAmountList.size() == 1 && studioList.isEmpty()) {
 
 				for (WebElement element : currentBedsAmountList) {
+					result = true;
 					String stringValue = element.getAttribute("text");
 					int processedValue = Integer.parseInt(stringValue.replace(" BD", ""));
 					if (processedValue<value) {
+						result = false;
 						break;
 					}
-					result = true;
 				}
 			}
 		}
