@@ -30,6 +30,7 @@ public class PerchwellPage extends BasePage {
 	private int listingsAmount;
 	private int fourDistrictListingsAmount;
 	public static Integer numberOfItemsInListView;
+	public static final int ANDROID__LOOP_COUNTER = 3;
 
 	//region WebElements
 

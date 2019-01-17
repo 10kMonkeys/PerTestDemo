@@ -247,7 +247,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingsEqualOrMoreMinPrice() {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < 3; i++) {
+			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
 			Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
 			Helper.universalSingleSwipe();
 			}
@@ -259,7 +259,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingsEqualOrLessMaxPrice() {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < 3; i++) {
+			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
 				Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("max"));
 				Helper.universalSingleSwipe();
 			}
@@ -271,7 +271,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingsBetweenMinAndMaxPrices() {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < 3; i++) {
+			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
 				Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("between min and max"));
 				Helper.universalSingleSwipe();
 			}
