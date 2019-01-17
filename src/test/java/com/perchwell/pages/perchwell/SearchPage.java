@@ -70,7 +70,7 @@ public class SearchPage extends BasePage {
     private WebElement searchSavebutton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/rename_group_edit_text")
-    @iOSXCUITFindBy(accessibility = "com.perchwell.re.staging:id/rename_group_edit_text")
+    @iOSXCUITFindBy(accessibility = "generic_text_input_field")
     private WebElement searchName;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
@@ -450,11 +450,11 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "BATHROOMS Option: Minimum")
     private WebElement bathroomsMinimumOption;
 
-    @AndroidFindBy(xpath = "*//android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.ImageView")
+    @AndroidFindBy(xpath = "*//android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.ImageView")
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: BEDROOMS")
     private WebElement bedroomsCollapseButton;
 
-    @AndroidFindBy(xpath = "*//android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.ImageView")
+    @AndroidFindBy(xpath = "*//android.widget.LinearLayout[4]/android.widget.RelativeLayout/android.widget.ImageView")
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: BATHROOMS")
     private WebElement bathroomsCollapseButton;
 

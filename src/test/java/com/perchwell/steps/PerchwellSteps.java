@@ -122,8 +122,8 @@ public class PerchwellSteps extends ScenarioSteps {
 			onPage.shouldFilter1Bed1AndHalfBathApplied("1 BD | 1½ BA");
 		} else {
 //			onPage.shouldFilter1Bed1AndHalfBathApplied("1 BD  |  1½ BA");
-			onPage.isContainParticularRooms(beds);
-			onPage.isContainParticularRooms(baths);
+			onPage.isContainParticularBeds(beds);
+			onPage.isContainParticularBaths(baths);
 		}
     }
 
@@ -145,32 +145,63 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldSeeListingOnlyWithSelectedRooms(String rooms) {
+	public void shouldSeeListingOnlyWithSelectedBeds(String rooms) {
 		if (Config.isAndroid()) {
 			for (int i = 0; i<PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
-				onPage.isContainParticularRooms(rooms);
+				onPage.isContainParticularBeds(rooms);
 				Helper.universalSingleSwipe();
 			}
 		} else {
-			onPage.isContainParticularRooms(rooms);
+			onPage.isContainParticularBeds(rooms);
 		}
 	}
 
 	@Step
-	public void shouldSeeListing4AndMoreRooms(String roomType) {
+	public void shouldSeeListingOnlyWithSelectedBaths(String rooms) {
 		if (Config.isAndroid()) {
-			for (int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
-				onPage.isContains4PlusParticularRooms(roomType);
+			for (int i = 0; i<PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.isContainParticularBaths(rooms);
 				Helper.universalSingleSwipe();
 			}
 		} else {
-			onPage.isContains4PlusParticularRooms(roomType);
+			onPage.isContainParticularBaths(rooms);
+		}
+	}
+
+	@Step
+	public void shouldSeeListing4AndMoreBeds(String roomType) {
+		if (Config.isAndroid()) {
+			for (int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.isContains4PlusParticularBeds(roomType);
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.isContains4PlusParticularBeds(roomType);
+		}
+	}
+
+	@Step
+	public void shouldSeeListing4AndMoreBaths(String roomType) {
+		if (Config.isAndroid()) {
+			for (int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.isContains4PlusParticularBaths(roomType);
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.isContains4PlusParticularBaths(roomType);
 		}
 	}
 
 	@Step
 	public void shouldSeeListingOnlyWithStudios() {
-		onPage.isContainsStudios();
+		if (Config.isAndroid()) {
+			for (int i = 0; i<PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.isContainsStudios();
+				Helper.universalSingleSwipe();
+			}
+		} else {
+				onPage.isContainsStudios();
+			}
 	}
 
 	@Step

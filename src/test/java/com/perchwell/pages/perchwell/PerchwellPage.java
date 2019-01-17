@@ -398,25 +398,24 @@ public class PerchwellPage extends BasePage {
 		return title;
 	}
 
-	public void isContainParticularRooms(String rooms) {
-		if(rooms.contains("BD")) {
+	public void isContainParticularBeds(String rooms) {
 			Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRoomsOrLabels(bedInfoList, rooms));
-		} else {
+	}
+
+	public void isContainParticularBaths(String rooms) {
 			Assert.assertTrue(FilteringAndSortingBuildings.isContainParticularRoomsOrLabels(bathsInfoList, rooms));
-		}
 	}
 
 	public void isContainsStudios() {
 		Assert.assertTrue(FilteringAndSortingBuildings.isContainsStudios(bedInfoList));
 	}
 
-	public void isContains4PlusParticularRooms(String roomType) {
-		if(roomType.contains("bedrooms")) {
-			Assert.assertTrue(FilteringAndSortingBuildings.isContains4PlusParticularRooms(bedInfoList, roomType));
-		} else {
-			Assert.assertTrue(FilteringAndSortingBuildings.isContains4PlusParticularRooms(bathsInfoList, roomType));
-		}
+	public void isContains4PlusParticularBeds(String roomType) {
+		Assert.assertTrue(FilteringAndSortingBuildings.isContains4PlusParticularRooms(bedInfoList, roomType));
+	}
 
+	public void isContains4PlusParticularBaths(String roomType) {
+		Assert.assertTrue(FilteringAndSortingBuildings.isContains4PlusParticularRooms(bathsInfoList, roomType));
 	}
 
     public void clickOnListingsByButton() {
@@ -690,7 +689,6 @@ public class PerchwellPage extends BasePage {
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
 		if(!currentBedsAmountList.isEmpty() && studioList.isEmpty()) {
-			System.out.println(currentBedsAmountList.size());
 			for (WebElement element : currentBedsAmountList) {
 				String stringValue;
 				result = true;
