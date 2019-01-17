@@ -739,9 +739,7 @@ public class SearchPage extends BasePage {
     }
 
     public void selectFilter1Bath() {
-        if (Config.isAndroid()) {
-            Helper.universalVerticalShortSwipe(totalRoomsSection);
-        }
+        Helper.universalVerticalSwipe(filterFor1Bath);
         element(filterFor1Bath).click();
     }
 
@@ -865,6 +863,7 @@ public class SearchPage extends BasePage {
     }
 
     public void selectFilter3Baths() {
+        Helper.universalVerticalShortSwipe(filterFor3Baths);
         element(filterFor3Baths).click();
     }
 
@@ -1306,9 +1305,7 @@ public class SearchPage extends BasePage {
     }
 
     public void selectBathroomsRangeOption() {
-        if (Config.isAndroid()) {
-            Helper.universalVerticalSwipe(bathroomsRangeOption);
-        }
+        Helper.universalVerticalShortSwipe(bathroomsRangeOption);
         element(bathroomsRangeOption).click();
     }
 
@@ -1360,6 +1357,7 @@ public class SearchPage extends BasePage {
     }
 
     public void selectTwoBathsMinimumFilter() {
+        Helper.universalVerticalShortSwipe(twoBathsMinimumFilter);
         element(twoBathsMinimumFilter).click();
     }
 
@@ -1430,6 +1428,7 @@ public class SearchPage extends BasePage {
     }
 
     public void check2BathsMinFilterSelected() {
+        Helper.universalVerticalShortSwipe(selectedTwoBathsMinFilter);
         element(selectedTwoBathsMinFilter).shouldBeVisible();
     }
 
@@ -1482,6 +1481,7 @@ public class SearchPage extends BasePage {
     }
 
     public void checkMultiBathroomsFiltersSelected1To3() {
+        Helper.universalVerticalSwipe(selectedFilterFor1Bath);
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(element(selectedFilterFor1Bath).isDisplayed());
         softAssertions.assertThat(element(selectedFilterFor1AndHalfBath).isDisplayed());

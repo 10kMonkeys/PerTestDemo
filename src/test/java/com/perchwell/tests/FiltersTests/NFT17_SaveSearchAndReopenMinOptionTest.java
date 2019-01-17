@@ -14,20 +14,14 @@ public class NFT17_SaveSearchAndReopenMinOptionTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.selectTwoBedsMinimumFilter();
         user.atSearchPage.selectTwoBathsMinimumFilter();
         user.atSearchPage.saveCurrentSearch();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.atSearchPage.clickOnMySavedSearches(); //search old
         user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.createNewSearchClick();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.atSearchPage.clickOnMySavedSearches(); //search old
         user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.check2BedsMinFilterSelected();
         user.atSearchPage.check2BathsMinFilterSelected();
