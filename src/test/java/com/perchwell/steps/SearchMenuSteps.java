@@ -18,9 +18,9 @@ public class SearchMenuSteps extends ScenarioSteps {
 
     @Step
     public void openSavedSearches() {
-        inMenu.clickOnSearchMenuIcon();
-        inMenu.clickOnMySavedSearches();
-
+            waitABit(1000);
+            inMenu.clickOnSearchMenuIcon();
+            inMenu.clickOnMySavedSearches();
     }
 
     @Step

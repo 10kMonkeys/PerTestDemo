@@ -996,19 +996,30 @@ public class SearchPage extends BasePage {
     }
 
     public void deselectFilter1Bath() {
-//		Helper.universalVerticalSwipe(totalRoomsSection);
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilterFor1Bath);
+        }
         element(selectedFilterFor1Bath).click();
     }
 
     public void deselectFilter1AndHalfBath() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilterFor1AndHalfBath);
+        }
         element(selectedFilterFor1AndHalfBath).click();
     }
 
     public void deselectFilter2Baths() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilter2Baths);
+        }
         element(selectedFilter2Baths).click();
     }
 
     public void deselectFilter3Baths() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilterFor3Baths);
+        }
         element(selectedFilterFor3Baths).click();
     }
 
@@ -1295,6 +1306,9 @@ public class SearchPage extends BasePage {
     }
 
     public void selectBathroomsRangeOption() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(bathroomsRangeOption);
+        }
         element(bathroomsRangeOption).click();
     }
 

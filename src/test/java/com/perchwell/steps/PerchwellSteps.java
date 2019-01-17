@@ -146,12 +146,26 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeListingOnlyWithSelectedRooms(String rooms) {
-		onPage.isContainParticularRooms(rooms);
+		if (Config.isAndroid()) {
+			for (int i = 0; i<PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.isContainParticularRooms(rooms);
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.isContainParticularRooms(rooms);
+		}
 	}
 
 	@Step
 	public void shouldSeeListing4AndMoreRooms(String roomType) {
-		onPage.isContains4PlusParticularRooms(roomType);
+		if (Config.isAndroid()) {
+			for (int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.isContains4PlusParticularRooms(roomType);
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.isContains4PlusParticularRooms(roomType);
+		}
 	}
 
 	@Step

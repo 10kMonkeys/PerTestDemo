@@ -89,7 +89,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Bedrooms")
 	private WebElement bedroomsSortButton;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_beds")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/baths")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Bath:'")
 	private List<WebElement> bathsInfoList;
 
@@ -97,7 +97,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Info:'")
 	private List<WebElement> bedAndBathListInBuilding;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_beds")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/beds")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Bed:'")
 	private List<WebElement> bedInfoList;
 

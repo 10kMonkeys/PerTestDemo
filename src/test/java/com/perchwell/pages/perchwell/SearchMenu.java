@@ -31,6 +31,7 @@ public class SearchMenu extends BasePage {
     @iOSXCUITFindBy(accessibility = "My Saved Searches Button")
     private WebElement mySavedSearchesButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/profile_image")
     @iOSXCUITFindBy(accessibility = "Account Bar Button")
     private WebElement openAccountButton;
 
