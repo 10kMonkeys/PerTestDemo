@@ -146,6 +146,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Listing Preview Search TextField")
 	private WebElement listingsSearchField;
 
+	@AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, ' BD')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'Bed:'$]")
 	private List<WebElement> currentBedsAmountList;
 
@@ -293,7 +294,7 @@ public class PerchwellPage extends BasePage {
 		element(thirdBuilding).click();
 	}
 
-	public boolean isBuildingDisplayedWithSwipe(WebElement element) throws Exception {
+	public boolean isBuildingDisplayedWithSwipe(WebElement element) {
 		setImplicitTimeout(1, SECONDS);
 		Helper.swipeDownUntilElementVisible(element);
 		resetImplicitTimeout();
@@ -581,7 +582,7 @@ public class PerchwellPage extends BasePage {
 		action.tap(magnifierLocation.x, magnifierLocation.y).release().perform();
 	}
 
-	public void openSpecificBuilding() throws Exception {
+	public void openSpecificBuilding() {
 //		WebElement specificAddress = getDriver().findElement(
 //				MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_building_address")));
 //
@@ -688,15 +689,22 @@ public class PerchwellPage extends BasePage {
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
-		if(currentBedsAmountList.size() == 20 && studioList.isEmpty()) {
-
+		if(!currentBedsAmountList.isEmpty() && studioList.isEmpty()) {
+			System.out.println(currentBedsAmountList.size());
 			for (WebElement element : currentBedsAmountList) {
-				String stringValue = element.getAttribute("value");
+				String stringValue;
+				result = true;
+				if(Config.isAndroid()) {
+					stringValue = element.getAttribute("text");
+				}
+				else {
+					stringValue = element.getAttribute("value");
+				}
 				int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
 				if (processedValue<value) {
+					result = false;
 					break;
 				}
-				result = true;
 			}
 		}
 		Assert.assertTrue(result);

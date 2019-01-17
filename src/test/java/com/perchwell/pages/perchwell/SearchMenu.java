@@ -19,6 +19,7 @@ public class SearchMenu extends BasePage {
 
     //region WebElements
 
+
     @AndroidFindBy(id = "com.perchwell.re.staging:id/title")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
     private WebElement searchMenuIcon;
@@ -35,9 +36,11 @@ public class SearchMenu extends BasePage {
     @iOSXCUITFindBy(accessibility = "Account Bar Button")
     private WebElement openAccountButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/cancel")
     @iOSXCUITFindBy(accessibility = "x")
     private WebElement crossButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/search_by_address_button")
     @iOSXCUITFindBy(accessibility = "Search By Address Button")
     private WebElement searchByAddressButton;
 

@@ -262,8 +262,8 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void shouldSeeListingsEqualOrMoreMinPrice() {
 		if(Config.isAndroid()) {
 			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
-			Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
-			Helper.universalSingleSwipe();
+				Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
+				Helper.universalSingleSwipe();
 			}
 		} else {
 			Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
@@ -360,7 +360,14 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void checkIfListingsAreFilteredByMinBeds(int value) {
-		onPage.checkIfListingsAreFilteredByMinBeds(value);
+		if(Config.isAndroid()) {
+			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.checkIfListingsAreFilteredByMinBeds(value);
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.checkIfListingsAreFilteredByMinBeds(value);
+		}
 	}
 
 	@Step
