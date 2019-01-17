@@ -31,7 +31,7 @@ public class TagsPage extends BasePage {
 	private WebElement searchTagTexBox;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_tag")
-	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS '+ Create tag'")
+	@iOSXCUITFindBy(accessibility = "button: create tag")
 	private WebElement createTagLabel;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
