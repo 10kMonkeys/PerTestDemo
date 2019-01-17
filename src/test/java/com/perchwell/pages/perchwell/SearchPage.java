@@ -65,12 +65,12 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "LoadSavedSearchButton")
     private WebElement loadSavedSearchButton;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/save")
     @iOSXCUITFindBy(accessibility = "SAVE")
     private WebElement searchSavebutton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/rename_group_edit_text")
-    @iOSXCUITFindBy(accessibility = "generic_text_input_field")
+    @iOSXCUITFindBy(accessibility = "com.perchwell.re.staging:id/rename_group_edit_text")
     private WebElement searchName;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
@@ -996,19 +996,30 @@ public class SearchPage extends BasePage {
     }
 
     public void deselectFilter1Bath() {
-//		Helper.universalVerticalSwipe(totalRoomsSection);
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilterFor1Bath);
+        }
         element(selectedFilterFor1Bath).click();
     }
 
     public void deselectFilter1AndHalfBath() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilterFor1AndHalfBath);
+        }
         element(selectedFilterFor1AndHalfBath).click();
     }
 
     public void deselectFilter2Baths() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilter2Baths);
+        }
         element(selectedFilter2Baths).click();
     }
 
     public void deselectFilter3Baths() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilterFor3Baths);
+        }
         element(selectedFilterFor3Baths).click();
     }
 
@@ -1024,7 +1035,11 @@ public class SearchPage extends BasePage {
     }
 
     public void setMaximumPriceFilter(String price) {
-        element(maximumPriceTextBox).typeAndEnter(price);
+        if (Config.isAndroid()) {
+            element(maximumPriceTextBox).sendKeys(price);
+        } else {
+            element(maximumPriceTextBox).typeAndEnter(price);
+        }
     }
 
     public void clearPriceFilterValue(String typePrice) {
@@ -1041,8 +1056,16 @@ public class SearchPage extends BasePage {
 
     private boolean isMinAndMaxPricesNotSet() {
         boolean emptyPricesFilters = true;
-        String maxPriceFilter = element(maximumPriceTextBox).getAttribute("value");
-        String minPriceFilter = element(minimumPriceTextBox).getAttribute("value");
+        String maxPriceFilter;
+        String minPriceFilter;
+
+        if(Config.isAndroid()) {
+            maxPriceFilter = element(maximumPriceTextBox).getAttribute("text");
+            minPriceFilter = element(minimumPriceTextBox).getAttribute("text");
+        } else {
+            maxPriceFilter = element(maximumPriceTextBox).getAttribute("value");
+            minPriceFilter = element(minimumPriceTextBox).getAttribute("value");
+        }
 
         if (!maxPriceFilter.contains("Max") || !minPriceFilter.contains("Min")) {
             emptyPricesFilters = false;
@@ -1283,6 +1306,9 @@ public class SearchPage extends BasePage {
     }
 
     public void selectBathroomsRangeOption() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(bathroomsRangeOption);
+        }
         element(bathroomsRangeOption).click();
     }
 

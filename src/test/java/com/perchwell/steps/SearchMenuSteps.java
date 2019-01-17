@@ -11,18 +11,16 @@ public class SearchMenuSteps extends ScenarioSteps {
 
     @Step
     public void openSearchPage() {
-            waitABit(1000);
-            inMenu.clickOnSearchMenuIcon();
-            inMenu.clickOnEditSearchButton();
+        waitABit(1000);
+        inMenu.clickOnSearchMenuIcon();
+        inMenu.clickOnEditSearchButton();
     }
 
     @Step
     public void openSavedSearches() {
-        if(!Config.isAndroid()) {
             waitABit(1000);
             inMenu.clickOnSearchMenuIcon();
             inMenu.clickOnMySavedSearches();
-        }
     }
 
     @Step

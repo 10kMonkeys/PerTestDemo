@@ -19,7 +19,8 @@ public class SearchMenu extends BasePage {
 
     //region WebElements
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/arrow")
+
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/title")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
     private WebElement searchMenuIcon;
 
