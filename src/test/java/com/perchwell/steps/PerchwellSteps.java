@@ -408,7 +408,15 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void checkIfListingsAreFilteredByMultipleBedroomsFilters() {
-		onPage.checkIfListingsAreFilteredByMultipleBedroomsFilters();
+		if(Config.isAndroid()) {
+			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.checkIfListingsAreFilteredByMultipleBedroomsFilters();
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.checkIfListingsAreFilteredByMultipleBedroomsFilters();
+		}
+
 	}
 
 	@Step

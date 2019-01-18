@@ -44,10 +44,10 @@ public class FT4_ApplyingBedroomsFilterTest extends SampleTest {
         user.inSearchMenu.openSavedSearches();
         user.atSearchPage.createNewSearchClick();
         user.atPerchwellPage.checkListingsQuantity();
-        user.inSearchMenu.openSavedSearches(); //search new
+        user.inSearchMenu.openSavedSearches();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.shouldSeeListing4AndMoreBeds("bedrooms");
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkNoOneBedsMinimumFilterSelected();
         user.atSearchPage.clickOnApplyButton();

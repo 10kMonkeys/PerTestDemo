@@ -14,17 +14,17 @@ public class NFT15_SaveSearchAndReopen1RangeOptionTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.selectFilter2Beds();
         user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.selectFilter2Baths();
         user.atSearchPage.saveCurrentSearch();
-        user.inSearchMenu.openSavedSearches(); //search new
+        user.inSearchMenu.openSavedSearches();
         user.atSearchPage.createNewSearchClick();
-        user.inSearchMenu.openSavedSearches(); //search new
+        user.inSearchMenu.openSavedSearches();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.check2BedsRangeFilterSelected();
         user.atSearchPage.check2BathsRangeFilterSelected();
     }

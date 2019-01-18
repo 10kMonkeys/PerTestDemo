@@ -15,41 +15,36 @@ public class NFT7_BedroomsRangeFiltersTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.isListingsQuantity();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.selectFilterStudioBeds();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListingOnlyWithStudios();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.deselectFilterStudioBeds();
         user.atSearchPage.selectFilter1Bed();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListingOnlyWithSelectedBeds("1 BD");
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.deselectFilter1Bed();
         user.atSearchPage.selectFilter2Beds();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListingOnlyWithSelectedBeds("2 BD");
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.deselectFilter2Beds();
         user.atSearchPage.selectFilter3Beds();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListingOnlyWithSelectedBeds("3 BD");
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.deselectFilter3Beds();
         user.atSearchPage.selectFilter4PlusBeds();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListing4AndMoreBeds("bedrooms");
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.deselectFilter4Beds();
         user.atSearchPage.selectFilter1Bed();
         user.atSearchPage.selectFilter3Beds();
+        user.atSearchPage.checkMultiBedroomsFiltersSelectedFrom1To3();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsAreFilteredByMultipleBedroomsFilters();
     }

@@ -731,7 +731,13 @@ public class PerchwellPage extends BasePage {
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
 		for (WebElement element : currentBedsAmountList) {
-			String stringValue = element.getAttribute("value");
+			String stringValue;
+			if(Config.isAndroid()) {
+				stringValue = element.getAttribute("text");
+			}
+			else {
+				stringValue = element.getAttribute("value");
+			}
 			int processedValue = Integer.parseInt(stringValue.substring(0, stringValue.indexOf(" ")));
 			if (processedValue!=1 & processedValue!=2 & processedValue!=3) {
 				result = false;
