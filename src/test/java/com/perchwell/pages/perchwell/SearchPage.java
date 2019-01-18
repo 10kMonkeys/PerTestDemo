@@ -739,7 +739,9 @@ public class SearchPage extends BasePage {
     }
 
     public void selectFilter1Bath() {
-        Helper.universalVerticalSwipe(filterFor1Bath);
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(filterFor1Bath);
+        }
         element(filterFor1Bath).click();
     }
 
@@ -855,6 +857,9 @@ public class SearchPage extends BasePage {
     }
 
     public void selectFilter1AndHalfBath() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(filterFor1AndHalfBath);
+        }
         element(filterFor1AndHalfBath).click();
     }
 
@@ -873,6 +878,9 @@ public class SearchPage extends BasePage {
     }
 
     public void selectFilter4PlusBaths() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(filterFor4PlusBaths);
+        }
         element(filterFor4PlusBaths).click();
     }
 
