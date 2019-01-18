@@ -27,6 +27,7 @@ public abstract class BasePage extends PageObject {
 
 
         });
+        setImplicitTimeout(30000, TimeUnit.MILLISECONDS);
     }
 
     public IOSDriver<IOSElement> iOSDriver() {

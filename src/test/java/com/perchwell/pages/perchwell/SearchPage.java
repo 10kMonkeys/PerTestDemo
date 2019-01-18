@@ -1310,9 +1310,7 @@ public class SearchPage extends BasePage {
     }
 
     public void clickOnShowMoreFeaturesAndAmenitiesButton() {
-        getDriver().manage().timeouts().implicitlyWait(1, SECONDS);
         Helper.universalVerticalSwipe(showMoreFeaturesAndAmenitiesButton);
-        resetImplicitTimeout();
 //		Helper.swipeDownUntilElementVisible(showMoreFeaturesAndAmenitiesButton);
         element(showMoreFeaturesAndAmenitiesButton).click();
     }
