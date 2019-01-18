@@ -71,7 +71,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "map_view_button")
 	private WebElement map;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_analytics")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/analytics_button")
 	@iOSXCUITFindBy(accessibility = "analytics")
 	private WebElement analyticsButton;
 
@@ -118,6 +118,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Bathrooms")
 	private WebElement bathroomsSortButton;
 
+	@AndroidFindBy(xpath = "//android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[7]")
 	@iOSXCUITFindBy(accessibility = "Total Rooms")
     private WebElement totalRoomsSortButton;
 
@@ -173,6 +174,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "ADDRESS: 240 East 35th St. #11A 474823")
 	private WebElement twoAgentListing;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/sqft")
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'sqft: '")
 	private List<WebElement> sqFeetList;
 
@@ -182,6 +184,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
 	private WebElement searchMenuIcon;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/save")
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 

@@ -377,12 +377,15 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "BATHROOMS Option: Range")
     private WebElement bathroomsRangeOption;
 
+    @AndroidFindBy(xpath = "//android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.support.v7.widget.LinearLayoutCompat[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET Minimum Value Input")
     private WebElement squareFeetMinValueField;
 
+    @AndroidFindBy(xpath = "//android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.support.v7.widget.LinearLayoutCompat[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET Maximum Value Input")
     private WebElement squareFeetMaxValueField;
 
+    @AndroidFindBy(accessibility = "Exclude Unknown")
     @iOSXCUITFindBy(accessibility = "% FINANCING Option: Exclude Unknown")
     private WebElement excludeUnknownButton;
 
@@ -1174,7 +1177,12 @@ public class SearchPage extends BasePage {
 
     public void setSquareFeetMinFilter(String value) {
         Helper.universalVerticalSwipe(excludeUnknownButton);
-        element(squareFeetMinValueField).typeAndEnter(value);
+        if(Config.isAndroid()) {
+            element(squareFeetMinValueField).sendKeys(value);
+        }
+        else {
+            element(squareFeetMinValueField).typeAndEnter(value);
+        }
     }
 
     private int getXCoordinateForSixK() {
@@ -1533,13 +1541,18 @@ public class SearchPage extends BasePage {
     }
 
     public void clearSquareFeetMinFilter() {
-        Helper.universalVerticalSwipe(squareFeetMinValueField);
+        Helper.universalVerticalSwipe(excludeUnknownButton);
         element(squareFeetMinValueField).clear();
     }
 
     public void setSquareFeetMaxFilter(String value) {
         Helper.universalVerticalSwipe(excludeUnknownButton);
-        element(squareFeetMaxValueField).typeAndEnter(value);
+        if(Config.isAndroid()) {
+            element(squareFeetMaxValueField).sendKeys(value);
+        }
+        else {
+            element(squareFeetMaxValueField).typeAndEnter(value);
+        }
     }
 
     public void checkSqFeetMinFieldIsEmpty() {

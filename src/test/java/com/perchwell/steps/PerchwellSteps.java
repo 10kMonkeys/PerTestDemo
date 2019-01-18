@@ -423,7 +423,6 @@ public class PerchwellSteps extends ScenarioSteps {
 		} else {
 			onPage.checkIfListingsAreFilteredByMultipleBedroomsFilters();
 		}
-
 	}
 
 	@Step
@@ -453,18 +452,40 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeListingWithSqFeetEqualAndMore(String minValue) {
-		onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
+		if(Config.isAndroid()) {
+			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
+		}
 	}
 
 	@Step
 	public void shouldSeeListingWithSqFeetEqualAndLess(String maxValue) {
-		onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
+		if(Config.isAndroid()) {
+			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
+		}
 	}
 
 	@Step
 	public void shouldSeeListingWithSqFeetEqualAndBetween(String minValue, String maxValue) {
-		onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
-		onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
+		if(Config.isAndroid()) {
+			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
+				onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
+			onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
+		}
 	}
 
 	@Step
