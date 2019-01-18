@@ -16,30 +16,25 @@ public class NFT6_BathroomsMinimumFiltersTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.isListingsQuantity();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectOneBathMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsWereChanged();
         user.atPerchwellPage.checkIfThereIsNoListingsWithoutBaths(); //deprecated
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.checkIfOneBathMinimumFilterIsDeselected();
         user.atSearchPage.selectOneAndHalfBathroomsFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsAreFilteredByMinBaths(Filters.ONE_AND_HALF_BATHS_MINIMUM_FILTER);
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectTwoBathsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsAreFilteredByMinBaths(Filters.TWO_BATHS_MINIMUM_FILTER);
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectThreeBathsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsAreFilteredByMinBaths(Filters.THREE_BATHS_MINIMUM_FILTER);
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectFourBathsMinimumFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsAreFilteredByMinBaths(Filters.FOUR_BATHS_MINIMUM_FILTER);

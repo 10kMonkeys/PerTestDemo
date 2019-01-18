@@ -403,7 +403,14 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void checkIfListingsAreFilteredByMinBaths(double value) {
-		onPage.checkIfListingsAreFilteredByMinBaths(value);
+		if (Config.isAndroid()) {
+			for (int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+				onPage.checkIfListingsAreFilteredByMinBaths(value);
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			onPage.checkIfListingsAreFilteredByMinBaths(value);
+		}
 	}
 
 	@Step

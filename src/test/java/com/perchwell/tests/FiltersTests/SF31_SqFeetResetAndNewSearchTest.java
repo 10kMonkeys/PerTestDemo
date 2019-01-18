@@ -14,19 +14,19 @@ public class SF31_SqFeetResetAndNewSearchTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.setSquareFeetMinFilter("1000");
         user.atSearchPage.setSquareFeetMaxFilter("5000");
         user.atSearchPage.clickOnApplyButton();
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.shouldSqFeetMinAndMaxFieldsCleared();
         user.atSearchPage.setSquareFeetMinFilter("1000");
         user.atSearchPage.setSquareFeetMaxFilter("5000");
         user.atSearchPage.clickOnApplyButton();
-        user.inSearchMenu.openSavedSearches(); //search new
+        user.inSearchMenu.openSavedSearches();
         user.atSearchPage.createNewSearchClick();
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.shouldSqFeetMinAndMaxFieldsCleared();
     }
 }

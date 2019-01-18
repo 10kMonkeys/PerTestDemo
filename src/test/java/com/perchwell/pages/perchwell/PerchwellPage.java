@@ -12,6 +12,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.codehaus.jackson.annotate.JsonTypeInfo;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
@@ -104,7 +105,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Bed: STUDIO'")
 	private List<WebElement> studioList;
 
-    @AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, '$')]")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/price")
     @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name CONTAINS 'PRICE'")
     private List<WebElement> pricesList;
 
@@ -150,6 +151,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'Bed:'$]")
 	private List<WebElement> currentBedsAmountList;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/baths")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'Bath:'$]")
 	private List<WebElement> currentBathsAmountList;
 
@@ -710,12 +712,17 @@ public class PerchwellPage extends BasePage {
 
 	public void checkIfListingsAreFilteredByMinBaths(double expectedValue) {
 		boolean result = true;
+		String actualValue;
 
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 		for (WebElement element : currentBathsAmountList) {
-			String actualValue = element.getAttribute("value");
+			if (Config.isAndroid()) {
+				actualValue = element.getAttribute("text");
+			} else {
+				actualValue = element.getAttribute("value");
+			}
 			double processedActualValue = Double.parseDouble(
-					actualValue.replaceAll(" BA", " ")
+					actualValue.replaceAll(" BA", "")
 							.replace("½", ".5"));
 			if (processedActualValue<expectedValue) {
 				result = false;
@@ -779,7 +786,14 @@ public class PerchwellPage extends BasePage {
 //			}
 //		}
 //		Assert.assertTrue(result);
-		Assert.assertEquals(20, bathsInfoList.size());
+		if (Config.isAndroid()) {
+			for (int i = 0; i < ANDROID__LOOP_COUNTER; i++) {
+				Assert.assertEquals(bathsInfoList.size(), pricesList.size());
+				Helper.universalSingleSwipe();
+			}
+		} else {
+			Assert.assertEquals(20, bathsInfoList.size());
+		}
 	}
 
 	public void listingsFilteredByMultiBathroomsFilters() {
@@ -803,9 +817,14 @@ public class PerchwellPage extends BasePage {
 	public void shouldSeeListingWithSqFeetEqualAndMore(String minValue) {
 		boolean correctValue = true;
 		int min = Integer.parseInt(minValue);
+		String sqFeet;
 
 		for(WebElement element: sqFeetList) {
-			String sqFeet = element.getAttribute("value");
+			if (Config.isAndroid()) {
+				sqFeet = element.getAttribute("text");
+			} else {
+				sqFeet = element.getAttribute("value");
+			}
 			sqFeet = sqFeet.replace(" FT2", "");
 			int sqFeetValue = Integer.parseInt(sqFeet.replaceAll("\\D+",""));
 
@@ -820,9 +839,14 @@ public class PerchwellPage extends BasePage {
 	public void shouldSeeListingWithSqFeetEqualAndLess(String maxValue) {
 		boolean correctValue = true;
 		int max = Integer.parseInt(maxValue);
+		String sqFeet;
 
 		for (WebElement element : sqFeetList) {
-			String sqFeet = element.getAttribute("value");
+			if (Config.isAndroid()) {
+				sqFeet = element.getAttribute("text");
+			} else {
+				sqFeet = element.getAttribute("value");
+			}
 			sqFeet = sqFeet.replace(" FT2", "");
 			int sqFeetValue = Integer.parseInt(sqFeet.replaceAll("\\D+", ""));
 

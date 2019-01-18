@@ -1364,6 +1364,9 @@ public class SearchPage extends BasePage {
     }
 
     public void selectOneAndHalfBathroomsFilter() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(oneAndHalfBathsMinimumFilter);
+        }
         element(oneAndHalfBathsMinimumFilter).click();
     }
 
@@ -1375,15 +1378,23 @@ public class SearchPage extends BasePage {
     }
 
     public void selectThreeBathsMinimumFilter() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(threeBathsMinimumFilter);
+        }
         element(threeBathsMinimumFilter).click();
     }
 
     public void selectFourBathsMinimumFilter() {
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(fourBathsMinimumFilter);
+        }
         element(fourBathsMinimumFilter).click();
     }
 
     public void checkIfOneBathMinimumFilterIsDeselected() {
-//		Helper.universalVerticalSwipe(totalRoomsSection);
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(oneBathMinimumFilter);
+        }
         element(oneBathMinimumFilter).shouldBeVisible();
     }
 
@@ -1532,13 +1543,27 @@ public class SearchPage extends BasePage {
     }
 
     public void checkSqFeetMinFieldIsEmpty() {
+        String valueToCheck;
+
         Helper.universalVerticalSwipe(squareFeetMinValueField);
-        Assert.assertEquals("Min", squareFeetMinValueField.getAttribute("value"));
+        if (Config.isAndroid()) {
+            valueToCheck = squareFeetMinValueField.getAttribute("text");
+        } else {
+            valueToCheck = squareFeetMinValueField.getAttribute("value");
+        }
+        Assert.assertEquals("Min", valueToCheck);
     }
 
     public void checkSqFeetMaxFieldIsEmpty() {
+        String valueToCheck;
+
         Helper.universalVerticalSwipe(squareFeetMaxValueField);
-        Assert.assertEquals("Max", squareFeetMaxValueField.getAttribute("value"));
+        if (Config.isAndroid()) {
+            valueToCheck = squareFeetMaxValueField.getAttribute("text");
+        } else {
+            valueToCheck = squareFeetMaxValueField.getAttribute("value");
+        }
+        Assert.assertEquals("Max", valueToCheck);
     }
 
     public void deselectCondoFilter() {
