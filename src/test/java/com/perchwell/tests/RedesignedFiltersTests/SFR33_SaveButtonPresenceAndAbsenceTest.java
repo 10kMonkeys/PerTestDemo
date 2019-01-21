@@ -9,7 +9,7 @@ import org.junit.Test;
 public class SFR33_SaveButtonPresenceAndAbsenceTest extends SampleTest {
 
     @Test
-    public void saveButtonPresenceAndAbsence() throws Exception {
+    public void saveButtonPresenceAndAbsence() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

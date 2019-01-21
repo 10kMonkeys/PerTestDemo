@@ -187,39 +187,39 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton[2]")
     private WebElement deleteSearchButton;
 
-    @AndroidFindBy(accessibility = "Bedrooms: Studio-selected")
+    @AndroidFindBy(accessibility = "Bedrooms: Studio-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: Studio")
     private WebElement selectedFilterForStudioBeds;
 
-    @AndroidFindBy(accessibility = "Bedrooms: 1-selected")
+    @AndroidFindBy(accessibility = "Bedrooms: 1-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 1")
     private WebElement selectedFilterFor1Bed;
 
-    @AndroidFindBy(accessibility = "Bedrooms: 2-selected")
+    @AndroidFindBy(accessibility = "Bedrooms: 2-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 2")
     private WebElement selectedFilterFor2Beds;
 
-    @AndroidFindBy(accessibility = "Bedrooms: 3-selected")
+    @AndroidFindBy(accessibility = "Bedrooms: 3-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 3")
     private WebElement selectedFilterFor3Beds;
 
-    @AndroidFindBy(accessibility = "Bedrooms: 4+-selected")
+    @AndroidFindBy(accessibility = "Bedrooms: 4+-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 4+")
     private WebElement selectedFilterFor4PlusBeds;
 
-    @AndroidFindBy(accessibility = "Bathrooms: 1-selected")
+    @AndroidFindBy(accessibility = "Bathrooms: 1-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 1")
     private WebElement selectedFilterFor1Bath;
 
-    @AndroidFindBy(accessibility = "Bathrooms: 1½-selected")
+    @AndroidFindBy(accessibility = "Bathrooms: 1½-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 1½")
     private WebElement selectedFilterFor1AndHalfBath;
 
-    @AndroidFindBy(accessibility = "Bathrooms: 2-selected")
+    @AndroidFindBy(accessibility = "Bathrooms: 2-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 2")
     private WebElement selectedFilter2Baths;
 
-    @AndroidFindBy(accessibility = "Bathrooms: 3-selected")
+    @AndroidFindBy(accessibility = "Bathrooms: 3-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 3")
     private WebElement selectedFilterFor3Baths;
 
@@ -347,6 +347,7 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Remove Button: Yorkville")
     private WebElement yorkvilleRemoveIcon;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/add_building_tag")
     @iOSXCUITFindBy(accessibility = "Add Button: BUILDINGS")
     private WebElement searchByAddressButton;
 
@@ -377,12 +378,15 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "BATHROOMS Option: Range")
     private WebElement bathroomsRangeOption;
 
+    @AndroidFindBy(accessibility = "Square Feet Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET Minimum Value Input")
     private WebElement squareFeetMinValueField;
 
+    @AndroidFindBy(accessibility = "Square Feet Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET Maximum Value Input")
     private WebElement squareFeetMaxValueField;
 
+    @AndroidFindBy(accessibility = "Option: Exclude Unknown")
     @iOSXCUITFindBy(accessibility = "% FINANCING Option: Exclude Unknown")
     private WebElement excludeUnknownButton;
 
@@ -522,15 +526,18 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeCell' AND visible = 1")
     private List<WebElement> buildingsList;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/remove_icon")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: ' ")
     private List<WebElement> removeButtonList;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
     private WebElement firstBuilding;
 
+    @AndroidFindBy(accessibility = "Bedrooms: 3+-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 3+")
     private WebElement selectedThreeBedsMinimumFilter;
 
+    @AndroidFindBy(accessibility = "Bathrooms: 3+-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 3+")
     private WebElement selectedThreeBathsMinimumFilter;
 
@@ -1175,7 +1182,12 @@ public class SearchPage extends BasePage {
 
     public void setSquareFeetMinFilter(String value) {
         Helper.universalVerticalSwipe(excludeUnknownButton);
-        element(squareFeetMinValueField).typeAndEnter(value);
+        if(Config.isAndroid()) {
+            element(squareFeetMinValueField).sendKeys(value);
+        }
+        else {
+            element(squareFeetMinValueField).typeAndEnter(value);
+        }
     }
 
     private int getXCoordinateForSixK() {
@@ -1534,13 +1546,18 @@ public class SearchPage extends BasePage {
     }
 
     public void clearSquareFeetMinFilter() {
-        Helper.universalVerticalSwipe(squareFeetMinValueField);
+        Helper.universalVerticalSwipe(excludeUnknownButton);
         element(squareFeetMinValueField).clear();
     }
 
     public void setSquareFeetMaxFilter(String value) {
         Helper.universalVerticalSwipe(excludeUnknownButton);
-        element(squareFeetMaxValueField).typeAndEnter(value);
+        if(Config.isAndroid()) {
+            element(squareFeetMaxValueField).sendKeys(value);
+        }
+        else {
+            element(squareFeetMaxValueField).typeAndEnter(value);
+        }
     }
 
     public void checkSqFeetMinFieldIsEmpty() {
@@ -1663,7 +1680,6 @@ public class SearchPage extends BasePage {
     }
 
     public void deleteFirstBuildingFilter() {
-//		removeButtonList.get(0).click();
         for (int i = 0; i < 3; i++) {
             removeButtonList.get(i).click();
         }
@@ -1671,14 +1687,20 @@ public class SearchPage extends BasePage {
 
     public void checkIfBedAndBathThreeMinimumFiltersAreSelected() {
         SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(element(selectedThreeBathsMinimumFilter).isDisplayed());
         softAssertions.assertThat(element(selectedThreeBedsMinimumFilter).isDisplayed());
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedThreeBathsMinimumFilter);
+        }
+        softAssertions.assertThat(element(selectedThreeBathsMinimumFilter).isDisplayed());
         softAssertions.assertAll();
     }
 
     public void checkIfBedAndBathThreeRangeFiltersAreSelected() {
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(element(selectedFilterFor3Beds).isDisplayed());
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilterFor3Baths);
+        }
         softAssertions.assertThat(element(selectedFilterFor3Baths).isDisplayed());
         softAssertions.assertAll();
     }

@@ -12,7 +12,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
@@ -31,7 +30,7 @@ public class PerchwellPage extends BasePage {
 	private int listingsAmount;
 	private int fourDistrictListingsAmount;
 	public static Integer numberOfItemsInListView;
-	public static final int ANDROID__LOOP_COUNTER = 3;
+	public static final int ANDROID_LOOP_COUNTER = 3;
 
 	//region WebElements
 
@@ -71,7 +70,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "map_view_button")
 	private WebElement map;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_analytics")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/analytics_button")
 	@iOSXCUITFindBy(accessibility = "analytics")
 	private WebElement analyticsButton;
 
@@ -118,6 +117,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "Bathrooms")
 	private WebElement bathroomsSortButton;
 
+	@AndroidFindBy(xpath = "//*[@text = 'TOTAL ROOMS']")
 	@iOSXCUITFindBy(accessibility = "Total Rooms")
     private WebElement totalRoomsSortButton;
 
@@ -173,6 +173,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(accessibility = "ADDRESS: 240 East 35th St. #11A 474823")
 	private WebElement twoAgentListing;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/sqft")
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'sqft: '")
 	private List<WebElement> sqFeetList;
 
@@ -512,7 +513,6 @@ public class PerchwellPage extends BasePage {
 	}
 
 	private int getNumberOfListings(WebElement listingsByButton) {
-//		String listingsByText = element(listingsByButton).getAttribute("value");
 		String listingsByText;
 		if (Config.isAndroid()){
 			listingsByText = element(listingsByButton).getAttribute("text");
@@ -788,7 +788,7 @@ public class PerchwellPage extends BasePage {
 //		}
 //		Assert.assertTrue(result);
 		if (Config.isAndroid()) {
-			for (int i = 0; i < ANDROID__LOOP_COUNTER; i++) {
+			for (int i = 0; i < ANDROID_LOOP_COUNTER; i++) {
 				Assert.assertEquals(bathsInfoList.size(), pricesList.size());
 				Helper.universalSingleSwipe();
 			}
