@@ -514,7 +514,6 @@ public class PerchwellPage extends BasePage {
 	}
 
 	private int getNumberOfListings(WebElement listingsByButton) {
-//		String listingsByText = element(listingsByButton).getAttribute("value");
 		String listingsByText;
 		if (Config.isAndroid()){
 			listingsByText = element(listingsByButton).getAttribute("text");
