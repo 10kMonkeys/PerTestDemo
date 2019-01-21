@@ -234,7 +234,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: Off Market")
     private WebElement selectedOffMktFilter;
 
-    @AndroidFindBy(accessibility = "Sales-selected")
+    @AndroidFindBy(accessibility = "Sales-SELECTED")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option Selected: Sales'")
     private WebElement selectedSalesProperty;
 
@@ -482,6 +482,7 @@ public class SearchPage extends TechHelper {
     @AndroidFindBy(id = "com.perchwell.re.staging:id/listing_activity")
     private WebElement listingActivitySection;
 
+    @AndroidFindBy(accessibility = "CONDO-SELECTED")
     @iOSXCUITFindBy(accessibility = "Condo-selected")
     private WebElement selectedCondoFilter;
 
@@ -506,6 +507,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option: Sales'")
     private WebElement salesProperty;
 
+    @AndroidFindBy(accessibility = "Rentals-SELECTED")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option Selected: Rentals'")
     private WebElement selectedRentalsProperty;
 
@@ -836,7 +838,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectRentalsProperty() {
-        Helper.universalVerticalSwipe(rentalsButton);
+        universalVerticalSwipe(rentalsButton);
         element(rentalsButton).click();
     }
 
@@ -1174,7 +1176,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectCondoFilter() {
-        Helper.universalVerticalSwipe(condoFilter);
+        universalVerticalSwipe(condoFilter);
         element(condoFilter).click();
     }
 
@@ -1572,7 +1574,7 @@ public class SearchPage extends TechHelper {
     public void checkSqFeetMinFieldIsEmpty() {
         String valueToCheck;
 
-        Helper.universalVerticalSwipe(squareFeetMinValueField);
+        universalVerticalSwipe(squareFeetMinValueField);
         if (Config.isAndroid()) {
             valueToCheck = squareFeetMinValueField.getAttribute("text");
         } else {
@@ -1594,7 +1596,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void deselectCondoFilter() {
-        Helper.universalVerticalSwipe(selectedCondoFilter);
+        universalVerticalSwipe(selectedCondoFilter);
         element(selectedCondoFilter).click();
     }
 
@@ -1652,6 +1654,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void checkCondoFilterIsSelectedInSalesProperty() {
+        universalVerticalSwipe(selectedSalesProperty);
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(element(selectedSalesProperty).isDisplayed());
         softAssertions.assertThat(element(selectedCondoFilter).isDisplayed());
@@ -1659,6 +1662,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void checkCondoFilterIsSelectedInRentalsProperty() {
+        universalVerticalSwipe(selectedRentalsProperty);
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(element(selectedRentalsProperty).isDisplayed());
         softAssertions.assertThat(element(selectedCondoFilter).isDisplayed());
