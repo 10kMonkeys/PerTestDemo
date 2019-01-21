@@ -29,7 +29,7 @@ public class PerchwellPage extends TechHelper {
 	private int listingsAmount;
 	private int fourDistrictListingsAmount;
 	public static Integer numberOfItemsInListView;
-	public static final int ANDROID__LOOP_COUNTER = 3;
+	public static final int ANDROID_LOOP_COUNTER = 3;
 
 	//region WebElements
 
@@ -69,7 +69,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "map_view_button")
 	private WebElement map;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_analytics")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/analytics_button")
 	@iOSXCUITFindBy(accessibility = "analytics")
 	private WebElement analyticsButton;
 
@@ -116,6 +116,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Bathrooms")
 	private WebElement bathroomsSortButton;
 
+	@AndroidFindBy(xpath = "//*[@text = 'TOTAL ROOMS']")
 	@iOSXCUITFindBy(accessibility = "Total Rooms")
     private WebElement totalRoomsSortButton;
 
@@ -171,6 +172,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "ADDRESS: 240 East 35th St. #11A 474823")
 	private WebElement twoAgentListing;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/sqft")
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'sqft: '")
 	private List<WebElement> sqFeetList;
 
@@ -180,6 +182,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
 	private WebElement searchMenuIcon;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/save")
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
@@ -509,7 +512,6 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	private int getNumberOfListings(WebElement listingsByButton) {
-//		String listingsByText = element(listingsByButton).getAttribute("value");
 		String listingsByText;
 		if (Config.isAndroid()){
 			listingsByText = element(listingsByButton).getAttribute("text");
@@ -785,7 +787,7 @@ public class PerchwellPage extends TechHelper {
 //		}
 //		Assert.assertTrue(result);
 		if (Config.isAndroid()) {
-			for (int i = 0; i < ANDROID__LOOP_COUNTER; i++) {
+			for (int i = 0; i < ANDROID_LOOP_COUNTER; i++) {
 				Assert.assertEquals(bathsInfoList.size(), pricesList.size());
 				Helper.universalSingleSwipe();
 			}

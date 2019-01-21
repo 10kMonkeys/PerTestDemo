@@ -76,11 +76,11 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name='SAVE'$][2]")
     private WebElement saveButton;
 
-    @AndroidFindBy(xpath = "//android.widget.LinearLayout/android.widget.EditText")
+    @AndroidFindBy(accessibility = "Asking Price Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
     private WebElement minimumPriceTextBox;
 
-    @AndroidFindBy(xpath = "//android.support.v7.widget.LinearLayoutCompat[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText")
+    @AndroidFindBy(accessibility = "Asking Price Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "Asking Price Maximum Value Input")
     private WebElement maximumPriceTextBox;
 
@@ -186,39 +186,39 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeButton[2]")
     private WebElement deleteSearchButton;
 
-    @AndroidFindBy(accessibility = "Bedrooms: Studio-selected")
+    @AndroidFindBy(accessibility = "Bedrooms: Studio-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: Studio")
     private WebElement selectedFilterForStudioBeds;
 
-    @AndroidFindBy(accessibility = "Bedrooms: 1-selected")
+    @AndroidFindBy(accessibility = "Bedrooms: 1-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 1")
     private WebElement selectedFilterFor1Bed;
 
-    @AndroidFindBy(accessibility = "Bedrooms: 2-selected")
+    @AndroidFindBy(accessibility = "Bedrooms: 2-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 2")
     private WebElement selectedFilterFor2Beds;
 
-    @AndroidFindBy(accessibility = "Bedrooms: 3-selected")
+    @AndroidFindBy(accessibility = "Bedrooms: 3-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 3")
     private WebElement selectedFilterFor3Beds;
 
-    @AndroidFindBy(accessibility = "Bedrooms: 4+-selected")
+    @AndroidFindBy(accessibility = "Bedrooms: 4+-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 4+")
     private WebElement selectedFilterFor4PlusBeds;
 
-    @AndroidFindBy(accessibility = "Bathrooms: 1-selected")
+    @AndroidFindBy(accessibility = "Bathrooms: 1-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 1")
     private WebElement selectedFilterFor1Bath;
 
-    @AndroidFindBy(accessibility = "Bathrooms: 1½-selected")
+    @AndroidFindBy(accessibility = "Bathrooms: 1½-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 1½")
     private WebElement selectedFilterFor1AndHalfBath;
 
-    @AndroidFindBy(accessibility = "Bathrooms: 2-selected")
+    @AndroidFindBy(accessibility = "Bathrooms: 2-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 2")
     private WebElement selectedFilter2Baths;
 
-    @AndroidFindBy(accessibility = "Bathrooms: 3-selected")
+    @AndroidFindBy(accessibility = "Bathrooms: 3-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 3")
     private WebElement selectedFilterFor3Baths;
 
@@ -310,7 +310,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Remove Button: Manhattan")
     private WebElement manhattanCheckedCheckbox;
 
-    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"BROOKLYN\"]/android.widget.ImageView")
+    @AndroidFindBy(accessibility = "Remove Button: Brooklyn")
     @iOSXCUITFindBy(accessibility = "Remove Button: Brooklyn")
     private WebElement brooklynRemoveIcon;
 
@@ -346,6 +346,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Remove Button: Yorkville")
     private WebElement yorkvilleRemoveIcon;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/add_building_tag")
     @iOSXCUITFindBy(accessibility = "Add Button: BUILDINGS")
     private WebElement searchByAddressButton;
 
@@ -376,12 +377,15 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "BATHROOMS Option: Range")
     private WebElement bathroomsRangeOption;
 
+    @AndroidFindBy(accessibility = "Square Feet Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET Minimum Value Input")
     private WebElement squareFeetMinValueField;
 
+    @AndroidFindBy(accessibility = "Square Feet Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET Maximum Value Input")
     private WebElement squareFeetMaxValueField;
 
+    @AndroidFindBy(accessibility = "Option: Exclude Unknown")
     @iOSXCUITFindBy(accessibility = "% FINANCING Option: Exclude Unknown")
     private WebElement excludeUnknownButton;
 
@@ -511,6 +515,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "AddressSearchBar")
     private WebElement searchAddressField;
 
+    @AndroidFindBy(accessibility = "Close Search Filters Button")
     @iOSXCUITFindBy(accessibility = "bar button: close search view")
     private WebElement closeSearchButton;
 
@@ -520,15 +525,18 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeCell' AND visible = 1")
     private List<WebElement> buildingsList;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/remove_icon")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: ' ")
     private List<WebElement> removeButtonList;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
     private WebElement firstBuilding;
 
+    @AndroidFindBy(accessibility = "Bedrooms: 3+-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 3+")
     private WebElement selectedThreeBedsMinimumFilter;
 
+    @AndroidFindBy(accessibility = "Bathrooms: 3+-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 3+")
     private WebElement selectedThreeBathsMinimumFilter;
 
@@ -1182,7 +1190,12 @@ public class SearchPage extends TechHelper {
 
     public void setSquareFeetMinFilter(String value) {
         universalVerticalSwipe(excludeUnknownButton);
-        element(squareFeetMinValueField).typeAndEnter(value);
+        if(Config.isAndroid()) {
+            element(squareFeetMinValueField).sendKeys(value);
+        }
+        else {
+            element(squareFeetMinValueField).typeAndEnter(value);
+        }
     }
 
     private int getXCoordinateForSixK() {
@@ -1542,13 +1555,18 @@ public class SearchPage extends TechHelper {
     }
 
     public void clearSquareFeetMinFilter() {
-        Helper.universalVerticalSwipe(squareFeetMinValueField);
+        Helper.universalVerticalSwipe(excludeUnknownButton);
         element(squareFeetMinValueField).clear();
     }
 
     public void setSquareFeetMaxFilter(String value) {
         universalVerticalSwipe(excludeUnknownButton);
-        element(squareFeetMaxValueField).typeAndEnter(value);
+        if(Config.isAndroid()) {
+            element(squareFeetMaxValueField).sendKeys(value);
+        }
+        else {
+            element(squareFeetMaxValueField).typeAndEnter(value);
+        }
     }
 
     public void checkSqFeetMinFieldIsEmpty() {
@@ -1671,7 +1689,6 @@ public class SearchPage extends TechHelper {
     }
 
     public void deleteFirstBuildingFilter() {
-//		removeButtonList.get(0).click();
         for (int i = 0; i < 3; i++) {
             removeButtonList.get(i).click();
         }
@@ -1679,14 +1696,20 @@ public class SearchPage extends TechHelper {
 
     public void checkIfBedAndBathThreeMinimumFiltersAreSelected() {
         SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(element(selectedThreeBathsMinimumFilter).isDisplayed());
         softAssertions.assertThat(element(selectedThreeBedsMinimumFilter).isDisplayed());
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedThreeBathsMinimumFilter);
+        }
+        softAssertions.assertThat(element(selectedThreeBathsMinimumFilter).isDisplayed());
         softAssertions.assertAll();
     }
 
     public void checkIfBedAndBathThreeRangeFiltersAreSelected() {
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(element(selectedFilterFor3Beds).isDisplayed());
+        if (Config.isAndroid()) {
+            Helper.universalVerticalSwipe(selectedFilterFor3Baths);
+        }
         softAssertions.assertThat(element(selectedFilterFor3Baths).isDisplayed());
         softAssertions.assertAll();
     }
@@ -1848,8 +1871,16 @@ public class SearchPage extends TechHelper {
     }
 
     public void checkIfFieldIsFilledByCorrectValue(String element, String value) {
+
+        String elementsValue;
         WebElement elementToCheck = getDriver().findElement(MobileBy.AccessibilityId(element));
-        String elementsValue = elementToCheck.getAttribute("value").replaceAll("[%$, .]", "");
+
+        if (Config.isAndroid()) {
+            elementsValue = elementToCheck.getAttribute("text").replaceAll("[%$, .]", "");
+        } else {
+            elementsValue = elementToCheck.getAttribute("value").replaceAll("[%$, .]", "");
+        }
+
         Helper.universalVerticalSwipe(elementToCheck);
         Assert.assertEquals(value, elementsValue);
     }
