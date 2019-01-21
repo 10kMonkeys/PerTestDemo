@@ -77,11 +77,11 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name='SAVE'$][2]")
     private WebElement saveButton;
 
-    @AndroidFindBy(xpath = "//android.widget.LinearLayout/android.widget.EditText")
+    @AndroidFindBy(accessibility = "Asking Price Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
     private WebElement minimumPriceTextBox;
 
-    @AndroidFindBy(xpath = "//android.support.v7.widget.LinearLayoutCompat[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText")
+    @AndroidFindBy(accessibility = "Asking Price Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "Asking Price Maximum Value Input")
     private WebElement maximumPriceTextBox;
 
@@ -512,7 +512,7 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "AddressSearchBar")
     private WebElement searchAddressField;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/arrow")
+    @AndroidFindBy(accessibility = "Close Search Filters Button")
     @iOSXCUITFindBy(accessibility = "bar button: close search view")
     private WebElement closeSearchButton;
 
@@ -1840,8 +1840,16 @@ public class SearchPage extends BasePage {
     }
 
     public void checkIfFieldIsFilledByCorrectValue(String element, String value) {
+
+        String elementsValue;
         WebElement elementToCheck = getDriver().findElement(MobileBy.AccessibilityId(element));
-        String elementsValue = elementToCheck.getAttribute("value").replaceAll("[%$, .]", "");
+
+        if (Config.isAndroid()) {
+            elementsValue = elementToCheck.getAttribute("text").replaceAll("[%$, .]", "");
+        } else {
+            elementsValue = elementToCheck.getAttribute("value").replaceAll("[%$, .]", "");
+        }
+
         Helper.universalVerticalSwipe(elementToCheck);
         Assert.assertEquals(value, elementsValue);
     }
