@@ -311,7 +311,7 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "Remove Button: Manhattan")
     private WebElement manhattanCheckedCheckbox;
 
-    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"BROOKLYN\"]/android.widget.ImageView")
+    @AndroidFindBy(accessibility = "Remove Button: Brooklyn")
     @iOSXCUITFindBy(accessibility = "Remove Button: Brooklyn")
     private WebElement brooklynRemoveIcon;
 
@@ -512,6 +512,7 @@ public class SearchPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "AddressSearchBar")
     private WebElement searchAddressField;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/arrow")
     @iOSXCUITFindBy(accessibility = "bar button: close search view")
     private WebElement closeSearchButton;
 

@@ -182,6 +182,7 @@ public class PerchwellPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
 	private WebElement searchMenuIcon;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/save")
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
