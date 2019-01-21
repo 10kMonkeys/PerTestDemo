@@ -817,7 +817,7 @@ public class SearchSteps extends ScenarioSteps {
 
     @Step
     public void fillInAddressSearchField(String address) {
-        onPage.searchDistrict(address);
+        onPage.fillInAddressSearchField(address);
     }
 
     @Step
