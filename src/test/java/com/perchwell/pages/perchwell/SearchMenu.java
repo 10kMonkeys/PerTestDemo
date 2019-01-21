@@ -44,6 +44,7 @@ public class SearchMenu extends BasePage {
     @iOSXCUITFindBy(accessibility = "Search By Address Button")
     private WebElement searchByAddressButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/save")
     @iOSXCUITFindBy(accessibility = "SAVE")
     private WebElement saveButton;
 
