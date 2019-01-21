@@ -147,7 +147,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingOnlyWithSelectedBeds(String rooms) {
 		if (Config.isAndroid()) {
-			for (int i = 0; i<PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for (int i = 0; i<PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.isContainParticularBeds(rooms);
 				Helper.universalSingleSwipe();
 			}
@@ -159,7 +159,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingOnlyWithSelectedBaths(String rooms) {
 		if (Config.isAndroid()) {
-			for (int i = 0; i<PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for (int i = 0; i<PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.isContainParticularBaths(rooms);
 				Helper.universalSingleSwipe();
 			}
@@ -171,7 +171,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListing4AndMoreBeds(String roomType) {
 		if (Config.isAndroid()) {
-			for (int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for (int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.isContains4PlusParticularBeds(roomType);
 				Helper.universalSingleSwipe();
 			}
@@ -183,7 +183,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListing4AndMoreBaths(String roomType) {
 		if (Config.isAndroid()) {
-			for (int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for (int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.isContains4PlusParticularBaths(roomType);
 				Helper.universalSingleSwipe();
 			}
@@ -195,7 +195,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingOnlyWithStudios() {
 		if (Config.isAndroid()) {
-			for (int i = 0; i<PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for (int i = 0; i<PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.isContainsStudios();
 				Helper.universalSingleSwipe();
 			}
@@ -292,7 +292,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingsEqualOrMoreMinPrice() {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
 				Helper.universalSingleSwipe();
 			}
@@ -304,7 +304,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingsEqualOrLessMaxPrice() {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("max"));
 				Helper.universalSingleSwipe();
 			}
@@ -316,7 +316,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingsBetweenMinAndMaxPrices() {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("between min and max"));
 				Helper.universalSingleSwipe();
 			}
@@ -392,7 +392,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void checkIfListingsAreFilteredByMinBeds(int value) {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.checkIfListingsAreFilteredByMinBeds(value);
 				Helper.universalSingleSwipe();
 			}
@@ -404,7 +404,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void checkIfListingsAreFilteredByMinBaths(double value) {
 		if (Config.isAndroid()) {
-			for (int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for (int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.checkIfListingsAreFilteredByMinBaths(value);
 				Helper.universalSingleSwipe();
 			}
@@ -416,7 +416,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void checkIfListingsAreFilteredByMultipleBedroomsFilters() {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.checkIfListingsAreFilteredByMultipleBedroomsFilters();
 				Helper.universalSingleSwipe();
 			}
@@ -453,7 +453,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingWithSqFeetEqualAndMore(String minValue) {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
 				Helper.universalSingleSwipe();
 			}
@@ -465,7 +465,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingWithSqFeetEqualAndLess(String maxValue) {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
 				Helper.universalSingleSwipe();
 			}
@@ -477,7 +477,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	@Step
 	public void shouldSeeListingWithSqFeetEqualAndBetween(String minValue, String maxValue) {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < PerchwellPage.ANDROID__LOOP_COUNTER; i++) {
+			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
 				onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
 				Helper.universalSingleSwipe();
