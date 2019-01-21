@@ -244,11 +244,11 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
     private WebElement universalNewSearchButton;
 
-    @AndroidFindBy(accessibility = "Building Laundry")
+    @AndroidFindBy(accessibility = "Building Laundry-checkmark")
     @iOSXCUITFindBy(accessibility = "Building Laundry-checkmark")
     private WebElement laundryBLDGFilterButton;
 
-    @AndroidFindBy(xpath = "//*[@content-desc='Building Laundry-selected']")
+    @AndroidFindBy(accessibility = "Building Laundry-checkmark-SELECTED")
     @iOSXCUITFindBy(accessibility = "Building Laundry-checkmark-SELECTED")
     private WebElement selectedLaundryBLDGFilter;
 
@@ -540,18 +540,23 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 3+")
     private WebElement selectedThreeBathsMinimumFilter;
 
+    @AndroidFindBy(accessibility = "Total Rooms Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "TOTAL ROOMS Minimum Value Input")
     private WebElement totalRoomsMinValueField;
 
+    @AndroidFindBy(accessibility = "Prewar-checkmark")
     @iOSXCUITFindBy(accessibility = "Prewar-checkmark")
     private WebElement prewarCheckmarkFilter;
 
+    @AndroidFindBy(accessibility = "Outdoor Space-checkmark")
     @iOSXCUITFindBy(accessibility = "Outdoor Space-checkmark")
     private WebElement outdoorSpaceCheckmarkFiler;
 
+    @AndroidFindBy(accessibility = "Prewar-checkmark-SELECTED")
     @iOSXCUITFindBy(accessibility = "Prewar-checkmark-SELECTED")
     private WebElement selectedPrewarCheckmarkFilter;
 
+    @AndroidFindBy(accessibility = "Outdoor Space-checkmark-SELECTED")
     @iOSXCUITFindBy(accessibility = "Outdoor Space-checkmark-SELECTED")
     private WebElement selectedOutdoorSpaceCheckmarkFilter;
 
@@ -612,9 +617,11 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "BUILDING WIDTH")
     private WebElement bldgWidthSection;
 
+    @AndroidFindBy(accessibility = "OPEN_HOUSES Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "Open Houses Minimum Value Input")
     private WebElement openHouseMinValueInput;
 
+    @AndroidFindBy(accessibility = "OPEN_HOUSES Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "Open Houses Maximum Value Input")
     private WebElement openHouseMaxValueInput;
 
@@ -657,6 +664,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: BEDROOMS")
     private WebElement collapseBedroomsArrow;
 
+    @AndroidFindBy(accessibility = "Total Rooms Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "TOTAL ROOMS Maximum Value Input")
     private WebElement totalRoomsMaxValueField;
 
@@ -1218,7 +1226,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void clickOnLaundryBuildingFilter() {
-        Helper.swipeDownUntilElementVisible(laundryBLDGFilterButton);
+        swipeDownUntilElementVisible(laundryBLDGFilterButton);
         element(laundryBLDGFilterButton).click();
     }
 
@@ -1331,9 +1339,11 @@ public class SearchPage extends TechHelper {
     }
 
     public void clickOnShowMoreFeaturesAndAmenitiesButton() {
-        Helper.universalVerticalSwipe(showMoreFeaturesAndAmenitiesButton);
-//		Helper.swipeDownUntilElementVisible(showMoreFeaturesAndAmenitiesButton);
+        universalVerticalSwipe(openHouseMinValueInput);
         element(showMoreFeaturesAndAmenitiesButton).click();
+        if(Config.isAndroid()) {
+            singleUpShortSwipeAndroid();
+        }
     }
 
     public void selectBathroomsRangeOption() {
