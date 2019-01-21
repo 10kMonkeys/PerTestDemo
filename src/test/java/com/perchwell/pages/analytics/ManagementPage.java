@@ -1,7 +1,7 @@
 package com.perchwell.pages.analytics;
 
 import com.perchwell.helpers.Helper;
-import com.perchwell.pages.base.BasePage;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class ManagementPage extends BasePage {
+public class ManagementPage extends TechHelper {
 
     //region WebElements
 

@@ -1,12 +1,12 @@
 package com.perchwell.pages.account;
 
-import com.perchwell.pages.base.BasePage;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class AccountPage extends BasePage {
+public class AccountPage extends TechHelper {
 
     @AndroidFindBy(accessibility = "CLIENTS")
     @iOSXCUITFindBy(accessibility = "CLIENTS")

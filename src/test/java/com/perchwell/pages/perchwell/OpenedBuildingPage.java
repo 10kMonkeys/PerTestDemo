@@ -3,7 +3,7 @@ package com.perchwell.pages.perchwell;
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.base.BasePage;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
@@ -14,15 +14,11 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import javax.naming.NamingSecurityException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static io.appium.java_client.MobileBy.iOSClassChain;
-
-public class OpenedBuildingPage extends BasePage {
+public class OpenedBuildingPage extends TechHelper {
 
 	private List<String> initialBedsAndBathsAmountList = new ArrayList<>();
 

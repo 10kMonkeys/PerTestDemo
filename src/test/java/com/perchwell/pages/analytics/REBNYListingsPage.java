@@ -1,8 +1,7 @@
 package com.perchwell.pages.analytics;
 
-import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
-import com.perchwell.pages.base.BasePage;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -15,7 +14,7 @@ import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class REBNYListingsPage extends BasePage {
+public class REBNYListingsPage extends TechHelper {
 
     //region WebElements
 

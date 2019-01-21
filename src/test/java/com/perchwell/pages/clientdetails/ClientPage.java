@@ -1,31 +1,26 @@
 package com.perchwell.pages.clientdetails;
 
 import com.perchwell.crossPlatform.Config;
-import com.perchwell.data.SearchRequests;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.base.BasePage;
-import io.appium.java_client.AppiumDriver;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class ClientPage extends BasePage {
+public class ClientPage extends TechHelper {
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/discuss_button")
 	@iOSXCUITFindBy(accessibility = "ADD NEW CLIENT")

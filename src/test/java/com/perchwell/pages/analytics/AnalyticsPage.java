@@ -5,11 +5,7 @@ import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
-import com.perchwell.helpers.CurrentYear;
-import com.perchwell.helpers.Helper;
-import com.perchwell.helpers.RandomGenerator;
-import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.base.BasePage;
+import com.perchwell.helpers.*;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
@@ -28,7 +24,7 @@ import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class AnalyticsPage extends BasePage {
+public class AnalyticsPage extends TechHelper {
 
     private int numberOfReportDetailEmails;
 

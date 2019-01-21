@@ -8,8 +8,7 @@ import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.base.BasePage;
-import io.appium.java_client.MobileBy;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -18,7 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import static com.perchwell.email.MailTrap.getTextBody;
 
-public class SellersAgentPage extends BasePage {
+public class SellersAgentPage extends TechHelper {
 
     //region WebElements
 

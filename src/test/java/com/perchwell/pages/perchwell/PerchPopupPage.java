@@ -1,12 +1,12 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import com.perchwell.pages.base.BasePage;
 
 
-public class PerchPopupPage extends BasePage {
+public class PerchPopupPage extends TechHelper {
 
     //region WebElements
 

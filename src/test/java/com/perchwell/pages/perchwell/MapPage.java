@@ -3,10 +3,8 @@ package com.perchwell.pages.perchwell;
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
-import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.base.BasePage;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.AppiumDriver;
-
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -14,17 +12,11 @@ import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
-
-import javax.swing.text.AttributeSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MapPage extends BasePage {
-
-	public MapPage(WebDriver driver) {
-		super(driver);
-	}
+public class MapPage extends TechHelper {
 
 	public static int numberOfItemsInMapView;
 
@@ -78,6 +70,10 @@ public class MapPage extends BasePage {
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]")
 	private WebElement mapFirstAddress;
+
+	public MapPage(WebDriver driver) {
+		super(driver);
+	}
 
 	public void clickOnNotNowButton() {
 		if (!Config.isAndroid()){

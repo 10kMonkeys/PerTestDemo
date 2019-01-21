@@ -1,14 +1,14 @@
 package com.perchwell.pages.starting;
 
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import com.perchwell.pages.base.BasePage;
 
-public class WelcomePage extends BasePage {
+
+public class WelcomePage extends TechHelper {
 
 	//region WebElements
 

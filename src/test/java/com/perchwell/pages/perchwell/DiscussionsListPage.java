@@ -6,7 +6,7 @@ import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.base.BasePage;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -15,13 +15,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.Iterator;
 import java.util.List;
-
 import static com.perchwell.email.MailTrap.getTextBody;
 
-public class DiscussionsListPage extends BasePage {
+public class DiscussionsListPage extends TechHelper {
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/foreground_container")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[1]")

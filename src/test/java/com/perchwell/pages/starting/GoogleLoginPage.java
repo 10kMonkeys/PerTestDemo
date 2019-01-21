@@ -1,6 +1,6 @@
 package com.perchwell.pages.starting;
 
-import com.perchwell.pages.base.BasePage;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
@@ -12,7 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import java.net.URL;
 import java.util.Set;
 
-public class GoogleLoginPage extends BasePage {
+public class GoogleLoginPage extends TechHelper {
 
 	//region WebElements
     @FindBy(xpath= "//*[@id='identifierId']")

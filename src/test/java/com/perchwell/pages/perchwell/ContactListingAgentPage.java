@@ -1,7 +1,7 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.base.BasePage;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -9,7 +9,7 @@ import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class ContactListingAgentPage extends BasePage {
+public class ContactListingAgentPage extends TechHelper {
 
     //region WebElements
 

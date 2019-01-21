@@ -1,24 +1,18 @@
 package com.perchwell.pages.perchwell;
 
-import com.perchwell.pages.base.BasePage;
-import io.appium.java_client.AppiumDriver;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import javax.swing.*;
 import java.util.concurrent.TimeUnit;
 
-public class SearchMenu extends BasePage {
+public class SearchMenu extends TechHelper {
 
     //region WebElements
-
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/title")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")

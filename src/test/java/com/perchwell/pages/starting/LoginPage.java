@@ -5,7 +5,7 @@ import com.perchwell.email.MailTrap;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.base.BasePage;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ import java.util.Random;
 import static com.perchwell.email.MailTrap.getTextBody;
 
 
-public class LoginPage extends BasePage {
+public class LoginPage extends TechHelper {
 
     private Random random = new Random();
 

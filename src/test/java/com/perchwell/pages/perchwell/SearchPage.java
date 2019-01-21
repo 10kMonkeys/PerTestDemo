@@ -1,13 +1,12 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.helpers.TechHelper;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
@@ -23,7 +22,7 @@ import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class SearchPage extends BasePage {
+public class SearchPage extends TechHelper {
 
     //region WebElements
 
@@ -740,7 +739,8 @@ public class SearchPage extends BasePage {
 
     public void selectFilter1Bath() {
         if (Config.isAndroid()) {
-            Helper.universalVerticalSwipe(filterFor1Bath);
+//            Helper.universalVerticalSwipe(filterFor1Bath);
+            universalVerticalShortSwipe(filterFor1Bath);
         }
         element(filterFor1Bath).click();
     }
@@ -858,28 +858,32 @@ public class SearchPage extends BasePage {
 
     public void selectFilter1AndHalfBath() {
         if (Config.isAndroid()) {
-            Helper.universalVerticalSwipe(filterFor1AndHalfBath);
+//            Helper.universalVerticalSwipe(filterFor1AndHalfBath);
+            universalVerticalShortSwipe(filterFor1AndHalfBath);
         }
         element(filterFor1AndHalfBath).click();
     }
 
     public void selectFilter2Baths() {
         if (Config.isAndroid()) {
-            Helper.universalVerticalSwipe(filterFor2Baths);
+//            Helper.universalVerticalSwipe(filterFor2Baths);
+            universalVerticalShortSwipe(filterFor2Baths);
         }
         element(filterFor2Baths).click();
     }
 
     public void selectFilter3Baths() {
         if (Config.isAndroid()) {
-            Helper.universalVerticalSwipe(filterFor3Baths);
+//            Helper.universalVerticalSwipe(filterFor3Baths);
+            universalVerticalShortSwipe(filterFor3Baths);
         }
         element(filterFor3Baths).click();
     }
 
     public void selectFilter4PlusBaths() {
         if (Config.isAndroid()) {
-            Helper.universalVerticalSwipe(filterFor4PlusBaths);
+//            Helper.universalVerticalSwipe(filterFor4PlusBaths);
+            universalVerticalShortSwipe(filterFor4PlusBaths);
         }
         element(filterFor4PlusBaths).click();
     }
@@ -1009,28 +1013,32 @@ public class SearchPage extends BasePage {
 
     public void deselectFilter1Bath() {
         if (Config.isAndroid()) {
-            Helper.universalVerticalSwipe(selectedFilterFor1Bath);
+//            Helper.universalVerticalSwipe(selectedFilterFor1Bath);
+            universalVerticalShortSwipe(selectedFilterFor1Bath);
         }
         element(selectedFilterFor1Bath).click();
     }
 
     public void deselectFilter1AndHalfBath() {
         if (Config.isAndroid()) {
-            Helper.universalVerticalSwipe(selectedFilterFor1AndHalfBath);
+//            Helper.universalVerticalSwipe(selectedFilterFor1AndHalfBath);
+            universalVerticalShortSwipe(selectedFilterFor1AndHalfBath);
         }
         element(selectedFilterFor1AndHalfBath).click();
     }
 
     public void deselectFilter2Baths() {
         if (Config.isAndroid()) {
-            Helper.universalVerticalSwipe(selectedFilter2Baths);
+//            Helper.universalVerticalSwipe(selectedFilter2Baths);
+            universalVerticalShortSwipe(selectedFilter2Baths);
         }
         element(selectedFilter2Baths).click();
     }
 
     public void deselectFilter3Baths() {
         if (Config.isAndroid()) {
-            Helper.universalVerticalSwipe(selectedFilterFor3Baths);
+//            Helper.universalVerticalSwipe(selectedFilterFor3Baths);
+            universalVerticalShortSwipe(selectedFilterFor3Baths);
         }
         element(selectedFilterFor3Baths).click();
     }
@@ -1173,7 +1181,7 @@ public class SearchPage extends BasePage {
     }
 
     public void setSquareFeetMinFilter(String value) {
-        Helper.universalVerticalSwipe(excludeUnknownButton);
+        universalVerticalSwipe(excludeUnknownButton);
         element(squareFeetMinValueField).typeAndEnter(value);
     }
 
@@ -1316,7 +1324,8 @@ public class SearchPage extends BasePage {
     }
 
     public void selectBathroomsRangeOption() {
-        Helper.universalVerticalShortSwipe(bathroomsRangeOption);
+//        Helper.universalVerticalShortSwipe(bathroomsRangeOption);
+        universalVerticalShortSwipe(bathroomsRangeOption);
         element(bathroomsRangeOption).click();
     }
 
@@ -1538,7 +1547,7 @@ public class SearchPage extends BasePage {
     }
 
     public void setSquareFeetMaxFilter(String value) {
-        Helper.universalVerticalSwipe(excludeUnknownButton);
+        universalVerticalSwipe(excludeUnknownButton);
         element(squareFeetMaxValueField).typeAndEnter(value);
     }
 

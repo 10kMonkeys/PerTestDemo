@@ -2,12 +2,9 @@ package com.perchwell.pages.perchwell;
 
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.base.BasePage;
-import io.appium.java_client.AppiumDriver;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.serenitybdd.core.Serenity;
-import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -19,7 +16,7 @@ import java.util.HashMap;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class ComparePage extends BasePage {
+public class ComparePage extends TechHelper {
 
 	//region WebElements
 
