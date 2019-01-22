@@ -560,15 +560,19 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Outdoor Space-checkmark-SELECTED")
     private WebElement selectedOutdoorSpaceCheckmarkFilter;
 
+    @AndroidFindBy(accessibility = "Option: Sponsor")
     @iOSXCUITFindBy(accessibility = " Option: Sponsor")
     private WebElement sponsorOption;
 
+    @AndroidFindBy(accessibility = "Option Selected: Sponsor")
     @iOSXCUITFindBy(accessibility = " Option Selected: Sponsor")
     private WebElement selectedSponsorOption;
 
+    @AndroidFindBy(xpath = "//*[@text = 'RESALE/SPONSOR']")
     @iOSXCUITFindBy(accessibility = "RESALE/SPONSOR")
     private WebElement resaleSponsorSection;
 
+    @AndroidFindBy(accessibility = "Option: Resale")
     @iOSXCUITFindBy(accessibility = " Option: Resale")
     private WebElement resaleOption;
 
@@ -596,18 +600,23 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "brokerage: deselected Other Public")
     private WebElement otherPublicOption;
 
+    @AndroidFindBy(accessibility = "Option Selected: Any of these terms")
     @iOSXCUITFindBy(accessibility = " Option Selected: Any of these terms")
     private WebElement selectedAnyOfTheseTermsButton;
 
+    @AndroidFindBy(accessibility = "Option: Any of these terms")
     @iOSXCUITFindBy(accessibility = " Option: Any of these terms")
     private WebElement anyOfTheseTermsButton;
 
+    @AndroidFindBy(accessibility = "Option Selected: All of these terms")
     @iOSXCUITFindBy(accessibility = " Option Selected: All of these terms")
     private WebElement selectedAllOfTheseTermsButton;
 
+    @AndroidFindBy(accessibility = "Option: All of these terms")
     @iOSXCUITFindBy(accessibility = " Option: All of these terms")
     private WebElement allOfTheseTermsButton;
 
+    @AndroidFindBy(accessibility = "Text field: search bar")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[11]/XCUIElementTypeTextField")
     private WebElement textSearchField;
 
@@ -1782,17 +1791,17 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectSponsorOption() {
-        Helper.universalVerticalSwipe(resaleSponsorSection);
+        universalVerticalSwipe(resaleSponsorSection);
         element(sponsorOption).click();
     }
 
     public void checkIfSponsorOptionIsSelected() {
-        Helper.universalVerticalSwipe(resaleSponsorSection);
+        universalVerticalSwipe(resaleSponsorSection);
         element(selectedSponsorOption).shouldBeVisible();
     }
 
     public void selectResaleOption() {
-        Helper.universalVerticalSwipe(resaleSponsorSection);
+        universalVerticalSwipe(resaleSponsorSection);
         element(resaleOption).click();
     }
 
@@ -1896,24 +1905,30 @@ public class SearchPage extends TechHelper {
     }
 
     public void enterTextInTextSearchField(String value) {
-        Helper.universalVerticalSwipe(textSearchField);
+        universalVerticalSwipe(textSearchField);
         element(textSearchField).sendKeys(value);
-        element(returnButtonOnKeyboard).click();
+        if(!Config.isAndroid()) {
+            element(returnButtonOnKeyboard).click();
+        }
     }
 
     public void clearTextSearchField() {
-        Helper.universalVerticalSwipe(textSearchField);
+        universalVerticalSwipe(textSearchField);
         element(textSearchField).clear();
     }
 
     public void checkThatAllOfTheseTermsButtonSelected() {
-        Helper.universalVerticalSwipe(selectedAllOfTheseTermsButton);
+        universalVerticalSwipe(selectedAllOfTheseTermsButton);
         Assert.assertTrue(element(selectedAllOfTheseTermsButton).isDisplayed());
     }
 
     public void checkThatTextSearchFieldSavedTest(String value) {
-        Helper.universalVerticalSwipe(textSearchField);
-        Assert.assertEquals(value, element(textSearchField).getAttribute("value"));
+        universalVerticalSwipe(textSearchField);
+        if(Config.isAndroid()) {
+            Assert.assertEquals(value, element(textSearchField).getAttribute("text"));
+        } else {
+            Assert.assertEquals(value, element(textSearchField).getAttribute("value"));
+        }
     }
 
     public void clickOnAllOfTheseTermsButton() {
