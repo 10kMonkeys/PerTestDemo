@@ -690,6 +690,7 @@ public class SearchPage extends TechHelper {
     @AndroidFindBy(accessibility = "Listing Activity Suboption: Price Drop")
     private WebElement priceDropOption;
 
+    @iOSXCUITFindBy(accessibility = "BUILDING WIDTH")
     @AndroidFindBy(xpath = "//*[@text = 'BUILDING WIDTH']")
     private WebElement buildingWidthTitle;
 
@@ -1898,18 +1899,18 @@ public class SearchPage extends TechHelper {
     public void selectCorePublicOption() {
 //        universalVerticalSwipe(financingMinValueField);
         universalVerticalSwipe(buildingWidthTitle);
-        if (!Config.isAndroid()) {
-            element(collapseReleaseSponsorArrow).click();
-        }
+//        if (!Config.isAndroid()) {
+//            element(collapseReleaseSponsorArrow).click();
+//        }
         element(corePublicOption).click();
     }
 
     public void selectOtherPublicOption() {
 //        universalVerticalSwipe(financingMinValueField);
         universalVerticalSwipe(buildingWidthTitle);
-        if (!Config.isAndroid()) {
-            element(collapseReleaseSponsorArrow).click();
-        }
+//        if (!Config.isAndroid()) {
+//            element(collapseReleaseSponsorArrow).click();
+//        }
         element(otherPublicOption).click();
     }
 
@@ -2046,9 +2047,9 @@ public class SearchPage extends TechHelper {
     public void checkIfCorePublicOptionIsSelected() {
 //        universalVerticalSwipe(financingMinValueField);
         universalVerticalSwipe(buildingWidthTitle);
-        if (!Config.isAndroid()) {
-            element(collapseReleaseSponsorArrow).click();
-        }
+//        if (!Config.isAndroid()) {
+//            element(collapseReleaseSponsorArrow).click();
+//        }
 //        element(selectedCorePublicButton).shouldBeVisible();
         setImplicitTimeout(3, SECONDS);
         if (Config.isAndroid()) {
