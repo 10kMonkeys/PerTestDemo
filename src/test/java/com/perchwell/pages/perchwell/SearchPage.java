@@ -234,7 +234,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: Off Market")
     private WebElement selectedOffMktFilter;
 
-    @AndroidFindBy(accessibility = "Sales-selected")
+    @AndroidFindBy(accessibility = "Sales-SELECTED")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option Selected: Sales'")
     private WebElement selectedSalesProperty;
 
@@ -482,6 +482,7 @@ public class SearchPage extends TechHelper {
     @AndroidFindBy(id = "com.perchwell.re.staging:id/listing_activity")
     private WebElement listingActivitySection;
 
+    @AndroidFindBy(accessibility = "CONDO-SELECTED")
     @iOSXCUITFindBy(accessibility = "Condo-selected")
     private WebElement selectedCondoFilter;
 
@@ -506,6 +507,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option: Sales'")
     private WebElement salesProperty;
 
+    @AndroidFindBy(accessibility = "Rentals-SELECTED")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option Selected: Rentals'")
     private WebElement selectedRentalsProperty;
 
@@ -612,30 +614,39 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "BUILDING WIDTH")
     private WebElement bldgWidthSection;
 
+    @AndroidFindBy(accessibility = "OPEN_HOUSES Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "Open Houses Minimum Value Input")
     private WebElement openHouseMinValueInput;
 
+    @AndroidFindBy(accessibility = "OPEN_HOUSES Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "Open Houses Maximum Value Input")
     private WebElement openHouseMaxValueInput;
 
+    @AndroidFindBy(accessibility = "Go to next")
     @iOSXCUITFindBy(accessibility = "chevronRight")
     private WebElement nextMonthPageButton;
 
+    @AndroidFindBy(accessibility = "Listing Activity Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "Listing Activity Minimum Value Input")
     private WebElement listingActivityMinValueInput;
 
+    @AndroidFindBy(accessibility = "Listing Activity Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "Listing Activity Maximum Value Input")
     private WebElement listingActivityMaxValueInput;
 
+    @AndroidFindBy(accessibility = "Go to previous")
     @iOSXCUITFindBy(accessibility = "chevronLeft")
     private WebElement previousMonthPageButton;
 
+    @AndroidFindBy(accessibility = "Listing Activity Suboption: Listed")
     @iOSXCUITFindBy(accessibility = "Listing Activity Suboption: Listed")
     private WebElement listedOption;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/action_button")
     @iOSXCUITFindBy(accessibility = "refresh")
     private WebElement resetDateButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
     @iOSXCUITFindBy(accessibility = "x")
     private WebElement closeCalendarButton;
 
@@ -659,6 +670,9 @@ public class SearchPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = "TOTAL ROOMS Maximum Value Input")
     private WebElement totalRoomsMaxValueField;
+
+    @AndroidFindBy(accessibility = "Listing Activity Suboption: Price Drop")
+    private WebElement priceDropOption;
 
     public SearchPage(WebDriver driver) {
         super(driver);
@@ -836,7 +850,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectRentalsProperty() {
-        Helper.universalVerticalSwipe(rentalsButton);
+        universalVerticalSwipe(rentalsButton);
         element(rentalsButton).click();
     }
 
@@ -1174,7 +1188,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectCondoFilter() {
-        Helper.universalVerticalSwipe(condoFilter);
+        universalVerticalSwipe(condoFilter);
         element(condoFilter).click();
     }
 
@@ -1572,7 +1586,7 @@ public class SearchPage extends TechHelper {
     public void checkSqFeetMinFieldIsEmpty() {
         String valueToCheck;
 
-        Helper.universalVerticalSwipe(squareFeetMinValueField);
+        universalVerticalSwipe(squareFeetMinValueField);
         if (Config.isAndroid()) {
             valueToCheck = squareFeetMinValueField.getAttribute("text");
         } else {
@@ -1594,7 +1608,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void deselectCondoFilter() {
-        Helper.universalVerticalSwipe(selectedCondoFilter);
+        universalVerticalSwipe(selectedCondoFilter);
         element(selectedCondoFilter).click();
     }
 
@@ -1652,6 +1666,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void checkCondoFilterIsSelectedInSalesProperty() {
+        universalVerticalSwipe(selectedSalesProperty);
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(element(selectedSalesProperty).isDisplayed());
         softAssertions.assertThat(element(selectedCondoFilter).isDisplayed());
@@ -1659,6 +1674,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void checkCondoFilterIsSelectedInRentalsProperty() {
+        universalVerticalSwipe(selectedRentalsProperty);
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(element(selectedRentalsProperty).isDisplayed());
         softAssertions.assertThat(element(selectedCondoFilter).isDisplayed());
@@ -1932,7 +1948,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void clickOnOpenHouseMinValueField() {
-        Helper.universalVerticalSwipe(openHouseMinValueInput);
+        universalVerticalSwipe(openHouseMinValueInput);
         element(openHouseMinValueInput).click();
     }
 
@@ -1941,15 +1957,23 @@ public class SearchPage extends TechHelper {
     }
 
     public void checkIfOpenHouseDateRangeIsCorrect(String firstDate, String secondDate) {
-        Helper.universalVerticalSwipe(openHouseMinValueInput);
-        String firstValueToCheck = openHouseMinValueInput.getAttribute("value").substring(3,5);
-        String secondValueToCheck = openHouseMaxValueInput.getAttribute("value").substring(3,5);
+        String firstValueToCheck;
+        String secondValueToCheck;
+
+        universalVerticalSwipe(openHouseMinValueInput);
+        if (Config.isAndroid()) {
+            firstValueToCheck = openHouseMinValueInput.getAttribute("text").substring(3,5);
+            secondValueToCheck = openHouseMaxValueInput.getAttribute("text").substring(3,5);
+        } else {
+            firstValueToCheck = openHouseMinValueInput.getAttribute("value").substring(3,5);
+            secondValueToCheck = openHouseMaxValueInput.getAttribute("value").substring(3,5);
+        }
         Assert.assertEquals(firstDate, firstValueToCheck);
         Assert.assertEquals(secondDate, secondValueToCheck);
     }
 
     public void clickOnListingActivityMinValueField() {
-        Helper.universalVerticalSwipe(listingActivityMinValueInput);
+        universalVerticalSwipe(priceDropOption);
         element(listingActivityMinValueInput).click();
     }
 
@@ -1970,7 +1994,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void checkIfListingStatusDateRangeIsCorrect(String firstDate, String secondDate) {
-        Helper.universalVerticalSwipe(listingActivityMinValueInput);
+        universalVerticalSwipe(listingActivityMinValueInput);
         String firstValueToCheck = listingActivityMinValueInput.getAttribute("value").substring(3,5);
         String secondValueToCheck = listingActivityMaxValueInput.getAttribute("value").substring(3,5);
         Assert.assertEquals(firstDate, firstValueToCheck);
