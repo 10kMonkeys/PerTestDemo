@@ -377,11 +377,11 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "BATHROOMS Option: Range")
     private WebElement bathroomsRangeOption;
 
-    @AndroidFindBy(accessibility = "Square Feet Minimum Value Input")
+    @AndroidFindBy(accessibility = "SQUARE FEET Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET Minimum Value Input")
     private WebElement squareFeetMinValueField;
 
-    @AndroidFindBy(accessibility = "Square Feet Maximum Value Input")
+    @AndroidFindBy(accessibility = "SQUARE FEET Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET Maximum Value Input")
     private WebElement squareFeetMaxValueField;
 
@@ -542,7 +542,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 3+")
     private WebElement selectedThreeBathsMinimumFilter;
 
-    @AndroidFindBy(accessibility = "Total Rooms Minimum Value Input")
+    @AndroidFindBy(accessibility = "TOTAL ROOMS Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "TOTAL ROOMS Minimum Value Input")
     private WebElement totalRoomsMinValueField;
 
@@ -584,15 +584,19 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Asking Price Per FT² Maximum Value Input")
     private WebElement maxPricePerFTField;
 
+    @AndroidFindBy(accessibility = "Monthlies Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "Monthlies Minimum Value Input")
     private WebElement minMonthliesInputFiled;
 
+    @AndroidFindBy(accessibility = "Monthlies Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "Monthlies Maximum Value Input")
     private WebElement maxMonthliesInputFiled;
 
+    @AndroidFindBy(accessibility = "% Financing Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "% Financing Minimum Value Input")
     private WebElement financingMinValueField;
 
+    @AndroidFindBy(accessibility = "% Financing Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "% Financing Maximum Value Input")
     private WebElement financingMaxValueField;
 
@@ -682,7 +686,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: BEDROOMS")
     private WebElement collapseBedroomsArrow;
 
-    @AndroidFindBy(accessibility = "Total Rooms Maximum Value Input")
+    @AndroidFindBy(accessibility = "TOTAL ROOMS Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "TOTAL ROOMS Maximum Value Input")
     private WebElement totalRoomsMaxValueField;
 
@@ -1844,7 +1848,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void fillInMonthliesMinField(String value) {
-        Helper.universalVerticalSwipe(minMonthliesInputFiled);
+        universalVerticalSwipe(minMonthliesInputFiled);
         element(minMonthliesInputFiled).sendKeys(value);
         if (!Config.isAndroid()) {
             getDriver().findElement(By.name("Done")).click();
@@ -1859,7 +1863,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void clearMinMonthliesField() {
-        Helper.universalVerticalSwipe(minMonthliesInputFiled);
+        universalVerticalSwipe(minMonthliesInputFiled);
         element(minMonthliesInputFiled).clear();
     }
 
@@ -1868,7 +1872,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void fillInFinancingMinField(String value) {
-        Helper.universalVerticalSwipe(financingMinValueField);
+        universalVerticalSwipe(financingMinValueField);
         element(financingMinValueField).sendKeys(value);
         if (!Config.isAndroid()) {
             getDriver().findElement(By.name("Done")).click();
@@ -1883,7 +1887,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void clearMinFinancingField() {
-        Helper.universalVerticalSwipe(financingMinValueField);
+        universalVerticalSwipe(financingMinValueField);
         element(financingMinValueField).clear();
     }
 
@@ -1904,8 +1908,12 @@ public class SearchPage extends TechHelper {
     }
 
     public void checkIfFieldIsFilledByCorrectValue(String element, String value) {
-
         String elementsValue;
+
+        if(Config.isAndroid()) {
+            universalVerticalSwipe(element(MobileBy.AccessibilityId(element)));
+        }
+
         WebElement elementToCheck = getDriver().findElement(MobileBy.AccessibilityId(element));
 
         if (Config.isAndroid()) {
@@ -1914,7 +1922,7 @@ public class SearchPage extends TechHelper {
             elementsValue = elementToCheck.getAttribute("value").replaceAll("[%$, .]", "");
         }
 
-        Helper.universalVerticalSwipe(elementToCheck);
+        universalVerticalSwipe(elementToCheck);
         Assert.assertEquals(value, elementsValue);
     }
 
