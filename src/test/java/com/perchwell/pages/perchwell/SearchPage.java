@@ -2017,9 +2017,18 @@ public class SearchPage extends TechHelper {
     }
 
     public void checkIfListingStatusDateRangeIsCorrect(String firstDate, String secondDate) {
+        String firstValueToCheck;
+        String secondValueToCheck;
+
         universalVerticalSwipe(listingActivityMinValueInput);
-        String firstValueToCheck = listingActivityMinValueInput.getAttribute("value").substring(3,5);
-        String secondValueToCheck = listingActivityMaxValueInput.getAttribute("value").substring(3,5);
+
+        if(Config.isAndroid()) {
+            firstValueToCheck = listingActivityMinValueInput.getAttribute("text").substring(3,5);
+            secondValueToCheck = listingActivityMaxValueInput.getAttribute("text").substring(3,5);
+        } else {
+            firstValueToCheck = listingActivityMinValueInput.getAttribute("value").substring(3,5);
+            secondValueToCheck = listingActivityMaxValueInput.getAttribute("value").substring(3,5);
+        }
         Assert.assertEquals(firstDate, firstValueToCheck);
         Assert.assertEquals(secondDate, secondValueToCheck);
     }
