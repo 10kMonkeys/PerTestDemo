@@ -31,7 +31,7 @@ public class OpenedBuildingPage extends TechHelper {
 	private WebElement collectionForDiscussionSerach;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/my_tags")
-	@iOSXCUITFindBy(accessibility = "MY TAGS")
+	@iOSXCUITFindBy(accessibility = "TAGS")
 	private WebElement myTagsLabel;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")

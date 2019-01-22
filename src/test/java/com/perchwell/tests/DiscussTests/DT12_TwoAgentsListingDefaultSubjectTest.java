@@ -20,7 +20,7 @@ public class DT12_TwoAgentsListingDefaultSubjectTest extends SampleTest {
         user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
+        user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnListingByAddress(Addresses.EAST_35TH);
         user.atSearchPage.clickOnBackFromNeighborhoodsPage();
         user.atSearchPage.clickOnApplyButton();
