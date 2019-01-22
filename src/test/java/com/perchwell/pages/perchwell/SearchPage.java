@@ -1897,11 +1897,12 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectCorePublicOption() {
-//        universalVerticalSwipe(financingMinValueField);
-        universalVerticalSwipe(buildingWidthTitle);
-//        if (!Config.isAndroid()) {
-//            element(collapseReleaseSponsorArrow).click();
-//        }
+        if (Config.isAndroid()) {
+            universalVerticalSwipe(buildingWidthTitle);
+        } else {
+            universalVerticalSwipe(financingMinValueField);
+            element(collapseReleaseSponsorArrow).click();
+        }
         element(corePublicOption).click();
     }
 
