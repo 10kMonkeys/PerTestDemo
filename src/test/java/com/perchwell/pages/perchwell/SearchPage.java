@@ -590,15 +590,18 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Monthlies Maximum Value Input")
     private WebElement maxMonthliesInputFiled;
 
+    @AndroidFindBy(accessibility = "% Financing Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "% Financing Minimum Value Input")
     private WebElement financingMinValueField;
 
     @iOSXCUITFindBy(accessibility = "% Financing Maximum Value Input")
     private WebElement financingMaxValueField;
 
+    @AndroidFindBy(accessibility = "Brokerage Suboption: CORE Public")
     @iOSXCUITFindBy(accessibility = "brokerage: deselected CORE Public")
     private WebElement corePublicOption;
 
+    @AndroidFindBy(accessibility = "Brokerage Suboption: Other Public")
     @iOSXCUITFindBy(accessibility = "brokerage: deselected Other Public")
     private WebElement otherPublicOption;
 
@@ -664,11 +667,9 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "x")
     private WebElement closeCalendarButton;
 
+    @AndroidFindBy(accessibility = "Brokerage Suboption Selected: CORE Public")
     @iOSXCUITFindBy(accessibility = "brokerage: selected CORE Public")
-    private String selectedCorePublickButton;
-
-    @iOSXCUITFindBy(accessibility = "% Financing Minimum Value Input")
-    private WebElement buildingWidthHeader;
+    private String selectedCorePublicButton;
 
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: RESALE/SPONSOR")
     private WebElement collapseReleaseSponsorArrow;
@@ -688,6 +689,9 @@ public class SearchPage extends TechHelper {
 
     @AndroidFindBy(accessibility = "Listing Activity Suboption: Price Drop")
     private WebElement priceDropOption;
+
+    @AndroidFindBy(xpath = "//*[@text = 'BUILDING WIDTH']")
+    private WebElement buildingWidthTitle;
 
     public SearchPage(WebDriver driver) {
         super(driver);
@@ -1892,14 +1896,20 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectCorePublicOption() {
-        Helper.universalVerticalSwipe(buildingWidthHeader);
-        element(collapseReleaseSponsorArrow).click();
+//        universalVerticalSwipe(financingMinValueField);
+        universalVerticalSwipe(buildingWidthTitle);
+        if (!Config.isAndroid()) {
+            element(collapseReleaseSponsorArrow).click();
+        }
         element(corePublicOption).click();
     }
 
     public void selectOtherPublicOption() {
-        Helper.universalVerticalSwipe(buildingWidthHeader);
-        element(collapseReleaseSponsorArrow).click();
+//        universalVerticalSwipe(financingMinValueField);
+        universalVerticalSwipe(buildingWidthTitle);
+        if (!Config.isAndroid()) {
+            element(collapseReleaseSponsorArrow).click();
+        }
         element(otherPublicOption).click();
     }
 
@@ -2034,11 +2044,18 @@ public class SearchPage extends TechHelper {
     }
 
     public void checkIfCorePublicOptionIsSelected() {
-        Helper.universalVerticalSwipe(buildingWidthHeader);
-        element(collapseReleaseSponsorArrow).click();
-//        element(selectedCorePublickButton).shouldBeVisible();
+//        universalVerticalSwipe(financingMinValueField);
+        universalVerticalSwipe(buildingWidthTitle);
+        if (!Config.isAndroid()) {
+            element(collapseReleaseSponsorArrow).click();
+        }
+//        element(selectedCorePublicButton).shouldBeVisible();
         setImplicitTimeout(3, SECONDS);
-        Assert.assertEquals(0, getDriver().findElements(MobileBy.AccessibilityId("brokerage: deselected CORE Public")).size());
+        if (Config.isAndroid()) {
+            Assert.assertEquals(0, getDriver().findElements(MobileBy.AccessibilityId("Brokerage Suboption: CORE Public")).size());
+        } else {
+            Assert.assertEquals(0, getDriver().findElements(MobileBy.AccessibilityId("brokerage: deselected CORE Public")).size());
+        }
         resetImplicitTimeout();
     }
 
