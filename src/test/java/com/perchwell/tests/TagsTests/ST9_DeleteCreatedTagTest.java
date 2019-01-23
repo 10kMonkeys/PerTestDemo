@@ -9,6 +9,7 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "iOS_First", "Android_First", "First"})
 public class ST9_DeleteCreatedTagTest extends SampleTest {
 
+	@Ignore
 	@Test
 	public void deleteCreatedTag() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
