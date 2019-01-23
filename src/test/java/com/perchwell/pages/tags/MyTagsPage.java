@@ -26,7 +26,7 @@ public class MyTagsPage extends BasePage {
 	private WebElement tagTable;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSearchField")
+	@iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
 	private WebElement searchTagTextField;
 
 	@iOSXCUITFindBy(accessibility = "Clear text")
