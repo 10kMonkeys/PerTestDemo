@@ -10,7 +10,6 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "iOS_First", "Android_First", "First"})
 public class ST8_ShareTagTest extends SampleTest {
 
-	@Ignore
 	@Test
 	public void shareTagTest() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

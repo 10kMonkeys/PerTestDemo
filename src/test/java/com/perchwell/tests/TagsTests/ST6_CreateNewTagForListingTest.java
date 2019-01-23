@@ -9,7 +9,6 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "TagsTests", "iOS_First", "Android_First", "First"})
 public class ST6_CreateNewTagForListingTest extends SampleTest {
 
-	@Ignore
 	@Test
 	public void createNewTagForListing() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

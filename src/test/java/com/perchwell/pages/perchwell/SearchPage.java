@@ -691,6 +691,7 @@ public class SearchPage extends TechHelper {
     private WebElement totalRoomsMaxValueField;
 
     @AndroidFindBy(accessibility = "Listing Activity Suboption: Price Drop")
+    @iOSXCUITFindBy(accessibility = "Listing Activity Suboption: Price Drop")
     private WebElement priceDropOption;
 
     @iOSXCUITFindBy(accessibility = "BUILDING WIDTH")

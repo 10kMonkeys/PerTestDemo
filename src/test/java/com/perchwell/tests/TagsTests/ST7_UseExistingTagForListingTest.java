@@ -9,7 +9,6 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "TagsTests", "TagsTests", "iOS_First", "Android_First", "First"})
 public class ST7_UseExistingTagForListingTest extends SampleTest {
 
-	@Ignore
 	@Test
 	public void useExistingTagForListing() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
