@@ -10,7 +10,7 @@ import org.junit.Test;
 public class ST6_CreateNewTagForListingTest extends SampleTest {
 
 	@Test
-	public void createNewTagForListing() throws Exception {
+	public void createNewTagForListing() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();

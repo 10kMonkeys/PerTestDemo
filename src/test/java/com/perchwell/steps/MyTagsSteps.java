@@ -38,9 +38,9 @@ public class MyTagsSteps extends ScenarioSteps {
 	@Step
 	public void checkTwoJustCreatedTags() {
 		onPage.checkJustCreatedTag(SessionVariables.getValueFromSessionVariable("First_tag"));
-		if(!Config.isAndroid()) {
-			onPage.clearSearchField();
-		}
+//		if(!Config.isAndroid()) {
+//			onPage.clearSearchField();
+//		}
 		onPage.checkJustCreatedTag(SessionVariables.getValueFromSessionVariable("Second_tag"));
 	}
 }

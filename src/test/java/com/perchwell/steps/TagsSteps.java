@@ -86,7 +86,7 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldSeeJustCreatedTag() throws Exception {
+	public void shouldSeeJustCreatedTag() {
 		onPage.shouldSeeJustCreatedTagUpCaseWithSwipe(tag.getUniqueTagName().toUpperCase());
 	}
 
