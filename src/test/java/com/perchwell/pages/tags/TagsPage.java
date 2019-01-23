@@ -201,10 +201,12 @@ public class TagsPage extends BasePage {
 	}
 
 	public void shouldNotSeeCreatedTagUpperCase(String tag) {
+		setImplicitTimeout(5, SECONDS);
 		if (Config.isAndroid()) {
 			element(MobileBy.xpath("//android.widget.TextView[@text='" + tag + "']")).shouldNotBeVisible();
 		} else {
 			element(MobileBy.AccessibilityId(tag)).shouldNotBeVisible();
 		}
+		resetImplicitTimeout();
 	}
 }
