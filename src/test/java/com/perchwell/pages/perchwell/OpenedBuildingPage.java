@@ -39,7 +39,7 @@ public class OpenedBuildingPage extends TechHelper {
 	private WebElement arrowBackButtonFromListing;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/remove_icon")
-	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeButton' AND name CONTAINS 'DeleteTagBubbleButton'")
+	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: '")
 	private WebElement deleteTagButton;
 
 	@AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='RemoveButton']")
@@ -281,9 +281,11 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void clickOnDeleteTagButton() {
+		setImplicitTimeout(5,TimeUnit.SECONDS);
 		while (element(deleteTagButton).isPresent()) {
 			element(deleteTagButton).click();
 		}
+		resetImplicitTimeout();
 	}
 
 	public void clickOnAddToCompareButton() {
