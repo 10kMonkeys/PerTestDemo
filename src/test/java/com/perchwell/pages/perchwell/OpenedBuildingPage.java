@@ -249,6 +249,9 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'removeBubble'")
 	private WebElement removeButton;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'PRICE:'$][1]")
+	private WebElement firstPrice;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -506,10 +509,15 @@ public class OpenedBuildingPage extends TechHelper {
 		WebDriver webDriver = webDriverFacade.getProxiedDriver();
 		AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-		Helper.universalVerticalSwipe(listingMap);
+//		Helper.universalVerticalSwipe(listingMap);
+//
+//		int minX = listingMap.getLocation().getX() + 360;
+//		int minY = listingMap.getLocation().getY() + 215;
 
-		int minX = listingMap.getLocation().getX() + 360;
-		int minY = listingMap.getLocation().getY() + 215;
+		Helper.universalVerticalSwipe(firstPrice);
+
+		int minX = firstPrice.getLocation().getX() + 70;
+		int minY = firstPrice.getLocation().getY() - 70;
 
 		new TouchAction(appiumDriver).tap(minX, minY).release().perform();
 	}
