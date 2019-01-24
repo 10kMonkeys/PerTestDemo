@@ -17,7 +17,7 @@ public class TagsSteps extends ScenarioSteps {
 	@Step
 	public void setRandomTagAndSave() {
 		tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
-		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
+		this.onPage.fillInTagSearchField(tag.getUniqueTagName());
 		this.onPage.clickOnCreateTagLabel();
 	}
 
@@ -25,7 +25,7 @@ public class TagsSteps extends ScenarioSteps {
 	public void setRandomFirstTagAndSave() {
 		tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
 		SessionVariables.addValueInSessionVariable("First_tag", tag.getUniqueTagName());
-		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
+		this.onPage.fillInTagSearchField(tag.getUniqueTagName());
 		this.onPage.clickOnCreateTagLabel();
 	}
 
@@ -33,7 +33,7 @@ public class TagsSteps extends ScenarioSteps {
 	public void setRandomSecondTagAndSave() {
 		tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
 		SessionVariables.addValueInSessionVariable("Second_tag", tag.getUniqueTagName());
-		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
+		this.onPage.fillInTagSearchField(tag.getUniqueTagName());
 		this.onPage.clickOnCreateTagLabel();
 	}
 
@@ -118,24 +118,19 @@ public class TagsSteps extends ScenarioSteps {
 
 	@Step
 	public void searchRemovedTag() {
-		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
+		this.onPage.fillInTagSearchField(tag.getUniqueTagName());
 	}
 
 	@Step
 	public void setSpecificTagAndSave(String tagName) {
-		this.setUniqueSearchTagTextBox(tagName);
-		this.setTagsNameValue(tagName);
-		this.onPage.clickOnCreateTagLabel();
+		this.fillInTagSearchField(tagName);
+		SessionVariables.addValueInSessionVariable("Just_Created_Tag", tagName);
+		onPage.clickOnCreateTagLabel();
 	}
 
 	@Step
-	public void setUniqueSearchTagTextBox(String value) {
-		onPage.setUniqueSearchTagTextBox(value);
-	}
-
-	@Step
-	public void shouldSeeTestClient() {
-		onPage.shouldSeeTestClient("CLIENT TEST+CLIENT0");
+	public void fillInTagSearchField(String value) {
+		onPage.fillInTagSearchField(value);
 	}
 
 	@Step
@@ -154,22 +149,7 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldTagsContainString(String value) {
-		onPage.shouldTagsContainString(value);
-	}
-
-	@Step
-	public void setTagsNameValue(String value) {
-		onPage.setTagsNameValue(value);
-	}
-
-	@Step
-	public void shouldSeeCreatedTag() {
-		onPage.shouldSeeCreatedTag();
-	}
-
-	@Step
-	public void removeCreatedTag() {
-		onPage.removeCreatedTag();
+	public void shouldSeeOnlySearchedTags(String text) {
+		onPage.shouldSeeOnlySearchedTags(text);
 	}
 }

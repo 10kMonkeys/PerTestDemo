@@ -76,13 +76,16 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "DELETE")
 	private WebElement deleteThisTagButton;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[`visible==1`]/XCUIElementTypeStaticText")
+	private List<WebElement> visibleTagsList;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
 		super(driver);
 	}
 
-	public void setUniqueSearchTagTextBox(String uniqueTagName) {
+	public void fillInTagSearchField(String uniqueTagName) {
 		element(searchTagTexBox).sendKeys(uniqueTagName);
 	}
 
@@ -223,12 +226,6 @@ public class TagsPage extends TechHelper {
 		resetImplicitTimeout();
 	}
 
-	public void shouldSeeTestClient(String address) {
-		setImplicitTimeout(5, SECONDS);
-		element(MobileBy.iOSNsPredicateString("value BEGINSWITH '" + address.toUpperCase() + "'")).shouldBeVisible();
-		resetImplicitTimeout();
-	}
-
 	public void clearTextField() {
 		element(clearTextFieldButton).click();
 	}
@@ -241,31 +238,19 @@ public class TagsPage extends TechHelper {
 		Assert.assertEquals(tagsListSize, editIconList.size());
 	}
 
-	public void shouldTagsContainString(String value) {
-		boolean result = false;
-		List<WebElement> tagsList = getDriver().findElements(MobileBy.iOSNsPredicateString(
-				"type == 'XCUIElementTypeStaticText' AND value CONTAINS '" + value +"' AND visible == 1"));
-		if	(tagsList.size()<4) {
-			result = true;
+	public void shouldSeeOnlySearchedTags(String text) {
+		boolean onlySearchedTagsAreShown = false;
+
+		if(visibleTagsList.size() == 3) {
+			onlySearchedTagsAreShown = true;
+			for(WebElement tag: visibleTagsList) {
+
+				if(!tag.getAttribute("value").contains(text)) {
+					onlySearchedTagsAreShown = false;
+					break;
+				}
+			}
 		}
-		Assert.assertTrue(result);
-	}
-
-	public void setTagsNameValue(String value) {
-		tagName = value;
-	}
-
-	public void shouldSeeCreatedTag() {
-		setImplicitTimeout(5000, SECONDS);
-		element(MobileBy.iOSNsPredicateString("value BEGINSWITH '" + tagName + "'")).shouldBeVisible();
-		resetImplicitTimeout();
-	}
-
-	public void removeCreatedTag() {
-		this.setUniqueSearchTagTextBox(tagName);
-		WebElement tag = element(MobileBy.iOSNsPredicateString("value BEGINSWITH '" + tagName + "'"));
-		horizontalElementSwipeForIOS(tag, 120);
-		element(editIcon).click();
-		element(deleteThisTagButton).click();
+		Assert.assertTrue(onlySearchedTagsAreShown);
 	}
 }
