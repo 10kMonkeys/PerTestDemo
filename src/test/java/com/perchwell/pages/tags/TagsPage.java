@@ -23,6 +23,7 @@ public class TagsPage extends TechHelper {
 	private List<WebElement> tagsList = new ArrayList<>();
 	private int tagsListSize;
 	String tagName;
+	int tagsItemsValue;
 
 	//region WebElements
 
@@ -302,5 +303,36 @@ public class TagsPage extends TechHelper {
 	public void clickOnGreenBellButton() {
 //		waitFor(ExpectedConditions.visibilityOf(activeBellButton));
 		element(activeBellButton).click();
+	}
+
+	public void checkIfTagsItemsListIsChanged(int value) {
+		int itemsAmount;
+
+		System.out.println(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+				SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).getAttribute("value");
+		if (element.length() == 26) {
+			itemsAmount = 0;
+		} else {
+			itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
+		}
+		System.out.println("Second items value: " + itemsAmount);
+		Assert.assertEquals(tagsItemsValue, itemsAmount-value);
+	}
+
+	public void getFirstTagsItemsValue() {
+		tagsItemsValue = Integer.parseInt(firstTag.getAttribute("name").substring(firstTag.getAttribute("name")
+				.indexOf(" ") + 1).replaceAll("[ items]", ""));
+		System.out.println("First items value: " + tagsItemsValue);
+	}
+
+	public void clickOnTagPillInSearchField() {
+		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).click();
+	}
+
+	public void checkIfTagPillIsRemoved() {
+		setImplicitTimeout(5, SECONDS);
+		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).shouldNotBeVisible();
+		resetImplicitTimeout();
 	}
 }

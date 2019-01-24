@@ -30,6 +30,6 @@ public class TI6_TagsFilteringTest extends SampleTest {
         user.atTagsPage.checkIfTagsPageIsReturnedToInitialState(3);
         user.atTagsPage.fillInTagSearchField("+CLIENT0");
         user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 2);
-        user.usingComplexSteps.removeTag("CLIENT TEST+ +CLIENT0");
+        user.usingComplexSteps.removeTag("CLIENT TEST+ +CLIENT0"); //check this method, probably we can delete tag from listing
     }
 }

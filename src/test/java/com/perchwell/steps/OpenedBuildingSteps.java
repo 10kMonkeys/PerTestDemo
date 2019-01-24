@@ -360,5 +360,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
     public void clearTagsList() {
 		onPage.clearTagsList();
     }
+
+    @Step
+	public void shouldNotSeeAddedTag() {
+		onPage.shouldNotSeeAddedTag();
+	}
 }
 

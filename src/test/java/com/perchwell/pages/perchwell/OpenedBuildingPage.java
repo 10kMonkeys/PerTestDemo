@@ -773,4 +773,10 @@ public class OpenedBuildingPage extends TechHelper {
 		}
 		resetImplicitTimeout();
     }
+
+	public void shouldNotSeeAddedTag() {
+		setImplicitTimeout(5, TimeUnit.SECONDS);
+		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
 }
