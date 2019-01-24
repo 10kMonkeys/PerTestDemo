@@ -13,6 +13,8 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
+
 public class TechHelper extends BasePage {
 
     public TechHelper(WebDriver driver) {

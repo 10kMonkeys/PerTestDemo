@@ -120,4 +120,56 @@ public class TagsSteps extends ScenarioSteps {
 	public void searchRemovedTag() {
 		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
 	}
+
+	@Step
+	public void setSpecificTagAndSave(String tagName) {
+		this.setUniqueSearchTagTextBox(tagName);
+		this.setTagsNameValue(tagName);
+		this.onPage.clickOnCreateTagLabel();
+	}
+
+	@Step
+	public void setUniqueSearchTagTextBox(String value) {
+		onPage.setUniqueSearchTagTextBox(value);
+	}
+
+	@Step
+	public void shouldSeeTestClient() {
+		onPage.shouldSeeTestClient("CLIENT TEST+CLIENT0");
+	}
+
+	@Step
+	public void clearTextField() {
+		onPage.clearTextField();
+	}
+
+	@Step
+	public void checkIfTagsPageIsReturnedToInitialState() {
+		onPage.checkIfTagsPageIsReturnedToInitialState();
+	}
+
+	@Step
+	public void getTagsAmount() {
+		onPage.getTagsAmount();
+	}
+
+	@Step
+	public void shouldTagsContainString(String value) {
+		onPage.shouldTagsContainString(value);
+	}
+
+	@Step
+	public void setTagsNameValue(String value) {
+		onPage.setTagsNameValue(value);
+	}
+
+	@Step
+	public void shouldSeeCreatedTag() {
+		onPage.shouldSeeCreatedTag();
+	}
+
+	@Step
+	public void removeCreatedTag() {
+		onPage.removeCreatedTag();
+	}
 }
