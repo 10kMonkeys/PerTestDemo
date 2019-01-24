@@ -3,7 +3,7 @@ package com.perchwell.pages.tags;
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.base.BasePage;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -17,9 +17,11 @@ import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class TagsPage extends BasePage {
+public class TagsPage extends TechHelper {
 
 	private List<WebElement> tagsList = new ArrayList<>();
+	private int tagsListSize;
+	String tagName;
 
 	//region WebElements
 
@@ -62,13 +64,28 @@ public class TagsPage extends BasePage {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'ADDRESS: '$][$visible = 1$]")
 	private WebElement buildingAddress;
 
+	@iOSXCUITFindBy(accessibility = "Clear text")
+	private WebElement clearTextFieldButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name == 'edit'")
+	private WebElement editIcon;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name == 'edit'")
+	private List<WebElement> editIconList;
+
+	@iOSXCUITFindBy(accessibility = "DELETE")
+	private WebElement deleteThisTagButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[`visible==1`]/XCUIElementTypeStaticText")
+	private List<WebElement> visibleTagsList;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
 		super(driver);
 	}
 
-	public void setUniqueSearchTagTextBox(String uniqueTagName) {
+	public void fillInTagSearchField(String uniqueTagName) {
 		element(searchTagTexBox).sendKeys(uniqueTagName);
 	}
 
@@ -79,7 +96,6 @@ public class TagsPage extends BasePage {
 	public void clickOnArrowBackFromTagsButton() {
 		element(arrowBackFromTagsButton).click();
 	}
-
 
 	public void clickOnTagLabel(String TagName) {
 		this.getCreatedTagLabel(TagName).click();
@@ -208,5 +224,33 @@ public class TagsPage extends BasePage {
 			element(MobileBy.AccessibilityId(tag)).shouldNotBeVisible();
 		}
 		resetImplicitTimeout();
+	}
+
+	public void clearTextField() {
+		element(clearTextFieldButton).click();
+	}
+
+	public void getTagsAmount() {
+		tagsListSize = editIconList.size();
+	}
+
+	public void checkIfTagsPageIsReturnedToInitialState() {
+		Assert.assertEquals(tagsListSize, editIconList.size());
+	}
+
+	public void shouldSeeOnlySearchedTags(String text) {
+		boolean onlySearchedTagsAreShown = false;
+
+		if(visibleTagsList.size() == 3) {
+			onlySearchedTagsAreShown = true;
+			for(WebElement tag: visibleTagsList) {
+
+				if(!tag.getAttribute("value").contains(text)) {
+					onlySearchedTagsAreShown = false;
+					break;
+				}
+			}
+		}
+		Assert.assertTrue(onlySearchedTagsAreShown);
 	}
 }

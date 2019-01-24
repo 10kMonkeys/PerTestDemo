@@ -17,7 +17,7 @@ public class TagsSteps extends ScenarioSteps {
 	@Step
 	public void setRandomTagAndSave() {
 		tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
-		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
+		this.onPage.fillInTagSearchField(tag.getUniqueTagName());
 		this.onPage.clickOnCreateTagLabel();
 	}
 
@@ -25,7 +25,7 @@ public class TagsSteps extends ScenarioSteps {
 	public void setRandomFirstTagAndSave() {
 		tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
 		SessionVariables.addValueInSessionVariable("First_tag", tag.getUniqueTagName());
-		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
+		this.onPage.fillInTagSearchField(tag.getUniqueTagName());
 		this.onPage.clickOnCreateTagLabel();
 	}
 
@@ -33,7 +33,7 @@ public class TagsSteps extends ScenarioSteps {
 	public void setRandomSecondTagAndSave() {
 		tag.setUniqueTagName(RandomGenerator.getRandomString("TAGNAME"));
 		SessionVariables.addValueInSessionVariable("Second_tag", tag.getUniqueTagName());
-		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
+		this.onPage.fillInTagSearchField(tag.getUniqueTagName());
 		this.onPage.clickOnCreateTagLabel();
 	}
 
@@ -118,6 +118,38 @@ public class TagsSteps extends ScenarioSteps {
 
 	@Step
 	public void searchRemovedTag() {
-		this.onPage.setUniqueSearchTagTextBox(tag.getUniqueTagName());
+		this.onPage.fillInTagSearchField(tag.getUniqueTagName());
+	}
+
+	@Step
+	public void setSpecificTagAndSave(String tagName) {
+		this.fillInTagSearchField(tagName);
+		SessionVariables.addValueInSessionVariable("Just_Created_Tag", tagName);
+		onPage.clickOnCreateTagLabel();
+	}
+
+	@Step
+	public void fillInTagSearchField(String value) {
+		onPage.fillInTagSearchField(value);
+	}
+
+	@Step
+	public void clearTextField() {
+		onPage.clearTextField();
+	}
+
+	@Step
+	public void checkIfTagsPageIsReturnedToInitialState() {
+		onPage.checkIfTagsPageIsReturnedToInitialState();
+	}
+
+	@Step
+	public void getTagsAmount() {
+		onPage.getTagsAmount();
+	}
+
+	@Step
+	public void shouldSeeOnlySearchedTags(String text) {
+		onPage.shouldSeeOnlySearchedTags(text);
 	}
 }
