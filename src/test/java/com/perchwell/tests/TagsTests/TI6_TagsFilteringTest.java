@@ -14,30 +14,19 @@ public class TI6_TagsFilteringTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
-        user.atOpenedBuildingPage.getFirstBuildingAddress();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.setSpecificTagAndSave("CLIENT TEST+ +CLIENT0");
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atTagsPage.getTagsAmount();
-        user.atTagsPage.setUniqueSearchTagTextBox("CLIENT ");
-        user.atTagsPage.shouldSeeTestClient();
-        user.atTagsPage.shouldSeeCreatedTag();
-        user.atTagsPage.shouldTagsContainString("CLIENT ");
+        user.atTagsPage.fillInTagSearchField("CLIENT ");
+        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+");
         user.atTagsPage.clearTextField();
-        user.atTagsPage.checkIfTagsPageIsReturnedToInitialState();
-        user.atTagsPage.setUniqueSearchTagTextBox("TEST+");
-        user.atTagsPage.shouldSeeTestClient();
-        user.atTagsPage.shouldSeeCreatedTag();
-        user.atTagsPage.shouldTagsContainString("TEST+");
+        user.atTagsPage.fillInTagSearchField("TEST+");
+        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+");
         user.atTagsPage.clearTextField();
-        user.atTagsPage.setUniqueSearchTagTextBox("+CLIENT0");
-        user.atTagsPage.shouldSeeTestClient();
-        user.atTagsPage.shouldSeeCreatedTag();
-        user.atTagsPage.shouldTagsContainString("+CLIENT0");
-        user.atTagsPage.clearTextField();
-        user.atTagsPage.removeCreatedTag();
+        user.atTagsPage.fillInTagSearchField("+CLIENT0");
+
     }
 }
