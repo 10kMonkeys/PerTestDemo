@@ -11,6 +11,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +79,18 @@ public class TagsPage extends TechHelper {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[`visible==1`]/XCUIElementTypeStaticText")
 	private List<WebElement> visibleTagsList;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name == 'iosNotificationsOff'")
+	private List<WebElement> activeBellIconsList;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name == 'iosNotificationsOff'")
+	private List<WebElement> inactiveBellButtonsList;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name == 'iosNotificationsOff'")
+	private WebElement inactiveBellButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name == 'iosNotifications'")
+	private WebElement activeBellButton;
 
 	//endregion
 
@@ -234,14 +247,14 @@ public class TagsPage extends TechHelper {
 		tagsListSize = editIconList.size();
 	}
 
-	public void checkIfTagsPageIsReturnedToInitialState() {
-		Assert.assertEquals(tagsListSize, editIconList.size());
+	public void checkIfTagsPageIsReturnedToInitialState(int sizeToCheck) {
+		Assert.assertTrue(visibleTagsList.size() > sizeToCheck);
 	}
 
-	public void shouldSeeOnlySearchedTags(String text) {
+	public void shouldSeeOnlySearchedTags(String text, int numberTags) {
 		boolean onlySearchedTagsAreShown = false;
 
-		if(visibleTagsList.size() == 3) {
+		if(visibleTagsList.size() == numberTags) {
 			onlySearchedTagsAreShown = true;
 			for(WebElement tag: visibleTagsList) {
 
@@ -252,5 +265,42 @@ public class TagsPage extends TechHelper {
 			}
 		}
 		Assert.assertTrue(onlySearchedTagsAreShown);
+	}
+
+	public void swipeTag(String tagName) {
+		WebElement tag = element(MobileBy.iOSNsPredicateString("value BEGINSWITH '" + tagName + "'"));
+		horizontalElementSwipeForIOS(tag, 120);
+	}
+
+	public void clickOnEditTagIcon() {
+		element(editIcon).click();
+	}
+
+	public void checkJustTagHasGreenBellIcon() {
+		Assert.assertEquals(1, activeBellIconsList.size());
+
+	}
+
+	public void editAndGrayBellButtonIsShown() {
+		Assert.assertEquals(1, inactiveBellButtonsList.size());
+	}
+
+	public void editAndEditIconIsShown() {
+		Assert.assertEquals(1, editIconList.size());
+	}
+
+	public void clickOnGrayBellButton() {
+		element(inactiveBellButton).click();
+	}
+
+	public void checkNoOneActiveBellDisplayed() {
+		setImplicitTimeout(3, SECONDS);
+		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name == 'iosNotificationsOff'")).size());
+		resetImplicitTimeout();
+	}
+
+	public void clickOnGreenBellButton() {
+//		waitFor(ExpectedConditions.visibilityOf(activeBellButton));
+		element(activeBellButton).click();
 	}
 }

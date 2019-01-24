@@ -15,18 +15,21 @@ public class TI6_TagsFilteringTest extends SampleTest {
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atTagsPage.setSpecificTagAndSave("CLIENT TEST+ +CLIENT0");
+        user.atTagsPage.setSpecificTagAndSave("CLIENT TEST+ +CLIENT0"); //edd method to check if tag already created below
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.fillInTagSearchField("CLIENT ");
-        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+");
+        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 3);
         user.atTagsPage.clearTextField();
+        user.atTagsPage.checkIfTagsPageIsReturnedToInitialState(3);
         user.atTagsPage.fillInTagSearchField("TEST+");
-        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+");
+        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 3);
         user.atTagsPage.clearTextField();
+        user.atTagsPage.checkIfTagsPageIsReturnedToInitialState(3);
         user.atTagsPage.fillInTagSearchField("+CLIENT0");
-
+        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 2);
+        user.usingComplexSteps.removeTag("CLIENT TEST+ +CLIENT0");
     }
 }

@@ -129,8 +129,21 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void createAndSaveNewTag() {
+		String newTagName = RandomGenerator.getRandomString("TAGNAME");
+		this.fillInTagSearchField(newTagName);
+		SessionVariables.addValueInSessionVariable("Just_Created_Tag", newTagName);
+		onPage.clickOnCreateTagLabel();
+	}
+
+	@Step
 	public void fillInTagSearchField(String value) {
 		onPage.fillInTagSearchField(value);
+	}
+
+	@Step
+	public void searchJustCreatedTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
 
 	@Step
@@ -139,8 +152,8 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkIfTagsPageIsReturnedToInitialState() {
-		onPage.checkIfTagsPageIsReturnedToInitialState();
+	public void checkIfTagsPageIsReturnedToInitialState(int sizeToCheck) {
+		onPage.checkIfTagsPageIsReturnedToInitialState(sizeToCheck);
 	}
 
 	@Step
@@ -149,7 +162,57 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldSeeOnlySearchedTags(String text) {
-		onPage.shouldSeeOnlySearchedTags(text);
+	public void shouldSeeOnlySearchedTags(String text, int numberTags) {
+		onPage.shouldSeeOnlySearchedTags(text, numberTags);
+	}
+
+	@Step
+	public void shouldSeeJustCreatedTag(int numberTags) {
+		onPage.shouldSeeOnlySearchedTags(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"), numberTags);
+	}
+
+	@Step
+	public void swipeTag(String tagName) {
+		onPage.swipeTag(tagName);
+	}
+
+	@Step
+	public void swipeJustCreatedTag() {
+		onPage.swipeTag(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
+	}
+
+	@Step
+	public void clickOnEditTagIcon() {
+		onPage.clickOnEditTagIcon();
+	}
+
+	@Step
+	public void greenBellIconIsSHown() {
+		onPage.checkJustTagHasGreenBellIcon();
+	}
+
+	@Step
+	public void grayBellIconIsButton() {
+		onPage.editAndGrayBellButtonIsShown();
+	}
+
+	@Step
+	public void editIconIsShown() {
+		onPage.editAndEditIconIsShown();
+	}
+
+	@Step
+	public void clickOnGrayBellButton() {
+		onPage.clickOnGrayBellButton();
+	}
+
+	@Step
+	public void checkNoOneActiveBellDisplayed() {
+		onPage.checkNoOneActiveBellDisplayed();
+	}
+
+	@Step
+	public void clickOnGreenBellButton() {
+		onPage.clickOnGreenBellButton();
 	}
 }

@@ -2,6 +2,7 @@ package com.perchwell.steps.complex;
 
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
+import com.perchwell.pages.EditTagPage;
 import com.perchwell.steps.*;
 import com.perchwell.steps.analytics.AnalyticsSteps;
 import io.appium.java_client.AppiumDriver;
@@ -48,6 +49,9 @@ public class ComplexSteps extends ScenarioSteps{
 
     @Steps
     private SearchMenuSteps inSearchMenuSteps;
+
+    @Steps
+    private EditTagSteps atEditTagPage;
 
     @Step
     private void openFirstBuildingSkipHintClickOnShareButton() {
@@ -163,5 +167,13 @@ public class ComplexSteps extends ScenarioSteps{
             atAnalyticsPage.doneMovingCharts();
         }
 
+    }
+
+    @Step
+    public void removeTag(String tagName) {
+        atTagsPage.swipeTag(tagName);
+        atTagsPage.clickOnEditTagIcon();
+        atEditTagPage.clickOnDeleteButton();
+        atEditTagPage.confirmRemoving();
     }
 }
