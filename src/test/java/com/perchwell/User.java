@@ -1,5 +1,6 @@
 package com.perchwell;
 
+import com.perchwell.pages.EditTagPage;
 import com.perchwell.steps.*;
 import com.perchwell.steps.analytics.*;
 import com.perchwell.steps.complex.ComplexSteps;
@@ -95,4 +96,7 @@ public class User extends ScenarioSteps {
 
     @Steps
     public ContactListingAgentSteps atContactListingAgentPage;
+
+    @Steps
+    public EditTagPage atEditTagPage;
 }
