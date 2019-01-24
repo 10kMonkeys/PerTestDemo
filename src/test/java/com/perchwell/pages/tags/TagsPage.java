@@ -308,7 +308,6 @@ public class TagsPage extends TechHelper {
 	public void checkIfTagsItemsListIsChanged(int value) {
 		int itemsAmount;
 
-		System.out.println(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
 				SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).getAttribute("value");
 		if (element.length() == 26) {
@@ -316,14 +315,12 @@ public class TagsPage extends TechHelper {
 		} else {
 			itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
 		}
-		System.out.println("Second items value: " + itemsAmount);
 		Assert.assertEquals(tagsItemsValue, itemsAmount-value);
 	}
 
 	public void getFirstTagsItemsValue() {
 		tagsItemsValue = Integer.parseInt(firstTag.getAttribute("name").substring(firstTag.getAttribute("name")
 				.indexOf(" ") + 1).replaceAll("[ items]", ""));
-		System.out.println("First items value: " + tagsItemsValue);
 	}
 
 	public void clickOnTagPillInSearchField() {
