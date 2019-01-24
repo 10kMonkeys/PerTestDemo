@@ -98,5 +98,5 @@ public class User extends ScenarioSteps {
     public ContactListingAgentSteps atContactListingAgentPage;
 
     @Steps
-    public EditTagPage atEditTagPage;
+    public EditTagSteps atEditTagPage;
 }

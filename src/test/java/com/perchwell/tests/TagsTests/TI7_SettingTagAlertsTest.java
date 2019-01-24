@@ -15,27 +15,23 @@ public class TI7_SettingTagAlertsTest extends SampleTest {
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-//        user.atTagsPage.setSpecificTagAndSave("0TagName1");
-
+        user.atTagsPage.createAndSaveNewTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-//        user.atTagsPage.searchJustCreatedTag("0TagName1");
-//        user.atTagsPage.checkJustCreatedTagHasGreenBellIcon();
-//        user.atTagsPage.swipeSpecificTag("0TagName1");
-//        user.atTagsPage.editAndGrayBellIconIsShown();
-//        user.atTagsPage.editAndEditIconIsShown();
-//        user.atTagsPage.clickOnGrayBellIcon();
-//        user.atTagsPage.checkJustCreatedTagNOTHasGreenBellIcon();
-//        user.atTagsPage.swipeSpecificTag("0TagName1");
-//        user.atTagsPage.clickOnGreenBellIcon();
-//        user.atTagsPage.checkJustCreatedTagHasGreenBellIcon();
-//        user.atTagsPage.swipeSpecificTag("0TagName1");
-//        user.atTagsPage.checkJustCreatedTagHasGreenBellIcon();
-//        user.atTagsPage.clickOnEditTagIcon();
-//        user.atEditTagPage.removeTag();
-
+        user.atTagsPage.searchJustCreatedTag();
+        user.atTagsPage.shouldSeeJustCreatedTag(1);
+        user.atTagsPage.greenBellIconIsSHown();
+        user.atTagsPage.swipeJustCreatedTag();
+        user.atTagsPage.grayBellIconIsButton();
+        user.atTagsPage.editIconIsShown();
+        user.atTagsPage.clickOnGrayBellButton();
+        user.atTagsPage.checkNoOneActiveBellDisplayed();
+        user.atTagsPage.swipeJustCreatedTag();
+        user.atTagsPage.clickOnGreenBellButton();
+        user.atTagsPage.greenBellIconIsSHown();
+        user.atTagsPage.swipeJustCreatedTag();
+        user.atTagsPage.grayBellIconIsButton();
     }
 }
