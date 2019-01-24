@@ -14,7 +14,7 @@ public class NFT16_SaveSearchAndReopenClosedRangeTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.selectFilter1Bed();
         user.atSearchPage.selectFilter3Beds();
@@ -22,11 +22,11 @@ public class NFT16_SaveSearchAndReopenClosedRangeTest extends SampleTest {
         user.atSearchPage.selectFilter1Bath();
         user.atSearchPage.selectFilter3Baths();
         user.atSearchPage.saveCurrentSearch();
-        user.inSearchMenu.openSavedSearches(); //search new
+        user.inSearchMenu.openSavedSearches();
         user.atSearchPage.createNewSearchClick();
-        user.inSearchMenu.openSavedSearches(); //search new
+        user.inSearchMenu.openSavedSearches();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.checkMultiBedroomsFiltersSelectedFrom1To3();
         user.atSearchPage.checkMultiBathroomsFiltersSelected1To3();
     }
