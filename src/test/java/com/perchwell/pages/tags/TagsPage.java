@@ -218,7 +218,7 @@ public class TagsPage extends TechHelper {
 		if (Config.isAndroid()) {
 			element(MobileBy.xpath("//android.widget.TextView[@text='" + tag + "']")).shouldNotBeVisible();
 		} else {
-			element(MobileBy.AccessibilityId(tag)).shouldNotBeVisible();
+			element(MobileBy.iOSNsPredicateString("label CONTAINS '" + tag + "'")).shouldNotBeVisible();
 		}
 		resetImplicitTimeout();
 	}
