@@ -93,6 +93,9 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name == 'iosNotifications'")
 	private WebElement activeBellButton;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label CONTAINS 'CLIENT TEST'`][1]")
+	private WebElement firstClientTag;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -212,8 +215,8 @@ public class TagsPage extends TechHelper {
 		if(Config.isAndroid()) {
 			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("text"));
 		} else {
-			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("name")
-					.substring(0, firstTag.getAttribute("name").indexOf(" ")));
+			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("value")
+					.substring(0, firstTag.getAttribute("value").indexOf(" ")));
 		}
 		element(firstTag).click();
 	}
@@ -319,8 +322,15 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void getFirstTagsItemsValue() {
-		tagsItemsValue = Integer.parseInt(firstTag.getAttribute("name").substring(firstTag.getAttribute("name")
-				.indexOf(" ") + 1).replaceAll("[ items]", ""));
+		String element = firstTag.getAttribute("value");
+
+		if (element.length() == 26) {
+			tagsItemsValue = 0;
+		} else {
+			tagsItemsValue = Integer.parseInt(element.substring(element
+					.indexOf(" ") + 1).replaceAll("[ items]", ""));
+		}
+
 	}
 
 	public void clickOnTagPillInSearchField() {
@@ -332,4 +342,41 @@ public class TagsPage extends TechHelper {
 		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).shouldNotBeVisible();
 		resetImplicitTimeout();
 	}
+
+	public void getTestClientsItemsValue() {
+		String element = firstClientTag.getAttribute("value");
+
+		if (element.length() == 19) {
+			tagsItemsValue = 0;
+		} else {
+			tagsItemsValue = Integer.parseInt(element.replace("CLIENT TEST+CLIENT0 ", "").replaceAll("[ items]", ""));
+		}
+	}
+
+	public void clickOnFirstClientTag() {
+		SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstClientTag.getAttribute("value")
+				.substring(0, firstClientTag.getAttribute("value").indexOf(" ")));
+		element(firstClientTag).click();
+	}
+
+	public void checkIfClientTagsItemsListIsChanged(int value) {
+		int itemsAmount;
+
+		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+				SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).getAttribute("value");
+		if (element.length() == 19) {
+			itemsAmount = 0;
+		} else {
+			itemsAmount = Integer.parseInt(element.replace("CLIENT TEST+CLIENT0 ", "").replaceAll("[ items]", ""));
+		}
+		Assert.assertEquals(tagsItemsValue, itemsAmount-value);
+	}
+
+    public void checkIfTagsCheckMarIsNotSelected() {
+		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+				SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).getAttribute("name");
+		String checkMarkNumber = element.substring(element.length()-5);
+
+		element(MobileBy.iOSNsPredicateString("name == 'image: tag deselected '" + checkMarkNumber));
+    }
 }

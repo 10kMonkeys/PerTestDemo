@@ -235,4 +235,24 @@ public class TagsSteps extends ScenarioSteps {
 	public void checkIfTagPillIsRemoved() {
 		onPage.checkIfTagPillIsRemoved();
 	}
+
+	@Step
+	public void getTestClientsItemsValue() {
+		onPage.getTestClientsItemsValue();
+	}
+
+	@Step
+	public void clickOnFirstClientTag() {
+		onPage.clickOnFirstClientTag();
+	}
+
+	@Step
+	public void checkIfClientTagsItemsListIsChanged(int value) {
+		onPage.checkIfClientTagsItemsListIsChanged(value);
+	}
+
+	@Step
+	public void checkIfTagsCheckMarIsNotSelected() {
+		onPage.checkIfTagsCheckMarIsNotSelected();
+	}
 }
