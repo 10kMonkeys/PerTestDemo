@@ -215,4 +215,19 @@ public class TagsSteps extends ScenarioSteps {
 	public void clickOnGreenBellButton() {
 		onPage.clickOnGreenBellButton();
 	}
+
+	@Step
+	public void searchJustCreatedClientTag() {
+		onPage.searchJustCreatedClientTag(SessionVariables.getValueFromSessionVariable("User_name"));
+	}
+
+	@Step
+	public void checkTagBelowOtherTagsLabel() {
+		onPage.checkTagBelowOtherTagsLabel();
+	}
+
+	@Step
+	public void checkClientTagBelowSharedWithClientLabel() {
+		onPage.checkClientTagBelowSharedWithClientLabel();
+	}
 }

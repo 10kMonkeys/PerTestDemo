@@ -11,7 +11,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,6 +91,12 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name == 'iosNotifications'")
 	private WebElement activeBellButton;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[$name == 'Shared with clients'$][1]")
+	private WebElement otherTagsLabel;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[$name == 'Other Tags'$][1]")
+	private WebElement sharedWithClientLabel;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -99,6 +104,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void fillInTagSearchField(String uniqueTagName) {
+		waitFor(1000);
 		element(searchTagTexBox).sendKeys(uniqueTagName);
 	}
 
@@ -302,5 +308,28 @@ public class TagsPage extends TechHelper {
 	public void clickOnGreenBellButton() {
 //		waitFor(ExpectedConditions.visibilityOf(activeBellButton));
 		element(activeBellButton).click();
+	}
+
+	public void searchJustCreatedClientTag(String userName) {
+		element(searchTagTexBox).sendKeys(userName);
+	}
+
+	public void checkTagBelowOtherTagsLabel() {
+		WebElement tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
+				+ SessionVariables.getValueFromSessionVariable("Just_Created_Tag") + "'"));
+		int a = getYPositionOfElement(otherTagsLabel) + 60;
+		int b = getYPositionOfElement(tag);
+
+		System.out.println(a);
+		System.out.println(b);
+
+		Assert.assertEquals(a, b);
+	}
+
+	public void checkClientTagBelowSharedWithClientLabel() {
+		WebElement clientTag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
+				+ SessionVariables.getValueFromSessionVariable("User_name") + "'"));
+
+		Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 61, getYPositionOfElement(clientTag));
 	}
 }

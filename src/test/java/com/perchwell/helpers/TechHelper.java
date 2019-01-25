@@ -13,13 +13,24 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class TechHelper extends BasePage {
 
     public TechHelper(WebDriver driver) {
         super(driver);
     }
+
+    //region driver
+
+    public AppiumDriver returnAppiumDriver() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+
+        return (AppiumDriver) webDriver;
+    }
+
+
+    //endregion
 
     //region Swipes
 
@@ -219,6 +230,16 @@ public class TechHelper extends BasePage {
             counter += 1;
         }
     }
+
+    //endregion
+
+    //region Coordinates
+
+    public int getYPositionOfElement(WebElement element) {
+        int a = element.getLocation().getY();
+        return a;
+    }
+
 
     //endregion
 }
