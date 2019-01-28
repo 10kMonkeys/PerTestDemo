@@ -16,7 +16,7 @@ public class DT11_OneListingAgentMandatoryFieldsAndCustomSubjectTest extends Sam
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.openFirstBuilding();
+        user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atSellersAgentPage.swipeDownUntilSellersAgentSection();
         user.atOpenedBuildingPage.getTestAgentEmail();

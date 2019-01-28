@@ -97,20 +97,17 @@ public class ComplexSteps extends ScenarioSteps{
 
     @Step
     public void saveNewSearchAndStartNewSearch() {
-        atPerchwellPage.clickOnMyNewSearch(); //search old
-        inSearchMenuSteps.openSearchPage(); //new search
+        inSearchMenuSteps.openSearchPage();
         atSearchPage.selectBedroomsRangeOptionIfNotSelected();
         atSearchPage.selectFilter1Bed();
         atSearchPage.selectFilter4PlusBeds();
         atSearchPage.saveCurrentSearch();
-        this.startNewSearch(); //search new and old inside
+        this.startNewSearch();
     }
 
     @Step
     public void startNewSearch() {
-        atPerchwellPage.clickOnMyNewSearch(); //search old
-        atSearchPage.clickOnMySavedSearches(); //search old
-        inSearchMenuSteps.openSavedSearches(); //search new
+        inSearchMenuSteps.openSavedSearches();
         atSearchPage.createNewSearchClick();
 //        atSearchPage.clickOnApplyButton(); //do not uncomment
     }

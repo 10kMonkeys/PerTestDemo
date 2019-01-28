@@ -26,7 +26,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class AnalyticsPage extends TechHelper {
 
-    private int numberOfReportDetailEmails;
+    private int messageIdOfLastReportDetailEmail;
 
     //region WebElements
 
@@ -386,14 +386,13 @@ public class AnalyticsPage extends TechHelper {
 
         if(mailTrapResponse.length != 0) {
 
-
             //Get attachments
             MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
 
             //Find attachments with DETAILS_REPORT_NAME and compare the number of emails before and after email was sent
             for (MailTrapAttachment my_attachment : mailTrapAttachment) {
                 if (my_attachment.getFilename().equalsIgnoreCase(AppProperties.INSTANCE.getProperty("DETAILS_REPORT_NAME"))
-                        && (mailTrapResponse.length == (numberOfReportDetailEmails + 1))) {
+                        && (mailTrapResponse[0].getId() != messageIdOfLastReportDetailEmail)) {
                     reportWasFound = true;
                     break;
                 }
@@ -593,9 +592,9 @@ public class AnalyticsPage extends TechHelper {
         element(legendTwelvePlusMillionButton).click();
     }
 
-    public void getNumberOfReportDetailEmails() {
+    public void getMessageIdOfLastReportDetailEmail() {
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_REPORT_DETAILS_ANALYTICS"));
-        numberOfReportDetailEmails = mailTrapResponse.length;
+        messageIdOfLastReportDetailEmail = mailTrapResponse[0].getId();
     }
 
     public void shareButtonInChartClick() {

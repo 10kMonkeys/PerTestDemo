@@ -215,4 +215,44 @@ public class TagsSteps extends ScenarioSteps {
 	public void clickOnGreenBellButton() {
 		onPage.clickOnGreenBellButton();
 	}
+
+	@Step
+	public void checkIfTagsItemsListIsChanged(int value) {
+		onPage.checkIfTagsItemsListIsChanged(value);
+	}
+
+	@Step
+	public void getFirstTagsItemsValue() {
+		onPage.getFirstTagsItemsValue();
+	}
+
+	@Step
+	public void clickOnTagPillInSearchField() {
+		onPage.clickOnTagPillInSearchField();
+	}
+
+	@Step
+	public void checkIfTagPillIsRemoved() {
+		onPage.checkIfTagPillIsRemoved();
+	}
+
+	@Step
+	public void getTestClientsItemsValue() {
+		onPage.getTestClientsItemsValue();
+	}
+
+	@Step
+	public void clickOnFirstClientTag() {
+		onPage.clickOnFirstClientTag();
+	}
+
+	@Step
+	public void checkIfClientTagsItemsListIsChanged(int value) {
+		onPage.checkIfClientTagsItemsListIsChanged(value);
+	}
+
+	@Step
+	public void checkIfTagsCheckMarIsNotSelected() {
+		onPage.checkIfTagsCheckMarIsNotSelected();
+	}
 }

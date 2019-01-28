@@ -4,7 +4,7 @@ import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class TI6_TagsFilteringTest extends SampleTest {
+public class TI11_TagsFilteringTest extends SampleTest {
 
     @Test
     public void tagsFiltering() {
@@ -18,8 +18,8 @@ public class TI6_TagsFilteringTest extends SampleTest {
         user.atTagsPage.setSpecificTagAndSave("CLIENT TEST+ +CLIENT0"); //edd method to check if tag already created below
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.atPerchwellPage.clickOnOpenAccountButton();
-        user.atAccountPage.clickOnTagsLabel();
+        user.atPerchwellPage.openSecondBuilding();
+        user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.fillInTagSearchField("CLIENT ");
         user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 3);
         user.atTagsPage.clearTextField();
@@ -30,7 +30,6 @@ public class TI6_TagsFilteringTest extends SampleTest {
         user.atTagsPage.checkIfTagsPageIsReturnedToInitialState(3);
         user.atTagsPage.fillInTagSearchField("+CLIENT0");
         user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 2);
-        user.atTagsPage.clickOnSearchButton();
-        user.atTagsPage.shouldSeeTaggedListing();
+        user.usingComplexSteps.removeTag("CLIENT TEST+ +CLIENT0");
     }
 }

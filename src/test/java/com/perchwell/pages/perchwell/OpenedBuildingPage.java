@@ -306,7 +306,7 @@ public class OpenedBuildingPage extends TechHelper {
 			element(MobileBy.xpath("//*[@text='" + discussionName.toUpperCase() + "']")).click();
 		}
 		else {
-			element(MobileBy.AccessibilityId(discussionName)).click();
+			element(MobileBy.iOSNsPredicateString("value CONTAINS '" + discussionName + "' AND visible == 1")).click();
 		}
 	}
 
@@ -329,7 +329,7 @@ public class OpenedBuildingPage extends TechHelper {
 		if (Config.isAndroid()){
 			element(By.xpath("//*[@text='" + discussionName.toUpperCase() + "']")).shouldBeVisible();
 		} else {
-			element(MobileBy.AccessibilityId(discussionName)).shouldBeVisible();
+			element(MobileBy.iOSNsPredicateString("value CONTAINS '" + discussionName + "' AND visible == 1")).shouldBeVisible();
 		}
 	}
 
@@ -395,7 +395,7 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void swipeDownUntilElementVisible(WebElement name) {
-		Helper.universalVerticalSwipe(name);
+		universalVerticalSwipe(name);
 	}
 
 	public boolean isSeveralSellersAgentsPresent() {
@@ -773,4 +773,10 @@ public class OpenedBuildingPage extends TechHelper {
 		}
 		resetImplicitTimeout();
     }
+
+	public void shouldNotSeeAddedTag() {
+		setImplicitTimeout(5, TimeUnit.SECONDS);
+		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
 }
