@@ -187,7 +187,7 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void greenBellIconIsSHown() {
+	public void greenBellIconIsShown() {
 		onPage.checkJustTagHasGreenBellIcon();
 	}
 

@@ -67,10 +67,10 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearTextFieldButton;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name == 'edit'")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'button: edit tag'")
 	private WebElement editIcon;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name == 'edit'")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'button: edit tag'")
 	private List<WebElement> editIconList;
 
 	@iOSXCUITFindBy(accessibility = "DELETE")
@@ -79,22 +79,22 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[`visible==1`]/XCUIElementTypeStaticText")
 	private List<WebElement> visibleTagsList;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name == 'iosNotificationsOff'")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'image: notification active'")
 	private List<WebElement> activeBellIconsList;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name == 'iosNotificationsOff'")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'button: set notification active'")
 	private List<WebElement> inactiveBellButtonsList;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name == 'iosNotificationsOff'")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'button: set notification active'")
 	private WebElement inactiveBellButton;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name == 'iosNotifications'")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'button: set notification inactive'")
 	private WebElement activeBellButton;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[$name == 'Shared with clients'$][1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name == 'Other Tags'$][1]")
 	private WebElement otherTagsLabel;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[$name == 'Other Tags'$][1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name == 'Shared with clients'$][1]")
 	private WebElement sharedWithClientLabel;
 
 	//endregion
@@ -301,7 +301,7 @@ public class TagsPage extends TechHelper {
 
 	public void checkNoOneActiveBellDisplayed() {
 		setImplicitTimeout(3, SECONDS);
-		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name == 'iosNotificationsOff'")).size());
+		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'image: notification active'")).size());
 		resetImplicitTimeout();
 	}
 
@@ -317,11 +317,9 @@ public class TagsPage extends TechHelper {
 	public void checkTagBelowOtherTagsLabel() {
 		WebElement tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
 				+ SessionVariables.getValueFromSessionVariable("Just_Created_Tag") + "'"));
+
 		int a = getYPositionOfElement(otherTagsLabel) + 60;
 		int b = getYPositionOfElement(tag);
-
-		System.out.println(a);
-		System.out.println(b);
 
 		Assert.assertEquals(a, b);
 	}

@@ -13,32 +13,28 @@ public class TI9_TagGroupsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-
-//        user.atPerchwellPage.clickOnOpenAccountButton();
-//        user.atAccountPage.clickOnClientsLabel();
-//        user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING); //update
-//        user.atClientPage.clickOnCrossBackButtonFromClients();
-//        user.atAccountPage.closeAccountMenu();
+        user.atPerchwellPage.clickOnOpenAccountButton();
+        user.atAccountPage.clickOnClientsLabel();
+        user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING); //update
+        user.atClientPage.clickOnCrossBackButtonFromClients();
+        user.atAccountPage.closeAccountMenu();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atTagsPage.createAndSaveNewTag(); //update
-
+        user.atTagsPage.createAndSaveNewTag();
         user.atTagsPage.searchJustCreatedTag();
-//        user.atTagsPage.checkTagBelowOtherTagsLabel();
+        user.atTagsPage.checkTagBelowOtherTagsLabel();
         user.atTagsPage.clearTextField();
-
         user.atTagsPage.searchJustCreatedClientTag();
-//        user.atTagsPage.checkClientTagBelowSharedWithClientLabel();
+        user.atTagsPage.checkClientTagBelowSharedWithClientLabel();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-
         user.atTagsPage.searchJustCreatedTag();
-//        user.atTagsPage.checkTagBelowOtherTagsLabel();
+        user.atTagsPage.checkTagBelowOtherTagsLabel();
         user.atTagsPage.clearTextField();
         user.atTagsPage.searchJustCreatedClientTag();
-//        user.atTagsPage.checkClientTagBelowSharedWithClientLabel();
+        user.atTagsPage.checkClientTagBelowSharedWithClientLabel();
     }
 }

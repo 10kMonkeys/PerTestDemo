@@ -4,13 +4,14 @@ import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class EditTagPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = "DELETE")
     private WebElement removeButton;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name == 'DELETE'&][2]")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name == 'DELETE'$][2]")
     private WebElement confirmButton;
 
     public EditTagPage(WebDriver driver) {
@@ -22,6 +23,6 @@ public class EditTagPage extends TechHelper {
     }
 
     public void confirmRemoving() {
-        element(confirmButton);
+        element(confirmButton).click();
     }
 }
