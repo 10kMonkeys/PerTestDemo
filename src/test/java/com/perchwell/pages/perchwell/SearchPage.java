@@ -841,7 +841,7 @@ public class SearchPage extends TechHelper {
         } else {
             searchName = firstSearchInList.getAttribute("name");
         }
-
+        System.out.println(searchName);
         SessionVariables.addValueInSessionVariable("SearchName", searchName);
         firstSearchInList.click();
     }

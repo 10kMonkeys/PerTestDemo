@@ -187,7 +187,7 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void greenBellIconIsSHown() {
+	public void greenBellIconIsShown() {
 		onPage.checkJustTagHasGreenBellIcon();
 	}
 
@@ -254,5 +254,20 @@ public class TagsSteps extends ScenarioSteps {
 	@Step
 	public void checkIfTagsCheckMarIsNotSelected() {
 		onPage.checkIfTagsCheckMarIsNotSelected();
+	}
+
+	@Step
+	public void searchJustCreatedClientTag() {
+		onPage.searchJustCreatedClientTag(SessionVariables.getValueFromSessionVariable("User_name"));
+	}
+
+	@Step
+	public void checkTagBelowOtherTagsLabel() {
+		onPage.checkTagBelowOtherTagsLabel();
+	}
+
+	@Step
+	public void checkClientTagBelowSharedWithClientLabel() {
+		onPage.checkClientTagBelowSharedWithClientLabel();
 	}
 }
