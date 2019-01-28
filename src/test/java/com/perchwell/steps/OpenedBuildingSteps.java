@@ -365,5 +365,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void shouldNotSeeAddedTag() {
 		onPage.shouldNotSeeAddedTag();
 	}
+
+	@Step
+	public void shouldSeeSpecificClient() {
+		onPage.shouldSeeSpecificClient();
+	}
 }
 

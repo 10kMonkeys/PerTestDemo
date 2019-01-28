@@ -1,6 +1,7 @@
 package com.perchwell.pages.tags;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.data.SearchRequests;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
@@ -355,13 +356,14 @@ public class TagsPage extends TechHelper {
 		if (element.length() == 19) {
 			tagsItemsValue = 0;
 		} else {
-			tagsItemsValue = Integer.parseInt(element.replace("CLIENT TEST+CLIENT0 ", "").replaceAll("[ items]", ""));
+			tagsItemsValue = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "").replaceAll("[ items]", ""));
 		}
 	}
 
 	public void clickOnFirstClientTag() {
-		SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstClientTag.getAttribute("value")
-				.substring(0, firstClientTag.getAttribute("value").indexOf(" ")));
+		String clientValue = firstClientTag.getAttribute("value").replace(" items", "");
+		String processedClientValue = clientValue.substring(0, clientValue.lastIndexOf(" "));
+		SessionVariables.addValueInSessionVariable("First_Existing_Tag", processedClientValue);
 		element(firstClientTag).click();
 	}
 
@@ -373,7 +375,7 @@ public class TagsPage extends TechHelper {
 		if (element.length() == 19) {
 			itemsAmount = 0;
 		} else {
-			itemsAmount = Integer.parseInt(element.replace("CLIENT TEST+CLIENT0 ", "").replaceAll("[ items]", ""));
+			itemsAmount = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "").replaceAll("[ items]", ""));
 		}
 		Assert.assertEquals(tagsItemsValue, itemsAmount-value);
 	}
