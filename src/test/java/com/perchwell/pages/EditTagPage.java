@@ -11,7 +11,7 @@ public class EditTagPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "DELETE")
     private WebElement removeButton;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name == 'DELETE'$][2]")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name == 'DELETE'$][1]")
     private WebElement confirmButton;
 
     public EditTagPage(WebDriver driver) {
