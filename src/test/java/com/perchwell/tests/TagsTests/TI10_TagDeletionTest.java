@@ -18,12 +18,12 @@ public class TI10_TagDeletionTest extends SampleTest {
         user.atOpenedBuildingPage.clearTagsList();
         user.atTagsPage.getFirstTagsItemsValue();
         user.atTagsPage.clickOnFirstTag();
-//        user.atTagsPage.checkIfTagsItemsListIsChanged(1);
+        user.atTagsPage.checkIfTagsItemsListIsChanged(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.shouldSeeAddedTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.clickOnFirstTag();
-//        user.atTagsPage.checkIfTagsItemsListIsChanged(0);
+        user.atTagsPage.checkIfTagsItemsListIsChanged(0);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.shouldNotSeeAddedTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
