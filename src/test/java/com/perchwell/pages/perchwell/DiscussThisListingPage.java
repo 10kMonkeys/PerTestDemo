@@ -36,10 +36,10 @@ public class DiscussThisListingPage extends TechHelper {
 
     public void deleteClientsWithDiscussion() throws Exception {
         waitFor(ExpectedConditions.visibilityOf(clientWithDiscussion));
-        while (Helper.isElementDisplayed(clientWithDiscussion)) {
+        while (isElementDisplayed(clientWithDiscussion)) {
             waitABit(1000);
             int y = clientWithDiscussion.getLocation().getY();
-            Helper.universalHorizontalSwipe(clientWithDiscussion, y + 1);
+            universalHorizontalSwipe(clientWithDiscussion, y + 1);
             clickOnDeleteButton();
 //            waitFor(ExpectedConditions.stalenessOf(clientWithDiscussion));
         }

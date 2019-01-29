@@ -419,9 +419,11 @@ public class OpenedBuildingPage extends TechHelper {
 	public boolean isClientWithDiscussionExist() {
 	    boolean isClientWithDiscussion = false;
 
+	    setImplicitTimeout(3, TimeUnit.SECONDS);
 	    if (element(clientWithDiscussion).isVisible()) {
 	        isClientWithDiscussion = true;
         }
+        resetImplicitTimeout();
         return isClientWithDiscussion;
     }
 
@@ -777,6 +779,12 @@ public class OpenedBuildingPage extends TechHelper {
 	public void shouldNotSeeAddedTag() {
 		setImplicitTimeout(5, TimeUnit.SECONDS);
 		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void shouldSeeSpecificClient() {
+		setImplicitTimeout(3, TimeUnit.SECONDS);
+		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Client"))).shouldBeVisible();
 		resetImplicitTimeout();
 	}
 }
