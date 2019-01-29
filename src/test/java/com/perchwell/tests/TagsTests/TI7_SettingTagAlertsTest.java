@@ -24,7 +24,7 @@ public class TI7_SettingTagAlertsTest extends SampleTest {
         user.atTagsPage.shouldSeeJustCreatedTag(1);
         user.atTagsPage.greenBellIconIsShown();
         user.atTagsPage.swipeJustCreatedTag();
-        user.atTagsPage.grayBellIconIsButton();
+        user.atTagsPage.grayBellButtonIsShown();
         user.atTagsPage.editIconIsShown();
         user.atTagsPage.clickOnGrayBellButton();
         user.atTagsPage.checkNoOneActiveBellDisplayed();
@@ -32,6 +32,6 @@ public class TI7_SettingTagAlertsTest extends SampleTest {
         user.atTagsPage.clickOnGreenBellButton();
         user.atTagsPage.greenBellIconIsShown();
         user.atTagsPage.swipeJustCreatedTag();
-        user.atTagsPage.grayBellIconIsButton();
+        user.atTagsPage.grayBellButtonIsShown();
     }
 }

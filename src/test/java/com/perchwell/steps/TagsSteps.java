@@ -192,13 +192,13 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void grayBellIconIsButton() {
-		onPage.editAndGrayBellButtonIsShown();
+	public void grayBellButtonIsShown() {
+		onPage.grayBellButtonIsShown();
 	}
 
 	@Step
 	public void editIconIsShown() {
-		onPage.editAndEditIconIsShown();
+		onPage.editIconIsShown();
 	}
 
 	@Step

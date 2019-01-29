@@ -290,11 +290,11 @@ public class TagsPage extends TechHelper {
 		Assert.assertEquals(1, activeBellIconsList.size());
 	}
 
-	public void editAndGrayBellButtonIsShown() {
+	public void grayBellButtonIsShown() {
 		Assert.assertEquals(1, inactiveBellButtonsList.size());
 	}
 
-	public void editAndEditIconIsShown() {
+	public void editIconIsShown() {
 		Assert.assertEquals(1, editIconList.size());
 	}
 
