@@ -394,10 +394,7 @@ public class TagsPage extends TechHelper {
 		WebElement tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
 				+ SessionVariables.getValueFromSessionVariable("Just_Created_Tag") + "'"));
 
-		int a = getYPositionOfElement(otherTagsLabel) + 60;
-		int b = getYPositionOfElement(tag);
-
-		Assert.assertEquals(a, b);
+		Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 60, getYPositionOfElement(tag));
 	}
 
 	public void checkClientTagBelowSharedWithClientLabel() {

@@ -231,6 +231,9 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: selected'")
 	private List<WebElement> selectedListingsList;
 
+	@iOSXCUITFindBy(accessibility = "cell: Tag Selected Listings")
+	private WebElement tagSelectedListingsOption;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -955,5 +958,9 @@ public class PerchwellPage extends TechHelper {
 
 	public void checkSelectedWordIsShown() {
 		element(selectedWord).shouldBeVisible();
+	}
+
+	public void clickOnTagSelectedListingsOption() {
+		element(tagSelectedListingsOption).click();
 	}
 }
