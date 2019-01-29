@@ -921,7 +921,6 @@ public class PerchwellPage extends TechHelper {
 
 	public void checkThatThreeListingsAreSelected() {
 		Assert.assertEquals(3, selectedListingsList.size());
-
 	}
 
 	public void selectFirstListings() {
@@ -962,5 +961,9 @@ public class PerchwellPage extends TechHelper {
 
 	public void clickOnTagSelectedListingsOption() {
 		element(tagSelectedListingsOption).click();
+	}
+
+	public void checkThatTwoListingsAreSelected() {
+		Assert.assertEquals(2, selectedListingsList.size());
 	}
 }
