@@ -21,16 +21,17 @@ public class TI15_SettingTagAlertsTest extends SampleTest {
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
+        user.atTagsPage.shouldSeeJustCreatedTag(1);
         user.atTagsPage.greenBellIconIsShown();
         user.atTagsPage.swipeJustCreatedTag();
         user.atTagsPage.editIconIsShown();
-        user.atTagsPage.grayBellIconIsShown();
+        user.atTagsPage.grayBellIconIsButton();
         user.atTagsPage.clickOnGrayBellButton();
-        user.atTagsPage.greenBellIconIsNotShown();
+        user.atTagsPage.checkNoOneActiveBellDisplayed();
         user.atTagsPage.swipeJustCreatedTag();
-        user.atTagsPage.checkGreenBellIconIsShown();
         user.atTagsPage.clickOnGreenBellButton();
+        user.atTagsPage.greenBellIconIsShown();
         user.atTagsPage.swipeJustCreatedTag();
-        user.atTagsPage.grayBellIconIsShown();
+        user.atTagsPage.grayBellIconIsButton();
     }
 }

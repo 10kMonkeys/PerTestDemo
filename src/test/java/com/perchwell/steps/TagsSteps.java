@@ -270,19 +270,4 @@ public class TagsSteps extends ScenarioSteps {
 	public void checkClientTagBelowSharedWithClientLabel() {
 		onPage.checkClientTagBelowSharedWithClientLabel();
 	}
-
-	@Step
-	public void grayBellIconIsShown() {
-		onPage.grayBellIconIsShown();
-	}
-
-	@Step
-	public void checkGreenBellIconIsShown() {
-		onPage.checkGreenBellIconIsShown();
-	}
-
-	@Step
-	public void greenBellIconIsNotShown() {
-		onPage.greenBellIconIsNotShown();
-	}
 }

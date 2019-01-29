@@ -101,12 +101,6 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name == 'Shared with clients'$][1]")
 	private WebElement sharedWithClientLabel;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "label == 'iosNotificationsOff'")
-	private WebElement grayBellIcon;
-
-	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'image: notification active'")
-	private WebElement activeBellIcon;
-
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -410,17 +404,5 @@ public class TagsPage extends TechHelper {
 				+ SessionVariables.getValueFromSessionVariable("User_name") + "'"));
 
 		Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 61, getYPositionOfElement(clientTag));
-	}
-
-	public void grayBellIconIsShown() {
-		element(grayBellIcon).shouldBeVisible();
-	}
-
-	public void checkGreenBellIconIsShown() {
-		element(activeBellButton).shouldBeVisible();
-	}
-
-	public void greenBellIconIsNotShown() {
-		Assert.assertFalse(element(activeBellIcon).isVisible());
 	}
 }
