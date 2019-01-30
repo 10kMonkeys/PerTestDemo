@@ -698,6 +698,12 @@ public class SearchPage extends TechHelper {
     @AndroidFindBy(xpath = "//*[@text = 'BUILDING WIDTH']")
     private WebElement buildingWidthTitle;
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
+    private WebElement firstBuildingInSearch;
+
+    @iOSXCUITFindBy(accessibility = "AddressSearchCancelButton")
+    private WebElement closeSearchAddressButton;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -2093,5 +2099,17 @@ public class SearchPage extends TechHelper {
 
     public void singleUpSwipeForAndroid() {
         Helper.singleUpShortSwipeAndroid();
+    }
+
+    public void openFirstBuilding() {
+        element(firstBuildingInSearch).click();
+    }
+
+    public void closeAddressSearch() {
+        element(closeSearchAddressButton).click();
+    }
+
+    public void clearAddressSearchField() {
+        element(searchAddressField).clear();
     }
 }

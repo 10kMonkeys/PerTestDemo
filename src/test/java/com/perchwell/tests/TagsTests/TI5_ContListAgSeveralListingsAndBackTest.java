@@ -4,10 +4,10 @@ import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class TI1_ListingSortingTest extends SampleTest {
+public class TI5_ContListAgSeveralListingsAndBackTest extends SampleTest {
 
     @Test
-    public void listingSortingTest() {
+    public void contListAgSeveralListingsAndBackTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -24,13 +24,5 @@ public class TI1_ListingSortingTest extends SampleTest {
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnSearchButton();
-        user.atMyTagsPage.checkListingAmount(3);
-        user.atMyTagsPage.clickOnSortedByButton();
-        user.atMyTagsPage.clickOnMostExpensiveButton();
-        user.atMyTagsPage.shouldTaggedListingBeSortedByMostExpensive();
-        user.atMyTagsPage.clickOnSortedByButton();
-        user.atMyTagsPage.clickOnLeastExpensiveButton();
-        user.atMyTagsPage.shouldTaggedListingBeSortedByLeastExpensive();
     }
-
 }

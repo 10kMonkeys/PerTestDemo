@@ -43,4 +43,44 @@ public class MyTagsSteps extends ScenarioSteps {
 //		}
 		onPage.checkJustCreatedTag(SessionVariables.getValueFromSessionVariable("Second_tag"));
 	}
+
+	@Step
+    public void clickOnSortedByButton() {
+    	onPage.clickOnSortedByButton();
+	}
+
+	@Step
+	public void clickOnMostExpensiveButton() {
+		onPage.clickOnMostExpensiveButton();
+	}
+
+	@Step
+	public void clickOnLeastExpensiveButton() {
+		onPage.clickOnLeastExpensiveButton();
+	}
+
+	@Step
+	public void checkListingAmount(int listingAmountToCheck) {
+		onPage.checkListingAmount(listingAmountToCheck);
+	}
+
+	@Step
+	public void shouldTaggedListingBeSortedByMostExpensive() {
+		onPage.shouldTaggedListingBeSortedByMostExpensive();
+	}
+
+	@Step
+	public void shouldTaggedListingBeSortedByLeastExpensive() {
+		onPage.shouldTaggedListingBeSortedByLeastExpensive();
+	}
+
+	@Step
+	public void shouldTaggedBuildingBeSortedByMostExpensive() {
+		onPage.shouldTaggedBuildingBeSortedByMostExpensive();
+	}
+
+	@Step
+	public void shouldTaggedBuildingBeSortedByLeastExpensive() {
+		onPage.shouldTaggedBuildingBeSortedByLeastExpensive();
+	}
 }

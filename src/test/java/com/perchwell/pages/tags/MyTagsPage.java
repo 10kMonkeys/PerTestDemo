@@ -1,11 +1,13 @@
 package com.perchwell.pages.tags;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,6 +33,21 @@ public class MyTagsPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearIcon;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name == 'Sorted by'")
+	private WebElement sclickOnSortedByButton;
+
+	@iOSXCUITFindBy(accessibility = "cell: deselected Least Expensive")
+	private WebElement leastExpensiveSortButton;
+
+	@iOSXCUITFindBy(accessibility = "cell: deselected Most Expensive")
+	private WebElement mostExpensiveSortButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'PRICE:'$]")
+	private List<WebElement> pricesList;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'BUILDING PRICE:'")
+	private List<WebElement> buildingPricesList;
 
 	//endregion
 
@@ -80,6 +97,38 @@ public class MyTagsPage extends BasePage {
 
 	public void clearSearchField() {
 		element(clearIcon).click();
+	}
+
+	public void clickOnSortedByButton() {
+		element(sclickOnSortedByButton).click();
+	}
+
+	public void clickOnLeastExpensiveButton() {
+		element(leastExpensiveSortButton).click();
+	}
+
+	public void clickOnMostExpensiveButton() {
+		element(mostExpensiveSortButton).click();
+	}
+
+	public void checkListingAmount(int listingAmountToCheck) {
+		element(MobileBy.AccessibilityId("Listing Results: " + listingAmountToCheck)).shouldBeVisible();
+	}
+
+	public void shouldTaggedListingBeSortedByMostExpensive() {
+		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
+	}
+
+	public void shouldTaggedListingBeSortedByLeastExpensive() {
+		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
+	}
+
+	public void shouldTaggedBuildingBeSortedByMostExpensive() {
+		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", buildingPricesList) == 1);
+	}
+
+	public void shouldTaggedBuildingBeSortedByLeastExpensive() {
+		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", buildingPricesList) == 0);
 	}
 }
 

@@ -1120,4 +1120,19 @@ public class SearchSteps extends ScenarioSteps {
     public void singleUpSwipeForAndroid() {
         onPage.singleUpSwipeForAndroid();
     }
+
+    @Step
+    public void openFirstBuilding() {
+        onPage.openFirstBuilding();
+    }
+
+    @Step
+    public void closeAddressSearch() {
+        onPage.closeAddressSearch();
+    }
+
+    @Step
+    public void clearAddressSearchField() {
+        onPage.clearAddressSearchField();
+    }
 }
