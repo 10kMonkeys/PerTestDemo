@@ -6,6 +6,7 @@ import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,6 +32,9 @@ public class MyTagsPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearIcon;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected'$]")
+	private List<WebElement> selectedListingsList;
 
 	//endregion
 
@@ -81,5 +85,9 @@ public class MyTagsPage extends BasePage {
 	public void clearSearchField() {
 		element(clearIcon).click();
 	}
+
+    public void checkListingsIsSelected(int value) {
+		Assert.assertEquals(value, selectedListingsList.size());
+    }
 }
 

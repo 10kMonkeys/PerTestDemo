@@ -1,14 +1,11 @@
 package com.perchwell.steps;
 
-import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.tags.MyTagsPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-
-import javax.swing.*;
 
 public class MyTagsSteps extends ScenarioSteps {
 
@@ -43,4 +40,9 @@ public class MyTagsSteps extends ScenarioSteps {
 //		}
 		onPage.checkJustCreatedTag(SessionVariables.getValueFromSessionVariable("Second_tag"));
 	}
+
+	@Step
+    public void checkListingsIsSelected(int value) {
+		onPage.checkListingsIsSelected(value);
+    }
 }
