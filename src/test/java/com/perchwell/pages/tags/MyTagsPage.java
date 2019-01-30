@@ -49,6 +49,10 @@ public class MyTagsPage extends BasePage {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'BUILDING PRICE:'")
 	private List<WebElement> buildingPricesList;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected'$]")
+	private List<WebElement> selectedListingsList;
+
+
 	//endregion
 
 	public MyTagsPage(WebDriver driver) {
@@ -130,5 +134,9 @@ public class MyTagsPage extends BasePage {
 	public void shouldTaggedBuildingBeSortedByLeastExpensive() {
 		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", buildingPricesList) == 0);
 	}
+
+    public void checkListingsIsSelected(int value) {
+		Assert.assertEquals(value, selectedListingsList.size());
+    }
 }
 
