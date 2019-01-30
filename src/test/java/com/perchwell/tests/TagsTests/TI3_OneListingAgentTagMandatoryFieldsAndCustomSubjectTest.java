@@ -5,10 +5,10 @@ import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class TI3_ContactListingAgentsOneListingAndAgentAndMandatoryFieldsAndCustomSubjectTest extends SampleTest {
+public class TI3_OneListingAgentTagMandatoryFieldsAndCustomSubjectTest extends SampleTest {
 
     @Test
-    public void contactListingAgentsOneListingAndAgentAndMandatoryFieldsAndCustomSubject() {
+    public void oneListingAgentTagMandatoryFieldsAndCustomSubject() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
