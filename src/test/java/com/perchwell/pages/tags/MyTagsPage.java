@@ -86,8 +86,8 @@ public class MyTagsPage extends BasePage {
 		element(clearIcon).click();
 	}
 
-    public void checkThatTwoListingsAreSelected() {
-		Assert.assertEquals(2, selectedListingsList.size());
+    public void checkListingsIsSelected(int value) {
+		Assert.assertEquals(value, selectedListingsList.size());
     }
 }
 

@@ -962,8 +962,4 @@ public class PerchwellPage extends TechHelper {
 	public void clickOnTagSelectedListingsOption() {
 		element(tagSelectedListingsOption).click();
 	}
-
-	public void checkThatTwoListingsAreSelected() {
-		Assert.assertEquals(2, selectedListingsList.size());
-	}
 }

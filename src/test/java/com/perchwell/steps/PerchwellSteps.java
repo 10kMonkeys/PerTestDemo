@@ -577,9 +577,4 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void clickOnTagSelectedListingsOption() {
 		onPage.clickOnTagSelectedListingsOption();
 	}
-
-	@Step
-	public void checkThatTwoListingsAreSelected() {
-		onPage.checkThatTwoListingsAreSelected();
-	}
 }

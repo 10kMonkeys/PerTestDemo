@@ -24,7 +24,6 @@ public class TI1_ListingSortingTest extends SampleTest {
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnSearchButton();
-        user.tag
     }
 
 }

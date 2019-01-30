@@ -30,7 +30,6 @@ public class TI3_OneListingAgentTagMandatoryFieldsAndCustomSubjectTest extends S
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnSearchButton();
         user.atPerchwellPage.selectFirstListing();
-        user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.selectContactListingAgentsOption();
         user.atContactListingAgentPage.checkIfSendEmailButtonIsDisabled();
@@ -44,7 +43,7 @@ public class TI3_OneListingAgentTagMandatoryFieldsAndCustomSubjectTest extends S
         user.atContactListingAgentPage.hideKeyboard();
         user.atContactListingAgentPage.checkIfSendEmailButtonIsEnabled();
         user.atContactListingAgentPage.clickOnSendEmailButton();
-        user.atMyTagsPage.checkThatTwoListingsAreSelected();
+        user.atMyTagsPage.checkListingsIsSelected(1);
         user.atSellersAgentPage.shouldContactEmailSentToOneAgent();
     }
 }
