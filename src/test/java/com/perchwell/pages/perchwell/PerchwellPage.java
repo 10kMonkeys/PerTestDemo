@@ -924,7 +924,6 @@ public class PerchwellPage extends TechHelper {
 
 	public void checkThatThreeListingsAreSelected() {
 		Assert.assertEquals(3, selectedListingsList.size());
-
 	}
 
 	public void selectFirstListings() {

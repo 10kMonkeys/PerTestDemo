@@ -65,4 +65,9 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void checkTaggedListingsAmount(int listingsAmount) {
 		onPage.checkTaggedListingsAmount(listingsAmount);
 	}
+
+	@Step
+    public void checkListingsAreSelected(int value) {
+		onPage.checkListingsAreSelected(value);
+    }
 }

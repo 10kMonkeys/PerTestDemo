@@ -38,6 +38,9 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name BEGINSWITH 'ADDRESS: '$]")
 	private List<WebElement> addressesList;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected'$]")
+	private List<WebElement> selectedListingsList;
+
 	//endregion
 
 	public MyTagsPage(WebDriver driver) {
@@ -121,5 +124,9 @@ public class MyTagsPage extends TechHelper {
 		element(MobileBy.AccessibilityId("Listing Results: " + listingsAmount)).shouldBeVisible();
 		resetImplicitTimeout();
 	}
+
+    public void checkListingsAreSelected(int value) {
+		Assert.assertEquals(value, selectedListingsList.size());
+    }
 }
 

@@ -159,6 +159,7 @@ public class SellersAgentPage extends TechHelper {
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
         rawBody = getTextBody(mailTrapResponse[0].getRaw_path());
 
+        Assert.assertEquals(1, mailTrapResponse.length);
         Assert.assertTrue(rawBody.contains("Subject: " + subject));
         Assert.assertTrue(rawBody.contains(message));
         Assert.assertTrue(rawBody.contains("To: " + SessionVariables.getValueFromSessionVariable("Test_agent")));
