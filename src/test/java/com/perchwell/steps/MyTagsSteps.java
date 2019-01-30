@@ -43,4 +43,9 @@ public class MyTagsSteps extends ScenarioSteps {
 //		}
 		onPage.checkJustCreatedTag(SessionVariables.getValueFromSessionVariable("Second_tag"));
 	}
+
+	@Step
+    public void checkThatTwoListingsAreSelected() {
+		onPage.checkThatTwoListingsAreSelected();
+    }
 }

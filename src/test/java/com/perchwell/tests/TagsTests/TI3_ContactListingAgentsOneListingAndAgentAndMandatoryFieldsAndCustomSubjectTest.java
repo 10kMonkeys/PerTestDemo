@@ -44,7 +44,7 @@ public class TI3_ContactListingAgentsOneListingAndAgentAndMandatoryFieldsAndCust
         user.atContactListingAgentPage.hideKeyboard();
         user.atContactListingAgentPage.checkIfSendEmailButtonIsEnabled();
         user.atContactListingAgentPage.clickOnSendEmailButton();
-        user.atPerchwellPage.checkThatTwoListingsAreSelected();
+        user.atMyTagsPage.checkThatTwoListingsAreSelected();
         user.atSellersAgentPage.shouldContactEmailSentToOneAgent();
     }
 }
