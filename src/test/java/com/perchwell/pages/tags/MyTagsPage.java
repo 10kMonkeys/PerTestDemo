@@ -2,10 +2,13 @@ package com.perchwell.pages.tags;
 
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
-import com.perchwell.pages.base.BasePage;
+import com.perchwell.helpers.SessionVariables;
+import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.assertj.core.api.SoftAssertions;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +17,7 @@ import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class MyTagsPage extends BasePage {
+public class MyTagsPage extends TechHelper {
 
 	//region WebElements
 
@@ -31,6 +34,9 @@ public class MyTagsPage extends BasePage {
 
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearIcon;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name BEGINSWITH 'ADDRESS: '$]")
+	private List<WebElement> addressesList;
 
 	//endregion
 
@@ -80,6 +86,40 @@ public class MyTagsPage extends BasePage {
 
 	public void clearSearchField() {
 		element(clearIcon).click();
+	}
+
+	public void checkIfFourListingsAndBuildingAreDisplayed() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(addressesList.get(0).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress5").toUpperCase()));
+		softAssertions.assertThat(addressesList.get(1).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress4").toUpperCase()));
+		softAssertions.assertThat(addressesList.get(2).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress3").toUpperCase()));
+		softAssertions.assertThat(addressesList.get(3).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress2").toUpperCase()));
+		softAssertions.assertThat(addressesList.get(4).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress1").toUpperCase()));
+		softAssertions.assertAll();
+	}
+
+	public void clickOnFirstTagsPill() {
+		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_tag"))).click();
+	}
+
+	public void checkIfTwoLastListingsAndBuildingAreDisplayed() {
+		SoftAssertions softAssertions = new SoftAssertions();
+		softAssertions.assertThat(!element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).isPresent());
+		softAssertions.assertThat(!element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress2"))).isPresent());
+		softAssertions.assertThat(addressesList.get(0).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress5").toUpperCase()));
+		softAssertions.assertThat(addressesList.get(1).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress4").toUpperCase()));
+		softAssertions.assertThat(addressesList.get(2).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress3").toUpperCase()));
+		softAssertions.assertAll();
+	}
+
+	public void swipeDownSecondTagsPill() {
+		swipeUpElementIOS(element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Second_tag"))), 240);
+	}
+
+	public void checkTaggedListingsAmount(int listingsAmount) {
+		setImplicitTimeout(3, SECONDS);
+		element(MobileBy.AccessibilityId("Listing Results: " + listingsAmount)).shouldBeVisible();
+		resetImplicitTimeout();
 	}
 }
 

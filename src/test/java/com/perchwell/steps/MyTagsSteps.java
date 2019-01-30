@@ -1,14 +1,11 @@
 package com.perchwell.steps;
 
-import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.tags.MyTagsPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-
-import javax.swing.*;
 
 public class MyTagsSteps extends ScenarioSteps {
 
@@ -42,5 +39,30 @@ public class MyTagsSteps extends ScenarioSteps {
 //			onPage.clearSearchField();
 //		}
 		onPage.checkJustCreatedTag(SessionVariables.getValueFromSessionVariable("Second_tag"));
+	}
+
+	@Step
+	public void checkIfFourListingsAndBuildingAreDisplayed() {
+		onPage.checkIfFourListingsAndBuildingAreDisplayed();
+	}
+
+	@Step
+	public void clickOnFirstTagsPill() {
+		onPage.clickOnFirstTagsPill();
+	}
+
+	@Step
+	public void checkIfTwoLastListingsAndBuildingAreDisplayed() {
+		onPage.checkIfTwoLastListingsAndBuildingAreDisplayed();
+	}
+
+	@Step
+	public void swipeDownSecondTagsPill() {
+		onPage.swipeDownSecondTagsPill();
+	}
+
+	@Step
+	public void checkTaggedListingsAmount(int listingsAmount) {
+		onPage.checkTaggedListingsAmount(listingsAmount);
 	}
 }

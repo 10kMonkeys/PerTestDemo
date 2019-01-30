@@ -17,8 +17,7 @@ public class DT12_TwoAgentsListingDefaultSubjectTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnListingByAddress(Addresses.EAST_35TH);
