@@ -1120,4 +1120,9 @@ public class SearchSteps extends ScenarioSteps {
     public void singleUpSwipeForAndroid() {
         onPage.singleUpSwipeForAndroid();
     }
+
+    @Step
+    public void clickOnCrossBackButtonFromAddressSearch() {
+        onPage.clickOnCrossBackButtonFromAddressSearch();
+    }
 }

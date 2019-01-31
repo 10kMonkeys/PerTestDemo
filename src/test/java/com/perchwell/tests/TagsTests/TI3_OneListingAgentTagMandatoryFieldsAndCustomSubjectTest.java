@@ -43,7 +43,7 @@ public class TI3_OneListingAgentTagMandatoryFieldsAndCustomSubjectTest extends S
         user.atContactListingAgentPage.hideKeyboard();
         user.atContactListingAgentPage.checkIfSendEmailButtonIsEnabled();
         user.atContactListingAgentPage.clickOnSendEmailButton();
-        user.atMyTagsPage.checkListingsIsSelected(1);
+        user.atMyTagsPage.checkListingsAreSelected(1);
         user.atSellersAgentPage.shouldContactEmailSentToOneAgent();
     }
 }

@@ -2094,4 +2094,8 @@ public class SearchPage extends TechHelper {
     public void singleUpSwipeForAndroid() {
         Helper.singleUpShortSwipeAndroid();
     }
+
+    public void clickOnCrossBackButtonFromAddressSearch() {
+        element(addressSearchCancelButton).click();
+    }
 }

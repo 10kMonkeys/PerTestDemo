@@ -198,6 +198,9 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'ADDRESS:' AND visible == 1")
 	private List<WebElement> visibleAddressesList;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'ADDRESS:'")
+	private List<WebElement> addresseslist;
+
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
 	private WebElement firstTestListingWithOneAgentCheckbox;
 
@@ -924,6 +927,7 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void selectFirstListings() {
+		universalVerticalShortSwipe(firstContactListingCheckbox);
 		element(firstContactListingCheckbox).click();
 	}
 
@@ -935,11 +939,9 @@ public class PerchwellPage extends TechHelper {
 		element(thirdContactListingCheckbox).click();
 	}
 
-	public void getThreeFirstAddresses() {
-		int c = 1;
-
-		for(int i = 0; i < 3; i++) {
-			SessionVariables.addValueInSessionVariable("listingAddress" + (i + c), addressesList.get(i).getAttribute("value"));
+	public void getListingsAddresses(int amount) {
+		for(int i = 0; i < amount; i++) {
+			SessionVariables.addValueInSessionVariable("listingAddress" + (i + 1), addressesList.get(i).getAttribute("value"));
 		}
 	}
 
@@ -961,5 +963,20 @@ public class PerchwellPage extends TechHelper {
 
 	public void clickOnTagSelectedListingsOption() {
 		element(tagSelectedListingsOption).click();
+	}
+
+	public void clickOnDeselectAllListingsButton() {
+		element(deselectAllButton).click();
+	}
+
+	public void selectThirdAndFourthListingsByAddress() {
+		WebElement thirdListingsCheckBox = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: unselected "
+				+ SessionVariables.getValueFromSessionVariable("listingAddress3") + "'"));
+		WebElement fourthListingsCheckBox = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: unselected "
+				+ SessionVariables.getValueFromSessionVariable("listingAddress4") + "'"));
+		universalVerticalSwipe(thirdListingsCheckBox);
+		element(thirdListingsCheckBox).click();
+		universalVerticalSwipe(fourthListingsCheckBox);
+		element(fourthListingsCheckBox).click();
 	}
 }

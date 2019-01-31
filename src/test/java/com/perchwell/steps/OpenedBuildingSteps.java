@@ -370,5 +370,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void shouldSeeSpecificClient() {
 		onPage.shouldSeeSpecificClient();
 	}
+
+	@Step
+	public void getFifthBuildingAddress() {
+		onPage.getFifthBuildingAddress();
+	}
 }
 

@@ -569,12 +569,22 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void getThreeFirstAddresses() {
-		onPage.getThreeFirstAddresses();
+	public void getListingsAddresses(int amount) {
+		onPage.getListingsAddresses(amount);
 	}
 
 	@Step
 	public void clickOnTagSelectedListingsOption() {
 		onPage.clickOnTagSelectedListingsOption();
+	}
+
+	@Step
+	public void selectThirdAndFourthListingsByAddress() {
+		onPage.selectThirdAndFourthListingsByAddress();
+	}
+
+	@Step
+	public void clickOnDeselectAllListingsButton() {
+		onPage.clickOnDeselectAllListingsButton();
 	}
 }

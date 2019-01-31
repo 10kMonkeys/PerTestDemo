@@ -47,7 +47,7 @@ public class OpenedBuildingPage extends TechHelper {
 	private List<WebElement> deleteButtonList;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
 	private WebElement buildingAddress;
 
 	@iOSXCUITFindBy(accessibility = "Compare Bar Button")
@@ -786,5 +786,9 @@ public class OpenedBuildingPage extends TechHelper {
 		setImplicitTimeout(3, TimeUnit.SECONDS);
 		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Client"))).shouldBeVisible();
 		resetImplicitTimeout();
+	}
+
+	public void getFifthBuildingAddress() {
+		SessionVariables.addValueInSessionVariable("listingAddress" + 5, buildingAddress.getAttribute("value"));
 	}
 }
