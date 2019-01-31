@@ -131,8 +131,8 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldSeeAddedTag() {
-		onPage.shouldSeeAddedTag();
+	public void shouldSeeAddedExistingTag() {
+		onPage.shouldSeeAddedExistingTag();
 	}
 
 	@Step
@@ -374,6 +374,11 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	@Step
 	public void getFifthBuildingAddress() {
 		onPage.getFifthBuildingAddress();
+	}
+
+	@Step
+	public void shouldSeeAddedNewTag() {
+		onPage.shouldSeeAddedNewTag();
 	}
 }
 

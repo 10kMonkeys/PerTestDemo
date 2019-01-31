@@ -280,4 +280,33 @@ public class TagsSteps extends ScenarioSteps {
 	public void findAndSelectSecondCreatedTag() {
 		onPage.findAndSelectSecondCreatedTag();
 	}
+
+	@Step
+	public void shouldSeeJustCreatedTagsPill() {
+		onPage.shouldSeeJustCreatedTagsPill();
+	}
+
+	public void justCreatedTagShouldBeChecked() {
+		onPage.justCreatedTagShouldBeChecked();
+	}
+
+	@Step
+	public void shouldSeeFirstExistingTagsPill() {
+		onPage.shouldSeeFirstExistingTagsPill();
+	}
+
+	@Step
+	public void firstExistingTagShouldBeChecked() {
+		onPage.firstExistingTagShouldBeChecked();
+	}
+
+	@Step
+	public void findAndSelectJustCreatedTag() {
+		onPage.findAndSelectJustCreatedTag();
+	}
+
+	@Step
+	public void findAndSelectFirstExistingTag() {
+		onPage.findAndSelectFirstExistingTag();
+	}
 }

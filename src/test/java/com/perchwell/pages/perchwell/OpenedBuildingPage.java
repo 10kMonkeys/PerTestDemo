@@ -475,7 +475,7 @@ public class OpenedBuildingPage extends TechHelper {
 		}
     }
 
-	public void shouldSeeAddedTag() {
+	public void shouldSeeAddedExistingTag() {
 		if(Config.isAndroid()) {
 			element(MobileBy.xpath("//*[contains(@text, '" + SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "')]")).shouldBeVisible();
 		} else {
@@ -790,5 +790,9 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void getFifthBuildingAddress() {
 		SessionVariables.addValueInSessionVariable("listingAddress" + 5, buildingAddress.getAttribute("value"));
+	}
+
+	public void shouldSeeAddedNewTag() {
+		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"))).shouldBeVisible();
 	}
 }
