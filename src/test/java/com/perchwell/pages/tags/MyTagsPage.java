@@ -179,16 +179,16 @@ public class MyTagsPage extends TechHelper {
     }
 
 	public void checkFirstListingsIsSelected() {
-		element(MobileBy.iOSNsPredicateString("name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress1") + "'")).shouldBeVisible();
+		element(MobileBy.iOSNsPredicateString("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldBePresent();
 	}
 
 	public void checkSecondListingsIsSelected() {
-		element(MobileBy.iOSNsPredicateString("name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress2") + "'")).shouldBeVisible();
+		element(MobileBy.iOSNsPredicateString("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).shouldBePresent();
 	}
 
 	public void checkThirdListingsIsSelected() {
 		universalSingleSwipe();
-		element(MobileBy.iOSNsPredicateString("name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress3") + "'")).shouldBeVisible();
+		element(MobileBy.iOSNsPredicateString("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress3") + "'$]")).shouldBePresent();
 	}
 }
 

@@ -280,4 +280,33 @@ public class TagsSteps extends ScenarioSteps {
 	public void findAndSelectSecondCreatedTag() {
 		onPage.findAndSelectSecondCreatedTag();
 	}
+
+	@Step
+	public void checkNoOneTagPillIsShown() {
+		onPage.checkNoOneTagIsAdded();
+	}
+
+	@Step
+	public void clickOnFirstAddedTagPil() {
+		onPage.clickOnFirstAddedTagPil(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+	}
+
+	@Step
+	public void clickOnJustAddedTagPil() {
+		onPage.clickOnFirstAddedTagPil(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
+	}
+
+	@Step
+	public void noOneTagWithItemIsShown() {
+		onPage.noOneTagWithItemIsShown();
+
+	}
+
+	public void allTagsAreDeselected(int amount) {
+		onPage.allTagsAreDeselected(amount);
+	}
+
+	public void oneItemForSearchedTagIsShown() {
+		onPage.oneItemForSearchedTagIsShown();
+	}
 }

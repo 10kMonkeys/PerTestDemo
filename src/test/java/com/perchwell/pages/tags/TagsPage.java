@@ -102,6 +102,12 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name == 'Shared with clients'$][1]")
 	private WebElement sharedWithClientLabel;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'item'")
+	private WebElement oneItem;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'image: tag deselected'")
+	private List<WebElement> uncheckedTagsList;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -415,5 +421,29 @@ public class TagsPage extends TechHelper {
 	public void	findAndSelectSecondCreatedTag() {
 		element(searchTagTexBox).sendKeys(SessionVariables.getValueFromSessionVariable("Second_tag"));
 		element(firstTag).click();
+	}
+
+	public void checkNoOneTagIsAdded() {
+		setImplicitTimeout(1, SECONDS);
+		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'Remove Button:'")).size());
+		resetImplicitTimeout();
+	}
+
+	public void clickOnFirstAddedTagPil(String tag) {
+		element(MobileBy.AccessibilityId(tag)).click();
+	}
+
+	public void noOneTagWithItemIsShown() {
+		setImplicitTimeout(3, SECONDS);
+		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'item'")).size());
+		resetImplicitTimeout();
+	}
+
+	public void allTagsAreDeselected(int amount) {
+		Assert.assertEquals(amount, uncheckedTagsList.size());
+	}
+
+	public void oneItemForSearchedTagIsShown() {
+		element(oneItem).shouldBeVisible();
 	}
 }

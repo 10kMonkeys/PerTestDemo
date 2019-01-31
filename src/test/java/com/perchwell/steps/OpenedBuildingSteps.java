@@ -363,7 +363,7 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 
     @Step
 	public void shouldNotSeeAddedTag() {
-		onPage.shouldNotSeeAddedTag();
+		onPage.shouldNotSeeAddedTag(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
 
 	@Step
@@ -374,6 +374,11 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	@Step
 	public void getFifthBuildingAddress() {
 		onPage.getFifthBuildingAddress();
+	}
+
+	@Step
+	public void shouldNotSeeJustCreatedTag() {
+		onPage.shouldNotSeeAddedTag(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
 }
 
