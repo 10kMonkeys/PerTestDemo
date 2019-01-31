@@ -355,12 +355,13 @@ public class TagsPage extends TechHelper {
 		if (element.length() == 19) {
 			tagsItemsValue = 0;
 		} else {
-			tagsItemsValue = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "").replaceAll("[ items]", ""));
+			tagsItemsValue = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "")
+					.replace(" items", "").replace("   ", ""));
 		}
 	}
 
 	public void clickOnFirstClientTag() {
-		String clientValue = firstClientTag.getAttribute("value").replace(" items", "");
+		String clientValue = firstClientTag.getAttribute("value").replace(" items", "").replace("  ", "");
 		String processedClientValue = clientValue.substring(0, clientValue.lastIndexOf(" "));
 		SessionVariables.addValueInSessionVariable("First_Existing_Tag", processedClientValue);
 		element(firstClientTag).click();
@@ -374,7 +375,8 @@ public class TagsPage extends TechHelper {
 		if (element.length() == 19) {
 			itemsAmount = 0;
 		} else {
-			itemsAmount = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "").replaceAll("[ items]", ""));
+			itemsAmount = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "")
+					.replace(" items", "").replace("   ", ""));
 		}
 		Assert.assertEquals(tagsItemsValue, itemsAmount-value);
 	}
@@ -403,5 +405,15 @@ public class TagsPage extends TechHelper {
 				+ SessionVariables.getValueFromSessionVariable("User_name") + "'"));
 
 		Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 61, getYPositionOfElement(clientTag));
+	}
+
+	public void findAndSelectFirstCreatedTag() {
+		element(searchTagTexBox).sendKeys(SessionVariables.getValueFromSessionVariable("First_tag"));
+		element(firstTag).click();
+	}
+
+	public void	findAndSelectSecondCreatedTag() {
+		element(searchTagTexBox).sendKeys(SessionVariables.getValueFromSessionVariable("Second_tag"));
+		element(firstTag).click();
 	}
 }

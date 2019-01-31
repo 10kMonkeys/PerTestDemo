@@ -1135,4 +1135,9 @@ public class SearchSteps extends ScenarioSteps {
     public void clearAddressSearchField() {
         onPage.clearAddressSearchField();
     }
+
+    @Step
+    public void clickOnCrossBackButtonFromAddressSearch() {
+        onPage.clickOnCrossBackButtonFromAddressSearch();
+    }
 }

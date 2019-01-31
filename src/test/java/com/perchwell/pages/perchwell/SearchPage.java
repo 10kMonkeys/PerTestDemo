@@ -2112,4 +2112,8 @@ public class SearchPage extends TechHelper {
     public void clearAddressSearchField() {
         element(searchAddressField).clear();
     }
+
+    public void clickOnCrossBackButtonFromAddressSearch() {
+        element(addressSearchCancelButton).click();
+    }
 }

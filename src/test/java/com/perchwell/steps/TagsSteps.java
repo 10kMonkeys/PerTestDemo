@@ -270,4 +270,14 @@ public class TagsSteps extends ScenarioSteps {
 	public void checkClientTagBelowSharedWithClientLabel() {
 		onPage.checkClientTagBelowSharedWithClientLabel();
 	}
+
+	@Step
+	public void findAndSelectFirstCreatedTag() {
+		onPage.findAndSelectFirstCreatedTag();
+	}
+
+	@Step
+	public void findAndSelectSecondCreatedTag() {
+		onPage.findAndSelectSecondCreatedTag();
+	}
 }

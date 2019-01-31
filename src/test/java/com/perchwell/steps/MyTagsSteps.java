@@ -82,6 +82,31 @@ public class MyTagsSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void checkIfFourListingsAndBuildingAreDisplayed() {
+		onPage.checkIfFourListingsAndBuildingAreDisplayed();
+	}
+
+	@Step
+	public void clickOnFirstTagsPill() {
+		onPage.clickOnFirstTagsPill();
+	}
+
+	@Step
+	public void checkIfTwoLastListingsAndBuildingAreDisplayed() {
+		onPage.checkIfTwoLastListingsAndBuildingAreDisplayed();
+	}
+
+	@Step
+	public void swipeDownSecondTagsPill() {
+		onPage.swipeDownSecondTagsPill();
+	}
+
+	@Step
+	public void checkTaggedListingsAmount(int listingsAmount) {
+		onPage.checkTaggedListingsAmount(listingsAmount);
+	}
+
+	@Step
     public void checkListingsAreSelected(int value) {
 		onPage.checkListingsAreSelected(value);
     }

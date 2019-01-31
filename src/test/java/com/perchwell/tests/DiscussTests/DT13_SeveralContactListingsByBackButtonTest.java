@@ -15,7 +15,7 @@ public class DT13_SeveralContactListingsByBackButtonTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.getThreeFirstAddresses();
+        user.atPerchwellPage.getListingsAddresses(3);
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.selectThirdListingAfterSecond();

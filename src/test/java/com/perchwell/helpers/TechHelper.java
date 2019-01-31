@@ -13,6 +13,8 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
+
 
 public class TechHelper extends BasePage {
 
@@ -229,6 +231,18 @@ public class TechHelper extends BasePage {
             swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
             counter += 1;
         }
+    }
+
+    public void swipeUpElementIOS(WebElement element, int duration) {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        int x = (int) (element.getLocation().getX());
+        int startPoint =  (int) (element.getLocation().getY());
+        int endPoint = (int) (element.getLocation().getY()+duration);
+
+        new TouchAction(appiumDriver).longPress(x, startPoint).moveTo(x, endPoint).release().perform();
     }
 
     //endregion
