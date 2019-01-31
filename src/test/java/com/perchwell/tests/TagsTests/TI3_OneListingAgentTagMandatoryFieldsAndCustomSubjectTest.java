@@ -18,6 +18,7 @@ public class TI3_OneListingAgentTagMandatoryFieldsAndCustomSubjectTest extends S
         user.atSellersAgentPage.swipeDownUntilSellersAgentSection();
         user.atOpenedBuildingPage.getTestAgentEmail();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
+        user.atPerchwellPage.getFirstBuildingAddress();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.clickOnMoreOptionsButton();
@@ -33,7 +34,7 @@ public class TI3_OneListingAgentTagMandatoryFieldsAndCustomSubjectTest extends S
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.selectContactListingAgentsOption();
         user.atContactListingAgentPage.checkIfSendEmailButtonIsDisabled();
-        user.atContactListingAgentPage.fillInMessageField(DiscussionMessages.HELLO);
+        user.atContactListingAgentPage.fillInMessageField(DiscussionMessages.MESSAGE);
         user.atContactListingAgentPage.clickOnCollapseIcon();
         user.atContactListingAgentPage.checkIfSendEmailButtonIsEnabled();
         user.atContactListingAgentPage.clearSubjectField();
@@ -43,7 +44,7 @@ public class TI3_OneListingAgentTagMandatoryFieldsAndCustomSubjectTest extends S
         user.atContactListingAgentPage.hideKeyboard();
         user.atContactListingAgentPage.checkIfSendEmailButtonIsEnabled();
         user.atContactListingAgentPage.clickOnSendEmailButton();
-        user.atMyTagsPage.checkListingsIsSelected(1);
+        user.atMyTagsPage.checkFirstListingsIsSelected();
         user.atSellersAgentPage.shouldContactEmailSentToOneAgent();
     }
 }

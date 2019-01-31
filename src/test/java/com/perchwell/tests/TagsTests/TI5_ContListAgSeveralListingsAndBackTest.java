@@ -27,17 +27,17 @@ public class TI5_ContListAgSeveralListingsAndBackTest extends SampleTest {
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnSearchButton();
         user.atPerchwellPage.selectFirstListing();
-        user.atPerchwellPage.selectFirstListing();
-        user.atPerchwellPage.selectFirstListing();
+//        user.atPerchwellPage.selectSecondListingAfterFirst();
+//        user.atPerchwellPage.selectThirdListingAfterSecond();
+        user.atPerchwellPage.clickOnSelectAll(); //new
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnContactListingAgentsButton();
         user.atContactListingAgentPage.clickOnBackButton();
 
-        //check 3 selected listings
+        user.atMyTagsPage.checkThreeListingsAreSelected();
 
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnContactListingAgentsButton();
-
         user.atContactListingAgentPage.clearSubjectField();
         user.atContactListingAgentPage.fillInSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
         user.atContactListingAgentPage.hideKeyboard();

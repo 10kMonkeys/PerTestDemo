@@ -82,7 +82,20 @@ public class MyTagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-    public void checkListingsIsSelected(int value) {
-		onPage.checkListingsIsSelected(value);
+    public void checkListingsAreSelected(int value) {
+		onPage.checkListingsAreSelected(value);
     }
+
+    @Step
+	public void checkThreeListingsAreSelected() {
+		onPage.checkFirstListingsIsSelected();
+		onPage.checkSecondListingsIsSelected();
+		onPage.checkThirdListingsIsSelected();
+
+	}
+
+	@Step
+	public void checkFirstListingsIsSelected() {
+		onPage.checkFirstListingsIsSelected();
+	}
 }

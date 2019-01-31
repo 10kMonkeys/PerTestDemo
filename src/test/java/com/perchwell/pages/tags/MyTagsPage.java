@@ -3,6 +3,8 @@ package com.perchwell.pages.tags;
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.SessionVariables;
+import com.perchwell.helpers.TechHelper;
 import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -16,7 +18,7 @@ import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class MyTagsPage extends BasePage {
+public class MyTagsPage extends TechHelper {
 
 	//region WebElements
 
@@ -135,8 +137,24 @@ public class MyTagsPage extends BasePage {
 		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", buildingPricesList) == 0);
 	}
 
-    public void checkListingsIsSelected(int value) {
+    public void checkListingsAreSelected(int value) {
 		Assert.assertEquals(value, selectedListingsList.size());
     }
+
+	public void checkFirstListingsIsSelected() {
+		element(MobileBy.iOSNsPredicateString("name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress1") + "'")).shouldBeVisible();
+	}
+
+	public void checkSecondListingsIsSelected() {
+		element(MobileBy.iOSNsPredicateString("name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress2") + "'")).shouldBeVisible();
+	}
+
+	public void checkThirdListingsIsSelected() {
+		universalSingleSwipe();
+		element(MobileBy.iOSNsPredicateString("name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress3") + "'")).shouldBeVisible();
+
+	}
+
+
 }
 

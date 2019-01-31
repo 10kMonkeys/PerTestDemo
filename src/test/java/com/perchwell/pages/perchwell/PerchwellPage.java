@@ -924,6 +924,7 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void selectFirstListings() {
+		swipeDownUntilElementVisible(firstContactListingCheckbox);
 		element(firstContactListingCheckbox).click();
 	}
 
@@ -961,5 +962,9 @@ public class PerchwellPage extends TechHelper {
 
 	public void clickOnTagSelectedListingsOption() {
 		element(tagSelectedListingsOption).click();
+	}
+
+	public void clickOnSelectAll() {
+		element(slectAllButton).click();
 	}
 }
