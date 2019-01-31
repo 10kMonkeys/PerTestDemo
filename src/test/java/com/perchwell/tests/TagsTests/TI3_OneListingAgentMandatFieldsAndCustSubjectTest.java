@@ -5,7 +5,7 @@ import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class TI3_OneListingAgentTagMandatoryFieldsAndCustomSubjectTest extends SampleTest {
+public class TI3_OneListingAgentMandatFieldsAndCustSubjectTest extends SampleTest {
 
     @Test
     public void oneListingAgentTagMandatoryFieldsAndCustomSubject() {
