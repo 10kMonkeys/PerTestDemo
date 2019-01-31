@@ -392,7 +392,7 @@ public class TagsPage extends TechHelper {
 				SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).getAttribute("name");
 		String checkMarkNumber = element.substring(element.length()-5);
 
-		element(MobileBy.iOSNsPredicateString("name == 'image: tag deselected '" + checkMarkNumber));
+		element(MobileBy.iOSNsPredicateString("name == 'image: tag deselected '" + checkMarkNumber)).shouldNotBeVisible();
     }
 
 	public void searchJustCreatedClientTag(String userName) {
@@ -445,5 +445,39 @@ public class TagsPage extends TechHelper {
 
 	public void oneItemForSearchedTagIsShown() {
 		element(oneItem).shouldBeVisible();
+	}
+
+	public void shouldSeeJustCreatedTagsPill() {
+		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"))).shouldBeVisible();
+	}
+
+	public void justCreatedTagShouldBeChecked() {
+		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+				SessionVariables.getValueFromSessionVariable("Just_Created_Tag") + "'")).getAttribute("name");
+		String checkMarkNumber = element.substring(element.length()-5);
+		element(MobileBy.AccessibilityId("image: tag selected " + checkMarkNumber)).shouldBeVisible();
+	}
+
+	public void shouldSeeFirstExistingTagsPill() {
+		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).shouldBeVisible();
+	}
+
+	public void firstExistingTagShouldBeChecked() {
+		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+				SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).getAttribute("name");
+		String checkMarkNumber = element.substring(element.length() - 5);
+		element(MobileBy.AccessibilityId("image: tag selected " + checkMarkNumber)).shouldBeVisible();
+	}
+
+	public void findAndSelectJustCreatedTag() {
+		element(searchTagTexBox).sendKeys(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
+		element(firstTag).click();
+	}
+
+	public void findAndSelectFirstExistingTag() {
+		WebElement element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+				SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'"));
+		element(searchTagTexBox).sendKeys(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+		element.click();
 	}
 }

@@ -302,11 +302,43 @@ public class TagsSteps extends ScenarioSteps {
 
 	}
 
+	@Step
 	public void allTagsAreDeselected(int amount) {
 		onPage.allTagsAreDeselected(amount);
 	}
 
+	@Step
 	public void oneItemForSearchedTagIsShown() {
 		onPage.oneItemForSearchedTagIsShown();
+	}
+
+	@Step
+	public void shouldSeeJustCreatedTagsPill() {
+		onPage.shouldSeeJustCreatedTagsPill();
+	}
+
+	@Step
+	public void justCreatedTagShouldBeChecked() {
+		onPage.justCreatedTagShouldBeChecked();
+	}
+
+	@Step
+	public void shouldSeeFirstExistingTagsPill() {
+		onPage.shouldSeeFirstExistingTagsPill();
+	}
+
+	@Step
+	public void firstExistingTagShouldBeChecked() {
+		onPage.firstExistingTagShouldBeChecked();
+	}
+
+	@Step
+	public void findAndSelectJustCreatedTag() {
+		onPage.findAndSelectJustCreatedTag();
+	}
+
+	@Step
+	public void findAndSelectFirstExistingTag() {
+		onPage.findAndSelectFirstExistingTag();
 	}
 }

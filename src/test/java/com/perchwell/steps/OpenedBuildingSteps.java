@@ -131,8 +131,8 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldSeeAddedTag() {
-		onPage.shouldSeeAddedTag();
+	public void shouldSeeAddedExistingTag() {
+		onPage.shouldSeeAddedExistingTag();
 	}
 
 	@Step
@@ -377,8 +377,14 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
+
 	public void shouldNotSeeJustCreatedTag() {
 		onPage.shouldNotSeeAddedTag(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
+	}
+
+	@Step
+	public void shouldSeeAddedNewTag() {
+		onPage.shouldSeeAddedNewTag();
 	}
 }
 
