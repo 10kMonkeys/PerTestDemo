@@ -190,5 +190,15 @@ public class MyTagsPage extends TechHelper {
 		universalSingleSwipe();
 		element(MobileBy.iOSNsPredicateString("name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress3") + "'")).shouldBeVisible();
 	}
+
+	public void shouldSeeTaggedBuilding() {
+				String valueToCheck = element(MobileBy.iOSNsPredicateString("name BEGINSWITH 'ADDRESS: ' AND visible == 1")).getAttribute("value");
+		String checkableValue = SessionVariables.getValueFromSessionVariable("listingAddress5");
+		Assert.assertEquals(valueToCheck.toUpperCase(), checkableValue.toUpperCase());
+	}
+
+	public void clickOnJustCreatedTagsPill() {
+		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"))).click();
+	}
 }
 

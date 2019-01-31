@@ -123,4 +123,14 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void checkFirstListingsIsSelected() {
 		onPage.checkFirstListingsIsSelected();
 	}
+
+	@Step
+	public void shouldSeeTaggedBuilding() {
+		onPage.shouldSeeTaggedBuilding();
+	}
+
+	@Step
+	public void clickOnJustCreatedTagsPill() {
+		onPage.clickOnJustCreatedTagsPill();
+	}
 }
