@@ -131,8 +131,8 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldSeeAddedExistingTag() {
-		onPage.shouldSeeAddedExistingTag();
+	public void shouldSeeFirstExistingTag() {
+		onPage.shouldSeeSpecificTag(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
 
 	@Step
@@ -362,8 +362,8 @@ public class OpenedBuildingSteps extends ScenarioSteps {
     }
 
     @Step
-	public void shouldNotSeeAddedTag() {
-		onPage.shouldNotSeeAddedTag(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+	public void shouldNotSeeFirstExistingTag() {
+		onPage.shouldNotSeeSpecificTag(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
 
 	@Step
@@ -379,12 +379,12 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	@Step
 
 	public void shouldNotSeeJustCreatedTag() {
-		onPage.shouldNotSeeAddedTag(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
+		onPage.shouldNotSeeSpecificTag(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
 
 	@Step
 	public void shouldSeeAddedNewTag() {
-		onPage.shouldSeeAddedNewTag();
+		onPage.shouldSeeSpecificTag(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
 }
 

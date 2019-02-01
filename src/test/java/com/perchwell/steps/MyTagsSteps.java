@@ -88,7 +88,7 @@ public class MyTagsSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnFirstTagsPill() {
-		onPage.clickOnFirstTagsPill();
+		onPage.clickOnSpecificTagsPill(SessionVariables.getValueFromSessionVariable("First_tag"));
 	}
 
 	@Step
@@ -131,6 +131,6 @@ public class MyTagsSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnJustCreatedTagsPill() {
-		onPage.clickOnJustCreatedTagsPill();
+		onPage.clickOnSpecificTagsPill(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
 }

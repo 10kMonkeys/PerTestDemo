@@ -29,7 +29,7 @@ public class TI4_OneListingTwoAgentsDefSubjectAndCCTest extends SampleTest {
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
-        user.atTagsPage.clickOnFirstTag();
+        user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.clickOnSearchButton();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.clickOnMoreOptionsButton();

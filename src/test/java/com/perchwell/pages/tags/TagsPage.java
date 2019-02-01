@@ -108,6 +108,9 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'image: tag deselected'")
 	private List<WebElement> uncheckedTagsList;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'image: tag selected'")
+	private List<WebElement> checkedTagsList;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -224,7 +227,7 @@ public class TagsPage extends TechHelper {
 		}
 	}
 
-	public void clickOnFirstTag() {
+	public void clickOnFirstTagAndGetValue() {
 		if(Config.isAndroid()) {
 			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("text"));
 		} else {
@@ -362,12 +365,13 @@ public class TagsPage extends TechHelper {
 			tagsItemsValue = 0;
 		} else {
 			tagsItemsValue = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "")
-					.replace(" items", "").replace("   ", ""));
+					.replace(" item", "").replace("   ", "").replace("s", ""));
 		}
 	}
 
 	public void clickOnFirstClientTag() {
-		String clientValue = firstClientTag.getAttribute("value").replace(" items", "").replace("  ", "");
+		String clientValue = firstClientTag.getAttribute("value").replace(" item", "")
+                .replace("  ", "").replace("s", "");
 		String processedClientValue = clientValue.substring(0, clientValue.lastIndexOf(" "));
 		SessionVariables.addValueInSessionVariable("First_Existing_Tag", processedClientValue);
 		element(firstClientTag).click();
@@ -382,7 +386,7 @@ public class TagsPage extends TechHelper {
 			itemsAmount = 0;
 		} else {
 			itemsAmount = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "")
-					.replace(" items", "").replace("   ", ""));
+					.replace(" item", "").replace("   ", "").replace("s", ""));
 		}
 		Assert.assertEquals(tagsItemsValue, itemsAmount-value);
 	}
@@ -394,10 +398,6 @@ public class TagsPage extends TechHelper {
 
 		element(MobileBy.iOSNsPredicateString("name == 'image: tag deselected '" + checkMarkNumber)).shouldNotBeVisible();
     }
-
-	public void searchJustCreatedClientTag(String userName) {
-		element(searchTagTexBox).sendKeys(userName);
-	}
 
 	public void checkTagBelowOtherTagsLabel() {
 		WebElement tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
@@ -411,16 +411,6 @@ public class TagsPage extends TechHelper {
 				+ SessionVariables.getValueFromSessionVariable("User_name") + "'"));
 
 		Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 61, getYPositionOfElement(clientTag));
-	}
-
-	public void findAndSelectFirstCreatedTag() {
-		element(searchTagTexBox).sendKeys(SessionVariables.getValueFromSessionVariable("First_tag"));
-		element(firstTag).click();
-	}
-
-	public void	findAndSelectSecondCreatedTag() {
-		element(searchTagTexBox).sendKeys(SessionVariables.getValueFromSessionVariable("Second_tag"));
-		element(firstTag).click();
 	}
 
 	public void checkNoOneTagIsAdded() {
@@ -443,6 +433,10 @@ public class TagsPage extends TechHelper {
 		Assert.assertEquals(amount, uncheckedTagsList.size());
 	}
 
+	public void allTagsAreSelected(int amount) {
+		Assert.assertEquals(amount, checkedTagsList.size());
+	}
+
 	public void oneItemForSearchedTagIsShown() {
 		element(oneItem).shouldBeVisible();
 	}
@@ -451,33 +445,11 @@ public class TagsPage extends TechHelper {
 		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"))).shouldBeVisible();
 	}
 
-	public void justCreatedTagShouldBeChecked() {
-		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
-				SessionVariables.getValueFromSessionVariable("Just_Created_Tag") + "'")).getAttribute("name");
-		String checkMarkNumber = element.substring(element.length()-5);
-		element(MobileBy.AccessibilityId("image: tag selected " + checkMarkNumber)).shouldBeVisible();
-	}
-
 	public void shouldSeeFirstExistingTagsPill() {
 		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).shouldBeVisible();
 	}
 
-	public void firstExistingTagShouldBeChecked() {
-		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
-				SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).getAttribute("name");
-		String checkMarkNumber = element.substring(element.length() - 5);
-		element(MobileBy.AccessibilityId("image: tag selected " + checkMarkNumber)).shouldBeVisible();
-	}
-
-	public void findAndSelectJustCreatedTag() {
-		element(searchTagTexBox).sendKeys(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
+	public void clickOnFirstTag() {
 		element(firstTag).click();
-	}
-
-	public void findAndSelectFirstExistingTag() {
-		WebElement element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
-				SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'"));
-		element(searchTagTexBox).sendKeys(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
-		element.click();
 	}
 }

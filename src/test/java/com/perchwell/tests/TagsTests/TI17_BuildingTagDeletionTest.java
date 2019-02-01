@@ -24,13 +24,13 @@ public class TI17_BuildingTagDeletionTest extends SampleTest {
         user.atOpenedBuildingPage.shouldNotSeeJustCreatedTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.checkNoOneTagPillIsShown();
-        user.atTagsPage.clickOnFirstTag();
+        user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.clickOnExistingTag();
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atOpenedBuildingPage.shouldNotSeeAddedTag();
+        user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.createAndSaveNewTag();
         user.atTagsPage.searchJustCreatedTag();
