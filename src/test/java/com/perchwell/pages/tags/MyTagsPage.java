@@ -179,16 +179,17 @@ public class MyTagsPage extends TechHelper {
     }
 
 	public void checkFirstListingsIsSelected() {
-		element(MobileBy.iOSNsPredicateString("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldBePresent();
+		System.out.println("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]");
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldBePresent();
 	}
 
 	public void checkSecondListingsIsSelected() {
-		element(MobileBy.iOSNsPredicateString("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).shouldBePresent();
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).shouldBePresent();
 	}
 
 	public void checkThirdListingsIsSelected() {
 		universalSingleSwipe();
-		element(MobileBy.iOSNsPredicateString("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress3") + "'$]")).shouldBePresent();
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress3") + "'$]")).shouldBePresent();
 	}
 
 	public void shouldSeeTaggedBuilding() {
