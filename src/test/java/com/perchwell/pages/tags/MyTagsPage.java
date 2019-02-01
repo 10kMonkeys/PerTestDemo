@@ -150,10 +150,6 @@ public class MyTagsPage extends TechHelper {
 		softAssertions.assertAll();
 	}
 
-	public void clickOnFirstTagsPill() {
-		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_tag"))).click();
-	}
-
 	public void checkIfTwoLastListingsAndBuildingAreDisplayed() {
 		SoftAssertions softAssertions = new SoftAssertions();
 		softAssertions.assertThat(!element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).isPresent());
@@ -198,8 +194,8 @@ public class MyTagsPage extends TechHelper {
 		Assert.assertEquals(valueToCheck.toUpperCase(), checkableValue.toUpperCase());
 	}
 
-	public void clickOnJustCreatedTagsPill() {
-		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"))).click();
+	public void clickOnSpecificTagsPill(String tagName) {
+		element(MobileBy.AccessibilityId(tagName)).click();
 	}
 }
 

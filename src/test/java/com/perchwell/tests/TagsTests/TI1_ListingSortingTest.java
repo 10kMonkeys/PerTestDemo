@@ -22,7 +22,7 @@ public class TI1_ListingSortingTest extends SampleTest {
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
-        user.atTagsPage.clickOnFirstTag();
+        user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.clickOnSearchButton();
         user.atMyTagsPage.checkListingAmount(3);
         user.atMyTagsPage.clickOnSortedByButton();

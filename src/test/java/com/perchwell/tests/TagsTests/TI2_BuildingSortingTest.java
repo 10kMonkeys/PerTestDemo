@@ -13,7 +13,7 @@ public class TI2_BuildingSortingTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.inSearchMenu.openAddressSearch(); //search new
+        user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
         user.atSearchPage.openFirstBuilding();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();

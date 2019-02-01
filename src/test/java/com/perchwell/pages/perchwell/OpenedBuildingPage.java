@@ -475,11 +475,11 @@ public class OpenedBuildingPage extends TechHelper {
 		}
     }
 
-	public void shouldSeeAddedExistingTag() {
+	public void shouldSeeSpecificTag(String tagName) {
 		if(Config.isAndroid()) {
-			element(MobileBy.xpath("//*[contains(@text, '" + SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "')]")).shouldBeVisible();
+			element(MobileBy.xpath("//*[contains(@text, '" + tagName + "')]")).shouldBeVisible();
 		} else {
-			element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).shouldBeVisible();
+			element(MobileBy.AccessibilityId(tagName)).shouldBeVisible();
 		}
 	}
 
@@ -776,7 +776,7 @@ public class OpenedBuildingPage extends TechHelper {
 		resetImplicitTimeout();
     }
 
-	public void shouldNotSeeAddedTag(String tag) {
+	public void shouldNotSeeSpecificTag(String tag) {
 		setImplicitTimeout(3, TimeUnit.SECONDS);
 		element(MobileBy.AccessibilityId(tag)).shouldNotBeVisible();
 		resetImplicitTimeout();
