@@ -102,6 +102,11 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void clickOnFirstTagAndGetValue() {
+		onPage.clickOnFirstTagAndGetValue();
+	}
+
+	@Step
 	public void clickOnFirstTag() {
 		onPage.clickOnFirstTag();
 	}
@@ -139,11 +144,6 @@ public class TagsSteps extends ScenarioSteps {
 	@Step
 	public void fillInTagSearchField(String value) {
 		onPage.fillInTagSearchField(value);
-	}
-
-	@Step
-	public void searchJustCreatedTag() {
-		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
 
 	@Step
@@ -228,12 +228,12 @@ public class TagsSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnTagPillInSearchField() {
-		onPage.clickOnTagPillInSearchField();
+		onPage.clickOnSpecificTagPillInSearchField(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
 
 	@Step
 	public void checkIfTagPillIsRemoved() {
-		onPage.checkIfTagPillIsRemoved();
+		onPage.checkIfTagPillIsRemoved(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
 
 	@Step
@@ -258,7 +258,7 @@ public class TagsSteps extends ScenarioSteps {
 
 	@Step
 	public void searchJustCreatedClientTag() {
-		onPage.searchJustCreatedClientTag(SessionVariables.getValueFromSessionVariable("User_name"));
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("User_name"));
 	}
 
 	@Step
@@ -272,23 +272,8 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void findAndSelectFirstCreatedTag() {
-		onPage.findAndSelectFirstCreatedTag();
-	}
-
-	@Step
-	public void findAndSelectSecondCreatedTag() {
-		onPage.findAndSelectSecondCreatedTag();
-	}
-
-	@Step
 	public void checkNoOneTagPillIsShown() {
 		onPage.checkNoOneTagIsAdded();
-	}
-
-	@Step
-	public void clickOnFirstAddedTagPil() {
-		onPage.clickOnFirstAddedTagPil(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
 
 	@Step
@@ -314,31 +299,36 @@ public class TagsSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeJustCreatedTagsPill() {
-		onPage.shouldSeeJustCreatedTagsPill();
-	}
-
-	@Step
-	public void justCreatedTagShouldBeChecked() {
-		onPage.justCreatedTagShouldBeChecked();
+		onPage.shouldSeeSpecificTagsPill(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
 
 	@Step
 	public void shouldSeeFirstExistingTagsPill() {
-		onPage.shouldSeeFirstExistingTagsPill();
+		onPage.shouldSeeSpecificTagsPill(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
 
 	@Step
-	public void firstExistingTagShouldBeChecked() {
-		onPage.firstExistingTagShouldBeChecked();
+	public void allTagsAreSelected(int amount) {
+		onPage.allTagsAreSelected(amount);
 	}
 
 	@Step
-	public void findAndSelectJustCreatedTag() {
-		onPage.findAndSelectJustCreatedTag();
+	public void searchJustCreatedTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
 
 	@Step
-	public void findAndSelectFirstExistingTag() {
-		onPage.findAndSelectFirstExistingTag();
+	public void searchFirstExistingTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+	}
+
+	@Step
+	public void searchSecondCreatedTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Second_tag"));
+	}
+
+	@Step
+	public void searchFirstCreatedTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("First_tag"));
 	}
 }

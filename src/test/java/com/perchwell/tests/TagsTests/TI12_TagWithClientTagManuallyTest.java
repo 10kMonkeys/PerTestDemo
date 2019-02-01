@@ -24,7 +24,7 @@ public class TI12_TagWithClientTagManuallyTest extends SampleTest {
         user.atTagsPage.fillInTagSearchField(SearchRequests.CLIENT0_TEST);
         user.atTagsPage.checkIfClientTagsItemsListIsChanged(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atOpenedBuildingPage.shouldSeeAddedExistingTag();
+        user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();

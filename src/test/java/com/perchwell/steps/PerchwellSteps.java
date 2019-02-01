@@ -591,4 +591,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void clickOnDeselectAllListingsButton() {
 		onPage.clickOnDeselectAllListingsButton();
 	}
+
+	@Step
+	public void clickOnTagIconOnFirstListing() {
+		onPage.clickOnTagIconOnFirstListing();
+	}
 }

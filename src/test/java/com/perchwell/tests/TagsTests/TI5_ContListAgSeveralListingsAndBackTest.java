@@ -24,7 +24,7 @@ public class TI5_ContListAgSeveralListingsAndBackTest extends SampleTest {
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
-        user.atTagsPage.clickOnFirstTag();
+        user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.clickOnSearchButton();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.clickOnSelectAll(); //new

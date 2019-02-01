@@ -237,6 +237,9 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "cell: Tag Selected Listings")
 	private WebElement tagSelectedListingsOption;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
+	private WebElement tagIconOnFirstListing;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -982,5 +985,9 @@ public class PerchwellPage extends TechHelper {
 		element(thirdListingsCheckBox).click();
 		universalVerticalSwipe(fourthListingsCheckBox);
 		element(fourthListingsCheckBox).click();
+	}
+
+	public void clickOnTagIconOnFirstListing() {
+		element(tagIconOnFirstListing).click();
 	}
 }
