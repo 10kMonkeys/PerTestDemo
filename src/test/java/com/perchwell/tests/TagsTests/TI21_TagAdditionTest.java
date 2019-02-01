@@ -17,15 +17,16 @@ public class TI21_TagAdditionTest extends SampleTest {
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.checkTagBelowOtherTagsLabel();
         user.atTagsPage.shouldSeeJustCreatedTagsPill();
-        user.atTagsPage.justCreatedTagShouldBeChecked();
+        user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearTextField();
-        user.atTagsPage.clickOnFirstTag();
-        user.atTagsPage.firstExistingTagShouldBeChecked();
+        user.atTagsPage.clickOnFirstTagAndGetValue();
+        user.atTagsPage.searchFirstExistingTag();
+        user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.shouldSeeAddedNewTag();
-        user.atOpenedBuildingPage.shouldSeeAddedExistingTag();
+        user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
     }
 }

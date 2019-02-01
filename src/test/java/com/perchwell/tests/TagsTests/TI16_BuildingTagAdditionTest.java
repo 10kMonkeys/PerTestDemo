@@ -36,12 +36,12 @@ public class TI16_BuildingTagAdditionTest extends SampleTest {
         user.atSearchPage.clickOnCrossBackButtonFromAddressSearch();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atTagsPage.findJustCreatedTag();
+        user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnSearchButton();
         user.atMyTagsPage.shouldSeeTaggedBuilding();
         user.atMyTagsPage.clickOnJustCreatedTagsPill();
-        user.atTagsPage.findFirstExistingTag();
+        user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnSearchButton();
         user.atMyTagsPage.shouldSeeTaggedBuilding();

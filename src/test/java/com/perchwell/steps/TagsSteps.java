@@ -147,11 +147,6 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void searchJustCreatedTag() {
-		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
-	}
-
-	@Step
 	public void clearTextField() {
 		onPage.clearTextField();
 	}
@@ -233,12 +228,12 @@ public class TagsSteps extends ScenarioSteps {
 
 	@Step
 	public void clickOnTagPillInSearchField() {
-		onPage.clickOnTagPillInSearchField();
+		onPage.clickOnSpecificTagPillInSearchField(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
 
 	@Step
 	public void checkIfTagPillIsRemoved() {
-		onPage.checkIfTagPillIsRemoved();
+		onPage.checkIfTagPillIsRemoved(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
 
 	@Step
@@ -304,12 +299,12 @@ public class TagsSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeJustCreatedTagsPill() {
-		onPage.shouldSeeJustCreatedTagsPill();
+		onPage.shouldSeeSpecificTagsPill(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
 
 	@Step
 	public void shouldSeeFirstExistingTagsPill() {
-		onPage.shouldSeeFirstExistingTagsPill();
+		onPage.shouldSeeSpecificTagsPill(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
 
 	@Step
@@ -318,27 +313,22 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void searchJustCreatedTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
+	}
+
+	@Step
 	public void searchFirstExistingTag() {
 		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
 
 	@Step
-	public void findJustCreatedTag() {
-		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
-	}
-
-	@Step
-	public void findFirstExistingTag() {
-		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
-	}
-
-	@Step
-	public void findSecondCreatedTag() {
+	public void searchSecondCreatedTag() {
 		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Second_tag"));
 	}
 
 	@Step
-	public void findFirstCreatedTag() {
+	public void searchFirstCreatedTag() {
 		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("First_tag"));
 	}
 }

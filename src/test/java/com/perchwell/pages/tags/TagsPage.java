@@ -347,13 +347,13 @@ public class TagsPage extends TechHelper {
 		}
 	}
 
-	public void clickOnTagPillInSearchField() {
-		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).click();
+	public void clickOnSpecificTagPillInSearchField(String tagName) {
+		element(MobileBy.AccessibilityId(tagName)).click();
 	}
 
-	public void checkIfTagPillIsRemoved() {
+	public void checkIfTagPillIsRemoved(String tagName) {
 		setImplicitTimeout(5, SECONDS);
-		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).shouldNotBeVisible();
+		element(MobileBy.AccessibilityId(tagName)).shouldNotBeVisible();
 		resetImplicitTimeout();
 	}
 
@@ -440,12 +440,8 @@ public class TagsPage extends TechHelper {
 		element(oneItem).shouldBeVisible();
 	}
 
-	public void shouldSeeJustCreatedTagsPill() {
-		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"))).shouldBeVisible();
-	}
-
-	public void shouldSeeFirstExistingTagsPill() {
-		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))).shouldBeVisible();
+	public void shouldSeeSpecificTagsPill(String tagName) {
+		element(MobileBy.AccessibilityId(tagName)).shouldBeVisible();
 	}
 
 	public void clickOnFirstTag() {

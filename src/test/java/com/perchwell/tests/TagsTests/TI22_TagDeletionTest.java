@@ -15,17 +15,17 @@ public class TI22_TagDeletionTest extends SampleTest {
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
+        user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.getFirstTagsItemsValue();
-        user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.checkNoOneTagPillIsShown();
-        user.atTagsPage.checkIfTagsItemsListIsChanged(0);
+        user.atTagsPage.checkIfTagsItemsListIsChanged(-1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
-        user.atOpenedBuildingPage.shouldNotSeeAddedTag();
+        user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
@@ -34,9 +34,9 @@ public class TI22_TagDeletionTest extends SampleTest {
         user.atTagsPage.clickOnTagPillInSearchField();
         user.atTagsPage.checkIfTagsCheckMarIsNotSelected();
         user.atTagsPage.checkIfTagPillIsRemoved();
-        user.atTagsPage.checkIfTagsItemsListIsChanged(0);
+        user.atTagsPage.checkIfTagsItemsListIsChanged(-1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
-        user.atOpenedBuildingPage.shouldNotSeeAddedTag();
+        user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
     }
 }
