@@ -345,7 +345,6 @@ public class TagsPage extends TechHelper {
 			tagsItemsValue = Integer.parseInt(element.substring(element
 					.indexOf(" ") + 1).replaceAll("[ items]", ""));
 		}
-
 	}
 
 	public void clickOnTagPillInSearchField() {
