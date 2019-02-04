@@ -31,7 +31,7 @@ public class TI10_TagDeletionTest extends SampleTest {
         user.atTagsPage.clickOnTagPillInSearchField();
         user.atTagsPage.checkIfTagsCheckMarIsNotSelected();
         user.atTagsPage.checkIfTagPillIsRemoved();
-        user.atTagsPage.checkIfTagsItemsListIsChanged(1);
+        user.atTagsPage.checkIfTagsItemsListIsChanged(0);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
     }

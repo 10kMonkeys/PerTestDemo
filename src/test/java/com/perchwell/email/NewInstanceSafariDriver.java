@@ -1,6 +1,5 @@
 package com.perchwell.email;
 
-import com.perchwell.crossPlatform.Config;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.helpers.SessionVariables;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -19,8 +18,8 @@ public abstract class NewInstanceSafariDriver {
 
         safariDriver.navigate().to("https://staging.perchwell.com/accounts/password/edit?reset_password_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));
         AppProperties.INSTANCE.setProperty("new_reset_password",newPassword);
-        WebElement passwordTextBox = safariDriver.findElement(By.xpath("//*[@id='c76']"));
-        WebElement confirmPasswordTextBox = safariDriver.findElement(By.xpath("//*[@id='c76']"));
+        WebElement passwordTextBox = safariDriver.findElement(By.cssSelector("[name='user[password]']"));
+        WebElement confirmPasswordTextBox = safariDriver.findElement(By.xpath("[name='user[password_confirmation]']"));
         WebElement resetPasswordButton = safariDriver.findElement(By.xpath("//*[@id='new_user']/div[3]/input"));
         passwordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("new_reset_password"));
         confirmPasswordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("new_reset_password"));
@@ -36,8 +35,8 @@ public abstract class NewInstanceSafariDriver {
 
         chromeDriver.navigate().to("https://staging.perchwell.com/accounts/password/edit?reset_password_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));
         AppProperties.INSTANCE.setProperty("new_reset_password",newPassword);
-        WebElement passwordTextBox = chromeDriver.findElement(By.xpath("//*[@id='c76']"));
-        WebElement confirmPasswordTextBox = chromeDriver.findElement(By.xpath("//*[@id='c77']"));
+        WebElement passwordTextBox = chromeDriver.findElement(By.cssSelector("[name='user[password]']"));
+        WebElement confirmPasswordTextBox = chromeDriver.findElement(By.xpath("[name='user[password_confirmation]']"));
         WebElement resetPasswordButton = chromeDriver.findElement(By.xpath("//*[@id='new_user']/div[3]/input"));
         passwordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("new_reset_password"));
         confirmPasswordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("new_reset_password"));
@@ -61,8 +60,8 @@ public abstract class NewInstanceSafariDriver {
         WebDriver safariDriver = new SafariDriver();
 
         safariDriver.navigate().to("https://staging.perchwell.com/accounts/password/edit?reset_password_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));
-        WebElement passwordTextBox = safariDriver.findElement(By.xpath("//*[@id='c76']"));
-        WebElement confirmPasswordTextBox = safariDriver.findElement(By.xpath("//*[@id='c77']"));
+        WebElement passwordTextBox = safariDriver.findElement(By.cssSelector("[name='user[password]']"));
+        WebElement confirmPasswordTextBox = safariDriver.findElement(By.xpath("[name='user[password_confirmation]']"));
         WebElement resetPasswordButton = safariDriver.findElement(By.xpath("//*[@id='new_user']/div[3]/input"));
         passwordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("old_reset_password"));
         confirmPasswordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("old_reset_password"));
@@ -92,8 +91,8 @@ public abstract class NewInstanceSafariDriver {
         WebDriver chromeDriver = new ChromeDriver();
 
         chromeDriver.navigate().to("https://staging.perchwell.com/accounts/password/edit?reset_password_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));
-        WebElement passwordTextBox = chromeDriver.findElement(By.xpath("//*[@id='c76']"));
-        WebElement confirmPasswordTextBox = chromeDriver.findElement(By.xpath("//*[@id='c77']"));
+        WebElement passwordTextBox = chromeDriver.findElement(By.cssSelector("[name='user[password]']"));
+        WebElement confirmPasswordTextBox = chromeDriver.findElement(By.xpath("[name='user[password_confirmation]']"));
         WebElement resetPasswordButton = chromeDriver.findElement(By.xpath("//*[@id='new_user']/div[3]/input"));
         passwordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("old_reset_password"));
         confirmPasswordTextBox.sendKeys(AppProperties.INSTANCE.getProperty("old_reset_password"));
