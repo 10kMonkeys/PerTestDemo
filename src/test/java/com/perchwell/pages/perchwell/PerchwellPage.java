@@ -30,6 +30,7 @@ public class PerchwellPage extends TechHelper {
 	private int fourDistrictListingsAmount;
 	public static Integer numberOfItemsInListView;
 	public static final int ANDROID_LOOP_COUNTER = 3;
+	private int taggedItems = 0;
 
 	//region WebElements
 
@@ -239,6 +240,9 @@ public class PerchwellPage extends TechHelper {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
 	private WebElement tagIconOnFirstListing;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Listing Results: '")
+	private WebElement itemsCountValue;
 
 	//endregion
 
@@ -989,5 +993,23 @@ public class PerchwellPage extends TechHelper {
 
 	public void clickOnTagIconOnFirstListing() {
 		element(tagIconOnFirstListing).click();
+	}
+
+    public void checkListingIsRemovedFromTaggedItemsPage() {
+		element(MobileBy.iOSNsPredicateString("name CONTAINS " + SessionVariables.getValueFromSessionVariable("buildingAddress"))).shouldNotBeVisible();
+    }
+
+	public void getItemsValue() {
+		String element = itemsCountValue.getAttribute("value");
+		taggedItems = Integer.parseInt(element.replace(" Items", "").replace(" Item", ""));
+	}
+
+	public void checkItemsCountIsChanged(int value) {
+		int itemsAmount;
+		String element = itemsCountValue.getAttribute("value");
+
+		itemsAmount = Integer.parseInt(element.replace(" Items", "").replace(" Item", ""));
+
+		Assert.assertEquals(taggedItems, itemsAmount-value);
 	}
 }

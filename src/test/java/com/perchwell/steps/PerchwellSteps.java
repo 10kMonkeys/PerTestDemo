@@ -596,4 +596,19 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void clickOnTagIconOnFirstListing() {
 		onPage.clickOnTagIconOnFirstListing();
 	}
+
+	@Step
+    public void checkListingIsRemovedFromTaggedItemsPage() {
+		onPage.checkListingIsRemovedFromTaggedItemsPage();
+    }
+
+	@Step
+	public void getItemsValue() {
+		onPage.getItemsValue();
+	}
+
+    @Step
+	public void checkItemsCountIsChanged(int value) {
+		onPage.checkItemsCountIsChanged(value);
+	}
 }
