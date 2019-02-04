@@ -15,7 +15,7 @@ public class TI19_TagWithClientTagDiscussTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.inSearchMenu.openAddressSearch();
-        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
+        user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickShareButton();
