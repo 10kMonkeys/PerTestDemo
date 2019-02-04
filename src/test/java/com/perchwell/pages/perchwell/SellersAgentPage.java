@@ -30,9 +30,11 @@ public class SellersAgentPage extends TechHelper {
     private WebElement confirmButton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/email_body")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTextView")
-//    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTextView")
+    @iOSXCUITFindBy(accessibility = "textView")
     private WebElement agentMessagetextBox;
+
+    @iOSXCUITFindBy(accessibility = "shrink")
+    private WebElement collapseButton;
 
     //endregion
 
@@ -99,7 +101,10 @@ public class SellersAgentPage extends TechHelper {
     }
 
     public void updateMessage(String agent_message) {
-        element(agentMessagetextBox).sendKeys(agent_message);
+        element(agentMessagetextBox).sendKeys("I'M INTERESTED IN "
+                + SessionVariables.getValueFromSessionVariable("building address").replace("#", "")
+                + agent_message);
+        element(collapseButton).click();
     }
 
     public boolean countNumberEmailsSentToTwoSellersAgents() {
