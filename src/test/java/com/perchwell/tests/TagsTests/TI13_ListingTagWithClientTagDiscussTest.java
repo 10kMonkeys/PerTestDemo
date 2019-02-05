@@ -5,10 +5,10 @@ import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class TI13_TagWithClientTagDiscussTest extends SampleTest {
+public class TI13_ListingTagWithClientTagDiscussTest extends SampleTest {
 
     @Test
-    public void tagWithClientTagDiscuss() throws Exception {
+    public void listingTagWithClientTagDiscuss() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

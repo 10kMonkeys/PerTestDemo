@@ -5,10 +5,10 @@ import com.perchwell.data.Addresses;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class TI23_TagDeletionTest extends SampleTest {
+public class TI23_TagsPageTagDeletionTest extends SampleTest {
 
     @Test
-    public void tagDeletion() {
+    public void tagsPageTagDeletion() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -33,22 +33,22 @@ public class TI23_TagDeletionTest extends SampleTest {
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnSearchButton();
-        user.atPerchwellPage.getFirstBuildingAddress();
-        user.atPerchwellPage.getItemsValue();
-        user.atPerchwellPage.openFirstBuilding();
+        user.atMyTagsPage.getFirstBuildingAddress();
+        user.atMyTagsPage.getItemsValue();
+        user.atMyTagsPage.openFirstBuilding();
         user.atOpenedBuildingPage.removeAllTags();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.atPerchwellPage.checkListingIsRemovedFromTaggedItemsPage();
-        user.atPerchwellPage.checkItemsCountIsChanged(-1);
-        user.atPerchwellPage.getFirstBuildingAddress();
-        user.atPerchwellPage.getItemsValue();
-        user.atPerchwellPage.openFirstBuilding();
+        user.atMyTagsPage.checkListingIsRemovedFromTaggedItemsPage();
+        user.atMyTagsPage.checkItemsCountIsChanged(-1);
+        user.atMyTagsPage.getFirstBuildingAddress();
+        user.atMyTagsPage.getItemsValue();
+        user.atMyTagsPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.removeAllTags();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.atPerchwellPage.checkListingIsRemovedFromTaggedItemsPage();
-        user.atPerchwellPage.checkItemsCountIsChanged(-1);
-        user.atTagsPage.closeTagsPage();
+        user.atMyTagsPage.checkListingIsRemovedFromTaggedItemsPage();
+        user.atMyTagsPage.checkItemsCountIsChanged(-1);
+        user.atMyTagsPage.closeTagsPage();
         user.atPerchwellPage.closeAccountMenu();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.shouldNotSeeJustCreatedTag();

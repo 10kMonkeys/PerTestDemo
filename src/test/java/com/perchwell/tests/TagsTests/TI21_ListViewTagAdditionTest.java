@@ -4,10 +4,10 @@ import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class TI21_TagAdditionTest extends SampleTest {
+public class TI21_ListViewTagAdditionTest extends SampleTest {
 
     @Test
-    public void tagAddition() {
+    public void listViewTagAddition() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
