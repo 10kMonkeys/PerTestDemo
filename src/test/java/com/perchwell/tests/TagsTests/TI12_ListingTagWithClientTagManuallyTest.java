@@ -5,10 +5,10 @@ import com.perchwell.data.SearchRequests;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class TI12_TagWithClientTagManuallyTest extends SampleTest {
+public class TI12_ListingTagWithClientTagManuallyTest extends SampleTest {
 
     @Test
-    public void tagWithClientTagManually() {
+    public void listingTagWithClientTagManually() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
