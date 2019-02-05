@@ -6,10 +6,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"TagsTests", "iOS_TagsFirst", "Android_TagsFirst", "TagsFirst"})
-public class TI10_TagDeletionTest extends SampleTest {
+public class TI10_ListingTagDeletionTest extends SampleTest {
 
     @Test
-    public void tagDeletion() {
+    public void listingTagDeletion() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

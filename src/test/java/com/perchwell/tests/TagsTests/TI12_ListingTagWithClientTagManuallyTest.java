@@ -7,10 +7,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"TagsTests", "iOS_TagsSecond", "Android_TagsSecond", "TagsSecond"})
-public class TI12_TagWithClientTagManuallyTest extends SampleTest {
+public class TI12_ListingTagWithClientTagManuallyTest extends SampleTest {
 
     @Test
-    public void tagWithClientTagManually() {
+    public void listingTagWithClientTagManually() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

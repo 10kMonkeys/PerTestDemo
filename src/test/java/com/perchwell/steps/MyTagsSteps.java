@@ -133,4 +133,34 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void clickOnJustCreatedTagsPill() {
 		onPage.clickOnSpecificTagsPill(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
+
+	@Step
+	public void checkListingIsRemovedFromTaggedItemsPage() {
+		onPage.checkListingIsRemovedFromTaggedItemsPage();
+	}
+
+	@Step
+	public void getItemsValue() {
+		onPage.getItemsValue();
+	}
+
+	@Step
+	public void checkItemsCountIsChanged(int value) {
+		onPage.checkItemsCountIsChanged(value);
+	}
+
+	@Step
+	public void getFirstBuildingAddress() {
+		onPage.addBuildingAddressInSessionVariable("buildingAddress", onPage.getFistBuildingAddress());
+	}
+
+	@Step
+	public void openFirstBuilding() {
+		onPage.openFirstBuilding();
+	}
+
+	@Step
+	public void closeTagsPage() {
+		onPage.closeTagsPage();
+	}
 }

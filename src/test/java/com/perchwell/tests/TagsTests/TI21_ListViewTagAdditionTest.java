@@ -6,10 +6,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 @WithTagValuesOf({"TagsTests", "iOS_TagsSecond", "Android_TagsSecond", "TagsSecond"})
-public class TI21_TagAdditionTest extends SampleTest {
+public class TI21_ListViewTagAdditionTest extends SampleTest {
 
     @Test
-    public void tagAddition() {
+    public void listViewTagAddition() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

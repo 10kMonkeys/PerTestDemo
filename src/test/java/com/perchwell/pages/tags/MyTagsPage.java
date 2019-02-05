@@ -20,6 +20,8 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class MyTagsPage extends TechHelper {
 
+	private int taggedItems = 0;
+
 	//region WebElements
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_by_tags")
@@ -57,6 +59,19 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected'$]")
 	private List<WebElement> selectedListingsList;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Listing Results: '")
+	private WebElement itemsCountValue;
+
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS:'")
+	private WebElement firstBuildingAddress;
+
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_image")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[1]")
+	private WebElement firstBuilding;
+
+	@iOSXCUITFindBy(id = "TagsViewControllerCancelButton")
+	private WebElement tagsPageCloseButton;
 
 	//endregion
 
@@ -196,6 +211,47 @@ public class MyTagsPage extends TechHelper {
 
 	public void clickOnSpecificTagsPill(String tagName) {
 		element(MobileBy.AccessibilityId(tagName)).click();
+	}
+
+	public void checkListingIsRemovedFromTaggedItemsPage() {
+		element(MobileBy.iOSNsPredicateString("name CONTAINS '" + SessionVariables.getValueFromSessionVariable("buildingAddress") + "'")).shouldNotBeVisible();
+	}
+
+	public void getItemsValue() {
+		String element = itemsCountValue.getAttribute("value");
+		taggedItems = Integer.parseInt(element.substring(0, element.indexOf(" ")));
+	}
+
+	public void checkItemsCountIsChanged(int value) {
+		int itemsAmount;
+		String element = itemsCountValue.getAttribute("value");
+
+		itemsAmount = Integer.parseInt(element.substring(0, element.indexOf(" ")));
+
+		Assert.assertEquals(taggedItems, itemsAmount-value);
+	}
+
+	public String getFistBuildingAddress() {
+		String firstBuildAddress;
+		if (Config.isAndroid()){
+			firstBuildAddress = firstBuildingAddress.getAttribute("text");
+		}
+		else {
+			firstBuildAddress = firstBuildingAddress.getAttribute("value");
+		}
+		return firstBuildAddress;
+	}
+
+	public void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
+		SessionVariables.addValueInSessionVariable(buildingName,buildingAddress);
+	}
+
+	public void openFirstBuilding() {
+		element(firstBuilding).click();
+	}
+
+	public void closeTagsPage() {
+		element(tagsPageCloseButton).click();
 	}
 }
 
