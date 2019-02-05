@@ -847,7 +847,6 @@ public class SearchPage extends TechHelper {
         } else {
             searchName = firstSearchInList.getAttribute("name");
         }
-        System.out.println(searchName);
         SessionVariables.addValueInSessionVariable("SearchName", searchName);
         firstSearchInList.click();
     }
@@ -1911,7 +1910,6 @@ public class SearchPage extends TechHelper {
             universalVerticalSwipe(buildingWidthTitle);
         } else {
             universalVerticalSwipe(financingMinValueField);
-            element(collapseReleaseSponsorArrow).click();
         }
         element(corePublicOption).click();
     }

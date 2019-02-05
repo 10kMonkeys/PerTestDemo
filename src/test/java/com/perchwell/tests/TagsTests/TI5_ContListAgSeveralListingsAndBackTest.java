@@ -3,8 +3,10 @@ package com.perchwell.tests.TagsTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"TagsTests", "iOS_TagsFirst", "Android_TagsFirst", "TagsFirst"})
 public class TI5_ContListAgSeveralListingsAndBackTest extends SampleTest {
 
     @Test

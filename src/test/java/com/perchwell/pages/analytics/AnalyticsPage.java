@@ -594,7 +594,11 @@ public class AnalyticsPage extends TechHelper {
 
     public void getMessageIdOfLastReportDetailEmail() {
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_REPORT_DETAILS_ANALYTICS"));
-        messageIdOfLastReportDetailEmail = mailTrapResponse[0].getId();
+        if(mailTrapResponse.length == 0) {
+            messageIdOfLastReportDetailEmail = 0;
+        } else {
+            messageIdOfLastReportDetailEmail = mailTrapResponse[0].getId();
+        }
     }
 
     public void shareButtonInChartClick() {
