@@ -331,4 +331,58 @@ public class TagsSteps extends ScenarioSteps {
 	public void searchFirstCreatedTag() {
 		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("First_tag"));
 	}
+
+	@Step
+	public void checkIfAddTagTextIsVisible() {
+		onPage.checkIfAddTagTextIsVisible();
+	}
+
+	@Step
+	public void checkIfRenamedTagIsVisible() {
+		onPage.checkIfSpecificTagIsVisible(SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
+	}
+
+	@Step
+	public void checkIfJustCreatedTagsPillIsRenamed() {
+	}
+
+	@Step
+	public void checkIfJustCreatedTagIsNotVisible() {
+		onPage.checkIfSpecificTagIsNotVisible(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
+	}
+
+	@Step
+	public void searchRenamedTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
+	}
+
+	@Step
+	public void checkIfRenamedTagsPillIsVisible() {
+		onPage.shouldSeeSpecificTagsPill(SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
+	}
+
+	@Step
+	public void checkIfJustCreatedTagsPillIsNotVisible() {
+		onPage.shouldNotSeeSpecificTagsPill(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
+	}
+
+	@Step
+	public void swipeFirstExistingTag() {
+		onPage.swipeTag(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+	}
+
+	@Step
+	public void checkIfFirstExistingTagIsNotVisible() {
+		onPage.checkIfSpecificTagIsNotVisible(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+	}
+
+	@Step
+	public void checkIfFirstExistingTagsPillIsNotVisible() {
+		onPage.shouldNotSeeSpecificTagsPill(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+	}
+
+	@Step
+	public void addClientsItemsAmountToSessionVariables() {
+		onPage.addClientsItemsAmountToSessionVariables();
+	}
 }

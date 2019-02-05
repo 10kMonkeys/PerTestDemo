@@ -322,4 +322,9 @@ public class ClientSteps extends ScenarioSteps {
 	public void clickOnInviteAgentButton() {
 		onPage.clickOnInviteAgentButton();
 	}
+
+	@Step
+	public void shouldSeeTestClient() {
+		onPage.shouldSeeTestClient();
+	}
 }

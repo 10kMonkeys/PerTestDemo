@@ -8,6 +8,7 @@ import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -110,6 +111,9 @@ public class TagsPage extends TechHelper {
 
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'image: tag selected'")
 	private List<WebElement> checkedTagsList;
+
+	@iOSXCUITFindBy(accessibility = "ADD TAG")
+	private WebElement addTagText;
 
 	//endregion
 
@@ -446,5 +450,33 @@ public class TagsPage extends TechHelper {
 
 	public void clickOnFirstTag() {
 		element(firstTag).click();
+	}
+
+	public void checkIfAddTagTextIsVisible() {
+		setImplicitTimeout(3, SECONDS);
+		element(addTagText).shouldBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void checkIfSpecificTagIsVisible(String tagName) {
+		setImplicitTimeout(3, SECONDS);
+		element(MobileBy.AccessibilityId(tagName)).shouldBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void checkIfSpecificTagIsNotVisible(String tagName) {
+		setImplicitTimeout(3, SECONDS);
+		element(MobileBy.AccessibilityId("label: " + tagName)).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void shouldNotSeeSpecificTagsPill(String tagName) {
+		setImplicitTimeout(3, SECONDS);
+		element(MobileBy.AccessibilityId(tagName)).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void addClientsItemsAmountToSessionVariables() {
+		SessionVariables.addValueInSessionVariable("Clients_Items_Amount", String.valueOf(tagsItemsValue));
 	}
 }

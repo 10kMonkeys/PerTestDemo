@@ -1,6 +1,7 @@
 package com.perchwell.pages.clientdetails;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.data.SearchRequests;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
@@ -486,5 +487,9 @@ public class ClientPage extends TechHelper {
 
 	public void clickOnInviteAgentButton() {
 		element(inviteAgentButton).click();
+	}
+
+	public void shouldSeeTestClient() {
+		element(MobileBy.AccessibilityId(SearchRequests.CLIENT0_TEST)).shouldBeVisible();
 	}
 }
