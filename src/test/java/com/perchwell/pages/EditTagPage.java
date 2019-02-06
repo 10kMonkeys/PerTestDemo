@@ -16,14 +16,36 @@ public class EditTagPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "DELETE")
     private WebElement removeButton;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name == 'DELETE'$][1]")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeCell' AND label == 'DELETE'")
+//    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name == 'DELETE'$][1]")
     private WebElement confirmButton;
 
-    @iOSXCUITFindBy(accessibility = "SAVE")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'SAVE' AND visible == 1")
     private WebElement saveButton;
 
     @iOSXCUITFindBy(accessibility = "Tag Name textField")
     private WebElement tagNameTextField;
+
+    @iOSXCUITFindBy(accessibility = " Option: On")
+    private WebElement alertsOn;
+
+    @iOSXCUITFindBy(accessibility = " Option Selected: On")
+    private WebElement alertsOnSelected;
+
+    @iOSXCUITFindBy(accessibility = " Option: Off")
+    private WebElement alertsOff;
+
+    @iOSXCUITFindBy(accessibility = " Option Selected: Off")
+    private WebElement alertsOffSelected;
+
+    @iOSXCUITFindBy(accessibility = "CANCEL")
+    private WebElement cancelButton;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'EDIT TAG' AND visible == 1")
+    private WebElement editTagLabel;
+
+    @iOSXCUITFindBy(accessibility = "iconChevronLeft")
+    private WebElement chevronLeft;
 
     public EditTagPage(WebDriver driver) {
         super(driver);
@@ -64,7 +86,7 @@ public class EditTagPage extends TechHelper {
     }
 
     public void clickOnSaveButton() {
-        element(saveButton).clear();
+        element(saveButton).click();
     }
 
     public void shouldSeeTestClient() {
@@ -78,5 +100,33 @@ public class EditTagPage extends TechHelper {
     public void changeBackTestClientsName() {
         element(tagNameTextField).clear();
         element(tagNameTextField).sendKeys(SearchRequests.CLIENT0_TEST);
+    }
+
+    public void checkIfAlertsAreTurnedOn() {
+        element(alertsOnSelected).shouldBeVisible();
+    }
+
+    public void switchAlertsToOff() {
+        element(alertsOff).click();
+    }
+
+    public void checkIfAlertsAreTurnedOff() {
+        element(alertsOffSelected).shouldBeVisible();
+    }
+
+    public void switchAlertsToOn() {
+        element(alertsOn).click();
+    }
+
+    public void cancelTagRemoving() {
+        element(cancelButton).click();
+    }
+
+    public void shouldSeeEditTagLabel() {
+        element(editTagLabel).shouldBeVisible();
+    }
+
+    public void clickOnArrowBackFromEditTagPage() {
+        element(chevronLeft).click();
     }
 }

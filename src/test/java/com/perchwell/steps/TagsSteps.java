@@ -333,8 +333,8 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkIfAddTagTextIsVisible() {
-		onPage.checkIfAddTagTextIsVisible();
+	public void shouldSeeAddTagLabel() {
+		onPage.shouldSeeAddTagLabel();
 	}
 
 	@Step

@@ -5,22 +5,19 @@ import com.perchwell.data.SearchRequests;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class TI25_TagRenamingClientTagTest extends SampleTest {
+public class TI29_EditTagDeletionClientTagTest extends SampleTest {
 
     @Test
-    public void tagRenamingClientTag() {
+    public void editTagDeletionClientTag() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
-        user.atOpenedBuildingPage.getFirstBuildingAddress();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.fillInTagSearchField(SearchRequests.CLIENT0_TEST);
-        user.atTagsPage.getTestClientsItemsValue();
-        user.atTagsPage.addClientsItemsAmountToSessionVariables(); //discuss this
         user.atTagsPage.clickOnFirstClientTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnListingsBuilding();
@@ -35,42 +32,31 @@ public class TI25_TagRenamingClientTagTest extends SampleTest {
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.swipeFirstExistingTag();
         user.atTagsPage.clickOnEditTagIcon();
-        user.atEditTagPage.shouldSeeTestClient();
-        user.atEditTagPage.checkClientTagsItemsAmount();
-        user.atEditTagPage.checkIfSaveButtonIsDisabled();
-        user.atEditTagPage.changeClientTagName();
-        user.atEditTagPage.checkIfSaveButtonIsEnabled();
-        user.atEditTagPage.clickOnSaveButton();
+        user.atEditTagPage.clickOnDeleteButton();
+        user.atEditTagPage.cancelTagRemoving();
+        user.atEditTagPage.shouldSeeEditTagLabel();
+        user.atEditTagPage.clickOnArrowBackFromEditTagPage();
+        user.atTagsPage.shouldSeeFirstExistingTagsPill();
+        user.atTagsPage.swipeFirstExistingTag();
+        user.atTagsPage.clickOnEditTagIcon();
+        user.atEditTagPage.clickOnDeleteButton();
+        user.atEditTagPage.confirmRemoving();
         user.atTagsPage.shouldSeeAddTagLabel();
         user.atTagsPage.checkIfFirstExistingTagIsNotVisible();
         user.atTagsPage.checkIfFirstExistingTagsPillIsNotVisible();
-        user.atTagsPage.clearTextField();
-        user.atTagsPage.searchRenamedTag();
-        user.atTagsPage.checkIfRenamedTagIsVisible();
-        user.atTagsPage.checkIfRenamedTagsPillIsVisible();
-        user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
-        user.atOpenedBuildingPage.shouldSeeRenamedTag();
         user.atOpenedBuildingPage.clickOnListingsBuilding();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
-        user.atOpenedBuildingPage.shouldSeeRenamedTag();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.checkIfFirstExistingTagIsNotVisible();
-        user.atTagsPage.clearTextField();
-        user.atTagsPage.searchRenamedTag();
-        user.atTagsPage.checkIfRenamedTagIsVisible();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atAccountPage.clickOnClientsLabel();
         user.atClientPage.enterValueInSearchField(SearchRequests.CLIENT0_TEST);
         user.atClientPage.shouldSeeTestClient();
-        user.atClientPage.clickOnCrossBackButtonFromClients();
-        user.atAccountPage.clickOnTagsLabel();
-        user.usingComplexSteps.changeTestClientsNameBack();
-
     }
 }

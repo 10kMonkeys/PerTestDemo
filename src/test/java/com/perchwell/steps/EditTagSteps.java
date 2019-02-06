@@ -1,6 +1,5 @@
 package com.perchwell.steps;
 
-import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.EditTagPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -62,5 +61,40 @@ public class EditTagSteps extends ScenarioSteps {
     @Step
     public void changeBackTestClientsName() {
         onPage.changeBackTestClientsName();
+    }
+
+    @Step
+    public void checkIfAlertsAreTurnedOn() {
+        onPage.checkIfAlertsAreTurnedOn();
+    }
+
+    @Step
+    public void switchAlertsToOff() {
+        onPage.switchAlertsToOff();
+    }
+
+    @Step
+    public void checkIfAlertsAreTurnedOff() {
+        onPage.checkIfAlertsAreTurnedOff();
+    }
+
+    @Step
+    public void switchAlertsToOn() {
+        onPage.switchAlertsToOn();
+    }
+
+    @Step
+    public void cancelTagRemoving() {
+        onPage.cancelTagRemoving();
+    }
+
+    @Step
+    public void shouldSeeEditTagLabel() {
+        onPage.shouldSeeEditTagLabel();
+    }
+
+    @Step
+    public void clickOnArrowBackFromEditTagPage() {
+        onPage.clickOnArrowBackFromEditTagPage();
     }
 }

@@ -4,10 +4,10 @@ import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class TI24_TagRenamingOtherTagTest extends SampleTest {
+public class TI30_EditTagDeletionOtherTagTest extends SampleTest {
 
     @Test
-    public void tagRenamingOtherTag() {
+    public void editTagDeletionOtherTag() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -30,33 +30,20 @@ public class TI24_TagRenamingOtherTagTest extends SampleTest {
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.swipeJustCreatedTag();
         user.atTagsPage.clickOnEditTagIcon();
-        user.atEditTagPage.checkTagsItemsAmount("2");
-        user.atEditTagPage.checkIfSaveButtonIsDisabled();
-        user.atEditTagPage.changeJustCreatedTagName();
-        user.atEditTagPage.checkIfSaveButtonIsEnabled();
-        user.atEditTagPage.clickOnSaveButton();
+        user.atEditTagPage.clickOnDeleteButton();
+        user.atEditTagPage.confirmRemoving();
         user.atTagsPage.shouldSeeAddTagLabel();
         user.atTagsPage.checkIfJustCreatedTagIsNotVisible();
         user.atTagsPage.checkIfJustCreatedTagsPillIsNotVisible();
-        user.atTagsPage.clearTextField();
-        user.atTagsPage.searchRenamedTag();
-        user.atTagsPage.checkIfRenamedTagIsVisible();
-        user.atTagsPage.checkIfRenamedTagsPillIsVisible();
-        user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.shouldNotSeeJustCreatedTag();
-        user.atOpenedBuildingPage.shouldSeeRenamedTag();
         user.atOpenedBuildingPage.clickOnListingsBuilding();
         user.atOpenedBuildingPage.shouldNotSeeJustCreatedTag();
-        user.atOpenedBuildingPage.shouldSeeRenamedTag();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.checkIfJustCreatedTagIsNotVisible();
-        user.atTagsPage.clearTextField();
-        user.atTagsPage.searchRenamedTag();
-        user.atTagsPage.checkIfRenamedTagIsVisible();
     }
 }

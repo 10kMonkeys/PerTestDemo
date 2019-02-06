@@ -8,7 +8,6 @@ import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -113,7 +112,7 @@ public class TagsPage extends TechHelper {
 	private List<WebElement> checkedTagsList;
 
 	@iOSXCUITFindBy(accessibility = "ADD TAG")
-	private WebElement addTagText;
+	private WebElement addTagLabel;
 
 	//endregion
 
@@ -318,7 +317,8 @@ public class TagsPage extends TechHelper {
 
 	public void checkNoOneActiveBellDisplayed() {
 		setImplicitTimeout(3, SECONDS);
-		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'image: notification active'")).size());
+		element(MobileBy.iOSNsPredicateString("name CONTAINS 'image: notification active'")).shouldNotBeVisible();
+//		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'image: notification active'")).size());
 		resetImplicitTimeout();
 	}
 
@@ -452,9 +452,9 @@ public class TagsPage extends TechHelper {
 		element(firstTag).click();
 	}
 
-	public void checkIfAddTagTextIsVisible() {
+	public void shouldSeeAddTagLabel() {
 		setImplicitTimeout(3, SECONDS);
-		element(addTagText).shouldBeVisible();
+		element(addTagLabel).shouldBeVisible();
 		resetImplicitTimeout();
 	}
 
