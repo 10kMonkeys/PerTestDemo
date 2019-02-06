@@ -15,12 +15,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class MyTagsPage extends TechHelper {
-
-	private int taggedItems = 0;
 
 	//region WebElements
 
@@ -63,14 +62,14 @@ public class MyTagsPage extends TechHelper {
 	private WebElement itemsCountValue;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS:'")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name BEGINSWITH 'ADDRESS: '$][1]")
 	private WebElement firstBuildingAddress;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_image")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell[1]")
 	private WebElement firstBuilding;
 
-	@iOSXCUITFindBy(id = "TagsViewControllerCancelButton")
+	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement tagsPageCloseButton;
 
 	//endregion
@@ -213,37 +212,31 @@ public class MyTagsPage extends TechHelper {
 		element(MobileBy.AccessibilityId(tagName)).click();
 	}
 
-	public void checkListingIsRemovedFromTaggedItemsPage() {
-		element(MobileBy.iOSNsPredicateString("name CONTAINS '" + SessionVariables.getValueFromSessionVariable("buildingAddress") + "'")).shouldNotBeVisible();
-	}
-
-	public void getItemsValue() {
-		String element = itemsCountValue.getAttribute("value");
-		taggedItems = Integer.parseInt(element.substring(0, element.indexOf(" ")));
+	public void checkListingIsRemovedFromTaggedItemsPage(String address) {
+		setImplicitTimeout(3, SECONDS);
+		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'ADDRESS: " + address + "'")).size());
+		resetImplicitTimeout();
 	}
 
 	public void checkItemsCountIsChanged(int value) {
 		int itemsAmount;
-		String element = itemsCountValue.getAttribute("value");
 
+		String element = itemsCountValue.getAttribute("value");
 		itemsAmount = Integer.parseInt(element.substring(0, element.indexOf(" ")));
 
-		Assert.assertEquals(taggedItems, itemsAmount-value);
+		Assert.assertEquals(itemsAmount, value);
 	}
 
-	public String getFistBuildingAddress() {
+	public void getFistBuildingAddress() {
 		String firstBuildAddress;
+
 		if (Config.isAndroid()){
 			firstBuildAddress = firstBuildingAddress.getAttribute("text");
 		}
 		else {
 			firstBuildAddress = firstBuildingAddress.getAttribute("value");
 		}
-		return firstBuildAddress;
-	}
-
-	public void addBuildingAddressInSessionVariable(String buildingName, String buildingAddress) {
-		SessionVariables.addValueInSessionVariable(buildingName,buildingAddress);
+		SessionVariables.addValueInSessionVariable("buildingAddress", firstBuildAddress);
 	}
 
 	public void openFirstBuilding() {
