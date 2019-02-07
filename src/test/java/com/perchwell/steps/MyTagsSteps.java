@@ -135,13 +135,13 @@ public class MyTagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkListingIsRemovedFromTaggedItemsPage() {
-		onPage.checkListingIsRemovedFromTaggedItemsPage();
+	public void checkFirstListingIsRemovedFromTaggedItemsPage() {
+		onPage.checkListingIsRemovedFromTaggedItemsPage(SessionVariables.getValueFromSessionVariable("listingAddress1"));
 	}
 
 	@Step
-	public void getItemsValue() {
-		onPage.getItemsValue();
+	public void checkFirstBuildingIsRemovedFromTaggedItemsPage() {
+		onPage.checkListingIsRemovedFromTaggedItemsPage(SessionVariables.getValueFromSessionVariable("First_building_address"));
 	}
 
 	@Step
@@ -151,7 +151,7 @@ public class MyTagsSteps extends ScenarioSteps {
 
 	@Step
 	public void getFirstBuildingAddress() {
-		onPage.addBuildingAddressInSessionVariable("buildingAddress", onPage.getFistBuildingAddress());
+		onPage.getFistBuildingAddress();
 	}
 
 	@Step
