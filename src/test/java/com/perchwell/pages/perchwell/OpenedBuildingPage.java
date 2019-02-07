@@ -109,7 +109,7 @@ public class OpenedBuildingPage extends TechHelper {
 	private WebElement LaundryBLDGD;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement buildAddress;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/negative_button")

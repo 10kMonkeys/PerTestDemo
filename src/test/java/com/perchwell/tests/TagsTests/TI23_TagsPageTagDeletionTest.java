@@ -3,8 +3,10 @@ package com.perchwell.tests.TagsTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"TagsTests", "iOS_TagsSecond", "Android_TagsSecond", "TagsSecond"})
 public class TI23_TagsPageTagDeletionTest extends SampleTest {
 
     @Test
@@ -13,6 +15,7 @@ public class TI23_TagsPageTagDeletionTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.getListingsAddresses(2);
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.clickOnMoreOptionsButton();
@@ -33,21 +36,18 @@ public class TI23_TagsPageTagDeletionTest extends SampleTest {
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnSearchButton();
-        user.atMyTagsPage.getFirstBuildingAddress();
-        user.atMyTagsPage.getItemsValue();
+        user.atMyTagsPage.getFirstBuildingAddress(); //new
         user.atMyTagsPage.openFirstBuilding();
         user.atOpenedBuildingPage.removeAllTags();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.atMyTagsPage.checkListingIsRemovedFromTaggedItemsPage();
-        user.atMyTagsPage.checkItemsCountIsChanged(-1);
-        user.atMyTagsPage.getFirstBuildingAddress();
-        user.atMyTagsPage.getItemsValue();
+        user.atMyTagsPage.checkFirstBuildingIsRemovedFromTaggedItemsPage(); //updated
+        user.atMyTagsPage.checkItemsCountIsChanged(2);
         user.atMyTagsPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.removeAllTags();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.atMyTagsPage.checkListingIsRemovedFromTaggedItemsPage();
-        user.atMyTagsPage.checkItemsCountIsChanged(-1);
+        user.atMyTagsPage.checkFirstListingIsRemovedFromTaggedItemsPage();
+        user.atMyTagsPage.checkItemsCountIsChanged(1);
         user.atMyTagsPage.closeTagsPage();
         user.atPerchwellPage.closeAccountMenu();
         user.atPerchwellPage.openFirstBuilding();
