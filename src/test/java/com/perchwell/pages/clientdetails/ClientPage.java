@@ -11,6 +11,7 @@ import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -489,7 +490,7 @@ public class ClientPage extends TechHelper {
 		element(inviteAgentButton).click();
 	}
 
-	public void shouldSeeTestClient() {
-		element(MobileBy.AccessibilityId(SearchRequests.CLIENT0_TEST)).shouldBeVisible();
+	public void shouldSeeSpecificClient(String clientName) {
+		element(MobileBy.AccessibilityId(clientName)).shouldBeVisible();
 	}
 }

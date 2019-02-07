@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.EditTagPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -30,7 +31,7 @@ public class EditTagSteps extends ScenarioSteps {
 
     @Step
     public void changeJustCreatedTagName() {
-        onPage.changeTagName();
+        onPage.changeTagName("TAGNAME");
     }
 
     @Step
@@ -45,22 +46,7 @@ public class EditTagSteps extends ScenarioSteps {
 
     @Step
     public void changeClientTagName() {
-        onPage.changeTagName();
-    }
-
-    @Step
-    public void shouldSeeTestClient() {
-        onPage.shouldSeeTestClient();
-    }
-
-    @Step
-    public void checkClientTagsItemsAmount() {
-        onPage.checkClientTagsItemsAmount();
-    }
-
-    @Step
-    public void changeBackTestClientsName() {
-        onPage.changeBackTestClientsName();
+        onPage.changeTagName("11CLIENTNAME");
     }
 
     @Step
@@ -96,5 +82,10 @@ public class EditTagSteps extends ScenarioSteps {
     @Step
     public void clickOnArrowBackFromEditTagPage() {
         onPage.clickOnArrowBackFromEditTagPage();
+    }
+
+    @Step
+    public void shouldSeeCustomClient() {
+        onPage.shouldSeeClient(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
     }
 }

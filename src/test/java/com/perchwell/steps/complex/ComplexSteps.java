@@ -173,12 +173,4 @@ public class ComplexSteps extends ScenarioSteps{
         atEditTagPage.clickOnDeleteButton();
         atEditTagPage.confirmRemoving();
     }
-
-    @Step
-    public void changeTestClientsNameBack() {
-        atTagsPage.searchRenamedTag();
-        atTagsPage.swipeTag(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
-        atEditTagPage.changeBackTestClientsName();
-        atEditTagPage.clickOnSaveButton();
-    }
 }

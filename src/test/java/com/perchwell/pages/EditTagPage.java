@@ -71,8 +71,8 @@ public class EditTagPage extends TechHelper {
         resetImplicitTimeout();
     }
 
-    public void changeTagName() {
-        String newTagName = RandomGenerator.getRandomString("TAGNAME");
+    public void changeTagName(String tag) {
+        String newTagName = RandomGenerator.getRandomString(tag);
         SessionVariables.addValueInSessionVariable("Renamed_Tag", newTagName);
 
         element(tagNameTextField).clear();
@@ -87,19 +87,6 @@ public class EditTagPage extends TechHelper {
 
     public void clickOnSaveButton() {
         element(saveButton).click();
-    }
-
-    public void shouldSeeTestClient() {
-        element(MobileBy.AccessibilityId(SearchRequests.CLIENT0_TEST)).shouldBeVisible();
-    }
-
-    public void checkClientTagsItemsAmount() {
-        element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Clients_Items_Amount"))).shouldBeVisible();
-    }
-
-    public void changeBackTestClientsName() {
-        element(tagNameTextField).clear();
-        element(tagNameTextField).sendKeys(SearchRequests.CLIENT0_TEST);
     }
 
     public void checkIfAlertsAreTurnedOn() {
@@ -128,5 +115,9 @@ public class EditTagPage extends TechHelper {
 
     public void clickOnArrowBackFromEditTagPage() {
         element(chevronLeft).click();
+    }
+
+    public void shouldSeeClient(String clientName) {
+        element(MobileBy.AccessibilityId(clientName)).shouldBeVisible();
     }
 }

@@ -114,6 +114,12 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "ADD TAG")
 	private WebElement addTagLabel;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[$name BEGINSWITH 'Tag view: '$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$visible == 1$]")
+	private WebElement tagsFirstPin;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label CONTAINS '11CLIENTNAME20'`][1]")
+	private WebElement firstCustomClientTag;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -266,10 +272,6 @@ public class TagsPage extends TechHelper {
 		element(clearTextFieldButton).click();
 	}
 
-	public void getTagsAmount() {
-		tagsListSize = editIconList.size();
-	}
-
 	public void checkIfTagsPageIsReturnedToInitialState(int sizeToCheck) {
 		Assert.assertTrue(visibleTagsList.size() > sizeToCheck);
 	}
@@ -318,7 +320,6 @@ public class TagsPage extends TechHelper {
 	public void checkNoOneActiveBellDisplayed() {
 		setImplicitTimeout(3, SECONDS);
 		element(MobileBy.iOSNsPredicateString("name CONTAINS 'image: notification active'")).shouldNotBeVisible();
-//		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'image: notification active'")).size());
 		resetImplicitTimeout();
 	}
 
@@ -453,7 +454,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void shouldSeeAddTagLabel() {
-		setImplicitTimeout(3, SECONDS);
+		setImplicitTimeout(5, SECONDS);
 		element(addTagLabel).shouldBeVisible();
 		resetImplicitTimeout();
 	}
@@ -476,7 +477,21 @@ public class TagsPage extends TechHelper {
 		resetImplicitTimeout();
 	}
 
-	public void addClientsItemsAmountToSessionVariables() {
-		SessionVariables.addValueInSessionVariable("Clients_Items_Amount", String.valueOf(tagsItemsValue));
+	public void checkIfTagsPillIsRenamed() {
+		Assert.assertEquals(element(tagsFirstPin).getAttribute("value"), SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
+	}
+
+	public void clickOnFirstCustomClientTagAndGetValue() {
+		element(firstCustomClientTag).click();
+		String tagValue = firstCustomClientTag.getAttribute("value");
+		SessionVariables.addValueInSessionVariable("First_Custom_Client", tagValue.substring(0, tagValue.indexOf(" ")));
+	}
+
+	public void checkCustomTagsItemsValue() {
+		element(MobileBy.AccessibilityId(String.valueOf(tagsItemsValue))).shouldBeVisible();
+	}
+
+	public void clearSearchField() {
+		element(searchTagTexBox).clear();
 	}
 }

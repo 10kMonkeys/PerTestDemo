@@ -157,11 +157,6 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void getTagsAmount() {
-		onPage.getTagsAmount();
-	}
-
-	@Step
 	public void shouldSeeOnlySearchedTags(String text, int numberTags) {
 		onPage.shouldSeeOnlySearchedTags(text, numberTags);
 	}
@@ -343,10 +338,6 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkIfJustCreatedTagsPillIsRenamed() {
-	}
-
-	@Step
 	public void checkIfJustCreatedTagIsNotVisible() {
 		onPage.checkIfSpecificTagIsNotVisible(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
@@ -357,8 +348,8 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkIfRenamedTagsPillIsVisible() {
-		onPage.shouldSeeSpecificTagsPill(SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
+	public void checkIfTagsPillIsRenamed() {
+		onPage.checkIfTagsPillIsRenamed();
 	}
 
 	@Step
@@ -382,7 +373,32 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void addClientsItemsAmountToSessionVariables() {
-		onPage.addClientsItemsAmountToSessionVariables();
+	public void clickOnFirstCustomClientTagAndGetValue() {
+		onPage.clickOnFirstCustomClientTagAndGetValue();
 	}
+
+	@Step
+	public void searchCustomClientTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
+	}
+
+	@Step
+	public void swipeCustomClientTag() {
+		onPage.swipeTag(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
+	}
+
+	@Step
+	public void checkCustomTagsItemsValue() {
+		onPage.checkCustomTagsItemsValue();
+	}
+
+	@Step
+	public void checkIfCustomClientTagIsNotVisible() {
+		onPage.checkIfSpecificTagIsNotVisible(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
+	}
+
+	@Step
+    public void clearSearchField() {
+	    onPage.clearSearchField();
+    }
 }

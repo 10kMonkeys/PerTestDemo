@@ -1,6 +1,7 @@
 package com.perchwell.steps;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.data.SearchRequests;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
@@ -325,6 +326,16 @@ public class ClientSteps extends ScenarioSteps {
 
 	@Step
 	public void shouldSeeTestClient() {
-		onPage.shouldSeeTestClient();
+		onPage.shouldSeeSpecificClient(SearchRequests.CLIENT0_TEST);
+	}
+
+	@Step
+    public void searchCustomClient() {
+		onPage.enterValueInSearchField(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
+    }
+
+    @Step
+	public void shouldSeeCustomClient() {
+		onPage.shouldSeeSpecificClient(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
 	}
 }
