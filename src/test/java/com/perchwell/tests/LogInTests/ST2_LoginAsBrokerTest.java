@@ -19,6 +19,6 @@ public class ST2_LoginAsBrokerTest extends SampleTest {
 		user.atAccountPage.shouldSeeOptionClient();
 		user.atAccountPage.shouldSeeOptionDiscussions();
 		user.atAccountPage.shouldSeeOptionTags();
-		user.atAccountPage.shouldSeeOptionCompare();
+//		user.atAccountPage.shouldSeeOptionCompare(); deprecated
 	}
 }
