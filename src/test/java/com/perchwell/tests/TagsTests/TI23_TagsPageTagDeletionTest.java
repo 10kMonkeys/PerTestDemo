@@ -23,7 +23,6 @@ public class TI23_TagsPageTagDeletionTest extends SampleTest {
         user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
         user.atPerchwellPage.openFirstBuilding();
-        user.atOpenedBuildingPage.getFirstBuildingAddress();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
@@ -35,10 +34,11 @@ public class TI23_TagsPageTagDeletionTest extends SampleTest {
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnSearchButton();
+        user.atMyTagsPage.getFirstBuildingAddress(); //new
         user.atMyTagsPage.openFirstBuilding();
         user.atOpenedBuildingPage.removeAllTags();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.atMyTagsPage.checkFirstBuildingIsRemovedFromTaggedItemsPage();
+        user.atMyTagsPage.checkFirstBuildingIsRemovedFromTaggedItemsPage(); //updated
         user.atMyTagsPage.checkItemsCountIsChanged(2);
         user.atMyTagsPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
