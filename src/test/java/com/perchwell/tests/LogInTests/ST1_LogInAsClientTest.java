@@ -18,6 +18,6 @@ public class ST1_LogInAsClientTest extends SampleTest {
 		user.atAccountPage.shouldSeeOptionAgents();
 		user.atAccountPage.shouldSeeOptionDiscussions();
 		user.atAccountPage.shouldSeeOptionTags();
-		user.atAccountPage.shouldSeeOptionCompare();
+//		user.atAccountPage.shouldSeeOptionCompare(); deprecated
 	}
 }
