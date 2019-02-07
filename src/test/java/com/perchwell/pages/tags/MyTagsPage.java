@@ -58,7 +58,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected'$]")
 	private List<WebElement> selectedListingsList;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Listing Results: '")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Listing Results: ' AND visible == true")
 	private WebElement itemsCountValue;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
@@ -214,7 +214,7 @@ public class MyTagsPage extends TechHelper {
 
 	public void checkListingIsRemovedFromTaggedItemsPage(String address) {
 		setImplicitTimeout(3, SECONDS);
-		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'ADDRESS: " + address + "'")).size());
+		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'ADDRESS: " + address + "' AND visible == true")).size());
 		resetImplicitTimeout();
 	}
 
