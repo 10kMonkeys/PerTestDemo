@@ -175,7 +175,7 @@ public class MyTagsPage extends TechHelper {
 	}
 
 	public void swipeDownSecondTagsPill() {
-		swipeUpElementIOS(element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Second_tag"))), 240);
+		swipeUpElementIOS(element(MobileBy.AccessibilityId("Tag view: " + SessionVariables.getValueFromSessionVariable("Second_tag"))), 240);
 	}
 
 	public void checkTaggedListingsAmount(int listingsAmount) {
@@ -209,7 +209,7 @@ public class MyTagsPage extends TechHelper {
 	}
 
 	public void clickOnSpecificTagsPill(String tagName) {
-		element(MobileBy.AccessibilityId(tagName)).click();
+		element(MobileBy.AccessibilityId("Tag view: " + tagName)).click();
 	}
 
 	public void checkListingIsRemovedFromTaggedItemsPage(String address) {

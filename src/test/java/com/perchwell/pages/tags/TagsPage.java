@@ -115,7 +115,7 @@ public class TagsPage extends TechHelper {
 	private WebElement addTagLabel;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[$name BEGINSWITH 'Tag view: '$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$visible == 1$]")
-	private WebElement tagsFirstPin;
+	private WebElement tagsFirstPill;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label CONTAINS '11CLIENTNAME20'`][1]")
 	private WebElement firstCustomClientTag;
@@ -358,7 +358,7 @@ public class TagsPage extends TechHelper {
 
 	public void checkIfTagPillIsRemoved(String tagName) {
 		setImplicitTimeout(5, SECONDS);
-		element(MobileBy.AccessibilityId(tagName)).shouldNotBeVisible();
+		element(MobileBy.AccessibilityId("Tag view: " + tagName)).shouldNotBeVisible();
 		resetImplicitTimeout();
 	}
 
@@ -424,7 +424,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void clickOnFirstAddedTagPil(String tag) {
-		element(MobileBy.AccessibilityId(tag)).click();
+		element(MobileBy.AccessibilityId("Tag view: " + tag)).click();
 	}
 
 	public void noOneTagWithItemIsShown() {
@@ -446,7 +446,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void shouldSeeSpecificTagsPill(String tagName) {
-		element(MobileBy.AccessibilityId(tagName)).shouldBeVisible();
+		element(MobileBy.AccessibilityId("Tag view: " + tagName)).shouldBeVisible();
 	}
 
 	public void clickOnFirstTag() {
@@ -473,12 +473,12 @@ public class TagsPage extends TechHelper {
 
 	public void shouldNotSeeSpecificTagsPill(String tagName) {
 		setImplicitTimeout(3, SECONDS);
-		element(MobileBy.AccessibilityId(tagName)).shouldNotBeVisible();
+		element(MobileBy.AccessibilityId("Tag view: " + tagName)).shouldNotBeVisible();
 		resetImplicitTimeout();
 	}
 
 	public void checkIfTagsPillIsRenamed() {
-		Assert.assertEquals(element(tagsFirstPin).getAttribute("value"), SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
+		Assert.assertEquals(element(tagsFirstPill).getAttribute("value"), SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
 	}
 
 	public void clickOnFirstCustomClientTagAndGetValue() {
