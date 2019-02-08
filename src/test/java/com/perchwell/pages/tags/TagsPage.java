@@ -111,6 +111,15 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'image: tag selected'")
 	private List<WebElement> checkedTagsList;
 
+	@iOSXCUITFindBy(accessibility = "ADD TAG")
+	private WebElement addTagLabel;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[$name BEGINSWITH 'Tag view: '$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$visible == 1$]")
+	private WebElement tagsFirstPin;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label CONTAINS '11CLIENTNAME20'`][1]")
+	private WebElement firstCustomClientTag;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -263,10 +272,6 @@ public class TagsPage extends TechHelper {
 		element(clearTextFieldButton).click();
 	}
 
-	public void getTagsAmount() {
-		tagsListSize = editIconList.size();
-	}
-
 	public void checkIfTagsPageIsReturnedToInitialState(int sizeToCheck) {
 		Assert.assertTrue(visibleTagsList.size() > sizeToCheck);
 	}
@@ -314,7 +319,7 @@ public class TagsPage extends TechHelper {
 
 	public void checkNoOneActiveBellDisplayed() {
 		setImplicitTimeout(3, SECONDS);
-		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'image: notification active'")).size());
+		element(MobileBy.iOSNsPredicateString("name CONTAINS 'image: notification active'")).shouldNotBeVisible();
 		resetImplicitTimeout();
 	}
 
@@ -446,5 +451,55 @@ public class TagsPage extends TechHelper {
 
 	public void clickOnFirstTag() {
 		element(firstTag).click();
+	}
+
+	public void shouldSeeAddTagLabel() {
+		setImplicitTimeout(5, SECONDS);
+		element(addTagLabel).shouldBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void checkIfSpecificTagIsVisible(String tagName) {
+		setImplicitTimeout(3, SECONDS);
+		element(MobileBy.AccessibilityId(tagName)).shouldBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void checkIfSpecificTagIsNotVisible(String tagName) {
+		setImplicitTimeout(3, SECONDS);
+		element(MobileBy.AccessibilityId("label: " + tagName)).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void shouldNotSeeSpecificTagsPill(String tagName) {
+		setImplicitTimeout(3, SECONDS);
+		element(MobileBy.AccessibilityId(tagName)).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void checkIfTagsPillIsRenamed() {
+		Assert.assertEquals(element(tagsFirstPin).getAttribute("value"), SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
+	}
+
+	public void clickOnFirstCustomClientTagAndGetValue() {
+		element(firstCustomClientTag).click();
+		String tagValue = firstCustomClientTag.getAttribute("value");
+		SessionVariables.addValueInSessionVariable("First_Custom_Client", tagValue.substring(0, tagValue.indexOf(" ")));
+	}
+
+	public void checkCustomTagsItemsValue() {
+		element(MobileBy.AccessibilityId(String.valueOf(tagsItemsValue))).shouldBeVisible();
+	}
+
+	public void clearSearchField() {
+		element(searchTagTexBox).clear();
+	}
+
+	public boolean isTagExists(String tagName) {
+		return element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).isVisible();
+	}
+
+	public void clickOnSpecificTag(String tagName) {
+		element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).click();
 	}
 }

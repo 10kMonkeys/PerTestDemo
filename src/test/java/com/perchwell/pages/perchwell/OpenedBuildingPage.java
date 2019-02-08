@@ -14,6 +14,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.yecht.Data;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -794,5 +796,17 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void shouldSeeAddedNewTag() {
 		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"))).shouldBeVisible();
+	}
+
+	public void clickOnListingsBuilding() {
+		String listingsAddress = buildingAddress.getAttribute("value");
+		WebElement buildingAddress = element(MobileBy.AccessibilityId(listingsAddress.substring(0, listingsAddress.lastIndexOf(" "))));
+
+		universalVerticalSwipe(buildingAddress);
+		element(buildingAddress).click();
+	}
+
+	public void swipeUpToMyTagsLabel() {
+		universalUpSwipe(myTagsLabel);
 	}
 }

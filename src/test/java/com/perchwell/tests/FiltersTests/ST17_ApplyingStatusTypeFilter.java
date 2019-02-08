@@ -16,49 +16,39 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
             user.atPerchwellPage.skipAllHints();
             user.atPerchPopup.clickNotNowButton();
             user.atPerchwellPage.isListingsQuantity();
-            user.atPerchwellPage.clickOnMyNewSearch(); //search old
-            user.inSearchMenu.openSearchPage(); //search new
+            user.inSearchMenu.openSearchPage();
             user.atSearchPage.selectFilter4PlusBaths();
             user.atSearchPage.deselectActiveFilter();
             user.atSearchPage.selectContractFilter();
             user.atSearchPage.clickOnApplyButton();
             user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.IN_CONTRACT); //Labels names is missing in dom
-            user.atPerchwellPage.clickOnMyNewSearch(); //search old
-            user.inSearchMenu.openSearchPage(); //search new
+            user.inSearchMenu.openSearchPage();
             user.atSearchPage.deselectContractFilter();
             user.atSearchPage.selectOffMktFilter();
             user.atSearchPage.clickOnApplyButton();
             user.atPerchwellPage.shouldSeeListingWithLabels(ListingLabels.TEMP_OFF_MARKET,
                     ListingLabels.PERM_OFF_MARKET);
-            user.atPerchwellPage.clickOnMyNewSearch(); //search old
-            user.inSearchMenu.openSearchPage(); //search new
+            user.inSearchMenu.openSearchPage();
             user.atSearchPage.deselectOffMktFilter();
             user.atSearchPage.selectSoldOrRentFilter();
             user.atSearchPage.clickOnApplyButton();
             user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.SOLD);
-            user.atPerchwellPage.clickOnMyNewSearch(); //search old
-            user.inSearchMenu.openSearchPage(); //search new
+            user.inSearchMenu.openSearchPage();
             user.atSearchPage.selectRentalsProperty();
             user.atSearchPage.clickOnApplyButton();
             user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.RENTED);
-            user.atPerchwellPage.clickOnMyNewSearch(); //search old
-            user.inSearchMenu.openSearchPage(); //search new
+            user.inSearchMenu.openSearchPage();
             user.atSearchPage.saveCurrentSearch();
-            user.atPerchwellPage.clickOnMyNewSearchWithPause(); //search old
-            user.atSearchPage.clickOnMySavedSearches(); //search old
-            user.inSearchMenu.openSavedSearchesWithPause(); //search new
+            user.inSearchMenu.openSavedSearchesWithPause();
             user.atSearchPage.createNewSearchClick();
             user.atPerchwellPage.checkListingsQuantity();
-            user.atPerchwellPage.clickOnMyNewSearch(); //search old
-            user.inSearchMenu.openSearchPage(); //search new
+            user.inSearchMenu.openSearchPage();
             user.atSearchPage.checkSalesAndActiveFiltersSelected();
             user.atSearchPage.clickOnApplyButton();
-            user.atSearchPage.clickOnMySavedSearches(); //search old
-            user.inSearchMenu.openSavedSearches(); //search new
+            user.inSearchMenu.openSavedSearches();
             user.atSearchPage.clickOnPreviouslyCreatedSearch();
             user.atPerchwellPage.shouldSeeListingWithLabel(ListingLabels.RENTED);
-            user.atPerchwellPage.clickOnMyNewSearch(); //search old
-            user.inSearchMenu.openSearchPage(); //search new
+            user.inSearchMenu.openSearchPage();
             user.atSearchPage.clickOnResetFilter();
             user.atSearchPage.checkSalesAndActiveFiltersSelected();
             user.atSearchPage.clickOnApplyButton();

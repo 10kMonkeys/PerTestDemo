@@ -782,7 +782,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectFilterStudioBeds() {
-        Helper.universalVerticalSwipe(filterForStudioBeds);
+        universalVerticalSwipe(filterForStudioBeds);
         element(filterForStudioBeds).click();
     }
 
@@ -800,17 +800,17 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectOffMktFilter() {
-        Helper.universalVerticalSwipe(offMKTButton);
+        universalVerticalSwipe(offMKTButton);
         element(offMKTButton).click();
     }
 
     public void selectSoldOrRentFilter() {
-        Helper.universalVerticalSwipe(soldOrRentedButton);
+        universalVerticalSwipe(soldOrRentedButton);
         element(soldOrRentedButton).click();
     }
 
     public void selectContractFilter() {
-        Helper.universalVerticalSwipe(inContractFilter);
+        universalVerticalSwipe(inContractFilter);
         element(inContractFilter).click();
     }
 
