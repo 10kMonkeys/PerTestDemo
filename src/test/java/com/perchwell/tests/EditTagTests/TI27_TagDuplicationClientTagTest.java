@@ -31,7 +31,7 @@ public class TI27_TagDuplicationClientTagTest extends SampleTest {
         user.atEditTagPage.clickOnCancelButton();
         user.atEditTagPage.shouldSeeEditTagLabel();
         user.atEditTagPage.clickOnDuplicateButton();
-        user.atEditTagPage.fillInDuplicateTagName();//
+        user.atEditTagPage.fillInDuplicateTagName();
         user.atEditTagPage.clickOnSaveButton();
         user.atTagsPage.shouldSeeAddTagLabel();
         user.atTagsPage.searchFirstExistingTag();
@@ -40,9 +40,9 @@ public class TI27_TagDuplicationClientTagTest extends SampleTest {
         user.atTagsPage.clearTextField();
         user.atTagsPage.searchDuplicatedTag();
         user.atTagsPage.allTagsAreSelected(1);
-        user.atTagsPage.checkDuplicatedTagBelowOtherTagsLabel(); //
+        user.atTagsPage.checkDuplicatedTagBelowOtherTagsLabel();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.shouldSeeDuplicatedTagsPill();//
+        user.atTagsPage.shouldSeeDuplicatedTagsPill();
         user.atTagsPage.checkDuplicatedAndExistingTagsItemsAreSame();
         user.atTagsPage.closeTagsPage();
         user.atPerchwellPage.openFirstBuilding();
