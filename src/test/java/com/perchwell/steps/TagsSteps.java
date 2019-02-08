@@ -401,4 +401,14 @@ public class TagsSteps extends ScenarioSteps {
     public void clearSearchField() {
 	    onPage.clearSearchField();
     }
+
+    @Step
+	public void setSpecificTagIfNotExist(String tagName) {
+		this.fillInTagSearchField(tagName);
+		if (onPage.isTagExists(tagName)) {
+			onPage.clickOnSpecificTag(tagName);
+		} else {
+			onPage.clickOnCreateTagLabel();
+		}
+	}
 }

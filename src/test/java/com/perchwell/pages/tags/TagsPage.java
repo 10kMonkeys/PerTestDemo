@@ -494,4 +494,12 @@ public class TagsPage extends TechHelper {
 	public void clearSearchField() {
 		element(searchTagTexBox).clear();
 	}
+
+	public boolean isTagExists(String tagName) {
+		return element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).isVisible();
+	}
+
+	public void clickOnSpecificTag(String tagName) {
+		element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).click();
+	}
 }
