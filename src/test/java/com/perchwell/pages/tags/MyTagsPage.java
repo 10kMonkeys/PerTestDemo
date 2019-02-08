@@ -189,8 +189,8 @@ public class MyTagsPage extends TechHelper {
     }
 
 	public void checkFirstListingsIsSelected() {
-		System.out.println("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]");
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldBePresent();
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("buildingAddress") + "'$]")).shouldBePresent();
+		System.out.println("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("buildingAddress") + "'$]");
 	}
 
 	public void checkSecondListingsIsSelected() {

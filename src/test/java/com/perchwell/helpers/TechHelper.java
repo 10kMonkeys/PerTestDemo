@@ -245,6 +245,18 @@ public class TechHelper extends BasePage {
         new TouchAction(appiumDriver).longPress(x, startPoint).moveTo(x, endPoint).release().perform();
     }
 
+    public void universalUpSwipe(WebElement element) {
+        int counter = 0;
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        while (!(isElementDisplayed(element)) && counter < 5) {
+            swipeVerticalAndroid(appiumDriver, 0.2, 0.9, 0.5);
+            counter++;
+        }
+    }
+
     //endregion
 
     //region Coordinates
