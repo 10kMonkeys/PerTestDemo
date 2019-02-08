@@ -56,10 +56,7 @@ public class EditTagPage extends TechHelper {
         element(saveButton).click();
     }
 
-    public void fillInDuplicateTagName() {
-        String newTagName = RandomGenerator.getRandomString("TAGNAME");
-        SessionVariables.addValueInSessionVariable("Duplicate_Tag", newTagName);
-
+    public void fillInRandomTagName(String newTagName) {
         element(duplicateTagNameTextField).sendKeys(newTagName);
     }
 }

@@ -25,40 +25,44 @@ public class TI27_TagDuplicationClientTagTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atSearchPage.clickOnCrossBackButtonFromAddressSearch();
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
-        user.atTagsPage.swipeFirstTag();//
+        user.atTagsPage.swipeFirstExistingTag();
         user.atTagsPage.clickOnEditTagIcon();
-        user.atEditTagPage.clickOnDuplicateButton();//
-        user.atEditTagPage.clickOnCancelButton();//
-        user.atEditTagPage.shouldSeeEditTagLabel();//
-        user.atEditTagPage.clickOnDuplicateButton();//
+        user.atEditTagPage.clickOnDuplicateButton();
+        user.atEditTagPage.clickOnCancelButton();
+        user.atEditTagPage.shouldSeeEditTagLabel();
+        user.atEditTagPage.clickOnDuplicateButton();
         user.atEditTagPage.fillInDuplicateTagName();//
-        user.atEditTagPage.clickOnSaveButton();//
-        user.atTagsPage.shouldSeeAddTagLabel();//
+        user.atEditTagPage.clickOnSaveButton();
+        user.atTagsPage.shouldSeeAddTagLabel();
         user.atTagsPage.searchFirstExistingTag();
+        user.atTagsPage.getFirstTagsItemsValue();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearTextField();
-        user.atTagsPage.searchDuplicateTag();//
+        user.atTagsPage.searchDuplicatedTag();
         user.atTagsPage.allTagsAreSelected(1);
-        user.atTagsPage.checkTagBelowOtherTagsLabel(); //want to update
+        user.atTagsPage.checkDuplicatedTagBelowOtherTagsLabel(); //
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.shouldSeeDuplicateTagsPill();//
+        user.atTagsPage.shouldSeeDuplicatedTagsPill();//
+        user.atTagsPage.checkDuplicatedAndExistingTagsItemsAreSame();
         user.atTagsPage.closeTagsPage();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
-        user.atOpenedBuildingPage.shouldSeeDuplicateTag();//
+        user.atOpenedBuildingPage.shouldSeeDuplicatedTag();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
-        user.atOpenedBuildingPage.shouldSeeDuplicateTag();//
+        user.atOpenedBuildingPage.shouldSeeDuplicatedTag();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atSearchPage.clickOnCrossBackButtonFromAddressSearch();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atTagsPage.getFirstTagsItemsValue();//
-        user.atTagsPage.searchDuplicateTag();//
-        user.atTagsPage.checkDuplicateAndExistingTagsItemsAreSame();//
+        user.atTagsPage.searchFirstExistingTag();
+        user.atTagsPage.getFirstTagsItemsValue();
+        user.atTagsPage.clearTextField();
+        user.atTagsPage.searchDuplicatedTag();
+        user.atTagsPage.checkDuplicatedAndExistingTagsItemsAreSame();
     }
 }
