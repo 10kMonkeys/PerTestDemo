@@ -386,5 +386,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void shouldSeeAddedNewTag() {
 		onPage.shouldSeeSpecificTag(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
+
+	@Step
+	public void shouldSeeDuplicateTag() {
+		onPage.shouldSeeSpecificTag(SessionVariables.getValueFromSessionVariable("Duplicate_Tag"));
+	}
 }
 

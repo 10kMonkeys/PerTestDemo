@@ -1,5 +1,7 @@
 package com.perchwell.pages;
 
+import com.perchwell.helpers.RandomGenerator;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +16,18 @@ public class EditTagPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name == 'DELETE'$][1]")
     private WebElement confirmButton;
 
+    @iOSXCUITFindBy(accessibility = "DUPLICATE")
+    private WebElement duplicateButton;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'EDIT TAG' AND visible == 1")
+    private WebElement editTagLabel;
+
+    private WebElement cancelButton;
+
+    private WebElement saveButton;
+
+    private WebElement duplicateTagNameTextField;
+
     public EditTagPage(WebDriver driver) {
         super(driver);
     }
@@ -24,5 +38,28 @@ public class EditTagPage extends TechHelper {
 
     public void confirmRemoving() {
         element(confirmButton).click();
+    }
+
+    public void clickOnDuplicateButton() {
+        element(duplicateButton).click();
+    }
+
+    public void shouldSeeEditTagLabel() {
+        element(editTagLabel).shouldBeVisible();
+    }
+
+    public void clickOnCancelButton() {
+        element(cancelButton).click();
+    }
+
+    public void clickOnSaveButton() {
+        element(saveButton).click();
+    }
+
+    public void fillInDuplicateTagName() {
+        String newTagName = RandomGenerator.getRandomString("TAGNAME");
+        SessionVariables.addValueInSessionVariable("Duplicate_Tag", newTagName);
+
+        element(duplicateTagNameTextField).sendKeys(newTagName);
     }
 }

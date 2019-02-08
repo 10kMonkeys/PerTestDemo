@@ -331,4 +331,29 @@ public class TagsSteps extends ScenarioSteps {
 	public void searchFirstCreatedTag() {
 		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("First_tag"));
 	}
+
+	@Step
+	public void shouldSeeAddTagLabel() {
+		onPage.shouldSeeAddTagLabel();
+	}
+
+	@Step
+	public void swipeFirstTag() {
+		onPage.swipeTag(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+	}
+
+	@Step
+	public void searchDuplicateTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Duplicate_Tag"));
+	}
+
+	@Step
+	public void shouldSeeDuplicateTagsPill() {
+		onPage.shouldSeeSpecificTagsPill(SessionVariables.getValueFromSessionVariable("Duplicate_Tag"));
+	}
+
+	@Step
+	public void checkDuplicateAndExistingTagsItemsAreSame() {
+		onPage.checkDuplicateAndExistingTagsItemsAreSame();
+	}
 }

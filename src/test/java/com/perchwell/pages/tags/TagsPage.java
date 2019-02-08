@@ -111,6 +111,9 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'image: tag selected'")
 	private List<WebElement> checkedTagsList;
 
+	@iOSXCUITFindBy(accessibility = "ADD TAG")
+	private WebElement addTagLabel;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -446,5 +449,22 @@ public class TagsPage extends TechHelper {
 
 	public void clickOnFirstTag() {
 		element(firstTag).click();
+	}
+
+	public void shouldSeeAddTagLabel() {
+		setImplicitTimeout(3, SECONDS);
+		element(addTagLabel).shouldBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void checkDuplicateAndExistingTagsItemsAreSame() {
+		int itemsAmount;
+
+		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+				SessionVariables.getValueFromSessionVariable("Duplicate_Tag") + "'")).getAttribute("value");
+
+		itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
+
+		Assert.assertEquals(tagsItemsValue, itemsAmount);
 	}
 }
