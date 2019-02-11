@@ -258,12 +258,12 @@ public class TagsSteps extends ScenarioSteps {
 
 	@Step
 	public void checkTagBelowOtherTagsLabel() {
-		onPage.checkTagBelowOtherTagsLabel();
+		onPage.checkTagBelowOtherTagsLabel(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
 	}
 
 	@Step
 	public void checkClientTagBelowSharedWithClientLabel() {
-		onPage.checkClientTagBelowSharedWithClientLabel();
+		onPage.checkClientTagBelowSharedWithClientLabel(SessionVariables.getValueFromSessionVariable("User_name"));
 	}
 
 	@Step
@@ -360,6 +360,26 @@ public class TagsSteps extends ScenarioSteps {
 	@Step
 	public void swipeFirstExistingTag() {
 		onPage.swipeTag(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+	}
+
+	@Step
+	public void searchDuplicatedTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Duplicated_Tag"));
+	}
+
+	@Step
+	public void shouldSeeDuplicatedTagsPill() {
+		onPage.shouldSeeSpecificTagsPill(SessionVariables.getValueFromSessionVariable("Duplicated_Tag"));
+	}
+
+	@Step
+	public void checkDuplicatedAndExistingTagsItemsAreSame() {
+		onPage.checkDuplicatedAndExistingTagsItemsAreSame();
+	}
+
+	@Step
+	public void checkDuplicatedTagBelowOtherTagsLabel() {
+		onPage.checkTagBelowOtherTagsLabel(SessionVariables.getValueFromSessionVariable("Duplicated_Tag"));
 	}
 
 	@Step
