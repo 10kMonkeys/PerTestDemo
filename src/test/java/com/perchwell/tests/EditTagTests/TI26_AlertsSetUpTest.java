@@ -29,7 +29,6 @@ public class TI26_AlertsSetUpTest extends SampleTest {
         user.atEditTagPage.checkIfAlertsAreTurnedOn();
         user.atEditTagPage.switchAlertsToOff();
         user.atEditTagPage.checkIfAlertsAreTurnedOff();
-        user.atEditTagPage.checkIfSaveButtonIsEnabled();
         user.atEditTagPage.clickOnSaveButton();
         user.atTagsPage.checkNoOneActiveBellDisplayed();
         user.atTagsPage.swipeJustCreatedTag();

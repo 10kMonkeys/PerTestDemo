@@ -33,7 +33,6 @@ public class TI24_TagRenamingOtherTagTest extends SampleTest {
         user.atEditTagPage.checkTagsItemsAmount("2");
         user.atEditTagPage.checkIfSaveButtonIsDisabled();
         user.atEditTagPage.changeJustCreatedTagName();
-        user.atEditTagPage.checkIfSaveButtonIsEnabled();
         user.atEditTagPage.clickOnSaveButton();
         user.atTagsPage.shouldSeeAddTagLabel();
         user.atTagsPage.checkIfJustCreatedTagIsNotVisible();

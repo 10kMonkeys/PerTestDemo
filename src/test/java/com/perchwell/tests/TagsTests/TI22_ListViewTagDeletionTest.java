@@ -16,6 +16,7 @@ public class TI22_ListViewTagDeletionTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.getFirstTagsItemsValue();

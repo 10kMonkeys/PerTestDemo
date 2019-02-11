@@ -99,12 +99,6 @@ public class EditTagPage extends TechHelper {
         element(tagNameTextField).sendKeys(newTagName);
     }
 
-    public void checkIfSaveButtonIsEnabled() {
-        setImplicitTimeout(3, TimeUnit.SECONDS);
-        element(saveButton).shouldBeVisible();
-        resetImplicitTimeout();
-    }
-
     public void clickOnSaveButton() {
         element(saveButton).click();
     }

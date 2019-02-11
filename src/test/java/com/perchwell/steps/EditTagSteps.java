@@ -51,11 +51,6 @@ public class EditTagSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkIfSaveButtonIsEnabled() {
-        onPage.checkIfSaveButtonIsEnabled();
-    }
-
-    @Step
     public void clickOnSaveButton() {
         onPage.clickOnSaveButton();
     }
