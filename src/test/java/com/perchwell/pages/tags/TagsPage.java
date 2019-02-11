@@ -237,11 +237,18 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void clickOnFirstTagAndGetValue() {
+		String firstTagAttribute;
 		if(Config.isAndroid()) {
-			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("text"));
+			firstTagAttribute = firstTag.getAttribute("text");
 		} else {
+			firstTagAttribute = firstTag.getAttribute("value");
+		}
+
+		if (firstTagAttribute.contains("item")) {
 			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("value")
 					.substring(0, firstTag.getAttribute("value").indexOf(" ")));
+		} else {
+			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTagAttribute);
 		}
 		element(firstTag).click();
 	}
