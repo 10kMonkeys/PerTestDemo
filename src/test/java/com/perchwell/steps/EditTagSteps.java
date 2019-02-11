@@ -46,7 +46,7 @@ public class EditTagSteps extends ScenarioSteps {
     }
 
     @Step
-    public void changeJustCreatedTagName() {
+    public void changeTagName() {
         onPage.changeTagName("TAGNAME");
     }
 
@@ -104,5 +104,10 @@ public class EditTagSteps extends ScenarioSteps {
     @Step
     public void shouldSeeCustomClient() {
         onPage.shouldSeeClient(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
+    }
+
+    @Step
+    public void clickOnDiscardButton() {
+        onPage.clickOnDiscardButton();
     }
 }

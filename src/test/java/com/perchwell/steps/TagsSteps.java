@@ -431,4 +431,9 @@ public class TagsSteps extends ScenarioSteps {
 			onPage.clickOnCreateTagLabel();
 		}
 	}
+
+	@Step
+	public void checkIfFirstExistingTagIsVisible() {
+		onPage.checkIfSpecificTagIsVisible(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+	}
 }

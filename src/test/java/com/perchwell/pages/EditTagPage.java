@@ -55,6 +55,9 @@ public class EditTagPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "iconChevronLeft")
     private WebElement chevronLeft;
 
+    @iOSXCUITFindBy(accessibility = "DISCARD")
+    private WebElement discardButton;
+
     public EditTagPage(WebDriver driver) {
         super(driver);
     }
@@ -139,5 +142,9 @@ public class EditTagPage extends TechHelper {
 
     public void shouldSeeClient(String clientName) {
         element(MobileBy.AccessibilityId(clientName)).shouldBeVisible();
+    }
+
+    public void clickOnDiscardButton() {
+        element(discardButton).click();
     }
 }
