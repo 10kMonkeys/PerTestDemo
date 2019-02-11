@@ -237,11 +237,18 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void clickOnFirstTagAndGetValue() {
+		String firstTagAttribute;
 		if(Config.isAndroid()) {
-			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("text"));
+			firstTagAttribute = firstTag.getAttribute("text");
 		} else {
+			firstTagAttribute = firstTag.getAttribute("value");
+		}
+
+		if (firstTagAttribute.contains("item")) {
 			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("value")
 					.substring(0, firstTag.getAttribute("value").indexOf(" ")));
+		} else {
+			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTagAttribute);
 		}
 		element(firstTag).click();
 	}
@@ -403,16 +410,16 @@ public class TagsPage extends TechHelper {
 		element(MobileBy.iOSNsPredicateString("name == 'image: tag deselected '" + checkMarkNumber)).shouldNotBeVisible();
     }
 
-	public void checkTagBelowOtherTagsLabel() {
+	public void checkTagBelowOtherTagsLabel(String value) {
 		WebElement tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
-				+ SessionVariables.getValueFromSessionVariable("Just_Created_Tag") + "'"));
+				+ value + "'"));
 
 		Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 60, getYPositionOfElement(tag));
 	}
 
-	public void checkClientTagBelowSharedWithClientLabel() {
+	public void checkClientTagBelowSharedWithClientLabel(String userName) {
 		WebElement clientTag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
-				+ SessionVariables.getValueFromSessionVariable("User_name") + "'"));
+				+ userName + "'"));
 
 		Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 61, getYPositionOfElement(clientTag));
 	}
@@ -459,9 +466,20 @@ public class TagsPage extends TechHelper {
 		resetImplicitTimeout();
 	}
 
+	public void checkDuplicatedAndExistingTagsItemsAreSame() {
+		int itemsAmount;
+
+		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+				SessionVariables.getValueFromSessionVariable("Duplicated_Tag") + "'")).getAttribute("value");
+
+		itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
+
+		Assert.assertEquals(tagsItemsValue, itemsAmount);
+	}
+
 	public void checkIfSpecificTagIsVisible(String tagName) {
 		setImplicitTimeout(3, SECONDS);
-		element(MobileBy.AccessibilityId(tagName)).shouldBeVisible();
+		element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).shouldBeVisible();
 		resetImplicitTimeout();
 	}
 

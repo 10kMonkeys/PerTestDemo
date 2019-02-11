@@ -1,6 +1,5 @@
 package com.perchwell.pages;
 
-import com.perchwell.data.SearchRequests;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
@@ -19,6 +18,18 @@ public class EditTagPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeCell' AND label == 'DELETE'")
 //    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name == 'DELETE'$][1]")
     private WebElement confirmButton;
+
+    @iOSXCUITFindBy(accessibility = "DUPLICATE")
+    private WebElement duplicateButton;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'EDIT TAG' AND visible == 1")
+    private WebElement editTagLabel;
+
+    private WebElement duplicateCancelButton;
+
+    private WebElement duplicateSaveButton;
+
+    private WebElement duplicateTagNameTextField;
 
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'SAVE' AND visible == 1")
     private WebElement saveButton;
@@ -41,9 +52,6 @@ public class EditTagPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "CANCEL")
     private WebElement cancelButton;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'EDIT TAG' AND visible == 1")
-    private WebElement editTagLabel;
-
     @iOSXCUITFindBy(accessibility = "iconChevronLeft")
     private WebElement chevronLeft;
 
@@ -57,6 +65,18 @@ public class EditTagPage extends TechHelper {
 
     public void confirmRemoving() {
         element(confirmButton).click();
+    }
+
+    public void clickOnDuplicateButton() {
+        element(duplicateButton).click();
+    }
+
+    public void shouldSeeEditTagLabel() {
+        element(editTagLabel).shouldBeVisible();
+    }
+
+    public void clickOnCancelButton() {
+        element(duplicateCancelButton).click();
     }
 
     public void checkTagsItemsAmount(String valueToCheck) {
@@ -89,6 +109,10 @@ public class EditTagPage extends TechHelper {
         element(saveButton).click();
     }
 
+    public void fillInRandomTagName(String newTagName) {
+        element(duplicateTagNameTextField).sendKeys(newTagName);
+    }
+
     public void checkIfAlertsAreTurnedOn() {
         element(alertsOnSelected).shouldBeVisible();
     }
@@ -107,10 +131,6 @@ public class EditTagPage extends TechHelper {
 
     public void cancelTagRemoving() {
         element(cancelButton).click();
-    }
-
-    public void shouldSeeEditTagLabel() {
-        element(editTagLabel).shouldBeVisible();
     }
 
     public void clickOnArrowBackFromEditTagPage() {
