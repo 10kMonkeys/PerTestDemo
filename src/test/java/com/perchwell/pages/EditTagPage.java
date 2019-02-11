@@ -87,7 +87,7 @@ public class EditTagPage extends TechHelper {
 
     public void checkIfSaveButtonIsDisabled() {
         setImplicitTimeout(3, TimeUnit.SECONDS);
-        element(duplicateSaveButton).shouldNotBeVisible();
+        element(saveButton).shouldNotBeVisible();
         resetImplicitTimeout();
     }
 
@@ -101,12 +101,12 @@ public class EditTagPage extends TechHelper {
 
     public void checkIfSaveButtonIsEnabled() {
         setImplicitTimeout(3, TimeUnit.SECONDS);
-        element(duplicateSaveButton).shouldBeVisible();
+        element(saveButton).shouldBeVisible();
         resetImplicitTimeout();
     }
 
     public void clickOnSaveButton() {
-        element(duplicateSaveButton).click();
+        element(saveButton).click();
     }
 
     public void fillInRandomTagName(String newTagName) {
@@ -130,7 +130,7 @@ public class EditTagPage extends TechHelper {
     }
 
     public void cancelTagRemoving() {
-        element(duplicateCancelButton).click();
+        element(cancelButton).click();
     }
 
     public void clickOnArrowBackFromEditTagPage() {
