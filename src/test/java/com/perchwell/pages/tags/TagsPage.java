@@ -403,16 +403,16 @@ public class TagsPage extends TechHelper {
 		element(MobileBy.iOSNsPredicateString("name == 'image: tag deselected '" + checkMarkNumber)).shouldNotBeVisible();
     }
 
-	public void checkTagBelowOtherTagsLabel() {
+	public void checkTagBelowOtherTagsLabel(String value) {
 		WebElement tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
-				+ SessionVariables.getValueFromSessionVariable("Just_Created_Tag") + "'"));
+				+ value + "'"));
 
 		Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 60, getYPositionOfElement(tag));
 	}
 
-	public void checkClientTagBelowSharedWithClientLabel() {
+	public void checkClientTagBelowSharedWithClientLabel(String userName) {
 		WebElement clientTag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
-				+ SessionVariables.getValueFromSessionVariable("User_name") + "'"));
+				+ userName + "'"));
 
 		Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 61, getYPositionOfElement(clientTag));
 	}
@@ -457,6 +457,17 @@ public class TagsPage extends TechHelper {
 		setImplicitTimeout(5, SECONDS);
 		element(addTagLabel).shouldBeVisible();
 		resetImplicitTimeout();
+	}
+
+	public void checkDuplicatedAndExistingTagsItemsAreSame() {
+		int itemsAmount;
+
+		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+				SessionVariables.getValueFromSessionVariable("Duplicated_Tag") + "'")).getAttribute("value");
+
+		itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
+
+		Assert.assertEquals(tagsItemsValue, itemsAmount);
 	}
 
 	public void checkIfSpecificTagIsVisible(String tagName) {

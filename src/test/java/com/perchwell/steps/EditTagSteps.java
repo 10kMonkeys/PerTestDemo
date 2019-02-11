@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.EditTagPage;
 import net.thucydides.core.annotations.Step;
@@ -20,6 +21,21 @@ public class EditTagSteps extends ScenarioSteps {
     }
 
     @Step
+    public void clickOnDuplicateButton() {
+        onPage.clickOnDuplicateButton();
+    }
+
+    @Step
+    public void shouldSeeEditTagLabel() {
+        onPage.shouldSeeEditTagLabel();
+    }
+
+    @Step
+    public void clickOnCancelButton() {
+        onPage.clickOnCancelButton();
+    }
+
+    @Step
     public void checkTagsItemsAmount(String valueToCheck) {
         onPage.checkTagsItemsAmount(valueToCheck);
     }
@@ -37,6 +53,12 @@ public class EditTagSteps extends ScenarioSteps {
     @Step
     public void clickOnSaveButton() {
         onPage.clickOnSaveButton();
+    }
+
+    @Step
+    public void fillInDuplicateTagName() {
+        SessionVariables.addValueInSessionVariable("Duplicated_Tag", RandomGenerator.getRandomString("TAGNAME"));
+        onPage.fillInRandomTagName(SessionVariables.getValueFromSessionVariable("Duplicated_Tag"));
     }
 
     @Step
@@ -67,11 +89,6 @@ public class EditTagSteps extends ScenarioSteps {
     @Step
     public void cancelTagRemoving() {
         onPage.cancelTagRemoving();
-    }
-
-    @Step
-    public void shouldSeeEditTagLabel() {
-        onPage.shouldSeeEditTagLabel();
     }
 
     @Step

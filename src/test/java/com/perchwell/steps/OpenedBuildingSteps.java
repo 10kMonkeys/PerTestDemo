@@ -388,6 +388,11 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void shouldSeeDuplicatedTag() {
+		onPage.shouldSeeSpecificTag(SessionVariables.getValueFromSessionVariable("Duplicated_Tag"));
+	}
+
+	@Step
 	public void clickOnListingsBuilding() {
 		onPage.clickOnListingsBuilding();
 	}
