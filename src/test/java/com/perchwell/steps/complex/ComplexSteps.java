@@ -2,7 +2,7 @@ package com.perchwell.steps.complex;
 
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
-import com.perchwell.pages.EditTagPage;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.steps.*;
 import com.perchwell.steps.analytics.AnalyticsSteps;
 import io.appium.java_client.AppiumDriver;

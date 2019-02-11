@@ -10,7 +10,7 @@ import org.junit.Test;
 public class TI2_BuildingSortingTest extends SampleTest {
 
     @Test
-    public void listingSortingTest() {
+    public void buildingSortingTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

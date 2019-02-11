@@ -391,5 +391,25 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void shouldSeeDuplicatedTag() {
 		onPage.shouldSeeSpecificTag(SessionVariables.getValueFromSessionVariable("Duplicated_Tag"));
 	}
+
+	@Step
+	public void clickOnListingsBuilding() {
+		onPage.clickOnListingsBuilding();
+	}
+
+	@Step
+	public void swipeUpToMyTagsLabel() {
+		onPage.swipeUpToMyTagsLabel();
+	}
+
+	@Step
+	public void shouldSeeRenamedTag() {
+		onPage.shouldSeeSpecificTag(SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
+	}
+
+	@Step
+	public void shouldNotSeeCustomClientTag() {
+		onPage.shouldNotSeeSpecificTag(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
+	}
 }
 

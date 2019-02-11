@@ -175,7 +175,7 @@ public class MyTagsPage extends TechHelper {
 	}
 
 	public void swipeDownSecondTagsPill() {
-		swipeUpElementIOS(element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Second_tag"))), 240);
+		swipeUpElementIOS(element(MobileBy.AccessibilityId("Tag view: " + SessionVariables.getValueFromSessionVariable("Second_tag"))), 240);
 	}
 
 	public void checkTaggedListingsAmount(int listingsAmount) {
@@ -189,8 +189,8 @@ public class MyTagsPage extends TechHelper {
     }
 
 	public void checkFirstListingsIsSelected() {
-		System.out.println("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]");
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldBePresent();
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("buildingAddress") + "'$]")).shouldBePresent();
+		System.out.println("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("buildingAddress") + "'$]");
 	}
 
 	public void checkSecondListingsIsSelected() {
@@ -209,7 +209,7 @@ public class MyTagsPage extends TechHelper {
 	}
 
 	public void clickOnSpecificTagsPill(String tagName) {
-		element(MobileBy.AccessibilityId(tagName)).click();
+		element(MobileBy.AccessibilityId("Tag view: " + tagName)).click();
 	}
 
 	public void checkListingIsRemovedFromTaggedItemsPage(String address) {

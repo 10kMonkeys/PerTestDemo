@@ -36,6 +36,26 @@ public class EditTagSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkTagsItemsAmount(String valueToCheck) {
+        onPage.checkTagsItemsAmount(valueToCheck);
+    }
+
+    @Step
+    public void checkIfSaveButtonIsDisabled() {
+        onPage.checkIfSaveButtonIsDisabled();
+    }
+
+    @Step
+    public void changeJustCreatedTagName() {
+        onPage.changeTagName("TAGNAME");
+    }
+
+    @Step
+    public void checkIfSaveButtonIsEnabled() {
+        onPage.checkIfSaveButtonIsEnabled();
+    }
+
+    @Step
     public void clickOnSaveButton() {
         onPage.clickOnSaveButton();
     }
@@ -44,5 +64,45 @@ public class EditTagSteps extends ScenarioSteps {
     public void fillInDuplicateTagName() {
         SessionVariables.addValueInSessionVariable("Duplicated_Tag", RandomGenerator.getRandomString("TAGNAME"));
         onPage.fillInRandomTagName(SessionVariables.getValueFromSessionVariable("Duplicated_Tag"));
+    }
+
+    @Step
+    public void changeClientTagName() {
+        onPage.changeTagName("11CLIENTNAME");
+    }
+
+    @Step
+    public void checkIfAlertsAreTurnedOn() {
+        onPage.checkIfAlertsAreTurnedOn();
+    }
+
+    @Step
+    public void switchAlertsToOff() {
+        onPage.switchAlertsToOff();
+    }
+
+    @Step
+    public void checkIfAlertsAreTurnedOff() {
+        onPage.checkIfAlertsAreTurnedOff();
+    }
+
+    @Step
+    public void switchAlertsToOn() {
+        onPage.switchAlertsToOn();
+    }
+
+    @Step
+    public void cancelTagRemoving() {
+        onPage.cancelTagRemoving();
+    }
+
+    @Step
+    public void clickOnArrowBackFromEditTagPage() {
+        onPage.clickOnArrowBackFromEditTagPage();
+    }
+
+    @Step
+    public void shouldSeeCustomClient() {
+        onPage.shouldSeeClient(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
     }
 }

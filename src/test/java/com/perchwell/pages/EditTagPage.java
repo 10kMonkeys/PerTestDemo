@@ -3,17 +3,20 @@ package com.perchwell.pages;
 import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.concurrent.TimeUnit;
 
 public class EditTagPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = "DELETE")
     private WebElement removeButton;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name == 'DELETE'$][1]")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeCell' AND label == 'DELETE'")
+//    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name == 'DELETE'$][1]")
     private WebElement confirmButton;
 
     @iOSXCUITFindBy(accessibility = "DUPLICATE")
@@ -22,11 +25,35 @@ public class EditTagPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'EDIT TAG' AND visible == 1")
     private WebElement editTagLabel;
 
-    private WebElement cancelButton;
+    private WebElement duplicateCancelButton;
 
-    private WebElement saveButton;
+    private WebElement duplicateSaveButton;
 
     private WebElement duplicateTagNameTextField;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'SAVE' AND visible == 1")
+    private WebElement saveButton;
+
+    @iOSXCUITFindBy(accessibility = "Tag Name textField")
+    private WebElement tagNameTextField;
+
+    @iOSXCUITFindBy(accessibility = " Option: On")
+    private WebElement alertsOn;
+
+    @iOSXCUITFindBy(accessibility = " Option Selected: On")
+    private WebElement alertsOnSelected;
+
+    @iOSXCUITFindBy(accessibility = " Option: Off")
+    private WebElement alertsOff;
+
+    @iOSXCUITFindBy(accessibility = " Option Selected: Off")
+    private WebElement alertsOffSelected;
+
+    @iOSXCUITFindBy(accessibility = "CANCEL")
+    private WebElement cancelButton;
+
+    @iOSXCUITFindBy(accessibility = "iconChevronLeft")
+    private WebElement chevronLeft;
 
     public EditTagPage(WebDriver driver) {
         super(driver);
@@ -49,14 +76,68 @@ public class EditTagPage extends TechHelper {
     }
 
     public void clickOnCancelButton() {
-        element(cancelButton).click();
+        element(duplicateCancelButton).click();
+    }
+
+    public void checkTagsItemsAmount(String valueToCheck) {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(MobileBy.AccessibilityId(valueToCheck)).shouldBeVisible();
+        resetImplicitTimeout();
+    }
+
+    public void checkIfSaveButtonIsDisabled() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(duplicateSaveButton).shouldNotBeVisible();
+        resetImplicitTimeout();
+    }
+
+    public void changeTagName(String tag) {
+        String newTagName = RandomGenerator.getRandomString(tag);
+        SessionVariables.addValueInSessionVariable("Renamed_Tag", newTagName);
+
+        element(tagNameTextField).clear();
+        element(tagNameTextField).sendKeys(newTagName);
+    }
+
+    public void checkIfSaveButtonIsEnabled() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(duplicateSaveButton).shouldBeVisible();
+        resetImplicitTimeout();
     }
 
     public void clickOnSaveButton() {
-        element(saveButton).click();
+        element(duplicateSaveButton).click();
     }
 
     public void fillInRandomTagName(String newTagName) {
         element(duplicateTagNameTextField).sendKeys(newTagName);
+    }
+
+    public void checkIfAlertsAreTurnedOn() {
+        element(alertsOnSelected).shouldBeVisible();
+    }
+
+    public void switchAlertsToOff() {
+        element(alertsOff).click();
+    }
+
+    public void checkIfAlertsAreTurnedOff() {
+        element(alertsOffSelected).shouldBeVisible();
+    }
+
+    public void switchAlertsToOn() {
+        element(alertsOn).click();
+    }
+
+    public void cancelTagRemoving() {
+        element(duplicateCancelButton).click();
+    }
+
+    public void clickOnArrowBackFromEditTagPage() {
+        element(chevronLeft).click();
+    }
+
+    public void shouldSeeClient(String clientName) {
+        element(MobileBy.AccessibilityId(clientName)).shouldBeVisible();
     }
 }
