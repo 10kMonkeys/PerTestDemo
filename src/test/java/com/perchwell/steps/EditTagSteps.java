@@ -25,8 +25,8 @@ public class EditTagSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkIfSaveButtonIsDisabled() {
-        onPage.checkIfSaveButtonIsDisabled();
+    public void checkIfSaveButtonIsNotDisplayed() {
+        onPage.checkIfSaveButtonIsNotDisplayed();
     }
 
     @Step
@@ -35,8 +35,8 @@ public class EditTagSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkIfSaveButtonIsEnabled() {
-        onPage.checkIfSaveButtonIsEnabled();
+    public void checkIfSaveButtonIsDisplayed() {
+        onPage.checkIfSaveButtonIsDisplayed();
     }
 
     @Step

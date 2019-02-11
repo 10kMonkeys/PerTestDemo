@@ -34,9 +34,9 @@ public class TI25_TagRenamingClientTagTest extends SampleTest {
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.shouldSeeCustomClient();
         user.atTagsPage.checkCustomTagsItemsValue();
-        user.atEditTagPage.checkIfSaveButtonIsDisabled();
+        user.atEditTagPage.checkIfSaveButtonIsNotDisplayed();
         user.atEditTagPage.changeClientTagName();
-        user.atEditTagPage.checkIfSaveButtonIsEnabled();
+        user.atEditTagPage.checkIfSaveButtonIsDisplayed();
         user.atEditTagPage.clickOnSaveButton();
         user.atTagsPage.shouldSeeAddTagLabel();
         user.atTagsPage.checkIfCustomClientTagIsNotVisible();

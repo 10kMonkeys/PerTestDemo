@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TI26_AlertsSetUpTest extends SampleTest {
 
     @Test
-    public void alertsSetUp() {
+    public void alertsSetUpTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -25,11 +25,11 @@ public class TI26_AlertsSetUpTest extends SampleTest {
         user.atTagsPage.greenBellIconIsShown();
         user.atTagsPage.swipeJustCreatedTag();
         user.atTagsPage.clickOnEditTagIcon();
-        user.atEditTagPage.checkIfSaveButtonIsDisabled();
+        user.atEditTagPage.checkIfSaveButtonIsNotDisplayed();
         user.atEditTagPage.checkIfAlertsAreTurnedOn();
         user.atEditTagPage.switchAlertsToOff();
         user.atEditTagPage.checkIfAlertsAreTurnedOff();
-        user.atEditTagPage.checkIfSaveButtonIsEnabled();
+        user.atEditTagPage.checkIfSaveButtonIsDisplayed();
         user.atEditTagPage.clickOnSaveButton();
         user.atTagsPage.checkNoOneActiveBellDisplayed();
         user.atTagsPage.swipeJustCreatedTag();

@@ -65,7 +65,7 @@ public class EditTagPage extends TechHelper {
         resetImplicitTimeout();
     }
 
-    public void checkIfSaveButtonIsDisabled() {
+    public void checkIfSaveButtonIsNotDisplayed() {
         setImplicitTimeout(3, TimeUnit.SECONDS);
         element(saveButton).shouldNotBeVisible();
         resetImplicitTimeout();
@@ -79,7 +79,7 @@ public class EditTagPage extends TechHelper {
         element(tagNameTextField).sendKeys(newTagName);
     }
 
-    public void checkIfSaveButtonIsEnabled() {
+    public void checkIfSaveButtonIsDisplayed() {
         setImplicitTimeout(3, TimeUnit.SECONDS);
         element(saveButton).shouldBeVisible();
         resetImplicitTimeout();
