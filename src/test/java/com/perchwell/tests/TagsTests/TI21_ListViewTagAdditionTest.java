@@ -15,6 +15,7 @@ public class TI21_ListViewTagAdditionTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
+        user.atTagsPage.removeAllTagPills();
         user.atTagsPage.createAndSaveNewTag();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.checkTagBelowOtherTagsLabel();

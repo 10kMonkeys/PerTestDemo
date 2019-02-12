@@ -104,7 +104,7 @@ public class ClientSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickOnExistingClient() throws Exception {
+	public void clickOnExistingClient() {
 		onPage.isClientDisplayed(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
 		onPage.clickOnDesiredClientOrAgent(AppProperties.INSTANCE.getProperty("client_name").toUpperCase());
 		SessionVariables.addValueInSessionVariable("Client", AppProperties.INSTANCE.getProperty("client_name"));

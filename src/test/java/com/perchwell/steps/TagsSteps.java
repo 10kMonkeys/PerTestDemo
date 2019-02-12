@@ -422,7 +422,7 @@ public class TagsSteps extends ScenarioSteps {
 	    onPage.clearSearchField();
     }
 
-    @Step
+  @Step
 	public void setSpecificTagIfNotExist(String tagName) {
 		this.fillInTagSearchField(tagName);
 		if (onPage.isTagExists(tagName)) {
@@ -435,5 +435,10 @@ public class TagsSteps extends ScenarioSteps {
 	@Step
 	public void checkIfFirstExistingTagIsVisible() {
 		onPage.checkIfSpecificTagIsVisible(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+  }
+    
+  @Step
+	public void removeAllTagPills() {
+		onPage.removeAllTagPills();
 	}
 }
