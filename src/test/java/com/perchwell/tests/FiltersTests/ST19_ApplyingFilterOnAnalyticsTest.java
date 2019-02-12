@@ -21,8 +21,7 @@ public class ST19_ApplyingFilterOnAnalyticsTest extends SampleTest {
         user.atManagementPage.addChartBedroomsFromManagementSection();
         user.atAnalyticsPage.getBedroomsChartValue();
         user.atAnalyticsPage.getAskingPriceChartValue();
-        user.atAnalyticsPage.clickMyNewSearch(); //search old
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.selectFilterStudioBeds();
         user.atSearchPage.setMinimumPriceFilter("300000");
