@@ -105,7 +105,7 @@ public class OpenedBuildingPage extends TechHelper {
     private WebElement viewAllDiscussionsButton;
 
 	@AndroidFindBy(accessibility = "Laundry - Building")
-	@iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING")
+	@iOSXCUITFindBy(accessibility = "BUILDING LAUNDRY")
 	private WebElement LaundryBLDGD;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
