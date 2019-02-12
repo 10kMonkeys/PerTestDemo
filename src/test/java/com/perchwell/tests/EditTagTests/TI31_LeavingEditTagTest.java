@@ -22,13 +22,13 @@ public class TI31_LeavingEditTagTest extends SampleTest {
         user.atTagsPage.swipeFirstExistingTag();
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.clickOnArrowBackFromEditTagPage();
-        user.atTagsPage.shouldSeeMyTagsLabel();
+        user.atTagsPage.shouldSeeMyTagsLabel(); //
         user.atTagsPage.swipeFirstExistingTag();
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.changeTagName();
         user.atEditTagPage.clickOnArrowBackFromEditTagPage();
         user.atEditTagPage.clickOnDiscardButton();
-        user.atTagsPage.shouldSeeMyTagsLabel();
+        user.atTagsPage.shouldSeeMyTagsLabel(); //
         user.atTagsPage.checkIfFirstExistingTagIsVisible();
         user.atTagsPage.closeTagsPage();
         user.atAccountPage.closeAccountMenu();
@@ -42,7 +42,7 @@ public class TI31_LeavingEditTagTest extends SampleTest {
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.changeTagName();
         user.atEditTagPage.clickOnArrowBackFromEditTagPage();
-        user.atEditTagPage.clickOnSaveButton(); //need to update locator
+        user.atEditTagPage.clickOnSaveButton(); //updated locator on xpath (need to update locator)
         user.atTagsPage.shouldSeeAddTagLabel();
         user.atTagsPage.clearSearchField();
         user.atTagsPage.searchRenamedTag();
@@ -54,18 +54,18 @@ public class TI31_LeavingEditTagTest extends SampleTest {
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchRenamedTag();
         user.atTagsPage.checkIfRenamedTagIsVisible();
-        user.atTagsPage.swipeRenamedTag();
+        user.atTagsPage.swipeRenamedTag(); //
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.switchAlertsToOff();
         user.atEditTagPage.clickOnArrowBackFromEditTagPage();
         user.atEditTagPage.clickOnDiscardButton();
-        user.atTagsPage.shouldSeeMyTagsLabel();
+        user.atTagsPage.shouldSeeMyTagsLabel(); //
         user.atTagsPage.greenBellIconIsShown();
-        user.atTagsPage.swipeRenamedTag();
+        user.atTagsPage.swipeRenamedTag(); //
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.switchAlertsToOff();
         user.atEditTagPage.clickOnArrowBackFromEditTagPage();
-        user.atEditTagPage.clickOnSaveButton(); //need to update locator
+        user.atEditTagPage.clickOnSaveButton(); //updated locator on xpath (need to update locator)
         user.atTagsPage.shouldSeeMyTagsLabel();
         user.atTagsPage.checkNoOneActiveBellDisplayed();
     }
