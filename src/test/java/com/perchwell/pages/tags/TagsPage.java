@@ -15,6 +15,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -119,6 +120,9 @@ public class TagsPage extends TechHelper {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label CONTAINS '11CLIENTNAME20'`][1]")
 	private WebElement firstCustomClientTag;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: '")
+	private WebElement removingTagPill;
 
 	//endregion
 
@@ -519,5 +523,13 @@ public class TagsPage extends TechHelper {
 
 	public void clickOnSpecificTag(String tagName) {
 		element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).click();
+	}
+
+	public void removeAllTagPills() {
+		setImplicitTimeout(3, TimeUnit.SECONDS);
+		while (element(removingTagPill).isVisible()) {
+			element(removingTagPill).click();
+		}
+		resetImplicitTimeout();
 	}
 }

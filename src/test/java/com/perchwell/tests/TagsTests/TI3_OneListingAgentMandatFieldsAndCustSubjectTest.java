@@ -1,6 +1,7 @@
 package com.perchwell.tests.TagsTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.Addresses;
 import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
@@ -15,6 +16,12 @@ public class TI3_OneListingAgentMandatFieldsAndCustSubjectTest extends SampleTes
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
+        user.inSearchMenu.openSearchPage();
+        user.atSearchPage.clickOnSearchByAddressButton();
+        user.atSearchPage.fillInSearchField(Addresses.DAKOTA);
+        user.atSearchPage.clickOnListingByAddress(Addresses.DAKOTA);
+        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
+        user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atSellersAgentPage.swipeDownUntilSellersAgentSection();
