@@ -526,7 +526,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void removeAllTagPills() {
-		setImplicitTimeout(3, TimeUnit.SECONDS);
+		setImplicitTimeout(1, TimeUnit.SECONDS);
 		while (element(removingTagPill).isVisible()) {
 			element(removingTagPill).click();
 		}
