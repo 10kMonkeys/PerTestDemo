@@ -31,7 +31,8 @@ public class EditTagPage extends TechHelper {
 
     private WebElement duplicateTagNameTextField;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'SAVE' AND visible == 1")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[@name='SAVE']")
+//    @iOSXCUITFindBy(iOSNsPredicate = "name == 'SAVE' AND visible == 1")
     private WebElement saveButton;
 
     @iOSXCUITFindBy(accessibility = "Tag Name textField")
