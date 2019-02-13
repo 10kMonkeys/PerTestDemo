@@ -124,6 +124,9 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: '")
 	private WebElement removingTagPill;
 
+	@iOSXCUITFindBy(accessibility = "MY TAGS")
+	private WebElement myTagsLabel;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -465,9 +468,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void shouldSeeAddTagLabel() {
-		setImplicitTimeout(5, SECONDS);
 		element(addTagLabel).shouldBeVisible();
-		resetImplicitTimeout();
 	}
 
 	public void checkDuplicatedAndExistingTagsItemsAreSame() {
@@ -531,5 +532,9 @@ public class TagsPage extends TechHelper {
 			element(removingTagPill).click();
 		}
 		resetImplicitTimeout();
+	}
+
+	public void shouldSeeMyTagLabel() {
+		element(myTagsLabel).shouldBeVisible();
 	}
 }

@@ -110,4 +110,9 @@ public class EditTagSteps extends ScenarioSteps {
     public void clickOnDiscardButton() {
         onPage.clickOnDiscardButton();
     }
+
+    @Step
+    public void clickOnPopUpSaveButton() {
+        onPage.clickOnPopUpSaveButton();
+    }
 }

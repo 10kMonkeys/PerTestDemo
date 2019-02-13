@@ -58,6 +58,9 @@ public class EditTagPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "DISCARD")
     private WebElement discardButton;
 
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[@name='SAVE']")
+    private WebElement popUpSaveButton;
+
     public EditTagPage(WebDriver driver) {
         super(driver);
     }
@@ -103,9 +106,7 @@ public class EditTagPage extends TechHelper {
     }
 
     public void checkIfSaveButtonIsDisplayed() {
-        setImplicitTimeout(3, TimeUnit.SECONDS);
         element(saveButton).shouldBeVisible();
-        resetImplicitTimeout();
     }
 
     public void clickOnSaveButton() {
@@ -146,5 +147,9 @@ public class EditTagPage extends TechHelper {
 
     public void clickOnDiscardButton() {
         element(discardButton).click();
+    }
+
+    public void clickOnPopUpSaveButton() {
+        element(popUpSaveButton).click();
     }
 }

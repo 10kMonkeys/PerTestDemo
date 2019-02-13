@@ -60,7 +60,7 @@ public class TI25_TagRenamingClientTagTest extends SampleTest {
         user.atTagsPage.clearSearchField();
         user.atTagsPage.searchRenamedTag();
         user.atTagsPage.checkIfRenamedTagIsVisible();
-        user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atTagsPage.closeTagsPage();
         user.atAccountPage.clickOnClientsLabel();
         user.atClientPage.searchCustomClient();
         user.atClientPage.shouldSeeCustomClient();

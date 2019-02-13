@@ -1207,7 +1207,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void setSquareFeetMinFilter(String value) {
-        universalVerticalSwipe(excludeUnknownButton);
+        universalVerticalSwipe(resaleSponsorSection);
         if(Config.isAndroid()) {
             element(squareFeetMinValueField).sendKeys(value);
         }
@@ -1559,12 +1559,12 @@ public class SearchPage extends TechHelper {
     }
 
     public void clearSquareFeetMinFilter() {
-        universalVerticalSwipe(excludeUnknownButton);
+        universalVerticalSwipe(resaleSponsorSection);
         element(squareFeetMinValueField).clear();
     }
 
     public void setSquareFeetMaxFilter(String value) {
-        universalVerticalSwipe(excludeUnknownButton);
+        universalVerticalSwipe(resaleSponsorSection);
         if(Config.isAndroid()) {
             element(squareFeetMaxValueField).sendKeys(value);
         }

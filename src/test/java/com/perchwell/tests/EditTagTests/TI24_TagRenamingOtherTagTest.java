@@ -38,7 +38,7 @@ public class TI24_TagRenamingOtherTagTest extends SampleTest {
         user.atTagsPage.shouldSeeAddTagLabel();
         user.atTagsPage.checkIfJustCreatedTagIsNotVisible();
         user.atTagsPage.checkIfTagsPillIsRenamed();
-        user.atTagsPage.clearTextField();
+        user.atTagsPage.clearSearchField();
         user.atTagsPage.searchRenamedTag();
         user.atTagsPage.checkIfRenamedTagIsVisible();
         user.atTagsPage.allTagsAreSelected(1);
