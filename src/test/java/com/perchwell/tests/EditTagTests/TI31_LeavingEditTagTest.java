@@ -22,17 +22,14 @@ public class TI31_LeavingEditTagTest extends SampleTest {
         user.atTagsPage.swipeFirstExistingTag();
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.clickOnArrowBackFromEditTagPage();
-        user.atTagsPage.shouldSeeMyTagsLabel(); //
         user.atTagsPage.swipeFirstExistingTag();
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.changeTagName();
         user.atEditTagPage.clickOnArrowBackFromEditTagPage();
         user.atEditTagPage.clickOnDiscardButton();
-        user.atTagsPage.shouldSeeMyTagsLabel(); //
         user.atTagsPage.checkIfFirstExistingTagIsVisible();
         user.atTagsPage.closeTagsPage();
         user.atAccountPage.closeAccountMenu();
-        //
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
@@ -42,8 +39,7 @@ public class TI31_LeavingEditTagTest extends SampleTest {
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.changeTagName();
         user.atEditTagPage.clickOnArrowBackFromEditTagPage();
-        user.atEditTagPage.clickOnSaveButton(); //updated locator on xpath (need to update locator)
-        user.atTagsPage.shouldSeeAddTagLabel();
+        user.atEditTagPage.clickOnPopUpSaveButton(); //updated locator on xpath (need to update locator)
         user.atTagsPage.clearSearchField();
         user.atTagsPage.searchRenamedTag();
         user.atTagsPage.checkIfRenamedTagIsVisible();
@@ -54,19 +50,17 @@ public class TI31_LeavingEditTagTest extends SampleTest {
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchRenamedTag();
         user.atTagsPage.checkIfRenamedTagIsVisible();
-        user.atTagsPage.swipeRenamedTag(); //
+        user.atTagsPage.swipeRenamedTag();
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.switchAlertsToOff();
         user.atEditTagPage.clickOnArrowBackFromEditTagPage();
         user.atEditTagPage.clickOnDiscardButton();
-        user.atTagsPage.shouldSeeMyTagsLabel(); //
         user.atTagsPage.greenBellIconIsShown();
-        user.atTagsPage.swipeRenamedTag(); //
+        user.atTagsPage.swipeRenamedTag();
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.switchAlertsToOff();
         user.atEditTagPage.clickOnArrowBackFromEditTagPage();
-        user.atEditTagPage.clickOnSaveButton(); //updated locator on xpath (need to update locator)
-        user.atTagsPage.shouldSeeMyTagsLabel();
+        user.atEditTagPage.clickOnPopUpSaveButton(); //updated locator on xpath (need to update locator)
         user.atTagsPage.checkNoOneActiveBellDisplayed();
     }
 }
