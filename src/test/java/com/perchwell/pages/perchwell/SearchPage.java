@@ -1208,6 +1208,7 @@ public class SearchPage extends TechHelper {
 
     public void setSquareFeetMinFilter(String value) {
         universalVerticalSwipe(collapseReleaseSponsorArrow);
+
         if(Config.isAndroid()) {
             element(squareFeetMinValueField).sendKeys(value);
         }
@@ -1560,11 +1561,13 @@ public class SearchPage extends TechHelper {
 
     public void clearSquareFeetMinFilter() {
         universalVerticalSwipe(collapseReleaseSponsorArrow);
+
         element(squareFeetMinValueField).clear();
     }
 
     public void setSquareFeetMaxFilter(String value) {
         universalVerticalSwipe(collapseReleaseSponsorArrow);
+
         if(Config.isAndroid()) {
             element(squareFeetMaxValueField).sendKeys(value);
         }

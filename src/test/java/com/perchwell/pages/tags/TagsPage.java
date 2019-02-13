@@ -127,6 +127,9 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossFromAccountTagsButton;
 
+	@iOSXCUITFindBy(accessibility = "MY TAGS")
+	private WebElement myTagsLabel;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -468,9 +471,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void shouldSeeAddTagLabel() {
-		setImplicitTimeout(5, SECONDS);
 		element(addTagLabel).shouldBeVisible();
-		resetImplicitTimeout();
 	}
 
 	public void checkDuplicatedAndExistingTagsItemsAreSame() {
@@ -536,7 +537,13 @@ public class TagsPage extends TechHelper {
 		resetImplicitTimeout();
 	}
 
+
 	public void clickOnCrossFromAccountTagsButton() {
 		element(crossFromAccountTagsButton).click();
+	}
+
+	public void shouldSeeMyTagLabel() {
+		element(myTagsLabel).shouldBeVisible();
+
 	}
 }
