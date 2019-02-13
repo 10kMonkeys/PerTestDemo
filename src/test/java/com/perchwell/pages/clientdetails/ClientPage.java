@@ -491,6 +491,6 @@ public class ClientPage extends TechHelper {
 	}
 
 	public void shouldSeeSpecificClient(String clientName) {
-		element(MobileBy.AccessibilityId(clientName)).shouldBeVisible();
+		element(MobileBy.AccessibilityId(clientName)).shouldBePresent();
 	}
 }

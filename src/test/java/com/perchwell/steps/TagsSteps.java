@@ -437,8 +437,12 @@ public class TagsSteps extends ScenarioSteps {
 		onPage.checkIfSpecificTagIsVisible(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
   }
     
-  @Step
+    @Step
 	public void removeAllTagPills() {
 		onPage.removeAllTagPills();
+	}
+
+	public void clickOnCrossFromAccountTagsButton() {
+		onPage.clickOnCrossFromAccountTagsButton();
 	}
 }

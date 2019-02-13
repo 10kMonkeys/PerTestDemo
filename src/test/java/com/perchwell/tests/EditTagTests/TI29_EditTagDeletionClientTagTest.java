@@ -17,14 +17,17 @@ public class TI29_EditTagDeletionClientTagTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atTagsPage.fillInTagSearchField(SearchRequests.CLIENT0_TEST);
-        user.atTagsPage.clickOnFirstClientTag();
+//        user.atTagsPage.fillInTagSearchField(SearchRequests.CLIENT_TI29);
+        user.atTagsPage.clickOnFirstTagAndGetValue(); //new
+//        user.atTagsPage.clickOnFirstClientTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnListingsBuilding();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atTagsPage.fillInTagSearchField(SearchRequests.CLIENT0_TEST);
-        user.atTagsPage.clickOnFirstClientTag();
+//        user.atTagsPage.fillInTagSearchField(SearchRequests.CLIENT_TI29);
+        user.atTagsPage.searchFirstExistingTag(); //new
+//        user.atTagsPage.clickOnFirstClientTag();
+        user.atTagsPage.clickOnFirstTag(); //new
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atOpenedBuildingPage.swipeUpToMyTagsLabel();
@@ -54,9 +57,11 @@ public class TI29_EditTagDeletionClientTagTest extends SampleTest {
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.checkIfFirstExistingTagIsNotVisible();
-        user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atTagsPage.clickOnCrossFromAccountTagsButton(); //new
         user.atAccountPage.clickOnClientsLabel();
-        user.atClientPage.enterValueInSearchField(SearchRequests.CLIENT0_TEST);
-        user.atClientPage.shouldSeeTestClient();
+//        user.atClientPage.enterValueInSearchField(SearchRequests.CLIENT_TI29);
+        user.atClientPage.enterJustCreatedTagValueInSearchField(); //new
+//        user.atClientPage.shouldSeeTestClient();
+        user.atClientPage.shouldSeeFirstTagClient();
     }
 }

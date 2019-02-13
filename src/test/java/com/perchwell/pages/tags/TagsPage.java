@@ -124,6 +124,9 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: '")
 	private WebElement removingTagPill;
 
+	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
+	private WebElement crossFromAccountTagsButton;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -531,5 +534,9 @@ public class TagsPage extends TechHelper {
 			element(removingTagPill).click();
 		}
 		resetImplicitTimeout();
+	}
+
+	public void clickOnCrossFromAccountTagsButton() {
+		element(crossFromAccountTagsButton).click();
 	}
 }

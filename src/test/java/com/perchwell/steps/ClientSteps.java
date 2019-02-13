@@ -174,6 +174,12 @@ public class ClientSteps extends ScenarioSteps {
 		onPage.enterValueInSearchField(someText);
 	}
 
+
+	@Step
+	public void enterJustCreatedTagValueInSearchField() {
+		onPage.enterValueInSearchField(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+	}
+
 	@Step
 	public void clickOutsideSearchSectionOnlyForIOS() {
 		onPage.clickOutsideSearchField();
@@ -337,5 +343,10 @@ public class ClientSteps extends ScenarioSteps {
     @Step
 	public void shouldSeeCustomClient() {
 		onPage.shouldSeeSpecificClient(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
+	}
+
+	@Step
+	public void shouldSeeFirstTagClient() {
+		onPage.shouldSeeSpecificClient(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
 }
