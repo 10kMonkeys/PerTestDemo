@@ -19,12 +19,11 @@ public class TI6_TagsFilteringTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atOpenedBuildingPage.clearTagsList();
         user.atTagsPage.setSpecificTagIfNotExist("CLIENT TEST+ +CLIENT0");
-
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atTagsPage.fillInTagSearchField("CLIENT ");
+        user.atTagsPage.fillInTagSearchField("CLIENT T");
         user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 3);
         user.atTagsPage.clearTextField();
         user.atTagsPage.checkIfTagsPageIsReturnedToInitialState(3);

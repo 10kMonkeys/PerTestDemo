@@ -23,7 +23,7 @@ public class TI11_TagsFilteringTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atTagsPage.fillInTagSearchField("CLIENT ");
+        user.atTagsPage.fillInTagSearchField("CLIENT T");
         user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 3);
         user.atTagsPage.clearTextField();
         user.atTagsPage.checkIfTagsPageIsReturnedToInitialState(3);
