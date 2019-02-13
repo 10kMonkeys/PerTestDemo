@@ -468,9 +468,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void shouldSeeAddTagLabel() {
-		setImplicitTimeout(5, SECONDS);
 		element(addTagLabel).shouldBeVisible();
-		resetImplicitTimeout();
 	}
 
 	public void checkDuplicatedAndExistingTagsItemsAreSame() {
@@ -537,8 +535,6 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void shouldSeeMyTagLabel() {
-		setImplicitTimeout(5, SECONDS);
 		element(myTagsLabel).shouldBeVisible();
-		resetImplicitTimeout();
 	}
 }
