@@ -33,7 +33,7 @@ public class TI5_ContListAgSeveralListingsAndBackTest extends SampleTest {
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnContactListingAgentsButton();
         user.atContactListingAgentPage.clickOnBackButton();
-//        user.atMyTagsPage.checkThreeListingsAreSelected(); temp comment; need to fix
+        user.atMyTagsPage.checkThreeListingsAreSelected(); //temp comment; need to fix
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnContactListingAgentsButton();
         user.atContactListingAgentPage.clearSubjectField();
