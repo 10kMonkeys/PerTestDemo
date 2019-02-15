@@ -190,7 +190,6 @@ public class MyTagsPage extends TechHelper {
 
 	public void checkFirstListingsIsSelected() {
 		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("buildingAddress1") + "'$]")).shouldBePresent();
-		System.out.println("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("buildingAddress1") + "'$]");
 	}
 
 	public void checkSecondListingsIsSelected() {
