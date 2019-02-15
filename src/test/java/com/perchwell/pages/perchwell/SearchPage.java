@@ -1792,7 +1792,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void fillInPricePerSquareFeetMinField(String value) {
-        Helper.universalVerticalSwipe(collapseReleaseSponsorArrow);
+        universalVerticalSwipe(collapseReleaseSponsorArrow);
         element(minPricePerFTField).sendKeys(value);
         if (!Config.isAndroid()) {
             getDriver().findElement(By.name("Done")).click();
@@ -1807,7 +1807,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void clearMinPricePerSFTField() {
-        Helper.universalVerticalSwipe(collapseReleaseSponsorArrow);
+        universalVerticalSwipe(collapseReleaseSponsorArrow);
         element(minPricePerFTField).clear();
     }
 
@@ -1896,7 +1896,7 @@ public class SearchPage extends TechHelper {
             elementsValue = elementToCheck.getAttribute("value").replaceAll("[%$, .]", "");
         }
 
-        universalVerticalSwipe(elementToCheck);
+//        universalVerticalSwipe(elementToCheck);
         Assert.assertEquals(value, elementsValue);
     }
 
