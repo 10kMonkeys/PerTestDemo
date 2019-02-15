@@ -189,17 +189,18 @@ public class MyTagsPage extends TechHelper {
     }
 
 	public void checkFirstListingsIsSelected() {
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("buildingAddress") + "'$]")).shouldBePresent();
-		System.out.println("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("buildingAddress") + "'$]");
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("buildingAddress1") + "'$]")).shouldBePresent();
+		System.out.println("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("buildingAddress1") + "'$]");
 	}
 
 	public void checkSecondListingsIsSelected() {
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).shouldBePresent();
+		universalSingleSwipe();
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("buildingAddress2") + "'$]")).shouldBePresent();
 	}
 
 	public void checkThirdListingsIsSelected() {
 		universalSingleSwipe();
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress3") + "'$]")).shouldBePresent();
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected " + SessionVariables.getValueFromSessionVariable("buildingAddress3") + "'$]")).shouldBePresent();
 	}
 
 	public void shouldSeeTaggedBuilding() {
@@ -236,7 +237,7 @@ public class MyTagsPage extends TechHelper {
 		else {
 			firstBuildAddress = firstBuildingAddress.getAttribute("value");
 		}
-		SessionVariables.addValueInSessionVariable("buildingAddress", firstBuildAddress);
+		SessionVariables.addValueInSessionVariable("buildingAddress1", firstBuildAddress);
 	}
 
 	public void openFirstBuilding() {
