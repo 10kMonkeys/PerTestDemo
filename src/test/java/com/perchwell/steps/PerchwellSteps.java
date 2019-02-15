@@ -93,7 +93,7 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void getFirstBuildingAddress() {
-		onPage.addBuildingAddressInSessionVariable("buildingAddress", onPage.getFistBuildingAddress());
+		onPage.addBuildingAddressInSessionVariable("buildingAddress1", onPage.getFistBuildingAddress());
 	}
 
 	@Step

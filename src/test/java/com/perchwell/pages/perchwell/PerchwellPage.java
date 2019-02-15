@@ -944,7 +944,7 @@ public class PerchwellPage extends TechHelper {
 
 	public void getListingsAddresses(int amount) {
 		for(int i = 0; i < amount; i++) {
-			SessionVariables.addValueInSessionVariable("listingAddress" + (i + 1), addressesList.get(i).getAttribute("value"));
+			SessionVariables.addValueInSessionVariable("buildingAddress" + (i + 1), addressesList.get(i).getAttribute("value"));
 		}
 	}
 

@@ -435,7 +435,7 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void isBuildingAddressDisplayed() {
 		Assert.assertTrue(getBuildingAddress()
-				.equalsIgnoreCase(SessionVariables.getValueFromSessionVariable("buildingAddress")));
+				.equalsIgnoreCase(SessionVariables.getValueFromSessionVariable("buildingAddress1")));
 	}
 
 	public void openDiscussionWithJustCreatedClient(String client) {
