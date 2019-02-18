@@ -978,9 +978,9 @@ public class PerchwellPage extends TechHelper {
 
 	public void selectThirdAndFourthListingsByAddress() {
 		WebElement thirdListingsCheckBox = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: unselected "
-				+ SessionVariables.getValueFromSessionVariable("listingAddress3") + "'"));
+				+ SessionVariables.getValueFromSessionVariable("buildingAddress3") + "'"));
 		WebElement fourthListingsCheckBox = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: unselected "
-				+ SessionVariables.getValueFromSessionVariable("listingAddress4") + "'"));
+				+ SessionVariables.getValueFromSessionVariable("buildingAddress4") + "'"));
 		universalVerticalSwipe(thirdListingsCheckBox);
 		element(thirdListingsCheckBox).click();
 		universalVerticalSwipe(fourthListingsCheckBox);
