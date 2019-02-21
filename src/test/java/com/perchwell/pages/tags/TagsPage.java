@@ -12,6 +12,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,7 +116,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "ADD TAG")
 	private WebElement addTagLabel;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[$name BEGINSWITH 'Tag view: '$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$visible == 1$]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$visible == 1$]")
 	private WebElement tagsFirstPill;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label CONTAINS '11CLIENTNAME20'`][1]")
@@ -518,7 +519,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void checkCustomTagsItemsValue() {
-		element(MobileBy.AccessibilityId(String.valueOf(tagsItemsValue))).shouldBeVisible();
+		element(MobileBy.AccessibilityId("items with tag: " + tagsItemsValue)).shouldBeVisible();
 	}
 
 	public void clearSearchField() {

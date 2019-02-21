@@ -3,8 +3,10 @@ package com.perchwell.tests.EditTagTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.SearchRequests;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"TagsTests", "iOS_TagsSecond", "Android_TagsSecond", "TagsSecond"})
 public class TI29_EditTagDeletionClientTagTest extends SampleTest {
 
     @Test
