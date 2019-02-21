@@ -370,12 +370,14 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void clickOnSpecificTagPillInSearchField(String tagName) {
-		element(MobileBy.AccessibilityId(tagName)).click();
+//		element(MobileBy.AccessibilityId(tagName)).click();
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).click();
 	}
 
 	public void checkIfTagPillIsRemoved(String tagName) {
 		setImplicitTimeout(5, SECONDS);
-		element(MobileBy.AccessibilityId("Tag view: " + tagName)).shouldNotBeVisible();
+//		element(MobileBy.AccessibilityId("Tag view: " + tagName)).shouldNotBeVisible();
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).shouldNotBeVisible();
 		resetImplicitTimeout();
 	}
 

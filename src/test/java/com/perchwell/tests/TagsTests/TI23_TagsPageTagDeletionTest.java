@@ -36,11 +36,11 @@ public class TI23_TagsPageTagDeletionTest extends SampleTest {
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnSearchButton();
-        user.atMyTagsPage.getFirstBuildingAddress(); //new
+//        user.atMyTagsPage.getFirstBuildingAddress();
         user.atMyTagsPage.openFirstBuilding();
         user.atOpenedBuildingPage.removeAllTags();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.atMyTagsPage.checkFirstBuildingIsRemovedFromTaggedItemsPage(); //updated
+        user.atMyTagsPage.checkFirstBuildingIsRemovedFromTaggedItemsPage("1 West 72nd St.");
         user.atMyTagsPage.checkItemsCountIsChanged(2);
         user.atMyTagsPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();

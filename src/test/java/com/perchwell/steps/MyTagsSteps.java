@@ -136,12 +136,12 @@ public class MyTagsSteps extends ScenarioSteps {
 
 	@Step
 	public void checkFirstListingIsRemovedFromTaggedItemsPage() {
-		onPage.checkListingIsRemovedFromTaggedItemsPage(SessionVariables.getValueFromSessionVariable("buildingAddress1"));
+		onPage.checkListingIsRemovedFromTaggedItemsPage(SessionVariables.getValueFromSessionVariable("listingAddress1"));
 	}
 
 	@Step
-	public void checkFirstBuildingIsRemovedFromTaggedItemsPage() {
-		onPage.checkListingIsRemovedFromTaggedItemsPage(SessionVariables.getValueFromSessionVariable("buildingAddress1"));
+	public void checkFirstBuildingIsRemovedFromTaggedItemsPage(String address) {
+		onPage.checkListingIsRemovedFromTaggedItemsPage(address);
 	}
 
 	@Step
