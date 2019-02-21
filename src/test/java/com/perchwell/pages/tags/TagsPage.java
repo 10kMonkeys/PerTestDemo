@@ -441,7 +441,8 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void clickOnFirstAddedTagPil(String tag) {
-		element(MobileBy.AccessibilityId("Tag view: " + tag)).click();
+//		element(MobileBy.AccessibilityId("Tag view: " + tag)).click();
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tag + "'$]")).click();
 	}
 
 	public void noOneTagWithItemIsShown() {
@@ -463,7 +464,8 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void shouldSeeSpecificTagsPill(String tagName) {
-		element(MobileBy.AccessibilityId("Tag view: " + tagName)).shouldBeVisible();
+//		element(MobileBy.AccessibilityId("Tag view: " + tagName)).shouldBeVisible();
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).shouldBeVisible();
 	}
 
 	public void clickOnFirstTag() {

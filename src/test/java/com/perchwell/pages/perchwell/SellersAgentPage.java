@@ -211,9 +211,9 @@ public class SellersAgentPage extends TechHelper {
 
         for(int i = 0; i < 3; i++) {
             textBody = getTextBody(mailTrapResponse[i].getTxt_path());
-            if(!(textBody.contains(SessionVariables.getValueFromSessionVariable("buildingAddress1"))
-                    || textBody.contains(SessionVariables.getValueFromSessionVariable("buildingAddress2"))
-                    || textBody.contains(SessionVariables.getValueFromSessionVariable("buildingAddress3" )))) {
+            if(!(textBody.contains(SessionVariables.getValueFromSessionVariable("listingAddress1"))
+                    || textBody.contains(SessionVariables.getValueFromSessionVariable("listingAddress2"))
+                    || textBody.contains(SessionVariables.getValueFromSessionVariable("listingAddress3" )))) {
                 emailsSent = false;
             }
             Assert.assertTrue(emailsSent);

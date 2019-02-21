@@ -248,7 +248,8 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "NO MATCH")
 	private WebElement noMatchLabel;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'removeBubble'")
+//	@iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'removeBubble'")
+@iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'removeBubble'")
 	private WebElement removeButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'PRICE:'$][1]")
@@ -435,7 +436,7 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void isBuildingAddressDisplayed() {
 		Assert.assertTrue(getBuildingAddress()
-				.equalsIgnoreCase(SessionVariables.getValueFromSessionVariable("buildingAddress1")));
+				.equalsIgnoreCase(SessionVariables.getValueFromSessionVariable("listingAddress1")));
 	}
 
 	public void openDiscussionWithJustCreatedClient(String client) {
@@ -771,6 +772,7 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
     public void clearTagsList() {
+		waitABit(1000);
 		setImplicitTimeout(3, TimeUnit.SECONDS);
 		while (element(MobileBy.iOSNsPredicateString("label CONTAINS 'removeBubble'")).isVisible()) {
 			element(removeButton).click();

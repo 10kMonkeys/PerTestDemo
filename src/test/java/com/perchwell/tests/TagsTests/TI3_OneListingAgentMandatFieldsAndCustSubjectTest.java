@@ -1,7 +1,6 @@
 package com.perchwell.tests.TagsTests;
 
 import com.perchwell.SampleTest;
-import com.perchwell.data.Addresses;
 import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
@@ -21,7 +20,7 @@ public class TI3_OneListingAgentMandatFieldsAndCustSubjectTest extends SampleTes
         user.atSellersAgentPage.swipeDownUntilSellersAgentSection();
         user.atOpenedBuildingPage.getTestAgentEmail();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.atPerchwellPage.getFirstBuildingAddress();
+        user.atPerchwellPage.getFirstListingAddress();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.clickOnMoreOptionsButton();

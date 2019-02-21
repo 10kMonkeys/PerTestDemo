@@ -14,9 +14,9 @@ public class ST20_ListViewTest extends SampleTest {
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
-		user.atPerchwellPage.getFirstBuildingAddress();
+		user.atPerchwellPage.getFirstListingAddress();
 		user.atPerchwellPage.openFirstBuilding();
 		user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
-		user.atOpenedBuildingPage.shouldSeeBuildingAddress();
+		user.atOpenedBuildingPage.shouldSeeListingAddress();
 	}
 }

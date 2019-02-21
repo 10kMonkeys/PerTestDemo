@@ -944,7 +944,7 @@ public class PerchwellPage extends TechHelper {
 
 	public void getListingsAddresses(int amount) {
 		for(int i = 0; i < amount; i++) {
-			SessionVariables.addValueInSessionVariable("buildingAddress" + (i + 1), addressesList.get(i).getAttribute("value"));
+			SessionVariables.addValueInSessionVariable("listingAddress" + (i + 1), addressesList.get(i).getAttribute("value"));
 		}
 	}
 
@@ -978,9 +978,9 @@ public class PerchwellPage extends TechHelper {
 
 	public void selectThirdAndFourthListingsByAddress() {
 		WebElement thirdListingsCheckBox = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: unselected "
-				+ SessionVariables.getValueFromSessionVariable("buildingAddress3") + "'"));
+				+ SessionVariables.getValueFromSessionVariable("listingAddress3") + "'"));
 		WebElement fourthListingsCheckBox = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: unselected "
-				+ SessionVariables.getValueFromSessionVariable("buildingAddress4") + "'"));
+				+ SessionVariables.getValueFromSessionVariable("listingAddress4") + "'"));
 		universalVerticalSwipe(thirdListingsCheckBox);
 		element(thirdListingsCheckBox).click();
 		universalVerticalSwipe(fourthListingsCheckBox);

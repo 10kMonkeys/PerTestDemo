@@ -49,7 +49,7 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void shouldSeeBuildingAddress() {
+	public void shouldSeeListingAddress() {
 		onPage.isBuildingAddressDisplayed();
 	}
 
