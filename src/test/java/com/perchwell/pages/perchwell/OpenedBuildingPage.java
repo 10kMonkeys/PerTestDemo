@@ -764,7 +764,7 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void getTestAgentEmail() {
 		String agentEmail = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND " +
-				"name CONTAINS 'TEST TEST'")).getValue().toLowerCase();
+				"name CONTAINS 'seller agent: '")).getValue().toLowerCase();
 
 		SessionVariables.addValueInSessionVariable("Test_agent",
 				agentEmail.replace("test ", ""));

@@ -11,6 +11,27 @@ package com.perchwell.pages.base;
 
         import java.util.concurrent.TimeUnit;
 
+//public abstract class BasePage extends PageObject {
+//    public BasePage(final WebDriver driver) {
+//        super(driver, new Predicate<PageObject>() {
+//            @Override
+//            public boolean apply(PageObject page) {
+//
+//                PageFactory
+//                        .initElements(new AppiumFieldDecorator(((WebDriverFacade) page.getDriver()).getProxiedDriver(),
+//                                page.getImplicitWaitTimeout().in(TimeUnit.SECONDS), TimeUnit.SECONDS), page);
+//
+//                return true;
+//                            }
+//        });
+//        setImplicitTimeout(30000, TimeUnit.MILLISECONDS);
+//    }
+//
+//    public IOSDriver<IOSElement> iOSDriver() {
+//        return (IOSDriver<IOSElement>) ((WebDriverFacade) getDriver()).getProxiedDriver();
+//    }
+//}
+
 public abstract class BasePage extends PageObject {
     public BasePage(final WebDriver driver) {
         super(driver, new Predicate<PageObject>() {
@@ -22,12 +43,9 @@ public abstract class BasePage extends PageObject {
                                 page.getImplicitWaitTimeout().in(TimeUnit.SECONDS), TimeUnit.SECONDS), page);
 
                 return true;
-                            }
+            }
         });
         setImplicitTimeout(30000, TimeUnit.MILLISECONDS);
     }
 
-    public IOSDriver<IOSElement> iOSDriver() {
-        return (IOSDriver<IOSElement>) ((WebDriverFacade) getDriver()).getProxiedDriver();
-    }
 }

@@ -3,10 +3,12 @@ package com.perchwell.tests.EditTagTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
 import com.perchwell.entity.AppProperties;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TI28_TagDuplicationOtherTagTest extends SampleTest {
 
+    @Ignore
     @Test
     public void tagDuplicationOtherTag() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

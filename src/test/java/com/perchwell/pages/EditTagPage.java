@@ -12,14 +12,14 @@ import java.util.concurrent.TimeUnit;
 
 public class EditTagPage extends TechHelper {
 
-    @iOSXCUITFindBy(accessibility = "DELETE")
+    @iOSXCUITFindBy(accessibility = "label: delete")
     private WebElement removeButton;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeCell' AND label == 'DELETE'")
-//    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name == 'DELETE'$][1]")
+//    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeCell' AND label == 'DELETE'")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[$name == 'DELETE'$]")
     private WebElement confirmButton;
 
-    @iOSXCUITFindBy(accessibility = "DUPLICATE")
+    @iOSXCUITFindBy(accessibility = "label: duplicate")
     private WebElement duplicateButton;
 
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'EDIT TAG' AND visible == 1")
@@ -31,7 +31,8 @@ public class EditTagPage extends TechHelper {
 
     private WebElement duplicateTagNameTextField;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'SAVE' AND visible == 1")
+//    @iOSXCUITFindBy(iOSNsPredicate = "name == 'SAVE' AND visible == 1")
+    @iOSXCUITFindBy(accessibility = "bar button: save")
     private WebElement saveButton;
 
     @iOSXCUITFindBy(accessibility = "Tag Name textField")
@@ -49,7 +50,7 @@ public class EditTagPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Option Selected: Off")
     private WebElement alertsOffSelected;
 
-    @iOSXCUITFindBy(accessibility = "CANCEL")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[$name == 'CANCEL'$]")
     private WebElement cancelButton;
 
     @iOSXCUITFindBy(accessibility = "iconChevronLeft")

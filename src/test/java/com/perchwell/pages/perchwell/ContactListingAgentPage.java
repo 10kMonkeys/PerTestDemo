@@ -28,7 +28,7 @@ public class ContactListingAgentPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
     private WebElement emailField;
 
-    @iOSXCUITFindBy(accessibility = "test-android+mgmt-core@perchwell.com")
+    @iOSXCUITFindBy(accessibility = "test-ios+mgmt-core@perchwell.com")
     private WebElement defaultAgentCCAddress;
 
     @iOSXCUITFindBy(accessibility = "Back")

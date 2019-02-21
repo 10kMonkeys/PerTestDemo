@@ -16,12 +16,6 @@ public class TI3_OneListingAgentMandatFieldsAndCustSubjectTest extends SampleTes
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.inSearchMenu.openSearchPage();
-        user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInSearchField(Addresses.DAKOTA);
-        user.atSearchPage.clickOnListingByAddress(Addresses.DAKOTA);
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
-        user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atSellersAgentPage.swipeDownUntilSellersAgentSection();
