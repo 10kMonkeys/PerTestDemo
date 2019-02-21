@@ -503,7 +503,7 @@ public class TagsPage extends TechHelper {
 
 	public void shouldNotSeeSpecificTagsPill(String tagName) {
 		setImplicitTimeout(3, SECONDS);
-		element(MobileBy.AccessibilityId("Tag view: " + tagName)).shouldNotBeVisible();
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).shouldNotBeVisible();
 		resetImplicitTimeout();
 	}
 
