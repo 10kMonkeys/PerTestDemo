@@ -791,7 +791,7 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void getFifthBuildingAddress() {
-		SessionVariables.addValueInSessionVariable("listingAddress" + 5, buildingAddress.getAttribute("value"));
+		SessionVariables.addValueInSessionVariable("buildingAddress" + 5, buildingAddress.getAttribute("value"));
 	}
 
 	public void shouldSeeAddedNewTag() {
