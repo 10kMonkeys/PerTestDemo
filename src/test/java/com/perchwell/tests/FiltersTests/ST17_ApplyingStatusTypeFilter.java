@@ -18,6 +18,8 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
             user.atPerchwellPage.isListingsQuantity();
             user.inSearchMenu.openSearchPage();
             user.atSearchPage.selectFilter4PlusBaths();
+            user.atSearchPage.clickOnApplyButton(); //temp scroll fix
+            user.inSearchMenu.openSearchPage(); //temp scroll fix
             user.atSearchPage.deselectActiveFilter();
             user.atSearchPage.selectContractFilter();
             user.atSearchPage.clickOnApplyButton();
