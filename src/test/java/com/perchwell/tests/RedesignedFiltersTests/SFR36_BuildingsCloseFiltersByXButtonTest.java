@@ -16,11 +16,11 @@ public class SFR36_BuildingsCloseFiltersByXButtonTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.isListingsQuantity();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.addThreeBuildingFilters("2");
+        user.atSearchPage.addThreeBuildingFilters("a");
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.addThreeBuildingFilters("2");
+        user.atSearchPage.addThreeBuildingFilters("a");
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsWereChanged();
         user.atPerchwellPage.isListingsQuantity();
@@ -30,14 +30,14 @@ public class SFR36_BuildingsCloseFiltersByXButtonTest extends SampleTest {
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.checkIfBuildingsFilterChangesAreSaved();
-        user.atSearchPage.deleteThreeFirstBuildingFilters();
+        user.atSearchPage.deleteThreeFirstBuildingFilters(); //temp fix
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.atPerchwellPage.clickOnSaveButton();
         user.atSearchPage.setSearchName();
         user.atSearchPage.clickOnSaveButton();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.deleteThreeFirstBuildingFilters();
+        user.atSearchPage.deleteThreeFirstBuildingFilters(); //temp fix
         user.atSearchPage.closeSearch();
         user.atPerchwellPage.checkListingsQuantityIsEqual();
         user.inSearchMenu.openSearchPage();

@@ -20,13 +20,13 @@ public class TI25_TagRenamingClientTagTest extends SampleTest {
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.clickOnFirstCustomClientTagAndGetValue();
-        user.atTagsPage.getFirstTagsItemsValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnListingsBuilding();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.clickOnFirstTag();
+        user.atTagsPage.getFirstTagsItemsValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atOpenedBuildingPage.swipeUpToMyTagsLabel();

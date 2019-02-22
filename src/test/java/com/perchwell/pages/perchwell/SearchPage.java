@@ -528,7 +528,7 @@ public class SearchPage extends TechHelper {
     private List<WebElement> buildingsList;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/remove_icon")
-    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: ' ")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: '")
     private List<WebElement> removeButtonList;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
@@ -1698,9 +1698,10 @@ public class SearchPage extends TechHelper {
     }
 
     public void deleteFirstBuildingFilter() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             removeButtonList.get(i).click();
         }
+        element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: '")).click();
     }
 
     public void checkIfBedAndBathThreeMinimumFiltersAreSelected() {
