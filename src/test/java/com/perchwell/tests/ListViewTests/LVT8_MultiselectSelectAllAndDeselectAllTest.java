@@ -5,10 +5,10 @@ import com.perchwell.data.SortingTypes;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class LVT8_SelectAllAndDeselectAll extends SampleTest {
+public class LVT8_MultiselectSelectAllAndDeselectAllTest extends SampleTest {
 
     @Test
-    public void selectAllAndDeselectAll() {
+    public void multielectSelectAllAndDeselectAllTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
