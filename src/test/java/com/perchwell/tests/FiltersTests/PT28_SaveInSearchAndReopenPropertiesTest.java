@@ -19,7 +19,7 @@ public class PT28_SaveInSearchAndReopenPropertiesTest extends SampleTest {
         user.atSearchPage.saveCurrentFirstSearch();
         user.inSearchMenu.openSavedSearches(); //search new
         user.atSearchPage.createNewSearchClick();
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPageWithWait(); //search new 1111
         user.atSearchPage.selectRentalsProperty();
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.saveCurrentSecondSearch();

@@ -12,7 +12,13 @@ public class SearchMenuSteps extends ScenarioSteps {
 
     @Step
     public void openSearchPage() {
-//        waitABit(1000);
+        waitABit(1000);
+        inMenu.clickOnSearchMenuIcon();
+        inMenu.clickOnEditSearchButton();
+    }
+
+    @Step
+    public void openSearchPageWithWait() {
         inMenu.waitSortedBy();
         inMenu.clickOnSearchMenuIcon();
         inMenu.clickOnEditSearchButton();
