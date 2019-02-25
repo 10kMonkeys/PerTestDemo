@@ -240,6 +240,9 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
 	private WebElement tagIconOnFirstListing;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Number of selected listings: '")
+	private WebElement numberOfSelectedListings;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -989,5 +992,13 @@ public class PerchwellPage extends TechHelper {
 
 	public void clickOnTagIconOnFirstListing() {
 		element(tagIconOnFirstListing).click();
+	}
+
+	public void checkSelectedLabelEquals(int value) {
+		Assert.assertEquals(value, Integer.parseInt(numberOfSelectedListings.getAttribute("value")));
+	}
+
+	public void checkListingsAreSelected(int value) {
+		Assert.assertEquals(value, selectedListingsList.size());
 	}
 }
