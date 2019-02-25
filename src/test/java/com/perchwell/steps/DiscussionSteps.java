@@ -74,4 +74,9 @@ public class DiscussionSteps extends ScenarioSteps {
 		onPage.typeMessage(text);
 		this.clickOnSendButton();
 	}
+
+	@Step
+	public void clickOnArrowBackFromDiscussionToListViewButton() {
+		onPage.clickOnArrowBackFromDiscussionToListViewButton();
+	}
 }

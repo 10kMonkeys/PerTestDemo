@@ -596,4 +596,14 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void clickOnTagIconOnFirstListing() {
 		onPage.clickOnTagIconOnFirstListing();
 	}
+
+	@Step
+    public void checkOneListingIsSelected() {
+		onPage.checkOneListingIsSelected();
+    }
+
+    @Step
+	public void clickOnDiscussionIconOnFirstListing() {
+		onPage.clickOnDiscussionIconOnFirstListing();
+	}
 }

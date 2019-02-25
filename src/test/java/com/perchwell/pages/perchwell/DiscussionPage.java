@@ -10,10 +10,6 @@ import org.openqa.selenium.WebElement;
 
 public class DiscussionPage extends TechHelper {
 
-	public DiscussionPage(WebDriver driver) {
-		super(driver);
-	}
-
 	@iOSXCUITFindBy(accessibility = "CC my email on this conversation")
 	private WebElement ccMyEmailText;
 
@@ -37,6 +33,13 @@ public class DiscussionPage extends TechHelper {
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "DiscussionsCancelButton")
 	private WebElement crossBackButtonFromDiscussionsPage;
+
+	@iOSXCUITFindBy(accessibility = "DiscussionsCancelButton")
+	private WebElement backFromDiscussionToListViewButton;
+
+	public DiscussionPage(WebDriver driver) {
+		super(driver);
+	}
 
 	public void shouldBeCcMyEmailTextDispayed() {
 		element(ccMyEmailText).shouldBeVisible();
@@ -68,5 +71,9 @@ public class DiscussionPage extends TechHelper {
 
 	public void clickOnCrossBackButtonFromDiscussionsPage() {
 		element(crossBackButtonFromDiscussionsPage).click();
+	}
+
+	public void clickOnArrowBackFromDiscussionToListViewButton() {
+		element(backFromDiscussionToListViewButton).click();
 	}
 }
