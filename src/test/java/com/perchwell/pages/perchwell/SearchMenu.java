@@ -42,6 +42,9 @@ public class SearchMenu extends TechHelper {
     @iOSXCUITFindBy(accessibility = "SAVE")
     private WebElement saveButton;
 
+    @iOSXCUITFindBy(accessibility = "Sorted by")
+    private WebElement sortByTitle;
+
     //endregion
 
     public SearchMenu(WebDriver driver) {
@@ -78,5 +81,9 @@ public class SearchMenu extends TechHelper {
 //        Assert.assertFalse(element(saveButton).isVisible());
         Assert.assertEquals(0, getDriver().findElements(MobileBy.AccessibilityId("SAVE")).size());
         resetImplicitTimeout();
+    }
+
+    public void waitSortedBy() {
+        waitFor(ExpectedConditions.visibilityOf(sortByTitle));
     }
 }

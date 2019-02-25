@@ -4,6 +4,7 @@ import com.perchwell.crossPlatform.Config;
 import com.perchwell.pages.perchwell.SearchMenu;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SearchMenuSteps extends ScenarioSteps {
 
@@ -11,7 +12,8 @@ public class SearchMenuSteps extends ScenarioSteps {
 
     @Step
     public void openSearchPage() {
-        waitABit(1000);
+//        waitABit(1000);
+        inMenu.waitSortedBy();
         inMenu.clickOnSearchMenuIcon();
         inMenu.clickOnEditSearchButton();
     }

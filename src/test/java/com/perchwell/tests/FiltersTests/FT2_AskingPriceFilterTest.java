@@ -15,33 +15,34 @@ public class FT2_AskingPriceFilterTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.isListingsQuantity();
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.setMinimumPriceFilter("400000"); //100 000 / 1 000 000 old
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.shouldSeeListingsEqualOrMoreMinPrice();
-        user.inSearchMenu.openSearchPage(); //search new
-        user.atSearchPage.eraseMinValueOfPriceFilter();
+        user.inSearchMenu.openSearchPage();
+        user.atSearchPage.clickOnResetFilter(); //temp solution instead clear
+//        user.atSearchPage.eraseMinValueOfPriceFilter(); //temp comment
         user.atSearchPage.setMaximumPriceFilter("600000"); //1 100 000
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.shouldSeeListingsEqualOrLessMaxPrice();
-        user.inSearchMenu.openSearchPage(); //search new
-        user.atSearchPage.eraseMaxValueOfPriceFilter();
+        user.inSearchMenu.openSearchPage();
+//        user.atSearchPage.eraseMaxValueOfPriceFilter(); //temp comment
+        user.atSearchPage.clickOnResetFilter(); //temp solution instead clear
         user.atSearchPage.setMinimumPriceFilter("900000");
         user.atSearchPage.setMaximumPriceFilter("1200000");
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.shouldSeeListingsBetweenMinAndMaxPrices();
-//        user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.saveCurrentSearch();
-        user.inSearchMenu.openSavedSearches(); //search new
+        user.inSearchMenu.openSavedSearches();
         user.atSearchPage.createNewSearchClick();
         user.atPerchwellPage.checkListingsQuantity();
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.checkNoOnePriceFilterSelected();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
-        user.inSearchMenu.openSavedSearches(); //search new
+        user.inSearchMenu.openSavedSearches();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.shouldSeeListingsBetweenMinAndMaxPrices();
-        user.inSearchMenu.openSearchPage(); //search new
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.checkNoOnePriceFilterSelected();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
