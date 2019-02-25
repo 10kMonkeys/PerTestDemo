@@ -1001,4 +1001,16 @@ public class PerchwellPage extends TechHelper {
 	public void checkListingsAreSelected(int value) {
 		Assert.assertEquals(value, selectedListingsList.size());
 	}
+
+	public void TabBarIsHidden() {
+		element(analyticsButton).shouldNotBeVisible();
+		element(map).shouldNotBeVisible();
+		element(listButton).shouldNotBeVisible();
+	}
+
+	public void TabBarIsShown() {
+		element(analyticsButton).shouldBeVisible();
+		element(map).shouldBeVisible();
+		element(listButton).shouldBeVisible();
+	}
 }

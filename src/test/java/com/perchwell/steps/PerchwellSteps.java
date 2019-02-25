@@ -606,4 +606,12 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void checkListingsAreSelected(int value) {
 		onPage.checkListingsAreSelected(value);
 	}
+
+	public void TabBarIsHidden() {
+		onPage.TabBarIsHidden();
+	}
+
+	public void TabBarIsShown() {
+		onPage.TabBarIsShown();
+	}
 }

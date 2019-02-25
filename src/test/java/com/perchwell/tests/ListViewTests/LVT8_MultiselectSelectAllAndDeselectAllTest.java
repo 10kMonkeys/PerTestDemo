@@ -8,7 +8,7 @@ import org.junit.Test;
 public class LVT8_MultiselectSelectAllAndDeselectAllTest extends SampleTest {
 
     @Test
-    public void multielectSelectAllAndDeselectAllTest() {
+    public void multiselectSelectAllAndDeselectAllTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -17,6 +17,7 @@ public class LVT8_MultiselectSelectAllAndDeselectAllTest extends SampleTest {
         user.atPerchwellPage.clickOnAddressSortButton();
         user.atPerchwellPage.checkSortLabel(SortingTypes.ADDRESS);
         user.atPerchwellPage.selectFirstListing();
+        user.atPerchwellPage.TabBarIsHidden();
         user.atPerchwellPage.checkSelectionMenuIsShown(1); //updated
         user.atPerchwellPage.clickOnSelectAll();
         user.atPerchwellPage.checkSelectedLabelEquals(20); //
@@ -24,6 +25,6 @@ public class LVT8_MultiselectSelectAllAndDeselectAllTest extends SampleTest {
         user.atPerchwellPage.clickOnDeselectAllListingsButton();
         user.atPerchwellPage.checkSortLabel(SortingTypes.ADDRESS);
         user.atPerchwellPage.checkListingsAreSelected(0); //
-
+        user.atPerchwellPage.TabBarIsShown();
     }
 }
