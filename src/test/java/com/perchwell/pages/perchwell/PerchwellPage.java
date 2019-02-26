@@ -1040,7 +1040,9 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void checkNoOneListingIsSelected() {
+		setImplicitTimeout(3, SECONDS);
 		Assert.assertEquals(0, selectedListingsList.size());
+		resetImplicitTimeout();
 	}
 
 	public void multiSelectMenuIsHidden() {
