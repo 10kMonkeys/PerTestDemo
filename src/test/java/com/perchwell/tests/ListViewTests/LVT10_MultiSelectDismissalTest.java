@@ -21,30 +21,30 @@ public class LVT10_MultiSelectDismissalTest extends SampleTest {
         user.inSearchMenu.openSavedSearches();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.checkNoOneListingIsSelected();
-        user.atPerchwellPage.multiSelectMenuIsHidden(); //
+        user.atPerchwellPage.multiSelectMenuIsHidden();
         user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
         user.atPerchwellPage.selectFirstListing();
         user.usingComplexSteps.startNewSearch();
         user.atPerchwellPage.checkNoOneListingIsSelected();
-        user.atPerchwellPage.multiSelectMenuIsHidden(); //
+        user.atPerchwellPage.multiSelectMenuIsHidden();
         user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
         user.atPerchwellPage.selectFirstListing();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkNoOneListingIsSelected();
-        user.atPerchwellPage.multiSelectMenuIsHidden(); //
+        user.atPerchwellPage.multiSelectMenuIsHidden();
         user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
         user.atPerchwellPage.selectFirstListing();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkNoOneListingIsSelected();
-        user.atPerchwellPage.multiSelectMenuIsHidden(); //
+        user.atPerchwellPage.multiSelectMenuIsHidden();
         user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
         user.atPerchwellPage.selectFirstListing();
-        user.atPerchwellPage.swipeUpListViewToRefresh(); //
+        user.atPerchwellPage.swipeUpListViewToRefresh();
         user.atPerchwellPage.checkNoOneListingIsSelected();
-        user.atPerchwellPage.multiSelectMenuIsHidden(); //
+        user.atPerchwellPage.multiSelectMenuIsHidden();
         user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
     }
 }
