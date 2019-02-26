@@ -636,4 +636,14 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void checkNoOneListingIsSelected() {
 		onPage.checkNoOneListingIsSelected();
 	}
+
+	@Step
+	public void multiSelectMenuIsHidden() {
+		onPage.multiSelectMenuIsHidden();
+	}
+
+	@Step
+	public void swipeUpListViewToRefresh() {
+		onPage.swipeUpListViewToRefresh();
+	}
 }
