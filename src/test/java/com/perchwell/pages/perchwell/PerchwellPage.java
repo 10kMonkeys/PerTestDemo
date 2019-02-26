@@ -1016,7 +1016,6 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void checkListingsAreSelected(int value) {
-
 		Assert.assertEquals(value, selectedListingsList.size());
 	}
 
@@ -1038,5 +1037,9 @@ public class PerchwellPage extends TechHelper {
 		setImplicitTimeout(3, SECONDS);
 		element(listingsByButton).shouldNotBeVisible();
 		resetImplicitTimeout();
+	}
+
+	public void checkNoOneListingIsSelected() {
+		Assert.assertEquals(0, selectedListingsList.size());
 	}
 }

@@ -631,4 +631,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void sortingMenuIsHidden() {
 		onPage.sortingMenuIsHidden();
 	}
+
+	@Step
+	public void checkNoOneListingIsSelected() {
+		onPage.checkNoOneListingIsSelected();
+	}
 }

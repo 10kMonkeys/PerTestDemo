@@ -17,15 +17,15 @@ public class LVT8_MultiSelectSelectAllAndDeselectAllTest extends SampleTest {
         user.atPerchwellPage.clickOnAddressSortButton();
         user.atPerchwellPage.checkSortLabel(SortingTypes.ADDRESS);
         user.atPerchwellPage.selectFirstListing();
-        user.atPerchwellPage.sortingMenuIsHidden(); //
-        user.atPerchwellPage.tabBarIsHidden(); //
-        user.atPerchwellPage.checkSelectionMenuIsShown(1); //updated
+        user.atPerchwellPage.sortingMenuIsHidden();
+        user.atPerchwellPage.tabBarIsHidden();
+        user.atPerchwellPage.checkSelectionMenuIsShown(1);
         user.atPerchwellPage.clickOnSelectAll();
-        user.atPerchwellPage.checkSelectedLabelEquals(20); //
+        user.atPerchwellPage.checkSelectedLabelEquals(20);
 //        user.atPerchwellPage.checkListingsAreSelected(20); //need to add 20 elements in DOM
         user.atPerchwellPage.clickOnDeselectAllListingsButton();
         user.atPerchwellPage.checkSortLabel(SortingTypes.ADDRESS);
-        user.atPerchwellPage.checkListingsAreSelected(0); //
-        user.atPerchwellPage.tabBarIsShown(); //
+        user.atPerchwellPage.checkNoOneListingIsSelected();
+        user.atPerchwellPage.tabBarIsShown();
     }
 }
