@@ -540,11 +540,11 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkSelectionMenuIsShown() {
+	public void checkSelectionMenuIsShown(int value) {
 		onPage.checkMoreButtonIsShown();
 		onPage.checkSelectAllButtonIsShown();
 		onPage.checkDeselectAllButtonIsShown();
-		onPage.checkCounterWithValueThreeIsShown();
+		onPage.checkSelectedLabelEquals(value);
 		onPage.checkSelectedWordIsShown();
 	}
 
@@ -605,5 +605,30 @@ public class PerchwellSteps extends ScenarioSteps {
     @Step
 	public void clickOnDiscussionIconOnFirstListing() {
 		onPage.clickOnDiscussionIconOnFirstListing();
+	}
+
+	@Step
+	public void checkSelectedLabelEquals(int value) {
+		onPage.checkSelectedLabelEquals(value);
+	}
+
+	@Step
+	public void checkListingsAreSelected(int value) {
+		onPage.checkListingsAreSelected(value);
+	}
+
+	@Step
+	public void tabBarIsHidden() {
+		onPage.tabBarIsHidden();
+	}
+
+	@Step
+	public void tabBarIsShown() {
+		onPage.tabBarIsShown();
+	}
+
+	@Step
+	public void sortingMenuIsHidden() {
+		onPage.sortingMenuIsHidden();
 	}
 }

@@ -19,6 +19,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -163,6 +164,9 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
 	private WebElement discussWithClientHint;
 
+	@iOSXCUITFindBy(accessibility = "Newest")
+	private WebElement newestSortButton;
+
 //	@iOSXCUITFindBy(accessibility = "240 EAST 35TH ST. #TEST")
 //	@iOSXCUITFindBy(accessibility = "ADDRESS-61 WEST 62ND ST. #TEST")
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS-61 WEST 62ND ST'")
@@ -240,8 +244,12 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
 	private WebElement tagIconOnFirstListing;
 
+
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'DISCUSS BUTTON'")
 	private WebElement discussionButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Number of selected listings: '")
+	private WebElement numberOfSelectedListings;
 
 	//endregion
 
@@ -1001,5 +1009,34 @@ public class PerchwellPage extends TechHelper {
 
 	public void clickOnDiscussionIconOnFirstListing() {
 		element(discussionButton).click();
+	}
+
+	public void checkSelectedLabelEquals(int value) {
+		Assert.assertEquals(value, Integer.parseInt(numberOfSelectedListings.getAttribute("value")));
+	}
+
+	public void checkListingsAreSelected(int value) {
+
+		Assert.assertEquals(value, selectedListingsList.size());
+	}
+
+	public void tabBarIsHidden() {
+		setImplicitTimeout(5, SECONDS);
+		element(analyticsButton).shouldNotBeVisible();
+		element(map).shouldNotBeVisible();
+		element(listButton).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void tabBarIsShown() {
+		element(analyticsButton).shouldBeVisible();
+		element(map).shouldBeVisible();
+		element(listButton).shouldBeVisible();
+	}
+
+	public void sortingMenuIsHidden() {
+		setImplicitTimeout(3, SECONDS);
+		element(listingsByButton).shouldNotBeVisible();
+		resetImplicitTimeout();
 	}
 }
