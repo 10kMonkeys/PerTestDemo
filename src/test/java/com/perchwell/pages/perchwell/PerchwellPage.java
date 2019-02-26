@@ -1042,4 +1042,18 @@ public class PerchwellPage extends TechHelper {
 	public void checkNoOneListingIsSelected() {
 		Assert.assertEquals(0, selectedListingsList.size());
 	}
+
+	public void multiSelectMenuIsHidden() {
+		setImplicitTimeout(3, SECONDS);
+		element(numberOfSelectedListings).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void sortingMenuIsShown() {
+		element(listingsByButton).shouldBeVisible();
+	}
+
+	public void swipeUpListViewToRefresh() {
+		universalUpSwipe(listingsByButton);
+	}
 }
