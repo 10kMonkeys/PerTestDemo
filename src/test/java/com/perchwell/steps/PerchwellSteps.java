@@ -643,11 +643,6 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void sortingMenuIsShown() {
-		onPage.sortingMenuIsShown();
-	}
-
-	@Step
 	public void swipeUpListViewToRefresh() {
 		onPage.swipeUpListViewToRefresh();
 	}

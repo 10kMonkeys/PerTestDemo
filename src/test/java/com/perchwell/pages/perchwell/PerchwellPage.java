@@ -1045,12 +1045,8 @@ public class PerchwellPage extends TechHelper {
 
 	public void multiSelectMenuIsHidden() {
 		setImplicitTimeout(3, SECONDS);
-		element(numberOfSelectedListings).shouldNotBeVisible();
+		element(moreOptionsButton).shouldNotBeVisible();
 		resetImplicitTimeout();
-	}
-
-	public void sortingMenuIsShown() {
-		element(listingsByButton).shouldBeVisible();
 	}
 
 	public void swipeUpListViewToRefresh() {

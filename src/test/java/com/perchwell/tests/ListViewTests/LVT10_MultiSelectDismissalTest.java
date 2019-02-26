@@ -1,6 +1,7 @@
 package com.perchwell.tests.ListViewTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.SortingTypes;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
@@ -21,30 +22,29 @@ public class LVT10_MultiSelectDismissalTest extends SampleTest {
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.checkNoOneListingIsSelected();
         user.atPerchwellPage.multiSelectMenuIsHidden(); //
-        user.atPerchwellPage.sortingMenuIsShown(); //
+        user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
         user.atPerchwellPage.selectFirstListing();
         user.usingComplexSteps.startNewSearch();
         user.atPerchwellPage.checkNoOneListingIsSelected();
         user.atPerchwellPage.multiSelectMenuIsHidden(); //
-        user.atPerchwellPage.sortingMenuIsShown(); //
+        user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
         user.atPerchwellPage.selectFirstListing();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnResetFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkNoOneListingIsSelected();
         user.atPerchwellPage.multiSelectMenuIsHidden(); //
-        user.atPerchwellPage.sortingMenuIsShown(); //
+        user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
         user.atPerchwellPage.selectFirstListing();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkNoOneListingIsSelected();
         user.atPerchwellPage.multiSelectMenuIsHidden(); //
-        user.atPerchwellPage.sortingMenuIsShown(); //
+        user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.swipeUpListViewToRefresh(); //
         user.atPerchwellPage.checkNoOneListingIsSelected();
         user.atPerchwellPage.multiSelectMenuIsHidden(); //
-        user.atPerchwellPage.sortingMenuIsShown(); //
-
+        user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
     }
 }
