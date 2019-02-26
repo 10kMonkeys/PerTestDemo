@@ -16,6 +16,7 @@ public class LVT9_MultiSelectSelectionStaysTest extends SampleTest {
 
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.openFirstBuilding();
+        user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.checkOneListingIsSelected();
         user.atPerchwellPage.checkSelectionMenuIsShown(); //add 1
@@ -36,9 +37,9 @@ public class LVT9_MultiSelectSelectionStaysTest extends SampleTest {
         user.atPerchwellPage.checkOneListingIsSelected();
         user.atPerchwellPage.checkSelectionMenuIsShown(); //add 1
 
+        user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnContactListingAgentsButton();
-        user.atPerchwellPage.clickOnTagSelectedListingsOption();
-        user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atContactListingAgentPage.clickOnBackButton();
         user.atPerchwellPage.checkSelectionMenuIsShown(); //add 1
 
         user.atPerchwellPage.clickOnOpenAccountButton();
@@ -76,6 +77,7 @@ public class LVT9_MultiSelectSelectionStaysTest extends SampleTest {
         user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
+
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atSearchPage.closeAddressSearch();
         user.atPerchwellPage.checkSelectionMenuIsShown(); //add 1

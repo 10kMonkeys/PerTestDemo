@@ -34,7 +34,7 @@ public class DiscussionPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "DiscussionsCancelButton")
 	private WebElement crossBackButtonFromDiscussionsPage;
 
-	@iOSXCUITFindBy(accessibility = "DiscussionsCancelButton")
+	@iOSXCUITFindBy(accessibility = "chevronLeft")
 	private WebElement backFromDiscussionToListViewButton;
 
 	public DiscussionPage(WebDriver driver) {
