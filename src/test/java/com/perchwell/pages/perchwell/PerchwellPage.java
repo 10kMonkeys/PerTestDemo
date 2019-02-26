@@ -19,6 +19,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -162,6 +163,9 @@ public class PerchwellPage extends TechHelper {
 
 	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
 	private WebElement discussWithClientHint;
+
+	@iOSXCUITFindBy(accessibility = "Newest")
+	private WebElement newestSortButton;
 
 //	@iOSXCUITFindBy(accessibility = "240 EAST 35TH ST. #TEST")
 //	@iOSXCUITFindBy(accessibility = "ADDRESS-61 WEST 62ND ST. #TEST")
@@ -1002,15 +1006,29 @@ public class PerchwellPage extends TechHelper {
 		Assert.assertEquals(value, selectedListingsList.size());
 	}
 
-	public void TabBarIsHidden() {
+	public void tabBarIsHidden() {
+		setImplicitTimeout(5, SECONDS);
 		element(analyticsButton).shouldNotBeVisible();
 		element(map).shouldNotBeVisible();
 		element(listButton).shouldNotBeVisible();
+		resetImplicitTimeout();
 	}
 
-	public void TabBarIsShown() {
+	public void tabBarIsShown() {
 		element(analyticsButton).shouldBeVisible();
 		element(map).shouldBeVisible();
 		element(listButton).shouldBeVisible();
+	}
+
+	public void sortingMenuIsHidden() {
+		setImplicitTimeout(5, SECONDS);
+		element(newestSortButton).shouldNotBeVisible();
+		element(addressSortButton).shouldNotBeVisible();
+		element(totalRoomsSortButton).shouldNotBeVisible();
+		element(mostExpensiveButton).shouldNotBeVisible();
+		element(leastExpensiveButton).shouldNotBeVisible();
+		element(bedroomsSortButton).shouldNotBeVisible();
+		element(bathroomsSortButton).shouldNotBeVisible();
+		resetImplicitTimeout();
 	}
 }

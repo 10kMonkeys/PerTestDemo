@@ -17,7 +17,8 @@ public class LVT8_MultiselectSelectAllAndDeselectAllTest extends SampleTest {
         user.atPerchwellPage.clickOnAddressSortButton();
         user.atPerchwellPage.checkSortLabel(SortingTypes.ADDRESS);
         user.atPerchwellPage.selectFirstListing();
-        user.atPerchwellPage.TabBarIsHidden();
+        user.atPerchwellPage.sortingMenuIsHidden(); //
+        user.atPerchwellPage.tabBarIsHidden(); //
         user.atPerchwellPage.checkSelectionMenuIsShown(1); //updated
         user.atPerchwellPage.clickOnSelectAll();
         user.atPerchwellPage.checkSelectedLabelEquals(20); //
@@ -25,6 +26,6 @@ public class LVT8_MultiselectSelectAllAndDeselectAllTest extends SampleTest {
         user.atPerchwellPage.clickOnDeselectAllListingsButton();
         user.atPerchwellPage.checkSortLabel(SortingTypes.ADDRESS);
         user.atPerchwellPage.checkListingsAreSelected(0); //
-        user.atPerchwellPage.TabBarIsShown();
+        user.atPerchwellPage.tabBarIsShown(); //
     }
 }
