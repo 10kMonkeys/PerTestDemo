@@ -72,6 +72,15 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement tagsPageCloseButton;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'DISCUSS BUTTON'")
+	private WebElement discussionButton;
+
+	@iOSXCUITFindBy(accessibility = "cell: Contact Listing Agents")
+	private WebElement contactListingAgentsOption;
+
+	@iOSXCUITFindBy(accessibility = "button: more multi-select options")
+	private WebElement moreOptionsButton;
+
 	//endregion
 
 	public MyTagsPage(WebDriver driver) {
@@ -253,6 +262,22 @@ public class MyTagsPage extends TechHelper {
 
 	public void closeTagsPage() {
 		element(tagsPageCloseButton).click();
+	}
+
+	public void clickOnDiscussionIconOnFirstListing() {
+		element(discussionButton).click();
+	}
+
+	public void clickOnContactListingAgentsButton() {
+		element(contactListingAgentsOption).click();
+	}
+
+	public void clickOnMoreOptionsButton() {
+		element(moreOptionsButton).click();
+	}
+
+	public void multiSelectMenuIsShown() {
+		element(moreOptionsButton).shouldBeVisible();
 	}
 }
 

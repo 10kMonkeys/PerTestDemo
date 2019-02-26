@@ -163,4 +163,24 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void closeTagsPage() {
 		onPage.closeTagsPage();
 	}
+
+	@Step
+    public void clickOnDiscussionIconOnFirstListing() {
+		onPage.clickOnDiscussionIconOnFirstListing();
+    }
+
+	@Step
+	public void clickOnMoreOptionsButton() {
+		onPage.clickOnMoreOptionsButton();
+	}
+
+	@Step
+	public void clickOnContactListingAgentsButton() {
+		onPage.clickOnContactListingAgentsButton();
+	}
+
+	@Step
+	public void multiSelectMenuIsShown() {
+		onPage.multiSelectMenuIsShown();
+	}
 }
