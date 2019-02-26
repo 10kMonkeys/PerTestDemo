@@ -1021,14 +1021,8 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void sortingMenuIsHidden() {
-		setImplicitTimeout(5, SECONDS);
-		element(newestSortButton).shouldNotBeVisible();
-		element(addressSortButton).shouldNotBeVisible();
-		element(totalRoomsSortButton).shouldNotBeVisible();
-		element(mostExpensiveButton).shouldNotBeVisible();
-		element(leastExpensiveButton).shouldNotBeVisible();
-		element(bedroomsSortButton).shouldNotBeVisible();
-		element(bathroomsSortButton).shouldNotBeVisible();
+		setImplicitTimeout(3, SECONDS);
+		element(listingsByButton).shouldNotBeVisible();
 		resetImplicitTimeout();
 	}
 }
