@@ -457,4 +457,9 @@ public class TagsSteps extends ScenarioSteps {
 	public void shouldSeeMyTagsLabel() {
 		onPage.shouldSeeMyTagLabel();
 	}
+
+	@Step
+	public void clickOnCrossBackFromTagsButton() {
+		onPage.clickOnCrossBackFromTagsButton();
+	}
 }

@@ -131,6 +131,9 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "MY TAGS")
 	private WebElement myTagsLabel;
 
+	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
+	private WebElement crossBackFromTagsButton;
+
 	//endregion
 
 	public TagsPage(WebDriver driver) {
@@ -550,5 +553,9 @@ public class TagsPage extends TechHelper {
 	public void shouldSeeMyTagLabel() {
 		element(myTagsLabel).shouldBeVisible();
 
+	}
+
+	public void clickOnCrossBackFromTagsButton() {
+		element(crossBackFromTagsButton).click();
 	}
 }

@@ -1140,4 +1140,9 @@ public class SearchSteps extends ScenarioSteps {
     public void clickOnCrossBackButtonFromAddressSearch() {
         onPage.clickOnCrossBackButtonFromAddressSearch();
     }
+
+    @Step
+    public void closeSavedSearches() {
+        onPage.closeSavedSearches();
+    }
 }

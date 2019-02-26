@@ -704,6 +704,9 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "AddressSearchCancelButton")
     private WebElement closeSearchAddressButton;
 
+    @iOSXCUITFindBy(accessibility = "SavedSearchCancelButton")
+    private WebElement closeSavedSearchesButton;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -2072,5 +2075,9 @@ public class SearchPage extends TechHelper {
 
     public void clickOnCrossBackButtonFromAddressSearch() {
         element(addressSearchCancelButton).click();
+    }
+
+    public void closeSavedSearches() {
+        element(closeSavedSearchesButton).click();
     }
 }

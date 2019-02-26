@@ -58,4 +58,14 @@ public class SearchMenuSteps extends ScenarioSteps {
         waitABit(3000);
         inMenu.shouldNotSeeSaveButton();
     }
+
+    @Step
+    public void openSearchMenu() {
+        inMenu.clickOnSearchMenuIcon();
+    }
+
+    @Step
+    public void closeSearchMenu() {
+        inMenu.clickOnSearchMenuIcon();
+    }
 }
