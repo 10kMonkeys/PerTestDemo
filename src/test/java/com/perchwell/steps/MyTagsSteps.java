@@ -209,20 +209,10 @@ public class MyTagsSteps extends ScenarioSteps {
 		onPage.clickOnDeselectAll();
 	}
 
-//	@Step
-//	public void multiSelectMenuIsNotShown() {
-//		onPage.multiSelectMenuIsNotShown();
-//	}
-
 	@Step
 	public void checkSortLabel(String sortLabel) {
         onPage.checkSortLabel(sortLabel);
     }
-
-//    @Step
-//	public void selectFirstListing() {
-//		onPage.selectFirstListings();
-//	}
 
 	@Step
 	public void clickOnTagSelectedListingsOption() {
@@ -238,11 +228,6 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void multiSelectMenuIsHidden() {
 		onPage.multiSelectMenuIsHidden();
 	}
-//
-//	@Step
-//	public void checkSortLabel(String sortType) {
-//		onPage.checkSortLabel(sortType);
-//	}
 
 	@Step
 	public void clickOnTagIconOnFirstListing() {

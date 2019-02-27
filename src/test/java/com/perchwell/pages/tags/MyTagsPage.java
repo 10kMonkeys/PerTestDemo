@@ -292,10 +292,6 @@ public class MyTagsPage extends TechHelper {
 		element(tagsPageCloseButton).click();
 	}
 
-//	public void selectFirstListings() {
-//		element(firstListingRadioButton).click();
-//	}
-
 	public void sortingMenuIsHidden() {
 		setImplicitTimeout(3, SECONDS);
 		element(listingsByButton).shouldNotBeVisible();
@@ -329,8 +325,6 @@ public class MyTagsPage extends TechHelper {
 	public void clickOnDeselectAll() {
 		element(deselectAllListingButton).click();
 	}
-
-//	public void multiSelectMenuIsNotShown() {
 
 	public void selectFirstListings() {
 		universalVerticalShortSwipe(firstContactListingCheckbox);
