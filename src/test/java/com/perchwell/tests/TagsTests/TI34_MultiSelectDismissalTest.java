@@ -9,7 +9,7 @@ import org.junit.Test;
 public class TI34_MultiSelectDismissalTest extends SampleTest {
 
     @Test
-    public void multiSelectSDismissalTest() {
+    public void multiSelectDismissalTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
