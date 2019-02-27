@@ -514,7 +514,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void checkIfTagsPillIsRenamed() {
-		Assert.assertEquals(element(tagsFirstPill).getAttribute("value"), SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
+		Assert.assertEquals(element(tagsFirstPill).getAttribute("name"), SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
 	}
 
 	public void clickOnFirstCustomClientTagAndGetValue() {
