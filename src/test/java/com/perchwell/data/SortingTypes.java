@@ -9,4 +9,5 @@ public class SortingTypes {
     public static final String LEAST_EXPENSIVE = "Sort Button: LEAST EXPENSIVE";
     public static final String MOST_EXPENSIVE = "Sort Button: MOST EXPENSIVE";
     public static final String ADDRESS = "Sort Button: ADDRESS";
+    public static final String DATE_ADDED_TAGGED = "Sort Button: Date Added";
 }

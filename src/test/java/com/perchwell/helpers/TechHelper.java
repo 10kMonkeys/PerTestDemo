@@ -257,6 +257,14 @@ public class TechHelper extends BasePage {
         }
     }
 
+    public void singleUpShortSwipeIOS() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        swipeVerticalAndroid(appiumDriver, 0.3, 0.9, 0.5);
+    }
+
     //endregion
 
     //region Coordinates

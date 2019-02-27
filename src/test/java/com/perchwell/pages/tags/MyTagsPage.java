@@ -72,6 +72,30 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement tagsPageCloseButton;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'DISCUSS BUTTON'")
+	private WebElement discussionButton;
+
+	@iOSXCUITFindBy(accessibility = "cell: Contact Listing Agents")
+	private WebElement contactListingAgentsOption;
+
+	@iOSXCUITFindBy(accessibility = "button: more multi-select options")
+	private WebElement moreOptionsButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
+	private WebElement firstContactListingCheckbox;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][3]")
+	private WebElement secondContactListingCheckbox;
+
+	@iOSXCUITFindBy(accessibility = "cell: Tag Selected Listings")
+	private WebElement tagSelectedListingsOption;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Sort Button: ' AND visible == true")
+	private WebElement sortType;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
+	private WebElement tagIconOnFirstListing;
+
 	//endregion
 
 	public MyTagsPage(WebDriver driver) {
@@ -244,7 +268,7 @@ public class MyTagsPage extends TechHelper {
 		else {
 			firstBuildAddress = firstBuildingAddress.getAttribute("value");
 		}
-		SessionVariables.addValueInSessionVariable("buildingAddress1", firstBuildAddress);
+		SessionVariables.addValueInSessionVariable("listingAddress1", firstBuildAddress);
 	}
 
 	public void openFirstBuilding() {
@@ -253,6 +277,56 @@ public class MyTagsPage extends TechHelper {
 
 	public void closeTagsPage() {
 		element(tagsPageCloseButton).click();
+	}
+
+	public void clickOnDiscussionIconOnFirstListing() {
+		element(discussionButton).click();
+	}
+
+	public void clickOnContactListingAgentsButton() {
+		element(contactListingAgentsOption).click();
+	}
+
+	public void clickOnMoreOptionsButton() {
+		element(moreOptionsButton).click();
+	}
+
+	public void multiSelectMenuIsShown() {
+		element(moreOptionsButton).shouldBeVisible();
+	}
+
+	public void selectFirstListings() {
+		universalVerticalShortSwipe(firstContactListingCheckbox);
+		element(firstContactListingCheckbox).click();
+	}
+
+	public void clickOnTagSelectedListingsOption() {
+		element(tagSelectedListingsOption).click();
+	}
+
+	public void checkSortLabel(String stringSortType) {
+		waitFor(sortType);
+		Assert.assertTrue(element(sortType).getAttribute("name").contains(stringSortType));
+	}
+
+	public void checkNoOneListingIsSelected() {
+		setImplicitTimeout(3, SECONDS);
+		Assert.assertEquals(0, selectedListingsList.size());
+		resetImplicitTimeout();
+	}
+
+	public void multiSelectMenuIsHidden() {
+		setImplicitTimeout(3, SECONDS);
+		element(moreOptionsButton).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void clickOnTagIconOnFirstListing() {
+		element(tagIconOnFirstListing).click();
+	}
+
+	public void swipeUpListViewToRefresh() {
+		singleUpShortSwipeIOS();
 	}
 }
 
