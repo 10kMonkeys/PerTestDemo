@@ -30,6 +30,6 @@ public class TI32_MultiSelectSelectAndDeselectAllTest extends SampleTest {
         user.atMyTagsPage.checkSavedListingNumberIsShown();
         user.atMyTagsPage.clickOnDeselectAll();
         user.atMyTagsPage.checkSortLabel(SortingTypes.MOST_EXPENSIVE_TAGGED);
-        user.atMyTagsPage.multiSelectMenuIsNotShown();
+        user.atMyTagsPage.multiSelectMenuIsHidden();
     }
 }

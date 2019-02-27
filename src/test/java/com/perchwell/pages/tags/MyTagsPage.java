@@ -78,6 +78,12 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name == 'Sorted by'$][2]")
 	private WebElement listingsByButton;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'DISCUSS BUTTON'")
+	private WebElement discussionButton;
+
+	@iOSXCUITFindBy(accessibility = "cell: Contact Listing Agents")
+	private WebElement contactListingAgentsOption;
+
 	@iOSXCUITFindBy(accessibility = "button: more multi-select options")
 	private WebElement moreOptionsButton;
 
@@ -87,8 +93,21 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Deselect all button")
 	private WebElement deselectAllListingButton;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Sort Button: '")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
+	private WebElement firstContactListingCheckbox;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][3]")
+	private WebElement secondContactListingCheckbox;
+
+	@iOSXCUITFindBy(accessibility = "cell: Tag Selected Listings")
+	private WebElement tagSelectedListingsOption;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Sort Button: ' AND visible == true")
 	private WebElement sortType;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
+	private WebElement tagIconOnFirstListing;
+
 
 	//endregion
 
@@ -262,7 +281,7 @@ public class MyTagsPage extends TechHelper {
 		else {
 			firstBuildAddress = firstBuildingAddress.getAttribute("value");
 		}
-		SessionVariables.addValueInSessionVariable("buildingAddress1", firstBuildAddress);
+		SessionVariables.addValueInSessionVariable("listingAddress1", firstBuildAddress);
 	}
 
 	public void openFirstBuilding() {
@@ -273,14 +292,26 @@ public class MyTagsPage extends TechHelper {
 		element(tagsPageCloseButton).click();
 	}
 
-	public void selectFirstListings() {
-		element(firstListingRadioButton).click();
-	}
+//	public void selectFirstListings() {
+//		element(firstListingRadioButton).click();
+//	}
 
 	public void sortingMenuIsHidden() {
 		setImplicitTimeout(3, SECONDS);
 		element(listingsByButton).shouldNotBeVisible();
 		resetImplicitTimeout();
+	}
+
+	public void clickOnDiscussionIconOnFirstListing() {
+		element(discussionButton).click();
+	}
+
+	public void clickOnContactListingAgentsButton() {
+		element(contactListingAgentsOption).click();
+	}
+
+	public void clickOnMoreOptionsButton() {
+		element(moreOptionsButton).click();
 	}
 
 	public void multiSelectMenuIsShown() {
@@ -299,7 +330,24 @@ public class MyTagsPage extends TechHelper {
 		element(deselectAllListingButton).click();
 	}
 
-	public void multiSelectMenuIsNotShown() {
+//	public void multiSelectMenuIsNotShown() {
+
+	public void selectFirstListings() {
+		universalVerticalShortSwipe(firstContactListingCheckbox);
+		element(firstContactListingCheckbox).click();
+	}
+
+	public void clickOnTagSelectedListingsOption() {
+		element(tagSelectedListingsOption).click();
+	}
+
+	public void checkNoOneListingIsSelected() {
+		setImplicitTimeout(3, SECONDS);
+		Assert.assertEquals(0, selectedListingsList.size());
+		resetImplicitTimeout();
+	}
+
+	public void multiSelectMenuIsHidden() {
 		setImplicitTimeout(3, SECONDS);
 		element(moreOptionsButton).shouldNotBeVisible();
 		resetImplicitTimeout();
@@ -308,6 +356,14 @@ public class MyTagsPage extends TechHelper {
 	public void checkSortLabel(String sortLabel) {
 		waitFor(ExpectedConditions.visibilityOf(sortType));
 		Assert.assertTrue(element(sortType).getAttribute("name").contains(sortLabel));
+	}
+
+	public void clickOnTagIconOnFirstListing() {
+		element(tagIconOnFirstListing).click();
+	}
+
+	public void swipeUpListViewToRefresh() {
+		singleUpShortSwipeIOS();
 	}
 }
 

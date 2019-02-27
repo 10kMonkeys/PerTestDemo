@@ -244,7 +244,6 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
 	private WebElement tagIconOnFirstListing;
 
-
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'DISCUSS BUTTON'")
 	private WebElement discussionButton;
 
@@ -1052,6 +1051,6 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void swipeUpListViewToRefresh() {
-		universalUpSwipe(listingsByButton);
+		singleUpShortSwipeIOS();
 	}
 }
