@@ -26,23 +26,23 @@ public class TI34_MultiSelectDismissalTest extends SampleTest {
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atMyTagsPage.checkNoOneListingIsSelected();
         user.atMyTagsPage.multiSelectMenuIsHidden();
-        user.atMyTagsPage.checkSortLabel(SortingTypes.DATE_ADDED);
+        user.atMyTagsPage.checkSortLabel(SortingTypes.DATE_ADDED_TAGGED);
         user.atMyTagsPage.selectFirstListing();
         user.atMyTagsPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atMyTagsPage.checkNoOneListingIsSelected();
         user.atMyTagsPage.multiSelectMenuIsHidden();
-        user.atMyTagsPage.checkSortLabel(SortingTypes.DATE_ADDED);
+        user.atMyTagsPage.checkSortLabel(SortingTypes.DATE_ADDED_TAGGED);
         user.atMyTagsPage.selectFirstListing();
         user.atMyTagsPage.openFirstBuilding();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atMyTagsPage.checkNoOneListingIsSelected();
         user.atMyTagsPage.multiSelectMenuIsHidden();
-        user.atMyTagsPage.checkSortLabel(SortingTypes.DATE_ADDED);
+        user.atMyTagsPage.checkSortLabel(SortingTypes.DATE_ADDED_TAGGED);
         user.atMyTagsPage.selectFirstListing();
         user.atMyTagsPage.swipeUpListViewToRefresh();
         user.atMyTagsPage.checkNoOneListingIsSelected();
         user.atMyTagsPage.multiSelectMenuIsHidden();
-        user.atMyTagsPage.checkSortLabel(SortingTypes.DATE_ADDED);
+        user.atMyTagsPage.checkSortLabel(SortingTypes.DATE_ADDED_TAGGED);
     }
 }
