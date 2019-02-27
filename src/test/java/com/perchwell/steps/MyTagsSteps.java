@@ -183,4 +183,39 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void multiSelectMenuIsShown() {
 		onPage.multiSelectMenuIsShown();
 	}
+
+	@Step
+	public void selectFirstListing() {
+		onPage.selectFirstListings();
+	}
+
+	@Step
+	public void clickOnTagSelectedListingsOption() {
+		onPage.clickOnTagSelectedListingsOption();
+	}
+
+	@Step
+	public void checkNoOneListingIsSelected() {
+		onPage.checkNoOneListingIsSelected();
+	}
+
+	@Step
+	public void multiSelectMenuIsHidden() {
+		onPage.multiSelectMenuIsHidden();
+	}
+
+	@Step
+	public void checkSortLabel(String sortType) {
+		onPage.checkSortLabel(sortType);
+	}
+
+	@Step
+	public void clickOnTagIconOnFirstListing() {
+		onPage.clickOnTagIconOnFirstListing();
+	}
+
+	@Step
+	public void swipeUpListViewToRefresh() {
+		onPage.swipeUpListViewToRefresh();
+	}
 }

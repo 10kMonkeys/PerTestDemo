@@ -16,16 +16,17 @@ public class TI33_MultiSelectSelectionStaysTest extends SampleTest {
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.fillInTagSearchField(SearchRequests.CLIENT0_TEST);
-        user.atTagsPage.clickOnFirstTag();
+        user.atTagsPage.clickOnFirstClientTag();
         user.atTagsPage.clickOnSearchButton();
-//        user.atMyTagsPage.selectFirstListing();
+        user.atMyTagsPage.getFirstBuildingAddress();
+        user.atMyTagsPage.selectFirstListing();
         user.atMyTagsPage.clickOnMoreOptionsButton();
         user.atMyTagsPage.clickOnContactListingAgentsButton();
         user.atContactListingAgentPage.clickOnBackButton();
         user.atMyTagsPage.checkFirstListingsIsSelected();
         user.atMyTagsPage.multiSelectMenuIsShown();
         user.atMyTagsPage.clickOnDiscussionIconOnFirstListing();
-        user.atDiscussionPage.clickOnBackButtonFromDiscussion();
+        user.atDiscussionPage.clickOnArrowBackFromDiscussionToListViewButton();
         user.atMyTagsPage.checkFirstListingsIsSelected();
         user.atMyTagsPage.multiSelectMenuIsShown();
     }

@@ -1051,6 +1051,6 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void swipeUpListViewToRefresh() {
-		universalUpSwipe(listingsByButton);
+		singleUpShortSwipeIOS();
 	}
 }
