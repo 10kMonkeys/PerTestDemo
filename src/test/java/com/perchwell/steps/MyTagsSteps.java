@@ -163,4 +163,44 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void closeTagsPage() {
 		onPage.closeTagsPage();
 	}
+
+	@Step
+    public void selectFirstListing() {
+		onPage.selectFirstListings();
+	}
+
+	@Step
+	public void sortingMenuIsHidden() {
+		onPage.sortingMenuIsHidden();
+	}
+
+	@Step
+	public void multiSelectMenuIsShown() {
+		onPage.multiSelectMenuIsShown();
+	}
+
+	@Step
+	public void clickOnSelectAll() {
+		onPage.clickOnSelectAll();
+	}
+
+	@Step
+	public void checkSavedListingNumberIsShown() {
+		onPage.checkSavedListingNumberIsShown(SessionVariables.getValueFromSessionVariable("itemsAmount"));
+	}
+
+	@Step
+	public void clickOnDeselectAll() {
+		onPage.clickOnDeselectAll();
+	}
+
+	@Step
+	public void multiSelectMenuIsNotShown() {
+		onPage.multiSelectMenuIsNotShown();
+	}
+
+	@Step
+	public void checkSortLabel(String sortLabel) {
+		onPage.checkSortLabel(sortLabel);
+	}
 }

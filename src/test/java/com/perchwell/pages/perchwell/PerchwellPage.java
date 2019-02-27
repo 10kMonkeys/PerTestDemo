@@ -450,7 +450,7 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void checkSortLabel(String stringSortType) {
-		waitFor(sortType);
+//		waitFor(sortType);
 		Assert.assertTrue(element(sortType).getAttribute("name").contains(stringSortType));
 	}
 

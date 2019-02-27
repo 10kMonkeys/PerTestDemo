@@ -13,9 +13,9 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -71,6 +71,24 @@ public class MyTagsPage extends TechHelper {
 
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement tagsPageCloseButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: unselected'$][1]")
+	private WebElement firstListingRadioButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name == 'Sorted by'$][2]")
+	private WebElement listingsByButton;
+
+	@iOSXCUITFindBy(accessibility = "button: more multi-select options")
+	private WebElement moreOptionsButton;
+
+	@iOSXCUITFindBy(accessibility = "Select all button")
+	private WebElement slectAllButton;
+
+	@iOSXCUITFindBy(accessibility = "Deselect all button")
+	private WebElement deselectAllListingButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Sort Button: '")
+	private WebElement sortType;
 
 	//endregion
 
@@ -253,6 +271,43 @@ public class MyTagsPage extends TechHelper {
 
 	public void closeTagsPage() {
 		element(tagsPageCloseButton).click();
+	}
+
+	public void selectFirstListings() {
+		element(firstListingRadioButton).click();
+	}
+
+	public void sortingMenuIsHidden() {
+		setImplicitTimeout(3, SECONDS);
+		element(listingsByButton).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void multiSelectMenuIsShown() {
+		element(moreOptionsButton).shouldBeVisible();
+	}
+
+	public void clickOnSelectAll() {
+		element(slectAllButton).click();
+	}
+
+	public void checkSavedListingNumberIsShown(String amount) {
+		element(MobileBy.AccessibilityId("Number of selected listings: " + amount)).shouldBeVisible();
+	}
+
+	public void clickOnDeselectAll() {
+		element(deselectAllListingButton).click();
+	}
+
+	public void multiSelectMenuIsNotShown() {
+		setImplicitTimeout(3, SECONDS);
+		element(moreOptionsButton).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
+
+	public void checkSortLabel(String sortLabel) {
+		waitFor(ExpectedConditions.visibilityOf(sortType));
+		Assert.assertTrue(element(sortType).getAttribute("name").contains(sortLabel));
 	}
 }
 

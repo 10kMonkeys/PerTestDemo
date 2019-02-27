@@ -12,7 +12,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,6 +132,9 @@ public class TagsPage extends TechHelper {
 
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossBackFromTagsButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'item'$][1]")
+	private WebElement firstTagWithItems;
 
 	//endregion
 
@@ -557,5 +559,16 @@ public class TagsPage extends TechHelper {
 
 	public void clickOnCrossBackFromTagsButton() {
 		element(crossBackFromTagsButton).click();
+	}
+
+	public void getTestClientZeroTagItemsAmount() {
+		String element = firstTagWithItems.getAttribute("value");
+
+		SessionVariables.addValueInSessionVariable("itemsAmount", element.substring(element
+				.indexOf(" ") + 13).replaceAll("[ items]", ""));
+	}
+
+	public void clickOnRealFirstTag() {
+		element(firstTagWithItems).click();
 	}
 }

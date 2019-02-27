@@ -462,4 +462,14 @@ public class TagsSteps extends ScenarioSteps {
 	public void clickOnCrossBackFromTagsButton() {
 		onPage.clickOnCrossBackFromTagsButton();
 	}
+
+	@Step
+	public void getTestClientZeroTagItemsAmount() {
+		onPage.getTestClientZeroTagItemsAmount();
+	}
+
+	@Step
+	public void clickOnRealFirstTag() {
+		onPage.clickOnRealFirstTag();
+	}
 }
