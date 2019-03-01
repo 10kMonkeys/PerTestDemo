@@ -133,7 +133,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossBackFromTagsButton;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'item'$][1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'items'$][1]")
 	private WebElement firstTagWithItems;
 
 	//endregion
