@@ -4,11 +4,13 @@ import com.perchwell.SampleTest;
 import com.perchwell.data.Filters;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.Ignore;
 import org.junit.Test;
 
 @WithTagValuesOf({"FiltersTests", "RedesignFiltersSearchesFirst", "iOS_RedesignFiltersSearchesFirst", "Android_RedesignFiltersSearchesFirst"})
 public class SFR40_CloseTotalRoomsFilterByXButtonTest extends SampleTest {
 
+    @Ignore
     @Test
     public void closeTotalRoomsFilterByXButton() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
