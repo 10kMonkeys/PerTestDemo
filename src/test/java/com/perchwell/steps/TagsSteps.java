@@ -472,4 +472,9 @@ public class TagsSteps extends ScenarioSteps {
 	public void clickOnFirstTagWithItems() {
 		onPage.clickOnFirstTagWithItems();
 	}
+
+	@Step
+	public void checkIfJustCreatedTagsItemsListIsEqual(int value) {
+		onPage.checkIfJustCreatedTagsItemsListIsEqual(value);
+	}
 }

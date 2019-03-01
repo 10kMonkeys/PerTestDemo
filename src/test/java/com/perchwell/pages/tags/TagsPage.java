@@ -33,7 +33,7 @@ public class TagsPage extends TechHelper {
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
 	@iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
-	private WebElement searchTagTexBox;
+	private WebElement searchTagTextBox;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_tag")
 	@iOSXCUITFindBy(accessibility = "button: create tag")
@@ -144,7 +144,7 @@ public class TagsPage extends TechHelper {
 
 	public void fillInTagSearchField(String uniqueTagName) {
 		waitFor(1000);
-		element(searchTagTexBox).sendKeys(uniqueTagName);
+		element(searchTagTextBox).sendKeys(uniqueTagName);
 	}
 
 	public void clickOnCreateTagLabel() {
@@ -222,7 +222,7 @@ public class TagsPage extends TechHelper {
 			resetImplicitTimeout();
 			element(MobileBy.xpath("//*[contains(@text, '" + tagName + "')]")).shouldBeVisible();
 		} else {
-			element(searchTagTexBox).sendKeys(tagName);
+			element(searchTagTextBox).sendKeys(tagName);
 			element(MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[$name CONTAINS '" + tagName + "'$]")).shouldBeVisible();
 //			WebElement justCreatedTag = getDriver().findElement(MobileBy.AccessibilityId(tagName));
 //			Helper.swipeDownUntilElementVisible(justCreatedTag);
@@ -528,7 +528,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void clearSearchField() {
-		element(searchTagTexBox).clear();
+		element(searchTagTextBox).clear();
 	}
 
 	public boolean isTagExists(String tagName) {
@@ -570,5 +570,18 @@ public class TagsPage extends TechHelper {
 
 	public void clickOnFirstTagWithItems() {
 		element(firstTagWithItems).click();
+	}
+
+	public void checkIfJustCreatedTagsItemsListIsEqual(int value) {
+			int itemsAmount;
+
+			String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+					SessionVariables.getValueFromSessionVariable("Just_Created_Tag") + "'")).getAttribute("value");
+			if (element.length() == 26) {
+				itemsAmount = 0;
+			} else {
+				itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
+			}
+			Assert.assertEquals(value, itemsAmount);
 	}
 }

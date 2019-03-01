@@ -238,4 +238,34 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void swipeUpListViewToRefresh() {
 		onPage.swipeUpListViewToRefresh();
 	}
+
+	@Step
+    public void removeAllTagPills() {
+		onPage.removeAllTagPills();
+    }
+
+	@Step
+	public void searchFirstExistingTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+	}
+
+	@Step
+	public void clickOnFirstTag() {
+		onPage.clickOnFirstTag();
+	}
+
+	@Step
+	public void searchJustCreatedTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"));
+	}
+
+	@Step
+	public void checkIfTwoListingsAreDisplayed() {
+		onPage.checkIfTwoListingsAreDisplayed();
+	}
+
+	@Step
+	public void clickOnSearchButton() {
+		onPage.clickOnSearchButton();
+	}
 }
