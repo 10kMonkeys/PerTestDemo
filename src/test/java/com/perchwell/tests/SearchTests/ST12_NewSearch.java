@@ -9,6 +9,7 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "SearchTests", "iOS_First", "Android_First", "First"})
 public class ST12_NewSearch extends SampleTest {
 
+	@Ignore
 	@Test
 	public void newSearch() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

@@ -3,11 +3,13 @@ package com.perchwell.tests.DiscussTests;
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.Ignore;
 import org.junit.Test;
 
 @WithTagValuesOf({"DiscussTests", "iOS_DiscContSavedSearch", "Android_DiscContSavedSearch", "DiscContSavedSearch"})
 public class DT10_ContactToTwoSellersAgentsTest extends SampleTest {
 
+    @Ignore
     @Test
     public void contactToTwoSellersAgents() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

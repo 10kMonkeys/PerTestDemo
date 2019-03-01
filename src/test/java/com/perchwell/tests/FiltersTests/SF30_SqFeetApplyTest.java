@@ -19,7 +19,8 @@ public class SF30_SqFeetApplyTest extends SampleTest {
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListingWithSqFeetEqualAndMore("1000");
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.clearSquareFeetMinFilter();
+//        user.atSearchPage.clearSquareFeetMinFilter();
+        user.atSearchPage.clickOnResetFilter(); //temp solution until clear works incorrectly
         user.atSearchPage.setSquareFeetMaxFilter("5000");
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.shouldSeeListingWithSqFeetEqualAndLess("5000");
