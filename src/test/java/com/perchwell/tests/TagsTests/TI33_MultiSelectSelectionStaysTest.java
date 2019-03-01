@@ -16,7 +16,7 @@ public class TI33_MultiSelectSelectionStaysTest extends SampleTest {
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.fillInTagSearchField(SearchRequests.CLIENT0_TEST);
-        user.atTagsPage.clickOnRealFirstTag();
+        user.atTagsPage.clickOnFirstTagWithItems();
         user.atTagsPage.clickOnSearchButton();
         user.atMyTagsPage.getFirstBuildingAddress();
         user.atMyTagsPage.selectFirstListing();

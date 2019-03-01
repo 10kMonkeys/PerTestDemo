@@ -18,7 +18,7 @@ public class TI32_MultiSelectSelectAndDeselectAllTest extends SampleTest {
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.fillInTagSearchField(SearchRequests.CLIENT0_TEST);
         user.atTagsPage.getTestClientZeroTagItemsAmount();
-        user.atTagsPage.clickOnRealFirstTag(); //fails
+        user.atTagsPage.clickOnFirstTagWithItems();
         user.atTagsPage.clickOnSearchButton();
         user.atMyTagsPage.clickOnSortedByButton();
         user.atMyTagsPage.clickOnMostExpensiveButton();

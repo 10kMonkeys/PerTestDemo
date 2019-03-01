@@ -568,7 +568,7 @@ public class TagsPage extends TechHelper {
 				.indexOf(" ") + 13).replaceAll("[ items]", ""));
 	}
 
-	public void clickOnRealFirstTag() {
+	public void clickOnFirstTagWithItems() {
 		element(firstTagWithItems).click();
 	}
 }

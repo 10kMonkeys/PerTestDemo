@@ -469,7 +469,7 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void clickOnRealFirstTag() {
-		onPage.clickOnRealFirstTag();
+	public void clickOnFirstTagWithItems() {
+		onPage.clickOnFirstTagWithItems();
 	}
 }
