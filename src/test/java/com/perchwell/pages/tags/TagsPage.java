@@ -282,7 +282,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void shouldNotSeeCreatedTagUpperCase(String tag) {
-		setImplicitTimeout(5, SECONDS);
+		setImplicitTimeout(3, SECONDS);
 		if (Config.isAndroid()) {
 			element(MobileBy.xpath("//android.widget.TextView[@text='" + tag + "']")).shouldNotBeVisible();
 		} else {
