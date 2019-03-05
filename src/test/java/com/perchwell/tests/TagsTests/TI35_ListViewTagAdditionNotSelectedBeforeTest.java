@@ -1,7 +1,6 @@
 package com.perchwell.tests.TagsTests;
 
 import com.perchwell.SampleTest;
-import com.perchwell.data.ClientGroups;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
@@ -13,13 +12,6 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-
-        user.atPerchwellPage.clickOnOpenAccountButton();
-        user.atAccountPage.clickOnClientsLabel();
-        user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
-        user.atClientPage.clickOnCrossBackButtonFromClients();
-        user.atAccountPage.closeAccountMenu();
-
         user.atPerchwellPage.getListingsAddresses(2);
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.removeAllTagPills();
@@ -31,7 +23,6 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnTagSelectedListingsOption();
-        user.atTagsPage.searchJustCreatedClientTag();
         user.atTagsPage.getFirstTagsItemsValue();
         user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.searchFirstExistingTag();
@@ -47,8 +38,10 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.checkTagsIconCountForFirstAndSecondListings(2); //
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
+        user.atTagsPage.swipeDownJustCreatedTagPill(); //
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
         user.atTagsPage.shouldSeeJustCreatedTagsPill();
+        user.atTagsPage.swipeUpJustCreatedTagPill(); //
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
@@ -60,8 +53,10 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.shouldSeeAddedNewTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
+        user.atTagsPage.swipeDownJustCreatedTagPill(); //
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
         user.atTagsPage.shouldSeeJustCreatedTagsPill();
+        user.atTagsPage.swipeUpJustCreatedTagPill(); //
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
@@ -70,8 +65,10 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnTagIconOnSecondListing();
+        user.atTagsPage.swipeDownJustCreatedTagPill(); //
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
         user.atTagsPage.shouldSeeJustCreatedTagsPill();
+        user.atTagsPage.swipeUpJustCreatedTagPill(); //
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
@@ -82,8 +79,10 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.shouldSeeAddedNewTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
+        user.atTagsPage.swipeDownJustCreatedTagPill(); //
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
         user.atTagsPage.shouldSeeJustCreatedTagsPill();
+        user.atTagsPage.swipeUpJustCreatedTagPill(); //
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();

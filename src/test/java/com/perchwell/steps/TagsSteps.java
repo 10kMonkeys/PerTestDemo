@@ -477,4 +477,14 @@ public class TagsSteps extends ScenarioSteps {
 	public void checkIfJustCreatedTagsItemsListIsEqual(int value) {
 		onPage.checkIfJustCreatedTagsItemsListIsEqual(value);
 	}
+
+	@Step
+	public void swipeDownJustCreatedTagPill() {
+		onPage.swipeDownJustCreatedTagPill(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"), 240);
+	}
+
+	@Step
+	public void swipeUpJustCreatedTagPill() {
+		onPage.swipeDownJustCreatedTagPill(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"), -90);
+	}
 }

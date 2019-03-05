@@ -573,15 +573,19 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void checkIfJustCreatedTagsItemsListIsEqual(int value) {
-			int itemsAmount;
+		int itemsAmount;
 
-			String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
-					SessionVariables.getValueFromSessionVariable("Just_Created_Tag") + "'")).getAttribute("value");
-			if (element.length() == 26) {
+		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+				SessionVariables.getValueFromSessionVariable("Just_Created_Tag") + "'")).getAttribute("value");
+		if (element.length() == 26) {
 				itemsAmount = 0;
-			} else {
-				itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
-			}
-			Assert.assertEquals(value, itemsAmount);
+		} else {
+			itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
+		}
+		Assert.assertEquals(value, itemsAmount);
+	}
+
+	public void swipeDownJustCreatedTagPill(String tagName, int duration) {
+		swipeUpElementIOS(element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")), duration);
 	}
 }
