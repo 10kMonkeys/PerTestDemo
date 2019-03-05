@@ -411,5 +411,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void shouldNotSeeCustomClientTag() {
 		onPage.shouldNotSeeSpecificTag(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
 	}
+
+	@Step
+    public void shouldSeeCustomClientTag() {
+		onPage.shouldSeeSpecificTag(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
+    }
 }
 

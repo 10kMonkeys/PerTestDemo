@@ -252,6 +252,9 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND label == 'lv selected rb'")
 	private List<WebElement> selectedListingsListByAddress;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][2]")
+	private WebElement tagIconOnSecondListing;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -1054,5 +1057,14 @@ public class PerchwellPage extends TechHelper {
 
 	public void swipeUpListViewToRefresh() {
 		singleUpShortSwipeIOS();
+	}
+
+    public void checkTagsIconCountForFirstAndSecondListings(int value) {
+		Assert.assertEquals(value, Integer.parseInt(element(tagIconOnFirstListing).getAttribute("label").replace(" ", "")));
+		Assert.assertEquals(value, Integer.parseInt(element(tagIconOnSecondListing).getAttribute("label").replace(" ", "")));
+    }
+
+	public void clickOnTagIconOnSecondListing() {
+		element(tagIconOnSecondListing).click();
 	}
 }

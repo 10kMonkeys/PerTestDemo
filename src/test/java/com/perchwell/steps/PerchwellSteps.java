@@ -646,4 +646,14 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void swipeUpListViewToRefresh() {
 		onPage.swipeUpListViewToRefresh();
 	}
+
+	@Step
+    public void checkTagsIconCountForFirstAndSecondListings(int value) {
+		onPage.checkTagsIconCountForFirstAndSecondListings(value);
+    }
+
+    @Step
+	public void clickOnTagIconOnSecondListing() {
+		onPage.clickOnTagIconOnSecondListing();
+	}
 }
