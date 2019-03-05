@@ -16,6 +16,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -107,6 +108,15 @@ public class MyTagsPage extends TechHelper {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
 	private WebElement tagIconOnFirstListing;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: '")
+	private WebElement removingTagPill;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS '11CLIENTNAME' OR name CONTAINS 'TAGNAME'`][1]")
+	private WebElement firstTag;
+
+	@iOSXCUITFindBy(accessibility = "SHOW ITEMS IN SELECTED TAGS")
+	private WebElement searchButton;
 
 
 	//endregion
@@ -358,6 +368,32 @@ public class MyTagsPage extends TechHelper {
 
 	public void swipeUpListViewToRefresh() {
 		singleUpShortSwipeIOS();
+	}
+
+	public void removeAllTagPills() {
+		setImplicitTimeout(1, TimeUnit.SECONDS);
+		while (element(removingTagPill).isVisible()) {
+			element(removingTagPill).click();
+		}
+		resetImplicitTimeout();
+	}
+
+	public void fillInTagSearchField(String uniqueTagName) {
+		waitFor(1000);
+		element(searchTagTextField).sendKeys(uniqueTagName);
+	}
+
+	public void clickOnFirstTag() {
+		element(firstTag).click();
+	}
+
+	public void checkIfTwoListingsAreDisplayed() {
+		Assert.assertTrue(element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).isPresent());
+		Assert.assertTrue(element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress2"))).isPresent());
+	}
+
+	public void clickOnSearchButton() {
+		element(searchButton).click();
 	}
 }
 

@@ -212,8 +212,8 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkIfTagsItemsListIsChanged(int value) {
-		onPage.checkIfTagsItemsListIsChanged(value);
+	public void checkIfFirstExistingTagsItemsListIsChanged(int value) {
+		onPage.checkIfTagsItemsListIsChanged(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"), value);
 	}
 
 	@Step
@@ -471,5 +471,25 @@ public class TagsSteps extends ScenarioSteps {
 	@Step
 	public void clickOnFirstTagWithItems() {
 		onPage.clickOnFirstTagWithItems();
+	}
+
+	@Step
+	public void swipeDownFirstExistingTagPill() {
+		onPage.swipeTagPill(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"), 240);
+	}
+
+	@Step
+	public void swipeUpFirstExistingTagPill() {
+		onPage.swipeTagPill(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"), -90);
+	}
+
+	@Step
+	public void shouldSeeCustomClientTagsPill() {
+		onPage.shouldSeeSpecificTagsPill(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
+	}
+
+	@Step
+	public void checkIfCustomClientTagsItemsListIsChanged(int value) {
+		onPage.checkIfTagsItemsListIsChanged(SessionVariables.getValueFromSessionVariable("First_Custom_Client"), value);
 	}
 }
