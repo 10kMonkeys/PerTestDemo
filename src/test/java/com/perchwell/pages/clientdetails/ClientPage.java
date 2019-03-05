@@ -333,13 +333,14 @@ public class ClientPage extends TechHelper {
 
 	public void swipeCreatedClientName(String name) throws Exception {
 		WebElement client;
+		waitABit(3000);
 		if (Config.isAndroid()) {
 			client = element(MobileBy.xpath("//*[@content-desc = '" + name + " ']"));
 		} else {
 			client = element(MobileBy.AccessibilityId(name));
 		}
 		int y = client.getLocation().getY();
-		Helper.universalHorizontalSwipe(client, y+1);
+		universalHorizontalSwipe(client, y+1);
 	}
 
 	public void clickOnDeleteButton() {

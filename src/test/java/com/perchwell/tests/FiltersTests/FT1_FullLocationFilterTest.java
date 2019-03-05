@@ -15,47 +15,47 @@ public class FT1_FullLocationFilterTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.isListingsQuantity();
-        user.inSearchMenu.openSearchPage(); //search new
-        user.atSearchPage.clickOnNeighborhoodsPlusButton();
-        user.atSearchPage.deleteManhattan();
-        user.atSearchPage.deleteQueens();
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkFilterIsApplied();
-        user.inSearchMenu.openSearchPage(); //search new
-        user.atSearchPage.clickOnNeighborhoodsPlusButton();
-        user.atSearchPage.selectDistrict(Districts.MIDWOOD, Districts.MIDWOOD_ID);
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.shouldSeeListingsOnlyFromSelectedDistrict(Districts.MIDWOOD_UP);
-        user.inSearchMenu.openSearchPage(); //search new
-        user.atSearchPage.clickOnNeighborhoodsPlusButton();
-        user.atSearchPage.selectDistrict(Districts.ALL_UPPER_EAST_SIDE, Districts.ALL_UPPER_EAST_SIDE_ID); //update
-        user.atSearchPage.deleteMidwoodFromFilter();
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.shouldSeeListingsFromAllUpperEastSideDistricts(Districts.CARNEGIE_HILL, Districts.LENOX_HILL,
-                Districts.UPPER_EAST_SIDE, Districts.YORKVILLE);
-        user.inSearchMenu.openSearchPage(); //search new
-        user.atSearchPage.clickOnNeighborhoodsPlusButton();
-        user.atSearchPage.deleteAllUpperEastSideFromFilter();
-        user.atSearchPage.selectDistrict(Districts.CARNEGIE_HILL, Districts.CARNEGIE_HILL_ID);
-        user.atSearchPage.selectDistrict(Districts.LENOX_HILL, Districts.LENOX_HILL_ID);
-        user.atSearchPage.selectDistrict(Districts.UPPER_EAST_SIDE, Districts.UPPER_EAST_SIDE_ID);
-        user.atSearchPage.selectDistrict(Districts.YORKVILLE, Districts.YORKVILLE_ID);
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkFourDistrictsListings();
-        user.inSearchMenu.openSearchPage(); //search new
-        user.atSearchPage.clickOnNeighborhoodsPlusButton();
-        user.atSearchPage.deleteCarnegieHillsFromFilter();
-        user.atSearchPage.deleteUpperEastSideFromFilter();
-        user.atSearchPage.deleteYorkvilleFromFilter();
-        user.atSearchPage.selectDistrict(Districts.MIDWOOD, Districts.MIDWOOD_ID);
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.shouldSeeListingsTwoDistricts(Districts.LENOX_HILL, Districts.MIDWOOD);
+//        user.atPerchwellPage.isListingsQuantity();
+//        user.inSearchMenu.openSearchPage(); //search new
+//        user.atSearchPage.clickOnNeighborhoodsPlusButton();
+//        user.atSearchPage.deleteManhattan();
+//        user.atSearchPage.deleteQueens();
+//        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
+//        user.atSearchPage.clickOnApplyButton();
+//        user.atPerchwellPage.checkFilterIsApplied();
+//        user.inSearchMenu.openSearchPage(); //search new
+//        user.atSearchPage.clickOnNeighborhoodsPlusButton();
+//        user.atSearchPage.selectDistrict(Districts.MIDWOOD, Districts.MIDWOOD_ID);
+//        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
+//        user.atSearchPage.clickOnApplyButton();
+//        user.atPerchwellPage.shouldSeeListingsOnlyFromSelectedDistrict(Districts.MIDWOOD_UP);
+//        user.inSearchMenu.openSearchPage(); //search new
+//        user.atSearchPage.clickOnNeighborhoodsPlusButton();
+//        user.atSearchPage.selectDistrict(Districts.ALL_UPPER_EAST_SIDE, Districts.ALL_UPPER_EAST_SIDE_ID); //update
+//        user.atSearchPage.deleteMidwoodFromFilter();
+//        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
+//        user.atSearchPage.clickOnApplyButton();
+//        user.atPerchwellPage.shouldSeeListingsFromAllUpperEastSideDistricts(Districts.CARNEGIE_HILL, Districts.LENOX_HILL,
+//                Districts.UPPER_EAST_SIDE, Districts.YORKVILLE);
+//        user.inSearchMenu.openSearchPage(); //search new
+//        user.atSearchPage.clickOnNeighborhoodsPlusButton();
+//        user.atSearchPage.deleteAllUpperEastSideFromFilter();
+//        user.atSearchPage.selectDistrict(Districts.CARNEGIE_HILL, Districts.CARNEGIE_HILL_ID);
+//        user.atSearchPage.selectDistrict(Districts.LENOX_HILL, Districts.LENOX_HILL_ID);
+//        user.atSearchPage.selectDistrict(Districts.UPPER_EAST_SIDE, Districts.UPPER_EAST_SIDE_ID);
+//        user.atSearchPage.selectDistrict(Districts.YORKVILLE, Districts.YORKVILLE_ID);
+//        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
+//        user.atSearchPage.clickOnApplyButton();
+//        user.atPerchwellPage.checkFourDistrictsListings();
+//        user.inSearchMenu.openSearchPage(); //search new
+//        user.atSearchPage.clickOnNeighborhoodsPlusButton();
+//        user.atSearchPage.deleteCarnegieHillsFromFilter();
+//        user.atSearchPage.deleteUpperEastSideFromFilter();
+//        user.atSearchPage.deleteYorkvilleFromFilter();
+//        user.atSearchPage.selectDistrict(Districts.MIDWOOD, Districts.MIDWOOD_ID);
+//        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
+//        user.atSearchPage.clickOnApplyButton();
+//        user.atPerchwellPage.shouldSeeListingsTwoDistricts(Districts.LENOX_HILL, Districts.MIDWOOD);
         user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.clickOnSaveSearchButton();
         user.atSearchPage.setSearchName();

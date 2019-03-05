@@ -55,6 +55,7 @@ public class SearchSteps extends ScenarioSteps {
 
     @Step
     public void clickOnPreviouslyCreatedSearch() {
+        onPage.waitUntilFirstSearchAppears();
         onPage.clickOnPreviouslyCreatedSearch(SessionVariables.getValueFromSessionVariable("Search"));
     }
 

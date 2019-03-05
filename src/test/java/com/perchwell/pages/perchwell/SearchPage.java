@@ -707,6 +707,9 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "SavedSearchCancelButton")
     private WebElement closeSavedSearchesButton;
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name == 'alert icon'$][1]")
+    private WebElement firstBellIcon;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -2079,5 +2082,9 @@ public class SearchPage extends TechHelper {
 
     public void closeSavedSearches() {
         element(closeSavedSearchesButton).click();
+    }
+
+    public void waitUntilFirstSearchAppears() {
+        waitFor(ExpectedConditions.visibilityOf(firstBellIcon));
     }
 }
