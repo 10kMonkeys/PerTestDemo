@@ -8,7 +8,7 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
 
     @Test
     public void multiSelectDismissalTest() {
-        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker("test-android+mgmt-core@perchwell.com",
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
@@ -29,7 +29,7 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.shouldSeeCustomClientTagsPill();
-        user.atTagsPage.checkIfCustomClientTagsItemsListIsChanged(2); //
+        user.atTagsPage.checkIfCustomClientTagsItemsListIsChanged(2);
         user.atTagsPage.clearSearchField();
         user.atTagsPage.fillInTagSearchField("TAGNAME");
         user.atTagsPage.getFirstTagsItemsValue();
@@ -37,14 +37,14 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(2); //update
+        user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(2);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atPerchwellPage.checkTagsIconCountForFirstAndSecondListings(2); //
+        user.atPerchwellPage.checkTagsIconCountForFirstAndSecondListings(2);
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
-        user.atTagsPage.swipeDownFirstExistingTagPill(); //
+        user.atTagsPage.swipeDownFirstExistingTagPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.swipeUpFirstExistingTagPill(); //
+        user.atTagsPage.swipeUpFirstExistingTagPill();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
@@ -56,10 +56,10 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atTagsPage.swipeDownFirstExistingTagPill(); //
+        user.atTagsPage.swipeDownFirstExistingTagPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.swipeUpFirstExistingTagPill(); //
+        user.atTagsPage.swipeUpFirstExistingTagPill();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
@@ -68,10 +68,10 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnTagIconOnSecondListing();
-        user.atTagsPage.swipeDownFirstExistingTagPill(); //
+        user.atTagsPage.swipeDownFirstExistingTagPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.swipeUpFirstExistingTagPill(); //
+        user.atTagsPage.swipeUpFirstExistingTagPill();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
@@ -82,10 +82,10 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atTagsPage.swipeDownFirstExistingTagPill(); //
+        user.atTagsPage.swipeDownFirstExistingTagPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.swipeUpFirstExistingTagPill(); //
+        user.atTagsPage.swipeUpFirstExistingTagPill();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
@@ -95,14 +95,14 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atMyTagsPage.searchCustomClientTag(); //
-        user.atMyTagsPage.clickOnFirstTag(); //
+        user.atMyTagsPage.searchCustomClientTag();
+        user.atMyTagsPage.clickOnFirstTag();
         user.atMyTagsPage.clickOnSearchButton();
-        user.atMyTagsPage.checkIfTwoListingsAreDisplayed(); //
+        user.atMyTagsPage.checkIfTwoListingsAreDisplayed();
         user.atMyTagsPage.removeAllTagPills();
-        user.atMyTagsPage.searchFirstExistingTag(); //
-        user.atMyTagsPage.clickOnFirstTag(); //
-        user.atMyTagsPage.clickOnSearchButton(); //
-        user.atMyTagsPage.checkIfTwoListingsAreDisplayed(); //
+        user.atMyTagsPage.searchFirstExistingTag();
+        user.atMyTagsPage.clickOnFirstTag();
+        user.atMyTagsPage.clickOnSearchButton();
+        user.atMyTagsPage.checkIfTwoListingsAreDisplayed();
     }
 }
