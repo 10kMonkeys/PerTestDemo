@@ -3,8 +3,10 @@ package com.perchwell.tests.ListViewTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"ListViewTests", "ListView", "iOS_ListView", "Android_ListView"})
 public class LVT9_MultiSelectSelectionStaysTest extends SampleTest {
 
     @Test

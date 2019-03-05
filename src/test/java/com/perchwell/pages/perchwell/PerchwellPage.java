@@ -19,7 +19,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -249,6 +248,9 @@ public class PerchwellPage extends TechHelper {
 
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Number of selected listings: '")
 	private WebElement numberOfSelectedListings;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND label == 'lv selected rb'")
+	private List<WebElement> selectedListingsListByAddress;
 
 	//endregion
 
@@ -1015,7 +1017,7 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void checkListingsAreSelected(int value) {
-		Assert.assertEquals(value, selectedListingsList.size());
+		Assert.assertEquals(value, selectedListingsListByAddress.size());
 	}
 
 	public void tabBarIsHidden() {

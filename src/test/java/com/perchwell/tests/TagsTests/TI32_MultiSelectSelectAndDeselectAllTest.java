@@ -4,8 +4,10 @@ import com.perchwell.SampleTest;
 import com.perchwell.data.SearchRequests;
 import com.perchwell.data.SortingTypes;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"TagsTests", "iOS_TagsSecond", "Android_TagsSecond", "TagsThird"})
 public class TI32_MultiSelectSelectAndDeselectAllTest extends SampleTest {
 
     @Test
@@ -26,7 +28,7 @@ public class TI32_MultiSelectSelectAndDeselectAllTest extends SampleTest {
         user.atMyTagsPage.sortingMenuIsHidden();
         user.atMyTagsPage.multiSelectMenuIsShown();
         user.atMyTagsPage.clickOnSelectAll();
-//        user.atMyTagsPage.checkListingsAreSelected(~); //need to add ~ elements in DOM
+        user.atMyTagsPage.checkNumbersListingsEqualTagItems();
         user.atMyTagsPage.checkSavedListingNumberIsShown();
         user.atMyTagsPage.clickOnDeselectAll();
         user.atMyTagsPage.checkSortLabel(SortingTypes.MOST_EXPENSIVE_TAGGED);

@@ -3,8 +3,10 @@ package com.perchwell.tests.ListViewTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.SortingTypes;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"ListViewTests", "ListView", "iOS_ListView", "Android_ListView"})
 public class LVT8_MultiSelectSelectAllAndDeselectAllTest extends SampleTest {
 
     @Test
@@ -22,7 +24,7 @@ public class LVT8_MultiSelectSelectAllAndDeselectAllTest extends SampleTest {
         user.atPerchwellPage.checkSelectionMenuIsShown(1);
         user.atPerchwellPage.clickOnSelectAll();
         user.atPerchwellPage.checkSelectedLabelEquals(20);
-//        user.atPerchwellPage.checkListingsAreSelected(20); //need to add 20 elements in DOM
+        user.atPerchwellPage.checkListingsAreSelected(20);
         user.atPerchwellPage.clickOnDeselectAllListingsButton();
         user.atPerchwellPage.checkSortLabel(SortingTypes.ADDRESS);
         user.atPerchwellPage.checkNoOneListingIsSelected();

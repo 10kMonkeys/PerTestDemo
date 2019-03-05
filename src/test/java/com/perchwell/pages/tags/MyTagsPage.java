@@ -108,6 +108,9 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
 	private WebElement tagIconOnFirstListing;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND label == 'ti selected rb'")
+	private List<WebElement> selectedListingsListByAddress;
+
 
 	//endregion
 
@@ -222,8 +225,9 @@ public class MyTagsPage extends TechHelper {
 		resetImplicitTimeout();
 	}
 
-    public void checkListingsAreSelected(int value) {
-		Assert.assertEquals(value, selectedListingsList.size());
+    public void checkNumbersListingsEqualTagItems() {
+		int tagItemsAmount = Integer.parseInt(SessionVariables.getValueFromSessionVariable("itemsAmount"));
+		Assert.assertEquals(tagItemsAmount, selectedListingsListByAddress.size());
     }
 
 	public void checkFirstListingsIsSelected() {

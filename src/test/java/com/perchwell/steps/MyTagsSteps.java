@@ -107,8 +107,8 @@ public class MyTagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-    public void checkListingsAreSelected(int value) {
-		onPage.checkListingsAreSelected(value);
+    public void checkNumbersListingsEqualTagItems() {
+		onPage.checkNumbersListingsEqualTagItems();
     }
 
     @Step

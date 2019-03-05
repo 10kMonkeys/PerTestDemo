@@ -4,8 +4,10 @@ import com.perchwell.SampleTest;
 import com.perchwell.data.SearchRequests;
 import com.perchwell.data.SortingTypes;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"TagsTests", "iOS_TagsSecond", "Android_TagsSecond", "TagsThird"})
 public class TI34_MultiSelectDismissalTest extends SampleTest {
 
     @Test
