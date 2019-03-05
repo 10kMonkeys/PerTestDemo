@@ -25,7 +25,7 @@ public class TI22_ListViewTagDeletionTest extends SampleTest {
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.checkNoOneTagPillIsShown();
-        user.atTagsPage.checkIfTagsItemsListIsChanged(-1);
+        user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(-1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
@@ -37,7 +37,7 @@ public class TI22_ListViewTagDeletionTest extends SampleTest {
         user.atTagsPage.clickOnTagPillInSearchField();
         user.atTagsPage.checkIfTagsCheckMarIsNotSelected();
         user.atTagsPage.checkIfTagPillIsRemoved();
-        user.atTagsPage.checkIfTagsItemsListIsChanged(-1);
+        user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(-1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();

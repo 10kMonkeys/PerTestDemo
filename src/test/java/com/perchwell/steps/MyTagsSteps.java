@@ -268,4 +268,9 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void clickOnSearchButton() {
 		onPage.clickOnSearchButton();
 	}
+
+	@Step
+    public void searchCustomClientTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
+    }
 }

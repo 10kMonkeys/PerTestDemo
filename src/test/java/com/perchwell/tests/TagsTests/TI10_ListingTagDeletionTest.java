@@ -20,12 +20,12 @@ public class TI10_ListingTagDeletionTest extends SampleTest {
         user.atOpenedBuildingPage.clearTagsList();
         user.atTagsPage.getFirstTagsItemsValue();
         user.atTagsPage.clickOnFirstTagAndGetValue();
-        user.atTagsPage.checkIfTagsItemsListIsChanged(1);
+        user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.clickOnFirstTag();
-        user.atTagsPage.checkIfTagsItemsListIsChanged(0);
+        user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(0);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
@@ -33,7 +33,7 @@ public class TI10_ListingTagDeletionTest extends SampleTest {
         user.atTagsPage.clickOnTagPillInSearchField();
         user.atTagsPage.checkIfTagsCheckMarIsNotSelected();
         user.atTagsPage.checkIfTagPillIsRemoved();
-        user.atTagsPage.checkIfTagsItemsListIsChanged(0);
+        user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(0);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
     }

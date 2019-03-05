@@ -23,83 +23,86 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnTagSelectedListingsOption();
+        user.atTagsPage.fillInTagSearchField("11CLIENTNAME");
+        user.atTagsPage.getFirstTagsItemsValue();
+        user.atTagsPage.clickOnFirstCustomClientTagAndGetValue();
+        user.atTagsPage.searchCustomClientTag();
+        user.atTagsPage.allTagsAreSelected(1);
+        user.atTagsPage.shouldSeeCustomClientTagsPill();
+        user.atTagsPage.checkIfCustomClientTagsItemsListIsChanged(2); //
+        user.atTagsPage.clearSearchField();
+        user.atTagsPage.fillInTagSearchField("TAGNAME");
         user.atTagsPage.getFirstTagsItemsValue();
         user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.checkIfTagsItemsListIsChanged(2);
-        user.atTagsPage.clearSearchField();
-        user.atTagsPage.createAndSaveNewTag();
-        user.atTagsPage.searchJustCreatedTag();
-        user.atTagsPage.allTagsAreSelected(1);
-        user.atTagsPage.shouldSeeJustCreatedTagsPill();
-        user.atTagsPage.checkIfJustCreatedTagsItemsListIsEqual(2); //
+        user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(2); //update
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.checkTagsIconCountForFirstAndSecondListings(2); //
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
-        user.atTagsPage.swipeDownJustCreatedTagPill(); //
+        user.atTagsPage.swipeDownFirstExistingTagPill(); //
+        user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.shouldSeeJustCreatedTagsPill();
-        user.atTagsPage.swipeUpJustCreatedTagPill(); //
-        user.atTagsPage.searchFirstExistingTag();
+        user.atTagsPage.swipeUpFirstExistingTagPill(); //
+        user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
-        user.atTagsPage.searchJustCreatedTag();
+        user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
-        user.atOpenedBuildingPage.shouldSeeAddedNewTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atTagsPage.swipeDownJustCreatedTagPill(); //
+        user.atTagsPage.swipeDownFirstExistingTagPill(); //
+        user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.shouldSeeJustCreatedTagsPill();
-        user.atTagsPage.swipeUpJustCreatedTagPill(); //
-        user.atTagsPage.searchFirstExistingTag();
+        user.atTagsPage.swipeUpFirstExistingTagPill(); //
+        user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
-        user.atTagsPage.searchJustCreatedTag();
+        user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnTagIconOnSecondListing();
-        user.atTagsPage.swipeDownJustCreatedTagPill(); //
+        user.atTagsPage.swipeDownFirstExistingTagPill(); //
+        user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.shouldSeeJustCreatedTagsPill();
-        user.atTagsPage.swipeUpJustCreatedTagPill(); //
-        user.atTagsPage.searchFirstExistingTag();
+        user.atTagsPage.swipeUpFirstExistingTagPill(); //
+        user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
-        user.atTagsPage.searchJustCreatedTag();
+        user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
-        user.atOpenedBuildingPage.shouldSeeAddedNewTag();
+        user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atTagsPage.swipeDownJustCreatedTagPill(); //
+        user.atTagsPage.swipeDownFirstExistingTagPill(); //
+        user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.shouldSeeJustCreatedTagsPill();
-        user.atTagsPage.swipeUpJustCreatedTagPill(); //
-        user.atTagsPage.searchFirstExistingTag();
+        user.atTagsPage.swipeUpFirstExistingTagPill(); //
+        user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
-        user.atTagsPage.searchJustCreatedTag();
+        user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
+        user.atMyTagsPage.searchCustomClientTag(); //
+        user.atMyTagsPage.clickOnFirstTag(); //
+        user.atMyTagsPage.clickOnSearchButton();
+        user.atMyTagsPage.checkIfTwoListingsAreDisplayed(); //
+        user.atMyTagsPage.removeAllTagPills();
         user.atMyTagsPage.searchFirstExistingTag(); //
         user.atMyTagsPage.clickOnFirstTag(); //
         user.atMyTagsPage.clickOnSearchButton(); //
-        user.atMyTagsPage.checkIfTwoListingsAreDisplayed(); //
-        user.atMyTagsPage.removeAllTagPills();
-        user.atMyTagsPage.searchJustCreatedTag(); //
-        user.atMyTagsPage.clickOnFirstTag(); //
-        user.atMyTagsPage.clickOnSearchButton();
         user.atMyTagsPage.checkIfTwoListingsAreDisplayed(); //
     }
 }
