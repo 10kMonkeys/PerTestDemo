@@ -401,5 +401,14 @@ public class MyTagsPage extends TechHelper {
 	public void clickOnSearchButton() {
 		element(searchButton).click();
 	}
+
+	public void checkIfTwoListingsAreNotDisplayed() {
+		setImplicitTimeout(3, TimeUnit.SECONDS);
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
+					+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldNotBeVisible();
+		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
+					+ SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
 }
 

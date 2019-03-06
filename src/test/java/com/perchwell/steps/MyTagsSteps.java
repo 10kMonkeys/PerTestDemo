@@ -273,4 +273,9 @@ public class MyTagsSteps extends ScenarioSteps {
     public void searchCustomClientTag() {
 		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("First_Custom_Client"));
     }
+
+    @Step
+	public void checkIfTwoListingsAreNotDisplayed() {
+		onPage.checkIfTwoListingsAreNotDisplayed();
+	}
 }

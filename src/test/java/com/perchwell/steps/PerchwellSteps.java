@@ -648,7 +648,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-    public void checkTagsIconCountForFirstAndSecondListings(int value) {
+    public void checkTagsIconCountForFirstAndSecondListings(String value) {
 		onPage.checkTagsIconCountForFirstAndSecondListings(value);
     }
 
