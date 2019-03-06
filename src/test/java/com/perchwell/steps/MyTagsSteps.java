@@ -278,4 +278,14 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void checkIfTwoListingsAreNotDisplayed() {
 		onPage.checkIfTwoListingsAreNotDisplayed();
 	}
+
+	@Step
+	public void searchRenamedTag() {
+		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
+	}
+
+	@Step
+	public void checkIfRenamedTagIsVisible() {
+		onPage.checkIfSpecificTagIsVisible(SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
+	}
 }

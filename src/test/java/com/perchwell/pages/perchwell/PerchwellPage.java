@@ -1067,4 +1067,8 @@ public class PerchwellPage extends TechHelper {
 	public void clickOnTagIconOnSecondListing() {
 		element(tagIconOnSecondListing).click();
 	}
+
+    public void checkTagsIconCountForFirstListing(String value) {
+		Assert.assertEquals(value, element(tagIconOnFirstListing).getAttribute("label").replace(" ", ""));
+    }
 }

@@ -410,5 +410,9 @@ public class MyTagsPage extends TechHelper {
 					+ SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).shouldNotBeVisible();
 		resetImplicitTimeout();
 	}
+
+	public void checkIfSpecificTagIsVisible(String tagName) {
+		element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).shouldBeVisible();
+	}
 }
 
