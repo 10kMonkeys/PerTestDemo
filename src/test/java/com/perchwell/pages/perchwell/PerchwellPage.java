@@ -1059,9 +1059,9 @@ public class PerchwellPage extends TechHelper {
 		singleUpShortSwipeIOS();
 	}
 
-    public void checkTagsIconCountForFirstAndSecondListings(int value) {
-		Assert.assertEquals(value, Integer.parseInt(element(tagIconOnFirstListing).getAttribute("label").replace(" ", "")));
-		Assert.assertEquals(value, Integer.parseInt(element(tagIconOnSecondListing).getAttribute("label").replace(" ", "")));
+    public void checkTagsIconCountForFirstAndSecondListings(String value) {
+		Assert.assertEquals(value, element(tagIconOnFirstListing).getAttribute("label").replace(" ", ""));
+		Assert.assertEquals(value, element(tagIconOnSecondListing).getAttribute("label").replace(" ", ""));
     }
 
 	public void clickOnTagIconOnSecondListing() {
