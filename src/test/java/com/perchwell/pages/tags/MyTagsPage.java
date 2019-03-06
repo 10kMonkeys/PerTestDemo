@@ -414,5 +414,11 @@ public class MyTagsPage extends TechHelper {
 	public void checkIfSpecificTagIsVisible(String tagName) {
 		element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).shouldBeVisible();
 	}
+
+	public void checkIfSpecificTagIsNotVisible(String tagName) {
+		setImplicitTimeout(3, SECONDS);
+		element(MobileBy.AccessibilityId("label: " + tagName)).shouldNotBeVisible();
+		resetImplicitTimeout();
+	}
 }
 

@@ -288,4 +288,9 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void checkIfRenamedTagIsVisible() {
 		onPage.checkIfSpecificTagIsVisible(SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
 	}
+
+	@Step
+	public void checkIfFirstExistingTagIsNotVisible() {
+		onPage.checkIfSpecificTagIsNotVisible(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+	}
 }

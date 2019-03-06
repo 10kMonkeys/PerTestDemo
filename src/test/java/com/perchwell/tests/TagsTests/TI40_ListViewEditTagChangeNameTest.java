@@ -24,6 +24,7 @@ public class TI40_ListViewEditTagChangeNameTest extends SampleTest {
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.changeClientTagName();
         user.atEditTagPage.clickOnSaveButton();
+        user.atTagsPage.checkIfFirstExistingTagIsNotVisible();
         user.atTagsPage.checkIfTagsPillIsRenamed();
         user.atTagsPage.searchRenamedTag();
         user.atTagsPage.checkIfRenamedTagIsVisible();
@@ -32,8 +33,10 @@ public class TI40_ListViewEditTagChangeNameTest extends SampleTest {
         user.atPerchwellPage.checkTagsIconCountForFirstListing("1"); //
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
         user.atOpenedBuildingPage.shouldSeeRenamedTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
+        user.atTagsPage.checkIfFirstExistingTagIsNotVisible();
         user.atTagsPage.checkIfTagsPillIsRenamed();
         user.atTagsPage.searchRenamedTag();
         user.atTagsPage.checkIfRenamedTagIsVisible();
@@ -42,6 +45,7 @@ public class TI40_ListViewEditTagChangeNameTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
+        user.atMyTagsPage.checkIfFirstExistingTagIsNotVisible(); //
         user.atMyTagsPage.searchRenamedTag(); //
         user.atMyTagsPage.checkIfRenamedTagIsVisible(); //
     }
