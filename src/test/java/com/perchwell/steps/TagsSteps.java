@@ -494,7 +494,7 @@ public class TagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkIfJustCreatedTagsItemsListIsEqual(int value) {
-		onPage.checkIfTagsItemsListIsEqual(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"), value);
+	public void checkIfFirstTagsItemsListIsEqual(int value) {
+		onPage.checkIfFirstTagsItemsListIsEqual(value);
 	}
 }

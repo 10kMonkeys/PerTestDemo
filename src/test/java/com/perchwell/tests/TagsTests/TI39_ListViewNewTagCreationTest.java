@@ -26,7 +26,7 @@ public class TI39_ListViewNewTagCreationTest extends SampleTest {
         user.atTagsPage.createAndSaveNewTag();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.checkTagBelowOtherTagsLabel();
-        user.atTagsPage.checkIfJustCreatedTagsItemsListIsEqual(2); //
+        user.atTagsPage.checkIfFirstTagsItemsListIsEqual(2);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.checkTagsIconCountForFirstAndSecondListings("1");
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
