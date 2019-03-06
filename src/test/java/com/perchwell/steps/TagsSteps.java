@@ -492,4 +492,9 @@ public class TagsSteps extends ScenarioSteps {
 	public void checkIfCustomClientTagsItemsListIsChanged(int value) {
 		onPage.checkIfTagsItemsListIsChanged(SessionVariables.getValueFromSessionVariable("First_Custom_Client"), value);
 	}
+
+	@Step
+	public void checkIfJustCreatedTagsItemsListIsEqual(int value) {
+		onPage.checkIfTagsItemsListIsEqual(SessionVariables.getValueFromSessionVariable("Just_Created_Tag"), value);
+	}
 }

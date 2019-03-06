@@ -575,4 +575,15 @@ public class TagsPage extends TechHelper {
 	public void swipeTagPill(String tagName, int duration) {
 		swipeUpElementIOS(element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")), duration);
 	}
+
+	public void checkIfTagsItemsListIsEqual(String tagName, int value) {
+		int itemsAmount;
+
+		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+				tagName + "'")).getAttribute("value");
+
+		itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
+
+		Assert.assertEquals(value, itemsAmount);
+	}
 }
