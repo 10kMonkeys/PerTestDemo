@@ -38,7 +38,7 @@ public class TI36_ListViewTagRemovalNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.removeAllTagPills();
         user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(0);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atPerchwellPage.checkTagsIconCountForFirstAndSecondListings("tag"); //update
+        user.atPerchwellPage.checkTagsIconCountForFirstAndSecondListings("tag");
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
@@ -53,7 +53,7 @@ public class TI36_ListViewTagRemovalNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openSecondBuilding();
-        user.atOpenedBuildingPage.checkNoOneTagPillIsShown(); //
+        user.atOpenedBuildingPage.checkNoOneTagPillIsShown();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
@@ -63,11 +63,11 @@ public class TI36_ListViewTagRemovalNotSelectedBeforeTest extends SampleTest {
         user.atMyTagsPage.searchCustomClientTag();
         user.atMyTagsPage.clickOnFirstTag();
         user.atMyTagsPage.clickOnSearchButton();
-        user.atMyTagsPage.checkIfTwoListingsAreNotDisplayed(); //
+        user.atMyTagsPage.checkIfTwoListingsAreNotDisplayed();
         user.atMyTagsPage.removeAllTagPills();
         user.atMyTagsPage.searchFirstExistingTag();
         user.atMyTagsPage.clickOnFirstTag();
         user.atMyTagsPage.clickOnSearchButton();
-        user.atMyTagsPage.checkIfTwoListingsAreNotDisplayed(); //
+        user.atMyTagsPage.checkIfTwoListingsAreNotDisplayed();
     }
 }
