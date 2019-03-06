@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class OpenedBuildingPage extends TechHelper {
 
 	private List<String> initialBedsAndBathsAmountList = new ArrayList<>();
@@ -248,8 +250,7 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "NO MATCH")
 	private WebElement noMatchLabel;
 
-//	@iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'removeBubble'")
-@iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'removeBubble'")
+	@iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'removeBubble'")
 	private WebElement removeButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'PRICE:'$][1]")
@@ -810,5 +811,11 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void swipeUpToMyTagsLabel() {
 		universalUpSwipe(myTagsLabel);
+	}
+
+	public void checkNoOneTagIsAdded() {
+		setImplicitTimeout(1, SECONDS);
+		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'Remove Button:'")).size());
+		resetImplicitTimeout();
 	}
 }
