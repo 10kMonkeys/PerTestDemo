@@ -4,7 +4,7 @@ import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class TI40_ListViewEditTagChangeNameTest extends SampleTest {
+public class TI42_ListViewEditTagEntireTagDeletionTest extends SampleTest {
 
     @Test
     public void listViewEditTagChangeNameTest() {
@@ -14,6 +14,7 @@ public class TI40_ListViewEditTagChangeNameTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.removeAllTagPills();
+        user.atTagsPage.getFirstTagsItemsValue();
         user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.selectFirstListing();
@@ -21,37 +22,31 @@ public class TI40_ListViewEditTagChangeNameTest extends SampleTest {
         user.atPerchwellPage.clickOnTagSelectedListingsOption();
         user.atTagsPage.swipeFirstExistingTag();
         user.atTagsPage.clickOnEditTagIcon();
-        user.atEditTagPage.changeClientTagName();
-        user.atEditTagPage.clickOnSaveButton();
+        user.atEditTagPage.clickOnDeleteButton();
+        user.atEditTagPage.confirmRemoving();
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.checkIfFirstExistingTagIsNotVisible();
-        user.atTagsPage.clearSearchField();
-        user.atTagsPage.searchRenamedTag();
-        user.atTagsPage.checkIfTagsPillIsRenamed();
-        user.atTagsPage.checkIfRenamedTagIsVisible();
-        user.atTagsPage.allTagsAreSelected(1);
+        user.atTagsPage.checkIfFirstExistingTagsPillIsNotVisible();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atPerchwellPage.checkTagsIconCountForFirstListing("1"); //
+        user.atPerchwellPage.checkTagsIconCountForFirstListing("tag");
+        user.atPerchwellPage.clickOnTagIconOnFirstListing();
+        user.atTagsPage.searchFirstExistingTag();
+        user.atTagsPage.checkIfFirstExistingTagIsNotVisible();
+        user.atTagsPage.checkIfFirstExistingTagsPillIsNotVisible();
+        user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
-        user.atOpenedBuildingPage.shouldSeeRenamedTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.checkIfFirstExistingTagIsNotVisible();
-        user.atTagsPage.clearSearchField();
-        user.atTagsPage.searchRenamedTag();
-        user.atTagsPage.checkIfTagsPillIsRenamed();
-        user.atTagsPage.checkIfRenamedTagIsVisible();
-        user.atTagsPage.allTagsAreSelected(1);
+        user.atTagsPage.checkIfFirstExistingTagsPillIsNotVisible();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atMyTagsPage.searchFirstExistingTag();
-        user.atMyTagsPage.checkIfFirstExistingTagIsNotVisible(); //
-        user.atMyTagsPage.clearSearchField(); //
-        user.atMyTagsPage.searchRenamedTag(); //
-        user.atMyTagsPage.checkIfRenamedTagIsVisible(); //
+        user.atTagsPage.searchFirstExistingTag();
+        user.atTagsPage.checkIfFirstExistingTagIsNotVisible();
+        user.atTagsPage.checkIfFirstExistingTagsPillIsNotVisible();
     }
 }

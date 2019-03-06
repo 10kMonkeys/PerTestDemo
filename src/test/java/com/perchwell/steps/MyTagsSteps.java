@@ -293,4 +293,14 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void checkIfFirstExistingTagIsNotVisible() {
 		onPage.checkIfSpecificTagIsNotVisible(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
+
+	@Step
+	public void clickOnCrossFromAccountTagsButton() {
+		onPage.clickOnCrossFromAccountTagsButton();
+	}
+
+	@Step
+	public void clearSearchField() {
+		onPage.clearSearchField();
+	}
 }

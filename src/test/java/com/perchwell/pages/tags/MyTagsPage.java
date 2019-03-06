@@ -122,6 +122,9 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "SHOW ITEMS IN SELECTED TAGS")
 	private WebElement searchButton;
 
+	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
+	private WebElement crossFromAccountTagsButton;
+
 	//endregion
 
 	public MyTagsPage(WebDriver driver) {
@@ -419,6 +422,10 @@ public class MyTagsPage extends TechHelper {
 		setImplicitTimeout(3, SECONDS);
 		element(MobileBy.AccessibilityId("label: " + tagName)).shouldNotBeVisible();
 		resetImplicitTimeout();
+	}
+
+	public void clickOnCrossFromAccountTagsButton() {
+		element(crossFromAccountTagsButton).click();
 	}
 }
 
