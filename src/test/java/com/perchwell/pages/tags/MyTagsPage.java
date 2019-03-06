@@ -393,9 +393,9 @@ public class MyTagsPage extends TechHelper {
 
 	public void checkIfTwoListingsAreDisplayed() {
 		Assert.assertTrue(element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
-				+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).isPresent());
+				+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).isVisible());
 		Assert.assertTrue(element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
-				+ SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).isPresent());
+				+ SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).isVisible());
 	}
 
 	public void clickOnSearchButton() {
