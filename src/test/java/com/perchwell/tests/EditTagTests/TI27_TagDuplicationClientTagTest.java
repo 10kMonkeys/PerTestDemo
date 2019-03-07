@@ -35,7 +35,7 @@ public class TI27_TagDuplicationClientTagTest extends SampleTest {
         user.atEditTagPage.clickOnCancelButton();
         user.atEditTagPage.shouldSeeEditTagLabel();
         user.atEditTagPage.clickOnDuplicateButton();
-        user.atEditTagPage.fillInDuplicateClientTagName();
+        user.atEditTagPage.fillInDuplicateTagName();
         user.atEditTagPage.clickOnSaveButton();
         user.atTagsPage.shouldSeeAddTagLabel();
         user.atTagsPage.searchFirstExistingTag();
