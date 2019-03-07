@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
 
     @Test
-    public void multiSelectDismissalTest() {
+    public void listViewTagAdditionNotSelectedBeforeTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

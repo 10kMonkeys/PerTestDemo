@@ -503,7 +503,7 @@ public class TagsPage extends TechHelper {
 
 	public void checkIfSpecificTagIsNotVisible(String tagName) {
 		setImplicitTimeout(3, SECONDS);
-		element(MobileBy.AccessibilityId("label: " + tagName)).shouldNotBeVisible();
+		element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).shouldNotBeVisible();
 		resetImplicitTimeout();
 	}
 
@@ -574,5 +574,10 @@ public class TagsPage extends TechHelper {
 
 	public void swipeTagPill(String tagName, int duration) {
 		swipeUpElementIOS(element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")), duration);
+	}
+
+	public void checkIfFirstTagsItemsListIsEqual(int value) {
+		this.getFirstTagsItemsValue();
+		Assert.assertEquals(value, tagsItemsValue);
 	}
 }
