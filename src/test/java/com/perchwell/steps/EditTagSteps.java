@@ -115,4 +115,10 @@ public class EditTagSteps extends ScenarioSteps {
     public void clickOnPopUpSaveButton() {
         onPage.clickOnPopUpSaveButton();
     }
+
+    @Step
+    public void fillInDuplicateClientTagName() {
+        SessionVariables.addValueInSessionVariable("Duplicated_Tag", RandomGenerator.getRandomString("11CLIENTNAME"));
+        onPage.fillInRandomTagName(SessionVariables.getValueFromSessionVariable("Duplicated_Tag"));
+    }
 }

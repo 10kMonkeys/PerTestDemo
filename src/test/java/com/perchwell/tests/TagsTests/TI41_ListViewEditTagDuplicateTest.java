@@ -23,7 +23,7 @@ public class TI41_ListViewEditTagDuplicateTest extends SampleTest {
         user.atTagsPage.swipeFirstExistingTag();
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.clickOnDuplicateButton();
-        user.atEditTagPage.fillInDuplicateTagName();
+        user.atEditTagPage.fillInDuplicateClientTagName();
         user.atEditTagPage.clickOnPopUpSaveButton();
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
