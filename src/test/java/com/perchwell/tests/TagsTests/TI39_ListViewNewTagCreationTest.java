@@ -58,9 +58,9 @@ public class TI39_ListViewNewTagCreationTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atMyTagsPage.searchJustCreatedTag();
-        user.atMyTagsPage.clickOnFirstTag();
-        user.atMyTagsPage.clickOnSearchButton();
+        user.atTagsPage.searchJustCreatedTag();
+        user.atTagsPage.clickOnFirstTag();
+        user.atTagsPage.clickOnSearchButton();
         user.atMyTagsPage.checkIfTwoListingsAreDisplayed();
     }
 }

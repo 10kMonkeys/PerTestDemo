@@ -503,7 +503,7 @@ public class TagsPage extends TechHelper {
 
 	public void checkIfSpecificTagIsNotVisible(String tagName) {
 		setImplicitTimeout(3, SECONDS);
-		element(MobileBy.AccessibilityId("label: " + tagName)).shouldNotBeVisible();
+		element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).shouldNotBeVisible();
 		resetImplicitTimeout();
 	}
 

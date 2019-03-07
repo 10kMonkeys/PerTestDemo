@@ -27,7 +27,7 @@ public class TI43_ListViewSetAlertsTest extends SampleTest {
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.checkNoOneActiveBellDisplayed();
-        user.atMyTagsPage.clickOnCrossFromAccountTagsButton();
+        user.atTagsPage.clickOnCrossFromAccountTagsButton();
         user.atAccountPage.closeAccountMenu();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnTagSelectedListingsOption();
@@ -43,7 +43,7 @@ public class TI43_ListViewSetAlertsTest extends SampleTest {
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.greenBellIconIsShown();
-        user.atMyTagsPage.clickOnCrossFromAccountTagsButton();
+        user.atTagsPage.clickOnCrossFromAccountTagsButton();
         user.atAccountPage.closeAccountMenu();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnTagSelectedListingsOption();
@@ -56,7 +56,7 @@ public class TI43_ListViewSetAlertsTest extends SampleTest {
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.checkNoOneActiveBellDisplayed();
-        user.atMyTagsPage.clickOnCrossFromAccountTagsButton();
+        user.atTagsPage.clickOnCrossFromAccountTagsButton();
         user.atAccountPage.closeAccountMenu();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnTagSelectedListingsOption();

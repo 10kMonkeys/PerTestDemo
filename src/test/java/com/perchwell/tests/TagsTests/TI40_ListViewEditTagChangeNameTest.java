@@ -48,10 +48,10 @@ public class TI40_ListViewEditTagChangeNameTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atMyTagsPage.searchFirstExistingTag();
-        user.atMyTagsPage.checkIfFirstExistingTagIsNotVisible(); //
-        user.atMyTagsPage.clearSearchField(); //
-        user.atMyTagsPage.searchRenamedTag(); //
-        user.atMyTagsPage.checkIfRenamedTagIsVisible(); //
+        user.atTagsPage.searchFirstExistingTag();
+        user.atTagsPage.checkIfFirstExistingTagIsNotVisible();
+        user.atTagsPage.clearSearchField();
+        user.atTagsPage.searchRenamedTag();
+        user.atTagsPage.checkIfRenamedTagIsVisible();
     }
 }

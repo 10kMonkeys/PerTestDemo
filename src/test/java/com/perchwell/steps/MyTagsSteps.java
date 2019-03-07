@@ -280,27 +280,7 @@ public class MyTagsSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void searchRenamedTag() {
-		onPage.fillInTagSearchField(SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
-	}
-
-	@Step
-	public void checkIfRenamedTagIsVisible() {
-		onPage.checkIfSpecificTagIsVisible(SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
-	}
-
-	@Step
-	public void checkIfFirstExistingTagIsNotVisible() {
-		onPage.checkIfSpecificTagIsNotVisible(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
-	}
-
-	@Step
 	public void clickOnCrossFromAccountTagsButton() {
 		onPage.clickOnCrossFromAccountTagsButton();
-	}
-
-	@Step
-	public void clearSearchField() {
-		onPage.clearSearchField();
 	}
 }
