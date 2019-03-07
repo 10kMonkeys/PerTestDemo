@@ -1,6 +1,7 @@
 package com.perchwell.tests.TagsTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.ClientGroups;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
@@ -48,5 +49,8 @@ public class TI42_ListViewEditTagEntireTagDeletionTest extends SampleTest {
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.checkIfFirstExistingTagIsNotVisible();
         user.atTagsPage.checkIfFirstExistingTagsPillIsNotVisible();
+        user.atTagsPage.clickOnCrossFromAccountTagsButton();
+        user.atAccountPage.clickOnClientsLabel();
+        user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
     }
 }
