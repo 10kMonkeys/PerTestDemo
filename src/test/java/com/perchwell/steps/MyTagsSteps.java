@@ -278,4 +278,9 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void checkIfTwoListingsAreNotDisplayed() {
 		onPage.checkIfTwoListingsAreNotDisplayed();
 	}
+
+	@Step
+	public void clickOnCrossFromAccountTagsButton() {
+		onPage.clickOnCrossFromAccountTagsButton();
+	}
 }

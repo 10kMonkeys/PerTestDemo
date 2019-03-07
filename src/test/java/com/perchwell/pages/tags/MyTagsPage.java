@@ -122,6 +122,9 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "SHOW ITEMS IN SELECTED TAGS")
 	private WebElement searchButton;
 
+	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
+	private WebElement crossFromAccountTagsButton;
+
 	//endregion
 
 	public MyTagsPage(WebDriver driver) {
@@ -409,6 +412,10 @@ public class MyTagsPage extends TechHelper {
 		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
 					+ SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).shouldNotBeVisible();
 		resetImplicitTimeout();
+	}
+
+	public void clickOnCrossFromAccountTagsButton() {
+		element(crossFromAccountTagsButton).click();
 	}
 }
 
