@@ -773,7 +773,7 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
     public void clearTagsList() {
-		waitABit(1000);
+		waitABit(3000);
 		setImplicitTimeout(3, TimeUnit.SECONDS);
 		while (element(MobileBy.iOSNsPredicateString("label CONTAINS 'removeBubble'")).isVisible()) {
 			element(removeButton).click();
