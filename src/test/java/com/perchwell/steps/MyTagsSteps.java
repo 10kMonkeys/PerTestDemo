@@ -283,4 +283,35 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void clickOnCrossFromAccountTagsButton() {
 		onPage.clickOnCrossFromAccountTagsButton();
 	}
+
+	@Step
+	public void selectSecondListingAfterFirst() {
+		onPage.selectFirstListings();
+	}
+
+	@Step
+	public void checkTagsIconCountForFirstListing(String value) {
+		onPage.checkTagsIconCountForFirstListing(value);
+	}
+
+	@Step
+	public void checkTagsIconCountForSecondListing(String value) {
+		onPage.checkTagsIconCountForSecondListing(value);
+	}
+
+	@Step
+	public void checkTagsIconCountForFirstAndSecondListings(String value) {
+		this.checkTagsIconCountForFirstListing(value);
+		this.checkTagsIconCountForSecondListing(value);
+	}
+
+	@Step
+	public void clickOnTagIconOnSecondListing() {
+		onPage.clickOnTagIconOnSecondListing();
+	}
+
+	@Step
+	public void openSecondBuilding() {
+		onPage.openSecondBuilding();
+	}
 }
