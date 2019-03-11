@@ -4,10 +4,10 @@ import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class TI47_TagsPageTagAdditionSelectedBeforeTest extends SampleTest {
+public class TI48_TagsPageTagRemovalSelectedBeforeTest extends SampleTest {
 
     @Test
-    public void tagsPageTagAdditionSelectedBeforeTest() {
+    public void tagsPageTagRemovalSelectedBeforeTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -18,6 +18,9 @@ public class TI47_TagsPageTagAdditionSelectedBeforeTest extends SampleTest {
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.removeAllTagPills();
+        user.atTagsPage.searchCustomClientTag();
+        user.atTagsPage.clickOnFirstTag();
+        user.atTagsPage.clearSearchField();
         user.atTagsPage.fillInTagSearchField("TAGNAME");
         user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
@@ -34,36 +37,40 @@ public class TI47_TagsPageTagAdditionSelectedBeforeTest extends SampleTest {
         user.atMyTagsPage.clickOnTagSelectedListingsOption();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.searchFirstExistingTag();
-        user.atTagsPage.allTagsAreSelected(1);
-        user.atTagsPage.clearSearchField();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.getFirstTagsItemsValue();
         user.atTagsPage.clickOnFirstTag();
-        user.atTagsPage.checkIfCustomClientTagsItemsListIsChanged(-1);
+        user.atTagsPage.checkIfCustomClientTagsItemsListIsChanged(-2);
+        user.atTagsPage.clearSearchField();
+        user.atTagsPage.searchFirstExistingTag();
+        user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.getFirstTagsItemsValue();
-        user.atTagsPage.clickOnFirstTag();
-        user.atTagsPage.checkIfCustomClientTagsItemsListIsChanged(2);
+        user.atTagsPage.clickOnTagPillInSearchField();
+        user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(-1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atMyTagsPage.checkTagsIconCountForFirstListing("1");
-        user.atMyTagsPage.checkTagsIconCountForSecondListing("2");
-        user.atMyTagsPage.clickOnTagIconOnFirstListing();
-        user.atTagsPage.shouldSeeCustomClientTagsPill();
+        user.atMyTagsPage.clickOnCrossFromAccountTagsButton();
+        user.atAccountPage.closeAccountMenu();
+        user.atPerchwellPage.checkTagsIconCountForFirstListing("tag");
+        user.atPerchwellPage.checkTagsIconCountForSecondListing("tag");
+        user.atPerchwellPage.clickOnTagIconOnFirstListing();
+        user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atMyTagsPage.openFirstBuilding();
+        user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
-        user.atOpenedBuildingPage.shouldSeeCustomClientTag();
+        user.atOpenedBuildingPage.shouldNotSeeCustomClientTag();
+        user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atTagsPage.shouldSeeCustomClientTagsPill();
+        user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.atMyTagsPage.clickOnTagIconOnSecondListing();
-        user.atTagsPage.shouldSeeCustomClientTagsPill();
+        user.atPerchwellPage.clickOnTagIconOnSecondListing();
+        user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atMyTagsPage.openSecondBuilding();
-        user.atOpenedBuildingPage.shouldSeeCustomClientTag();
+        user.atPerchwellPage.openSecondBuilding();
+        user.atOpenedBuildingPage.shouldNotSeeCustomClientTag();
+        user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atTagsPage.shouldSeeCustomClientTagsPill();
+        user.atTagsPage.checkNoOneTagPillIsShown();
     }
 }
