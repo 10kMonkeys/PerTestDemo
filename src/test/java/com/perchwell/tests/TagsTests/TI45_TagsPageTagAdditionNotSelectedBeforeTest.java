@@ -32,7 +32,7 @@ public class TI45_TagsPageTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnSearchButton();
         user.atMyTagsPage.selectFirstListing();
-        user.atMyTagsPage.selectSecondListingAfterFirst(); //
+        user.atMyTagsPage.selectSecondListingAfterFirst();
         user.atMyTagsPage.clickOnMoreOptionsButton();
         user.atMyTagsPage.clickOnTagSelectedListingsOption();
         user.atTagsPage.fillInTagSearchField("TAGNAME");
@@ -43,8 +43,8 @@ public class TI45_TagsPageTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
         user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(2);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atMyTagsPage.checkTagsIconCountForFirstAndSecondListings("2"); //
-        user.atMyTagsPage.clickOnTagIconOnSecondListing(); //
+        user.atMyTagsPage.checkTagsIconCountForFirstAndSecondListings("2");
+        user.atMyTagsPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
         user.atTagsPage.searchCustomClientTag();
@@ -53,7 +53,7 @@ public class TI45_TagsPageTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atMyTagsPage.openSecondBuilding(); //
+        user.atMyTagsPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
