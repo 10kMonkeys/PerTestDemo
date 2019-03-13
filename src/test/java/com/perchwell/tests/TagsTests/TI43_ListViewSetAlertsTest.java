@@ -2,8 +2,10 @@ package com.perchwell.tests.TagsTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
+@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsFirst", "Android_MultipleTagsFirst", "MultipleTagsFirst"})
 public class TI43_ListViewSetAlertsTest extends SampleTest {
 
     @Test
