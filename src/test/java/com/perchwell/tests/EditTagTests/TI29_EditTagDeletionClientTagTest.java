@@ -1,6 +1,7 @@
 package com.perchwell.tests.EditTagTests;
 
 import com.perchwell.SampleTest;
+import com.perchwell.data.ClientGroups;
 import com.perchwell.data.SearchRequests;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
@@ -15,11 +16,17 @@ public class TI29_EditTagDeletionClientTagTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.clickOnOpenAccountButton();
+        user.atAccountPage.clickOnClientsLabel();
+        user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
+        user.atClientPage.clickOnCrossBackButtonFromClients();
+        user.atAccountPage.closeAccountMenu();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
 //        user.atTagsPage.fillInTagSearchField(SearchRequests.CLIENT_TI29);
+        user.atTagsPage.searchJustCreatedClientTag();
         user.atTagsPage.clickOnFirstTagAndGetValue(); //new
 //        user.atTagsPage.clickOnFirstClientTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
