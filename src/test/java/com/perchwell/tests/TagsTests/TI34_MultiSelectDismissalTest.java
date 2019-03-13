@@ -37,6 +37,7 @@ public class TI34_MultiSelectDismissalTest extends SampleTest {
         user.atMyTagsPage.checkSortLabel(SortingTypes.DATE_ADDED_TAGGED);
         user.atMyTagsPage.selectFirstListing();
         user.atMyTagsPage.openFirstBuilding();
+        user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atMyTagsPage.checkNoOneListingIsSelected();
         user.atMyTagsPage.multiSelectMenuIsHidden();
