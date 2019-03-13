@@ -109,7 +109,6 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
 	private WebElement tagIconOnFirstListing;
 
-
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND label == 'ti selected rb'")
 	private List<WebElement> selectedListingsListByAddress;
 
@@ -124,6 +123,12 @@ public class MyTagsPage extends TechHelper {
 
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossFromAccountTagsButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][2]")
+	private WebElement tagIconOnSecondListing;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell[2]")
+	private WebElement secondBuilding;
 
 	//endregion
 
@@ -416,6 +421,22 @@ public class MyTagsPage extends TechHelper {
 
 	public void clickOnCrossFromAccountTagsButton() {
 		element(crossFromAccountTagsButton).click();
+	}
+
+	public void checkTagsIconCountForFirstListing(String value) {
+		Assert.assertEquals(value, element(tagIconOnFirstListing).getAttribute("label").replace(" ", ""));
+	}
+
+	public void checkTagsIconCountForSecondListing(String value) {
+		Assert.assertEquals(value, element(tagIconOnSecondListing).getAttribute("label").replace(" ", ""));
+	}
+
+	public void clickOnTagIconOnSecondListing() {
+		element(tagIconOnSecondListing).click();
+	}
+
+	public void openSecondBuilding() {
+		element(secondBuilding).click();
 	}
 }
 
