@@ -8,7 +8,7 @@ public class TI52_TagsPageNewTagCreationTest extends SampleTest {
 
     @Test
     public void tagsPageNewTagCreationTest() {
-        user.atLoginPage.loginAsBroker("test-android+mgmt-core@perchwell.com",
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();

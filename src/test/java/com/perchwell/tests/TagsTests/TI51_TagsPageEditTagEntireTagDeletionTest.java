@@ -58,7 +58,11 @@ public class TI51_TagsPageEditTagEntireTagDeletionTest extends SampleTest {
         user.atTagsPage.checkIfJustCreatedTagIsNotVisible();
         user.atTagsPage.checkIfJustCreatedTagsPillIsNotVisible();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        //building
+        user.atOpenedBuildingPage.clickOnListingsBuilding();
+        user.atOpenedBuildingPage.shouldNotSeeJustCreatedTag();
+        user.atOpenedBuildingPage.clickOnMyTagsLabel();
+        user.atTagsPage.searchJustCreatedTag();
+        user.atTagsPage.checkIfJustCreatedTagIsNotVisible();
+        user.atTagsPage.checkIfJustCreatedTagsPillIsNotVisible();
     }
 }
