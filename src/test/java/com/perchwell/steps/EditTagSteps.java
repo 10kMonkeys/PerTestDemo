@@ -115,4 +115,9 @@ public class EditTagSteps extends ScenarioSteps {
     public void clickOnPopUpSaveButton() {
         onPage.clickOnPopUpSaveButton();
     }
+
+    @Step
+    public void shouldSeeFirstExistingTag() {
+        onPage.shouldSeeClient(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
+    }
 }
