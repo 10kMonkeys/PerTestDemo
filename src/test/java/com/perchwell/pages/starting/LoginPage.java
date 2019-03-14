@@ -67,6 +67,7 @@ public class LoginPage extends TechHelper {
 
     public void setEmail(String email) {
 //      element(emailTextBox).type(email);
+        element(emailTextBox).clear(); //temp fix
       element(emailTextBox).sendKeys(email);
     }
 
@@ -76,6 +77,7 @@ public class LoginPage extends TechHelper {
 
     public void setPassword(String password) {
 //        element(passwordField).type(password);
+        element(passwordField).clear(); //temp fix
         element(passwordField).sendKeys(password);
     }
 
