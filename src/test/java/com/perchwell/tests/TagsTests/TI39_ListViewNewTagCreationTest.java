@@ -10,7 +10,7 @@ public class TI39_ListViewNewTagCreationTest extends SampleTest {
 
     @Test
     public void listViewNewTagCreationTest() {
-        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("muilt_tags_first_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();

@@ -12,7 +12,7 @@ public class TI36_ListViewTagRemovalNotSelectedBeforeTest extends SampleTest {
     @Ignore
     @Test
     public void listViewTagRemovalNotSelectedBeforeTest() {
-        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("muilt_tags_first_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();

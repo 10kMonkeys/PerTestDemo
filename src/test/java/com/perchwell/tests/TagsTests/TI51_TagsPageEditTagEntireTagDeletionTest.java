@@ -12,7 +12,7 @@ public class TI51_TagsPageEditTagEntireTagDeletionTest extends SampleTest {
     @Ignore
     @Test
     public void tagsPageEditTagEntireTagDeletionTest() {
-        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("muilt_tags_second_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();

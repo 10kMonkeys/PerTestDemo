@@ -10,7 +10,7 @@ public class TI40_ListViewEditTagChangeNameTest extends SampleTest {
 
     @Test
     public void listViewEditTagChangeNameTest() {
-        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("muilt_tags_first_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();

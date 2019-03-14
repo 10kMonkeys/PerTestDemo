@@ -10,7 +10,7 @@ public class TI47_TagsPageTagAdditionSelectedBeforeTest extends SampleTest {
 
     @Test
     public void tagsPageTagAdditionSelectedBeforeTest() {
-        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("muilt_tags_second_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();

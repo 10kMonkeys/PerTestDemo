@@ -13,7 +13,7 @@ public class TI27_TagDuplicationClientTagTest extends SampleTest {
     @Ignore
     @Test
     public void tagDuplicationClientTag() {
-        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("tags_third_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();

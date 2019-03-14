@@ -10,7 +10,7 @@ public class TI30_EditTagDeletionOtherTagTest extends SampleTest {
 
     @Test
     public void editTagDeletionOtherTag() {
-        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("tags_third_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();

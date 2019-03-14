@@ -12,7 +12,7 @@ public class TI50_TagsPageEditTagDuplicateTest extends SampleTest {
     @Ignore
     @Test
     public void tagsPageEditTagDuplicateTest() {
-        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("muilt_tags_second_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
