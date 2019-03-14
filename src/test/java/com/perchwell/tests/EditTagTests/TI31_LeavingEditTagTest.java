@@ -10,7 +10,7 @@ public class TI31_LeavingEditTagTest extends SampleTest {
 
     @Test
     public void leavingEditTag() {
-        user.atLoginPage.loginAsBroker("test-android+mgmt-core@perchwell.com",
+        user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
