@@ -421,5 +421,20 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void checkNoOneTagPillIsShown() {
 		onPage.checkNoOneTagIsAdded();
 	}
+
+	@Step
+	public void checkIfDiscussBuildingButtonIsDisplayed() {
+		onPage.checkIfDiscussBuildingButtonIsDisplayed();
+	}
+
+	@Step
+	public void checkIfNeighborhoodAndBuildingType() {
+		onPage.checkIfNeighborhoodAndBuildingType();
+	}
+
+	@Step
+	public void checkIfCountActiveSalesAndRentals() {
+		onPage.checkIfCountActiveSalesAndRentals();
+	}
 }
 

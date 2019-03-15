@@ -1157,4 +1157,41 @@ public class SearchSteps extends ScenarioSteps {
     public void checkIfAddressBuildingIsReturned(String address) {
         onPage.checkIfAddressBuildingIsReturned(address);
     }
+
+    @Step
+    public void checkIfResultsAreCleared() {
+        onPage.checkIfResultsAreCleared();
+    }
+
+    @Step
+    public void getCountActiveSalesAndRentals() {
+        this.getCountActiveSales();
+        this.getCountActiveRentals();
+    }
+
+    @Step
+    public void getCountActiveSales() {
+        onPage.getCountActiveSales();
+    }
+
+    @Step
+    public void getCountActiveRentals() {
+        onPage.getCountActiveRentals();
+    }
+
+    @Step
+    public void getNeighborhoodAndBuildingType() {
+        this.getNeighborhoodType();
+        this.getBuildingType();
+    }
+
+    @Step
+    public void getNeighborhoodType() {
+        onPage.getNeighborhoodType();
+    }
+
+    @Step
+    public void getBuildingType() {
+        onPage.getBuildingType();
+    }
 }

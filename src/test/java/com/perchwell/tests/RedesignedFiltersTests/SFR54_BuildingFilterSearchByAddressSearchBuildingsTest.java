@@ -16,8 +16,8 @@ public class SFR54_BuildingFilterSearchByAddressSearchBuildingsTest extends Samp
         user.atPerchwellPage.isListingsQuantity();
         user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
-        user.atSearchPage.hideKeyboard();
-        user.atSearchPage.checkIfAddressBuildingIsReturned("DAKOTA, 1 WEST 72ND STREET");
+        user.atSearchPage.hideKeyboard(); //
+        user.atSearchPage.checkIfAddressBuildingIsReturned("DAKOTA, 1 WEST 72ND STREET"); //
         user.atSearchPage.checkIfAddressBuildingIsReturned("15 DAKOTA PLACE");
         user.atSearchPage.checkIfAddressBuildingIsReturned("2657 EAST 66TH STREET");
         user.atSearchPage.closeAddressSearch();

@@ -2091,4 +2091,20 @@ public class SearchPage extends TechHelper {
     public void checkIfAddressBuildingIsReturned(String address) {
         element(MobileBy.AccessibilityId(address)).shouldBeVisible();
     }
+
+    public void checkIfResultsAreCleared() {
+        Assert.assertTrue(element(searchAddressField).getAttribute("value").contains("ADDRESS OR BUILDING NAME..."));
+    }
+
+    public void getCountActiveSales() {
+    }
+
+    public void getCountActiveRentals() {
+    }
+
+    public void getNeighborhoodType() {
+    }
+
+    public void getBuildingType() {
+    }
 }

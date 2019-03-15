@@ -256,6 +256,9 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'PRICE:'$][1]")
 	private WebElement firstPrice;
 
+	@iOSXCUITFindBy(accessibility = "DiscussBuildingButton")
+	private WebElement discussBuildingButton;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -817,5 +820,15 @@ public class OpenedBuildingPage extends TechHelper {
 		setImplicitTimeout(1, SECONDS);
 		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'Remove Button:'")).size());
 		resetImplicitTimeout();
+	}
+
+	public void checkIfDiscussBuildingButtonIsDisplayed() {
+		element(discussBuildingButton).shouldBePresent();
+	}
+
+	public void checkIfCountActiveSalesAndRentals() {
+	}
+
+	public void checkIfNeighborhoodAndBuildingType() {
 	}
 }
