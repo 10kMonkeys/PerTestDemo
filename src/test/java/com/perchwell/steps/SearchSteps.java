@@ -2,6 +2,7 @@ package com.perchwell.steps;
 
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
+import com.perchwell.helpers.TechHelper;
 import com.perchwell.pages.perchwell.SearchPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -1145,5 +1146,15 @@ public class SearchSteps extends ScenarioSteps {
     @Step
     public void closeSavedSearches() {
         onPage.closeSavedSearches();
+    }
+
+    @Step
+    public void hideKeyboard() {
+        onPage.hideKeyboard();
+    }
+
+    @Step
+    public void checkIfAddressBuildingIsReturned(String address) {
+        onPage.checkIfAddressBuildingIsReturned(address);
     }
 }

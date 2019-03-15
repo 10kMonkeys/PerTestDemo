@@ -2087,4 +2087,8 @@ public class SearchPage extends TechHelper {
     public void waitUntilFirstSearchAppears() {
         waitFor(ExpectedConditions.visibilityOf(firstBellIcon));
     }
+
+    public void checkIfAddressBuildingIsReturned(String address) {
+        element(MobileBy.AccessibilityId(address)).shouldBeVisible();
+    }
 }
