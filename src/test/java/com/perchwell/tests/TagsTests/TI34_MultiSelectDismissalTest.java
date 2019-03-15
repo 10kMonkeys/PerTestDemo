@@ -5,9 +5,10 @@ import com.perchwell.data.SearchRequests;
 import com.perchwell.data.SortingTypes;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_TagsSecond", "Android_TagsSecond", "TagsSecond"})
+@WithTagValuesOf({"TagsTests", "iOS_TagsSecond", "Android_TagsSecond", "TagsThird"})
 public class TI34_MultiSelectDismissalTest extends SampleTest {
 
     @Test
@@ -37,7 +38,6 @@ public class TI34_MultiSelectDismissalTest extends SampleTest {
         user.atMyTagsPage.checkSortLabel(SortingTypes.DATE_ADDED_TAGGED);
         user.atMyTagsPage.selectFirstListing();
         user.atMyTagsPage.openFirstBuilding();
-        user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atMyTagsPage.checkNoOneListingIsSelected();
         user.atMyTagsPage.multiSelectMenuIsHidden();
