@@ -1158,8 +1158,8 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkBuildingPillIsDisplayedAtBuildingSearch(String address) {
-        onPage.checkBuildingPillIsDisplayed(address);
+    public void checkBuildingPillIsDisplayedAtBuildingSearchPage(String address) {
+        onPage.checkBuildingPillIsDisplayedAtBuildingSearchPage(address);
     }
 
     @Step
@@ -1168,15 +1168,37 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkFirstBuildingIsNotSelected() {
-        onPage.checkFirstBuildingIsNotSelected();
+    public void checkFirstBuildingIsNotSelectedAtBuildingSearchPage() {
+        onPage.checkFirstBuildingIsNotSelectedAtBuildingSearchPage();
     }
 
-    public void checkBuildingPillIsNotDisplayed(String address) {
-        onPage.checkBuildingPillIsNotDisplayed(address);
+    @Step
+    public void checkBuildingPillIsNotDisplayedAtBuildingSearchPage(String address) {
+        onPage.checkBuildingPillIsNotDisplayedAtBuildingSearchPage(address);
     }
 
-    public void checkBuildingPillIsDisplayedAtSearch(String address) {
-        onPage.checkBuildingPillIsDisplayedAtSearch(address);
+    @Step
+    public void checkBuildingPillIsDisplayedAtSearchPage(String address) {
+        onPage.checkBuildingPillIsDisplayedAtSearchPage(address);
+    }
+
+    @Step
+    public void checkFirstBuildingPillIsBelowBuildingTitleAtSearchPage(String address) {
+        onPage.checkFirstBuildingPillIsUnderBuildingTitle(address);
+    }
+
+    @Step
+    public void noOneNeighborPillIsShown() {
+        onPage.manhattanPillIsNotShownAtSearchPage();
+        onPage.brooklynPillIsNotShownAtSearchPage();
+        onPage.queensPillIsNotShownAtSearchPage();
+    }
+
+    public void checkBuildingPillIsNotDisplayedAtSearchPage(String address) {
+        onPage.checkBuildingPillIsNotDisplayedAtSearchPage(address);
+    }
+
+    public void removeBuildingPill(String address) {
+        onPage.removeBuildingPill(address);
     }
 }

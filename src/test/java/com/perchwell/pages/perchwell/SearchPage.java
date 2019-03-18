@@ -713,6 +713,9 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeImage[$name CONTAINS 'buildingSelectionIndicator'$][1]")
     private WebElement firstSelectedBuildingIcon;
 
+    @iOSXCUITFindBy(accessibility = "BUILDINGS")
+    private WebElement buildingsTitle;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -2099,7 +2102,7 @@ public class SearchPage extends TechHelper {
         element(firstSelectedBuildingIcon).shouldBeVisible();
     }
 
-    public void checkBuildingPillIsDisplayed(String address) {
+    public void checkBuildingPillIsDisplayedAtBuildingSearchPage(String address) {
         element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]" +
                 "/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + address + "'$]")).shouldBeVisible();
     }
@@ -2108,16 +2111,52 @@ public class SearchPage extends TechHelper {
         Assert.assertEquals("Search building name or address", element(searchNeihborhoodsSearchField).getAttribute("value"));
     }
 
-    public void checkFirstBuildingIsNotSelected() {
+    public void checkFirstBuildingIsNotSelectedAtBuildingSearchPage() {
         element(firstSelectedBuildingIcon).shouldNotBeVisible();
     }
 
-    public void checkBuildingPillIsNotDisplayed(String address) {
+    public void checkBuildingPillIsNotDisplayedAtBuildingSearchPage(String address) {
+        setImplicitTimeout(3, SECONDS);
         element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]" +
                 "/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + address + "'$]")).shouldNotBeVisible();
+        resetImplicitTimeout();
     }
 
-    public void checkBuildingPillIsDisplayedAtSearch(String address) {
+    public void checkBuildingPillIsDisplayedAtSearchPage(String address) {
         element(MobileBy.AccessibilityId(address)).shouldBeVisible();
+    }
+
+    public void checkFirstBuildingPillIsUnderBuildingTitle(String address) {
+        WebElement buildingPill = element(MobileBy.AccessibilityId(address));
+
+        Assert.assertEquals(getYPositionOfElement(buildingsTitle) + 32, getYPositionOfElement(buildingPill));
+    }
+
+    public void manhattanPillIsNotShownAtSearchPage() {
+        setImplicitTimeout(3, SECONDS);
+        element(deleteTagButtonMANHATTAN).shouldNotBeVisible();
+        resetImplicitTimeout();
+    }
+
+    public void brooklynPillIsNotShownAtSearchPage() {
+        setImplicitTimeout(3, SECONDS);
+        element(deleteTagButtonBROOKLYN).shouldNotBeVisible();
+        resetImplicitTimeout();
+    }
+
+    public void queensPillIsNotShownAtSearchPage() {
+        setImplicitTimeout(3, SECONDS);
+        element(deleteTagButtonQUEENS).shouldNotBeVisible();
+        resetImplicitTimeout();
+    }
+
+    public void checkBuildingPillIsNotDisplayedAtSearchPage(String address) {
+        setImplicitTimeout(3, SECONDS);
+        element(MobileBy.AccessibilityId(address)).shouldNotBeVisible();
+        resetImplicitTimeout();
+    }
+
+    public void removeBuildingPill(String address) {
+        element(MobileBy.AccessibilityId("Remove Button: " + address)).click();
     }
 }
