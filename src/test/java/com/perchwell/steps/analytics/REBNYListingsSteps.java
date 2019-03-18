@@ -61,17 +61,17 @@ public class REBNYListingsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void addMKTShareAskingPriceChart() throws Exception {
+    public void addMKTShareAskingPriceChart() {
         rebnyListingsPage.addREBNYListingsAskingPriceChart();
     }
 
     @Step
-    public void addREBNYListingsAskingPriceChart() throws Exception {
+    public void addREBNYListingsAskingPriceChart() {
         rebnyListingsPage.addREBNYListingsAskingPriceChart();
     }
 
     @Step
-    public void addChartFromREBNYSection() throws Exception {
+    public void addChartFromREBNYSection() {
         analyticsPage.rebnyListingsButtonClick();
         rebnyListingsPage.addREBNYListingsAskingPriceChart();
     }
@@ -544,5 +544,10 @@ public class REBNYListingsSteps extends ScenarioSteps {
     @Step
     public void addFeaturesDoormanChart() throws Exception {
         rebnyListingsPage.addDoormanChart();
+    }
+
+    @Step
+    public void checkIfInListAndAskingPriceListingsAmountIsEquals() {
+        rebnyListingsPage.checkIfInListAndAskingPriceListingsAmountIsEquals();
     }
 }

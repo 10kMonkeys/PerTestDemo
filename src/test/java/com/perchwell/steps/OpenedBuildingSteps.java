@@ -436,5 +436,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void checkIfCountActiveSalesAndRentals() {
 		onPage.checkIfCountActiveSalesAndRentals();
 	}
+
+	@Step
+	public void getCurrentListingsAddresses(int amount) {
+		onPage.getCurrentListingsAddresses(amount);
+	}
 }
 

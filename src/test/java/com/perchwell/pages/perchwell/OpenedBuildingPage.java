@@ -16,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -24,6 +25,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class OpenedBuildingPage extends TechHelper {
 
 	private List<String> initialBedsAndBathsAmountList = new ArrayList<>();
+	private  List<String> listOfAddresses = new ArrayList<>();
 
 	//region WebElements
 
@@ -257,6 +259,9 @@ public class OpenedBuildingPage extends TechHelper {
 
 	@iOSXCUITFindBy(accessibility = "DiscussBuildingButton")
 	private WebElement shareButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address: '")
+	private List<WebElement> currentListingsAddresses;
 
 	//endregion
 
@@ -830,5 +835,17 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void checkIfNeighborhoodAndBuildingType() {
 		element(MobileBy.AccessibilityId(SearchPage.neighborhoodAndBuilding)).shouldBeVisible();
+	}
+
+	public void getCurrentListingsAddresses(int amount) {
+		for (WebElement addresses: currentListingsAddresses) {
+			listOfAddresses.add(addresses.getAttribute("name").toUpperCase());
+		}
+
+		Collections.sort(listOfAddresses);
+
+		for(int i = 0; i < amount; i++) {
+			SessionVariables.addValueInSessionVariable("currentListingsAddress" + (i + 1), listOfAddresses.get(i));
+		}
 	}
 }
