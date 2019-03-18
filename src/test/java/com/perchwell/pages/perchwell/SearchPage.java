@@ -24,6 +24,8 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class SearchPage extends TechHelper {
 
+    public static String neighborhoodAndBuilding;
+
     //region WebElements
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeStaticText")
@@ -715,6 +717,12 @@ public class SearchPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = "BUILDINGS")
     private WebElement buildingsTitle;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'MURRAY HILL CO-OP BUILDING'$][1]")
+    private WebElement neighborhoodAndBuildingType;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'ACTIVE'$][1]")
+    private WebElement activeSalesAndRentals;
 
     public SearchPage(WebDriver driver) {
         super(driver);
@@ -2158,5 +2166,33 @@ public class SearchPage extends TechHelper {
 
     public void removeBuildingPill(String address) {
         element(MobileBy.AccessibilityId("Remove Button: " + address)).click();
+    }
+
+    public void checkIfAddressBuildingIsReturned(String address) {
+        element(MobileBy.AccessibilityId(address)).shouldBeVisible();
+    }
+
+    public void checkIfResultsAreCleared() {
+        Assert.assertTrue(element(searchAddressField).getAttribute("value").contains("ADDRESS OR BUILDING NAME..."));
+    }
+
+    public void getCountActiveSalesAndRentals() {
+        String activeSalesAndRentalsCount;
+        activeSalesAndRentalsCount = element(activeSalesAndRentals).getAttribute("value");
+        SessionVariables.addValueInSessionVariable("activeSalesAndRentals", activeSalesAndRentalsCount);
+    }
+
+    public void getNeighborhoodAndBuildingType() {
+        neighborhoodAndBuilding = element(neighborhoodAndBuildingType).getAttribute("value");
+    }
+
+    public void checkIfAddressBuildingIsReturnedFirst(String address) {
+        Assert.assertEquals(address, element(firstBuildingInSearch).getAttribute("value"));
+    }
+
+    public void getListOfBuildings() {
+    }
+
+    public void checkIfListOfBuildingsReturned() {
     }
 }

@@ -1194,11 +1194,53 @@ public class SearchSteps extends ScenarioSteps {
         onPage.queensPillIsNotShownAtSearchPage();
     }
 
+    @Step
     public void checkBuildingPillIsNotDisplayedAtSearchPage(String address) {
         onPage.checkBuildingPillIsNotDisplayedAtSearchPage(address);
     }
 
+    @Step
     public void removeBuildingPill(String address) {
         onPage.removeBuildingPill(address);
+    }
+
+    @Step
+    public void hideKeyboard() {
+        onPage.hideKeyboard();
+    }
+
+    @Step
+    public void checkIfAddressBuildingIsReturned(String address) {
+        onPage.checkIfAddressBuildingIsReturned(address);
+    }
+
+    @Step
+    public void checkIfResultsAreCleared() {
+        onPage.checkIfResultsAreCleared();
+    }
+
+    @Step
+    public void getCountActiveSalesAndRentals() {
+        onPage.getCountActiveSalesAndRentals();
+    }
+
+    @Step
+    public void getNeighborhoodAndBuildingType() {
+        onPage.getNeighborhoodAndBuildingType();
+    }
+
+    @Step
+    public void checkIfAddressBuildingIsReturnedFirst(String address) {
+        onPage.checkIfAddressBuildingIsReturnedFirst(address);
+    }
+
+    @Step
+    public void getListOfBuildingsAddresses() {
+        onPage.getListOfBuildings();
+    }
+
+    @Step
+    public void checkIfListOfBuildingsAddressesIsReturned() {
+        onPage.checkIfListOfBuildingsReturned();
     }
 }

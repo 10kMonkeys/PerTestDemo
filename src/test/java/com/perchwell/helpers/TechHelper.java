@@ -265,6 +265,14 @@ public class TechHelper extends BasePage {
         swipeVerticalAndroid(appiumDriver, 0.3, 0.9, 0.5);
     }
 
+    public void hideKeyboard() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        appiumDriver.hideKeyboard();
+    }
+
     //endregion
 
     //region Coordinates
