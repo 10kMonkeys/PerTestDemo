@@ -1156,4 +1156,9 @@ public class SearchSteps extends ScenarioSteps {
     public void checkFirstBuildingIsSelected() {
         onPage.checkFirstBuildingIsSelected();
     }
+
+    @Step
+    public void checkBuildingPillIsDisplayed(String address) {
+        onPage.checkBuildingPillIsDisplayed(address);
+    }
 }

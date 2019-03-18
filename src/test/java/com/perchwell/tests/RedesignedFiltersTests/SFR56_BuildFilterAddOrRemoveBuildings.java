@@ -18,6 +18,8 @@ public class SFR56_BuildFilterAddOrRemoveBuildings extends SampleTest {
         user.atSearchPage.fillInSearchField(Addresses.DAKOTA);
         user.atSearchPage.clickOnFirstBuilding();
 
-        user.atSearchPage.checkFirstBuildingIsSelected(); //add acc. id
+        user.atSearchPage.checkFirstBuildingIsSelected();
+        user.atSearchPage.checkBuildingPillIsDisplayed("111");
+        user.atSearchPage
     }
 }
