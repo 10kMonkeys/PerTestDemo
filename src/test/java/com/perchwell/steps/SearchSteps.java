@@ -1181,17 +1181,6 @@ public class SearchSteps extends ScenarioSteps {
 
     @Step
     public void getNeighborhoodAndBuildingType() {
-        this.getNeighborhoodType();
-        this.getBuildingType();
-    }
-
-    @Step
-    public void getNeighborhoodType() {
-        onPage.getNeighborhoodType();
-    }
-
-    @Step
-    public void getBuildingType() {
-        onPage.getBuildingType();
+        onPage.getNeighborhoodAndBuildingType();
     }
 }

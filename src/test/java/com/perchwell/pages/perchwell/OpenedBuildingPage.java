@@ -14,7 +14,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.yecht.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +24,8 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class OpenedBuildingPage extends TechHelper {
 
 	private List<String> initialBedsAndBathsAmountList = new ArrayList<>();
+	private String neighborhoodType;
+	private String buildingType;
 
 	//region WebElements
 
@@ -257,7 +258,7 @@ public class OpenedBuildingPage extends TechHelper {
 	private WebElement firstPrice;
 
 	@iOSXCUITFindBy(accessibility = "DiscussBuildingButton")
-	private WebElement discussBuildingButton;
+	private WebElement shareButton;
 
 	//endregion
 
@@ -822,13 +823,14 @@ public class OpenedBuildingPage extends TechHelper {
 		resetImplicitTimeout();
 	}
 
-	public void checkIfDiscussBuildingButtonIsDisplayed() {
-		element(discussBuildingButton).shouldBePresent();
+	public void checkIfShareButtonIsDisplayed() {
+		element(shareButton).shouldBePresent();
 	}
 
 	public void checkIfCountActiveSalesAndRentals() {
 	}
 
 	public void checkIfNeighborhoodAndBuildingType() {
+		element(MobileBy.AccessibilityId(SearchPage.neighborhoodAndBuilding)).shouldBeVisible();
 	}
 }

@@ -24,6 +24,8 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class SearchPage extends TechHelper {
 
+    public static String neighborhoodAndBuilding;
+
     //region WebElements
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeStaticText")
@@ -709,6 +711,9 @@ public class SearchPage extends TechHelper {
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name == 'alert icon'$][1]")
     private WebElement firstBellIcon;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'MURRAY HILL CO-OP BUILDING'$][1]")
+    private WebElement neighborhoodAndBuildingType;
 
     public SearchPage(WebDriver driver) {
         super(driver);
@@ -2102,9 +2107,7 @@ public class SearchPage extends TechHelper {
     public void getCountActiveRentals() {
     }
 
-    public void getNeighborhoodType() {
-    }
-
-    public void getBuildingType() {
+    public void getNeighborhoodAndBuildingType() {
+        neighborhoodAndBuilding = element(neighborhoodAndBuildingType).getAttribute("value");
     }
 }

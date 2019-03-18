@@ -423,8 +423,8 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkIfDiscussBuildingButtonIsDisplayed() {
-		onPage.checkIfDiscussBuildingButtonIsDisplayed();
+	public void checkIfShareButtonIsDisplayed() {
+		onPage.checkIfShareButtonIsDisplayed();
 	}
 
 	@Step

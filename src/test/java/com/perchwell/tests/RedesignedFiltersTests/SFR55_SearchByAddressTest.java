@@ -14,17 +14,17 @@ public class SFR55_SearchByAddressTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.inSearchMenu.openAddressSearch();
-        user.atSearchPage.fillInAddressSearchField("105 Duane street");
+        user.atSearchPage.fillInAddressSearchField(Addresses.DUANE_STREET);
         user.atSearchPage.openFirstBuilding();
-        user.atOpenedBuildingPage.checkIfDiscussBuildingButtonIsDisplayed(); //
+        user.atOpenedBuildingPage.checkIfShareButtonIsDisplayed(); //
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atSearchPage.clearAddressSearchField();
         user.atSearchPage.checkIfResultsAreCleared(); //
         user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
         user.atSearchPage.getCountActiveSalesAndRentals(); //empty method
-        user.atSearchPage.getNeighborhoodAndBuildingType(); //empty method
+        user.atSearchPage.getNeighborhoodAndBuildingType(); //
         user.atSearchPage.openFirstBuilding();
-        user.atOpenedBuildingPage.checkIfNeighborhoodAndBuildingType(); //empty method
+        user.atOpenedBuildingPage.checkIfNeighborhoodAndBuildingType(); //
         user.atOpenedBuildingPage.checkIfCountActiveSalesAndRentals(); //empty method
     }
 }
