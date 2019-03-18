@@ -2110,4 +2110,14 @@ public class SearchPage extends TechHelper {
     public void getNeighborhoodAndBuildingType() {
         neighborhoodAndBuilding = element(neighborhoodAndBuildingType).getAttribute("value");
     }
+
+    public void checkIfAddressBuildingIsReturnedFirst(String address) {
+        Assert.assertEquals(address, element(firstBuildingInSearch).getAttribute("value"));
+    }
+
+    public void getListOfBuildings() {
+    }
+
+    public void checkIfListOfBuildingsReturned() {
+    }
 }

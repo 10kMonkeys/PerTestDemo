@@ -16,7 +16,8 @@ public class SFR54_BuildingFilterSearchByAddressSearchBuildingsTest extends Samp
         user.atPerchwellPage.isListingsQuantity();
         user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
-        user.atSearchPage.hideKeyboard(); 
+        user.atSearchPage.hideKeyboard();
+        user.atSearchPage.getListOfBuildings(); //empty method
         user.atSearchPage.checkIfAddressBuildingIsReturned(Addresses.DAKOTA_WEST72ND);
         user.atSearchPage.checkIfAddressBuildingIsReturned(Addresses.DAKOTA_15PLACE);
         user.atSearchPage.checkIfAddressBuildingIsReturned(Addresses.EAST_66TH);
@@ -26,20 +27,19 @@ public class SFR54_BuildingFilterSearchByAddressSearchBuildingsTest extends Samp
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.DAKOTA);
         user.atSearchPage.hideKeyboard();
-        user.atSearchPage.checkIfAddressBuildingIsReturned(Addresses.DAKOTA_WEST72ND);
-        user.atSearchPage.checkIfAddressBuildingIsReturned(Addresses.DAKOTA_15PLACE);
-        user.atSearchPage.checkIfAddressBuildingIsReturned(Addresses.EAST_66TH);
+        user.atSearchPage.checkIfListOfBuildingsIsReturned(); //empty method
         user.atSearchPage.clickOnBackFromNeighborhoodsPage();
         user.atSearchPage.closeSearch();
         user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.WEST_72ND);
         user.atSearchPage.hideKeyboard();
-        user.atSearchPage.checkIfAddressBuildingIsReturned(Addresses.DAKOTA_WEST72ND);
+        user.atSearchPage.getListOfBuildings(); //empty method
+        user.atSearchPage.checkIfAddressBuildingIsReturnedFirst(Addresses.DAKOTA_WEST72ND); //
         user.atSearchPage.closeAddressSearch();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.WEST_72ND);
         user.atSearchPage.hideKeyboard();
-        user.atSearchPage.checkIfAddressBuildingIsReturned(Addresses.DAKOTA_WEST72ND);
+        user.atSearchPage.checkIfListOfBuildingsIsReturned(); //empty method
     }
 }

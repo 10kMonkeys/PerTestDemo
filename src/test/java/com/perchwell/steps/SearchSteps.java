@@ -1183,4 +1183,19 @@ public class SearchSteps extends ScenarioSteps {
     public void getNeighborhoodAndBuildingType() {
         onPage.getNeighborhoodAndBuildingType();
     }
+
+    @Step
+    public void checkIfAddressBuildingIsReturnedFirst(String address) {
+        onPage.checkIfAddressBuildingIsReturnedFirst(address);
+    }
+
+    @Step
+    public void getListOfBuildings() {
+        onPage.getListOfBuildings();
+    }
+
+    @Step
+    public void checkIfListOfBuildingsIsReturned() {
+        onPage.checkIfListOfBuildingsReturned();
+    }
 }
