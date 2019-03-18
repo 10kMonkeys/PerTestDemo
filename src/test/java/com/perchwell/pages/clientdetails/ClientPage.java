@@ -109,7 +109,8 @@ public class ClientPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "GROUPS")
 	private WebElement groupsButton;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]")
+	@iOSXCUITFindBy(accessibility = "Transparent Background View")
+//	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]")
 //	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[1]")
 	private WebElement searchFrozenArea;
 
