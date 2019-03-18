@@ -14,7 +14,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.yecht.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -255,6 +254,9 @@ public class OpenedBuildingPage extends TechHelper {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'PRICE:'$][1]")
 	private WebElement firstPrice;
+
+	@iOSXCUITFindBy(accessibility = "DiscussBuildingButton")
+	private WebElement shareButton;
 
 	//endregion
 
@@ -817,5 +819,16 @@ public class OpenedBuildingPage extends TechHelper {
 		setImplicitTimeout(1, SECONDS);
 		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'Remove Button:'")).size());
 		resetImplicitTimeout();
+	}
+
+	public void checkIfShareButtonIsDisplayed() {
+		element(shareButton).shouldBePresent();
+	}
+
+	public void checkIfCountActiveSalesAndRentals() {
+	}
+
+	public void checkIfNeighborhoodAndBuildingType() {
+		element(MobileBy.AccessibilityId(SearchPage.neighborhoodAndBuilding)).shouldBeVisible();
 	}
 }

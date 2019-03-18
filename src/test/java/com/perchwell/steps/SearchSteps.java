@@ -1146,4 +1146,44 @@ public class SearchSteps extends ScenarioSteps {
     public void closeSavedSearches() {
         onPage.closeSavedSearches();
     }
+
+    @Step
+    public void hideKeyboard() {
+        onPage.hideKeyboard();
+    }
+
+    @Step
+    public void checkIfAddressBuildingIsReturned(String address) {
+        onPage.checkIfAddressBuildingIsReturned(address);
+    }
+
+    @Step
+    public void checkIfResultsAreCleared() {
+        onPage.checkIfResultsAreCleared();
+    }
+
+    @Step
+    public void getCountActiveSalesAndRentals() {
+        onPage.getCountActiveSalesAndRentals();
+    }
+
+    @Step
+    public void getNeighborhoodAndBuildingType() {
+        onPage.getNeighborhoodAndBuildingType();
+    }
+
+    @Step
+    public void checkIfAddressBuildingIsReturnedFirst(String address) {
+        onPage.checkIfAddressBuildingIsReturnedFirst(address);
+    }
+
+    @Step
+    public void getListOfBuildingsAddresses() {
+        onPage.getListOfBuildings();
+    }
+
+    @Step
+    public void checkIfListOfBuildingsAddressesIsReturned() {
+        onPage.checkIfListOfBuildingsReturned();
+    }
 }
