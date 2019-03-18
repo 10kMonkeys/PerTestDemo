@@ -710,6 +710,9 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name == 'alert icon'$][1]")
     private WebElement firstBellIcon;
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText/XCUIElementTypeImage[$name == 'buildingSelectionIndicator'$]")
+    private WebElement firstSelectedBuildingIcon;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -2086,5 +2089,13 @@ public class SearchPage extends TechHelper {
 
     public void waitUntilFirstSearchAppears() {
         waitFor(ExpectedConditions.visibilityOf(firstBellIcon));
+    }
+
+    public void clickOnFirstBuilding() {
+        element(firstBuilding).click();
+    }
+
+    public void checkFirstBuildingIsSelected() {
+        element(firstSelectedBuildingIcon).shouldBeVisible();
     }
 }

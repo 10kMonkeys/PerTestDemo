@@ -1146,4 +1146,14 @@ public class SearchSteps extends ScenarioSteps {
     public void closeSavedSearches() {
         onPage.closeSavedSearches();
     }
+
+    @Step
+    public void clickOnFirstBuilding() {
+        onPage.clickOnFirstBuilding();
+    }
+
+    @Step
+    public void checkFirstBuildingIsSelected() {
+        onPage.checkFirstBuildingIsSelected();
+    }
 }
