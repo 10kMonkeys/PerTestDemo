@@ -17,9 +17,18 @@ public class SFR56_BuildFilterAddOrRemoveBuildings extends SampleTest {
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.DAKOTA);
         user.atSearchPage.clickOnFirstBuilding();
-
         user.atSearchPage.checkFirstBuildingIsSelected();
-        user.atSearchPage.checkBuildingPillIsDisplayed("111");
-        user.atSearchPage
+        user.atSearchPage.checkBuildingPillIsDisplayedAtBuildingSearch("1 WEST 72ND STREET");
+
+        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
+
+        user.atSearchPage.checkBuildingPillIsDisplayedAtSearch("1 WEST 72ND STREET");
+        user.atSearchPage.buildingAddressSearchFieldIsEmpty();
+
+        user.atSearchPage.clickOnFirstBuilding();
+        user.atSearchPage.checkFirstBuildingIsNotSelected();
+        user.atSearchPage.checkBuildingPillIsNotDisplayed("1 WEST 72ND STREET");
+
+
     }
 }

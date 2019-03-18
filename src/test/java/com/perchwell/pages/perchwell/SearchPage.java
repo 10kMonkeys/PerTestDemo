@@ -2103,4 +2103,21 @@ public class SearchPage extends TechHelper {
         element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]" +
                 "/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + address + "'$]")).shouldBeVisible();
     }
+
+    public void buildingAddressSearchFieldIsEmpty() {
+        Assert.assertEquals("Search building name or address", element(searchNeihborhoodsSearchField).getAttribute("value"));
+    }
+
+    public void checkFirstBuildingIsNotSelected() {
+        element(firstSelectedBuildingIcon).shouldNotBeVisible();
+    }
+
+    public void checkBuildingPillIsNotDisplayed(String address) {
+        element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]" +
+                "/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + address + "'$]")).shouldNotBeVisible();
+    }
+
+    public void checkBuildingPillIsDisplayedAtSearch(String address) {
+        element(MobileBy.AccessibilityId(address)).shouldBeVisible();
+    }
 }
