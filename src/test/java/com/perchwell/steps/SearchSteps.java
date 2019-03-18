@@ -2,7 +2,6 @@ package com.perchwell.steps;
 
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.helpers.TechHelper;
 import com.perchwell.pages.perchwell.SearchPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -1165,18 +1164,7 @@ public class SearchSteps extends ScenarioSteps {
 
     @Step
     public void getCountActiveSalesAndRentals() {
-        this.getCountActiveSales();
-        this.getCountActiveRentals();
-    }
-
-    @Step
-    public void getCountActiveSales() {
-        onPage.getCountActiveSales();
-    }
-
-    @Step
-    public void getCountActiveRentals() {
-        onPage.getCountActiveRentals();
+        onPage.getCountActiveSalesAndRentals();
     }
 
     @Step
@@ -1190,12 +1178,12 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void getListOfBuildings() {
+    public void getListOfBuildingsAddresses() {
         onPage.getListOfBuildings();
     }
 
     @Step
-    public void checkIfListOfBuildingsIsReturned() {
+    public void checkIfListOfBuildingsAddressesIsReturned() {
         onPage.checkIfListOfBuildingsReturned();
     }
 }

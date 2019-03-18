@@ -24,8 +24,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class OpenedBuildingPage extends TechHelper {
 
 	private List<String> initialBedsAndBathsAmountList = new ArrayList<>();
-	private String neighborhoodType;
-	private String buildingType;
 
 	//region WebElements
 

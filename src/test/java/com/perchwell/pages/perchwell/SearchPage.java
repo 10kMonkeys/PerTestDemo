@@ -715,6 +715,9 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'MURRAY HILL CO-OP BUILDING'$][1]")
     private WebElement neighborhoodAndBuildingType;
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'ACTIVE'$][1]")
+    private WebElement activeSalesAndRentals;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -2101,10 +2104,10 @@ public class SearchPage extends TechHelper {
         Assert.assertTrue(element(searchAddressField).getAttribute("value").contains("ADDRESS OR BUILDING NAME..."));
     }
 
-    public void getCountActiveSales() {
-    }
-
-    public void getCountActiveRentals() {
+    public void getCountActiveSalesAndRentals() {
+        String activeSalesAndRentalsCount;
+        activeSalesAndRentalsCount = element(activeSalesAndRentals).getAttribute("value");
+        SessionVariables.addValueInSessionVariable("activeSalesAndRentals", activeSalesAndRentalsCount);
     }
 
     public void getNeighborhoodAndBuildingType() {

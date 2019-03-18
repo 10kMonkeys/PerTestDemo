@@ -21,7 +21,7 @@ public class SFR55_SearchByAddressTest extends SampleTest {
         user.atSearchPage.clearAddressSearchField();
         user.atSearchPage.checkIfResultsAreCleared(); //
         user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
-        user.atSearchPage.getCountActiveSalesAndRentals(); //empty method
+        user.atSearchPage.getCountActiveSalesAndRentals(); //
         user.atSearchPage.getNeighborhoodAndBuildingType(); //
         user.atSearchPage.openFirstBuilding();
         user.atOpenedBuildingPage.checkIfNeighborhoodAndBuildingType(); //
