@@ -2214,7 +2214,6 @@ public class SearchPage extends TechHelper {
     }
 
     public void manhattanPillIsShownAtSearchPage() {
-        waitABit(3000);
         element(manhattanCheckedCheckbox).shouldBeVisible();
     }
 

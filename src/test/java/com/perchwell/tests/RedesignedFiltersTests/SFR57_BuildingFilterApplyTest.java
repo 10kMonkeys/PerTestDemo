@@ -20,8 +20,8 @@ public class SFR57_BuildingFilterApplyTest extends SampleTest {
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.ACTIVE_FILTER);
         user.atOpenedBuildingPage.clickOnSortButton();
-        user.atOpenedBuildingPage.clickOnNewestButton(); //
-        user.atOpenedBuildingPage.getCurrentListingsAddresses(); //
+        user.atOpenedBuildingPage.clickOnNewestButton();
+        user.atOpenedBuildingPage.getCurrentListingsAddresses();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atSearchPage.closeAddressSearch();
         user.inSearchMenu.openSearchPage();
@@ -30,8 +30,8 @@ public class SFR57_BuildingFilterApplyTest extends SampleTest {
         user.atSearchPage.clickOnFirstBuilding();
         user.atSearchPage.clickOnBackFromNeighborhoodsPage();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.checkIfCurrentListingsAddressesIsReturned(); //
-        user.atPerchwellPage.getListingsAmount(); //
+        user.atPerchwellPage.checkIfCurrentListingsAddressesIsReturned();
+        user.atPerchwellPage.getListingsAmount();
         user.atPerchwellPage.clickOnMap();
         user.atMapPage.clickOnNotNowButton();
         user.atMapPage.checkIfItemsInListAndMapViewIsEquals(); //not value in pin
@@ -39,6 +39,6 @@ public class SFR57_BuildingFilterApplyTest extends SampleTest {
         user.atAnalyticsPage.rebnyListingsButtonClick();
         user.atRebnyListingsPage.addMKTShareAskingPriceChart();
         user.atAnalyticsPage.skipHints();
-        user.atRebnyListingsPage.checkIfInListAndAskingPriceListingsAmountIsEquals(); //
+        user.atRebnyListingsPage.checkIfInListAndAskingPriceListingsAmountIsEquals();
     }
 }

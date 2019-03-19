@@ -810,6 +810,7 @@ public class REBNYListingsPage extends TechHelper {
     }
 
     public void checkIfInListAndAskingPriceListingsAmountIsEquals() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("listingsAmount"), element(mktShareAskingPriceListingsAmount).getAttribute("value"));
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("listingsAmount"),
+                element(mktShareAskingPriceListingsAmount).getAttribute("value"));
     }
 }

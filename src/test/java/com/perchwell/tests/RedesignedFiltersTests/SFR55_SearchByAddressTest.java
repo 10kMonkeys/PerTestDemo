@@ -16,15 +16,15 @@ public class SFR55_SearchByAddressTest extends SampleTest {
         user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.DUANE_STREET);
         user.atSearchPage.openFirstBuilding();
-        user.atOpenedBuildingPage.checkIfShareButtonIsDisplayed(); //
+        user.atOpenedBuildingPage.checkIfShareButtonIsDisplayed();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atSearchPage.clearAddressSearchField();
-        user.atSearchPage.checkIfResultsAreCleared(); //
+        user.atSearchPage.checkIfResultsAreCleared();
         user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
-        user.atSearchPage.getCountActiveSalesAndRentals(); //
-        user.atSearchPage.getNeighborhoodAndBuildingType(); //
+        user.atSearchPage.getCountActiveSalesAndRentals();
+        user.atSearchPage.getNeighborhoodAndBuildingType();
         user.atSearchPage.openFirstBuilding();
-        user.atOpenedBuildingPage.checkIfNeighborhoodAndBuildingType(); //
+        user.atOpenedBuildingPage.checkIfNeighborhoodAndBuildingType();
         user.atOpenedBuildingPage.checkIfCountActiveSalesAndRentalsIsSame(); //need to update, when will add ID for active rentals
     }
 }
