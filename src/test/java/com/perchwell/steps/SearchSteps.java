@@ -1250,4 +1250,9 @@ public class SearchSteps extends ScenarioSteps {
     public void checkIfListOfBuildingsAddressesIsReturned() {
         onPage.checkIfListOfBuildingsReturned();
     }
+
+    @Step
+    public void checkNoOnePillIsShown() {
+        onPage.checkNoOnePillIsShown();
+    }
 }

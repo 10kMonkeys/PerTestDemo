@@ -724,6 +724,9 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'ACTIVE'$][1]")
     private WebElement activeSalesAndRentals;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Remove Button: '")
+    private List<WebElement> removePillsIconList;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -2142,19 +2145,19 @@ public class SearchPage extends TechHelper {
 
     public void manhattanPillIsNotShownAtSearchPage() {
         setImplicitTimeout(3, SECONDS);
-        element(deleteTagButtonMANHATTAN).shouldNotBeVisible();
+        element(manhattanCheckedCheckbox).shouldNotBeVisible();
         resetImplicitTimeout();
     }
 
     public void brooklynPillIsNotShownAtSearchPage() {
         setImplicitTimeout(3, SECONDS);
-        element(deleteTagButtonBROOKLYN).shouldNotBeVisible();
+        element(brooklynRemoveIcon).shouldNotBeVisible();
         resetImplicitTimeout();
     }
 
     public void queensPillIsNotShownAtSearchPage() {
         setImplicitTimeout(3, SECONDS);
-        element(deleteTagButtonQUEENS).shouldNotBeVisible();
+        element(queensRemoveIcon).shouldNotBeVisible();
         resetImplicitTimeout();
     }
 
@@ -2197,14 +2200,19 @@ public class SearchPage extends TechHelper {
     }
 
     public void manhattanPillIsShownAtSearchPage() {
-        element(deleteTagButtonMANHATTAN).shouldBeVisible();
+        waitABit(3000);
+        element(manhattanCheckedCheckbox).shouldBeVisible();
     }
 
     public void brooklynPillIsShownAtSearchPage() {
-        element(deleteTagButtonBROOKLYN).shouldBeVisible();
+        element(brooklynRemoveIcon).shouldBeVisible();
     }
 
     public void queensPillIsShownAtSearchPage() {
-        element(deleteTagButtonQUEENS).shouldBeVisible();
+        element(queensRemoveIcon).shouldBeVisible();
+    }
+
+    public void checkNoOnePillIsShown() {
+        Assert.assertEquals(0, removePillsIconList.size());
     }
 }

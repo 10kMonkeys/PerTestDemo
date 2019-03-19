@@ -13,10 +13,12 @@ public class SFR58_BuildingFilterResetAndNewSearchTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
+        user.atPerchwellPage.isListingsQuantity();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atSearchPage.fillInSearchField(Addresses.DAKOTA);
         user.atSearchPage.clickOnFirstBuilding();
+        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
         user.atSearchPage.clickOnApplyButton();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.checkBuildingPillIsDisplayedAtSearchPage("1 WEST 72ND STREET");
@@ -24,7 +26,19 @@ public class SFR58_BuildingFilterResetAndNewSearchTest extends SampleTest {
         user.atSearchPage.checkBuildingPillIsNotDisplayedAtSearchPage("1 WEST 72ND STREET");
         user.atSearchPage.defaultNeighborPillsAreShown();
         user.atSearchPage.clickOnSearchByAddressButton();
-
+        user.atSearchPage.checkNoOnePillIsShown();
+        user.atSearchPage.fillInSearchField(Addresses.DAKOTA);
+        user.atSearchPage.clickOnFirstBuilding();
+        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
+        user.atSearchPage.clickOnApplyButton();
+        user.inSearchMenu.openSavedSearches();
+        user.atSearchPage.createNewSearchClick();
+        user.atPerchwellPage.checkIfListingsWereNotChanged();
+        user.inSearchMenu.openSearchPage();
+        user.atSearchPage.defaultNeighborPillsAreShown();
+        user.atSearchPage.checkBuildingPillIsNotDisplayedAtSearchPage("1 WEST 72ND STREET");
+        user.atSearchPage.clickOnSearchByAddressButton();
+        user.atSearchPage.checkNoOnePillIsShown();
     }
 
 }
