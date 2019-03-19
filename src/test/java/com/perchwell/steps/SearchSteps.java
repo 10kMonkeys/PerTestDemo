@@ -1255,4 +1255,14 @@ public class SearchSteps extends ScenarioSteps {
     public void checkNoOnePillIsShown() {
         onPage.checkNoOnePillIsShown();
     }
+
+    @Step
+    public void collapseLocationSection() {
+        onPage.clickOnCollapseExpandLocationButton();
+    }
+
+    @Step
+    public void expandLocationSection() {
+        onPage.clickOnCollapseExpandLocationButton();
+    }
 }

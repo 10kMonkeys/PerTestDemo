@@ -727,6 +727,9 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Remove Button: '")
     private List<WebElement> removePillsIconList;
 
+    @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: LOCATION")
+    private WebElement collapseExpandLocationButton;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -2214,5 +2217,9 @@ public class SearchPage extends TechHelper {
 
     public void checkNoOnePillIsShown() {
         Assert.assertEquals(0, removePillsIconList.size());
+    }
+
+    public void clickOnCollapseExpandLocationButton() {
+        element(collapseExpandLocationButton).click();
     }
 }
