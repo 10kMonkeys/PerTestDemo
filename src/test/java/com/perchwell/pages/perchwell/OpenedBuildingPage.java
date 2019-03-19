@@ -838,14 +838,16 @@ public class OpenedBuildingPage extends TechHelper {
 		element(shareButton).shouldBePresent();
 	}
 
-	public void checkIfCountActiveSalesAndRentals() {
-		String activeSales;
+	public void checkIfCountActiveSalesIsSame() {
+		int activeSales;
 		int activeSalesBuilding;
 
-		activeSales = SessionVariables.getValueFromSessionVariable("activeSalesAndRentals");
+		activeSales = Integer.parseInt(SessionVariables.getValueFromSessionVariable("activeSalesAndRentals")
+				.substring(0, SessionVariables.getValueFromSessionVariable("activeSalesAndRentals").indexOf(" ")));
+
 		activeSalesBuilding = Integer.parseInt(activeSalesCount.getAttribute("value")) + Integer.parseInt(pendingSalesCount.getAttribute("value"));
 
-		Assert.assertEquals(Integer.parseInt(activeSales.substring(0, activeSales.indexOf(" "))), activeSalesBuilding);
+		Assert.assertEquals(activeSales, activeSalesBuilding);
 	}
 
 	public void checkIfNeighborhoodAndBuildingType() {
@@ -860,5 +862,8 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void clickOnNewestButton() {
 		element(sortByNewestButton).click();
+	}
+
+	public void checkIfCountActiveRentalsSame() {
 	}
 }
