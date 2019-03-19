@@ -24,6 +24,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class OpenedBuildingPage extends TechHelper {
 
 	private List<String> initialBedsAndBathsAmountList = new ArrayList<>();
+	private  List<String> listOfAddresses = new ArrayList<>();
 
 	//region WebElements
 
@@ -257,6 +258,18 @@ public class OpenedBuildingPage extends TechHelper {
 
 	@iOSXCUITFindBy(accessibility = "DiscussBuildingButton")
 	private WebElement shareButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address: '")
+	private List<WebElement> currentListingsAddresses;
+
+	@iOSXCUITFindBy(accessibility = "Collection View Cell: NEWEST")
+	private WebElement sortByNewestButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Active Sales: '")
+	private WebElement activeSalesCount;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Pending Sales: '")
+	private WebElement pendingSalesCount;
 
 	//endregion
 
@@ -825,10 +838,32 @@ public class OpenedBuildingPage extends TechHelper {
 		element(shareButton).shouldBePresent();
 	}
 
-	public void checkIfCountActiveSalesAndRentals() {
+	public void checkIfCountActiveSalesIsSame() {
+		int activeSales;
+		int activeSalesBuilding;
+
+		activeSales = Integer.parseInt(SessionVariables.getValueFromSessionVariable("activeSalesAndRentals")
+				.substring(0, SessionVariables.getValueFromSessionVariable("activeSalesAndRentals").indexOf(" ")));
+
+		activeSalesBuilding = Integer.parseInt(activeSalesCount.getAttribute("value")) + Integer.parseInt(pendingSalesCount.getAttribute("value"));
+
+		Assert.assertEquals(activeSales, activeSalesBuilding);
 	}
 
 	public void checkIfNeighborhoodAndBuildingType() {
 		element(MobileBy.AccessibilityId(SearchPage.neighborhoodAndBuilding)).shouldBeVisible();
+	}
+
+	public void getCurrentListingsAddresses() {
+		for(int i = 0; i < currentListingsAddresses.size(); i++) {
+			SessionVariables.addValueInSessionVariable("currentListingsAddress" + (i + 1), currentListingsAddresses.get(i).getAttribute("value").toUpperCase());
+		}
+	}
+
+	public void clickOnNewestButton() {
+		element(sortByNewestButton).click();
+	}
+
+	public void checkIfCountActiveRentalsSame() {
 	}
 }

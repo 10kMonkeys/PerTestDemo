@@ -1,6 +1,7 @@
 package com.perchwell.pages.analytics;
 
 import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -321,7 +322,7 @@ public class REBNYListingsPage extends TechHelper {
         element(mktShareBuildingHeightChart).shouldBeVisible();
     }
 
-    public void addREBNYListingsAskingPriceChart() throws Exception {
+    public void addREBNYListingsAskingPriceChart() {
         this.swipeUntilButtonShown(askingPriceButton);
         element(askingPriceButton).click();
     }
@@ -806,5 +807,9 @@ public class REBNYListingsPage extends TechHelper {
     public void addFireplaceChart() throws Exception {
         Helper.swipeDownUntilElementVisible(workingFireplaceButton);
         element(workingFireplaceButton).click();
+    }
+
+    public void checkIfInListAndAskingPriceListingsAmountIsEquals() {
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("listingsAmount"), element(mktShareAskingPriceListingsAmount).getAttribute("value"));
     }
 }

@@ -18,12 +18,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class SearchPage extends TechHelper {
 
+    private List<String> listOfBuildingAddresses = new ArrayList<>();
     public static String neighborhoodAndBuilding;
 
     //region WebElements
@@ -723,6 +725,9 @@ public class SearchPage extends TechHelper {
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'ACTIVE'$][1]")
     private WebElement activeSalesAndRentals;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'BUILDING ADDRESS: '")
+    private List<WebElement> buildingAddressesList;
 
     public SearchPage(WebDriver driver) {
         super(driver);
@@ -2190,9 +2195,15 @@ public class SearchPage extends TechHelper {
         Assert.assertEquals(address, element(firstBuildingInSearch).getAttribute("value"));
     }
 
-    public void getListOfBuildings() {
+    public void getListOfBuildings(int amount) {
+        for (int i = 0; i < amount; i++) {
+            listOfBuildingAddresses.add(i, buildingAddressesList.get(i).getAttribute("value"));
+        }
     }
 
-    public void checkIfListOfBuildingsReturned() {
+    public void checkIfListOfBuildingsReturned(int amount) {
+        for (int i = 0; i < amount; i++) {
+            Assert.assertEquals(listOfBuildingAddresses.get(i), buildingAddressesList.get(i).getAttribute("value"));
+        }
     }
 }
