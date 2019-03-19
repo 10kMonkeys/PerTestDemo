@@ -2195,4 +2195,16 @@ public class SearchPage extends TechHelper {
 
     public void checkIfListOfBuildingsReturned() {
     }
+
+    public void manhattanPillIsShownAtSearchPage() {
+        element(deleteTagButtonMANHATTAN).shouldBeVisible();
+    }
+
+    public void brooklynPillIsShownAtSearchPage() {
+        element(deleteTagButtonBROOKLYN).shouldBeVisible();
+    }
+
+    public void queensPillIsShownAtSearchPage() {
+        element(deleteTagButtonQUEENS).shouldBeVisible();
+    }
 }

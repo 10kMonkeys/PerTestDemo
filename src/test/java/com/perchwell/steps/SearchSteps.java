@@ -1195,6 +1195,13 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
+    public void defaultNeighborPillsAreShown() {
+        onPage.manhattanPillIsShownAtSearchPage();
+        onPage.brooklynPillIsShownAtSearchPage();
+        onPage.queensPillIsShownAtSearchPage();
+    }
+
+    @Step
     public void checkBuildingPillIsNotDisplayedAtSearchPage(String address) {
         onPage.checkBuildingPillIsNotDisplayedAtSearchPage(address);
     }

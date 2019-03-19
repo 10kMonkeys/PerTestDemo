@@ -5,10 +5,10 @@ import com.perchwell.data.Addresses;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class SFR56_BuildFilterAddOrRemoveBuildings extends SampleTest {
+public class SFR56_BuildFilterAddOrRemoveBuildingsTest extends SampleTest {
 
     @Test
-    public void buildFilterAddOrRemoveBuildings() {
+    public void buildFilterAddOrRemoveBuildingsTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
