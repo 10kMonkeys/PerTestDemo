@@ -136,4 +136,9 @@ public class MapSteps extends ScenarioSteps {
 	public void checkFirstListingIsOpened() {
 		onPage.checkFirstListingIsOpened(SessionVariables.getValueFromSessionVariable("PinListingAddress"));
 	}
+
+	@Step
+	public void checkIfItemsInListAndMapViewIsEquals() {
+		Assert.assertEquals(SessionVariables.getValueFromSessionVariable("listingsAmount"), onPage.countItemsInMapView().toString());
+	}
 }

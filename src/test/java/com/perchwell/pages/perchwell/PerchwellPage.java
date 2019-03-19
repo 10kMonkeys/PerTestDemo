@@ -18,6 +18,9 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,6 +33,7 @@ public class PerchwellPage extends TechHelper {
 	private int fourDistrictListingsAmount;
 	public static Integer numberOfItemsInListView;
 	public static final int ANDROID_LOOP_COUNTER = 3;
+	private List<String> listOfAddresses = new ArrayList<>();
 
 	//region WebElements
 
@@ -1069,5 +1073,15 @@ public class PerchwellPage extends TechHelper {
 
 	public void checkTagsIconCountForSecondListing(String value) {
 		Assert.assertEquals(value, element(tagIconOnSecondListing).getAttribute("label").replace(" ", ""));
+	}
+
+	public void getListingsAmount() {
+		SessionVariables.addValueInSessionVariable("listingsAmount", String.valueOf(getNumberOfListings(listingsByButton)));
+	}
+
+	public void checkIfCurrentListingsAddressesIsReturned() {
+		for (int i = 0; i < addressesList.size(); i++) {
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("currentListingsAddress" + (i + 1)), addressesList.get(i).getAttribute("value").toUpperCase());
+		}
 	}
 }

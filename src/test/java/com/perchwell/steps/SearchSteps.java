@@ -1242,13 +1242,13 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void getListOfBuildingsAddresses() {
-        onPage.getListOfBuildings();
+    public void getListOfBuildingsAddresses(int amount) {
+        onPage.getListOfBuildings(amount);
     }
 
     @Step
-    public void checkIfListOfBuildingsAddressesIsReturned() {
-        onPage.checkIfListOfBuildingsReturned();
+    public void checkIfListOfBuildingsAddressesIsReturned(int amount) {
+        onPage.checkIfListOfBuildingsReturned(amount);
     }
 
     @Step

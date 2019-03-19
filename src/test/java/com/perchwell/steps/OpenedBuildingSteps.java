@@ -433,8 +433,28 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkIfCountActiveSalesAndRentals() {
-		onPage.checkIfCountActiveSalesAndRentals();
+	public void checkIfCountActiveSalesAndRentalsIsSame() {
+		this.checkIfCountActiveSalesIsSame();
+		this.checkIfCountActiveRentalsIsSame();
+	}
+
+	@Step
+	public void getCurrentListingsAddresses() {
+		onPage.getCurrentListingsAddresses();
+	}
+
+	@Step
+	public void clickOnNewestButton() {
+		onPage.clickOnNewestButton();
+	}
+
+	@Step
+	public void checkIfCountActiveRentalsIsSame() {
+	}
+
+	@Step
+	public void checkIfCountActiveSalesIsSame() {
+		onPage.checkIfCountActiveSalesIsSame();
 	}
 }
 
