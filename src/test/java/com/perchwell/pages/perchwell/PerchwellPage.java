@@ -1080,19 +1080,8 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void checkIfCurrentListingsAddressesIsReturned() {
-		List<String> list = getCurrentListingsAddresses();
-		for (int i = 0; i < list.size(); i++) {
-			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("currentListingsAddress" + (i + 1)), list.get(i));
+		for (int i = 0; i < addressesList.size(); i++) {
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("currentListingsAddress" + (i + 1)), addressesList.get(i).getAttribute("name").toUpperCase());
 		}
-	}
-
-	public List<String> getCurrentListingsAddresses() {
-		for (WebElement addresses: addressesList) {
-			listOfAddresses.add(addresses.getAttribute("name").toUpperCase());
-		}
-
-		Collections.sort(listOfAddresses);
-
-		return listOfAddresses;
 	}
 }

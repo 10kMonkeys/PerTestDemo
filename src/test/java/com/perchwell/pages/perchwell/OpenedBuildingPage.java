@@ -838,14 +838,8 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void getCurrentListingsAddresses(int amount) {
-		for (WebElement addresses: currentListingsAddresses) {
-			listOfAddresses.add(addresses.getAttribute("name").toUpperCase());
-		}
-
-		Collections.sort(listOfAddresses);
-
 		for(int i = 0; i < amount; i++) {
-			SessionVariables.addValueInSessionVariable("currentListingsAddress" + (i + 1), listOfAddresses.get(i));
+			SessionVariables.addValueInSessionVariable("currentListingsAddress" + (i + 1), currentListingsAddresses.get(i).getAttribute("name").toUpperCase());
 		}
 	}
 }
