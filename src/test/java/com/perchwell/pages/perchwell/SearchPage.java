@@ -2197,14 +2197,13 @@ public class SearchPage extends TechHelper {
 
     public void getListOfBuildings(int amount) {
         for (int i = 0; i < amount; i++) {
-            listOfBuildingAddresses.add(buildingAddressesList.get(i).getAttribute("name"));
+            listOfBuildingAddresses.add(i, buildingAddressesList.get(i).getAttribute("value"));
         }
     }
 
     public void checkIfListOfBuildingsReturned(int amount) {
         for (int i = 0; i < amount; i++) {
-            Assert.assertEquals(listOfBuildingAddresses.get(i), buildingAddressesList.get(i).getAttribute("name"));
+            Assert.assertEquals(listOfBuildingAddresses.get(i), buildingAddressesList.get(i).getAttribute("value"));
         }
-        listOfBuildingAddresses.clear();
     }
 }
