@@ -19,7 +19,9 @@ public class SFR57_BuildingFilterApplyTest extends SampleTest {
         user.atSearchPage.openFirstBuilding();
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.fillInSearchFieldByFilter(Filters.ACTIVE_FILTER);
-        user.atOpenedBuildingPage.getCurrentListingsAddresses(4); //
+        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.clickOnNewestButton(); //
+        user.atOpenedBuildingPage.getCurrentListingsAddresses(); //
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atSearchPage.closeAddressSearch();
         user.inSearchMenu.openSearchPage();

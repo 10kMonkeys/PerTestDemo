@@ -25,6 +25,6 @@ public class SFR55_SearchByAddressTest extends SampleTest {
         user.atSearchPage.getNeighborhoodAndBuildingType(); //
         user.atSearchPage.openFirstBuilding();
         user.atOpenedBuildingPage.checkIfNeighborhoodAndBuildingType(); //
-        user.atOpenedBuildingPage.checkIfCountActiveSalesAndRentals(); //empty method
+        user.atOpenedBuildingPage.checkIfCountActiveSalesAndRentals(); //need to update, when will add ID for active rentals
     }
 }

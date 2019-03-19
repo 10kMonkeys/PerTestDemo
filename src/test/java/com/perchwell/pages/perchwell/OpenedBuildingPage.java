@@ -16,7 +16,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -262,6 +261,15 @@ public class OpenedBuildingPage extends TechHelper {
 
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address: '")
 	private List<WebElement> currentListingsAddresses;
+
+	@iOSXCUITFindBy(accessibility = "Collection View Cell: NEWEST")
+	private WebElement sortByNewestButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Active Sales: '")
+	private WebElement activeSalesCount;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Pending Sales: '")
+	private WebElement pendingSalesCount;
 
 	//endregion
 
@@ -831,15 +839,26 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void checkIfCountActiveSalesAndRentals() {
+		String activeSales;
+		int activeSalesBuilding;
+
+		activeSales = SessionVariables.getValueFromSessionVariable("activeSalesAndRentals");
+		activeSalesBuilding = Integer.parseInt(activeSalesCount.getAttribute("value")) + Integer.parseInt(pendingSalesCount.getAttribute("value"));
+
+		Assert.assertEquals(Integer.parseInt(activeSales.substring(0, activeSales.indexOf(" "))), activeSalesBuilding);
 	}
 
 	public void checkIfNeighborhoodAndBuildingType() {
 		element(MobileBy.AccessibilityId(SearchPage.neighborhoodAndBuilding)).shouldBeVisible();
 	}
 
-	public void getCurrentListingsAddresses(int amount) {
-		for(int i = 0; i < amount; i++) {
+	public void getCurrentListingsAddresses() {
+		for(int i = 0; i < currentListingsAddresses.size(); i++) {
 			SessionVariables.addValueInSessionVariable("currentListingsAddress" + (i + 1), currentListingsAddresses.get(i).getAttribute("value").toUpperCase());
 		}
+	}
+
+	public void clickOnNewestButton() {
+		element(sortByNewestButton).click();
 	}
 }

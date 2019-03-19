@@ -438,8 +438,13 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void getCurrentListingsAddresses(int amount) {
-		onPage.getCurrentListingsAddresses(amount);
+	public void getCurrentListingsAddresses() {
+		onPage.getCurrentListingsAddresses();
+	}
+
+	@Step
+	public void clickOnNewestButton() {
+		onPage.clickOnNewestButton();
 	}
 }
 

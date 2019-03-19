@@ -1081,7 +1081,7 @@ public class PerchwellPage extends TechHelper {
 
 	public void checkIfCurrentListingsAddressesIsReturned() {
 		for (int i = 0; i < addressesList.size(); i++) {
-			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("currentListingsAddress" + (i + 1)), addressesList.get(i).getAttribute("name").toUpperCase());
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("currentListingsAddress" + (i + 1)), addressesList.get(i).getAttribute("value").toUpperCase());
 		}
 	}
 }
