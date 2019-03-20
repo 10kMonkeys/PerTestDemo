@@ -35,7 +35,9 @@ public class TI47_TagsPageTagAdditionSelectedBeforeTest extends SampleTest {
         user.atMyTagsPage.clickOnMoreOptionsButton();
         user.atMyTagsPage.clickOnTagSelectedListingsOption();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
+        user.atTagsPage.swipeDownCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
+        user.atTagsPage.swipeUpCustomClientTagsPill();
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
@@ -61,11 +63,13 @@ public class TI47_TagsPageTagAdditionSelectedBeforeTest extends SampleTest {
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atMyTagsPage.clickOnTagIconOnSecondListing();
+        user.atTagsPage.swipeDownFirstExistingTagPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atMyTagsPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
+        user.atTagsPage.swipeDownFirstExistingTagPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
     }
 }

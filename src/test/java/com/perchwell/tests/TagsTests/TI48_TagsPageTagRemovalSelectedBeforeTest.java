@@ -22,7 +22,6 @@ public class TI48_TagsPageTagRemovalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.removeAllTagPills();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.clickOnFirstTag();
-        user.atTagsPage.clearSearchField();
         user.atTagsPage.fillInTagSearchField("TAGNAME");
         user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
@@ -38,13 +37,14 @@ public class TI48_TagsPageTagRemovalSelectedBeforeTest extends SampleTest {
         user.atMyTagsPage.clickOnMoreOptionsButton();
         user.atMyTagsPage.clickOnTagSelectedListingsOption();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
+        user.atTagsPage.swipeDownCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
+        user.atTagsPage.swipeUpCustomClientTagsPill();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.getFirstTagsItemsValue();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.checkIfCustomClientTagsItemsListIsChanged(-2);
-        user.atTagsPage.clearSearchField();
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.getFirstTagsItemsValue();

@@ -47,8 +47,10 @@ public class TI45_TagsPageTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atMyTagsPage.checkTagsIconCountForFirstAndSecondListings("2");
         user.atMyTagsPage.clickOnTagIconOnSecondListing();
-        user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
+        user.atTagsPage.swipeDownFirstExistingTagPill();
+        user.atTagsPage.shouldSeeCustomClientTagsPill();
+        user.atTagsPage.swipeUpFirstExistingTagPill();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
@@ -59,8 +61,10 @@ public class TI45_TagsPageTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
+        user.atTagsPage.swipeDownFirstExistingTagPill();
+        user.atTagsPage.shouldSeeCustomClientTagsPill();
+        user.atTagsPage.swipeUpFirstExistingTagPill();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
@@ -69,8 +73,10 @@ public class TI45_TagsPageTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atMyTagsPage.clickOnTagIconOnFirstListing();
-        user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
+        user.atTagsPage.swipeDownFirstExistingTagPill();
+        user.atTagsPage.shouldSeeCustomClientTagsPill();
+        user.atTagsPage.swipeUpFirstExistingTagPill();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clearSearchField();
@@ -81,7 +87,10 @@ public class TI45_TagsPageTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
+        user.atTagsPage.shouldSeeFirstExistingTagsPill();
+        user.atTagsPage.swipeDownFirstExistingTagPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
+        user.atTagsPage.swipeUpFirstExistingTagPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);

@@ -497,4 +497,14 @@ public class TagsSteps extends ScenarioSteps {
 	public void checkIfFirstTagsItemsListIsEqual(int value) {
 		onPage.checkIfFirstTagsItemsListIsEqual(value);
 	}
+
+	@Step
+	public void swipeUpCustomClientTagsPill() {
+		onPage.swipeTagPill(SessionVariables.getValueFromSessionVariable("First_Custom_Client"), -90);
+	}
+
+	@Step
+	public void swipeDownCustomClientTagsPill() {
+		onPage.swipeTagPill(SessionVariables.getValueFromSessionVariable("First_Custom_Client"), 240);
+	}
 }
