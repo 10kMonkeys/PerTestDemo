@@ -11,6 +11,7 @@ import org.junit.Test;
 @WithTagValuesOf({"TagsTests", "iOS_TagsSecond", "Android_TagsSecond", "TagsThird"})
 public class TI34_MultiSelectDismissalTest extends SampleTest {
 
+    @Ignore
     @Test
     public void multiSelectDismissalTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

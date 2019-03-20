@@ -99,7 +99,7 @@ public class OpenedBuildingPage extends TechHelper {
     private WebElement clientWithDiscussion;
 
 	@AndroidFindBy(xpath = "//*[contains(@text,'TEST TEST-IOS+MGMT-CORE@PERCHWELL.COM')]")
-	@iOSXCUITFindBy(accessibility = "TEST TEST-IOS+MGMT-CORE@PERCHWELL.COM")
+	@iOSXCUITFindBy(accessibility = "TEST TEST-IOS+MGMT-STRIBLING@PERCHWELL.COM")
 	private WebElement agentWithDiscussion;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/view_all_discussions")

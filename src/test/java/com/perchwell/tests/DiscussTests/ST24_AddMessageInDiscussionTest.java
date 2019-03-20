@@ -10,7 +10,7 @@ import org.junit.Test;
 public class ST24_AddMessageInDiscussionTest extends SampleTest {
 
 	@Test
-	public void addMessageInDiscussionTest() throws Exception {
+	public void addMessageInDiscussionTest() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();

@@ -20,7 +20,7 @@ public class DiscussThisListingPage extends TechHelper {
     private WebElement clientWithDiscussion;
 
     @AndroidFindBy(xpath = "//*[contains(@text,'TEST TEST-IOS+MGMT-CORE@PERCHWELL.COM')]")
-    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'TEST TEST-IOS+MGMT-CORE@PERCHWELL.COM'")
+    @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name == 'TEST TEST-IOS+MGMT-STRIBLING@PERCHWELL.COM'")
     private WebElement agentWithDiscussion;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/delete_button")
@@ -55,10 +55,10 @@ public class DiscussThisListingPage extends TechHelper {
         waitFor(ExpectedConditions.visibilityOf(agentWithDiscussion));
 //        while (Helper.isElementDisplayed(agentWithDiscussion)) {
         setImplicitTimeout(3, SECONDS);
-        while (isElementDisplayed(element(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeStaticText' AND name == 'TEST TEST-IOS+MGMT-CORE@PERCHWELL.COM'")))) {
+        while (isElementDisplayed(element(MobileBy.iOSNsPredicateString("type=='XCUIElementTypeStaticText' AND name == 'TEST TEST-IOS+MGMT-STRIBLING@PERCHWELL.COM'")))) {
             waitABit(1000);
             int y = agentWithDiscussion.getLocation().getY();
-            Helper.universalHorizontalSwipe(agentWithDiscussion, y + 1);
+            universalHorizontalSwipe(agentWithDiscussion, y + 1);
             clickOnDeleteButton();
 //            waitFor(ExpectedConditions.stalenessOf(agentWithDiscussion));
         }
