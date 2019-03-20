@@ -584,7 +584,7 @@ public class TagsPage extends TechHelper {
 		Assert.assertEquals(value, tagsItemsValue);
 	}
 
-	public boolean checkIfTagsPillIsDisplayed(String tagName) {
-		return element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).isVisible();
+	public void swipeAnyTagPill(int duration) {
+		swipeUpElementIOS(element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$value BEGINSWITH 'tag color: #'$]")), duration);
 	}
 }
