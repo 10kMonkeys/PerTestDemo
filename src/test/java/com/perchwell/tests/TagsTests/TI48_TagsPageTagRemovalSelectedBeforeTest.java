@@ -36,10 +36,10 @@ public class TI48_TagsPageTagRemovalSelectedBeforeTest extends SampleTest {
         user.atMyTagsPage.selectSecondListingAfterFirst();
         user.atMyTagsPage.clickOnMoreOptionsButton();
         user.atMyTagsPage.clickOnTagSelectedListingsOption();
+        user.atTagsPage.singleDownSwipeTagsPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
-        user.atTagsPage.swipeDownCustomClientTagsPill();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
-        user.atTagsPage.swipeUpCustomClientTagsPill();
+        user.atTagsPage.singleUpSwipeTagsPill();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.getFirstTagsItemsValue();

@@ -507,4 +507,24 @@ public class TagsSteps extends ScenarioSteps {
 	public void swipeDownCustomClientTagsPill() {
 		onPage.swipeTagPill(SessionVariables.getValueFromSessionVariable("First_Custom_Client"), 240);
 	}
+
+	@Step
+	public void singleDownSwipeTagsPill() {
+		if(onPage.checkIfTagsPillIsDisplayed(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))) {
+			this.swipeDownFirstExistingTagPill();
+		}
+		else {
+			this.swipeDownCustomClientTagsPill();
+		}
+	}
+
+	@Step
+	public void singleUpSwipeTagsPill() {
+		if(onPage.checkIfTagsPillIsDisplayed(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"))) {
+			this.swipeUpFirstExistingTagPill();
+		}
+		else {
+			this.swipeUpCustomClientTagsPill();
+		}
+	}
 }

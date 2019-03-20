@@ -583,4 +583,8 @@ public class TagsPage extends TechHelper {
 		this.getFirstTagsItemsValue();
 		Assert.assertEquals(value, tagsItemsValue);
 	}
+
+	public boolean checkIfTagsPillIsDisplayed(String tagName) {
+		return element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).isVisible();
+	}
 }
