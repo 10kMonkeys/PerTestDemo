@@ -21,9 +21,9 @@ public class SFR58_BuildingFilterResetAndNewSearchTest extends SampleTest {
         user.atBuildingSearchPage.clickOnBackFromBuildingSearchPage();
         user.atSearchPage.clickOnApplyButton();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.checkBuildingPillIsDisplayedAtSearchPage("1 WEST 72ND STREET");
+        user.atSearchPage.checkBuildingPillIsDisplayed("1 WEST 72ND STREET");
         user.atSearchPage.clickOnResetFilter();
-        user.atSearchPage.checkBuildingPillIsNotDisplayedAtSearchPage("1 WEST 72ND STREET");
+        user.atSearchPage.checkBuildingPillIsNotDisplayed("1 WEST 72ND STREET");
         user.atSearchPage.defaultNeighborPillsAreShown();
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atBuildingSearchPage.checkNoOnePillIsShown();
@@ -36,7 +36,7 @@ public class SFR58_BuildingFilterResetAndNewSearchTest extends SampleTest {
         user.atPerchwellPage.checkIfListingsWereNotChanged();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.defaultNeighborPillsAreShown();
-        user.atSearchPage.checkBuildingPillIsNotDisplayedAtSearchPage("1 WEST 72ND STREET");
+        user.atSearchPage.checkBuildingPillIsNotDisplayed("1 WEST 72ND STREET");
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atBuildingSearchPage.checkNoOnePillIsShown();
     }

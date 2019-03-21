@@ -1148,42 +1148,12 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOnFirstBuilding() {
-        onPage.clickOnFirstBuilding();
+    public void checkBuildingPillIsDisplayed(String address) {
+        onPage.checkBuildingPillIsDisplayed(address);
     }
 
     @Step
-    public void checkFirstBuildingIsSelected() {
-        onPage.checkFirstBuildingIsSelected();
-    }
-
-    @Step
-    public void checkBuildingPillIsDisplayedAtBuildingSearchPage(String address) {
-        onPage.checkBuildingPillIsDisplayedAtBuildingSearchPage(address);
-    }
-
-    @Step
-    public void buildingAddressSearchFieldIsEmpty() {
-        onPage.buildingAddressSearchFieldIsEmpty();
-    }
-
-    @Step
-    public void checkFirstBuildingIsNotSelectedAtBuildingSearchPage() {
-        onPage.checkFirstBuildingIsNotSelectedAtBuildingSearchPage();
-    }
-
-    @Step
-    public void checkBuildingPillIsNotDisplayedAtBuildingSearchPage(String address) {
-        onPage.checkBuildingPillIsNotDisplayedAtBuildingSearchPage(address);
-    }
-
-    @Step
-    public void checkBuildingPillIsDisplayedAtSearchPage(String address) {
-        onPage.checkBuildingPillIsDisplayedAtSearchPage(address);
-    }
-
-    @Step
-    public void checkFirstBuildingPillIsBelowBuildingTitleAtSearchPage(String address) {
+    public void checkFirstBuildingPillIsBelowBuildingTitle(String address) {
         onPage.checkFirstBuildingPillIsUnderBuildingTitle(address);
     }
 
@@ -1202,13 +1172,8 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkBuildingPillIsNotDisplayedAtSearchPage(String address) {
-        onPage.checkBuildingPillIsNotDisplayedAtSearchPage(address);
-    }
-
-    @Step
-    public void removeBuildingPill(String address) {
-        onPage.removeBuildingPill(address);
+    public void checkBuildingPillIsNotDisplayed(String address) {
+        onPage.checkBuildingPillIsNotDisplayed(address);
     }
 
     @Step
@@ -1244,16 +1209,6 @@ public class SearchSteps extends ScenarioSteps {
     @Step
     public void getListOfBuildingsAddresses(int amount) {
         onPage.getListOfBuildings(amount);
-    }
-
-    @Step
-    public void checkIfListOfBuildingsAddressesIsReturned(int amount) {
-        onPage.checkIfListOfBuildingsReturned(amount);
-    }
-
-    @Step
-    public void checkNoOnePillIsShown() {
-        onPage.checkNoOnePillIsShown();
     }
 
     @Step

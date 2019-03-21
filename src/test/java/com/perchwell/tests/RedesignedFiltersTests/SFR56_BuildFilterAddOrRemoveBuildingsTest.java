@@ -21,8 +21,8 @@ public class SFR56_BuildFilterAddOrRemoveBuildingsTest extends SampleTest {
         user.atBuildingSearchPage.checkFirstBuildingIsSelected();
         user.atBuildingSearchPage.checkBuildingPillIsDisplayed("1 WEST 72ND STREET");
         user.atBuildingSearchPage.clickOnBackFromBuildingSearchPage();
-        user.atSearchPage.checkBuildingPillIsDisplayedAtSearchPage("1 WEST 72ND STREET");
-        user.atSearchPage.checkFirstBuildingPillIsBelowBuildingTitleAtSearchPage("1 WEST 72ND STREET");
+        user.atSearchPage.checkBuildingPillIsDisplayed("1 WEST 72ND STREET");
+        user.atSearchPage.checkFirstBuildingPillIsBelowBuildingTitle("1 WEST 72ND STREET");
         user.atSearchPage.noOneNeighborPillIsShown();
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atBuildingSearchPage.fillInSearchField(Addresses.DAKOTA);
@@ -30,7 +30,7 @@ public class SFR56_BuildFilterAddOrRemoveBuildingsTest extends SampleTest {
         user.atBuildingSearchPage.checkFirstBuildingIsNotSelected();
         user.atBuildingSearchPage.checkBuildingPillIsNotDisplayed("1 WEST 72ND STREET");
         user.atBuildingSearchPage.clickOnBackFromBuildingSearchPage();
-        user.atSearchPage.checkBuildingPillIsNotDisplayedAtSearchPage("1 WEST 72ND STREET");
+        user.atSearchPage.checkBuildingPillIsNotDisplayed("1 WEST 72ND STREET");
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfListingsWereNotChanged();
         user.inSearchMenu.openSearchPage();
@@ -49,7 +49,7 @@ public class SFR56_BuildFilterAddOrRemoveBuildingsTest extends SampleTest {
         user.atBuildingSearchPage.fillInSearchField(Addresses.DAKOTA);
         user.atBuildingSearchPage.clickOnFirstBuilding();
         user.atBuildingSearchPage.clickOnBackFromBuildingSearchPage();
-        user.atSearchPage.checkBuildingPillIsNotDisplayedAtSearchPage("1 WEST 72ND STREET");
+        user.atSearchPage.checkBuildingPillIsNotDisplayed("1 WEST 72ND STREET");
         user.atSearchPage.clickOnSearchByAddressButton();
         user.atBuildingSearchPage.checkBuildingPillIsNotDisplayed("1 WEST 72ND STREET");
         user.atBuildingSearchPage.fillInSearchField(Addresses.DAKOTA);

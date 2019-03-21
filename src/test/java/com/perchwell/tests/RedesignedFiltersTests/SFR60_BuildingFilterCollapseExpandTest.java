@@ -19,11 +19,11 @@ public class SFR60_BuildingFilterCollapseExpandTest extends SampleTest {
         user.atBuildingSearchPage.clickOnFirstBuilding();
         user.atBuildingSearchPage.clickOnBackFromBuildingSearchPage();
         user.atSearchPage.collapseLocationSection();
-        user.atSearchPage.checkBuildingPillIsDisplayedAtSearchPage("240 EAST 35TH STREET");
+        user.atSearchPage.checkBuildingPillIsDisplayed("240 EAST 35TH STREET");
         user.atSearchPage.expandLocationSection();
         user.atSearchPage.collapseLocationSection();
         user.atSearchPage.clickOnApplyButton();
         user.inSearchMenu.openSavedSearches();
-        user.atSearchPage.checkBuildingPillIsDisplayedAtSearchPage("240 EAST 35TH STREET");
+        user.atSearchPage.checkBuildingPillIsDisplayed("240 EAST 35TH STREET");
     }
 }
