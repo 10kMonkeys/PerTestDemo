@@ -583,4 +583,8 @@ public class TagsPage extends TechHelper {
 		this.getFirstTagsItemsValue();
 		Assert.assertEquals(value, tagsItemsValue);
 	}
+
+	public void swipeAnyTagPill(int duration) {
+		swipeUpElementIOS(element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$value BEGINSWITH 'tag color: #'$]")), duration);
+	}
 }

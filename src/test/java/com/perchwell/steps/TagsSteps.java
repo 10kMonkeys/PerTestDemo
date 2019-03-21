@@ -497,4 +497,14 @@ public class TagsSteps extends ScenarioSteps {
 	public void checkIfFirstTagsItemsListIsEqual(int value) {
 		onPage.checkIfFirstTagsItemsListIsEqual(value);
 	}
+
+	@Step
+	public void singleDownSwipeTagsPill() {
+		onPage.swipeAnyTagPill(240);
+	}
+
+	@Step
+	public void singleUpSwipeTagsPill() {
+		onPage.swipeAnyTagPill(-90);
+	}
 }
