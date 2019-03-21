@@ -16,9 +16,9 @@ public class SFR58_BuildingFilterResetAndNewSearchTest extends SampleTest {
         user.atPerchwellPage.isListingsQuantity();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInSearchField(Addresses.DAKOTA);
-        user.atSearchPage.clickOnFirstBuilding();
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
+        user.atBuildingSearchPage.fillInSearchField(Addresses.DAKOTA);
+        user.atBuildingSearchPage.clickOnFirstBuilding();
+        user.atBuildingSearchPage.clickOnBackFromBuildingSearchPage();
         user.atSearchPage.clickOnApplyButton();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.checkBuildingPillIsDisplayedAtSearchPage("1 WEST 72ND STREET");
@@ -26,10 +26,10 @@ public class SFR58_BuildingFilterResetAndNewSearchTest extends SampleTest {
         user.atSearchPage.checkBuildingPillIsNotDisplayedAtSearchPage("1 WEST 72ND STREET");
         user.atSearchPage.defaultNeighborPillsAreShown();
         user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.checkNoOnePillIsShown();
-        user.atSearchPage.fillInSearchField(Addresses.DAKOTA);
-        user.atSearchPage.clickOnFirstBuilding();
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
+        user.atBuildingSearchPage.checkNoOnePillIsShown();
+        user.atBuildingSearchPage.fillInSearchField(Addresses.DAKOTA);
+        user.atBuildingSearchPage.clickOnFirstBuilding();
+        user.atBuildingSearchPage.clickOnBackFromBuildingSearchPage();
         user.atSearchPage.clickOnApplyButton();
         user.inSearchMenu.openSavedSearches();
         user.atSearchPage.createNewSearchClick();
@@ -38,7 +38,7 @@ public class SFR58_BuildingFilterResetAndNewSearchTest extends SampleTest {
         user.atSearchPage.defaultNeighborPillsAreShown();
         user.atSearchPage.checkBuildingPillIsNotDisplayedAtSearchPage("1 WEST 72ND STREET");
         user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.checkNoOnePillIsShown();
+        user.atBuildingSearchPage.checkNoOnePillIsShown();
     }
 
 }

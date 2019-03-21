@@ -25,7 +25,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class SearchPage extends TechHelper {
 
-    private List<String> listOfBuildingAddresses = new ArrayList<>();
+    public static List<String> listOfBuildingAddresses = new ArrayList<>();
     public static String neighborhoodAndBuilding;
 
     //region WebElements

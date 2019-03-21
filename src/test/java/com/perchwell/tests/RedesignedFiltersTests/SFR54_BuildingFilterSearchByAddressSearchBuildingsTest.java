@@ -25,10 +25,10 @@ public class SFR54_BuildingFilterSearchByAddressSearchBuildingsTest extends Samp
         user.atPerchwellPage.checkIfListingsWereNotChanged();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInSearchField(Addresses.DAKOTA);
-        user.atSearchPage.hideKeyboard();
-        user.atSearchPage.checkIfListOfBuildingsAddressesIsReturned(5);
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
+        user.atBuildingSearchPage.fillInSearchField(Addresses.DAKOTA);
+        user.atBuildingSearchPage.hideKeyboard();
+        user.atBuildingSearchPage.checkIfListOfBuildingsAddressesIsReturned(5);
+        user.atBuildingSearchPage.clickOnBackFromBuildingSearchPage();
         user.atSearchPage.closeSearch();
         user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.WEST_72ND);
@@ -38,8 +38,8 @@ public class SFR54_BuildingFilterSearchByAddressSearchBuildingsTest extends Samp
         user.atSearchPage.closeAddressSearch();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInSearchField(Addresses.WEST_72ND);
-        user.atSearchPage.hideKeyboard();
-        user.atSearchPage.checkIfListOfBuildingsAddressesIsReturned(5);
+        user.atBuildingSearchPage.fillInSearchField(Addresses.WEST_72ND);
+        user.atBuildingSearchPage.hideKeyboard();
+        user.atBuildingSearchPage.checkIfListOfBuildingsAddressesIsReturned(5);
     }
 }
