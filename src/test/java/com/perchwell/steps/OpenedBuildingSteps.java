@@ -433,12 +433,6 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void checkIfCountActiveSalesAndRentalsIsSame() {
-		this.checkIfCountActiveSalesIsSame();
-		this.checkIfCountActiveRentalsIsSame();
-	}
-
-	@Step
 	public void getCurrentListingsAddresses() {
 		onPage.getCurrentListingsAddresses();
 	}

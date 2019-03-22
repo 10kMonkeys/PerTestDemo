@@ -271,7 +271,7 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Pending Sales: '")
 	private WebElement pendingSalesCount;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS Active Rental: ")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Active Rental: '")
 	private WebElement activeRentalsCount;
 
 	//endregion
@@ -844,9 +844,9 @@ public class OpenedBuildingPage extends TechHelper {
 	public void checkIfCountActiveSalesIsSame() {
 		int activeSales;
 		int activeSalesBuilding;
+		String activeSalesString = SessionVariables.getValueFromSessionVariable("activeSalesAndRentals");
 
-		activeSales = Integer.parseInt(SessionVariables.getValueFromSessionVariable("activeSalesAndRentals")
-				.substring(0, SessionVariables.getValueFromSessionVariable("activeSalesAndRentals").indexOf(" ")));
+		activeSales = Integer.parseInt(activeSalesString.substring(0, activeSalesString.indexOf(" ")));
 
 		activeSalesBuilding = Integer.parseInt(activeSalesCount.getAttribute("value")) + Integer.parseInt(pendingSalesCount.getAttribute("value"));
 
@@ -870,12 +870,11 @@ public class OpenedBuildingPage extends TechHelper {
 	public void checkIfCountActiveRentalsSame() {
 		int activeRentals;
 		int activeRentalsBuilding;
+        String activeRentalsString = SessionVariables.getValueFromSessionVariable("activeSalesAndRentals");
 
-		activeRentals = Integer.parseInt(SessionVariables.getValueFromSessionVariable("activeSalesAndRentals")
-				.substring(SessionVariables.getValueFromSessionVariable("activeSalesAndRentals").indexOf("| " ) + 1,
-				SessionVariables.getValueFromSessionVariable("activeSalesAndRentals").indexOf("Active Rental")));
+        activeRentals = Integer.parseInt(activeRentalsString.substring(activeRentalsString.indexOf("|") + 3,
+                activeRentalsString.indexOf(" ACTIVE RENTAL")));
 		activeRentalsBuilding = Integer.parseInt(activeRentalsCount.getAttribute("value"));
-
 		Assert.assertEquals(activeRentals, activeRentalsBuilding);
 	}
 }
