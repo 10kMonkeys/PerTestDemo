@@ -25,7 +25,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class SearchPage extends TechHelper {
 
-    private List<String> listOfBuildingAddresses = new ArrayList<>();
+    public static List<String> listOfBuildingAddresses = new ArrayList<>();
     public static String neighborhoodAndBuilding;
 
     //region WebElements
@@ -303,7 +303,7 @@ public class SearchPage extends TechHelper {
     private WebElement laundryUnitFilter;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/add_neighborhood_tag")
-    @iOSXCUITFindBy(accessibility = "Tag Cell NEIGHBORHOODS: Add Button")
+    @iOSXCUITFindBy(accessibility = "Add Button: NEIGHBORHOODS")
     private WebElement neighborhoodsPlusButton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
@@ -525,7 +525,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "bar button: close search view")
     private WebElement closeSearchButton;
 
-    @iOSXCUITFindBy(accessibility = "Tag Cell BUILDINGS: Add Button")
+    @iOSXCUITFindBy(accessibility = "Add Button: BUILDINGS")
     private WebElement addBuildingFilterButton;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeCell' AND visible = 1")
@@ -2113,35 +2113,7 @@ public class SearchPage extends TechHelper {
         waitFor(ExpectedConditions.visibilityOf(firstBellIcon));
     }
 
-    public void clickOnFirstBuilding() {
-        element(firstBuilding).click();
-    }
-
-    public void checkFirstBuildingIsSelected() {
-        element(firstSelectedBuildingIcon).shouldBeVisible();
-    }
-
-    public void checkBuildingPillIsDisplayedAtBuildingSearchPage(String address) {
-        element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]" +
-                "/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + address + "'$]")).shouldBeVisible();
-    }
-
-    public void buildingAddressSearchFieldIsEmpty() {
-        Assert.assertEquals("Search building name or address", element(searchNeihborhoodsSearchField).getAttribute("value"));
-    }
-
-    public void checkFirstBuildingIsNotSelectedAtBuildingSearchPage() {
-        element(firstSelectedBuildingIcon).shouldNotBeVisible();
-    }
-
-    public void checkBuildingPillIsNotDisplayedAtBuildingSearchPage(String address) {
-        setImplicitTimeout(3, SECONDS);
-        element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]" +
-                "/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + address + "'$]")).shouldNotBeVisible();
-        resetImplicitTimeout();
-    }
-
-    public void checkBuildingPillIsDisplayedAtSearchPage(String address) {
+    public void checkBuildingPillIsDisplayed(String address) {
         element(MobileBy.AccessibilityId(address)).shouldBeVisible();
     }
 
@@ -2169,14 +2141,10 @@ public class SearchPage extends TechHelper {
         resetImplicitTimeout();
     }
 
-    public void checkBuildingPillIsNotDisplayedAtSearchPage(String address) {
+    public void checkBuildingPillIsNotDisplayed(String address) {
         setImplicitTimeout(3, SECONDS);
         element(MobileBy.AccessibilityId(address)).shouldNotBeVisible();
         resetImplicitTimeout();
-    }
-
-    public void removeBuildingPill(String address) {
-        element(MobileBy.AccessibilityId("Remove Button: " + address)).click();
     }
 
     public void checkIfAddressBuildingIsReturned(String address) {
@@ -2207,12 +2175,6 @@ public class SearchPage extends TechHelper {
         }
     }
 
-    public void checkIfListOfBuildingsReturned(int amount) {
-        for (int i = 0; i < amount; i++) {
-            Assert.assertEquals(listOfBuildingAddresses.get(i), buildingAddressesList.get(i).getAttribute("value"));
-        }
-    }
-
     public void manhattanPillIsShownAtSearchPage() {
         element(manhattanCheckedCheckbox).shouldBeVisible();
     }
@@ -2223,10 +2185,6 @@ public class SearchPage extends TechHelper {
 
     public void queensPillIsShownAtSearchPage() {
         element(queensRemoveIcon).shouldBeVisible();
-    }
-
-    public void checkNoOnePillIsShown() {
-        Assert.assertEquals(0, removePillsIconList.size());
     }
 
     public void clickOnCollapseExpandLocationButton() {

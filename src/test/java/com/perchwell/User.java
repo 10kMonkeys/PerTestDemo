@@ -99,4 +99,7 @@ public class User extends ScenarioSteps {
 
     @Steps
     public EditTagSteps atEditTagPage;
+
+    @Steps
+    public BuildingSearchSteps atBuildingSearchPage;
 }

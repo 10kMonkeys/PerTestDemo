@@ -26,9 +26,9 @@ public class SFR57_BuildingFilterApplyTest extends SampleTest {
         user.atSearchPage.closeAddressSearch();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
-        user.atSearchPage.clickOnFirstBuilding();
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
+        user.atBuildingSearchPage.fillInSearchField(Addresses.EAST_35TH);
+        user.atBuildingSearchPage.clickOnFirstBuilding();
+        user.atBuildingSearchPage.clickOnBackFromBuildingSearchPage();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkIfCurrentListingsAddressesIsReturned();
         user.atPerchwellPage.getListingsAmount();
