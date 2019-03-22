@@ -271,6 +271,9 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Pending Sales: '")
 	private WebElement pendingSalesCount;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS Active Rental: ")
+	private WebElement activeRentalsCount;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -865,5 +868,14 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void checkIfCountActiveRentalsSame() {
+		int activeRentals;
+		int activeRentalsBuilding;
+
+		activeRentals = Integer.parseInt(SessionVariables.getValueFromSessionVariable("activeSalesAndRentals")
+				.substring(SessionVariables.getValueFromSessionVariable("activeSalesAndRentals").indexOf("| " ) + 1,
+				SessionVariables.getValueFromSessionVariable("activeSalesAndRentals").indexOf("Active Rental")));
+		activeRentalsBuilding = Integer.parseInt(activeRentalsCount.getAttribute("value"));
+
+		Assert.assertEquals(activeRentals, activeRentalsBuilding);
 	}
 }

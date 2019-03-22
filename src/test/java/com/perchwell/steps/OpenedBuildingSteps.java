@@ -450,6 +450,7 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 
 	@Step
 	public void checkIfCountActiveRentalsIsSame() {
+		onPage.checkIfCountActiveRentalsSame();
 	}
 
 	@Step

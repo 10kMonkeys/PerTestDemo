@@ -303,7 +303,7 @@ public class SearchPage extends TechHelper {
     private WebElement laundryUnitFilter;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/add_neighborhood_tag")
-    @iOSXCUITFindBy(accessibility = "Tag Cell NEIGHBORHOODS: Add Button")
+    @iOSXCUITFindBy(accessibility = "Add Button: NEIGHBORHOODS")
     private WebElement neighborhoodsPlusButton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
@@ -525,7 +525,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "bar button: close search view")
     private WebElement closeSearchButton;
 
-    @iOSXCUITFindBy(accessibility = "Tag Cell BUILDINGS: Add Button")
+    @iOSXCUITFindBy(accessibility = "Add Button: BUILDINGS")
     private WebElement addBuildingFilterButton;
 
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeCell' AND visible = 1")
