@@ -8,6 +8,8 @@ import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.perchwell.PerchwellPage;
 import org.junit.Assert;
 
+import static com.perchwell.helpers.Helper.universalSingleSwipe;
+
 public class PerchwellSteps extends ScenarioSteps {
 
 	PerchwellPage onPage;
@@ -149,7 +151,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if (Config.isAndroid()) {
 			for (int i = 0; i<PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.isContainParticularBeds(rooms);
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			onPage.isContainParticularBeds(rooms);
@@ -161,7 +163,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if (Config.isAndroid()) {
 			for (int i = 0; i<PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.isContainParticularBaths(rooms);
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			onPage.isContainParticularBaths(rooms);
@@ -173,7 +175,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if (Config.isAndroid()) {
 			for (int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.isContains4PlusParticularBeds(roomType);
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			onPage.isContains4PlusParticularBeds(roomType);
@@ -185,7 +187,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if (Config.isAndroid()) {
 			for (int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.isContains4PlusParticularBaths(roomType);
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			onPage.isContains4PlusParticularBaths(roomType);
@@ -197,7 +199,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if (Config.isAndroid()) {
 			for (int i = 0; i<PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.isContainsStudios();
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 				onPage.isContainsStudios();
@@ -294,7 +296,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if(Config.isAndroid()) {
 			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("min"));
@@ -306,7 +308,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if(Config.isAndroid()) {
 			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("max"));
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("max"));
@@ -318,7 +320,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if(Config.isAndroid()) {
 			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("between min and max"));
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			Assert.assertTrue(onPage.isPriceFilterAppliedOnListings("between min and max"));
@@ -394,7 +396,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if(Config.isAndroid()) {
 			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.checkIfListingsAreFilteredByMinBeds(value);
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			onPage.checkIfListingsAreFilteredByMinBeds(value);
@@ -406,7 +408,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if (Config.isAndroid()) {
 			for (int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.checkIfListingsAreFilteredByMinBaths(value);
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			onPage.checkIfListingsAreFilteredByMinBaths(value);
@@ -418,7 +420,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if(Config.isAndroid()) {
 			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.checkIfListingsAreFilteredByMultipleBedroomsFilters();
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			onPage.checkIfListingsAreFilteredByMultipleBedroomsFilters();
@@ -455,7 +457,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if(Config.isAndroid()) {
 			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
@@ -467,7 +469,7 @@ public class PerchwellSteps extends ScenarioSteps {
 		if(Config.isAndroid()) {
 			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
@@ -480,7 +482,7 @@ public class PerchwellSteps extends ScenarioSteps {
 			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
 				onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);
 				onPage.shouldSeeListingWithSqFeetEqualAndLess(maxValue);
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			onPage.shouldSeeListingWithSqFeetEqualAndMore(minValue);

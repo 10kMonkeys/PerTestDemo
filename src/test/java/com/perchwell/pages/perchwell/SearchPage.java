@@ -676,6 +676,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "brokerage: selected CORE Public")
     private String selectedCorePublicButton;
 
+    @AndroidFindBy(xpath = "//*[@text='RESALE/SPONSOR']")
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: RESALE/SPONSOR")
     private WebElement collapseReleaseSponsorArrow;
 
