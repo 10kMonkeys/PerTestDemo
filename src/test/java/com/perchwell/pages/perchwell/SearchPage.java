@@ -12,10 +12,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
@@ -711,6 +708,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "SavedSearchCancelButton")
     private WebElement closeSavedSearchesButton;
 
+    @AndroidFindBy(xpath = "*//android.widget.ImageView[@resource-id = 'com.perchwell.re.staging:id/alert'][1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name == 'alert icon'$][1]")
     private WebElement firstBellIcon;
 
@@ -780,6 +778,9 @@ public class SearchPage extends TechHelper {
 
     public void setSearchName(String search) {
         element(searchName).sendKeys(search);
+        if(Config.isAndroid()) {
+            hideKeyboard();
+        }
     }
 
     public String generateRandomString(String str) {

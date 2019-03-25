@@ -85,7 +85,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar[1]/XCUIElementTypeStaticText[1]")
 	private WebElement currentSearchInTitle;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/sort")
+	@AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, 'Listings Sorted by')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Listing Results:'")
 	private WebElement listingsByButton;
 
