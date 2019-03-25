@@ -120,7 +120,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Bathrooms")
 	private WebElement bathroomsSortButton;
 
-	@AndroidFindBy(xpath = "//*[@text = 'TOTAL ROOMS']")
+	@AndroidFindBy(xpath = "//*[@text = 'Total Rooms']")
 	@iOSXCUITFindBy(accessibility = "Total Rooms")
     private WebElement totalRoomsSortButton;
 

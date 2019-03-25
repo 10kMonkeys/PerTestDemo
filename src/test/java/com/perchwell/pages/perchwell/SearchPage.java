@@ -402,7 +402,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: 2+")
     private WebElement twoBedsMinimumFilter;
 
-    @AndroidFindBy(accessibility = "Bedrooms: 2+-selected")
+    @AndroidFindBy(accessibility = "Bedrooms: 2+-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption Selected: 2+")
     private WebElement selectedTwoBedsMinimumFilter;
 
@@ -426,7 +426,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 2+")
     private WebElement twoBathsMinimumFilter;
 
-    @AndroidFindBy(accessibility = "Bathrooms: 2+-selected")
+    @AndroidFindBy(accessibility = "Bathrooms: 2+-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 2+")
     private WebElement selectedTwoBathsMinFilter;
 
@@ -442,7 +442,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "TOTAL ROOMS")
     private WebElement totalRoomsSection;
 
-    @AndroidFindBy(accessibility = "Bathrooms: 4+-selected")
+    @AndroidFindBy(accessibility = "Bathrooms: 4+-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 4+")
     private WebElement selectedFilterFor4PlusBaths;
 
@@ -462,11 +462,11 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: BATHROOMS")
     private WebElement bathroomsCollapseButton;
 
-    @AndroidFindBy(accessibility = "Bedrooms: Range-selected")
+    @AndroidFindBy(accessibility = "Bedrooms: Range-SELECTED")
     @iOSXCUITFindBy(accessibility = "BEDROOMS Option Selected: Range")
     private WebElement selectedBedroomsRangeOption;
 
-    @AndroidFindBy(accessibility = "Bathrooms: Range-selected")
+    @AndroidFindBy(accessibility = "Bathrooms: Range-SELECTED")
     @iOSXCUITFindBy(accessibility = "BATHROOMS Option Selected: Range")
     private WebElement selectedBathroomsRangeOption;
 
@@ -477,6 +477,7 @@ public class SearchPage extends TechHelper {
     @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"All Downtown\"]/android.widget.RelativeLayout/android.widget.ImageView")
     private WebElement allDownTownSection;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/add_custom_boundary_tag")
     @iOSXCUITFindBy(accessibility = "Add Button: CUSTOM BOUNDARIES")
     private WebElement customBoundariesPlusButton;
 
@@ -708,7 +709,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "SavedSearchCancelButton")
     private WebElement closeSavedSearchesButton;
 
-    @AndroidFindBy(xpath = "*//android.widget.ImageView[@resource-id = 'com.perchwell.re.staging:id/alert'][1]")
+    @AndroidFindBy(xpath = "*//android.view.ViewGroup[1]/android.widget.FrameLayout/android.widget.TextView")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name == 'alert icon'$][1]")
     private WebElement firstBellIcon;
 
