@@ -13,7 +13,7 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 
 	@Ignore
 	@Test
-	public void discussionWithNewClientTest() throws Exception {
+	public void discussionWithNewClientTest() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();

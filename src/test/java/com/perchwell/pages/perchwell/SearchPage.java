@@ -367,6 +367,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "CURRENT STATUS")
     private WebElement currentStatusSection;
 
+    @AndroidFindBy(xpath = "//*[@text = 'PROPERTY TYPE']")
     @iOSXCUITFindBy(accessibility = "PROPERTY TYPE")
     private WebElement propertyTypeSection;
 
@@ -488,24 +489,31 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Condo-selected")
     private WebElement selectedCondoFilter;
 
+    @AndroidFindBy(accessibility = "CO-OP")
     @iOSXCUITFindBy(accessibility = "Co-op")
     private WebElement coopFilter;
 
+    @AndroidFindBy(accessibility = "TOWNHOUSE")
     @iOSXCUITFindBy(accessibility = "Townhouse")
     private WebElement townhouseFilter;
 
+    @AndroidFindBy(accessibility = "CO-OP-SELECTED")
     @iOSXCUITFindBy(accessibility = "Co-op-selected")
     private WebElement selectedCoopFilter;
 
+    @AndroidFindBy(accessibility = "TOWNHOUSE-SELECTED")
     @iOSXCUITFindBy(accessibility = "Townhouse-selected")
     private WebElement selectedTownhouseFilter;
 
+    @AndroidFindBy(accessibility = "RENTAL")
     @iOSXCUITFindBy(accessibility = "Rental")
     private WebElement rentalFilter;
 
+    @AndroidFindBy(accessibility = "RENTAL-SELECTED")
     @iOSXCUITFindBy(accessibility = "Rental-selected")
     private WebElement selectedRentalFilter;
 
+    @AndroidFindBy(accessibility = "Sales")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option: Sales'")
     private WebElement salesProperty;
 
@@ -513,6 +521,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option Selected: Rentals'")
     private WebElement selectedRentalsProperty;
 
+    @AndroidFindBy(xpath = "*//android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.ImageView")
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: PROPERTY TYPE")
     private WebElement propertyTypeCollapseButton;
 
@@ -1645,7 +1654,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void deselectCoopFilter() {
-        Helper.universalVerticalSwipe(selectedCoopFilter);
+        universalVerticalSwipe(selectedCoopFilter);
         element(selectedCoopFilter).click();
     }
 
@@ -1677,7 +1686,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void swipeToPropertiesSection() {
-        Helper.universalVerticalSwipe(propertyTypeSection);
+        universalVerticalSwipe(propertyTypeSection);
     }
 
     public void deselectTownhouseFilter() {
