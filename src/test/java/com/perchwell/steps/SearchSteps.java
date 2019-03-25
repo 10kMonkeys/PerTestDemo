@@ -1040,7 +1040,7 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void setMaxBldgWidthValue() throws Exception {
+    public void setMaxBldgWidthValue() {
         onPage.setMaxBldgWidthValue();
     }
 
