@@ -676,6 +676,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "brokerage: selected CORE Public")
     private String selectedCorePublicButton;
 
+    @AndroidFindBy(xpath = "//*[@text = 'RESALE/SPONSOR']")
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: RESALE/SPONSOR")
     private WebElement collapseReleaseSponsorArrow;
 
@@ -1243,6 +1244,7 @@ public class SearchPage extends TechHelper {
         universalVerticalSwipe(collapseReleaseSponsorArrow);
 
         if(Config.isAndroid()) {
+            universalSingleSwipe();
             element(squareFeetMinValueField).sendKeys(value);
         }
         else {
@@ -1270,7 +1272,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void clickOnLaundryBuildingFilter() {
-        swipeDownUntilElementVisible(laundryBLDGFilterButton);
+        universalVerticalShortSwipe(laundryBLDGFilterButton);
         element(laundryBLDGFilterButton).click();
     }
 
@@ -1955,7 +1957,7 @@ public class SearchPage extends TechHelper {
     public void checkThatTextSearchFieldSavedTest(String value) {
         universalVerticalSwipe(textSearchField);
         if(Config.isAndroid()) {
-            Assert.assertEquals(value, element(textSearchField).getAttribute("text"));
+            Assert.assertEquals(value.toUpperCase(), element(textSearchField).getAttribute("text"));
         } else {
             Assert.assertEquals(value, element(textSearchField).getAttribute("value"));
         }
@@ -1973,7 +1975,7 @@ public class SearchPage extends TechHelper {
         element(squareFeetMaxValueField).clear();
     }
 
-    public void setMaxBldgWidthValue() throws Exception {
+    public void setMaxBldgWidthValue() {
         element(collapseLocationArrow).click();
         element(collapseBedroomsArrow).click();
         Helper.universalVerticalSwipe(bldgWidthSection);
