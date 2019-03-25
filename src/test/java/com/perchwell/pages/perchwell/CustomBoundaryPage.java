@@ -1,9 +1,11 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.Dimension;
@@ -20,6 +22,7 @@ public class CustomBoundaryPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Color Picker: #ea6656")
     private WebElement redPolygonColorIcon;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
     @iOSXCUITFindBy(accessibility = "Polygon Name TextField: Custom Boundary 1")
     private WebElement customBoundaryNameField;
 
@@ -50,6 +53,7 @@ public class CustomBoundaryPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Circle at (32.0000534057617, 345.000007629395)")
     private WebElement newBoundarySquarePointEight;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/finish_save_button")
     @iOSXCUITFindBy(accessibility = "Polygon Editing Button")
     private WebElement saveButton;
 
@@ -146,6 +150,11 @@ public class CustomBoundaryPage extends TechHelper {
     }
 
     public void getCustomBoundaryName() {
-        SessionVariables.addValueInSessionVariable("Custom_Boundary_name", element(customBoundaryNameField).getAttribute("value"));
+        if(Config.isAndroid()) {
+            SessionVariables.addValueInSessionVariable("Custom_Boundary_name", element(customBoundaryNameField).getAttribute("text"));
+        }
+        else {
+            SessionVariables.addValueInSessionVariable("Custom_Boundary_name", element(customBoundaryNameField).getAttribute("value"));
+        }
     }
 }

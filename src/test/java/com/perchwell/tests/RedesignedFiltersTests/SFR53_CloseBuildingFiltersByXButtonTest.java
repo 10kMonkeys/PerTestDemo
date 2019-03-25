@@ -9,7 +9,7 @@ import org.junit.Test;
 public class SFR53_CloseBuildingFiltersByXButtonTest extends SampleTest {
 
     @Test
-    public void closeBuildingFiltersByXButton() throws Exception {
+    public void closeBuildingFiltersByXButton() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
