@@ -42,6 +42,7 @@ public class SearchMenu extends TechHelper {
     @iOSXCUITFindBy(accessibility = "SAVE")
     private WebElement saveButton;
 
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Sorted by')]")
     @iOSXCUITFindBy(accessibility = "Sorted by")
     private WebElement sortByTitle;
 

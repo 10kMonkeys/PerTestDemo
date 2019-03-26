@@ -887,8 +887,18 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void checkListingsType(String property) {
-		List<WebElement> propertyList = getDriver().findElements(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + property + "'"));
-		Assert.assertEquals(propertyList.size(), 20);
+		if(Config.isAndroid()) {
+			for (int i = 0; i < ANDROID_LOOP_COUNTER; i++) {
+				Assert.assertTrue(FilteringAndSortingBuildings
+						.isContainsPropertyType(getDriver().findElements(MobileBy.xpath("//*[@text = '" + property + "']")), property));
+				universalSingleSwipe();
+			}
+		}
+		else {
+			List<WebElement> propertyList = getDriver().findElements(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + property + "'"));
+			Assert.assertEquals(propertyList.size(), 20);
+		}
+
 	}
 
 	public void clickOnSaveButton() {

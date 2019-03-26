@@ -338,7 +338,7 @@ public class PerchwellSteps extends ScenarioSteps {
 	}
 
 	@Step
-    public void openSpecificBuilding() throws Exception {
+    public void openSpecificBuilding() {
 		onPage.openSpecificBuilding();
     }
 

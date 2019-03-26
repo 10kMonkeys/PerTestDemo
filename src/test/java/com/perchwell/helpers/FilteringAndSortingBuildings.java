@@ -297,4 +297,21 @@ public abstract class FilteringAndSortingBuildings {
         }
         return listingWithPriceFilter;
     }
+
+    public static boolean isContainsPropertyType(List<WebElement> roomsInfoList, String property) {
+        String propertyTypeString;
+
+        if (roomsInfoList.size() > 0) {
+            for (WebElement element : roomsInfoList) {
+
+                propertyTypeString = element.getAttribute("text");
+
+                if (!propertyTypeString.contains(property)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 }
