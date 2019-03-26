@@ -303,11 +303,8 @@ public abstract class FilteringAndSortingBuildings {
 
         if (roomsInfoList.size() > 0) {
             for (WebElement element : roomsInfoList) {
-                if (Config.isAndroid()) {
-                    propertyTypeString = element.getAttribute("text");
-                } else {
-                    propertyTypeString = element.getAttribute("value");
-                }
+
+                propertyTypeString = element.getAttribute("text");
 
                 if (!propertyTypeString.contains(property)) {
                     return false;
