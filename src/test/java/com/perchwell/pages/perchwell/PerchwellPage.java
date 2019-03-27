@@ -20,7 +20,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -208,8 +207,8 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'ADDRESS:'")
 	private List<WebElement> addresseslist;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
-	private WebElement firstTestListingWithOneAgentCheckbox;
+	@iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH 'Select button: unselected 1 West 72nd St. #95'")
+	private WebElement testListingWithOneAgentCheckbox;
 
 	@iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH 'Select button: unselected 240 East 35th St. #11A'")
 	private WebElement testListingWithTwoAgentsCheckbox;
@@ -258,6 +257,9 @@ public class PerchwellPage extends TechHelper {
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][2]")
 	private WebElement tagIconOnSecondListing;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'ADDRESS: 1 West 72nd St. #95'")
+	private WebElement testListingWithOneAgent;
 
 	//endregion
 
@@ -937,8 +939,8 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void selectFirstTestListingWithOneAgent() {
-		Helper.universalVerticalSwipe(firstTestListingWithOneAgentCheckbox);
-		element(firstTestListingWithOneAgentCheckbox).click();
+		universalVerticalSwipe(testListingWithOneAgentCheckbox);
+		element(testListingWithOneAgentCheckbox).click();
 	}
 
 	public void selectTestListingWithTwoAgents() {
@@ -1093,5 +1095,10 @@ public class PerchwellPage extends TechHelper {
 		for (int i = 0; i < addressesList.size(); i++) {
 			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("currentListingsAddress" + (i + 1)), addressesList.get(i).getAttribute("value").toUpperCase());
 		}
+	}
+
+	public void openListingWithOneAgent() {
+		universalVerticalSwipe(testListingWithOneAgent);
+		element(testListingWithOneAgent).click();
 	}
 }
