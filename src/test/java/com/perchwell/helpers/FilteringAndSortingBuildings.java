@@ -314,4 +314,8 @@ public abstract class FilteringAndSortingBuildings {
         }
         return false;
     }
+
+    public static void shouldTaggedListingBeSortedByMostExpensive() {
+
+    }
 }

@@ -53,7 +53,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement magnifierIcon;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/profile_image")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/background_image")
 	@iOSXCUITFindBy(accessibility = "Account Bar Button")
 	private WebElement openAccountButton;
 
@@ -196,6 +196,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'ADDRESS:'")
 	private List<WebElement> addressesList;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/menu_button")
 	@iOSXCUITFindBy(accessibility = "button: more multi-select options")
 	private WebElement moreOptionsButton;
 
@@ -214,12 +215,15 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH 'Select button: unselected 240 East 35th St. #11A'")
 	private WebElement testListingWithTwoAgentsCheckbox;
 
+	@AndroidFindBy(xpath = "*//android.widget.RelativeLayout[1]/android.widget.ImageView[@resource-id = 'com.perchwell.re.staging:id/multi_select_checkbox'][1]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
 	private WebElement firstContactListingCheckbox;
 
+	@AndroidFindBy(xpath = "*//android.widget.RelativeLayout[2]/android.widget.ImageView[@resource-id = 'com.perchwell.re.staging:id/multi_select_checkbox'][1]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][2]")
 	private WebElement secondContactListingCheckbox;
 
+	@AndroidFindBy(xpath = "*//android.widget.RelativeLayout[3]/android.widget.ImageView[@resource-id = 'com.perchwell.re.staging:id/multi_select_checkbox'][1]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][3]")
 	private WebElement thirdContactListingCheckbox;
 
@@ -241,6 +245,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: selected'")
 	private List<WebElement> selectedListingsList;
 
+	@AndroidFindBy(xpath = "*//android.widget.TextView[@text = 'Tag Selected Listings']")
 	@iOSXCUITFindBy(accessibility = "cell: Tag Selected Listings")
 	private WebElement tagSelectedListingsOption;
 

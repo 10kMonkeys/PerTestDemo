@@ -38,12 +38,15 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearIcon;
 
+	@AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, 'Sorted by')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name == 'Sorted by'")
 	private WebElement sclickOnSortedByButton;
 
+	@AndroidFindBy(xpath = "*//android.widget.TextView[@text = 'Least Expensive']")
 	@iOSXCUITFindBy(accessibility = "cell: deselected Least Expensive")
 	private WebElement leastExpensiveSortButton;
 
+	@AndroidFindBy(xpath = "*//android.widget.TextView[@text = 'Most Expensive']")
 	@iOSXCUITFindBy(accessibility = "cell: deselected Most Expensive")
 	private WebElement mostExpensiveSortButton;
 
@@ -193,15 +196,30 @@ public class MyTagsPage extends TechHelper {
 	}
 
 	public void checkListingAmount(int listingAmountToCheck) {
-		element(MobileBy.AccessibilityId("Listing Results: " + listingAmountToCheck)).shouldBeVisible();
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("*//android.widget.RelativeLayout/*/android.widget.TextView[contains(@text, '"
+					+ listingAmountToCheck + " Item')]")).shouldBeVisible();
+		} else {
+			element(MobileBy.AccessibilityId("Listing Results: " + listingAmountToCheck)).shouldBeVisible();
+		}
 	}
 
 	public void shouldTaggedListingBeSortedByMostExpensive() {
-		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
+		if(Config.isAndroid()) {
+//			androidSingleInitialVerticalSwipeForLists();
+//			androidVerticalSwipeToCheckLists();
+			FilteringAndSortingBuildings.shouldTaggedListingBeSortedByMostExpensive();
+		} else {
+			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
+		}
 	}
 
 	public void shouldTaggedListingBeSortedByLeastExpensive() {
-		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
+		if(Config.isAndroid()) {
+
+		} else {
+			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
+		}
 	}
 
 	public void shouldTaggedBuildingBeSortedByMostExpensive() {

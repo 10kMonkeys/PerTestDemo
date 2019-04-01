@@ -265,6 +265,33 @@ public class TechHelper extends BasePage {
         swipeVerticalAndroid(appiumDriver, 0.3, 0.9, 0.5);
     }
 
+    public void androidSingleInitialVerticalSwipeForListsAtListView(){
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        waitABit(3000);
+        swipeVerticalAndroid(appiumDriver, 0.8, 0.5, 0.5);
+    }
+
+    public void androidSingleInitialVerticalSwipeForLists(){
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        waitABit(3000);
+        swipeVerticalAndroid(appiumDriver, 0.8, 0.48, 0.5);
+    }
+
+    public void androidVerticalSwipeToCheckLists() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+
+        swipeVerticalAndroid(appiumDriver, 0.8, 0.29, 0.5);
+    }
+
     public void hideKeyboard() {
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();

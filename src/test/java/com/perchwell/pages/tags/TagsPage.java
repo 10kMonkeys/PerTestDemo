@@ -36,7 +36,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
 	private WebElement searchTagTextBox;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/create_tag")
+	@AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, '+ Create tag')]")
 	@iOSXCUITFindBy(accessibility = "button: create tag")
 	private WebElement createTagLabel;
 
@@ -56,9 +56,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'More'")
 	private WebElement moreTagIcon;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/tag_name")
-//	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '11CLIENTNAME'")
-//	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'TAGNAME'")
+	@AndroidFindBy(xpath = "*//android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[@resource-id='com.perchwell.re.staging:id/tag_name']")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS '11CLIENTNAME' OR name CONTAINS 'TAGNAME'`][1]")
 	private WebElement firstTag;
 
