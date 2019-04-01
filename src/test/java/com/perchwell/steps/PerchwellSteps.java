@@ -679,4 +679,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void checkIfCurrentListingsAddressesIsReturned() {
 		onPage.checkIfCurrentListingsAddressesIsReturned();
 	}
+
+	@Step
+	public void openListingWithOneAgent() {
+		onPage.openListingWithOneAgent();
+	}
 }
