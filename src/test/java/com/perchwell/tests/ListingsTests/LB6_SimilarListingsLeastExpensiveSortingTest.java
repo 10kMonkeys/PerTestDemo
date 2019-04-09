@@ -6,7 +6,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"ListingsAndBuildingsTests", "ListingsTests"})
+@WithTagValuesOf({"ListingsAndBuildingsTests", "iOS_ListingsTests", "Android_ListingsTests", "ListingsTests"})
 public class LB6_SimilarListingsLeastExpensiveSortingTest extends SampleTest {
 
     @Test

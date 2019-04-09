@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"AnalyticTests", "AnalyticsSecond"})
+@WithTagValuesOf({"AnalyticTests", "AnalyticsSecond", "iOS_AnalyticsSecond", "Android_AnalyticsSecond"})
 public class AT28_AddManagementDistributionChartsTest extends SampleTest {
 
     @Ignore
