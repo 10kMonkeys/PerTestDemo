@@ -789,9 +789,9 @@ public class SearchPage extends TechHelper {
 
     public void setSearchName(String search) {
         element(searchName).sendKeys(search);
-        if(Config.isAndroid()) {
-            hideKeyboard();
-        }
+//        if(Config.isAndroid()) {
+//            hideKeyboard();
+//        }
     }
 
     public String generateRandomString(String str) {

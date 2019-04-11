@@ -250,6 +250,7 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "NO MATCH")
 	private WebElement noMatchLabel;
 
+	@AndroidFindBy(xpath = "*//android.widget.ImageView[contains(@content-desc, 'Remove Button: ')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'removeBubble'")
 	private WebElement removeButton;
 
@@ -792,11 +793,20 @@ public class OpenedBuildingPage extends TechHelper {
 
     public void clearTagsList() {
 		waitABit(3000);
-		setImplicitTimeout(3, TimeUnit.SECONDS);
-		while (element(MobileBy.iOSNsPredicateString("label CONTAINS 'removeBubble'")).isVisible()) {
-			element(removeButton).click();
+		if(Config.isAndroid()) {
+			setImplicitTimeout(3, TimeUnit.SECONDS);
+			while (element(MobileBy.xpath("*//android.widget.ImageView[contains(@content-desc, 'Remove Button: ')]")).isVisible()) {
+				element(removeButton).click();
+			}
+			resetImplicitTimeout();
 		}
-		resetImplicitTimeout();
+		else {
+			setImplicitTimeout(3, TimeUnit.SECONDS);
+			while (element(MobileBy.iOSNsPredicateString("label CONTAINS 'removeBubble'")).isVisible()) {
+				element(removeButton).click();
+			}
+			resetImplicitTimeout();
+		}
     }
 
 	public void shouldNotSeeSpecificTag(String tag) {
