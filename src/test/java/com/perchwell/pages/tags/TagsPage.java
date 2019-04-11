@@ -63,6 +63,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement tagsPageCloseButton;
 
+	@AndroidFindBy(xpath = "//*[contains(@content-desc, 'ADDRESS: ')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'ADDRESS: '$][$visible = 1$]")
 	private WebElement buildingAddress;
 
@@ -245,28 +246,35 @@ public class TagsPage extends TechHelper {
 
 	public void shouldSeeTaggedListing(String stringBuildingAddress) {
 		if(Config.isAndroid()) {
-			element(MobileBy.xpath("//*[contains(@text,'" + stringBuildingAddress + "')]")).shouldBeVisible();
+			Assert.assertEquals(stringBuildingAddress.toLowerCase(), buildingAddress.getAttribute("text").toLowerCase());
 		} else {
 			Assert.assertEquals(stringBuildingAddress.toLowerCase(), buildingAddress.getAttribute("value").toLowerCase());
 		}
 	}
 
-	public void clickOnFirstTagAndGetValue() {
-		String firstTagAttribute;
-		if(Config.isAndroid()) {
-			firstTagAttribute = firstTag.getAttribute("text");
-		} else {
-			firstTagAttribute = firstTag.getAttribute("value");
-		}
+    public void clickOnFirstTagAndGetValue() {
+        String firstTagAttribute;
+        if (Config.isAndroid()) {
+            firstTagAttribute = firstTag.getAttribute("text");
 
-		if (firstTagAttribute.contains("item")) {
-			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("value")
-					.substring(0, firstTag.getAttribute("value").indexOf(" ")));
-		} else {
-			SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTagAttribute);
-		}
-		element(firstTag).click();
-	}
+            if (firstTagAttribute.contains("Item")) {
+                SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("text")
+                        .substring(0, firstTag.getAttribute("text").indexOf(" ")));
+            } else {
+                SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTagAttribute);
+            }
+        } else {
+            firstTagAttribute = firstTag.getAttribute("value");
+
+            if (firstTagAttribute.contains("item")) {
+                SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTag.getAttribute("value")
+                        .substring(0, firstTag.getAttribute("value").indexOf(" ")));
+            } else {
+                SessionVariables.addValueInSessionVariable("First_Existing_Tag", firstTagAttribute);
+            }
+        }
+        element(firstTag).click();
+    }
 
 	public void closeTagsPage() {
 		element(tagsPageCloseButton).click();

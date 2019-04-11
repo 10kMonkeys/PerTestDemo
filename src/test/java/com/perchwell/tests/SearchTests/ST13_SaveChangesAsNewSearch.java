@@ -15,11 +15,9 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
-		user.atPerchwellPage.clickOnMyNewSearch(); //search old
 		user.atSearchPage.clickOnSaveSearchButton();
 		user.atSearchPage.setSearchName();
 		user.atSearchPage.clickOnSaveButton();
-		user.atPerchwellPage.clickOnMyNewSearch(); //search old
 		user.inSearchMenu.openSearchPage(); //new search
 		user.atSearchPage.setMinimumPriceFilter(FilterPrices.ST13_MIN_PRICE);
 		user.atSearchPage.selectBedroomsRangeOptionIfNotSelected();
@@ -29,8 +27,6 @@ public class ST13_SaveChangesAsNewSearch extends SampleTest {
 		user.atSearchPage.setSearchName();
 		user.atSearchPage.clickOnSaveButton();
 		user.atPerchwellPage.shouldSeePreviouslyCreatedNameOfSearch();
-		user.atPerchwellPage.clickOnMyNewSearch(); //search old
-		user.atSearchPage.clickOnMySavedSearches(); //search old
 		user.inSearchMenu.openSavedSearches(); //search new
 		user.atSearchPage.shouldSeePreviouslyCreatedSearch();
 	}
