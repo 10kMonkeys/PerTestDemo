@@ -68,7 +68,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[3]")
 	private WebElement thirdBuilding;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_map")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/map_view_button")
 	@iOSXCUITFindBy(accessibility = "map_view_button")
 	private WebElement map;
 
@@ -400,7 +400,7 @@ public class PerchwellPage extends TechHelper {
 						break;
 					}
 				}
-				Helper.universalSingleSwipe();
+				universalSingleSwipe();
 			}
 		} else {
 			WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
@@ -632,7 +632,7 @@ public class PerchwellPage extends TechHelper {
 			specificAddress = getDriver().findElement(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_building_address")));
 		}
 
-		Helper.universalVerticalSwipe(specificAddress);
+		universalVerticalSwipe(specificAddress);
 		element(specificAddress).click();
 	}
 

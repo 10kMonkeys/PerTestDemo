@@ -57,11 +57,11 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Compare Bar Button")
 	private WebElement compareButton;
 
-	@AndroidFindBy(xpath = "//*[@text='SEND WITHIN PERCHWELL']")
+	@AndroidFindBy(xpath = "//*[@text='Send within Perchwell']")
 	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")
 	private WebElement disccusWithClientOption;
 
-	@AndroidFindBy(xpath = "//*[@text='SEND WITHIN PERCHWELL']")
+	@AndroidFindBy(xpath = "//*[@text='Send within Perchwell']")
 	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")
 	private WebElement sendWithinPerchwell;
 

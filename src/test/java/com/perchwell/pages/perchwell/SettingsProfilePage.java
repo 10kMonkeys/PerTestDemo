@@ -96,10 +96,17 @@ public class SettingsProfilePage extends TechHelper {
     }
 
     public void backFromEmailButtonClick() {
-        element(backFromEmailButton).click();
+        if(!Config.isAndroid()) {
+            element(backFromEmailButton).click();
+        }
     }
 
     public void backButtonFromResetPasswordClick() {
-        element(backButtonFromResetPasswordButton).click();
+        if(Config.isAndroid()) {
+            getDriver().navigate().back();
+        }
+        else {
+            element(backButtonFromResetPasswordButton).click();
+        }
     }
 }

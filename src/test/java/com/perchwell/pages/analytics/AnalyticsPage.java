@@ -68,7 +68,7 @@ public class AnalyticsPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "DONE MOVING CHARTS")
     private WebElement doneMovingChartsButton;
 
-    @AndroidFindBy(xpath = "//*[@text='MAXIMUM 6 CHARTS ALLOWED']")
+    @AndroidFindBy(xpath = "//*[@text='Maximum 6 charts allowed']")
     @iOSXCUITFindBy(accessibility = "MAXIMUM 6 CHARTS ALLOWED")
     private WebElement maximumSixChartMessage;
 
@@ -309,6 +309,9 @@ public class AnalyticsPage extends TechHelper {
 	public void setAndSaveReportName(String reportName) {
         SessionVariables.addValueInSessionVariable("Report_name", RandomGenerator.getRandomString(reportName));
 		element(nameThisReport).sendKeys(SessionVariables.getValueFromSessionVariable("Report_name"));
+        if(Config.isAndroid()) {
+            hideKeyboard();
+        }
 	}
 
 	public Boolean shouldFindSentEmail(String report_name) {
@@ -533,6 +536,9 @@ public class AnalyticsPage extends TechHelper {
 
     public void setClientAddress(String client_email) {
         element(nameThisReport).sendKeys(client_email);
+        if(Config.isAndroid()) {
+            hideKeyboard();
+        }
     }
 
     public void isChartDisplayed() {
