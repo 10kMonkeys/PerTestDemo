@@ -147,6 +147,8 @@ public class LoginPage extends TechHelper {
     }
 
     public void backFromEmailPageClick() {
-        element(backFromEmailButton).click();
+        if(!Config.isAndroid()) {
+            element(backFromEmailButton).click();
+        }
     }
 }
