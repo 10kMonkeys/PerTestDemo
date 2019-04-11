@@ -214,7 +214,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH 'Select button: unselected 240 East 35th St. #11A'")
 	private WebElement testListingWithTwoAgentsCheckbox;
 
-	@AndroidFindBy(xpath = "*//android.widget.RelativeLayout[1]/android.widget.ImageView[@resource-id = 'com.perchwell.re.staging:id/multi_select_checkbox'][1]")
+	@AndroidFindBy(xpath = "*//android.widget.ImageView[contains(@content-desc, 'Select button: unselected')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
 	private WebElement firstContactListingCheckbox;
 

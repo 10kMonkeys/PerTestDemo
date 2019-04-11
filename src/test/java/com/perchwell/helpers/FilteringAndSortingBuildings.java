@@ -315,7 +315,17 @@ public abstract class FilteringAndSortingBuildings {
         return false;
     }
 
-    public static void shouldTaggedListingBeSortedByMostExpensive() {
+    public static void shouldTaggedListingBeSortedByMostExpensiveOnlyAndroid(List<WebElement> priceList) {
+        int firstValue = Integer.parseInt(priceList.get(0).getAttribute("text").replaceAll("[$,]",""));
+        int secondValue =  Integer.parseInt(priceList.get(1).getAttribute("text").replaceAll("[$,]",""));
+        System.out.println(firstValue);
+        System.out.println(secondValue);
+        Assert.assertTrue(firstValue >= secondValue);
+    }
 
+    public static void shouldTaggedListingBeSortedByMostLeastOnlyAndroid(List<WebElement> priceList) {
+        int firstValue = Integer.parseInt(priceList.get(0).getAttribute("text"));
+        int secondValue =  Integer.parseInt(priceList.get(1).getAttribute("text"));
+        Assert.assertTrue(firstValue <= secondValue);
     }
 }

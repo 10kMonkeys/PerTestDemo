@@ -50,6 +50,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "cell: deselected Most Expensive")
 	private WebElement mostExpensiveSortButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/price")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'PRICE:'$]")
 	private List<WebElement> pricesList;
 
@@ -206,9 +207,12 @@ public class MyTagsPage extends TechHelper {
 
 	public void shouldTaggedListingBeSortedByMostExpensive() {
 		if(Config.isAndroid()) {
-//			androidSingleInitialVerticalSwipeForLists();
-//			androidVerticalSwipeToCheckLists();
-			FilteringAndSortingBuildings.shouldTaggedListingBeSortedByMostExpensive();
+			androidSingleInitialVerticalSwipeForLists();
+			for(int i = 0; i < 2; i++) {
+				System.out.println(pricesList.size());
+				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByMostExpensiveOnlyAndroid(pricesList);
+				androidSingleInitialVerticalSwipeForLists();
+			}
 		} else {
 			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
 		}
@@ -216,7 +220,11 @@ public class MyTagsPage extends TechHelper {
 
 	public void shouldTaggedListingBeSortedByLeastExpensive() {
 		if(Config.isAndroid()) {
-
+			androidSingleInitialVerticalSwipeForLists();
+			for(int i = 0; i < 2; i++) {
+				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByMostLeastOnlyAndroid(pricesList);
+				androidSingleInitialVerticalSwipeForLists();
+			}
 		} else {
 			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
 		}
