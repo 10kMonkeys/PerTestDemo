@@ -734,9 +734,7 @@ public class REBNYListingsPage extends TechHelper {
     }
 
     private void swipeUntilButtonShown(WebElement button) {
-        setImplicitTimeout(1, SECONDS);
-        Helper.universalVerticalSwipe(button);
-        resetImplicitTimeout();
+        universalVerticalSwipe(button);
     }
 
     public void addDistributionAskingPriceByPriceSegmentChart() throws Exception {

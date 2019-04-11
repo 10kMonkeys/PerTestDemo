@@ -85,11 +85,11 @@ public class AnalyticsPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "OK")
     private WebElement okButton;
 
-    @AndroidFindBy(xpath = "*//android.view.ViewGroup/android.widget.FrameLayout[1]")
+    @AndroidFindBy(accessibility = "MKT SHARE")
     @iOSXCUITFindBy(accessibility = "MKT SHARE")
     private WebElement mktShareButton;
 
-    @AndroidFindBy(xpath = "//*[@text='THIS IS A PRO-ONLY FEATURE']")
+    @AndroidFindBy(xpath = "//*[contains(@text, 'ASK YOUR AGENT IF THEY')]")
     @iOSXCUITFindBy(accessibility = "THIS IS A PRO-ONLY FEATURE")
     private WebElement thisIsAProOnlyFeatureMessage;
 
@@ -207,7 +207,7 @@ public class AnalyticsPage extends TechHelper {
     private WebElement legendTwelvePlusMillionButton;
 
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/upload")
+    @AndroidFindBy(accessibility = "com.perchwell.re.staging:id/upload")
     @iOSXCUITFindBy(accessibility = "share")
     private WebElement shareButtonInChart;
 
@@ -282,8 +282,8 @@ public class AnalyticsPage extends TechHelper {
         element(okButton).click();
     }
 
-    public boolean isThisIsAProOnlyFeatureMessageShow(){
-        return element(thisIsAProOnlyFeatureMessage).isDisplayed();
+    public void isThisIsAProOnlyFeatureMessageShow() {
+        element(thisIsAProOnlyFeatureMessage).shouldBeVisible();
     }
 
     public void mktShareButtonClick(){

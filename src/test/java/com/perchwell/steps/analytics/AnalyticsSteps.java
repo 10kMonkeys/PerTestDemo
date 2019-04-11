@@ -99,7 +99,7 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void isThisIsAProOnlyFeatureMessageShow() {
-		Assert.assertTrue(onPage.isThisIsAProOnlyFeatureMessageShow());
+		onPage.isThisIsAProOnlyFeatureMessageShow();
 	}
 
 	@Step
