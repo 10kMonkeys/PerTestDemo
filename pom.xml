@@ -12,34 +12,10 @@
 
         <properties>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-            <serenity.version>1.7.4</serenity.version>
-            <serenity.cucumber.version>1.6.3</serenity.cucumber.version>
-            <serenity.maven.version>1.7.4</serenity.maven.version>
+            <serenity.version>2.0.43</serenity.version>
+            <serenity.cucumber.version>1.9.33</serenity.cucumber.version>
+            <serenity.maven.version>2.0.42</serenity.maven.version>
         </properties>
-
-
-
-    <repositories>
-        <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>central</id>
-            <name>bintray</name>
-            <url>http://jcenter.bintray.com</url>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>central</id>
-            <name>bintray-plugins</name>
-            <url>http://jcenter.bintray.com</url>
-        </pluginRepository>
-    </pluginRepositories>
 
     <dependencies>
         <dependency>
@@ -47,14 +23,6 @@
             <artifactId>jaxb-api</artifactId>
             <version>2.3.0</version>
         </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
@@ -82,13 +50,6 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.6.1</version>
         </dependency>
-              <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>1.7.0</version>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>com.squareup.okhttp</groupId>
             <artifactId>okhttp</artifactId>
@@ -136,6 +97,12 @@
             <artifactId>webdrivermanager</artifactId>
             <version>2.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.8.0</version>
+            <scope>compile</scope>
+        </dependency>
 
 
     </dependencies>
@@ -156,7 +123,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <includes>
-                        <include>**/tests/*/*.java</include>
+                        <include>${runSuite}</include>
                     </includes>
                     <!--<reuseForks>true</reuseForks>-->
                     <!--<forkCount>1</forkCount>-->

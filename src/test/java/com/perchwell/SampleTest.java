@@ -2,8 +2,8 @@ package com.perchwell;
 
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.TravisAlive;
-import com.perchwell.helpers.stepListener.StepTestListener;
-import com.perchwell.helpers.stepListener.TestResult;
+import com.perchwell.helper.stepListener.StepTestListener;
+import com.perchwell.helper.stepListener.TestResult;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
