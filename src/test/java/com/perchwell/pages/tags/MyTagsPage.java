@@ -38,15 +38,15 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearIcon;
 
-	@AndroidFindBy(xpath = "*//android.widget.TextView[contains(@text, 'Sorted by')]")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/text_switcher")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name == 'Sorted by'")
 	private WebElement sclickOnSortedByButton;
 
-	@AndroidFindBy(xpath = "*//android.widget.TextView[@text = 'Least Expensive']")
+	@AndroidFindBy(accessibility = "cell: deselected Least Expensive")
 	@iOSXCUITFindBy(accessibility = "cell: deselected Least Expensive")
 	private WebElement leastExpensiveSortButton;
 
-	@AndroidFindBy(xpath = "*//android.widget.TextView[@text = 'Most Expensive']")
+	@AndroidFindBy(accessibility = "cell: deselected Most Expensive")
 	@iOSXCUITFindBy(accessibility = "cell: deselected Most Expensive")
 	private WebElement mostExpensiveSortButton;
 
@@ -54,6 +54,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'PRICE:'$]")
 	private List<WebElement> pricesList;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/building_price")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'BUILDING PRICE:'")
 	private List<WebElement> buildingPricesList;
 
@@ -69,6 +70,9 @@ public class MyTagsPage extends TechHelper {
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name BEGINSWITH 'ADDRESS: '$][1]")
 	private WebElement firstBuildingAddress;
+
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
+	private List<WebElement> onlyAndroidAddressList;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_image")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell[1]")
@@ -207,11 +211,10 @@ public class MyTagsPage extends TechHelper {
 
 	public void shouldTaggedListingBeSortedByMostExpensive() {
 		if(Config.isAndroid()) {
-			androidSingleInitialVerticalSwipeForLists();
+			androidSingleInitialVerticalSwipeForLists(0.48);
 			for(int i = 0; i < 2; i++) {
-				System.out.println(pricesList.size());
 				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByMostExpensiveOnlyAndroid(pricesList);
-				androidSingleInitialVerticalSwipeForLists();
+				androidSingleInitialVerticalSwipeForListsOnTaggedItems();
 			}
 		} else {
 			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
@@ -220,10 +223,10 @@ public class MyTagsPage extends TechHelper {
 
 	public void shouldTaggedListingBeSortedByLeastExpensive() {
 		if(Config.isAndroid()) {
-			androidSingleInitialVerticalSwipeForLists();
+			androidSingleInitialVerticalSwipeForLists(0.48);
 			for(int i = 0; i < 2; i++) {
-				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByMostLeastOnlyAndroid(pricesList);
-				androidSingleInitialVerticalSwipeForLists();
+				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByLeastOnlyAndroid(pricesList);
+				androidSingleInitialVerticalSwipeForListsOnTaggedItems();
 			}
 		} else {
 			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
@@ -231,31 +234,83 @@ public class MyTagsPage extends TechHelper {
 	}
 
 	public void shouldTaggedBuildingBeSortedByMostExpensive() {
-		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", buildingPricesList) == 1);
+		if(Config.isAndroid()) {
+			androidSingleInitialVerticalSwipeForLists(0.5);
+			for(int i = 0; i < 2; i++) {
+				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByMostExpensiveOnlyAndroid(buildingPricesList);
+				androidSingleInitialVerticalSwipeForListsOnTaggedItems();
+			}
+		} else {
+			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", buildingPricesList) == 1);
+		}
 	}
 
 	public void shouldTaggedBuildingBeSortedByLeastExpensive() {
-		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", buildingPricesList) == 0);
+		if(Config.isAndroid()) {
+			androidSingleInitialVerticalSwipeForLists(0.5);
+			for(int i = 0; i < 2; i++) {
+				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByLeastOnlyAndroid(buildingPricesList);
+				androidSingleInitialVerticalSwipeForListsOnTaggedItems();
+			}
+		} else {
+			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", buildingPricesList) == 0);
+		}
 	}
 
 	public void checkIfFourListingsAndBuildingAreDisplayed() {
-		SoftAssertions softAssertions = new SoftAssertions();
-		softAssertions.assertThat(addressesList.get(0).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("buildingAddress5").toUpperCase()));
-		softAssertions.assertThat(addressesList.get(1).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress4").toUpperCase()));
-		softAssertions.assertThat(addressesList.get(2).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress3").toUpperCase()));
-		softAssertions.assertThat(addressesList.get(3).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress2").toUpperCase()));
-		softAssertions.assertThat(addressesList.get(4).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress1").toUpperCase()));
-		softAssertions.assertAll();
+		if(Config.isAndroid()) {
+			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
+					SessionVariables.getValueFromSessionVariable("buildingAddress5").toUpperCase());
+			universalSingleSwipe();
+
+			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
+					SessionVariables.getValueFromSessionVariable("listingAddress3").toUpperCase());
+			universalSingleSwipe();
+
+			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
+					SessionVariables.getValueFromSessionVariable("listingAddress4").toUpperCase());
+			universalSingleSwipe();
+
+			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
+					SessionVariables.getValueFromSessionVariable("listingAddress1").toUpperCase());
+			universalSingleSwipe();
+
+			Assert.assertEquals(onlyAndroidAddressList.get(1).getAttribute("text").toUpperCase(),
+					SessionVariables.getValueFromSessionVariable("listingAddress2").toUpperCase());
+			universalSingleSwipe();
+		} else {
+			SoftAssertions softAssertions = new SoftAssertions();
+			softAssertions.assertThat(addressesList.get(0).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("buildingAddress5").toUpperCase()));
+			softAssertions.assertThat(addressesList.get(1).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress4").toUpperCase()));
+			softAssertions.assertThat(addressesList.get(2).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress3").toUpperCase()));
+			softAssertions.assertThat(addressesList.get(3).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress2").toUpperCase()));
+			softAssertions.assertThat(addressesList.get(4).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress1").toUpperCase()));
+			softAssertions.assertAll();
+		}
 	}
 
 	public void checkIfTwoLastListingsAndBuildingAreDisplayed() {
-		SoftAssertions softAssertions = new SoftAssertions();
-		softAssertions.assertThat(!element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).isPresent());
-		softAssertions.assertThat(!element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress2"))).isPresent());
-		softAssertions.assertThat(addressesList.get(0).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("buildingAddress5").toUpperCase()));
-		softAssertions.assertThat(addressesList.get(1).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress4").toUpperCase()));
-		softAssertions.assertThat(addressesList.get(2).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress3").toUpperCase()));
-		softAssertions.assertAll();
+		if(Config.isAndroid()) {
+			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
+					SessionVariables.getValueFromSessionVariable("buildingAddress5").toUpperCase());
+			universalSingleSwipe();
+
+			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
+					SessionVariables.getValueFromSessionVariable("listingAddress3").toUpperCase());
+			universalSingleSwipe();
+
+			Assert.assertEquals(onlyAndroidAddressList.get(1).getAttribute("text").toUpperCase(),
+					SessionVariables.getValueFromSessionVariable("listingAddress4").toUpperCase());
+			universalSingleSwipe();
+		} else {
+			SoftAssertions softAssertions = new SoftAssertions();
+			softAssertions.assertThat(!element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).isPresent());
+			softAssertions.assertThat(!element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress2"))).isPresent());
+			softAssertions.assertThat(addressesList.get(0).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("buildingAddress5").toUpperCase()));
+			softAssertions.assertThat(addressesList.get(1).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress4").toUpperCase()));
+			softAssertions.assertThat(addressesList.get(2).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("listingAddress3").toUpperCase()));
+			softAssertions.assertAll();
+		}
 	}
 
 	public void swipeDownSecondTagsPill() {
@@ -265,7 +320,11 @@ public class MyTagsPage extends TechHelper {
 
 	public void checkTaggedListingsAmount(int listingsAmount) {
 		setImplicitTimeout(3, SECONDS);
-		element(MobileBy.AccessibilityId("Listing Results: " + listingsAmount)).shouldBeVisible();
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("*//android.widget.TextView[@text = '" + listingsAmount + " Items Sorted by']")).shouldBeVisible();
+		} else {
+			element(MobileBy.AccessibilityId("Listing Results: " + listingsAmount)).shouldBeVisible();
+		}
 		resetImplicitTimeout();
 	}
 
@@ -275,9 +334,13 @@ public class MyTagsPage extends TechHelper {
     }
 
 	public void checkFirstListingsIsSelected() {
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]" +
-				"/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected "
-				+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldBePresent();
+	    if(Config.isAndroid()) {
+
+        } else {
+            element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]" +
+                    "/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected "
+                    + SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldBePresent();
+        }
 	}
 
 	public void checkSecondListingsIsSelected() {
@@ -302,9 +365,12 @@ public class MyTagsPage extends TechHelper {
 
 	public void clickOnSpecificTagsPill(String tagName) {
 //		element(MobileBy.AccessibilityId("Tag view: " + tagName)).click();
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).click();
+		if (Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.TextView[@content-desc='" + tagName + "']")).click();
+		} else {
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).click();
+		}
 	}
-
 	public void checkListingIsRemovedFromTaggedItemsPage(String address) {
 		setImplicitTimeout(3, SECONDS);
 		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'ADDRESS: " + address + "' AND visible == true")).size());

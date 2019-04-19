@@ -351,12 +351,15 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Add Button: BUILDINGS")
     private WebElement searchByAddressButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
     @iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
     private WebElement addressSearchField;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/foreground_image")
     @iOSXCUITFindBy(accessibility = "THE MURRAY HILL, 240 EAST 35TH STREET")
     private WebElement testBuilding;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
     @iOSXCUITFindBy(accessibility = "AddressSearchCancelButton")
     private WebElement addressSearchCancelButton;
 
@@ -525,6 +528,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: PROPERTY TYPE")
     private WebElement propertyTypeCollapseButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/address_edit_text")
     @iOSXCUITFindBy(accessibility = "AddressSearchBar")
     private WebElement searchAddressField;
 
@@ -710,9 +714,11 @@ public class SearchPage extends TechHelper {
     @AndroidFindBy(xpath = "//*[@text = 'BUILDING WIDTH']")
     private WebElement buildingWidthTitle;
 
+    @AndroidFindBy(xpath = "//android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.TextView[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
     private WebElement firstBuildingInSearch;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
     @iOSXCUITFindBy(accessibility = "AddressSearchCancelButton")
     private WebElement closeSearchAddressButton;
 

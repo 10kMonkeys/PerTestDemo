@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.tags.MyTagsPage;
 import net.thucydides.core.annotations.Step;
@@ -98,7 +99,9 @@ public class MyTagsSteps extends ScenarioSteps {
 
 	@Step
 	public void swipeDownSecondTagsPill() {
-		onPage.swipeDownSecondTagsPill();
+		if(!Config.isAndroid()) {
+			onPage.swipeDownSecondTagsPill();
+		}
 	}
 
 	@Step
@@ -314,4 +317,10 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void openSecondBuilding() {
 		onPage.openSecondBuilding();
 	}
+
+
+    @Step
+    public void resetSwipeOnlyForAndroid(int numSwipes) {
+        onPage.resetSwipeOnlyForAndroid(numSwipes);
+    }
 }

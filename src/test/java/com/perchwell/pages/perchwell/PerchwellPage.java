@@ -199,6 +199,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "button: more multi-select options")
 	private WebElement moreOptionsButton;
 
+	@AndroidFindBy(accessibility = "cell: Contact Listing Agents")
 	@iOSXCUITFindBy(accessibility = "cell: Contact Listing Agents")
 	private WebElement contactListingAgentsOption;
 
@@ -229,9 +230,11 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS:'$][3]")
 	private WebElement thirdBuildingAddress;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/second_label")
 	@iOSXCUITFindBy(accessibility = "Select all button")
 	private WebElement slectAllButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/third_label")
 	@iOSXCUITFindBy(accessibility = "Deselect all button")
 	private WebElement deselectAllButton;
 
@@ -244,7 +247,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: selected'")
 	private List<WebElement> selectedListingsList;
 
-	@AndroidFindBy(xpath = "*//android.widget.TextView[@text = 'Tag Selected Listings']")
+	@AndroidFindBy(accessibility = "cell: Tag Selected Listings")
 	@iOSXCUITFindBy(accessibility = "cell: Tag Selected Listings")
 	private WebElement tagSelectedListingsOption;
 
@@ -979,8 +982,16 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void getListingsAddresses(int amount) {
-		for(int i = 0; i < amount; i++) {
-			SessionVariables.addValueInSessionVariable("listingAddress" + (i + 1), addressesList.get(i).getAttribute("value"));
+		if(Config.isAndroid()) {
+			for(int i = 0; i < amount; i++) {
+				SessionVariables.addValueInSessionVariable("listingAddress" + (i + 1),
+						element(MobileBy.xpath("*//android.widget.TextView[contains(@content-desc, 'ADDRESS:')]")).getAttribute("text"));
+				universalSingleSwipe();
+			}
+		} else {
+			for (int i = 0; i < amount; i++) {
+				SessionVariables.addValueInSessionVariable("listingAddress" + (i + 1), addressesList.get(i).getAttribute("value"));
+			}
 		}
 	}
 
@@ -1013,10 +1024,19 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void selectThirdAndFourthListingsByAddress() {
-		WebElement thirdListingsCheckBox = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: unselected "
-				+ SessionVariables.getValueFromSessionVariable("listingAddress3") + "'"));
-		WebElement fourthListingsCheckBox = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: unselected "
+		WebElement thirdListingsCheckBox;
+		WebElement fourthListingsCheckBox;
+		if (Config.isAndroid()) {
+			thirdListingsCheckBox = element(MobileBy.xpath("*//android.widget.ImageView[contains(@content-desc, 'Select button: unselected "
+					+ SessionVariables.getValueFromSessionVariable("listingAddress3") + "')]"));
+			fourthListingsCheckBox = element(MobileBy.xpath("*//android.widget.ImageView[contains(@content-desc, 'Select button: unselected "
+					+ SessionVariables.getValueFromSessionVariable("listingAddress4") + "')]"));
+		} else {
+			thirdListingsCheckBox = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: unselected "
+					+ SessionVariables.getValueFromSessionVariable("listingAddress3") + "'"));
+			fourthListingsCheckBox = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: unselected "
 				+ SessionVariables.getValueFromSessionVariable("listingAddress4") + "'"));
+	}
 		universalVerticalSwipe(thirdListingsCheckBox);
 		element(thirdListingsCheckBox).click();
 		universalVerticalSwipe(fourthListingsCheckBox);

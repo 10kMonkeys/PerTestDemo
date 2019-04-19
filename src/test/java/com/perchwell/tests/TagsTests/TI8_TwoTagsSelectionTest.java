@@ -16,6 +16,7 @@ public class TI8_TwoTagsSelectionTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.getListingsAddresses(4);
+        user.onlyAndroid.resetListView();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.selectThirdListingAfterSecond();

@@ -20,10 +20,6 @@ public class AccountPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "DISCUSSIONS")
     private WebElement discussionsLabel;
 
-    @AndroidFindBy(xpath = "//*[@text='COMPARE']")
-    @iOSXCUITFindBy(accessibility = "COMPARE")
-    private WebElement compareLabel;
-
     @AndroidFindBy(xpath = "//*[@text='AGENTS']")
     @iOSXCUITFindBy(accessibility = "AGENTS")
     private WebElement agentsLabel;
@@ -44,16 +40,8 @@ public class AccountPage extends TechHelper {
         element(tagsLabel).click();
     }
 
-    public void clickOnCompareLabel() {
-        element(compareLabel).click();
-    }
-
     public void optionTagsIsDisplayed() {
         element(tagsLabel).shouldBeVisible();
-    }
-
-    public void optionCompareIsDisplayed() {
-        element(compareLabel).shouldBeVisible();
     }
 
     public void optionDiscussionsIsDisplayed() {

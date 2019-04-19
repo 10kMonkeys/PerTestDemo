@@ -32,12 +32,6 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 		onPage.clickOnDeleteTagButton();
 	}
 
-	@Step("Add to compare {0}")
-	public void addToCompare(String buildingName) {
-		onPage.clickOnAddToCompareButton();
-		SessionVariables.addValueInSessionVariable(buildingName, onPage.getBuildingAddress());
-	}
-
 	@Step
 	public void clickOnDiscussWithMyClientOption() {
 		onPage.clickOnDiscussWithClientOption();

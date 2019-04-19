@@ -318,14 +318,12 @@ public abstract class FilteringAndSortingBuildings {
     public static void shouldTaggedListingBeSortedByMostExpensiveOnlyAndroid(List<WebElement> priceList) {
         int firstValue = Integer.parseInt(priceList.get(0).getAttribute("text").replaceAll("[$,]",""));
         int secondValue =  Integer.parseInt(priceList.get(1).getAttribute("text").replaceAll("[$,]",""));
-        System.out.println(firstValue);
-        System.out.println(secondValue);
         Assert.assertTrue(firstValue >= secondValue);
     }
 
-    public static void shouldTaggedListingBeSortedByMostLeastOnlyAndroid(List<WebElement> priceList) {
-        int firstValue = Integer.parseInt(priceList.get(0).getAttribute("text"));
-        int secondValue =  Integer.parseInt(priceList.get(1).getAttribute("text"));
+    public static void shouldTaggedListingBeSortedByLeastOnlyAndroid(List<WebElement> priceList) {
+        int firstValue = Integer.parseInt(priceList.get(0).getAttribute("text").replaceAll("[$,]",""));
+        int secondValue =  Integer.parseInt(priceList.get(1).getAttribute("text").replaceAll("[$,]",""));
         Assert.assertTrue(firstValue <= secondValue);
     }
 }

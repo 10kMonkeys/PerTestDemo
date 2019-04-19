@@ -1,9 +1,11 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.WebDriver;
@@ -13,15 +15,19 @@ public class ContactListingAgentPage extends TechHelper {
 
     //region WebElements
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/send_email")
     @iOSXCUITFindBy(accessibility = "SEND EMAIL")
     private WebElement sendEmailButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/message_edit_text")
     @iOSXCUITFindBy(accessibility = "Write message here (you will be copied on the email)")
     private WebElement messageField;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/shrink_button")
     @iOSXCUITFindBy(accessibility = "shrink")
     private WebElement collapseButton;
 
+    @AndroidFindBy(accessibility = "Subject textField")
     @iOSXCUITFindBy(accessibility = "Subject textField")
     private WebElement subjectField;
 
@@ -45,6 +51,9 @@ public class ContactListingAgentPage extends TechHelper {
     }
 
     public void fillInMessageField(String message) {
+        if(Config.isAndroid()) {
+            element(messageField).click();
+        }
         element(messageField).sendKeys(message);
         SessionVariables.addValueInSessionVariable("Contact_message", message);
     }

@@ -54,9 +54,6 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
 	private WebElement buildingAddress;
 
-	@iOSXCUITFindBy(accessibility = "Compare Bar Button")
-	private WebElement compareButton;
-
 	@AndroidFindBy(xpath = "//*[@text='SEND WITHIN PERCHWELL']")
 	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")
 	private WebElement disccusWithClientOption;
@@ -309,10 +306,6 @@ public class OpenedBuildingPage extends TechHelper {
 			element(deleteTagButton).click();
 		}
 		resetImplicitTimeout();
-	}
-
-	public void clickOnAddToCompareButton() {
-		element(compareButton).click();
 	}
 
 	public String getBuildingAddress() {
@@ -784,8 +777,14 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void getTestAgentEmail() {
-		String agentEmail = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND " +
-				"name CONTAINS 'seller agent: '")).getValue().toLowerCase();
+		String agentEmail;
+
+		if(Config.isAndroid()) {
+			agentEmail = element(MobileBy.id("com.perchwell.re.staging:id/agent_name")).getAttribute("text").toLowerCase();
+		} else {
+			agentEmail = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND " +
+					"name CONTAINS 'seller agent: '")).getValue().toLowerCase();
+		}
 
 		SessionVariables.addValueInSessionVariable("Test_agent",
 				agentEmail.replace("test ", ""));
@@ -822,7 +821,11 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void getFifthBuildingAddress() {
-		SessionVariables.addValueInSessionVariable("buildingAddress" + 5, buildingAddress.getAttribute("value"));
+		if(Config.isAndroid()) {
+			SessionVariables.addValueInSessionVariable("buildingAddress" + 5, buildingAddress.getAttribute("text"));
+		} else {
+			SessionVariables.addValueInSessionVariable("buildingAddress" + 5, buildingAddress.getAttribute("value"));
+		}
 	}
 
 	public void shouldSeeAddedNewTag() {

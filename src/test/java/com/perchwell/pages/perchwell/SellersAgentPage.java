@@ -1,5 +1,6 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.data.EmailAddresses;
 import com.perchwell.data.EmailData;
 import com.perchwell.email.MailTrap;
@@ -166,8 +167,13 @@ public class SellersAgentPage extends TechHelper {
         Assert.assertTrue(rawBody.contains("Subject: " + subject));
         Assert.assertTrue(rawBody.contains(message));
         Assert.assertTrue(rawBody.contains("To: " + SessionVariables.getValueFromSessionVariable("Test_agent")));
-        Assert.assertTrue(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER));
-        Assert.assertFalse(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ","));
+        if (Config.isAndroid()) {
+            Assert.assertTrue(rawBody.contains("Cc: " + EmailAddresses.AND_BROKER));
+            Assert.assertFalse(rawBody.contains("Cc: " + EmailAddresses.AND_BROKER + ","));
+        } else {
+            Assert.assertTrue(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER));
+            Assert.assertFalse(rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ","));
+        }
     }
 
     public void shouldContactEmailSentToTwoAgents() {

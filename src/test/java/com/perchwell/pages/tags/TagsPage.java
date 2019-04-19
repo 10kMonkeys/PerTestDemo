@@ -67,39 +67,47 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name BEGINSWITH 'ADDRESS: '$][$visible = 1$]")
 	private WebElement buildingAddress;
 
+	@AndroidFindBy(accessibility = "Clear query")
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearTextFieldButton;
 
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'button: edit tag'")
 	private WebElement editIcon;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'button: edit tag')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'button: edit tag'")
 	private List<WebElement> editIconList;
 
 	@iOSXCUITFindBy(accessibility = "DELETE")
 	private WebElement deleteThisTagButton;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'label:')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[`visible==1`]/XCUIElementTypeStaticText")
 	private List<WebElement> visibleTagsList;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'image: notification active')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'image: notification active'")
 	private List<WebElement> activeBellIconsList;
 
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'button: set notification active'")
 	private List<WebElement> inactiveBellButtonsList;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'button: set notification inactive')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'button: set notification active'")
 	private WebElement inactiveBellButton;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'button: set notification active')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'button: set notification inactive'")
 	private WebElement activeBellButton;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label CONTAINS 'CLIENT TEST'`][1]")
 	private WebElement firstClientTag;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text = 'Other Tags']")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name == 'Other Tags'$][1]")
 	private WebElement otherTagsLabel;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text = 'Shared with clients']")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name == 'Shared with clients'$][1]")
 	private WebElement sharedWithClientLabel;
 
@@ -311,11 +319,22 @@ public class TagsPage extends TechHelper {
 
 		if(visibleTagsList.size() == numberTags) {
 			onlySearchedTagsAreShown = true;
-			for(WebElement tag: visibleTagsList) {
 
-				if(!tag.getAttribute("value").contains(text)) {
-					onlySearchedTagsAreShown = false;
-					break;
+			if (Config.isAndroid()) {
+				for (WebElement tag : visibleTagsList) {
+
+					if (!tag.getAttribute("text").contains(text)) {
+						onlySearchedTagsAreShown = false;
+						break;
+					}
+				}
+			} else {
+				for (WebElement tag : visibleTagsList) {
+
+					if (!tag.getAttribute("value").contains(text)) {
+						onlySearchedTagsAreShown = false;
+						break;
+					}
 				}
 			}
 		}
@@ -323,8 +342,16 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void swipeTag(String tagName) {
-		WebElement tag = element(MobileBy.iOSNsPredicateString("value BEGINSWITH '" + tagName + "'"));
-		horizontalElementSwipeForIOS(tag, 120);
+		WebElement tag;
+		if(Config.isAndroid()) {
+			tag = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + tagName +"')]"));
+			int y = tag.getLocation().getY();
+			universalHorizontalSwipe(tag, y + 1);
+		} else {
+			tag = element(MobileBy.iOSNsPredicateString("value BEGINSWITH '" + tagName + "'"));
+			horizontalElementSwipeForIOS(tag, 120);
+		}
+
 	}
 
 	public void clickOnEditTagIcon() {
@@ -336,7 +363,11 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void grayBellButtonIsShown() {
-		Assert.assertEquals(1, inactiveBellButtonsList.size());
+		if(Config.isAndroid()) {
+			element(inactiveBellButton).shouldBeVisible();
+		} else {
+			Assert.assertEquals(1, inactiveBellButtonsList.size());
+		}
 	}
 
 	public void editIconIsShown() {
@@ -349,7 +380,11 @@ public class TagsPage extends TechHelper {
 
 	public void checkNoOneActiveBellDisplayed() {
 		setImplicitTimeout(3, SECONDS);
-		element(MobileBy.iOSNsPredicateString("name CONTAINS 'image: notification active'")).shouldNotBeVisible();
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.ImageView[contains(@content-desc, 'image: notification active')]")).shouldNotBeVisible();
+		} else {
+			element(MobileBy.iOSNsPredicateString("name CONTAINS 'image: notification active'")).shouldNotBeVisible();
+		}
 		resetImplicitTimeout();
 	}
 
@@ -437,17 +472,32 @@ public class TagsPage extends TechHelper {
     }
 
 	public void checkTagBelowOtherTagsLabel(String value) {
-		WebElement tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
-				+ value + "'"));
+		WebElement tag;
+		if(Config.isAndroid()) {
+			tag = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + value +"')]"));
+		} else {
+			tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
+					+ value + "'"));
+		}
 
-		Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 60, getYPositionOfElement(tag));
+		System.out.println(getYPositionOfElement(otherTagsLabel));
+		System.out.println(getYPositionOfElement(tag));
+
+		Assert.assertEquals(getYPositionOfElement(otherTagsLabel) - 107, getYPositionOfElement(tag));
 	}
 
 	public void checkClientTagBelowSharedWithClientLabel(String userName) {
-		WebElement clientTag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
-				+ userName + "'"));
+		WebElement clientTag;
+		if(Config.isAndroid()) {
+			clientTag = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + userName +"')]"));
+		} else {
+			clientTag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
+					+ userName + "'"));
+		}
+		System.out.println(getYPositionOfElement(sharedWithClientLabel));
+		System.out.println(getYPositionOfElement(clientTag));
 
-		Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 61, getYPositionOfElement(clientTag));
+		Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 236, getYPositionOfElement(clientTag));
 	}
 
 	public void checkNoOneTagIsAdded() {
@@ -540,11 +590,25 @@ public class TagsPage extends TechHelper {
 	}
 
 	public boolean isTagExists(String tagName) {
-		return element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).isVisible();
+
+		boolean isTagExist;
+
+		if(Config.isAndroid()) {
+			isTagExist = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + tagName +"')]")).isVisible();
+		} else {
+			isTagExist = element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).isVisible();
+		}
+
+
+		return isTagExist;
 	}
 
 	public void clickOnSpecificTag(String tagName) {
-		element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).click();
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + tagName + "')]")).click();
+		} else {
+			element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).click();
+		}
 	}
 
 	public void removeAllTagPills() {

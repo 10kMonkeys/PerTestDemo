@@ -25,18 +25,18 @@ public class TI9_TagGroupsTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.createAndSaveNewTag();
         user.atTagsPage.searchJustCreatedTag();
-        user.atTagsPage.checkTagBelowOtherTagsLabel();
+        user.atTagsPage.checkTagBelowOtherTagsLabel(); //
         user.atTagsPage.clearTextField();
         user.atTagsPage.searchJustCreatedClientTag();
-        user.atTagsPage.checkClientTagBelowSharedWithClientLabel();
+        user.atTagsPage.checkClientTagBelowSharedWithClientLabel(); //
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
-        user.atTagsPage.checkTagBelowOtherTagsLabel();
+        user.atTagsPage.checkTagBelowOtherTagsLabel(); //
         user.atTagsPage.clearTextField();
         user.atTagsPage.searchJustCreatedClientTag();
-        user.atTagsPage.checkClientTagBelowSharedWithClientLabel();
+        user.atTagsPage.checkClientTagBelowSharedWithClientLabel(); //
     }
 }

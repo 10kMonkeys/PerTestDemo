@@ -144,6 +144,14 @@ public class TechHelper extends BasePage {
         swipeVerticalAndroid(appiumDriver, 0.2, 0.9, 0.5);
     }
 
+    public void singleUpShortSwipeAndroidToReturnListInInitialState() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        swipeVerticalAndroid(appiumDriver, 0.3, 0.9, 0.5);
+    }
+
     public void horizontalElementSwipeForIOS(WebElement element, int swipeLength) {
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
@@ -169,7 +177,7 @@ public class TechHelper extends BasePage {
         }
     }
 
-    public void universalHorizontalSwipe(WebElement element, int y) throws Exception {
+    public void universalHorizontalSwipe(WebElement element, int y) {
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
@@ -265,22 +273,20 @@ public class TechHelper extends BasePage {
         swipeVerticalAndroid(appiumDriver, 0.3, 0.9, 0.5);
     }
 
-    public void androidSingleInitialVerticalSwipeForListsAtListView(){
+    public void androidSingleInitialVerticalSwipeForLists(double finalPosition){
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        waitABit(3000);
-        swipeVerticalAndroid(appiumDriver, 0.8, 0.5, 0.5);
+        swipeVerticalAndroid(appiumDriver, 0.8, finalPosition, 0.5);
     }
 
-    public void androidSingleInitialVerticalSwipeForLists(){
+    public void androidSingleInitialVerticalSwipeForListsOnTaggedItems(){
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        waitABit(3000);
-        swipeVerticalAndroid(appiumDriver, 0.8, 0.48, 0.5);
+        swipeVerticalAndroid(appiumDriver, 0.8, 0.3, 0.5);
     }
 
     public void androidVerticalSwipeToCheckLists() {
@@ -290,6 +296,14 @@ public class TechHelper extends BasePage {
 
 
         swipeVerticalAndroid(appiumDriver, 0.8, 0.29, 0.5);
+    }
+
+    public void resetSwipeOnlyForAndroid(int swipeAmount) {
+        if(Config.isAndroid()) {
+            for(int i = 0; i < 2; i++) {
+                this.singleUpShortSwipeAndroidToReturnListInInitialState();
+            }
+        }
     }
 
     public void hideKeyboard() {

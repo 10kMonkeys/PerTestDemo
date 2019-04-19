@@ -44,9 +44,6 @@ public class User extends ScenarioSteps {
     public DiscussionsListSteps atDiscussionsListPage;
 
     @Steps
-    public  CompareSteps atComparePage;
-
-    @Steps
     public DiscussionSteps atDiscussionPage;
 
     @Steps
@@ -102,4 +99,7 @@ public class User extends ScenarioSteps {
 
     @Steps
     public BuildingSearchSteps atBuildingSearchPage;
+
+    @Steps
+    public OnlyAndroidSteps onlyAndroid;
 }

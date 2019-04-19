@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.crossPlatform.Config;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import net.thucydides.core.annotations.Step;
@@ -25,18 +26,8 @@ public class AccountSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOnCompareLabel() {
-        onPage.clickOnCompareLabel();
-    }
-
-    @Step
     public void shouldSeeOptionClient() {
         onPage.optionClientsIsDisplayed();
-    }
-
-    @Step
-    public void shouldSeeOptionCompare() {
-        onPage.optionCompareIsDisplayed();
     }
 
     @Step
@@ -70,6 +61,10 @@ public class AccountSteps extends ScenarioSteps {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        new TouchAction(appiumDriver).tap(60,60).release().perform();
+        if(Config.isAndroid()) {
+            new TouchAction(appiumDriver).tap(150, 150).release().perform();
+        } else {
+            new TouchAction(appiumDriver).tap(60, 60).release().perform();
+        }
     }
 }
