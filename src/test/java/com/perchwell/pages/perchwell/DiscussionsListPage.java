@@ -94,8 +94,8 @@ public class DiscussionsListPage extends TechHelper {
 		boolean reportWasFound =false;
 		MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(AppProperties.INSTANCE.getProperty("HEADER_DISCUSS"));
 		if (mailTrapResponse.length > 0) {
-			for (MailTrapResponse my_responce : mailTrapResponse) {
-				if (getTextBody(my_responce.getTxt_path()).contains(emailText)) {
+			for (MailTrapResponse my_response : mailTrapResponse) {
+				if (getTextBody(my_response.getTxt_path()).contains(emailText)) {
 					reportWasFound = true;
 					break;
 				}

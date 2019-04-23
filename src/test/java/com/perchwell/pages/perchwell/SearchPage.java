@@ -89,21 +89,23 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption: 1")
     private WebElement filterFor1Bath;
 
-    @AndroidFindBy(accessibility = "In Contract")
+    @AndroidFindBy(accessibility = "Listing Status Suboption: In Contract")
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption: In Contract")
     private WebElement inContractFilter;
 
-    @AndroidFindBy(accessibility = "Off Market")
+    @AndroidFindBy(accessibility = "Listing Status Suboption: Off Market")
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption: Off Market")
     private WebElement offMKTButton;
 
-    @AndroidFindBy(accessibility = "Sold/Rented")
+    @AndroidFindBy(accessibility = "Listing Status Suboption: Sold/Rented")
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption: Sold/Rented")
     private WebElement soldOrRentedButton;
 
+    @AndroidFindBy(accessibility = "Listing Status Suboption: Expired")
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption: Expired")
     private WebElement expiredButton;
 
+    @AndroidFindBy(accessibility = "Listing Status Suboption: Active")
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption: Active")
     private WebElement activeButton;
 
@@ -126,7 +128,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[3]")
     private WebElement thirdSearchInList;
 
-    @AndroidFindBy(xpath = "//android.support.v7.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.RelativeLayout/android.widget.TextView[1]")
+    @AndroidFindBy(xpath = "//android.support.v7.widget.RecyclerView/android.view.View[1]/android.widget.RelativeLayout/android.widget.TextView[1]")
 //	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
     private WebElement firstSearchInList;
@@ -223,15 +225,15 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "BATHROOMS Suboption Selected: 3")
     private WebElement selectedFilterFor3Baths;
 
-    @AndroidFindBy(accessibility = "Active-selected")
+    @AndroidFindBy(accessibility = "Listing Status Suboption Selected: Active")
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: Active")
     private WebElement selectedActiveFilter;
 
-    @AndroidFindBy(accessibility = "In Contract-selected")
+    @AndroidFindBy(accessibility = "Listing Status Suboption Selected: In Contract")
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: In Contract")
     private WebElement selectedContractFilter;
 
-    @AndroidFindBy(accessibility = "Off Market-selected")
+    @AndroidFindBy(accessibility = "Listing Status Suboption Selected: Off Market")
     @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: Off Market")
     private WebElement selectedOffMktFilter;
 
@@ -319,7 +321,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Remove Button: Queens")
     private WebElement queensRemoveIcon;
 
-    @AndroidFindBy(accessibility = "Alphabet City")
+    @AndroidFindBy(accessibility = "Neighborhood-Alphabet City")
     @iOSXCUITFindBy(accessibility = "Neighborhood-Alphabet City")
     private WebElement alphabetCityCheckbox;
 
@@ -1168,10 +1170,10 @@ public class SearchPage extends TechHelper {
     public void deselectActiveFilter() {
         if (Config.isAndroid()) {
             setImplicitTimeout(1, SECONDS);
-            Helper.universalVerticalSwipe(listingActivitySection);
+            universalVerticalSwipe(listingActivitySection);
             resetImplicitTimeout();
         } else {
-            Helper.universalVerticalSwipe(selectedActiveFilter);
+            universalVerticalSwipe(selectedActiveFilter);
         }
         element(selectedActiveFilter).click();
     }
