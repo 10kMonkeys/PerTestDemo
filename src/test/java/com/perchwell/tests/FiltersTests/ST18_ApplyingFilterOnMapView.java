@@ -18,7 +18,6 @@ public class ST18_ApplyingFilterOnMapView extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMap();
         user.atMapPage.clickOnNotNowButton();
-        user.atMapPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openSearchPage(); //search new
         user.atSearchPage.selectBathroomsRangeOption();
         user.atSearchPage.selectFilter1AndHalfBath();

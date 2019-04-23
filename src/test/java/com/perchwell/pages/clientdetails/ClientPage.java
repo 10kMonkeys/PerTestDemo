@@ -161,6 +161,7 @@ public class ClientPage extends TechHelper {
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/client_group_text_view")
 	private WebElement groupField;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/invite_button")
 	@iOSXCUITFindBy(accessibility = "invite_agent_label")
 	private WebElement inviteAgentButton;
 
