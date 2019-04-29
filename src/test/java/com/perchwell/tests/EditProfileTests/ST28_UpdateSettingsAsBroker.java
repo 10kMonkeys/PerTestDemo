@@ -2,6 +2,7 @@ package com.perchwell.tests.EditProfileTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import org.junit.Test;
 public class ST28_UpdateSettingsAsBroker extends SampleTest {
 
     @Test
+    @Screenshots(disabled=true)
     public void updateSettingAsBrokerTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("broker_test_email"),
                 AppProperties.INSTANCE.getProperty("broker_test_password"));

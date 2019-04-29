@@ -2,6 +2,7 @@ package com.perchwell.tests.EditProfileTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
@@ -9,6 +10,7 @@ import org.junit.Test;
 public class ST30_ResetPasswordTest extends SampleTest {
 
     @Test
+    @Screenshots(disabled=true)
     public void resetPasswordTest(){
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("old_reset_password"));

@@ -2,13 +2,17 @@ package com.perchwell.tests.LogInTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
+
+import java.io.IOException;
 
 @WithTagValuesOf({"SmokeTestSuit", "LogInTests", "iOS_First", "Android_First"})
 public class ST1_LogInAsClientTest extends SampleTest {
 
 	@Test
+	@Screenshots(disabled=true)
 	public void logInAsClient() {
 		user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));

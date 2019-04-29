@@ -3,6 +3,7 @@ package com.perchwell.tests.DiscussTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
@@ -10,6 +11,7 @@ import org.junit.Test;
 public class ST26_DiscussionWithExistingAgent extends SampleTest {
 
 	@Test
+	@Screenshots(disabled=true)
 	public void discussionWithExistingAgent() throws Exception {
 		user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));

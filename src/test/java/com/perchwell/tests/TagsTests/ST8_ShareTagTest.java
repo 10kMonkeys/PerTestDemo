@@ -3,6 +3,7 @@ package com.perchwell.tests.TagsTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.EmailData;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -12,6 +13,7 @@ public class ST8_ShareTagTest extends SampleTest {
 
 	@Ignore
 	@Test
+	@Screenshots(disabled=true)
 	public void shareTagTest() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

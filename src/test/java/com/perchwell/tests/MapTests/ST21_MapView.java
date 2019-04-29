@@ -2,6 +2,7 @@ package com.perchwell.tests.MapTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -11,6 +12,7 @@ public class ST21_MapView extends SampleTest {
 
     @Ignore
     @Test
+    @Screenshots(disabled=true)
     public void sortListingsOnMap() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));

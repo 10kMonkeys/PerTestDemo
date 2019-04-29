@@ -3,6 +3,7 @@ package com.perchwell.tests.FiltersTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.Districts;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -11,6 +12,7 @@ import org.junit.Test;
 public class ST15_ApplyingLocationFilterTest extends SampleTest {
 
 	@Test
+	@Screenshots(disabled=true)
 	public void resultAfterApplyingLocationFilter() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 					AppProperties.INSTANCE.getProperty("password"));

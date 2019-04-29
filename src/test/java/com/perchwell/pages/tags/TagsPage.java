@@ -56,7 +56,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'More'")
 	private WebElement moreTagIcon;
 
-	@AndroidFindBy(xpath = "*//android.view.View[1]/android.view.View/android.widget.TextView[@resource-id='com.perchwell.re.staging:id/tag_name']")
+	@AndroidFindBy(xpath = "*//android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[@resource-id='com.perchwell.re.staging:id/tag_name']")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS '11CLIENTNAME' OR name CONTAINS 'TAGNAME'`][1]")
 	private WebElement firstTag;
 
@@ -225,9 +225,7 @@ public class TagsPage extends TechHelper {
 
 	public void shouldSeeJustCreatedTagUpCaseWithSwipe(String tagName) {
 		if (Config.isAndroid()) {
-			setImplicitTimeout(1, SECONDS);
-			Helper.androidSwipeDownUntilElementVisible(tagName);
-			resetImplicitTimeout();
+			element(searchTagTextBox).sendKeys(tagName);
 			element(MobileBy.xpath("//*[contains(@text, '" + tagName + "')]")).shouldBeVisible();
 		} else {
 			element(searchTagTextBox).sendKeys(tagName);

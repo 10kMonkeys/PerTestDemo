@@ -4,6 +4,7 @@ import com.perchwell.SampleTest;
 import com.perchwell.data.ElementsNumberTitles;
 import com.perchwell.data.FilterPrices;
 import com.perchwell.entity.AppProperties;
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
@@ -11,6 +12,7 @@ import org.junit.Test;
 public class ST14_ChangeExistingSearch extends SampleTest {
 
 	@Test
+	@Screenshots(disabled=true)
 	public void saveChangesAsNewSearch() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

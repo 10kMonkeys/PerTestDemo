@@ -1,6 +1,7 @@
 package com.perchwell.pages.starting;
 
 import com.perchwell.helpers.TechHelper;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.NoSuchElementException;
@@ -61,6 +62,14 @@ public class WelcomePage extends TechHelper {
 			return element.isDisplayed();
 		} catch (NoSuchElementException e) {
 			return false;
+		}
+	}
+
+	public void closeAlertIfAppearedOnlyAndroid() {
+//		System.out.println(getDriver().getPageSource()); //need to remove
+		if(getDriver().getPageSource().contains("isn't responding")) {
+//			getDriver().findElement(MobileBy.xpath("//android.widget.Button[@resource-id='android:id/aerr_close']")).click();
+			getDriver().findElement(MobileBy.xpath("//android.widget.Button[@resource-id='android:id/aerr_wait']")).click();
 		}
 	}
 }
