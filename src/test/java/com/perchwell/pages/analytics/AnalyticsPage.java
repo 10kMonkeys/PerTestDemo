@@ -31,7 +31,7 @@ public class AnalyticsPage extends TechHelper {
     //region WebElements
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/rebny_listings")
-    @iOSXCUITFindBy(accessibility = "REBNY LISTINGS")
+    @iOSXCUITFindBy(accessibility = "LISTINGS")
     private WebElement rebnyListingsButton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/add")
