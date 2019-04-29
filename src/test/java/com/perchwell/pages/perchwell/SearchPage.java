@@ -69,7 +69,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "SAVE")
     private WebElement searchSavebutton;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/rename_group_edit_text")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/edit_text")
     @iOSXCUITFindBy(accessibility = "generic_text_input_field")
     private WebElement searchName;
 
@@ -128,7 +128,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[3]")
     private WebElement thirdSearchInList;
 
-    @AndroidFindBy(xpath = "//android.support.v7.widget.RecyclerView/android.view.View[1]/android.widget.RelativeLayout/android.widget.TextView[1]")
+    @AndroidFindBy(xpath = "//android.support.v7.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.RelativeLayout/android.widget.TextView[1]")
 //	@iOSXCUITFindBy(xpath = "*//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
     private WebElement firstSearchInList;
