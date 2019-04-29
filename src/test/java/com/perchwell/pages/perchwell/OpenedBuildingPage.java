@@ -54,11 +54,11 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
 	private WebElement buildingAddress;
 
-	@AndroidFindBy(xpath = "//*[@text='Send within Perchwell']")
+	@AndroidFindBy(xpath = "//*[@text='SEND WITHIN PERCHWELL']")
 	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")
 	private WebElement disccusWithClientOption;
 
-	@AndroidFindBy(xpath = "//*[@text='Send within Perchwell']")
+	@AndroidFindBy(xpath = "//*[@text='SEND WITHIN PERCHWELL']")
 	@iOSXCUITFindBy(accessibility = "SEND WITHIN PERCHWELL")
 	private WebElement sendWithinPerchwell;
 
