@@ -214,7 +214,7 @@ public class TagsPage extends TechHelper {
 		WebElement tag;
 
 		if(Config.isAndroid()) {
-			tag = getDriver().findElement(MobileBy.xpath("//*[contains(@text, '" + uniqueTagName + "')]"));
+			tag = getDriver().findElement(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + uniqueTagName + "')]"));
 		} else {
 
 			tag = element(MobileBy.iOSNsPredicateString(

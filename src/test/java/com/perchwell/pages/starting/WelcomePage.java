@@ -68,8 +68,8 @@ public class WelcomePage extends TechHelper {
 	public void closeAlertIfAppearedOnlyAndroid() {
 //		System.out.println(getDriver().getPageSource()); //need to remove
 		if(getDriver().getPageSource().contains("isn't responding")) {
-//			getDriver().findElement(MobileBy.xpath("//android.widget.Button[@resource-id='android:id/aerr_close']")).click();
-			getDriver().findElement(MobileBy.xpath("//android.widget.Button[@resource-id='android:id/aerr_wait']")).click();
+			getDriver().findElement(MobileBy.xpath("//android.widget.Button[@resource-id='android:id/aerr_close']")).click();
+//			getDriver().findElement(MobileBy.xpath("//android.widget.Button[@resource-id='android:id/aerr_wait']")).click();
 		}
 	}
 }
