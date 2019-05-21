@@ -12,7 +12,7 @@ public class ST23_DiscussionWithExistingClient extends SampleTest {
 
 	@Test
 	@Screenshots(disabled=true)
-	public void discussionWithExistingClientTest() throws Exception {
+	public void discussionWithExistingClientTest() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();

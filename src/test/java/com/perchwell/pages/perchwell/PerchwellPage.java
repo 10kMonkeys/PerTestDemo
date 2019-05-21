@@ -174,7 +174,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS-61 WEST 62ND ST'")
 	private WebElement testListing;
 
-	@AndroidFindBy(xpath = "//*[@text = '15 WEST 81ST ST. #11A']")
+	@AndroidFindBy(accessibility = "ADDRESS: 240 East 35th St. #11A")
 	@iOSXCUITFindBy(accessibility = "ADDRESS: 240 East 35th St. #11A 474823")
 	private WebElement twoAgentListing;
 
@@ -715,7 +715,7 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void openTwoAgentListing() {
-		Helper.universalVerticalSwipe(twoAgentListing);
+		universalVerticalSwipe(twoAgentListing);
 		element(twoAgentListing).click();
 	}
 
@@ -952,7 +952,7 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void selectTestListingWithTwoAgents() {
-		Helper.universalVerticalSwipe(testListingWithTwoAgentsCheckbox);
+		universalVerticalSwipe(testListingWithTwoAgentsCheckbox);
 		element(testListingWithTwoAgentsCheckbox).click();
 	}
 

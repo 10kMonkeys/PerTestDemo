@@ -10,7 +10,7 @@ import org.junit.Test;
 public class TI13_ListingTagWithClientTagDiscussTest extends SampleTest {
 
     @Test
-    public void listingTagWithClientTagDiscuss() throws Exception {
+    public void listingTagWithClientTagDiscuss() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
