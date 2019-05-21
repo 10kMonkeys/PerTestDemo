@@ -2090,7 +2090,12 @@ public class SearchPage extends TechHelper {
     }
 
     public void clickOnListingByAddress(String address) {
-        element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value CONTAINS '" + address + "'")).click();
+        if(Config.isAndroid()) {
+            element(MobileBy.xpath("//*[contains(@text, '"+ address +"')]")).click();
+        } else {
+            element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value CONTAINS '" + address + "'")).click();
+        }
+
     }
 
     public void fillInTotalRoomsMaxField(String value) {

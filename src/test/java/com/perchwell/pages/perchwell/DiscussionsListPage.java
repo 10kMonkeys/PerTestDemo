@@ -44,9 +44,11 @@ public class DiscussionsListPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "DiscussionsSearchBar")
 	private WebElement discussionsSearchBar;
 
+	@AndroidFindBy(xpath = "//*[contains(@text, 'CLIENT TEST+CLIENT-TH-CHARTS')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'CLIENT TEST+CLIENT-TH-CHARTS' AND visible==1")
 	private WebElement testClientInFilterByPersonResult;
 
+	@AndroidFindBy(accessibility = "Clear query")
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearTextButton;
 

@@ -34,6 +34,7 @@ public class SellersAgentPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "textView")
     private WebElement agentMessagetextBox;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/shrink_button")
     @iOSXCUITFindBy(accessibility = "shrink")
     private WebElement collapseButton;
 
@@ -103,7 +104,9 @@ public class SellersAgentPage extends TechHelper {
 
     public void updateMessage(String agent_message) {
         element(agentMessagetextBox).sendKeys(agent_message);
-        element(collapseButton).click();
+        if(!Config.isAndroid()) {
+            element(collapseButton).click();
+        }
     }
 
     public boolean countNumberEmailsSentToTwoSellersAgents() {

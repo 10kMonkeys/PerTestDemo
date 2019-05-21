@@ -428,7 +428,7 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void clickOnOneSellersAgentSection() {
-		Helper.universalVerticalSwipe(oneSellerAgentSection);
+		universalVerticalSwipe(oneSellerAgentSection);
 		element(oneSellerAgentSection).click();
 	}
 

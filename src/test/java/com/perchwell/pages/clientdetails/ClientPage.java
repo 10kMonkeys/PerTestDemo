@@ -363,7 +363,9 @@ public class ClientPage extends TechHelper {
 	}
 
 	public void clickOnClearTextButton() {
-		element(clearTextButton).click();
+		if(!Config.isAndroid()) {
+			element(clearTextButton).click();
+		}
 	}
 
 	public void isSearchFieldCleared() {
@@ -393,9 +395,15 @@ public class ClientPage extends TechHelper {
 	public void clickOnTestClient(String clientName) throws Exception {
 //		Helper.swipeDownUntilElementVisible(testClient);
 //		Helper.universalVerticalSwipe(testClient);
-		element(searchClientField).sendKeys(clientName);
-		element(searchFrozenArea).click();
-		element(testClient).click();
+		if(Config.isAndroid()) {
+			element(searchClientField).sendKeys(clientName);
+			element(testClient).click();
+		} else {
+			element(searchClientField).sendKeys(clientName);
+			element(searchFrozenArea).click();
+			element(testClient).click();
+		}
+
 	}
 
 	public void clickOnGroupsButton() {

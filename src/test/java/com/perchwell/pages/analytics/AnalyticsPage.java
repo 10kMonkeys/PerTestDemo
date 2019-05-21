@@ -303,14 +303,14 @@ public class AnalyticsPage extends TechHelper {
 	}
 
 	public void clickSaveButton() {
-	    if(Config.isAndroid()) {
-            waitABit(3000);
-            setImplicitTimeout(3, SECONDS);
-	        if(!element(MobileBy.xpath("com.perchwell.re.staging:id/positive_button")).isVisible()) {
-                hideKeyboard();
-            }
-            resetImplicitTimeout();
-        }
+//	    if(Config.isAndroid()) {
+//            waitABit(3000);
+//            setImplicitTimeout(3, SECONDS);
+//	        if(!element(MobileBy.xpath("com.perchwell.re.staging:id/positive_button")).isVisible()) {
+//                hideKeyboard();
+//            }
+//            resetImplicitTimeout();
+//        }
 		element(saveButton).click();
 	}
 

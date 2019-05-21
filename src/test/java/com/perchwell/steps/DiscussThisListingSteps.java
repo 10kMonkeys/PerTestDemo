@@ -11,7 +11,7 @@ public class DiscussThisListingSteps extends ScenarioSteps {
     OpenedBuildingPage openedBuildingPage;
 
     @Step
-    public void deleteDiscussionWithClientIfExist() throws Exception {
+    public void deleteDiscussionWithClientIfExist() {
         if (openedBuildingPage.isClientWithDiscussionExist()) {
             openedBuildingPage.clickOnViewAllDiscussionsButton();
             discussThisListingPage.deleteClientsWithDiscussion();
@@ -22,7 +22,7 @@ public class DiscussThisListingSteps extends ScenarioSteps {
     }
 
     @Step
-    public void deleteDiscussionWithAgentIfExist() throws Exception {
+    public void deleteDiscussionWithAgentIfExist() {
         if (openedBuildingPage.isAgentWithDiscussionExist()) {
             openedBuildingPage.clickOnViewAllDiscussionsButton();
             discussThisListingPage.deleteAgentsWithDiscussion();
