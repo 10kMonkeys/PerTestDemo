@@ -26,7 +26,7 @@ public class SearchMenu extends TechHelper {
     @iOSXCUITFindBy(accessibility = "My Saved Searches Button")
     private WebElement mySavedSearchesButton;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/profile_image")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/background_image")
     @iOSXCUITFindBy(accessibility = "Account Bar Button")
     private WebElement openAccountButton;
 
