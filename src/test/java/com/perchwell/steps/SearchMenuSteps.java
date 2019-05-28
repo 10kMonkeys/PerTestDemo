@@ -33,10 +33,8 @@ public class SearchMenuSteps extends ScenarioSteps {
 
     @Step
     public void openSavedSearchesWithPause() {
-        if(!Config.isAndroid()) {
-            inMenu.clickOnSearchMenuIconWithPause();
-            inMenu.clickOnMySavedSearches();
-        }
+        inMenu.clickOnSearchMenuIconWithPause();
+        inMenu.clickOnMySavedSearches();
     }
 
     @Step
