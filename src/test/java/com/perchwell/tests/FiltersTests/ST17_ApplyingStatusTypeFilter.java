@@ -12,7 +12,7 @@ public class ST17_ApplyingStatusTypeFilter extends SampleTest {
 
     @Test
     @Screenshots(disabled=true)
-    public void applyingStatusTypeFilter() throws Exception {
+    public void applyingStatusTypeFilter() {
             user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                     AppProperties.INSTANCE.getProperty("password"));
             user.atPerchwellPage.skipAllHints();

@@ -543,6 +543,7 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public boolean checkListingsQuantity() {
+		waitABit(3000);
 		int listingsAmountToCheck = getNumberOfListings(listingsByButton);
 		return ((listingsAmountToCheck > (listingsAmount - 50)) && ((listingsAmount + 50) > listingsAmountToCheck));
 	}

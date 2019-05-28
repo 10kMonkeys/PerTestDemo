@@ -369,6 +369,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Show more features & amenities")
     private WebElement showMoreFeaturesAndAmenitiesButton;
 
+    @AndroidFindBy(xpath = "//*[@text = 'CURRENT STATUS']")
     @iOSXCUITFindBy(accessibility = "CURRENT STATUS")
     private WebElement currentStatusSection;
 
@@ -1185,20 +1186,20 @@ public class SearchPage extends TechHelper {
     }
 
     public void deselectContractFilter() {
-        Helper.universalVerticalSwipe(selectedContractFilter);
+        universalVerticalSwipe(selectedContractFilter);
         element(selectedContractFilter).click();
     }
 
     public void deselectOffMktFilter() {
-        Helper.universalVerticalSwipe(selectedOffMktFilter);
+        universalVerticalSwipe(selectedOffMktFilter);
         element(selectedOffMktFilter).click();
     }
 
     public void checkSalesAndActiveFiltersSelected() {
         SoftAssertions softAssertions = new SoftAssertions();
-        Helper.universalVerticalSwipe(propertyTypeSection);
+        universalVerticalSwipe(propertyTypeSection);
         softAssertions.assertThat(element(selectedSalesProperty).isDisplayed());
-        Helper.universalVerticalSwipe(currentStatusSection);
+        universalVerticalSwipe(currentStatusSection);
         softAssertions.assertThat(element(selectedActiveFilter).isDisplayed());
         softAssertions.assertAll();
     }
