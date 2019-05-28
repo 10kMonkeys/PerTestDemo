@@ -50,7 +50,6 @@ public class TI2_BuildingSortingTest extends SampleTest {
         user.atMyTagsPage.shouldTaggedBuildingBeSortedByMostExpensive();
         user.atMyTagsPage.clickOnSortedByButton();
         user.atMyTagsPage.clickOnLeastExpensiveButton();
-        user.atMyTagsPage.resetSwipeOnlyForAndroid(2);
         user.atMyTagsPage.shouldTaggedBuildingBeSortedByLeastExpensive();
     }
 }

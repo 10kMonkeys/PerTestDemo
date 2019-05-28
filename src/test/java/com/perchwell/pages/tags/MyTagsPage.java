@@ -211,10 +211,9 @@ public class MyTagsPage extends TechHelper {
 
 	public void shouldTaggedListingBeSortedByMostExpensive() {
 		if(Config.isAndroid()) {
-			androidSingleInitialVerticalSwipeForLists(0.48);
-			for(int i = 0; i < 2; i++) {
+			for(int i = 0; i < 3; i++) {
 				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByMostExpensiveOnlyAndroid(pricesList);
-				androidSingleInitialVerticalSwipeForListsOnTaggedItems();
+				androidSwipeForSorting();
 			}
 		} else {
 			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
@@ -223,10 +222,9 @@ public class MyTagsPage extends TechHelper {
 
 	public void shouldTaggedListingBeSortedByLeastExpensive() {
 		if(Config.isAndroid()) {
-			androidSingleInitialVerticalSwipeForLists(0.48);
-			for(int i = 0; i < 2; i++) {
+			for(int i = 0; i < 3; i++) {
 				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByLeastOnlyAndroid(pricesList);
-				androidSingleInitialVerticalSwipeForListsOnTaggedItems();
+				androidSwipeForSorting();
 			}
 		} else {
 			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
@@ -235,10 +233,9 @@ public class MyTagsPage extends TechHelper {
 
 	public void shouldTaggedBuildingBeSortedByMostExpensive() {
 		if(Config.isAndroid()) {
-			androidSingleInitialVerticalSwipeForLists(0.5);
-			for(int i = 0; i < 2; i++) {
+			for(int i = 0; i < 3; i++) {
 				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByMostExpensiveOnlyAndroid(buildingPricesList);
-				androidSingleInitialVerticalSwipeForListsOnTaggedItems();
+				androidSwipeForSorting();
 			}
 		} else {
 			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", buildingPricesList) == 1);
@@ -247,10 +244,11 @@ public class MyTagsPage extends TechHelper {
 
 	public void shouldTaggedBuildingBeSortedByLeastExpensive() {
 		if(Config.isAndroid()) {
-			androidSingleInitialVerticalSwipeForLists(0.5);
-			for(int i = 0; i < 2; i++) {
+//			androidSingleInitialVerticalSwipeForLists(0.5);
+			for(int i = 0; i < 3; i++) {
 				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByLeastOnlyAndroid(buildingPricesList);
-				androidSingleInitialVerticalSwipeForListsOnTaggedItems();
+				androidSwipeForSorting(); //new
+//				androidSingleInitialVerticalSwipeForListsOnTaggedItems();
 			}
 		} else {
 			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", buildingPricesList) == 0);

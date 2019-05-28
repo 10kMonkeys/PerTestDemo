@@ -13,12 +13,10 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;

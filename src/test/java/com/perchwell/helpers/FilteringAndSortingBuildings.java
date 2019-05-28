@@ -13,6 +13,9 @@ import org.openqa.selenium.WebElement;
 
 public abstract class FilteringAndSortingBuildings {
 
+    private static int valueToCompareMin = 0;
+    private static int valueToCompareMax = 1000000000;
+
     public static float getNumberFromString(String typeSorting, String input) {
         float output;
         String price = "^\\$\\d+.*$";
@@ -316,14 +319,34 @@ public abstract class FilteringAndSortingBuildings {
     }
 
     public static void shouldTaggedListingBeSortedByMostExpensiveOnlyAndroid(List<WebElement> priceList) {
-        int firstValue = Integer.parseInt(priceList.get(0).getAttribute("text").replaceAll("[$,]",""));
-        int secondValue =  Integer.parseInt(priceList.get(1).getAttribute("text").replaceAll("[$,]",""));
-        Assert.assertTrue(firstValue >= secondValue);
+//        int firstValue = Integer.parseInt(priceList.get(0).getAttribute("text").replaceAll("[$,]",""));
+//        int secondValue =  Integer.parseInt(priceList.get(1).getAttribute("text").replaceAll("[$,]",""));
+//        Assert.assertTrue(firstValue >= secondValue);
+        System.out.println(valueToCompareMax);
+//        int firstValue = Integer.parseInt(priceList.get(0).getAttribute("text").replaceAll("[$,]",""));
+//        int secondValue =  Integer.parseInt(priceList.get(1).getAttribute("text").replaceAll("[$,]",""));
+//        Assert.assertTrue(firstValue <= secondValue);
+        for(WebElement element: priceList) {
+            int value = Integer.parseInt(element.getAttribute("text").replaceAll("[$,]",""));
+            System.out.println("valueToCompare = " + valueToCompareMax + "and value " + value);
+            Assert.assertTrue(valueToCompareMax >= value);
+//              valueToCompare = value;
+        }
+        valueToCompareMax = Integer.parseInt(priceList.get(0).getAttribute("text").replaceAll("[$,]",""));
     }
 
     public static void shouldTaggedListingBeSortedByLeastOnlyAndroid(List<WebElement> priceList) {
-        int firstValue = Integer.parseInt(priceList.get(0).getAttribute("text").replaceAll("[$,]",""));
-        int secondValue =  Integer.parseInt(priceList.get(1).getAttribute("text").replaceAll("[$,]",""));
-        Assert.assertTrue(firstValue <= secondValue);
+        System.out.println(valueToCompareMin);
+//        int firstValue = Integer.parseInt(priceList.get(0).getAttribute("text").replaceAll("[$,]",""));
+//        int secondValue =  Integer.parseInt(priceList.get(1).getAttribute("text").replaceAll("[$,]",""));
+//        Assert.assertTrue(firstValue <= secondValue);
+          for(WebElement element: priceList) {
+              int value = Integer.parseInt(element.getAttribute("text").replaceAll("[$,]",""));
+              System.out.println("valueToCompare = " + valueToCompareMin + "and value " + value);
+              Assert.assertTrue(valueToCompareMin <= value);
+//              valueToCompare = value;
+          }
+        valueToCompareMin = Integer.parseInt(priceList.get(0).getAttribute("text").replaceAll("[$,]",""));
+
     }
 }
