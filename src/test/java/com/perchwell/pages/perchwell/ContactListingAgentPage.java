@@ -38,7 +38,7 @@ public class ContactListingAgentPage extends TechHelper {
     private WebElement defaultAgentCCAddress;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
-    @iOSXCUITFindBy(accessibility = "Back")
+    @iOSXCUITFindBy(accessibility = "iconChevronLeft")
     private WebElement backButtonFromContactListingAgentPage;
 
     //endregion

@@ -73,7 +73,7 @@ public class OpenedBuildingPage extends TechHelper {
 	private WebElement bath1Text;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/share")
-	@iOSXCUITFindBy(accessibility = "share")
+	@iOSXCUITFindBy(accessibility = "share24")
 	private WebElement shareBitton;
 
 	@AndroidFindBy(xpath = "//*[@text='FEATURES & AMENITIES']")
@@ -140,7 +140,7 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "MORE")
 	private WebElement moreButton;
 
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]")
 	private WebElement neighborhoodValue;
 
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'Neighborhood'")
