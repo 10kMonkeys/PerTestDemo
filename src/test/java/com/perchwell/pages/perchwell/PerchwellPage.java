@@ -990,7 +990,6 @@ public class PerchwellPage extends TechHelper {
 		} else {
 			for (int i = 0; i < amount; i++) {
 				SessionVariables.addValueInSessionVariable("listingAddress" + (i + 1), addressesList.get(i).getAttribute("value"));
-				System.out.println(SessionVariables.getValueFromSessionVariable("listingAddress" + (i + 1)));
 			}
 		}
 	}
