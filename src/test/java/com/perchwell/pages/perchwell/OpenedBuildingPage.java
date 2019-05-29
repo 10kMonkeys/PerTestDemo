@@ -73,7 +73,7 @@ public class OpenedBuildingPage extends TechHelper {
 	private WebElement bath1Text;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/share")
-	@iOSXCUITFindBy(accessibility = "share")
+	@iOSXCUITFindBy(accessibility = "share24")
 	private WebElement shareBitton;
 
 	@AndroidFindBy(xpath = "//*[@text='FEATURES & AMENITIES']")
