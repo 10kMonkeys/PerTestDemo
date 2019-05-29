@@ -39,11 +39,9 @@ public class SearchMenuSteps extends ScenarioSteps {
 
     @Step
     public void openAddressSearch() {
-        if(Config.isAndroid()) {
             waitABit(1000);
             inMenu.clickOnSearchMenuIcon();
             inMenu.clickOnSearchByAddressButton();
-        }
     }
 
     public void shouldSeeSaveButton() {

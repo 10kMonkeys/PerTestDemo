@@ -481,7 +481,7 @@ public class TagsPage extends TechHelper {
 		System.out.println(getYPositionOfElement(otherTagsLabel));
 		System.out.println(getYPositionOfElement(tag));
 
-		Assert.assertEquals(getYPositionOfElement(otherTagsLabel) - 107, getYPositionOfElement(tag));
+		Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 60, getYPositionOfElement(tag));
 	}
 
 	public void checkClientTagBelowSharedWithClientLabel(String userName) {
@@ -495,7 +495,7 @@ public class TagsPage extends TechHelper {
 		System.out.println(getYPositionOfElement(sharedWithClientLabel));
 		System.out.println(getYPositionOfElement(clientTag));
 
-		Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 236, getYPositionOfElement(clientTag));
+		Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 61, getYPositionOfElement(clientTag));
 	}
 
 	public void checkNoOneTagIsAdded() {
