@@ -11,7 +11,7 @@ public class ST35_ReportDetailsOpeningTest extends SampleTest {
 
 	@Test
 	@Screenshots(disabled=true)
-	public void reportDetailsOpeningTest() throws Exception {
+	public void reportDetailsOpeningTest() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();

@@ -1220,4 +1220,9 @@ public class SearchSteps extends ScenarioSteps {
     public void expandLocationSection() {
         onPage.clickOnCollapseExpandLocationButton();
     }
+
+    @Step
+    public void selectCondopFilter() {
+        onPage.selectCondopFilter();
+    }
 }

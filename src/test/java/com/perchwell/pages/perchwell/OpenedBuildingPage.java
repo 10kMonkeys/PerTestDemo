@@ -73,7 +73,7 @@ public class OpenedBuildingPage extends TechHelper {
 	private WebElement bath1Text;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/share")
-	@iOSXCUITFindBy(accessibility = "share")
+	@iOSXCUITFindBy(accessibility = "share24")
 	private WebElement shareBitton;
 
 	@AndroidFindBy(xpath = "//*[@text='FEATURES & AMENITIES']")
@@ -108,7 +108,7 @@ public class OpenedBuildingPage extends TechHelper {
 	private WebElement LaundryBLDGD;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]/XCUIElementTypeStaticText[1]")
 	private WebElement buildAddress;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/negative_button")
@@ -313,7 +313,7 @@ public class OpenedBuildingPage extends TechHelper {
 			return buildingAddress.getAttribute("text");
 		}
 		else{
-			return buildingAddress.getAttribute("name");
+			return buildAddress.getAttribute("name");
 		}
 	}
 
@@ -833,7 +833,7 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void clickOnListingsBuilding() {
-		String listingsAddress = buildingAddress.getAttribute("value");
+		String listingsAddress = buildAddress.getAttribute("value");
 		WebElement buildingAddress = element(MobileBy.AccessibilityId(listingsAddress.substring(0, listingsAddress.lastIndexOf(" "))));
 
 		universalVerticalSwipe(buildingAddress);

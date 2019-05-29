@@ -41,6 +41,7 @@ public class PT25_ApplyAndSwitchBetweenSalesAndRentalsTest extends SampleTest {
         user.atSearchPage.selectSalesProperty();
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.selectCoopFilter();
+        user.atSearchPage.selectCondopFilter();
         user.atSearchPage.selectTownhouseFilter();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.inSearchMenu.openSearchPage(); //search new
@@ -69,6 +70,7 @@ public class PT25_ApplyAndSwitchBetweenSalesAndRentalsTest extends SampleTest {
         user.atSearchPage.swipeToPropertiesSection();
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.selectCoopFilter();
+        user.atSearchPage.selectCondopFilter();
         user.atSearchPage.selectTownhouseFilter();
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.inSearchMenu.openSearchPage(); //search new

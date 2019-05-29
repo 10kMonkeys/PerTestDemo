@@ -753,6 +753,10 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'BUILDING ADDRESS: '")
     private List<WebElement> buildingAddressesList;
 
+    @AndroidFindBy(accessibility = "CONDOP")
+    @iOSXCUITFindBy(accessibility = "Condop")
+    private WebElement condopFilter;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -2216,5 +2220,9 @@ public class SearchPage extends TechHelper {
 
     public void clickOnCollapseExpandLocationButton() {
         element(collapseExpandLocationButton).click();
+    }
+
+    public void selectCondopFilter() {
+        element(condopFilter).click();
     }
 }

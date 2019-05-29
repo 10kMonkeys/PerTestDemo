@@ -18,7 +18,9 @@ public class OnlyAndroidSteps extends ScenarioSteps{
 
     @Step
     public void resetListView() {
-        inSearchMenu1.openSearchPage();
-        atSearchPage1.clickOnApplyButton();
+        if(Config.isAndroid()) {
+            inSearchMenu1.openSearchPage();
+            atSearchPage1.clickOnApplyButton();
+        }
     }
 }
