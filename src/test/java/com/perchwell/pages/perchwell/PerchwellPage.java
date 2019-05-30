@@ -1037,16 +1037,20 @@ public class PerchwellPage extends TechHelper {
 					+ SessionVariables.getValueFromSessionVariable("listingAddress3") + "')]"));
 			fourthListingsCheckBox = element(MobileBy.xpath("*//android.widget.ImageView[contains(@content-desc, 'Select button: unselected "
 					+ SessionVariables.getValueFromSessionVariable("listingAddress4") + "')]"));
+
+			element(thirdListingsCheckBox).click();
+			universalVerticalSwipe(fourthListingsCheckBox);
+			element(fourthListingsCheckBox).click();
 		} else {
 			thirdListingsCheckBox = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: unselected "
 					+ SessionVariables.getValueFromSessionVariable("listingAddress3") + "'"));
 			fourthListingsCheckBox = element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: unselected "
 				+ SessionVariables.getValueFromSessionVariable("listingAddress4") + "'"));
-	}
-		universalVerticalSwipe(thirdListingsCheckBox);
-		element(thirdListingsCheckBox).click();
-		universalVerticalSwipe(fourthListingsCheckBox);
-		element(fourthListingsCheckBox).click();
+			universalVerticalSwipe(thirdListingsCheckBox);
+			element(thirdListingsCheckBox).click();
+			universalVerticalSwipe(fourthListingsCheckBox);
+			element(fourthListingsCheckBox).click();
+		}
 	}
 
 	public void clickOnTagIconOnFirstListing() {

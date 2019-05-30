@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.pages.perchwell.ContactListingAgentPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -60,7 +61,9 @@ public class ContactListingAgentSteps extends ScenarioSteps {
 
     @Step
     public void hideKeyboard() {
-        onPage.hideKeyboard();
+        if(!Config.isAndroid()) {
+            onPage.hideKeyboard();
+        }
     }
 
     @Step
