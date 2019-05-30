@@ -57,8 +57,9 @@ public class CustomBoundaryPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Polygon Editing Button")
     private WebElement saveButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'MY NEW SEARCH'")
-    private String backToSearchButton;
+    private WebElement backToSearchButton;
 
     //endregion
 
@@ -135,18 +136,25 @@ public class CustomBoundaryPage extends TechHelper {
     }
 
     public void clickOnSaveButton() {
-        element(saveButton).click();
+        if(Config.isAndroid()) {
+            element(saveButton).click();
+            element(saveButton).click();
+        } else {
+            element(saveButton).click();
+        }
     }
 
     public void clickOnBackToSearchPageButton() {
-//        element(backToSearchButton).click();
+        if(Config.isAndroid()) {
+            element(backToSearchButton).click();
+        } else {
+            WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+            WebDriver webDriver = webDriverFacade.getProxiedDriver();
+            AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+            TouchAction action = new TouchAction(appiumDriver);
 
-        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-        WebDriver webDriver = webDriverFacade.getProxiedDriver();
-        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
-        TouchAction action = new TouchAction(appiumDriver);
-
-        action.tap(20, 60).release().perform();
+            action.tap(20, 60).release().perform();
+        }
     }
 
     public void getCustomBoundaryName() {

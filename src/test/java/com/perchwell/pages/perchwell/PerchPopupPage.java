@@ -1,6 +1,7 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.helpers.TechHelper;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +17,7 @@ public class PerchPopupPage extends TechHelper {
     @iOSXCUITFindBy(accessibility ="WOULD YOU LIKE TO RECEIVE NOTIFICATIONS FROM PERCHWELL?")
     private WebElement text;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
     @iOSXCUITFindBy(accessibility ="YES")
     private WebElement yesButton;
 
