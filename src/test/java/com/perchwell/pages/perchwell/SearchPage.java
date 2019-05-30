@@ -596,9 +596,11 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Option: Resale")
     private WebElement resaleOption;
 
+    @AndroidFindBy(accessibility = "Asking Price Per FT² Minimum Value Input")
     @iOSXCUITFindBy(accessibility = "Asking Price Per FT² Minimum Value Input")
     private WebElement minPricePerFTField;
 
+    @AndroidFindBy(accessibility = "Asking Price Per FT² Maximum Value Input")
     @iOSXCUITFindBy(accessibility = "Asking Price Per FT² Maximum Value Input")
     private WebElement maxPricePerFTField;
 
@@ -1623,12 +1625,12 @@ public class SearchPage extends TechHelper {
     }
 
     public void setSquareFeetMaxFilter(String value) {
-        universalVerticalSwipe(collapseReleaseSponsorArrow);
-
         if(Config.isAndroid()) {
+            universalVerticalSwipe(squareFeetMaxValueField);
             element(squareFeetMaxValueField).sendKeys(value);
         }
         else {
+            universalVerticalSwipe(collapseReleaseSponsorArrow);
             element(squareFeetMaxValueField).typeAndEnter(value);
         }
     }
@@ -1850,9 +1852,12 @@ public class SearchPage extends TechHelper {
     }
 
     public void fillInPricePerSquareFeetMinField(String value) {
-        universalVerticalSwipe(collapseReleaseSponsorArrow);
-        element(minPricePerFTField).sendKeys(value);
-        if (!Config.isAndroid()) {
+        if(Config.isAndroid()) {
+            universalVerticalSwipe(minPricePerFTField);
+            element(minPricePerFTField).sendKeys(value);
+        } else {
+            universalVerticalSwipe(collapseReleaseSponsorArrow);
+            element(minPricePerFTField).sendKeys(value);
             getDriver().findElement(By.name("Done")).click();
         }
     }
@@ -1865,8 +1870,13 @@ public class SearchPage extends TechHelper {
     }
 
     public void clearMinPricePerSFTField() {
-        universalVerticalSwipe(collapseReleaseSponsorArrow);
-        element(minPricePerFTField).clear();
+        if(Config.isAndroid()) {
+            universalVerticalSwipe(minPricePerFTField);
+            element(minPricePerFTField).clear();
+        } else {
+            universalVerticalSwipe(collapseReleaseSponsorArrow);
+            element(minPricePerFTField).clear();
+        }
     }
 
     public void clearMaxPricePerSFTField() {

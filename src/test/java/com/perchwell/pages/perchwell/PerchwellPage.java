@@ -665,7 +665,7 @@ public class PerchwellPage extends TechHelper {
                         }
 
                     }
-                    Helper.universalSingleSwipe();
+                    universalSingleSwipe();
                 }
                 Assert.assertTrue(isAllCellsContain);
         } else {
@@ -696,7 +696,7 @@ public class PerchwellPage extends TechHelper {
                     }
 
                 }
-                Helper.universalSingleSwipe();
+                universalSingleSwipe();
             }
             Assert.assertTrue(isAllCellsContain);
         } else {
