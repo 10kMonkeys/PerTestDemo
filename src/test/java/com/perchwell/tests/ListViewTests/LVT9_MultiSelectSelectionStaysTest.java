@@ -25,8 +25,11 @@ public class LVT9_MultiSelectSelectionStaysTest extends SampleTest {
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.checkOneListingIsSelected();
         user.atPerchwellPage.checkSelectionMenuIsShown(1);
-        user.atPerchwellPage.clickOnDiscussionIconOnFirstListing();
-        user.atDiscussionPage.clickOnArrowBackFromDiscussionToListViewButton();
+        user.atPerchwellPage.clickOnListShareButton();
+        user.atOpenedBuildingPage.clickOnSendWithinPerchwell();
+        user.atOpenedBuildingPage.clickOnViewAllDiscussionsButton();
+        user.atDiscussionPage.clickOnCrossBackButtonFromDiscussionsPage();
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.checkOneListingIsSelected();
         user.atPerchwellPage.checkSelectionMenuIsShown(1);
         user.atPerchwellPage.clickOnMoreOptionsButton();

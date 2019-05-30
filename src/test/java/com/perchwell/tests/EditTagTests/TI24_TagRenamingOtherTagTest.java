@@ -3,11 +3,13 @@ package com.perchwell.tests.EditTagTests;
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.Ignore;
 import org.junit.Test;
 
 @WithTagValuesOf({"TagsTests", "iOS_TagsThird", "Android_TagsThird", "TagsThird"})
 public class TI24_TagRenamingOtherTagTest extends SampleTest {
 
+    @Ignore
     @Test
     public void tagRenamingOtherTag() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("tags_third_email"),

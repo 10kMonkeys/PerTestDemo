@@ -178,7 +178,7 @@ public class MyTagsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOnDiscussionIconOnFirstListing() {
+    public void clickOnListShareButton() {
 		onPage.clickOnDiscussionIconOnFirstListing();
     }
 

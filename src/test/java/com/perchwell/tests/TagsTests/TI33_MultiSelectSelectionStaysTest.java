@@ -27,9 +27,13 @@ public class TI33_MultiSelectSelectionStaysTest extends SampleTest {
         user.atContactListingAgentPage.clickOnBackButton();
         user.atMyTagsPage.checkFirstListingsIsSelected();
         user.atMyTagsPage.multiSelectMenuIsShown();
-        user.atMyTagsPage.clickOnDiscussionIconOnFirstListing();
-        user.atDiscussionPage.clickOnArrowBackFromDiscussionToListViewButton();
-        user.atMyTagsPage.checkFirstListingsIsSelected();
-        user.atMyTagsPage.multiSelectMenuIsShown();
+//        user.atMyTagsPage.clickOnListShareButton();
+//        user.atOpenedBuildingPage.clickOnSendWithinPerchwell();
+//        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+//        user.atOpenedBuildingPage.clickOnViewAllDiscussionsButton();
+//        user.atDiscussionPage.clickOnCrossBackButtonFromDiscussionsPage();
+//        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
+//        user.atMyTagsPage.checkFirstListingsIsSelected();
+//        user.atMyTagsPage.multiSelectMenuIsShown();
     }
 }

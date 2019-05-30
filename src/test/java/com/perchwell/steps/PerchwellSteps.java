@@ -605,7 +605,7 @@ public class PerchwellSteps extends ScenarioSteps {
     }
 
     @Step
-	public void clickOnDiscussionIconOnFirstListing() {
+	public void clickOnListShareButton() {
 		onPage.clickOnDiscussionIconOnFirstListing();
 	}
 

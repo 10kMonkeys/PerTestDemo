@@ -445,5 +445,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void checkIfCountActiveSalesIsSame() {
 		onPage.checkIfCountActiveSalesIsSame();
 	}
+
+	@Step
+	public void clickOnViewAllDiscussionsButton() {
+		onPage.clickOnViewAllDiscussionsButton();
+	}
 }
 

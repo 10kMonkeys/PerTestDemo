@@ -81,6 +81,7 @@ public class LoginPage extends TechHelper {
 
     public void setRestEmail(String email){
 //      element(resetEmailTextBox).type(email);
+        waitABit(3000);
         element(resetEmailTextBox).sendKeys(email);
     }
 

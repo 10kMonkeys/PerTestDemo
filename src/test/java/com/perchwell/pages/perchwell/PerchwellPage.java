@@ -404,14 +404,21 @@ public class PerchwellPage extends TechHelper {
 				universalSingleSwipe();
 			}
 		} else {
-			WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
-			List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
+//			WebElement table = getDriver().findElements(By.className("XCUIElementTypeTable")).get(0);
+//			List<WebElement> listCells = table.findElements(By.className("XCUIElementTypeCell"));
+			List<WebElement> listCells = getDriver().findElements(MobileBy.iOSNsPredicateString("type == ('XCUIElementTypeButton' AND name CONTAINS 'ALPHABET CITY'"));
+
 			if (listCells.size() > 0) {
 				for (int i = 0; (i < 10 || i < listCells.size()); i++) {
-					if (listCells.get(i).findElements(By.name(element)).size() == 0) {
-						isAllCellsContain = false;
-						break;
-					}
+
+					if (!listCells.get(i).getAttribute("value").equals(element)) {
+					isAllCellsContain = false;
+					break;
+				}
+//					if (listCells.get(i).findElements(By.name(element)).size() == 0) {
+//						isAllCellsContain = false;
+//						break;
+//					}
 				}
 			}
 		}
