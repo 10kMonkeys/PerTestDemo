@@ -32,7 +32,6 @@ public class TI1_ListingSortingTest extends SampleTest {
         user.atMyTagsPage.shouldTaggedListingBeSortedByMostExpensive();
         user.atMyTagsPage.clickOnSortedByButton();
         user.atMyTagsPage.clickOnLeastExpensiveButton();
-        user.atMyTagsPage.resetSwipeOnlyForAndroid();
         user.atMyTagsPage.shouldTaggedListingBeSortedByLeastExpensive();
     }
 

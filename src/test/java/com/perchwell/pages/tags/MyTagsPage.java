@@ -259,23 +259,23 @@ public class MyTagsPage extends TechHelper {
 		if(Config.isAndroid()) {
 			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
 					SessionVariables.getValueFromSessionVariable("buildingAddress5").toUpperCase());
-			androidSwipeForSorting();
+			universalSingleSwipe();
 
 			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
 					SessionVariables.getValueFromSessionVariable("listingAddress3").toUpperCase());
-			androidSwipeForSorting();
+			universalSingleSwipe();
 
 			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
 					SessionVariables.getValueFromSessionVariable("listingAddress4").toUpperCase());
-			androidSwipeForSorting();
+			universalSingleSwipe();
 
 			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
 					SessionVariables.getValueFromSessionVariable("listingAddress1").toUpperCase());
-			androidSwipeForSorting();
+			universalSingleSwipe();
 
 			Assert.assertEquals(onlyAndroidAddressList.get(1).getAttribute("text").toUpperCase(),
 					SessionVariables.getValueFromSessionVariable("listingAddress2").toUpperCase());
-			androidSwipeForSorting();
+			universalSingleSwipe();
 		} else {
 			SoftAssertions softAssertions = new SoftAssertions();
 			softAssertions.assertThat(addressesList.get(0).getAttribute("value").toUpperCase().equals(SessionVariables.getValueFromSessionVariable("buildingAddress5").toUpperCase()));
@@ -291,15 +291,15 @@ public class MyTagsPage extends TechHelper {
 		if(Config.isAndroid()) {
 			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
 					SessionVariables.getValueFromSessionVariable("buildingAddress5").toUpperCase());
-			androidSwipeForSorting();
+			universalSingleSwipe();
 
 			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
 					SessionVariables.getValueFromSessionVariable("listingAddress3").toUpperCase());
-			androidSwipeForSorting();
+			universalSingleSwipe();
 
 			Assert.assertEquals(onlyAndroidAddressList.get(1).getAttribute("text").toUpperCase(),
 					SessionVariables.getValueFromSessionVariable("listingAddress4").toUpperCase());
-			androidSwipeForSorting();
+			universalSingleSwipe();
 		} else {
 			SoftAssertions softAssertions = new SoftAssertions();
 			softAssertions.assertThat(!element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).isPresent());

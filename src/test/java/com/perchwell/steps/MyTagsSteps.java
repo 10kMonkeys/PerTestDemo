@@ -317,9 +317,4 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void openSecondBuilding() {
 		onPage.openSecondBuilding();
 	}
-
-	@Step
-	public void resetSwipeOnlyForAndroid() {
-		onPage.resetSwipeOnlyForAndroid();
-	}
 }

@@ -322,11 +322,13 @@ public abstract class FilteringAndSortingBuildings {
 //        int firstValue = Integer.parseInt(priceList.get(0).getAttribute("text").replaceAll("[$,]",""));
 //        int secondValue =  Integer.parseInt(priceList.get(1).getAttribute("text").replaceAll("[$,]",""));
 //        Assert.assertTrue(firstValue >= secondValue);
+        System.out.println(valueToCompareMax);
 //        int firstValue = Integer.parseInt(priceList.get(0).getAttribute("text").replaceAll("[$,]",""));
 //        int secondValue =  Integer.parseInt(priceList.get(1).getAttribute("text").replaceAll("[$,]",""));
 //        Assert.assertTrue(firstValue <= secondValue);
         for(WebElement element: priceList) {
             int value = Integer.parseInt(element.getAttribute("text").replaceAll("[$,]",""));
+            System.out.println("valueToCompare = " + valueToCompareMax + "and value " + value);
             Assert.assertTrue(valueToCompareMax >= value);
 //              valueToCompare = value;
         }
@@ -340,6 +342,7 @@ public abstract class FilteringAndSortingBuildings {
 //        Assert.assertTrue(firstValue <= secondValue);
           for(WebElement element: priceList) {
               int value = Integer.parseInt(element.getAttribute("text").replaceAll("[$,]",""));
+              System.out.println("valueToCompare = " + valueToCompareMin + "and value " + value);
               Assert.assertTrue(valueToCompareMin <= value);
 //              valueToCompare = value;
           }
