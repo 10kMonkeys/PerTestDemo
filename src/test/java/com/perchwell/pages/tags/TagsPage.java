@@ -473,29 +473,29 @@ public class TagsPage extends TechHelper {
 		WebElement tag;
 		if(Config.isAndroid()) {
 			tag = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + value +"')]"));
+			Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 60, getYPositionOfElement(tag));
 		} else {
 			tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
 					+ value + "'"));
+			Assert.assertEquals(getYPositionOfElement(otherTagsLabel) - 107, getYPositionOfElement(tag));
 		}
 
 		System.out.println(getYPositionOfElement(otherTagsLabel));
 		System.out.println(getYPositionOfElement(tag));
-
-		Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 60, getYPositionOfElement(tag));
 	}
 
 	public void checkClientTagBelowSharedWithClientLabel(String userName) {
 		WebElement clientTag;
 		if(Config.isAndroid()) {
 			clientTag = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + userName +"')]"));
+			Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 61, getYPositionOfElement(clientTag));
 		} else {
 			clientTag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
 					+ userName + "'"));
+			Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 236, getYPositionOfElement(clientTag));
 		}
 		System.out.println(getYPositionOfElement(sharedWithClientLabel));
 		System.out.println(getYPositionOfElement(clientTag));
-
-		Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 61, getYPositionOfElement(clientTag));
 	}
 
 	public void checkNoOneTagIsAdded() {
