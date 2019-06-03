@@ -22,7 +22,7 @@ public class TI9_TagGroupsTest extends SampleTest {
         user.atAccountPage.closeAccountMenu();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
-        user.atOpenedBuildingPage.removeAllTags();
+        user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.createAndSaveNewTag();
         user.atTagsPage.searchJustCreatedTag();
