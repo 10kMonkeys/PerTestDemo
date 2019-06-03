@@ -794,7 +794,8 @@ public class OpenedBuildingPage extends TechHelper {
 		waitABit(3000);
 		if(Config.isAndroid()) {
 			setImplicitTimeout(3, TimeUnit.SECONDS);
-			while (element(MobileBy.xpath("*//android.widget.ImageView[contains(@content-desc, 'Remove Button: ')]")).isVisible()) {
+//			while (element(MobileBy.xpath("*//android.widget.ImageView[contains(@content-desc, 'Remove Button: ')]")).isVisible()) {
+			while (element(MobileBy.id("com.perchwell.re.staging:id/remove_icon")).isVisible()) {
 				element(removeButton).click();
 			}
 			resetImplicitTimeout();
@@ -810,7 +811,11 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void shouldNotSeeSpecificTag(String tag) {
 		setImplicitTimeout(3, TimeUnit.SECONDS);
-		element(MobileBy.AccessibilityId(tag)).shouldNotBeVisible();
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + tag + "')]")).shouldNotBeVisible();
+		} else {
+			element(MobileBy.AccessibilityId(tag)).shouldNotBeVisible();
+		}
 		resetImplicitTimeout();
 	}
 

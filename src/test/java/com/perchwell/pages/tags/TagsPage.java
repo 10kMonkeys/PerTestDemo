@@ -398,38 +398,71 @@ public class TagsPage extends TechHelper {
 
 	public void checkIfTagsItemsListIsChanged(String tagName, int value) {
 		int itemsAmount;
+		String element;
 
-		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
-				tagName + "'")).getAttribute("value");
-		if (element.length() == 26) {
-			itemsAmount = 0;
+		if(Config.isAndroid()) {
+			element = element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, 'label:') and" +
+					" contains(@text, '" + tagName + "')]")).getAttribute("text");
+			if (element.length() == 26) {
+				itemsAmount = 0;
+			} else {
+				itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ Items]", ""));
+			}
 		} else {
-			itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
+			element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+					tagName + "'")).getAttribute("value");
+			if (element.length() == 26) {
+				itemsAmount = 0;
+			} else {
+				itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
+			}
 		}
 		Assert.assertEquals(tagsItemsValue, itemsAmount-value);
 	}
 
 	public void getFirstTagsItemsValue() {
-		String element = firstTag.getAttribute("value");
+		String element;
 
-		if (element.length() == 26) {
-			tagsItemsValue = 0;
+		if(Config.isAndroid()) {
+			element = firstTag.getAttribute("text");
+
+			if (element.length() == 26) {
+				tagsItemsValue = 0;
+			} else {
+				tagsItemsValue = Integer.parseInt(element.substring(element
+						.indexOf(" ") + 1).replaceAll("[ Items]", ""));
+			}
 		} else {
-			tagsItemsValue = Integer.parseInt(element.substring(element
-					.indexOf(" ") + 1).replaceAll("[ items]", ""));
+			element = firstTag.getAttribute("value");
+
+			if (element.length() == 26) {
+				tagsItemsValue = 0;
+			} else {
+				tagsItemsValue = Integer.parseInt(element.substring(element
+						.indexOf(" ") + 1).replaceAll("[ items]", ""));
+			}
 		}
 	}
 
 	public void clickOnSpecificTagPillInSearchField(String tagName) {
 //		element(MobileBy.AccessibilityId(tagName)).click();
-		waitFor(ExpectedConditions.elementToBeClickable(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")));
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).click();
+		if(Config.isAndroid()) {
+			waitFor(ExpectedConditions.elementToBeClickable(MobileBy.xpath("//android.widget.LinearLayout/android.widget.TextView[contains(@content-desc, '" + tagName + "')]")));
+			element(MobileBy.xpath("//android.widget.LinearLayout/android.widget.TextView[contains(@content-desc, '" + tagName + "')]")).click();
+		} else {
+			waitFor(ExpectedConditions.elementToBeClickable(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")));
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).click();
+		}
 	}
 
 	public void checkIfTagPillIsRemoved(String tagName) {
 		setImplicitTimeout(5, SECONDS);
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.LinearLayout/android.widget.TextView[contains(@content-desc, '" + tagName + "')]")).shouldNotBeVisible();
+		} else {
 //		element(MobileBy.AccessibilityId("Tag view: " + tagName)).shouldNotBeVisible();
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).shouldNotBeVisible();
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).shouldNotBeVisible();
+		}
 		resetImplicitTimeout();
 	}
 
@@ -467,11 +500,21 @@ public class TagsPage extends TechHelper {
 	}
 
     public void checkIfTagsCheckMarIsNotSelected() {
-		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
-				SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).getAttribute("name");
-		String checkMarkNumber = element.substring(element.length()-5);
+		setImplicitTimeout(5, SECONDS);
+		if(Config.isAndroid()) {
+			String element = element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, 'label:') and" +
+					" contains(@text, '" + SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "')]")).getAttribute("name");
+			String checkMarkNumber = element.substring(element.length() - 5);
 
-		element(MobileBy.iOSNsPredicateString("name == 'image: tag deselected '" + checkMarkNumber)).shouldNotBeVisible();
+			element(MobileBy.xpath("//android.widget.ImageView[contains(@content-desc, 'image: tag deselected " + checkMarkNumber + "')] ")).shouldNotBeVisible();
+		} else {
+			String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+					SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).getAttribute("name");
+			String checkMarkNumber = element.substring(element.length() - 5);
+
+			element(MobileBy.iOSNsPredicateString("name == 'image: tag deselected '" + checkMarkNumber)).shouldNotBeVisible();
+		}
+		resetImplicitTimeout();
     }
 
 	public void checkTagBelowOtherTagsLabel(String value) {
