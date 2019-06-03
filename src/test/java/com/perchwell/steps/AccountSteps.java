@@ -62,6 +62,7 @@ public class AccountSteps extends ScenarioSteps {
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
         if(Config.isAndroid()) {
+            waitABit(1000);
             new TouchAction(appiumDriver).tap(150, 150).release().perform();
         } else {
             new TouchAction(appiumDriver).tap(60, 60).release().perform();

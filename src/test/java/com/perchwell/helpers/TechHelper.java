@@ -310,7 +310,6 @@ public class TechHelper extends BasePage {
         new TouchAction(appiumDriver).press(50, startPoint - 1).waitAction(Duration.ofSeconds(1)).moveTo(50, endPoint).release().perform();
     }
 
-
     public void hideKeyboard() {
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();

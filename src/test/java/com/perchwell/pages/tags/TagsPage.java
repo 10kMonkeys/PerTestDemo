@@ -135,6 +135,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossFromAccountTagsButton;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'MY TAGS')]")
 	@iOSXCUITFindBy(accessibility = "MY TAGS")
 	private WebElement myTagsLabel;
 
@@ -305,6 +306,9 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void clearTextField() {
+		if(Config.isAndroid()) {
+			element(searchTagTextBox).click();
+		}
 		element(clearTextFieldButton).click();
 	}
 
@@ -473,29 +477,35 @@ public class TagsPage extends TechHelper {
 		WebElement tag;
 		if(Config.isAndroid()) {
 			tag = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + value +"')]"));
+			setImplicitTimeout(3, SECONDS);
+			if(isElementDisplayed(myTagsLabel)) {
+				Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 236, getYPositionOfElement(tag));
+			} else {
+				Assert.assertEquals(getYPositionOfElement(otherTagsLabel) - 233, getYPositionOfElement(tag));
+			}
+			resetImplicitTimeout();
 		} else {
 			tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
 					+ value + "'"));
+			Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 60, getYPositionOfElement(tag));
 		}
 
 		System.out.println(getYPositionOfElement(otherTagsLabel));
 		System.out.println(getYPositionOfElement(tag));
-
-		Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 60, getYPositionOfElement(tag));
 	}
 
 	public void checkClientTagBelowSharedWithClientLabel(String userName) {
 		WebElement clientTag;
 		if(Config.isAndroid()) {
 			clientTag = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + userName +"')]"));
+			Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 236, getYPositionOfElement(clientTag));
 		} else {
 			clientTag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
 					+ userName + "'"));
+			Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 61, getYPositionOfElement(clientTag));
 		}
 		System.out.println(getYPositionOfElement(sharedWithClientLabel));
 		System.out.println(getYPositionOfElement(clientTag));
-
-		Assert.assertEquals(getYPositionOfElement(sharedWithClientLabel) + 61, getYPositionOfElement(clientTag));
 	}
 
 	public void checkNoOneTagIsAdded() {
