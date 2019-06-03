@@ -822,7 +822,7 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void getFifthBuildingAddress() {
 		if(Config.isAndroid()) {
-			SessionVariables.addValueInSessionVariable("buildingAddress" + 5, buildingAddress.getAttribute("text"));
+			SessionVariables.addValueInSessionVariable("buildingAddress5", buildingAddress.getAttribute("text"));
 		} else {
 			SessionVariables.addValueInSessionVariable("buildingAddress" + 5, buildingAddress.getAttribute("value"));
 		}

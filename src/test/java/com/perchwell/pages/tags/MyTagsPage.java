@@ -211,7 +211,7 @@ public class MyTagsPage extends TechHelper {
 
 	public void shouldTaggedListingBeSortedByMostExpensive() {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < 3; i++) {
+			for(int i = 0; i < 4; i++) {
 				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByMostExpensiveOnlyAndroid(pricesList);
 				androidSwipeForSorting();
 			}
@@ -222,7 +222,7 @@ public class MyTagsPage extends TechHelper {
 
 	public void shouldTaggedListingBeSortedByLeastExpensive() {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < 3; i++) {
+			for(int i = 0; i < 4; i++) {
 				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByLeastOnlyAndroid(pricesList);
 				androidSwipeForSorting();
 			}
@@ -233,7 +233,7 @@ public class MyTagsPage extends TechHelper {
 
 	public void shouldTaggedBuildingBeSortedByMostExpensive() {
 		if(Config.isAndroid()) {
-			for(int i = 0; i < 3; i++) {
+			for(int i = 0; i < 4; i++) {
 				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByMostExpensiveOnlyAndroid(buildingPricesList);
 				androidSwipeForSorting();
 			}
@@ -245,7 +245,7 @@ public class MyTagsPage extends TechHelper {
 	public void shouldTaggedBuildingBeSortedByLeastExpensive() {
 		if(Config.isAndroid()) {
 //			androidSingleInitialVerticalSwipeForLists(0.5);
-			for(int i = 0; i < 3; i++) {
+			for(int i = 0; i < 4; i++) {
 				FilteringAndSortingBuildings.shouldTaggedListingBeSortedByLeastOnlyAndroid(buildingPricesList);
 				androidSwipeForSorting(); //new
 //				androidSingleInitialVerticalSwipeForListsOnTaggedItems();
@@ -257,8 +257,9 @@ public class MyTagsPage extends TechHelper {
 
 	public void checkIfFourListingsAndBuildingAreDisplayed() {
 		if(Config.isAndroid()) {
+			String buildAddr = SessionVariables.getValueFromSessionVariable("buildingAddress5").toUpperCase();
 			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
-					SessionVariables.getValueFromSessionVariable("buildingAddress5").toUpperCase());
+					buildAddr);
 			universalSingleSwipe();
 
 			Assert.assertEquals(firstBuildingAddress.getAttribute("text").toUpperCase(),
@@ -527,6 +528,10 @@ public class MyTagsPage extends TechHelper {
 
 	public void openSecondBuilding() {
 		element(secondBuilding).click();
+	}
+
+	public void resetSwipeOnlyForAndroid(int numSwipes) {
+		resetSwipeOnlyAndroid(numSwipes);
 	}
 }
 

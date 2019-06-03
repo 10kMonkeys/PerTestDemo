@@ -305,7 +305,11 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void clearTextField() {
-		element(clearTextFieldButton).click();
+		if(Config.isAndroid()) {
+			element(searchTagTextBox).clear();
+		} else {
+			element(clearTextFieldButton).click();
+		}
 	}
 
 	public void checkIfTagsPageIsReturnedToInitialState(int sizeToCheck) {
@@ -532,7 +536,7 @@ public class TagsPage extends TechHelper {
 		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).shouldBeVisible();
 	}
 
-	public void clickOnFirstTag() {
+	public void clickOnFirstTag() { ;
 		element(firstTag).click();
 	}
 
