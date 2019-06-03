@@ -195,12 +195,19 @@ public class SellersAgentPage extends TechHelper {
 
         for (MailTrapResponse email : mailTrapResponse) {
             rawBody = getTextBody(email.getRaw_path());
-            if (rawBody.contains(message) && rawBody.contains("To: " + EmailAddresses.AGENT_1) && rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ", \n " +
-                    EmailAddresses.CLIENT0 + ", \n " + EmailAddresses.AGENT_2) && !rawBody.contains(EmailAddresses.AGENT_2 + ",")) {
-                isMessageSentToTwoAgents = true;
-                break;
+            if(Config.isAndroid()) {
+                if (rawBody.contains(message) && rawBody.contains("To: " + EmailAddresses.AGENT_1) && rawBody.contains("Cc: " + EmailAddresses.AND_BROKER + ", \n " +
+                        EmailAddresses.CLIENT0 + ", \n " + EmailAddresses.AGENT_2) && !rawBody.contains(EmailAddresses.AGENT_2 + ",")) {
+                    isMessageSentToTwoAgents = true;
+                    break;
+                }
+            } else {
+                if (rawBody.contains(message) && rawBody.contains("To: " + EmailAddresses.AGENT_1) && rawBody.contains("Cc: " + EmailAddresses.IOS_BROKER + ", \n " +
+                        EmailAddresses.CLIENT0 + ", \n " + EmailAddresses.AGENT_2) && !rawBody.contains(EmailAddresses.AGENT_2 + ",")) {
+                    isMessageSentToTwoAgents = true;
+                    break;
+                }
             }
-
         }
         Assert.assertTrue(isMessageSentToTwoAgents);
     }

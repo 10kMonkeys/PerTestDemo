@@ -210,6 +210,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH 'Select button: unselected 1 West 72nd St. #95'")
 	private WebElement testListingWithOneAgentCheckbox;
 
+	@AndroidFindBy(accessibility = "Select button: unselected 240 East 35th St. #11A")
 	@iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH 'Select button: unselected 240 East 35th St. #11A'")
 	private WebElement testListingWithTwoAgentsCheckbox;
 

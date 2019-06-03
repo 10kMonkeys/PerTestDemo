@@ -31,6 +31,7 @@ public class ContactListingAgentPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Subject textField")
     private WebElement subjectField;
 
+    @AndroidFindBy(accessibility = "Tag Cell: Search Text Field")
     @iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
     private WebElement emailField;
 
@@ -85,7 +86,12 @@ public class ContactListingAgentPage extends TechHelper {
     }
 
     public void checkIfEmailIsAdded(String email) {
-        element(MobileBy.AccessibilityId(email)).shouldBeVisible();
+        if(Config.isAndroid()) {
+            element(MobileBy.xpath("*//android.widget.EditText[contains(@text, '" + email +"')]")).shouldBeVisible();
+        } else {
+            element(MobileBy.AccessibilityId(email)).shouldBeVisible();
+        }
+
     }
 
     public void checkDefaultAgentCCAddress() {

@@ -236,10 +236,8 @@ public class ClientPage extends TechHelper {
 //		this.swipeDownUntilElementVisible(name);
 
 		if (Config.isAndroid()) {
-			setImplicitTimeout(1, SECONDS);
-			Helper.androidSwipeDownUntilElementVisible(name);
-			resetImplicitTimeout();
-			element(By.xpath("//*[contains(@text,'" + name + "')]")).shouldBeVisible();
+			element(searchClientField).sendKeys(name);
+			element(MobileBy.AccessibilityId(name)).shouldBeVisible();
 		} else {
 			element(searchClientField).sendKeys(name);
 			element(searchFrozenArea).click();
@@ -293,7 +291,7 @@ public class ClientPage extends TechHelper {
 
 	public void clickOnDesiredClientOrAgent(String name) {
 		if (Config.isAndroid()) {
-			element(By.xpath("//*[contains(@text,'" + name + "')]")).click();
+			element(MobileBy.AccessibilityId(name)).click();
 		} else {
 			element(MobileBy.AccessibilityId(name)).click();
 		}
