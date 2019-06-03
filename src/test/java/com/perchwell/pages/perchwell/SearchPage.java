@@ -1371,7 +1371,7 @@ public class SearchPage extends TechHelper {
             appiumDriver.hideKeyboard();
             element(MobileBy.AccessibilityId(districtID)).click();
         } else {
-            element(By.xpath("//*[@text = '" + districtID.replaceAll("District-", "").replaceAll("Neighborhood-", "") + "']")).click();
+            element(By.xpath("//*[@text = '" + districtID.replace(districtID.substring(districtID.length()), "").replaceAll("District-", "").replaceAll("Neighborhood-", "") + "']")).click();
         }
 
     }

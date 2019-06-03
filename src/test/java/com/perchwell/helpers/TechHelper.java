@@ -319,7 +319,6 @@ public class TechHelper extends BasePage {
         }
     }
 
-
     public void hideKeyboard() {
         WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
