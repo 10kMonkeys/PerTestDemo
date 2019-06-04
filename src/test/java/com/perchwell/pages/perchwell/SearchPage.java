@@ -901,6 +901,7 @@ public class SearchPage extends TechHelper {
         if (Config.isAndroid()) {
             searchName = firstSearchInList.getAttribute("text");
         } else {
+            waitABit(3000);
             searchName = firstSearchInList.getAttribute("name");
         }
         SessionVariables.addValueInSessionVariable("SearchName", searchName);

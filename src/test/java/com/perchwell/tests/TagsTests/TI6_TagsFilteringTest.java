@@ -24,7 +24,7 @@ public class TI6_TagsFilteringTest extends SampleTest {
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.fillInTagSearchField("CLIENT T");
-        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 3);
+        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 4);
         user.atTagsPage.clearTextField();
         user.atTagsPage.checkIfTagsPageIsReturnedToInitialState(4);
         user.atTagsPage.fillInTagSearchField("TEST+");

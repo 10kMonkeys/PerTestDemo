@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"FiltersTests", "FiltersSearchesSecond", "iOS_FiltersSearchesFirst", "Android_FiltersSearchesSecond"})
+@WithTagValuesOf({"FiltersTests", "FiltersSearchesSecond", "iOS_FiltersSearchesSecond", "Android_FiltersSearchesSecond"})
 public class NFT15_SaveSearchAndReopen1RangeOptionTest extends SampleTest {
 
     @Test
