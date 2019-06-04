@@ -588,7 +588,9 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void skipDiscussWithClientHint() {
-		element(discussWithClientHint).click();
+		if(!Config.isAndroid()) {
+			element(discussWithClientHint).click();
+		}
 	}
 
 	public void checkIfListingsAreFilteredByBaths() {
