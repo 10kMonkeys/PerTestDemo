@@ -493,6 +493,7 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void shouldSeeSpecificTag(String tagName) {
 		if(Config.isAndroid()) {
+			waitABit(1000);
 			element(MobileBy.xpath("//*[contains(@text, '" + tagName + "')]")).shouldBeVisible();
 		} else {
 			element(MobileBy.AccessibilityId(tagName)).shouldBeVisible();
@@ -820,9 +821,15 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void shouldSeeSpecificClient() {
-		setImplicitTimeout(3, TimeUnit.SECONDS);
-		element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Client"))).shouldBeVisible();
-		resetImplicitTimeout();
+		if(Config.isAndroid()) {
+			setImplicitTimeout(3, TimeUnit.SECONDS);
+			element(MobileBy.xpath("*//android.widget.TextView[contains(@text, '" +SessionVariables.getValueFromSessionVariable("Client") + "')]")).shouldBeVisible();
+			resetImplicitTimeout();
+		} else {
+			setImplicitTimeout(3, TimeUnit.SECONDS);
+			element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Client"))).shouldBeVisible();
+			resetImplicitTimeout();
+		}
 	}
 
 	public void getFifthBuildingAddress() {

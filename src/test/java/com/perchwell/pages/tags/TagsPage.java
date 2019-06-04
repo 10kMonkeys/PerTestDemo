@@ -100,6 +100,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'button: set notification inactive'")
 	private WebElement activeBellButton;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'CLIENT TEST')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label CONTAINS 'CLIENT TEST'`][1]")
 	private WebElement firstClientTag;
 
@@ -467,36 +468,66 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void getTestClientsItemsValue() {
-		String element = firstClientTag.getAttribute("value");
+		if(Config.isAndroid()) {
+			String element = firstClientTag.getAttribute("text");
 
-		if (element.length() == 19) {
-			tagsItemsValue = 0;
+			if (element.length() == 19) {
+				tagsItemsValue = 0;
+			} else {
+				tagsItemsValue = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "")
+						.replace(" Item", "").replace(" ", "").replace("s", ""));
+			}
 		} else {
-			tagsItemsValue = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "")
-					.replace(" item", "").replace("   ", "").replace("s", ""));
+			String element = firstClientTag.getAttribute("value");
+
+			if (element.length() == 19) {
+				tagsItemsValue = 0;
+			} else {
+				tagsItemsValue = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "")
+						.replace(" item", "").replace("   ", "").replace("s", ""));
+			}
 		}
 	}
 
 	public void clickOnFirstClientTag() {
-		String clientValue = firstClientTag.getAttribute("value").replace(" item", "")
-                .replace("  ", "").replace("s", "");
-		String processedClientValue = clientValue.substring(0, clientValue.lastIndexOf(" "));
-		SessionVariables.addValueInSessionVariable("First_Existing_Tag", processedClientValue);
-		element(firstClientTag).click();
+		if(Config.isAndroid()) {
+			String clientValue = firstClientTag.getAttribute("text").replace(" Item", "").replace("s", "");
+			String processedClientValue = clientValue.substring(0, clientValue.lastIndexOf(" ") - 1);
+			SessionVariables.addValueInSessionVariable("First_Existing_Tag", processedClientValue);
+			element(firstClientTag).click();
+		} else {
+			String clientValue = firstClientTag.getAttribute("value").replace(" item", "")
+					.replace("  ", "").replace("s", "");
+			String processedClientValue = clientValue.substring(0, clientValue.lastIndexOf(" "));
+			SessionVariables.addValueInSessionVariable("First_Existing_Tag", processedClientValue);
+			element(firstClientTag).click();
+		}
 	}
 
 	public void checkIfClientTagsItemsListIsChanged(int value) {
 		int itemsAmount;
 
-		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
-				SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).getAttribute("value");
-		if (element.length() == 19) {
-			itemsAmount = 0;
+		if(Config.isAndroid()) {
+			String element = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" +
+					SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + " ')]")).getAttribute("text");
+			if (element.length() == 19) {
+				itemsAmount = 0;
+			} else {
+				itemsAmount = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "")
+						.replace(" Item", "").replace(" ", "").replace("s", ""));
+			}
+			Assert.assertEquals(tagsItemsValue, itemsAmount-value);
 		} else {
-			itemsAmount = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "")
-					.replace(" item", "").replace("   ", "").replace("s", ""));
+			String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+					SessionVariables.getValueFromSessionVariable("First_Existing_Tag") + "'")).getAttribute("value");
+			if (element.length() == 19) {
+				itemsAmount = 0;
+			} else {
+				itemsAmount = Integer.parseInt(element.replace(SearchRequests.CLIENT0_TEST, "")
+						.replace(" item", "").replace("   ", "").replace("s", ""));
+			}
+			Assert.assertEquals(tagsItemsValue, itemsAmount-value);
 		}
-		Assert.assertEquals(tagsItemsValue, itemsAmount-value);
 	}
 
     public void checkIfTagsCheckMarIsNotSelected() {

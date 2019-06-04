@@ -2106,7 +2106,7 @@ public class SearchPage extends TechHelper {
 
     public void clickOnListingByAddress(String address) {
         if(Config.isAndroid()) {
-            element(MobileBy.xpath("//*[contains(@text, '"+ address +"')]")).click();
+            element(MobileBy.xpath("*//android.widget.TextView[1][contains(@text, '"+ address +"')]")).click();
         } else {
             element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value CONTAINS '" + address + "'")).click();
         }
