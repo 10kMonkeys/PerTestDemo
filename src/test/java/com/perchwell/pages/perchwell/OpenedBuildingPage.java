@@ -822,9 +822,7 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void shouldSeeSpecificClient() {
 		if(Config.isAndroid()) {
-			setImplicitTimeout(3, TimeUnit.SECONDS);
 			element(MobileBy.xpath("*//android.widget.TextView[contains(@text, '" +SessionVariables.getValueFromSessionVariable("Client") + "')]")).shouldBeVisible();
-			resetImplicitTimeout();
 		} else {
 			setImplicitTimeout(3, TimeUnit.SECONDS);
 			element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("Client"))).shouldBeVisible();
@@ -834,6 +832,7 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void getFifthBuildingAddress() {
 		if(Config.isAndroid()) {
+			waitABit(3000);
 			SessionVariables.addValueInSessionVariable("buildingAddress5", buildingAddress.getAttribute("text"));
 		} else {
 			SessionVariables.addValueInSessionVariable("buildingAddress" + 5, buildingAddress.getAttribute("value"));
