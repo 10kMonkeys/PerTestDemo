@@ -11,14 +11,14 @@ import org.junit.Test;
 public class TI19_BuildingTagWithClientTagDiscussTest extends SampleTest {
 
     @Test
-    public void buildingTagWithClientTagDiscuss() {
+    public void  buildingTagWithClientTagDiscuss() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.inSearchMenu.openAddressSearch();
-        user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
-        user.atPerchwellPage.openFirstBuilding();
+        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
+        user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickShareButton();
         user.atOpenedBuildingPage.clickOnSendWithinPerchwell();
@@ -27,7 +27,7 @@ public class TI19_BuildingTagWithClientTagDiscussTest extends SampleTest {
         user.atDiscussionsListPage.shouldFindDiscussionsEmailForExistingClient();
         user.atOpenedBuildingPage.clickOnCancelButtonInDiscussWithClient();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.atPerchwellPage.openFirstBuilding();
+        user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.shouldSeeSpecificClient();
     }
 }

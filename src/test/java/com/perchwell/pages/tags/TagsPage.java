@@ -112,12 +112,15 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name == 'Shared with clients'$][1]")
 	private WebElement sharedWithClientLabel;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, ' item ')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'item'")
 	private WebElement oneItem;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'image: tag deselected')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'image: tag deselected'")
 	private List<WebElement> uncheckedTagsList;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'image: tag selected')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'image: tag selected'")
 	private List<WebElement> checkedTagsList;
 
@@ -130,6 +133,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label CONTAINS '11CLIENTNAME20'`][1]")
 	private WebElement firstCustomClientTag;
 
+	@AndroidFindBy(xpath = "*//android.widget.ImageView[contains(@content-desc, 'Remove Button: ')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: '")
 	private WebElement removingTagPill;
 
@@ -584,20 +588,36 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void checkNoOneTagIsAdded() {
-		setImplicitTimeout(1, SECONDS);
-		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'Remove Button:'")).size());
-		resetImplicitTimeout();
+		if(Config.isAndroid()) {
+			setImplicitTimeout(1, SECONDS);
+			Assert.assertEquals(0, getDriver().findElements(MobileBy.xpath("*//android.widget.ImageView[contains(@content-desc, 'Remove Button: ')]")).size());
+			resetImplicitTimeout();
+		} else {
+			setImplicitTimeout(1, SECONDS);
+			Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'Remove Button:'")).size());
+			resetImplicitTimeout();
+		}
 	}
 
 	public void clickOnFirstAddedTagPil(String tag) {
 //		element(MobileBy.AccessibilityId("Tag view: " + tag)).click();
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tag + "'$]")).click();
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.LinearLayout[contains(@content-desc, 'tag color: #')]/android.widget.TextView[contains(@content-desc, '" + tag + "')]")).click();
+		} else {
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tag + "'$]")).click();
+		}
 	}
 
 	public void noOneTagWithItemIsShown() {
-		setImplicitTimeout(3, SECONDS);
-		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'item'")).size());
-		resetImplicitTimeout();
+		if(Config.isAndroid()) {
+			setImplicitTimeout(3, SECONDS);
+			Assert.assertEquals(0, getDriver().findElements(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, ' item ')]")).size());
+			resetImplicitTimeout();
+		} else {
+			setImplicitTimeout(3, SECONDS);
+			Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'item'")).size());
+			resetImplicitTimeout();
+		}
 	}
 
 	public void allTagsAreDeselected(int amount) {
@@ -614,10 +634,14 @@ public class TagsPage extends TechHelper {
 
 	public void shouldSeeSpecificTagsPill(String tagName) {
 //		element(MobileBy.AccessibilityId("Tag view: " + tagName)).shouldBeVisible();
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).shouldBeVisible();
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.LinearLayout[contains(@content-desc, 'tag color: #')]/android.widget.TextView[contains(@content-desc, '" + tagName + "')]")).shouldBeVisible();
+		} else {
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).shouldBeVisible();
+		}
 	}
 
-	public void clickOnFirstTag() { ;
+	public void clickOnFirstTag() {
 		element(firstTag).click();
 	}
 
