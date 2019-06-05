@@ -357,9 +357,15 @@ public class MyTagsPage extends TechHelper {
 	}
 
 	public void shouldSeeTaggedBuilding() {
-				String valueToCheck = element(MobileBy.iOSNsPredicateString("name BEGINSWITH 'ADDRESS: ' AND visible == 1")).getAttribute("value");
-		String checkableValue = SessionVariables.getValueFromSessionVariable("buildingAddress5");
-		Assert.assertEquals(valueToCheck.toUpperCase(), checkableValue.toUpperCase());
+		if(Config.isAndroid()) {
+			String valueToCheck = element(firstBuildingAddress).getAttribute("text");
+			String checkableValue = SessionVariables.getValueFromSessionVariable("buildingAddress5");
+			Assert.assertEquals(valueToCheck.toUpperCase(), checkableValue.toUpperCase());
+		} else {
+			String valueToCheck = element(MobileBy.iOSNsPredicateString("name BEGINSWITH 'ADDRESS: ' AND visible == 1")).getAttribute("value");
+			String checkableValue = SessionVariables.getValueFromSessionVariable("buildingAddress5");
+			Assert.assertEquals(valueToCheck.toUpperCase(), checkableValue.toUpperCase());
+		}
 	}
 
 	public void clickOnSpecificTagsPill(String tagName) {

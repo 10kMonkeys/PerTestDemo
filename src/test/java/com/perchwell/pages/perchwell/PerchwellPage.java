@@ -250,6 +250,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "cell: Tag Selected Listings")
 	private WebElement tagSelectedListingsOption;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/tag_button")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
 	private WebElement tagIconOnFirstListing;
 
