@@ -14,7 +14,6 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 
 	@Ignore
 	@Test
-	@Screenshots(disabled=true)
 	public void discussionWithNewClientTest() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

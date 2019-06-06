@@ -15,7 +15,6 @@ public class ST25_DiscussionWithNewAgentTest extends SampleTest {
 	private DateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
 	@Test
-	@Screenshots(disabled=true)
 	public void discussionWithNewAgentTest() {
 		user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));

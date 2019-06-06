@@ -10,7 +10,6 @@ import org.junit.Test;
 public class ST7_UseExistingTagForListingTest extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void useExistingTagForListing() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

@@ -11,7 +11,6 @@ import org.junit.Test;
 public class ST13_SaveChangesAsNewSearch extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void changeExistingSearch() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

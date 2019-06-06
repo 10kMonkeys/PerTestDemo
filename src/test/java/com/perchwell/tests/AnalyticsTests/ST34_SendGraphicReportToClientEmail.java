@@ -11,7 +11,6 @@ import org.junit.Test;
 public class ST34_SendGraphicReportToClientEmail extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void sendGraphicReportToClientEmail() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

@@ -11,7 +11,6 @@ import org.junit.Test;
 public class ST2_LoginAsBrokerTest extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void logInAsBroker() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

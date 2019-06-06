@@ -10,7 +10,6 @@ import org.junit.Test;
 public class ST30_ResetPasswordTest extends SampleTest {
 
     @Test
-    @Screenshots(disabled=true)
     public void resetPasswordTest(){
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("old_reset_password"));

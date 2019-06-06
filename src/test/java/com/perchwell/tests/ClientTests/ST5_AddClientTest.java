@@ -11,7 +11,6 @@ import org.junit.Test;
 public class ST5_AddClientTest extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void addClient() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

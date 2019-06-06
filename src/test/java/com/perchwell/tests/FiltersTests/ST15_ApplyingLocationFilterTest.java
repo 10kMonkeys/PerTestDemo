@@ -12,7 +12,6 @@ import org.junit.Test;
 public class ST15_ApplyingLocationFilterTest extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void resultAfterApplyingLocationFilter() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 					AppProperties.INSTANCE.getProperty("password"));

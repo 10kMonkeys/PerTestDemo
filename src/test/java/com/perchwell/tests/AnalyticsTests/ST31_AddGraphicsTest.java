@@ -10,7 +10,6 @@ import org.junit.Test;
 public class ST31_AddGraphicsTest extends SampleTest {
 
     @Test
-    @Screenshots(disabled=true)
     public void addGraphics() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));

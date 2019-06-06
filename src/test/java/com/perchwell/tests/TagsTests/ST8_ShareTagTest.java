@@ -13,7 +13,6 @@ public class ST8_ShareTagTest extends SampleTest {
 
 	@Ignore
 	@Test
-	@Screenshots(disabled=true)
 	public void shareTagTest() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

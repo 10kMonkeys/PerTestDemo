@@ -12,7 +12,6 @@ public class ST18_ApplyingFilterOnMapView extends SampleTest {
 
     @Ignore
     @Test
-    @Screenshots(disabled=true)
     public void applyingFilterOnMapViewTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));

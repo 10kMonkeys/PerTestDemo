@@ -10,7 +10,6 @@ import org.junit.Test;
 public class ST32_DeleteChartTest extends SampleTest {
 
     @Test
-    @Screenshots(disabled=true)
     public void deleteChart() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));

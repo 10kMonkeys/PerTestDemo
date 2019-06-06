@@ -11,7 +11,6 @@ import org.junit.Test;
 public class ST23_DiscussionWithExistingClient extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void discussionWithExistingClientTest() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

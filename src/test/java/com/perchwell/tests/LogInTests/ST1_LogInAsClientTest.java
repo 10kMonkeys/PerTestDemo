@@ -12,7 +12,6 @@ import java.io.IOException;
 public class ST1_LogInAsClientTest extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void logInAsClient() {
 		user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));

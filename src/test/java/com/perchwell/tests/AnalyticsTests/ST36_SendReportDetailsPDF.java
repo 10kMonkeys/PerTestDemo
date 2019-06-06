@@ -10,7 +10,6 @@ import org.junit.Test;
 public class ST36_SendReportDetailsPDF extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void sendReportDetailsPDF() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

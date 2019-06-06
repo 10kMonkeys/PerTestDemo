@@ -10,7 +10,6 @@ import org.junit.Test;
 public class ST19_ApplyingFilterOnAnalyticsTest extends SampleTest {
 
     @Test
-    @Screenshots(disabled=true)
     public void applyingFilterOnAnalyticsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));

@@ -11,7 +11,6 @@ import org.junit.Test;
 public class ST26_DiscussionWithExistingAgent extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void discussionWithExistingAgent() {
 		user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("client_email"),
 				AppProperties.INSTANCE.getProperty("client_password"));

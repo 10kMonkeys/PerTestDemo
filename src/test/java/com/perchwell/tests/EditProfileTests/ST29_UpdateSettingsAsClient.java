@@ -11,7 +11,6 @@ import org.junit.Test;
 public class ST29_UpdateSettingsAsClient extends SampleTest {
 
     @Test
-    @Screenshots(disabled=true)
     public void updateSettingAsClientTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("updated_client_email"),
                 AppProperties.INSTANCE.getProperty("updated_client_password"));

@@ -12,7 +12,6 @@ public class ST21_MapView extends SampleTest {
 
     @Ignore
     @Test
-    @Screenshots(disabled=true)
     public void sortListingsOnMap() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));

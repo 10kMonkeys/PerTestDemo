@@ -12,7 +12,6 @@ public class ST12_NewSearch extends SampleTest {
 
 	@Ignore
 	@Test
-	@Screenshots(disabled=true)
 	public void newSearch() throws Exception {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

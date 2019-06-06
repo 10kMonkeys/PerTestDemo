@@ -11,7 +11,6 @@ import org.junit.Test;
 public class ST6_CreateNewTagForListingTest extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void createNewTagForListing() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

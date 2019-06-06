@@ -11,7 +11,6 @@ import org.junit.Test;
 public class ST33_SendGraphicReportsToMyEmail extends SampleTest{
 
 	@Test
-	@Screenshots(disabled=true)
 	public void sendGraphicReportsToMyEmail() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

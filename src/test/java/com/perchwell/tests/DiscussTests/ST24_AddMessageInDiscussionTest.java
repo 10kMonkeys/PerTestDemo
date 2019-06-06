@@ -11,7 +11,6 @@ import org.junit.Test;
 public class ST24_AddMessageInDiscussionTest extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void addMessageInDiscussionTest() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

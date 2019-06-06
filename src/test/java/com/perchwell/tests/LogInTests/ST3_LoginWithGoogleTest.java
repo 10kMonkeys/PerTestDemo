@@ -11,7 +11,6 @@ public class ST3_LoginWithGoogleTest extends SampleTest {
 
 	@Ignore
 	@Test
-	@Screenshots(disabled=true)
 	public void logInWithGoogle() {
 		user.atLoginPage.loginWithGoogle();
 		user.atPerchwellPage.shouldSeeEditSearchFiltersHint();
