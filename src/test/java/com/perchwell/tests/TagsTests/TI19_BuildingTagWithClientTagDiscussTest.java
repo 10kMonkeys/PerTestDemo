@@ -11,7 +11,7 @@ import org.junit.Test;
 public class TI19_BuildingTagWithClientTagDiscussTest extends SampleTest {
 
     @Test
-    public void  buildingTagWithClientTagDiscuss() {
+    public void buildingTagWithClientTagDiscuss() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

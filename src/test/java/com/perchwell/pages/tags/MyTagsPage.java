@@ -64,6 +64,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected'$]")
 	private List<WebElement> selectedListingsList;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Sorted by')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Listing Results: ' AND visible == true")
 	private WebElement itemsCountValue;
 
@@ -78,6 +79,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell[1]")
 	private WebElement firstBuilding;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement tagsPageCloseButton;
 
@@ -377,18 +379,28 @@ public class MyTagsPage extends TechHelper {
 		}
 	}
 	public void checkListingIsRemovedFromTaggedItemsPage(String address) {
-		setImplicitTimeout(3, SECONDS);
-		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'ADDRESS: " + address + "' AND visible == true")).size());
-		resetImplicitTimeout();
+		if(Config.isAndroid()) {
+			setImplicitTimeout(3, SECONDS);
+			Assert.assertEquals(0, getDriver().findElements(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, 'ADDRESS: " + address + "')]")).size());
+			resetImplicitTimeout();
+		} else {
+			setImplicitTimeout(3, SECONDS);
+			Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'ADDRESS: " + address + "' AND visible == true")).size());
+			resetImplicitTimeout();
+		}
 	}
 
 	public void checkItemsCountIsChanged(int value) {
 		int itemsAmount;
-
-		String element = itemsCountValue.getAttribute("value");
-		itemsAmount = Integer.parseInt(element.substring(0, element.indexOf(" ")));
-
-		Assert.assertEquals(itemsAmount, value);
+		if(Config.isAndroid()) {
+			String element = itemsCountValue.getAttribute("text");
+			itemsAmount = Integer.parseInt(element.substring(0, element.indexOf(" ")));
+			Assert.assertEquals(itemsAmount, value);
+		} else {
+			String element = itemsCountValue.getAttribute("value");
+			itemsAmount = Integer.parseInt(element.substring(0, element.indexOf(" ")));
+			Assert.assertEquals(itemsAmount, value);
+		}
 	}
 
 	public void getFistBuildingAddress() {

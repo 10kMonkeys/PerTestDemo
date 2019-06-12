@@ -14,6 +14,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -486,9 +487,15 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
     public void removeAllTAgs() {
-		while (Helper.isElementDisplayed(deleteTagButton)) {
+		if(Config.isAndroid()) {
+			waitFor(ExpectedConditions.visibilityOfElementLocated(By.id("com.perchwell.re.staging:id/cross_streets")));
+		}
+
+		setImplicitTimeout(5, SECONDS);
+		while (isElementDisplayed(deleteTagButton)) {
 			deleteTagButton.click();
 		}
+		resetImplicitTimeout();
     }
 
 	public void shouldSeeSpecificTag(String tagName) {
