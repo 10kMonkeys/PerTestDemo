@@ -48,7 +48,7 @@ public class DiscussionsListPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'CLIENT TEST+CLIENT-TH-CHARTS' AND visible==1")
 	private WebElement testClientInFilterByPersonResult;
 
-	@AndroidFindBy(accessibility = "Clear query")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearTextButton;
 
@@ -153,7 +153,11 @@ public class DiscussionsListPage extends TechHelper {
 	}
 
 	public void clickOnClearTextButton() {
-		element(clearTextButton).click();
+		if(Config.isAndroid()) {
+			element(clearTextButton).clear();
+		} else {
+			element(clearTextButton).click();
+		}
 	}
 
 	public void shouldBeNothingDisplayedInFilterByPerson() {

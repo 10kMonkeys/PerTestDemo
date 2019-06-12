@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "ClientsTests", "iOS_First", "Android_First", "First"})
+@WithTagValuesOf({"SmokeTestSuit", "ClientsTests", "iOS_First", "Android_First", "First", "Local_Android_Run"})
 public class ST5_AddClientTest extends SampleTest {
 
 	@Test

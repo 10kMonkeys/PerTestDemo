@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "iOS_First", "Android_First", "First"})
+@WithTagValuesOf({"SmokeTestSuit", "iOS_First", "Android_First", "First", "Local_Android_Run"})
 public class ST9_DeleteCreatedTagTest extends SampleTest {
 
 	@Test

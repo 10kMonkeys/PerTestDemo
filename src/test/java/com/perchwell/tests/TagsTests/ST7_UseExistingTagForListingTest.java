@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "TagsTests", "TagsTests", "iOS_First", "Android_First", "First"})
+@WithTagValuesOf({"SmokeTestSuit", "TagsTests", "TagsTests", "iOS_First", "Android_First", "First", "Local_Android_Run"})
 public class ST7_UseExistingTagForListingTest extends SampleTest {
 
 	@Test
