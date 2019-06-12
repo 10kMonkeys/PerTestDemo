@@ -489,16 +489,13 @@ public class OpenedBuildingPage extends TechHelper {
     public void removeAllTAgs() {
 		if(Config.isAndroid()) {
 			waitFor(ExpectedConditions.visibilityOfElementLocated(By.id("com.perchwell.re.staging:id/cross_streets")));
-			setImplicitTimeout(5, SECONDS);
-			while (isElementDisplayed(deleteTagButton)) {
-				deleteTagButton.click();
-			}
-			resetImplicitTimeout();
-		} else {
-			while (isElementDisplayed(deleteTagButton)) {
-				deleteTagButton.click();
-			}
 		}
+
+		setImplicitTimeout(5, SECONDS);
+		while (isElementDisplayed(deleteTagButton)) {
+			deleteTagButton.click();
+		}
+		resetImplicitTimeout();
     }
 
 	public void shouldSeeSpecificTag(String tagName) {
