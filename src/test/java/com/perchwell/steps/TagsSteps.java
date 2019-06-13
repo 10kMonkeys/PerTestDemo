@@ -507,4 +507,9 @@ public class TagsSteps extends ScenarioSteps {
 	public void singleUpSwipeTagsPill() {
 		onPage.swipeAnyTagPill(-90);
 	}
+
+	@Step
+	public void checkTagBelowOtherTagsLabelWithTwoTagPills() {
+		onPage.checkTagBelowOtherTagsLabelWithTwoTagPills(SessionVariables.getValueFromSessionVariable("Duplicated_Tag"));
+	}
 }
