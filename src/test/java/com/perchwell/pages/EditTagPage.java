@@ -107,13 +107,9 @@ public class EditTagPage extends TechHelper {
 
     public void checkTagsItemsAmount(String valueToCheck) {
         if(Config.isAndroid()) {
-            setImplicitTimeout(3, TimeUnit.SECONDS);
             Assert.assertEquals(valueToCheck, element(MobileBy.id("com.perchwell.re.staging:id/items_with_tag_value")).getAttribute("text"));
-            resetImplicitTimeout();
         } else {
-            setImplicitTimeout(3, TimeUnit.SECONDS);
             element(MobileBy.AccessibilityId(valueToCheck)).shouldBeVisible();
-            resetImplicitTimeout();
         }
     }
 

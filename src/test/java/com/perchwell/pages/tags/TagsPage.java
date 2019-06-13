@@ -559,13 +559,11 @@ public class TagsPage extends TechHelper {
 		WebElement tag;
 		if(Config.isAndroid()) {
 			tag = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + value +"')]"));
-			setImplicitTimeout(3, SECONDS);
 			if(isElementDisplayed(myTagsLabel)) {
 				Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 236, getYPositionOfElement(tag));
 			} else {
 				Assert.assertEquals(getYPositionOfElement(otherTagsLabel) - 233, getYPositionOfElement(tag));
 			}
-			resetImplicitTimeout();
 		} else {
 			tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
 					+ value + "'"));
@@ -672,13 +670,9 @@ public class TagsPage extends TechHelper {
 
 	public void checkIfSpecificTagIsVisible(String tagName) {
 		if (Config.isAndroid()) {
-			setImplicitTimeout(3, SECONDS);
 			element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, 'label: " + tagName.toLowerCase() + "')]")).shouldBeVisible();
-			resetImplicitTimeout();
 		} else {
-			setImplicitTimeout(3, SECONDS);
 			element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).shouldBeVisible();
-			resetImplicitTimeout();
 		}
 	}
 
@@ -805,9 +799,7 @@ public class TagsPage extends TechHelper {
 		WebElement tag;
 		if(Config.isAndroid()) {
 			tag = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + value +"')]"));
-			setImplicitTimeout(3, SECONDS);
 			Assert.assertEquals(getYPositionOfElement(otherTagsLabel) - 107, getYPositionOfElement(tag));
-			resetImplicitTimeout();
 		} else {
 			tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
 					+ value + "'"));

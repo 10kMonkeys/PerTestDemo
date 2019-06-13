@@ -858,13 +858,12 @@ public class OpenedBuildingPage extends TechHelper {
 			WebElement buildingAddress = element(MobileBy
 					.xpath("*//android.widget.RelativeLayout[2]/android.widget.TextView[1][contains(@text, '" + listingsAddress.substring(0, listingsAddress.lastIndexOf("#") - 1) + "')]"));
 			universalVerticalSwipe(buildingAddress);
-			element(buildingAddress).click();
 		} else {
 			String listingsAddress = buildAddress.getAttribute("value");
 			WebElement buildingAddress = element(MobileBy.AccessibilityId(listingsAddress.substring(0, listingsAddress.lastIndexOf(" "))));
 			universalVerticalSwipe(buildingAddress);
-			element(buildingAddress).click();
 		}
+		element(buildingAddress).click();
 	}
 
 	public void swipeUpToMyTagsLabel() {
