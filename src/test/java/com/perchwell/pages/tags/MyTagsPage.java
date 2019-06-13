@@ -336,7 +336,7 @@ public class MyTagsPage extends TechHelper {
 
 	public void checkFirstListingsIsSelected() {
 	    if(Config.isAndroid()) {
-
+	    	element(MobileBy.xpath("//android.widget.ImageView[contains(@content-desc, 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress1") + "')]")).shouldBePresent();
         } else {
             element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]" +
                     "/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected "
@@ -346,16 +346,24 @@ public class MyTagsPage extends TechHelper {
 
 	public void checkSecondListingsIsSelected() {
 		universalSingleSwipe();
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]" +
-				"/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected "
-				+ SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).shouldBePresent();
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.ImageView[contains(@content-desc, 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress2") + "')]")).shouldBePresent();
+		} else {
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]" +
+					"/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected "
+					+ SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).shouldBePresent();
+		}
 	}
 
 	public void checkThirdListingsIsSelected() {
 		universalSingleSwipe();
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]" +
-				"/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected "
-				+ SessionVariables.getValueFromSessionVariable("listingAddress3") + "'$]")).shouldBePresent();
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.ImageView[contains(@content-desc, 'Select button: selected " + SessionVariables.getValueFromSessionVariable("listingAddress3") + "')]")).shouldBePresent();
+		} else {
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]" +
+					"/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: selected "
+					+ SessionVariables.getValueFromSessionVariable("listingAddress3") + "'$]")).shouldBePresent();
+		}
 	}
 
 	public void shouldSeeTaggedBuilding() {
