@@ -86,6 +86,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeButton[$name CONTAINS 'Select button: unselected'$][1]")
 	private WebElement firstListingRadioButton;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Sorted by')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name == 'Sorted by'$][2]")
 	private WebElement listingsByButton;
 
@@ -95,15 +96,19 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "cell: Contact Listing Agents")
 	private WebElement contactListingAgentsOption;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/menu_button")
 	@iOSXCUITFindBy(accessibility = "button: more multi-select options")
 	private WebElement moreOptionsButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/second_label")
 	@iOSXCUITFindBy(accessibility = "Select all button")
 	private WebElement slectAllButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/third_label")
 	@iOSXCUITFindBy(accessibility = "Deselect all button")
 	private WebElement deselectAllListingButton;
 
+	@AndroidFindBy(xpath = "*//android.widget.ImageView[contains(@content-desc, 'Select button: unselected')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][1]")
 	private WebElement firstContactListingCheckbox;
 
@@ -113,12 +118,14 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "cell: Tag Selected Listings")
 	private WebElement tagSelectedListingsOption;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/second_label")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Sort Button: ' AND visible == true")
 	private WebElement sortType;
 
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
 	private WebElement tagIconOnFirstListing;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'Select button: selected')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND label == 'ti selected rb'")
 	private List<WebElement> selectedListingsListByAddress;
 
@@ -331,7 +338,23 @@ public class MyTagsPage extends TechHelper {
 
     public void checkNumbersListingsEqualTagItems() {
 		int tagItemsAmount = Integer.parseInt(SessionVariables.getValueFromSessionVariable("itemsAmount"));
-		Assert.assertEquals(tagItemsAmount, selectedListingsListByAddress.size());
+
+		if (Config.isAndroid()) {
+			int currentSelectedListings = 0;
+			for(int i=0; i<tagItemsAmount; i++) {
+				if (selectedListingsListByAddress.size() == 2) {
+					currentSelectedListings += selectedListingsListByAddress.size() - 1;
+				} else {
+					currentSelectedListings += selectedListingsListByAddress.size();
+				}
+
+				universalSingleSwipe();
+			}
+			System.out.println(currentSelectedListings);
+			Assert.assertEquals(tagItemsAmount, currentSelectedListings);
+		} else {
+			Assert.assertEquals(tagItemsAmount, selectedListingsListByAddress.size());
+		}
     }
 
 	public void checkFirstListingsIsSelected() {
@@ -458,7 +481,12 @@ public class MyTagsPage extends TechHelper {
 	}
 
 	public void checkSavedListingNumberIsShown(String amount) {
-		element(MobileBy.AccessibilityId("Number of selected listings: " + amount)).shouldBeVisible();
+		if (Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.TextView[@text = '" + amount + " Selected']")).shouldBeVisible();
+		} else {
+			element(MobileBy.AccessibilityId("Number of selected listings: " + amount)).shouldBeVisible();
+		}
+
 	}
 
 	public void clickOnDeselectAll() {
@@ -488,7 +516,11 @@ public class MyTagsPage extends TechHelper {
 
 	public void checkSortLabel(String sortLabel) {
 		waitFor(ExpectedConditions.visibilityOf(sortType));
-		Assert.assertTrue(element(sortType).getAttribute("name").contains(sortLabel));
+		if(Config.isAndroid()) {
+			Assert.assertTrue(element(sortType).getAttribute("text").equalsIgnoreCase(sortLabel.replace("Sort Button: ", "")));
+		} else {
+			Assert.assertTrue(element(sortType).getAttribute("name").contains(sortLabel));
+		}
 	}
 
 	public void clickOnTagIconOnFirstListing() {

@@ -151,6 +151,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossBackFromTagsButton;
 
+	@AndroidFindBy(xpath = "*//android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[@resource-id='com.perchwell.re.staging:id/tag_name']")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'items'$][1]")
 	private WebElement firstTagWithItems;
 
@@ -773,10 +774,17 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void getTestClientZeroTagItemsAmount() {
-		String element = firstTagWithItems.getAttribute("value");
+		if(Config.isAndroid()) {
+			String element = firstTagWithItems.getAttribute("text");
 
-		SessionVariables.addValueInSessionVariable("itemsAmount", element.substring(element
-				.indexOf(" ") + 13).replaceAll("[ items]", ""));
+			SessionVariables.addValueInSessionVariable("itemsAmount", element.substring(element
+					.indexOf(" ") + 13).replaceAll("[ Items]", ""));
+		} else {
+			String element = firstTagWithItems.getAttribute("value");
+
+			SessionVariables.addValueInSessionVariable("itemsAmount", element.substring(element
+					.indexOf(" ") + 13).replaceAll("[ items]", ""));
+		}
 	}
 
 	public void clickOnFirstTagWithItems() {
