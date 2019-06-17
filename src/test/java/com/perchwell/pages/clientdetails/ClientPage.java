@@ -256,6 +256,7 @@ public class ClientPage extends TechHelper {
 
 	public void isClientOrAgentDisplayedAndroid(String name) {
 //		this.swipeDownUntilElementVisibleAndroid(name);
+		waitABit(3000);
 		element(MobileBy.xpath("//*[contains(@text, '" + name + "')]")).shouldBeVisible();
 	}
 
