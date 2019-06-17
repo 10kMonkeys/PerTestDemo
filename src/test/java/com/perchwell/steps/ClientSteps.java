@@ -349,4 +349,13 @@ public class ClientSteps extends ScenarioSteps {
 	public void shouldSeeFirstTagClient() {
 		onPage.shouldSeeSpecificClient(SessionVariables.getValueFromSessionVariable("First_Existing_Tag"));
 	}
+
+	@Step
+	public void clearSearchField() {
+		if(!Config.isAndroid()) {
+			onPage.clickOnClearTextButton();
+		} else {
+			onPage.clearSearchFieldForAndroid();
+		}
+	}
 }
