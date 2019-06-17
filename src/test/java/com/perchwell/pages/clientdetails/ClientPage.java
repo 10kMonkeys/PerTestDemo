@@ -500,6 +500,10 @@ public class ClientPage extends TechHelper {
 	}
 
 	public void shouldSeeSpecificClient(String clientName) {
-		element(MobileBy.AccessibilityId(clientName)).shouldBePresent();
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//*[contains(@text, '" + clientName + "')]")).shouldBeVisible();
+		} else {
+			element(MobileBy.AccessibilityId(clientName)).shouldBePresent();
+		}
 	}
 }

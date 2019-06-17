@@ -20,6 +20,7 @@ public class EditTagPage extends TechHelper {
     private WebElement removeButton;
 
 //    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeCell' AND label == 'DELETE'")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[$name == 'DELETE'$]")
     private WebElement confirmButton;
 
