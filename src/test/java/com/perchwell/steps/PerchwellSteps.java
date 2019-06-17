@@ -444,7 +444,14 @@ public class PerchwellSteps extends ScenarioSteps {
 
 	@Step
 	public void listingsFilteredByMultiBathroomsFilters() {
-		onPage.listingsFilteredByMultiBathroomsFilters();
+		if(Config.isAndroid()) {
+			for(int i = 0; i < PerchwellPage.ANDROID_LOOP_COUNTER; i++) {
+				onPage.listingsFilteredByMultiBathroomsFilters();
+				universalSingleSwipe();
+			}
+		} else {
+			onPage.listingsFilteredByMultiBathroomsFilters();
+		}
 	}
 
 	@Step

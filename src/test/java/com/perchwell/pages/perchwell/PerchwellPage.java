@@ -848,7 +848,12 @@ public class PerchwellPage extends TechHelper {
 		waitFor(ExpectedConditions.visibilityOf(openAccountButton));
 
 		for (WebElement element : currentBathsAmountList) {
-			String actualValue = element.getAttribute("value");
+			String actualValue;
+			if(Config.isAndroid()) {
+				actualValue = element.getAttribute("text");
+			} else {
+				actualValue = element.getAttribute("value");
+			}
 			double value = Double.parseDouble(
 					actualValue.replaceAll(" BA", "")
 							.replace("½", ".5"));
