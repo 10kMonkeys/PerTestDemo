@@ -256,6 +256,7 @@ public class ClientPage extends TechHelper {
 
 	public void isClientOrAgentDisplayedAndroid(String name) {
 //		this.swipeDownUntilElementVisibleAndroid(name);
+		waitABit(3000);
 		element(MobileBy.xpath("//*[contains(@text, '" + name + "')]")).shouldBeVisible();
 	}
 
@@ -291,7 +292,7 @@ public class ClientPage extends TechHelper {
 
 	public void clickOnDesiredClientOrAgent(String name) {
 		if (Config.isAndroid()) {
-			element(MobileBy.AccessibilityId(name)).click();
+			element(MobileBy.xpath("//*[contains(@text, '" + name + "')]")).click();
 		} else {
 			element(MobileBy.AccessibilityId(name)).click();
 		}
@@ -505,5 +506,10 @@ public class ClientPage extends TechHelper {
 		} else {
 			element(MobileBy.AccessibilityId(clientName)).shouldBePresent();
 		}
+	}
+
+	public void clearSearchFieldForAndroid() {
+		element(clearTextButton).click();
+		hideKeyboard();
 	}
 }

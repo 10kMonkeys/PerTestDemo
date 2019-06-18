@@ -634,7 +634,11 @@ public class SearchSteps extends ScenarioSteps {
 
     @Step
     public void checkMultiBedroomsFiltersSelectedFrom1To3() {
-        onPage.checkMultiBedroomsFiltersSelectedFrom1To3();
+        if(Config.isAndroid()) {
+            onPage.checkSelectedFilterFor3Beds(); //temp fix for Android
+        } else {
+            onPage.checkMultiBedroomsFiltersSelectedFrom1To3();
+        }
     }
 
     @Step
@@ -654,7 +658,11 @@ public class SearchSteps extends ScenarioSteps {
 
     @Step
     public void checkMultiBathroomsFiltersSelected1To3() {
-        onPage.checkMultiBathroomsFiltersSelected1To3();
+        if (Config.isAndroid()) {
+            onPage.checkSelectedFilterFor3Baths(); //temp fix for Android
+        } else {
+            onPage.checkMultiBathroomsFiltersSelected1To3();
+        }
     }
 
     @Step

@@ -1372,7 +1372,12 @@ public class SearchPage extends TechHelper {
             appiumDriver.hideKeyboard();
             element(MobileBy.AccessibilityId(districtID)).click();
         } else {
-            element(By.xpath("//*[@text = '" + districtID.replace(districtID.substring(districtID.length()), "").replaceAll("District-", "").replaceAll("Neighborhood-", "") + "']")).click();
+            String currentDistrict;
+            currentDistrict = districtID.replace(districtID.substring(districtID.length()), "").replaceAll("District-", "").replaceAll("Neighborhood-", "");
+            if(currentDistrict.endsWith(" ")) {
+                currentDistrict = currentDistrict.substring(0, currentDistrict.length() - 1);
+            }
+            element(By.xpath("//*[@text = '" + currentDistrict + "']")).click();
         }
 
     }
@@ -2235,5 +2240,14 @@ public class SearchPage extends TechHelper {
 
     public void selectCondopFilter() {
         element(condopFilter).click();
+    }
+
+    public void checkSelectedFilterFor3Baths() {
+        universalVerticalShortSwipe(totalRoomsSection);
+        Assert.assertTrue(element(selectedFilterFor3Baths).isDisplayed());
+    }
+
+    public void checkSelectedFilterFor3Beds() {
+        Assert.assertTrue(element(selectedFilterFor3Beds).isDisplayed());
     }
 }
