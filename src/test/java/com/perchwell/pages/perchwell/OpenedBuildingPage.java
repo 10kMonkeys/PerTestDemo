@@ -14,6 +14,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -486,9 +487,15 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
     public void removeAllTAgs() {
-		while (Helper.isElementDisplayed(deleteTagButton)) {
+		if(Config.isAndroid()) {
+			waitFor(ExpectedConditions.visibilityOfElementLocated(By.id("com.perchwell.re.staging:id/cross_streets")));
+		}
+
+		setImplicitTimeout(5, SECONDS);
+		while (isElementDisplayed(deleteTagButton)) {
 			deleteTagButton.click();
 		}
+		resetImplicitTimeout();
     }
 
 	public void shouldSeeSpecificTag(String tagName) {
@@ -846,15 +853,24 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void clickOnListingsBuilding() {
-		String listingsAddress = buildAddress.getAttribute("value");
-		WebElement buildingAddress = element(MobileBy.AccessibilityId(listingsAddress.substring(0, listingsAddress.lastIndexOf(" "))));
-
-		universalVerticalSwipe(buildingAddress);
-		element(buildingAddress).click();
+		if(Config.isAndroid()) {
+			String listingsAddress = buildAddress.getAttribute("text");
+			WebElement buildingAddress = element(MobileBy
+					.xpath("*//android.widget.RelativeLayout[2]/android.widget.TextView[1][contains(@text, '" + listingsAddress.substring(0, listingsAddress.lastIndexOf("#") - 1) + "')]"));
+			universalVerticalSwipe(buildingAddress);
+			element(buildingAddress).click();
+		} else {
+			String listingsAddress = buildAddress.getAttribute("value");
+			WebElement buildingAddress = element(MobileBy.AccessibilityId(listingsAddress.substring(0, listingsAddress.lastIndexOf(" "))));
+			universalVerticalSwipe(buildingAddress);
+			element(buildingAddress).click();
+		}
 	}
 
 	public void swipeUpToMyTagsLabel() {
+		setImplicitTimeout(3, SECONDS);
 		universalUpSwipe(myTagsLabel);
+		resetImplicitTimeout();
 	}
 
 	public void checkNoOneTagIsAdded() {

@@ -44,7 +44,7 @@ public class NFT8_BathroomsRangeFiltersTest extends SampleTest {
         user.atSearchPage.deselectFilter4Baths();
         user.atSearchPage.selectFilter1Bath();
         user.atSearchPage.selectFilter3Baths();
-        user.atSearchPage.checkMultiBathroomsFiltersSelected1To3();
+        user.atSearchPage.checkMultiBathroomsFiltersSelected1To3(); //temp fix for Android
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.listingsFilteredByMultiBathroomsFilters();
     }

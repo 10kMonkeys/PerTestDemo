@@ -60,6 +60,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS '11CLIENTNAME' OR name CONTAINS 'TAGNAME'`][1]")
 	private WebElement firstTag;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement tagsPageCloseButton;
 
@@ -71,6 +72,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Clear text")
 	private WebElement clearTextFieldButton;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'button: edit tag ')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'button: edit tag'")
 	private WebElement editIcon;
 
@@ -124,9 +126,11 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'image: tag selected'")
 	private List<WebElement> checkedTagsList;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
 	@iOSXCUITFindBy(accessibility = "ADD TAG")
 	private WebElement addTagLabel;
 
+	@AndroidFindBy(xpath = "//android.widget.LinearLayout[contains(@content-desc, 'tag color: #')]/android.widget.TextView")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$visible == 1$]")
 	private WebElement tagsFirstPill;
 
@@ -147,6 +151,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossBackFromTagsButton;
 
+	@AndroidFindBy(xpath = "*//android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[@resource-id='com.perchwell.re.staging:id/tag_name']")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'items'$][1]")
 	private WebElement firstTagWithItems;
 
@@ -352,7 +357,7 @@ public class TagsPage extends TechHelper {
 	public void swipeTag(String tagName) {
 		WebElement tag;
 		if(Config.isAndroid()) {
-			tag = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + tagName +"')]"));
+			tag = element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, 'label: " + tagName.toLowerCase() +"')]"));
 			int y = tag.getLocation().getY();
 			universalHorizontalSwipe(tag, y + 1);
 		} else {
@@ -556,13 +561,11 @@ public class TagsPage extends TechHelper {
 		WebElement tag;
 		if(Config.isAndroid()) {
 			tag = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + value +"')]"));
-			setImplicitTimeout(3, SECONDS);
 			if(isElementDisplayed(myTagsLabel)) {
 				Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 236, getYPositionOfElement(tag));
 			} else {
 				Assert.assertEquals(getYPositionOfElement(otherTagsLabel) - 233, getYPositionOfElement(tag));
 			}
-			resetImplicitTimeout();
 		} else {
 			tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
 					+ value + "'"));
@@ -652,34 +655,59 @@ public class TagsPage extends TechHelper {
 	public void checkDuplicatedAndExistingTagsItemsAreSame() {
 		int itemsAmount;
 
-		String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
-				SessionVariables.getValueFromSessionVariable("Duplicated_Tag") + "'")).getAttribute("value");
+		if(Config.isAndroid()) {
+			String element = element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, 'label: " +
+					SessionVariables.getValueFromSessionVariable("Duplicated_Tag").toLowerCase() + "')]")).getAttribute("text");
 
-		itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
+			itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ Items]", ""));
+			Assert.assertEquals(tagsItemsValue, itemsAmount);
+		} else {
+			String element = element(MobileBy.iOSNsPredicateString("label CONTAINS '" +
+					SessionVariables.getValueFromSessionVariable("Duplicated_Tag") + "'")).getAttribute("value");
 
-		Assert.assertEquals(tagsItemsValue, itemsAmount);
+			itemsAmount = Integer.parseInt(element.substring(element.indexOf(" ") + 1).replaceAll("[ items]", ""));
+			Assert.assertEquals(tagsItemsValue, itemsAmount);
+		}
 	}
 
 	public void checkIfSpecificTagIsVisible(String tagName) {
-		setImplicitTimeout(3, SECONDS);
-		element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).shouldBeVisible();
-		resetImplicitTimeout();
+		if (Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, 'label: " + tagName.toLowerCase() + "')]")).shouldBeVisible();
+		} else {
+			element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).shouldBeVisible();
+		}
 	}
 
 	public void checkIfSpecificTagIsNotVisible(String tagName) {
-		setImplicitTimeout(3, SECONDS);
-		element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).shouldNotBeVisible();
-		resetImplicitTimeout();
+		if(Config.isAndroid()) {
+			setImplicitTimeout(3, SECONDS);
+			element(MobileBy.xpath("//android.widget.LinearLayout[contains(@content-desc, 'tag color: #')]/android.widget.TextView[contains(@content-desc, '" + tagName + "')]")).shouldNotBeVisible();
+			resetImplicitTimeout();
+		} else {
+			setImplicitTimeout(3, SECONDS);
+			element(MobileBy.iOSNsPredicateString("name CONTAINS 'label: " + tagName + "'")).shouldNotBeVisible();
+			resetImplicitTimeout();
+		}
 	}
 
 	public void shouldNotSeeSpecificTagsPill(String tagName) {
-		setImplicitTimeout(3, SECONDS);
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).shouldNotBeVisible();
-		resetImplicitTimeout();
+		if(Config.isAndroid()) {
+			setImplicitTimeout(3, SECONDS);
+			element(MobileBy.xpath("//android.widget.LinearLayout[contains(@content-desc, 'tag color: #')]/android.widget.TextView[contains(@content-desc, '" + tagName + "')]")).shouldNotBeVisible();
+			resetImplicitTimeout();
+		} else {
+			setImplicitTimeout(3, SECONDS);
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")).shouldNotBeVisible();
+			resetImplicitTimeout();
+		}
 	}
 
 	public void checkIfTagsPillIsRenamed() {
-		Assert.assertEquals(element(tagsFirstPill).getAttribute("name"), SessionVariables.getValueFromSessionVariable("Renamed_Tag"));
+		if(Config.isAndroid()) {
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("Renamed_Tag"), element(tagsFirstPill).getAttribute("text"));
+		} else {
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("Renamed_Tag"), element(tagsFirstPill).getAttribute("name"));
+		}
 	}
 
 	public void clickOnFirstCustomClientTagAndGetValue() {
@@ -689,7 +717,11 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void checkCustomTagsItemsValue() {
-		element(MobileBy.AccessibilityId("items with tag: " + tagsItemsValue)).shouldBeVisible();
+		if(Config.isAndroid()) {
+			Assert.assertEquals(tagsItemsValue, Integer.parseInt(element(MobileBy.id("com.perchwell.re.staging:id/items_with_tag_value")).getAttribute("text")));
+		} else {
+			element(MobileBy.AccessibilityId("items with tag: " + tagsItemsValue)).shouldBeVisible();
+		}
 	}
 
 	public void clearSearchField() {
@@ -742,10 +774,17 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void getTestClientZeroTagItemsAmount() {
-		String element = firstTagWithItems.getAttribute("value");
+		if(Config.isAndroid()) {
+			String element = firstTagWithItems.getAttribute("text");
 
-		SessionVariables.addValueInSessionVariable("itemsAmount", element.substring(element
-				.indexOf(" ") + 13).replaceAll("[ items]", ""));
+			SessionVariables.addValueInSessionVariable("itemsAmount", element.substring(element
+					.indexOf(" ") + 13).replaceAll("[ Items]", ""));
+		} else {
+			String element = firstTagWithItems.getAttribute("value");
+
+			SessionVariables.addValueInSessionVariable("itemsAmount", element.substring(element
+					.indexOf(" ") + 13).replaceAll("[ items]", ""));
+		}
 	}
 
 	public void clickOnFirstTagWithItems() {
@@ -763,5 +802,20 @@ public class TagsPage extends TechHelper {
 
 	public void swipeAnyTagPill(int duration) {
 		swipeUpElementIOS(element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$value BEGINSWITH 'tag color: #'$]")), duration);
+	}
+
+	public void checkTagBelowOtherTagsLabelWithTwoTagPills(String value) {
+		WebElement tag;
+		if(Config.isAndroid()) {
+			tag = element(MobileBy.xpath("//android.widget.TextView[contains(@text, '" + value +"')]"));
+			Assert.assertEquals(getYPositionOfElement(otherTagsLabel) - 107, getYPositionOfElement(tag));
+		} else {
+			tag = element(MobileBy.iOSNsPredicateString("value CONTAINS '"
+					+ value + "'"));
+			Assert.assertEquals(getYPositionOfElement(otherTagsLabel) + 60, getYPositionOfElement(tag));
+		}
+
+		System.out.println(getYPositionOfElement(otherTagsLabel));
+		System.out.println(getYPositionOfElement(tag));
 	}
 }

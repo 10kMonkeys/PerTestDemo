@@ -18,11 +18,13 @@ public class TI28_TagDuplicationOtherTagTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
+        user.atTagsPage.removeAllTagPills();
         user.atTagsPage.createAndSaveNewTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.inSearchMenu.openAddressSearch();
-        user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
-        user.atPerchwellPage.openFirstBuilding();
+        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
+        user.atSearchPage.clickOnTestBuilding();
+        user.atOpenedBuildingPage.removeAllTags();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
@@ -38,7 +40,7 @@ public class TI28_TagDuplicationOtherTagTest extends SampleTest {
         user.atEditTagPage.shouldSeeEditTagLabel();
         user.atEditTagPage.clickOnDuplicateButton();
         user.atEditTagPage.fillInDuplicateTagName();
-        user.atEditTagPage.clickOnSaveButton();
+        user.atEditTagPage.clickOnPopUpSaveButton();
         user.atTagsPage.shouldSeeAddTagLabel();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.getFirstTagsItemsValue();
@@ -46,7 +48,7 @@ public class TI28_TagDuplicationOtherTagTest extends SampleTest {
         user.atTagsPage.clearTextField();
         user.atTagsPage.searchDuplicatedTag();
         user.atTagsPage.allTagsAreSelected(1);
-        user.atTagsPage.checkDuplicatedTagBelowOtherTagsLabel();
+        user.atTagsPage.checkTagBelowOtherTagsLabelWithTwoTagPills();
         user.atTagsPage.shouldSeeJustCreatedTagsPill();
         user.atTagsPage.shouldSeeDuplicatedTagsPill();
         user.atTagsPage.checkDuplicatedAndExistingTagsItemsAreSame();
@@ -57,8 +59,8 @@ public class TI28_TagDuplicationOtherTagTest extends SampleTest {
         user.atOpenedBuildingPage.shouldSeeDuplicatedTag();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.inSearchMenu.openAddressSearch();
-        user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
-        user.atPerchwellPage.openFirstBuilding();
+        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
+        user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.shouldSeeAddedNewTag();
         user.atOpenedBuildingPage.shouldSeeDuplicatedTag();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();

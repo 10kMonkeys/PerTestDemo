@@ -42,6 +42,9 @@ public class ContactListingAgentPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "iconChevronLeft")
     private WebElement backButtonFromContactListingAgentPage;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/ok")
+    private WebElement okButton;
+
     //endregion
     
     public ContactListingAgentPage(WebDriver driver) {
@@ -79,6 +82,9 @@ public class ContactListingAgentPage extends TechHelper {
 
     public void clickOnSendEmailButton() {
         element(sendEmailButton).click();
+        if(Config.isAndroid()) {
+            element(okButton).click();
+        }
     }
 
     public void fillInEmailField(String email) {

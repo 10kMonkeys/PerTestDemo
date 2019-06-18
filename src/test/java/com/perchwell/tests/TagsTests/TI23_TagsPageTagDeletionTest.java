@@ -15,16 +15,16 @@ public class TI23_TagsPageTagDeletionTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.getListingsAddresses(2);
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
+        user.atPerchwellPage.getListingsAddresses(2);
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnTagSelectedListingsOption();
         user.atTagsPage.createAndSaveNewTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.inSearchMenu.openAddressSearch();
-        user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
-        user.atPerchwellPage.openFirstBuilding();
+        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
+        user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
@@ -40,7 +40,7 @@ public class TI23_TagsPageTagDeletionTest extends SampleTest {
         user.atMyTagsPage.openFirstBuilding();
         user.atOpenedBuildingPage.removeAllTags();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.atMyTagsPage.checkFirstBuildingIsRemovedFromTaggedItemsPage("1 West 72nd St.");
+        user.atMyTagsPage.checkFirstBuildingIsRemovedFromTaggedItemsPage("240 East 35th St.");
         user.atMyTagsPage.checkItemsCountIsChanged(2);
         user.atMyTagsPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
@@ -49,13 +49,13 @@ public class TI23_TagsPageTagDeletionTest extends SampleTest {
         user.atMyTagsPage.checkFirstListingIsRemovedFromTaggedItemsPage();
         user.atMyTagsPage.checkItemsCountIsChanged(1);
         user.atMyTagsPage.closeTagsPage();
-        user.atPerchwellPage.closeAccountMenu();
+        user.atAccountPage.closeAccountMenu();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.shouldNotSeeJustCreatedTag();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.inSearchMenu.openAddressSearch();
-        user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
-        user.atPerchwellPage.openFirstBuilding();
+        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
+        user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.shouldNotSeeJustCreatedTag();
     }
 }
