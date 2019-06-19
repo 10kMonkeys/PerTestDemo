@@ -145,6 +145,9 @@ public class DiscussionsListPage extends TechHelper {
 	}
 
 	public void enterValueInSearchField(String text) {
+		if(Config.isAndroid()) {
+			element(discussionsSearchBar).click();
+		}
 		element(discussionsSearchBar).sendKeys(text);
 	}
 

@@ -291,11 +291,12 @@ public class ClientPage extends TechHelper {
 	}
 
 	public void clickOnDesiredClientOrAgent(String name) {
-//		if (Config.isAndroid()) {
-//			element(MobileBy.xpath("//*[contains(@text, '" + name + "')]")).click();
-//		} else {
+		if (Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/" +
+					"android.widget.TextView[contains(@content-desc, '" + name + "')]")).click();
+		} else {
 			element(MobileBy.AccessibilityId(name)).click();
-//		}
+		}
 	}
 
 	public void logOut() {
