@@ -291,11 +291,11 @@ public class ClientPage extends TechHelper {
 	}
 
 	public void clickOnDesiredClientOrAgent(String name) {
-//		if (Config.isAndroid()) {
-//			element(MobileBy.xpath("//*[contains(@text, '" + name + "')]")).click();
-//		} else {
+		if (Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/android.widget.TextView[contains(@content-desc, '" + name + "')]")).click();
+		} else {
 			element(MobileBy.AccessibilityId(name)).click();
-//		}
+		}
 	}
 
 	public void logOut() {
@@ -336,7 +336,7 @@ public class ClientPage extends TechHelper {
 		WebElement client;
 		waitABit(3000);
 		if (Config.isAndroid()) {
-			client = element(MobileBy.xpath("//*[@content-desc = '" + name + " ']"));
+			client = element(MobileBy.xpath("//android.widget.TextView[@content-desc= '" + name + " ']"));
 		} else {
 			client = element(MobileBy.AccessibilityId(name));
 		}
@@ -410,11 +410,13 @@ public class ClientPage extends TechHelper {
 	}
 
 	public void isClientNotPresented(String name) {
+		setImplicitTimeout(3, SECONDS);
 		if (Config.isAndroid()) {
 			element(MobileBy.xpath("//*[@text = '" + name + " ']")).shouldNotBeVisible();
 		} else {
 			element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND name CONTAINS '" + name  + "'")).shouldNotBeVisible();
 		}
+		resetImplicitTimeout();
 	}
 
 	public void clickOnDoneButton() {

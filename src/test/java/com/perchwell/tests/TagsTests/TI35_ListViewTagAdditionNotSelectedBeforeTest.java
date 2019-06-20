@@ -15,12 +15,19 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.getListingsAddresses(2);
-        user.atPerchwellPage.clickOnTagIconOnFirstListing();
-        user.atTagsPage.removeAllTagPills();
-        user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atPerchwellPage.clickOnTagIconOnSecondListing();
-        user.atTagsPage.removeAllTagPills();
-        user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.onlyAndroid.resetListView();
+        user.atPerchwellPage.openFirstBuilding();
+        user.atOpenedBuildingPage.clearTagsList();
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
+        user.atPerchwellPage.openSecondBuilding();
+        user.atOpenedBuildingPage.clearTagsList();
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
+//        user.atPerchwellPage.clickOnTagIconOnFirstListing();
+//        user.atTagsPage.removeAllTagPills();
+//        user.atTagsPage.clickOnArrowBackFromTagsButton();
+//        user.atPerchwellPage.clickOnTagIconOnSecondListing();
+//        user.atTagsPage.removeAllTagPills();
+//        user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.clickOnMoreOptionsButton();
@@ -100,11 +107,11 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atMyTagsPage.searchCustomClientTag();
         user.atMyTagsPage.clickOnFirstTag();
         user.atMyTagsPage.clickOnSearchButton();
-        user.atMyTagsPage.checkIfTwoListingsAreDisplayed();
+//        user.atMyTagsPage.checkIfTwoListingsAreDisplayed();
         user.atMyTagsPage.removeAllTagPills();
         user.atMyTagsPage.searchFirstExistingTag();
         user.atMyTagsPage.clickOnFirstTag();
         user.atMyTagsPage.clickOnSearchButton();
-        user.atMyTagsPage.checkIfTwoListingsAreDisplayed();
+//        user.atMyTagsPage.checkIfTwoListingsAreDisplayed();
     }
 }

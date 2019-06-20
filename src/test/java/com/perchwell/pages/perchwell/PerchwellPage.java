@@ -263,6 +263,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND label == 'lv selected rb'")
 	private List<WebElement> selectedListingsListByAddress;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/tag_button")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][2]")
 	private WebElement tagIconOnSecondListing;
 
@@ -1114,15 +1115,37 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void clickOnTagIconOnSecondListing() {
-		element(tagIconOnSecondListing).click();
+		if(Config.isAndroid()) {
+			element(tagIconOnSecondListing).click();
+		} else {
+			element(tagIconOnSecondListing).click();
+		}
 	}
 
     public void checkTagsIconCountForFirstListing(String value) {
-		Assert.assertEquals(value, element(tagIconOnFirstListing).getAttribute("label").replace(" ", ""));
+		if(Config.isAndroid()) {
+			if(value.equals("tag")) {
+				Assert.assertEquals("", element(MobileBy.id("com.perchwell.re.staging:id/tag_button")).getAttribute("text"));
+			} else {
+				Assert.assertEquals(value, element(MobileBy.id("com.perchwell.re.staging:id/tagging_count")).getAttribute("text"));
+			}
+		} else {
+			Assert.assertEquals(value, element(tagIconOnFirstListing).getAttribute("label").replace(" ", ""));
+		}
     }
 
 	public void checkTagsIconCountForSecondListing(String value) {
-		Assert.assertEquals(value, element(tagIconOnSecondListing).getAttribute("label").replace(" ", ""));
+		if(Config.isAndroid()) {
+			universalSingleSwipe();
+			if(value.equals("tag")) {
+				Assert.assertEquals("", element(MobileBy.id("com.perchwell.re.staging:id/tag_button")).getAttribute("text"));
+			} else {
+				Assert.assertEquals(value, element(MobileBy.id("com.perchwell.re.staging:id/tagging_count")).getAttribute("text"));
+			}
+			singleUpShortSwipeAndroid();
+		} else {
+			Assert.assertEquals(value, element(tagIconOnSecondListing).getAttribute("label").replace(" ", ""));
+		}
 	}
 
 	public void getListingsAmount() {
