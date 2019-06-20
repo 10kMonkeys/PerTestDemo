@@ -7,6 +7,7 @@ import com.perchwell.helpers.RandomGenerator;
 import com.perchwell.helpers.SessionVariables;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
@@ -651,6 +652,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Return")
     private WebElement returnButtonOnKeyboard;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'BUILDING WIDTH']")
     @iOSXCUITFindBy(accessibility = "BUILDING WIDTH")
     private WebElement bldgWidthSection;
 
@@ -701,6 +703,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: LOCATION")
     private WebElement collapseLocationArrow;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/range_seekbar")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeImage' AND name CONTAINS 'slider max:'")
     private WebElement buildWightMaxControl;
 
@@ -2014,11 +2017,21 @@ public class SearchPage extends TechHelper {
     }
 
     public void setMaxBldgWidthValue() {
-        element(collapseLocationArrow).click();
-        element(collapseBedroomsArrow).click();
-        Helper.universalVerticalSwipe(bldgWidthSection);
+        if(Config.isAndroid()) {
+            universalVerticalSwipe(bldgWidthSection);
 
-        Helper.horizontalElementSwipeForIOS(buildWightMaxControl, 120);
+            WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+            WebDriver webDriver = webDriverFacade.getProxiedDriver();
+            AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+            TouchAction action = new TouchAction(appiumDriver);
+            action.longPress(1345, 2000).moveTo(880, 2000).release().perform();
+        } else {
+            element(collapseLocationArrow).click();
+            element(collapseBedroomsArrow).click();
+            universalVerticalSwipe(bldgWidthSection);
+
+            horizontalElementSwipeForIOS(buildWightMaxControl, 120);
+        }
 //        Helper.universalHorizontalSwipe(buildWightMaxControl, y);
     }
 
@@ -2107,7 +2120,12 @@ public class SearchPage extends TechHelper {
 
     public void checkIfMaxBldgWidthValueIsCorrect(String maxFilterValue) {
 //        element(MobileBy.AccessibilityId(maxFilterValue)).getAttribute("value");
-        Assert.assertEquals(maxFilterValue, element(MobileBy.AccessibilityId(maxFilterValue)).getAttribute("value"));
+        if(Config.isAndroid()) {
+            universalVerticalSwipe(bldgWidthSection);
+            Assert.assertEquals(maxFilterValue, element(MobileBy.id("com.perchwell.re.staging:id/max_value")).getAttribute("text"));
+        } else {
+            Assert.assertEquals(maxFilterValue, element(MobileBy.AccessibilityId(maxFilterValue)).getAttribute("value"));
+        }
     }
 
     public void clickOnListingByAddress(String address) {
