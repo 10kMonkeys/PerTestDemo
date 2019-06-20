@@ -2024,7 +2024,13 @@ public class SearchPage extends TechHelper {
             WebDriver webDriver = webDriverFacade.getProxiedDriver();
             AppiumDriver appiumDriver = (AppiumDriver) webDriver;
             TouchAction action = new TouchAction(appiumDriver);
-            action.longPress(1345, 2000).moveTo(880, 2000).release().perform();
+
+            if(element(MobileBy.id("com.perchwell.re.staging:id/max_value")).getAttribute("text").equals("50'+")) {
+                action.longPress(1345, 2000).moveTo(880, 2000).release().perform();
+            } else {
+                action.longPress(880, 2000).moveTo(580, 2000).release().perform();
+            }
+
         } else {
             element(collapseLocationArrow).click();
             element(collapseBedroomsArrow).click();
