@@ -2025,12 +2025,14 @@ public class SearchPage extends TechHelper {
             AppiumDriver appiumDriver = (AppiumDriver) webDriver;
             TouchAction action = new TouchAction(appiumDriver);
 
-            if(element(MobileBy.id("com.perchwell.re.staging:id/max_value")).getAttribute("text").equals("50'+")) {
-                action.longPress(1345, 2000).moveTo(880, 2000).release().perform();
-            } else {
-                action.longPress(880, 2000).moveTo(580, 2000).release().perform();
-            }
+            int x = element(buildWightMaxControl).getLocation().getX();
+            int y = element(buildWightMaxControl).getLocation().getY();
 
+            if(element(MobileBy.id("com.perchwell.re.staging:id/max_value")).getAttribute("text").equals("50'+")) {
+                action.longPress(x + 1300, element(buildWightMaxControl).getLocation().getY()).moveTo(x + 824, y).release().perform();
+            } else {
+                action.longPress(x + 824, y).moveTo(x + 524, y).release().perform();
+            }
         } else {
             element(collapseLocationArrow).click();
             element(collapseBedroomsArrow).click();

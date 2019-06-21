@@ -107,11 +107,11 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atMyTagsPage.searchCustomClientTag();
         user.atMyTagsPage.clickOnFirstTag();
         user.atMyTagsPage.clickOnSearchButton();
-//        user.atMyTagsPage.checkIfTwoListingsAreDisplayed();
+        user.atMyTagsPage.checkIfTwoListingsAreDisplayed();
         user.atMyTagsPage.removeAllTagPills();
         user.atMyTagsPage.searchFirstExistingTag();
         user.atMyTagsPage.clickOnFirstTag();
         user.atMyTagsPage.clickOnSearchButton();
-//        user.atMyTagsPage.checkIfTwoListingsAreDisplayed();
+        user.atMyTagsPage.checkIfTwoListingsAreDisplayed();
     }
 }
