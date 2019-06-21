@@ -2027,11 +2027,12 @@ public class SearchPage extends TechHelper {
 
             int x = element(buildWightMaxControl).getLocation().getX();
             int y = element(buildWightMaxControl).getLocation().getY();
+            int width = element(buildWightMaxControl).getSize().getWidth();
 
             if(element(MobileBy.id("com.perchwell.re.staging:id/max_value")).getAttribute("text").equals("50'+")) {
-                action.longPress(x + 1300, element(buildWightMaxControl).getLocation().getY()).moveTo(x + 824, y).release().perform();
+                action.longPress(x + width - 24, y).moveTo(x + 824, y).release().perform();
             } else {
-                action.longPress(x + 824, y).moveTo(x + 524, y).release().perform();
+                action.longPress(x + width - 504, y).moveTo(x + 524, y).release().perform();
             }
         } else {
             element(collapseLocationArrow).click();
