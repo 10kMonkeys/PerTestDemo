@@ -58,7 +58,6 @@ public class TI37_ListViewTagAdditionalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openSecondBuilding();
-        user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();

@@ -58,7 +58,6 @@ public class TI38_ListViewTagRemovalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
-        user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
         user.atOpenedBuildingPage.shouldNotSeeCustomClientTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
