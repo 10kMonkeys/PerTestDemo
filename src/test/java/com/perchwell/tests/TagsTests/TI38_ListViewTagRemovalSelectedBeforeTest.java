@@ -26,6 +26,7 @@ public class TI38_ListViewTagRemovalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openSecondBuilding();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.selectFirstListing();

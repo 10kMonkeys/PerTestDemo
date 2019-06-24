@@ -20,6 +20,7 @@ public class TI39_ListViewNewTagCreationTest extends SampleTest {
         user.atTagsPage.removeAllTagPills();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openSecondBuilding();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.selectFirstListing();
@@ -38,7 +39,6 @@ public class TI39_ListViewNewTagCreationTest extends SampleTest {
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
-        user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.shouldSeeAddedNewTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.shouldSeeJustCreatedTagsPill();
