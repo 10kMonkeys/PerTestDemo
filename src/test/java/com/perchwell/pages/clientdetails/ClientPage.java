@@ -292,7 +292,8 @@ public class ClientPage extends TechHelper {
 
 	public void clickOnDesiredClientOrAgent(String name) {
 		if (Config.isAndroid()) {
-			element(MobileBy.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/android.widget.TextView[contains(@content-desc, '" + name + "')]")).click();
+			element(MobileBy.xpath("//android.widget.RelativeLayout/android.view.ViewGroup/" +
+					"android.widget.TextView[contains(@content-desc, '" + name + "')]")).click();
 		} else {
 			element(MobileBy.AccessibilityId(name)).click();
 		}
