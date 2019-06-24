@@ -15,12 +15,14 @@ public class TI39_ListViewNewTagCreationTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.getListingsAddresses(2);
+        user.onlyAndroid.resetListView();
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.removeAllTagPills();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atPerchwellPage.clickOnTagIconOnSecondListing();
-        user.atTagsPage.removeAllTagPills();
-        user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atPerchwellPage.openSecondBuilding();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.clearTagsList();
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.clickOnMoreOptionsButton();
@@ -37,7 +39,6 @@ public class TI39_ListViewNewTagCreationTest extends SampleTest {
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
-        user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.shouldSeeAddedNewTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.shouldSeeJustCreatedTagsPill();

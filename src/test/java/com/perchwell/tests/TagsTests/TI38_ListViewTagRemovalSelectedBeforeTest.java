@@ -17,6 +17,7 @@ public class TI38_ListViewTagRemovalSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.getListingsAddresses(2);
+        user.onlyAndroid.resetListView();
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.removeAllTagPills();
         user.atTagsPage.fillInTagSearchField("11CLIENTNAME");
@@ -24,9 +25,10 @@ public class TI38_ListViewTagRemovalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.fillInTagSearchField("TAGNAME");
         user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atPerchwellPage.clickOnTagIconOnSecondListing();
-        user.atTagsPage.removeAllTagPills();
-        user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atPerchwellPage.openSecondBuilding();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.clearTagsList();
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.clickOnMoreOptionsButton();
@@ -56,7 +58,6 @@ public class TI38_ListViewTagRemovalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
-        user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
         user.atOpenedBuildingPage.shouldNotSeeCustomClientTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();

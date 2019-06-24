@@ -298,7 +298,7 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void clickOnArrowBackButtonFromListing() {
-			element(arrowBackButtonFromListing).click();
+		element(arrowBackButtonFromListing).click();
 	}
 
 	public void clickOnDeleteTagButton() {
@@ -875,7 +875,11 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void checkNoOneTagIsAdded() {
 		setImplicitTimeout(1, SECONDS);
-		Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'Remove Button:'")).size());
+		if(Config.isAndroid()) {
+			Assert.assertEquals(0, getDriver().findElements(MobileBy.xpath("*//android.widget.ImageView[contains(@content-desc, 'Remove Button: ')]")).size());
+		} else {
+			Assert.assertEquals(0, getDriver().findElements(MobileBy.iOSNsPredicateString("name CONTAINS 'Remove Button:'")).size());
+		}
 		resetImplicitTimeout();
 	}
 

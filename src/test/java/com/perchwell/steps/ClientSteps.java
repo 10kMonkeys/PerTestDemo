@@ -358,4 +358,9 @@ public class ClientSteps extends ScenarioSteps {
 			onPage.clearSearchFieldForAndroid();
 		}
 	}
+
+	@Step
+    public void searchCreatedClient() {
+		onPage.enterValueInSearchField(SessionVariables.getValueFromSessionVariable("User_name"));
+    }
 }

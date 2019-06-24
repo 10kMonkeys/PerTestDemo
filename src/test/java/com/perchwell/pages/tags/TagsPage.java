@@ -134,6 +134,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$visible == 1$]")
 	private WebElement tagsFirstPill;
 
+	@AndroidFindBy(xpath = "*//android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[@resource-id='com.perchwell.re.staging:id/tag_name']")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label CONTAINS '11CLIENTNAME20'`][1]")
 	private WebElement firstCustomClientTag;
 
@@ -711,9 +712,16 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void clickOnFirstCustomClientTagAndGetValue() {
-		element(firstCustomClientTag).click();
-		String tagValue = firstCustomClientTag.getAttribute("value");
-		SessionVariables.addValueInSessionVariable("First_Custom_Client", tagValue.substring(0, tagValue.indexOf(" ")));
+		if(Config.isAndroid()) {
+			element(firstCustomClientTag).click();
+			String tagValue = firstCustomClientTag.getAttribute("text");
+			SessionVariables.addValueInSessionVariable("First_Custom_Client", tagValue.substring(0, tagValue.indexOf(" ")));
+		} else {
+			element(firstCustomClientTag).click();
+			String tagValue = firstCustomClientTag.getAttribute("value");
+			SessionVariables.addValueInSessionVariable("First_Custom_Client", tagValue.substring(0, tagValue.indexOf(" ")));
+		}
+
 	}
 
 	public void checkCustomTagsItemsValue() {
@@ -792,7 +800,9 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void swipeTagPill(String tagName, int duration) {
-		swipeUpElementIOS(element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")), duration);
+		if(!Config.isAndroid()) {
+			swipeUpElementIOS(element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name='" + tagName + "'$]")), duration);
+		}
 	}
 
 	public void checkIfFirstTagsItemsListIsEqual(int value) {
