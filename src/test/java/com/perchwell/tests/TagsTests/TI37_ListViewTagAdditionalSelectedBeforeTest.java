@@ -15,6 +15,7 @@ public class TI37_ListViewTagAdditionalSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.getListingsAddresses(2);
+        user.onlyAndroid.resetListView();
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.removeAllTagPills();
         user.atTagsPage.fillInTagSearchField("11CLIENTNAME");
@@ -22,9 +23,9 @@ public class TI37_ListViewTagAdditionalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.fillInTagSearchField("TAGNAME");
         user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atPerchwellPage.clickOnTagIconOnSecondListing();
-        user.atTagsPage.removeAllTagPills();
-        user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atPerchwellPage.openSecondBuilding();
+        user.atOpenedBuildingPage.clearTagsList();
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.clickOnMoreOptionsButton();
@@ -82,10 +83,5 @@ public class TI37_ListViewTagAdditionalSelectedBeforeTest extends SampleTest {
         user.atMyTagsPage.clickOnFirstTag();
         user.atMyTagsPage.clickOnSearchButton();
         user.atMyTagsPage.checkIfTwoListingsAreDisplayed();
-
-
-
-
-
     }
 }
