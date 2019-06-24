@@ -19,6 +19,7 @@ public class DT2_AddDeletedClientAgainTest extends SampleTest {
         user.atAccountPage.clickOnClientsLabel();
         user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);
         user.atEmailPage.acceptClientInvitation();
+        user.onlyAndroid.searchCreatedClient();
         user.atClientPage.swipeCreatedClientName();
         user.atClientPage.clickOnDeleteButton();
         user.atClientPage.clickOnAddNewClientButton();

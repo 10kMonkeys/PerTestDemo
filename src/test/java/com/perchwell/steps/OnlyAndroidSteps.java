@@ -16,11 +16,22 @@ public class OnlyAndroidSteps extends ScenarioSteps{
     @Steps
     private SearchSteps atSearchPage1;
 
+    @Steps
+    private ClientSteps atClientPage1;
+
     @Step
     public void resetListView() {
         if(Config.isAndroid()) {
             inSearchMenu1.openSearchPage();
             atSearchPage1.clickOnApplyButton();
+        }
+    }
+
+    @Step
+    public void searchCreatedClient() {
+        if(Config.isAndroid()) {
+            atClientPage1.searchCreatedClient();
+            atClientPage1.onPage.hideKeyboard();
         }
     }
 }

@@ -93,6 +93,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'DISCUSS BUTTON'")
 	private WebElement discussionButton;
 
+	@AndroidFindBy(accessibility = "cell: Contact Listing Agents")
 	@iOSXCUITFindBy(accessibility = "cell: Contact Listing Agents")
 	private WebElement contactListingAgentsOption;
 
@@ -115,6 +116,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name CONTAINS 'Select button: unselected'`][3]")
 	private WebElement secondContactListingCheckbox;
 
+	@AndroidFindBy(accessibility = "cell: Tag Selected Listings")
 	@iOSXCUITFindBy(accessibility = "cell: Tag Selected Listings")
 	private WebElement tagSelectedListingsOption;
 
@@ -122,6 +124,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Sort Button: ' AND visible == true")
 	private WebElement sortType;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/tag_button")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
 	private WebElement tagIconOnFirstListing;
 
@@ -129,12 +132,15 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND label == 'ti selected rb'")
 	private List<WebElement> selectedListingsListByAddress;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'Remove Button: ')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: '")
 	private WebElement removingTagPill;
 
+	@AndroidFindBy(xpath = "*//android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[@resource-id='com.perchwell.re.staging:id/tag_name']")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS '11CLIENTNAME' OR name CONTAINS 'TAGNAME'`][1]")
 	private WebElement firstTag;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/search_by_tags")
 	@iOSXCUITFindBy(accessibility = "SHOW ITEMS IN SELECTED TAGS")
 	private WebElement searchButton;
 
@@ -549,10 +555,16 @@ public class MyTagsPage extends TechHelper {
 	}
 
 	public void checkIfTwoListingsAreDisplayed() {
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
-				+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldBeVisible();
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
-				+ SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).shouldBeVisible();
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, '" + SessionVariables.getValueFromSessionVariable("listingAddress1")  + "')]")).shouldBeVisible();
+			universalSingleSwipe();
+			element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, '" + SessionVariables.getValueFromSessionVariable("listingAddress2")  + "')]")).shouldBeVisible();
+		} else {
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
+					+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldBeVisible();
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
+					+ SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).shouldBeVisible();
+		}
 	}
 
 	public void clickOnSearchButton() {
@@ -561,10 +573,16 @@ public class MyTagsPage extends TechHelper {
 
 	public void checkIfTwoListingsAreNotDisplayed() {
 		setImplicitTimeout(3, TimeUnit.SECONDS);
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
+		if(Config.isAndroid()) {
+			element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "')]")).shouldNotBeVisible();
+			universalSingleSwipe();
+			element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "')]")).shouldNotBeVisible();
+		} else {
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
 					+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldNotBeVisible();
-		element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
+			element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
 					+ SessionVariables.getValueFromSessionVariable("listingAddress2") + "'$]")).shouldNotBeVisible();
+		}
 		resetImplicitTimeout();
 	}
 
