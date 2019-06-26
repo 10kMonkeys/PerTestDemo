@@ -812,7 +812,11 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void swipeAnyTagPill(int duration) {
-		swipeUpElementIOS(element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$value BEGINSWITH 'tag color: #'$]")), duration);
+		if(Config.isAndroid()) {
+			swipeUpElementIOS(element(MobileBy.id("com.perchwell.re.staging:id/tag_text")), duration);
+		} else {
+			swipeUpElementIOS(element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$value BEGINSWITH 'tag color: #'$]")), duration);
+		}
 	}
 
 	public void checkTagBelowOtherTagsLabelWithTwoTagPills(String value) {

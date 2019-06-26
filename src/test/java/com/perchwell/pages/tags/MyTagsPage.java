@@ -147,9 +147,11 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossFromAccountTagsButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/tag_button")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][2]")
 	private WebElement tagIconOnSecondListing;
 
+	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/listing_image'])[2]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell[2]")
 	private WebElement secondBuilding;
 
@@ -591,11 +593,29 @@ public class MyTagsPage extends TechHelper {
 	}
 
 	public void checkTagsIconCountForFirstListing(String value) {
-		Assert.assertEquals(value, element(tagIconOnFirstListing).getAttribute("label").replace(" ", ""));
+		if(Config.isAndroid()) {
+			if(value.equals("tag")) {
+				Assert.assertEquals("", element(MobileBy.id("com.perchwell.re.staging:id/tag_button")).getAttribute("text"));
+			} else {
+				Assert.assertEquals(value, element(MobileBy.id("com.perchwell.re.staging:id/tagging_count")).getAttribute("text"));
+			}
+		} else {
+			Assert.assertEquals(value, element(tagIconOnFirstListing).getAttribute("label").replace(" ", ""));
+		}
 	}
 
 	public void checkTagsIconCountForSecondListing(String value) {
-		Assert.assertEquals(value, element(tagIconOnSecondListing).getAttribute("label").replace(" ", ""));
+		if(Config.isAndroid()) {
+			universalSingleSwipe();
+			if(value.equals("tag")) {
+				Assert.assertEquals("", element(MobileBy.id("com.perchwell.re.staging:id/tag_button")).getAttribute("text"));
+			} else {
+				Assert.assertEquals(value, element(MobileBy.id("com.perchwell.re.staging:id/tagging_count")).getAttribute("text"));
+			}
+			singleUpShortSwipeAndroid();
+		} else {
+			Assert.assertEquals(value, element(tagIconOnSecondListing).getAttribute("label").replace(" ", ""));
+		}
 	}
 
 	public void clickOnTagIconOnSecondListing() {

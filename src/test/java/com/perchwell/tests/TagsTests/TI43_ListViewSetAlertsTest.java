@@ -23,6 +23,7 @@ public class TI43_ListViewSetAlertsTest extends SampleTest {
         user.atTagsPage.clickOnEditTagIcon();
         user.atEditTagPage.switchAlertsToOff();
         user.atEditTagPage.clickOnSaveButton();
+        user.onlyAndroid.searchJustCreatedTag();
         user.atTagsPage.checkNoOneActiveBellDisplayed();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
@@ -39,6 +40,7 @@ public class TI43_ListViewSetAlertsTest extends SampleTest {
         user.atEditTagPage.switchAlertsToOn();
         user.atEditTagPage.clickOnArrowBackFromEditTagPage();
         user.atEditTagPage.clickOnPopUpSaveButton();
+        user.onlyAndroid.searchJustCreatedTag();
         user.atTagsPage.greenBellIconIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
@@ -52,6 +54,7 @@ public class TI43_ListViewSetAlertsTest extends SampleTest {
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.swipeJustCreatedTag();
         user.atTagsPage.clickOnGrayBellButton();
+        user.onlyAndroid.searchJustCreatedTag();
         user.atTagsPage.checkNoOneActiveBellDisplayed();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
@@ -65,6 +68,7 @@ public class TI43_ListViewSetAlertsTest extends SampleTest {
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.swipeJustCreatedTag();
         user.atTagsPage.clickOnGreenBellButton();
+        user.onlyAndroid.searchJustCreatedTag();
         user.atTagsPage.greenBellIconIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
