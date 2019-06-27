@@ -18,8 +18,8 @@ public class TI41_ListViewEditTagDuplicateTest extends SampleTest {
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.removeAllTagPills();
-        user.atTagsPage.getFirstTagsItemsValue();
         user.atTagsPage.clickOnFirstTagAndGetValue();
+        user.atTagsPage.getFirstTagsItemsValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.clickOnMoreOptionsButton();

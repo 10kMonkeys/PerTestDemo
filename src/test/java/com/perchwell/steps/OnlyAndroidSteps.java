@@ -19,6 +19,9 @@ public class OnlyAndroidSteps extends ScenarioSteps{
     @Steps
     private ClientSteps atClientPage1;
 
+    @Steps
+    private TagsSteps atTagsPage1;
+
     @Step
     public void resetListView() {
         if(Config.isAndroid()) {
@@ -33,5 +36,10 @@ public class OnlyAndroidSteps extends ScenarioSteps{
             atClientPage1.searchCreatedClient();
             atClientPage1.onPage.hideKeyboard();
         }
+    }
+
+    @Step
+    public void searchJustCreatedTag() {
+        atTagsPage1.searchJustCreatedTag();
     }
 }

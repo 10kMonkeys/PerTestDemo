@@ -17,6 +17,7 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.getListingsAddresses(2);
         user.onlyAndroid.resetListView();
         user.atPerchwellPage.openFirstBuilding();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.openSecondBuilding();
@@ -61,7 +62,6 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
-        user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
