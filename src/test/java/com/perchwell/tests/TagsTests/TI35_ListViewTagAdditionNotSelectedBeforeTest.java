@@ -70,7 +70,7 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.onlyAndroid.singleSwipeDownAndroid();
+        user.onlyAndroid.singleDownSwipeAndroidAtMyTagsPage(); //
         user.atPerchwellPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.swipeDownFirstExistingTagPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
@@ -82,7 +82,7 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.onlyAndroid.singleSwipeUpAndroid();
+        user.onlyAndroid.singleUpShortSwipeAndroidAtMyTagsPage(); //
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();

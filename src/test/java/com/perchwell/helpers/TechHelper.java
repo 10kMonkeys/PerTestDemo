@@ -329,6 +329,22 @@ public class TechHelper extends BasePage {
         appiumDriver.hideKeyboard();
     }
 
+    public void singleUpShortSwipeAndroidAtMyTagsPage() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        swipeVerticalAndroid(appiumDriver, 0.4, 0.9, 0.5);
+    }
+
+    public void singleDownSwipeAndroidAtMyTagsPage() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        swipeVerticalAndroid(appiumDriver, 0.9, 0.4, 0.5);
+    }
+
     //endregion
 
     //region Coordinates

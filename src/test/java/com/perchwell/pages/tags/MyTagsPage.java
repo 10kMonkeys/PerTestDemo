@@ -612,16 +612,13 @@ public class MyTagsPage extends TechHelper {
 			} else {
 				Assert.assertEquals(value, element(MobileBy.id("com.perchwell.re.staging:id/tagging_count")).getAttribute("text"));
 			}
-			singleUpShortSwipeAndroid();
+			singleUpShortSwipeAndroidAtMyTagsPage();
 		} else {
 			Assert.assertEquals(value, element(tagIconOnSecondListing).getAttribute("label").replace(" ", ""));
 		}
 	}
 
 	public void clickOnTagIconOnSecondListing() {
-		if(Config.isAndroid()) {
-			universalSingleSwipe();
-		}
 		element(tagIconOnSecondListing).click();
 	}
 

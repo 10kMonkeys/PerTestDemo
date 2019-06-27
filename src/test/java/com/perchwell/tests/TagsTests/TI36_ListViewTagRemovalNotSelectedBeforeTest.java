@@ -54,11 +54,11 @@ public class TI36_ListViewTagRemovalNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.onlyAndroid.singleSwipeDownAndroid();
+        user.onlyAndroid.singleDownSwipeAndroidAtMyTagsPage(); //
         user.atPerchwellPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.onlyAndroid.singleSwipeUpAndroid();
+        user.onlyAndroid.singleUpShortSwipeAndroidAtMyTagsPage(); //
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.checkNoOneTagPillIsShown();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();

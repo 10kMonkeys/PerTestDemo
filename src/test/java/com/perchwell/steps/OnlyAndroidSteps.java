@@ -48,16 +48,16 @@ public class OnlyAndroidSteps extends ScenarioSteps{
     }
 
     @Step
-    public void singleSwipeDownAndroid() {
+    public void singleDownSwipeAndroidAtMyTagsPage() {
         if(Config.isAndroid()) {
-            atTagsPage1.onPage.universalSingleSwipe();
+            atTagsPage1.onPage.singleDownSwipeAndroidAtMyTagsPage();
         }
     }
 
     @Step
-    public void singleSwipeUpAndroid() {
+    public void singleUpShortSwipeAndroidAtMyTagsPage() {
         if(Config.isAndroid()) {
-            atTagsPage1.onPage.singleUpShortSwipeAndroid();
+            atTagsPage1.onPage.singleUpShortSwipeAndroidAtMyTagsPage();
         }
     }
 }

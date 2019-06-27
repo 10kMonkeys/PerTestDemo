@@ -53,11 +53,13 @@ public class TI49_TagsPageChangeNameTest extends SampleTest {
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atMyTagsPage.checkTagsIconCountForFirstAndSecondListings("1");
+        user.onlyAndroid.singleDownSwipeAndroidAtMyTagsPage(); //
         user.atMyTagsPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.searchRenamedTag();
         user.atTagsPage.checkIfRenamedTagIsVisible();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.onlyAndroid.singleUpShortSwipeAndroidAtMyTagsPage(); //
         user.atMyTagsPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldNotSeeCustomClientTag();
         user.atOpenedBuildingPage.shouldSeeRenamedTag();
@@ -83,7 +85,5 @@ public class TI49_TagsPageChangeNameTest extends SampleTest {
         user.atTagsPage.searchRenamedTag();
         user.atTagsPage.checkIfRenamedTagIsVisible();
         user.atTagsPage.allTagsAreSelected(1);
-
-
     }
 }
