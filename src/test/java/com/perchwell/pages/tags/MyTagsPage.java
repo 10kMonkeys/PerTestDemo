@@ -144,6 +144,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "SHOW ITEMS IN SELECTED TAGS")
 	private WebElement searchButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossFromAccountTagsButton;
 
