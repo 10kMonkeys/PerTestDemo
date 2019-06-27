@@ -961,6 +961,7 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void selectFirstTestListingWithOneAgent() {
+		singleUpShortSwipeIOS();
 		universalVerticalSwipe(testListingWithOneAgentCheckbox);
 		element(testListingWithOneAgentCheckbox).click();
 	}

@@ -142,6 +142,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name BEGINSWITH 'Remove Button: '")
 	private WebElement removingTagPill;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossFromAccountTagsButton;
 
@@ -163,7 +164,7 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void fillInTagSearchField(String uniqueTagName) {
-		waitFor(1000);
+		waitABit(1000);
 		element(searchTagTextBox).sendKeys(uniqueTagName);
 	}
 
@@ -811,7 +812,11 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void swipeAnyTagPill(int duration) {
-		swipeUpElementIOS(element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$value BEGINSWITH 'tag color: #'$]")), duration);
+		if(Config.isAndroid()) {
+			swipeUpElementIOS(element(MobileBy.id("com.perchwell.re.staging:id/tag_text")), duration);
+		} else {
+			swipeUpElementIOS(element(MobileBy.iOSClassChain("**/XCUIElementTypeOther[$name BEGINSWITH 'tag color: #'$]/XCUIElementTypeOther/XCUIElementTypeStaticText[$value BEGINSWITH 'tag color: #'$]")), duration);
+		}
 	}
 
 	public void checkTagBelowOtherTagsLabelWithTwoTagPills(String value) {

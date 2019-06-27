@@ -19,6 +19,7 @@ public class TI36_ListViewTagRemovalNotSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.getListingsAddresses(2);
         user.onlyAndroid.resetListView();
         user.atPerchwellPage.openFirstBuilding();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.openSecondBuilding();
@@ -54,7 +55,6 @@ public class TI36_ListViewTagRemovalNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
-        user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.checkNoOneTagPillIsShown();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.checkNoOneTagPillIsShown();
