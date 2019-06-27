@@ -23,12 +23,6 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-//        user.atPerchwellPage.clickOnTagIconOnFirstListing();
-//        user.atTagsPage.removeAllTagPills();
-//        user.atTagsPage.clickOnArrowBackFromTagsButton();
-//        user.atPerchwellPage.clickOnTagIconOnSecondListing();
-//        user.atTagsPage.removeAllTagPills();
-//        user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.clickOnMoreOptionsButton();
@@ -76,6 +70,7 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
+        user.onlyAndroid.singleSwipeDownAndroid();
         user.atPerchwellPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.swipeDownFirstExistingTagPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
@@ -87,6 +82,7 @@ public class TI35_ListViewTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.onlyAndroid.singleSwipeUpAndroid();
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();

@@ -46,6 +46,7 @@ public class TI37_ListViewTagAdditionalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.checkTagsIconCountForFirstAndSecondListings("2");
+        user.onlyAndroid.singleSwipeDownAndroid();
         user.atPerchwellPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.swipeDownFirstExistingTagPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
@@ -57,6 +58,7 @@ public class TI37_ListViewTagAdditionalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.onlyAndroid.singleSwipeUpAndroid();
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();

@@ -46,6 +46,7 @@ public class TI45_TagsPageTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(2);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atMyTagsPage.checkTagsIconCountForFirstAndSecondListings("2");
+        user.onlyAndroid.singleSwipeDownAndroid();
         user.atMyTagsPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
         user.atTagsPage.swipeDownFirstExistingTagPill();
@@ -57,6 +58,7 @@ public class TI45_TagsPageTagAdditionNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.onlyAndroid.singleSwipeUpAndroid();
         user.atMyTagsPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();

@@ -22,6 +22,8 @@ public class OnlyAndroidSteps extends ScenarioSteps{
     @Steps
     private TagsSteps atTagsPage1;
 
+    @Steps MyTagsSteps atMyTagsPage1;
+
     @Step
     public void resetListView() {
         if(Config.isAndroid()) {
@@ -40,6 +42,22 @@ public class OnlyAndroidSteps extends ScenarioSteps{
 
     @Step
     public void searchJustCreatedTag() {
-        atTagsPage1.searchJustCreatedTag();
+        if(Config.isAndroid()) {
+            atTagsPage1.searchJustCreatedTag();
+        }
+    }
+
+    @Step
+    public void singleSwipeDownAndroid() {
+        if(Config.isAndroid()) {
+            atTagsPage1.onPage.universalSingleSwipe();
+        }
+    }
+
+    @Step
+    public void singleSwipeUpAndroid() {
+        if(Config.isAndroid()) {
+            atTagsPage1.onPage.singleUpShortSwipeAndroid();
+        }
     }
 }

@@ -46,11 +46,13 @@ public class TI39_ListViewNewTagCreationTest extends SampleTest {
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
+        user.onlyAndroid.singleSwipeDownAndroid();
         user.atPerchwellPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.shouldSeeJustCreatedTagsPill();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.onlyAndroid.singleSwipeUpAndroid();
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeAddedNewTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();

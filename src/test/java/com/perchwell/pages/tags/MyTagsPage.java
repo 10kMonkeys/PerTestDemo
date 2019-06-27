@@ -619,6 +619,9 @@ public class MyTagsPage extends TechHelper {
 	}
 
 	public void clickOnTagIconOnSecondListing() {
+		if(Config.isAndroid()) {
+			universalSingleSwipe();
+		}
 		element(tagIconOnSecondListing).click();
 	}
 
