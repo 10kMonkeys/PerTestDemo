@@ -633,7 +633,7 @@ public class MyTagsPage extends TechHelper {
 
 	public void swipeDownForAndroidAtTaggedItemsPage () {
 		if(Config.isAndroid()) {
-			androidSwipeForSorting();
+			universalSingleSwipe();
 		}
 	}
 }
