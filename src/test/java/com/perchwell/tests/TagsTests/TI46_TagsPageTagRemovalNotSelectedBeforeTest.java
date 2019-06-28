@@ -46,11 +46,11 @@ public class TI46_TagsPageTagRemovalNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(0);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atMyTagsPage.checkTagsIconCountForFirstAndSecondListings("1");
-        user.onlyAndroid.singleDownSwipeAndroidAtMyTagsPage(); //
+        user.atMyTagsPage.swipeDownForAndroidAtTaggedItemsPage(); //
         user.atMyTagsPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.checkIfFirstExistingTagsPillIsNotVisible();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.onlyAndroid.singleUpShortSwipeAndroidAtMyTagsPage(); //
+        user.atMyTagsPage.resetSwipeOnlyForAndroid(1); //
         user.atMyTagsPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();

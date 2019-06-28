@@ -1163,4 +1163,10 @@ public class PerchwellPage extends TechHelper {
 		universalVerticalSwipe(testListingWithOneAgent);
 		element(testListingWithOneAgent).click();
 	}
+
+    public void singleSwipeDownForAndroid() {
+		if(Config.isAndroid()) {
+			universalSingleSwipe();
+		}
+    }
 }

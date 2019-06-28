@@ -65,12 +65,12 @@ public class TI47_TagsPageTagAdditionSelectedBeforeTest extends SampleTest {
         user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-        user.onlyAndroid.singleDownSwipeAndroidAtMyTagsPage(); //
+        user.atMyTagsPage.swipeDownForAndroidAtTaggedItemsPage(); //
         user.atMyTagsPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.singleDownSwipeTagsPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.onlyAndroid.singleUpShortSwipeAndroidAtMyTagsPage(); //
+        user.atMyTagsPage.resetSwipeOnlyForAndroid(1); //
         user.atMyTagsPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
