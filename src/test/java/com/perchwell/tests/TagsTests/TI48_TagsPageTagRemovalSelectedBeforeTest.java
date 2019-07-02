@@ -18,13 +18,16 @@ public class TI48_TagsPageTagRemovalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.removeAllTagPills();
         user.atTagsPage.clickOnFirstCustomClientTagAndGetValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atPerchwellPage.clickOnTagIconOnSecondListing();
-        user.atTagsPage.removeAllTagPills();
+        user.atPerchwellPage.openSecondBuilding();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.clearTagsList();
+        user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.searchCustomClientTag();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.fillInTagSearchField("TAGNAME");
         user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchCustomClientTag();
@@ -66,9 +69,11 @@ public class TI48_TagsPageTagRemovalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
+        user.atPerchwellPage.singleSwipeDownForAndroid(); //
         user.atPerchwellPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.onlyAndroid.resetListView(); //
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldNotSeeCustomClientTag();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
