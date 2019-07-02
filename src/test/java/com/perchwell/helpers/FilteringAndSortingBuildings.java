@@ -2,14 +2,12 @@ package com.perchwell.helpers;
 
 import com.perchwell.crossPlatform.Config;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public abstract class FilteringAndSortingBuildings {
 
@@ -99,9 +97,13 @@ public abstract class FilteringAndSortingBuildings {
 
         if (buildingList.size() > 0) {
             Iterator<WebElement> iterator = buildingList.iterator();
-
+            String s;
             while (iterator.hasNext()) {
-                String s = iterator.next().getAttribute("value");
+                if (Config.isAndroid()) {
+                    s = iterator.next().getAttribute("text");
+                } else {
+                    s = iterator.next().getAttribute("value");
+                }
 
                 switch (typeSorting) {
                     case "bedrooms":

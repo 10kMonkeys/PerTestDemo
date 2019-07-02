@@ -13,10 +13,12 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -86,6 +88,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Listing Results:'")
 	private WebElement listingsByButton;
 
+	@AndroidFindBy(accessibility = "cell: deselected Bedrooms")
 	@iOSXCUITFindBy(accessibility = "Bedrooms")
 	private WebElement bedroomsSortButton;
 
@@ -104,16 +107,19 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Bed: STUDIO'")
 	private List<WebElement> studioList;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/price")
+    @AndroidFindBy(id = "price")
     @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name CONTAINS 'PRICE'")
     private List<WebElement> pricesList;
 
+    @AndroidFindBy(accessibility = "cell: deselected Least Expensive")
     @iOSXCUITFindBy(accessibility = "Least Expensive")
     private WebElement leastExpensiveButton;
 
-    @iOSXCUITFindBy(accessibility = "Most Expensive")
+	@AndroidFindBy(accessibility = "cell: deselected Most Expensive")
+	@iOSXCUITFindBy(accessibility = "Most Expensive")
     private WebElement mostExpensiveButton;
 
+	@AndroidFindBy(accessibility = "cell: deselected Bathrooms")
 	@iOSXCUITFindBy(accessibility = "Bathrooms")
 	private WebElement bathroomsSortButton;
 
@@ -511,25 +517,60 @@ public class PerchwellPage extends TechHelper {
     }
 
     public void isListingSortedByLeastExpensive() {
-		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
-    }
+    	if (Config.isAndroid()) {
+    		for (int i = 0; i < ANDROID_LOOP_COUNTER; i++) {
+    			androidSwipeForListViewSorting();
+				Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
+			}
+		} else {
+    		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceLeast", pricesList) == 0);
+		}
+	}
 
     public void isListingSortedByMostExpensive() {
-		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
+		if (Config.isAndroid()) {
+			for (int i = 0; i < ANDROID_LOOP_COUNTER; i++) {
+				androidSwipeForListViewSorting();
+				Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
+			}
+		} else {
+			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("priceMost", pricesList) == 1);
+		}
     }
 
     public void isListingSortedByBedrooms() {
-	    Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedrooms", bedInfoList) == 1);
+		if (Config.isAndroid()) {
+			for (int i = 0; i < ANDROID_LOOP_COUNTER; i++) {
+				androidSwipeForListViewSorting();
+				Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedrooms", bedInfoList) == 1);
+			}
+		} else {
+			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedrooms", bedInfoList) == 1);
+		}
     }
 
 
 	public void ListingBeSortedByBedroomsInBuilding() {
-		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedroomsInBuilding", bedAndBathListInBuilding) == 1);
+		if (Config.isAndroid()) {
+			for (int i = 0; i < ANDROID_LOOP_COUNTER; i++) {
+				androidSwipeForListViewSorting();
+				Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedroomsInBuilding", bedAndBathListInBuilding) == 1);
+			}
+		} else {
+			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedroomsInBuilding", bedAndBathListInBuilding) == 1);
+		}
 	}
 
     public void isListingSortedByBathrooms() {
-		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bathrooms", bathsInfoList) == 1);
-    }
+		if (Config.isAndroid()) {
+			for (int i = 0; i < ANDROID_LOOP_COUNTER; i++) {
+				androidSwipeForListViewSorting();
+				Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bathrooms", bathsInfoList) == 1);
+			}
+		} else {
+			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bathrooms", bathsInfoList) == 1);
+		}
+	}
 
 	public void isInitialIconDispalyed(){
 		element(openAccountButton).shouldBeVisible();

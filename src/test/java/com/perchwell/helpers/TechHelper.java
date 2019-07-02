@@ -13,8 +13,6 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
-
 
 public class TechHelper extends BasePage {
 
@@ -298,6 +296,18 @@ public class TechHelper extends BasePage {
 
 
         swipeVerticalAndroid(appiumDriver, 0.8, 0.29, 0.5);
+    }
+
+    public void androidSwipeForListViewSorting() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+        Dimension size = appiumDriver.manage().window().getSize();
+
+        int startPoint = size.height;
+        int endPoint = startPoint - ((startPoint / 100) * 44);
+
+        new TouchAction(appiumDriver).press(50, startPoint - 1).waitAction(Duration.ofSeconds(1)).moveTo(50, endPoint).release().perform();
     }
 
     public void androidSwipeForSorting() {
