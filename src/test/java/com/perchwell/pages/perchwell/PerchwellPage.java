@@ -1142,7 +1142,6 @@ public class PerchwellPage extends TechHelper {
 				}
 				androidSwipeForSelectedListingsCount();
 			}
-			System.out.println(currentSelectedListings);
 			Assert.assertEquals(value, currentSelectedListings);
 			resetImplicitTimeout();
 		} else {
