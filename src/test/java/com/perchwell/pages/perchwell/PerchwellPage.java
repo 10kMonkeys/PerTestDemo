@@ -147,6 +147,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TBI")
 	private List<WebElement> buildingsLabels;
 
+	@AndroidFindBy(accessibility = "cell: deselected Address")
 	@iOSXCUITFindBy(accessibility = "Address")
 	private WebElement addressSortButton;
 
