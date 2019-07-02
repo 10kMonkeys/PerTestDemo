@@ -322,6 +322,14 @@ public class TechHelper extends BasePage {
         new TouchAction(appiumDriver).press(50, startPoint - 1).waitAction(Duration.ofSeconds(1)).moveTo(50, endPoint).release().perform();
     }
 
+    public void androidSwipeForSelectedListingsCount() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        new TouchAction(appiumDriver).press(50, 1615).waitAction(Duration.ofSeconds(1)).moveTo(50, 415).release().perform();
+    }
+
     public void resetSwipeOnlyAndroid(int numSwipes) {
         if (Config.isAndroid()) {
 

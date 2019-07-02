@@ -19,17 +19,20 @@ public class LVT10_MultiSelectDismissalTest extends SampleTest {
         user.atSearchPage.setSearchName();
         user.atSearchPage.clickOnSaveButton();
         user.usingComplexSteps.startNewSearch();
+        user.onlyAndroid.resetListView(); //
         user.atPerchwellPage.selectFirstListing();
         user.inSearchMenu.openSavedSearches();
         user.atSearchPage.clickOnPreviouslyCreatedSearch();
         user.atPerchwellPage.checkNoOneListingIsSelected();
         user.atPerchwellPage.multiSelectMenuIsHidden();
         user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
+        user.onlyAndroid.resetListView(); //
         user.atPerchwellPage.selectFirstListing();
         user.usingComplexSteps.startNewSearch();
         user.atPerchwellPage.checkNoOneListingIsSelected();
         user.atPerchwellPage.multiSelectMenuIsHidden();
         user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
+        user.onlyAndroid.resetListView(); //
         user.atPerchwellPage.selectFirstListing();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnResetFilter();
@@ -37,12 +40,14 @@ public class LVT10_MultiSelectDismissalTest extends SampleTest {
         user.atPerchwellPage.checkNoOneListingIsSelected();
         user.atPerchwellPage.multiSelectMenuIsHidden();
         user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
+        user.onlyAndroid.resetListView(); //
         user.atPerchwellPage.selectFirstListing();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.checkNoOneListingIsSelected();
         user.atPerchwellPage.multiSelectMenuIsHidden();
         user.atPerchwellPage.checkSortLabel(SortingTypes.NEWEST);
+        user.onlyAndroid.resetListView(); //
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.swipeUpListViewToRefresh();
         user.atPerchwellPage.checkNoOneListingIsSelected();

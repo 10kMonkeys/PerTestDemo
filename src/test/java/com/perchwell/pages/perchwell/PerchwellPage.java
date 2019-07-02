@@ -76,7 +76,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "analytics")
 	private WebElement analyticsButton;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_listings")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/list_view_button")
 	@iOSXCUITFindBy(accessibility = "list_view_button")
 	private WebElement listButton;
 
@@ -247,9 +247,11 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Number of selected listings: 3")
 	private WebElement counterWithValueThree;
 
+	@AndroidFindBy(xpath = "//android.widget.RelativeLayout/android.widget.TextSwitcher/android.widget.TextView")
 	@iOSXCUITFindBy(accessibility = "Selected")
 	private WebElement selectedWord;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'Select button: selected')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: selected'")
 	private List<WebElement> selectedListingsList;
 
@@ -261,12 +263,15 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
 	private WebElement tagIconOnFirstListing;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/discuss_button")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'DISCUSS BUTTON'")
 	private WebElement discussionButton;
 
+	@AndroidFindBy(xpath = "//android.widget.RelativeLayout/android.widget.TextSwitcher/android.widget.TextView")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Number of selected listings: '")
 	private WebElement numberOfSelectedListings;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'Select button: selected')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND label == 'lv selected rb'")
 	private List<WebElement> selectedListingsListByAddress;
 
@@ -1065,7 +1070,11 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void checkSelectedWordIsShown() {
-		element(selectedWord).shouldBeVisible();
+		if(Config.isAndroid()) {
+			Assert.assertTrue(element(selectedWord).containsText(" Selected"));
+		} else {
+			element(selectedWord).shouldBeVisible();
+		}
 	}
 
 	public void clickOnTagSelectedListingsOption() {
@@ -1114,11 +1123,31 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void checkSelectedLabelEquals(int value) {
-		Assert.assertEquals(value, Integer.parseInt(numberOfSelectedListings.getAttribute("value")));
+		if(Config.isAndroid()) {
+			Assert.assertEquals(value, Integer.parseInt(numberOfSelectedListings.getAttribute("text").replace(" Selected", "")));
+		} else {
+			Assert.assertEquals(value, Integer.parseInt(numberOfSelectedListings.getAttribute("value")));
+		}
 	}
 
 	public void checkListingsAreSelected(int value) {
-		Assert.assertEquals(value, selectedListingsListByAddress.size());
+		if(Config.isAndroid()) {
+			setImplicitTimeout(2, SECONDS);
+			int currentSelectedListings = 0;
+			for(int i = 0; i < value; i++) {
+				if (selectedListingsListByAddress.size() == 2) {
+					currentSelectedListings += selectedListingsListByAddress.size() - 1;
+				} else {
+					currentSelectedListings += selectedListingsListByAddress.size();
+				}
+				androidSwipeForSelectedListingsCount();
+			}
+			System.out.println(currentSelectedListings);
+			Assert.assertEquals(value, currentSelectedListings);
+			resetImplicitTimeout();
+		} else {
+			Assert.assertEquals(value, selectedListingsListByAddress.size());
+		}
 	}
 
 	public void tabBarIsHidden() {
@@ -1143,7 +1172,11 @@ public class PerchwellPage extends TechHelper {
 
 	public void checkNoOneListingIsSelected() {
 		setImplicitTimeout(3, SECONDS);
-		Assert.assertEquals(0, selectedListingsList.size());
+		if(Config.isAndroid()) {
+		    Assert.assertEquals(0, selectedListingsList.size());
+		} else {
+			Assert.assertEquals(0, selectedListingsList.size());
+		}
 		resetImplicitTimeout();
 	}
 
@@ -1154,7 +1187,11 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void swipeUpListViewToRefresh() {
-		singleUpShortSwipeIOS();
+		if(Config.isAndroid()) {
+			singleUpShortSwipeAndroid();
+		} else {
+			singleUpShortSwipeIOS();
+		}
 	}
 
 	public void clickOnTagIconOnSecondListing() {

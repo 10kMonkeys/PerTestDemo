@@ -730,6 +730,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "AddressSearchCancelButton")
     private WebElement closeSearchAddressButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
     @iOSXCUITFindBy(accessibility = "SavedSearchCancelButton")
     private WebElement closeSavedSearchesButton;
 
