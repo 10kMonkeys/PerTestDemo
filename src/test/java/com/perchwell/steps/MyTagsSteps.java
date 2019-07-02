@@ -323,4 +323,11 @@ public class MyTagsSteps extends ScenarioSteps {
 		onPage.resetSwipeOnlyForAndroid(numSwipes);
 	}
 
+	@Step
+	public void swipeDownForAndroidAtTaggedItemsPage() {
+		if(Config.isAndroid()) {
+			onPage.swipeDownForAndroidAtTaggedItemsPage();
+		}
+	}
+
 }

@@ -22,6 +22,9 @@ public class OnlyAndroidSteps extends ScenarioSteps{
     @Steps
     private TagsSteps atTagsPage1;
 
+    @Steps
+    private MyTagsSteps atMyTagsPage1;
+
     @Step
     public void resetListView() {
         if(Config.isAndroid()) {
@@ -40,6 +43,8 @@ public class OnlyAndroidSteps extends ScenarioSteps{
 
     @Step
     public void searchJustCreatedTag() {
-        atTagsPage1.searchJustCreatedTag();
+        if(Config.isAndroid()) {
+            atTagsPage1.searchJustCreatedTag();
+        }
     }
 }

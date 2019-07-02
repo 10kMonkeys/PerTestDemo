@@ -44,11 +44,13 @@ public class TI52_TagsPageNewTagCreationTest extends SampleTest {
         user.atTagsPage.shouldSeeJustCreatedTagsPill();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atMyTagsPage.checkTagsIconCountForFirstAndSecondListings("2");
+        user.atMyTagsPage.swipeDownForAndroidAtTaggedItemsPage(); //
         user.atMyTagsPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.shouldSeeJustCreatedTagsPill();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atMyTagsPage.resetSwipeOnlyForAndroid(1); //
         user.atMyTagsPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeAddedNewTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
