@@ -7,10 +7,9 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_TagsThird", "Android_TagsThird", "TagsThird"})
+@WithTagValuesOf({"TagsTests", "iOS_TagsThird_IGNORED", "Android_TagsThird", "TagsThird", "Local_Android_Run"})
 public class TI28_TagDuplicationOtherTagTest extends SampleTest {
 
-    @Ignore
     @Test
     public void tagDuplicationOtherTag() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("tags_third_email"),
@@ -57,6 +56,7 @@ public class TI28_TagDuplicationOtherTagTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
         user.atOpenedBuildingPage.shouldSeeAddedNewTag();
         user.atOpenedBuildingPage.shouldSeeDuplicatedTag();
+        user.atOpenedBuildingPage.checkBothTagsGreenColor(2);
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);

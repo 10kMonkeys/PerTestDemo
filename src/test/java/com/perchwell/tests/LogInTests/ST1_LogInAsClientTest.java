@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-@WithTagValuesOf({"SmokeTestSuit", "LogInTests", "iOS_First", "Android_First"})
+@WithTagValuesOf({"SmokeTestSuit", "LogInTests", "iOS_First", "Android_First", "Local_Android_Run"})
 public class ST1_LogInAsClientTest extends SampleTest {
 
 	@Test

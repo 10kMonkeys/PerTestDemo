@@ -5,6 +5,8 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 
+import static com.perchwell.helpers.Helper.singleUpShortSwipeAndroid;
+
 public class OnlyAndroidSteps extends ScenarioSteps{
 
     @Steps
@@ -26,7 +28,7 @@ public class OnlyAndroidSteps extends ScenarioSteps{
     private MyTagsSteps atMyTagsPage1;
 
     @Step
-    public void resetListView() {
+    public void resetListViewBySearch() {
         if(Config.isAndroid()) {
             inSearchMenu1.openSearchPage();
             atSearchPage1.clickOnApplyButton();
@@ -45,6 +47,13 @@ public class OnlyAndroidSteps extends ScenarioSteps{
     public void searchJustCreatedTag() {
         if(Config.isAndroid()) {
             atTagsPage1.searchJustCreatedTag();
+        }
+    }
+
+    @Step
+    public void resetListViewBySwipe() {
+        if(Config.isAndroid()) {
+            singleUpShortSwipeAndroid();
         }
     }
 }

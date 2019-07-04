@@ -6,11 +6,10 @@ import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "ListViewTests", "iOS_Second", "Android_Second", "Second"})
+@WithTagValuesOf({"SmokeTestSuit", "ListViewTests", "iOS_Second_IGNORED", "Android_Second", "Second", "Local_Android_Run"})
 public class ST20_ListViewTest extends SampleTest {
 
 	@Test
-	@Screenshots(disabled=true)
 	public void listView() {
 		user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
 				AppProperties.INSTANCE.getProperty("password"));

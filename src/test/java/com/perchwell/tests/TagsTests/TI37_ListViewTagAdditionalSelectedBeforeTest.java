@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsFirst", "Android_MultipleTagsFirst", "MultipleTagsFirst"})
+@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsFirst", "Android_MultipleTagsFirst", "MultipleTagsFirst", "Local_Android_Run"})
 public class TI37_ListViewTagAdditionalSelectedBeforeTest extends SampleTest {
 
     @Test
@@ -15,7 +15,7 @@ public class TI37_ListViewTagAdditionalSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.getListingsAddresses(2);
-        user.onlyAndroid.resetListView();
+        user.onlyAndroid.resetListViewBySearch();
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.removeAllTagPills();
         user.atTagsPage.fillInTagSearchField("11CLIENTNAME");
@@ -58,7 +58,7 @@ public class TI37_ListViewTagAdditionalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.searchFirstExistingTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.onlyAndroid.resetListView(); //
+        user.onlyAndroid.resetListViewBySwipe(); //
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();

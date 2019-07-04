@@ -8,7 +8,7 @@ import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "SearchTests", "iOS_Second", "Android_Second", "Second"})
+@WithTagValuesOf({"SmokeTestSuit", "SearchTests", "iOS_Second", "Android_Second", "Second", "Local_Android_Run"})
 public class ST14_ChangeExistingSearch extends SampleTest {
 
 	@Test

@@ -8,7 +8,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_TagsFirst", "Android_TagsFirst", "TagsFirst"})
+@WithTagValuesOf({"TagsTests", "iOS_TagsFirst", "Android_TagsFirst", "TagsFirst", "Local_Android_Run"})
 public class TI4_OneListingTwoAgentsDefSubjectAndCCTest extends SampleTest {
 
     @Test

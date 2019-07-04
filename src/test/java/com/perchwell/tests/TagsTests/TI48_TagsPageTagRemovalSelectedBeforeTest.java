@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsSecond", "Android_MultipleTagsSecond", "MultipleTagsSecond"})
+@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsSecond", "Android_MultipleTagsSecond", "MultipleTagsSecond", "Local_Android_Run"})
 public class TI48_TagsPageTagRemovalSelectedBeforeTest extends SampleTest {
 
     @Test
@@ -73,7 +73,7 @@ public class TI48_TagsPageTagRemovalSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.onlyAndroid.resetListView(); //
+        user.onlyAndroid.resetListViewBySwipe(); //
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldNotSeeCustomClientTag();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();

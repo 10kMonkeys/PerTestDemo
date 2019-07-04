@@ -579,7 +579,7 @@ public class MyTagsPage extends TechHelper {
 		if(Config.isAndroid()) {
 			element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "')]")).shouldNotBeVisible();
 			universalSingleSwipe();
-			element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "')]")).shouldNotBeVisible();
+			element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, '" + SessionVariables.getValueFromSessionVariable("listingAddress2") + "')]")).shouldNotBeVisible();
 		} else {
 			element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
 					+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldNotBeVisible();
