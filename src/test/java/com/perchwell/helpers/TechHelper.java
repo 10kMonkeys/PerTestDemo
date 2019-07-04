@@ -327,7 +327,7 @@ public class TechHelper extends BasePage {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        new TouchAction(appiumDriver).press(50, 1615).waitAction(Duration.ofSeconds(1)).moveTo(50, 415).release().perform();
+        new TouchAction(appiumDriver).press(50, 1615).waitAction(Duration.ofSeconds(1)).moveTo(50, 500).release().perform();
     }
 
     public void resetSwipeOnlyAndroid(int numSwipes) {
