@@ -695,4 +695,9 @@ public class PerchwellSteps extends ScenarioSteps {
     public void singleSwipeDownForAndroid() {
 		onPage.singleSwipeDownForAndroid();
     }
+
+    @Step
+    public void checkListingsAreUnselected() {
+        onPage.checkListingsAreUnselected();
+    }
 }

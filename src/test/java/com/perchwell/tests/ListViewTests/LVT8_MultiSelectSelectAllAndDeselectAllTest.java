@@ -27,7 +27,7 @@ public class LVT8_MultiSelectSelectAllAndDeselectAllTest extends SampleTest {
         user.atPerchwellPage.checkListingsAreSelected(20);
         user.atPerchwellPage.clickOnDeselectAllListingsButton();
         user.atPerchwellPage.checkSortLabel(SortingTypes.ADDRESS);
-        user.atPerchwellPage.checkNoOneListingIsSelected();
+        user.atPerchwellPage.checkListingsAreUnselected();
         user.atPerchwellPage.tabBarIsShown();
     }
 }
