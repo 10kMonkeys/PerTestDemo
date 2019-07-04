@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsSecond", "Android_MultipleTagsSecond", "MultipleTagsSecond"})
+@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsSecond", "Android_MultipleTagsSecond", "MultipleTagsSecond", "Local_Android_Run_IGNORED"})
 public class TI52_TagsPageNewTagCreationTest extends SampleTest {
 
     @Test
@@ -44,11 +44,13 @@ public class TI52_TagsPageNewTagCreationTest extends SampleTest {
         user.atTagsPage.shouldSeeJustCreatedTagsPill();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atMyTagsPage.checkTagsIconCountForFirstAndSecondListings("2");
+        user.atMyTagsPage.swipeDownForAndroidAtTaggedItemsPage(); //
         user.atMyTagsPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.shouldSeeJustCreatedTagsPill();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atMyTagsPage.resetSwipeOnlyForAndroid(1); //
         user.atMyTagsPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeAddedNewTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();

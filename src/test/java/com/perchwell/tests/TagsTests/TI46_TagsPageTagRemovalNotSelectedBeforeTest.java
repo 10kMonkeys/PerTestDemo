@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsSecond", "Android_MultipleTagsSecond", "MultipleTagsSecond"})
+@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsSecond", "Android_MultipleTagsSecond", "MultipleTagsSecond", "Local_Android_Run_IGNORED"})
 public class TI46_TagsPageTagRemovalNotSelectedBeforeTest extends SampleTest {
 
     @Test
@@ -46,9 +46,11 @@ public class TI46_TagsPageTagRemovalNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.checkIfFirstExistingTagsItemsListIsChanged(0);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atMyTagsPage.checkTagsIconCountForFirstAndSecondListings("1");
+        user.atMyTagsPage.swipeDownForAndroidAtTaggedItemsPage(); //
         user.atMyTagsPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.checkIfFirstExistingTagsPillIsNotVisible();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atMyTagsPage.resetSwipeOnlyForAndroid(1); //
         user.atMyTagsPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();

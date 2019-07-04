@@ -10,6 +10,7 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "EditProfileTests", "iOS_Third", "Android_Third", "Third", "Local_Android_Run"})
 public class ST29_UpdateSettingsAsClient extends SampleTest {
 
+    @Ignore
     @Test
     public void updateSettingAsClientTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("updated_client_email"),

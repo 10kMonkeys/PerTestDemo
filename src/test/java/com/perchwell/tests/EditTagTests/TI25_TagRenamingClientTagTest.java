@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_TagsThird", "Android_TagsThird", "TagsThird"})
+@WithTagValuesOf({"TagsTests", "iOS_TagsThird", "Android_TagsThird", "TagsThird", "Local_Android_Run"})
 public class TI25_TagRenamingClientTagTest extends SampleTest {
 
     @Ignore

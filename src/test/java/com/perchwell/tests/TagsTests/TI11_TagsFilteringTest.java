@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_TagsFirst", "Android_TagsFirst", "TagsFirst"})
+@WithTagValuesOf({"TagsTests", "iOS_TagsFirst", "Android_TagsFirst", "TagsFirst", "Local_Android_Run"})
 public class TI11_TagsFilteringTest extends SampleTest {
 
     @Test
@@ -24,13 +24,13 @@ public class TI11_TagsFilteringTest extends SampleTest {
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.fillInTagSearchField("CLIENT T");
-        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 4);
+        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 3);
         user.atTagsPage.clearTextField();
-        user.atTagsPage.checkIfTagsPageIsReturnedToInitialState(4);
+        user.atTagsPage.checkIfTagsPageIsReturnedToInitialState(3);
         user.atTagsPage.fillInTagSearchField("TEST+");
-        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 4);
+        user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 3);
         user.atTagsPage.clearTextField();
-        user.atTagsPage.checkIfTagsPageIsReturnedToInitialState(4);
+        user.atTagsPage.checkIfTagsPageIsReturnedToInitialState(3);
         user.atTagsPage.fillInTagSearchField("+CLIENT0");
         user.atTagsPage.shouldSeeOnlySearchedTags("CLIENT TEST+", 2);
     }

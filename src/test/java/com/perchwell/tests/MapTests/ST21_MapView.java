@@ -7,10 +7,9 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"MapTests", "iOS_Third", "Android_Third", "Third"})
+@WithTagValuesOf({"MapTests", "iOS_Third_IGNORED", "Android_Third", "Third", "Local_Android_Run"})
 public class ST21_MapView extends SampleTest {
 
-    @Ignore
     @Test
     public void sortListingsOnMap() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),

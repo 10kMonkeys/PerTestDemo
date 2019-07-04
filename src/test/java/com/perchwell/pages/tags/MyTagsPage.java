@@ -144,6 +144,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "SHOW ITEMS IN SELECTED TAGS")
 	private WebElement searchButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossFromAccountTagsButton;
 
@@ -578,7 +579,7 @@ public class MyTagsPage extends TechHelper {
 		if(Config.isAndroid()) {
 			element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "')]")).shouldNotBeVisible();
 			universalSingleSwipe();
-			element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "')]")).shouldNotBeVisible();
+			element(MobileBy.xpath("//android.widget.TextView[contains(@content-desc, '" + SessionVariables.getValueFromSessionVariable("listingAddress2") + "')]")).shouldNotBeVisible();
 		} else {
 			element(MobileBy.iOSClassChain("**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS: "
 					+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'$]")).shouldNotBeVisible();
@@ -612,7 +613,7 @@ public class MyTagsPage extends TechHelper {
 			} else {
 				Assert.assertEquals(value, element(MobileBy.id("com.perchwell.re.staging:id/tagging_count")).getAttribute("text"));
 			}
-			singleUpShortSwipeAndroid();
+			resetSwipeOnlyAndroid(1);
 		} else {
 			Assert.assertEquals(value, element(tagIconOnSecondListing).getAttribute("label").replace(" ", ""));
 		}
@@ -628,6 +629,12 @@ public class MyTagsPage extends TechHelper {
 
 	public void resetSwipeOnlyForAndroid(int numSwipes) {
 		resetSwipeOnlyAndroid(numSwipes);
+	}
+
+	public void swipeDownForAndroidAtTaggedItemsPage () {
+		if(Config.isAndroid()) {
+			universalSingleSwipe();
+		}
 	}
 }
 

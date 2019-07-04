@@ -450,5 +450,16 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void clickOnViewAllDiscussionsButton() {
 		onPage.clickOnViewAllDiscussionsButton();
 	}
+
+
+	@Step
+	public void checkBothTagsGreenColor(int greenPillsAmountToCheck) {
+			onPage.checkBothTagsGreenColor(greenPillsAmountToCheck);
+	}
+
+	@Step
+	public void checkBothTagsGrayColor(int grayPillsAmountToCheck) {
+			onPage.checkBothTagsGrayColor(grayPillsAmountToCheck);
+	}
 }
 

@@ -10,6 +10,7 @@ import org.junit.Test;
 @WithTagValuesOf({"SmokeTestSuit", "EditProfileTests", "iOS_Third", "Android_Third", "Third", "Local_Android_Run"})
 public class ST28_UpdateSettingsAsBroker extends SampleTest {
 
+    @Ignore
     @Test
     public void updateSettingAsBrokerTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("broker_test_email"),

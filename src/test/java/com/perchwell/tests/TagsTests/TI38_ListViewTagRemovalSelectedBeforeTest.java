@@ -6,10 +6,9 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsFirst", "Android_MultipleTagsFirst", "MultipleTagsFirst"})
+@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsFirst_IGNORED", "Android_MultipleTagsFirst", "MultipleTagsFirst", "Local_Android_Run"})
 public class TI38_ListViewTagRemovalSelectedBeforeTest extends SampleTest {
 
-    @Ignore
     @Test
     public void listViewTagRemovalSelectedBeforeTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("muilt_tags_first_email"),
@@ -17,7 +16,7 @@ public class TI38_ListViewTagRemovalSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.getListingsAddresses(2);
-        user.onlyAndroid.resetListView();
+        user.onlyAndroid.resetListViewBySearch();
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.removeAllTagPills();
         user.atTagsPage.fillInTagSearchField("11CLIENTNAME");

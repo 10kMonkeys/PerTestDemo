@@ -7,10 +7,9 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "FiltersTests", "iOS_Second", "Android_Second", "Second", "Local_Android_Run"})
+@WithTagValuesOf({"SmokeTestSuit", "FiltersTests", "iOS_Second_IGNORED", "Android_Second", "Second", "Local_Android_Run"})
 public class ST18_ApplyingFilterOnMapView extends SampleTest {
 
-    @Ignore
     @Test
     public void applyingFilterOnMapViewTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

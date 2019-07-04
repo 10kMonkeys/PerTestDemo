@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsSecond", "Android_MultipleTagsSecond", "MultipleTagsSecond"})
+@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsSecond", "Android_MultipleTagsSecond", "MultipleTagsSecond", "Local_Android_Run"})
 public class TI47_TagsPageTagAdditionSelectedBeforeTest extends SampleTest {
 
     @Test
@@ -18,11 +18,14 @@ public class TI47_TagsPageTagAdditionSelectedBeforeTest extends SampleTest {
         user.atTagsPage.removeAllTagPills();
         user.atTagsPage.clickOnFirstCustomClientTagAndGetValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atPerchwellPage.clickOnTagIconOnSecondListing();
-        user.atTagsPage.removeAllTagPills();
+        user.atPerchwellPage.openSecondBuilding();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.clearTagsList();
+        user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.fillInTagSearchField("TAGNAME");
         user.atTagsPage.clickOnFirstTagAndGetValue();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atTagsPage.searchCustomClientTag();
@@ -62,10 +65,12 @@ public class TI47_TagsPageTagAdditionSelectedBeforeTest extends SampleTest {
         user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
+        user.atMyTagsPage.swipeDownForAndroidAtTaggedItemsPage(); //
         user.atMyTagsPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.singleDownSwipeTagsPill();
         user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atMyTagsPage.resetSwipeOnlyForAndroid(1); //
         user.atMyTagsPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();

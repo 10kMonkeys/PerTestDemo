@@ -967,6 +967,7 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void selectTestListingWithTwoAgents() {
+		universalSingleSwipe();
 		universalVerticalSwipe(testListingWithTwoAgentsCheckbox);
 		element(testListingWithTwoAgentsCheckbox).click();
 	}
@@ -1163,4 +1164,12 @@ public class PerchwellPage extends TechHelper {
 		universalVerticalSwipe(testListingWithOneAgent);
 		element(testListingWithOneAgent).click();
 	}
+
+    public void singleSwipeDownForAndroid() {
+		if(Config.isAndroid()) {
+			universalSingleSwipe(); //swipe doesn't work but need to fix swipe below
+			waitABit(10000);
+			universalSingleSwipe();
+		}
+    }
 }

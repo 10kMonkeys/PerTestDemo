@@ -6,10 +6,9 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsSecond", "Android_MultipleTagsSecond", "MultipleTagsSecond"})
+@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsSecond_IGNORED", "Android_MultipleTagsSecond", "MultipleTagsSecond", "Local_Android_Run"})
 public class TI51_TagsPageEditTagEntireTagDeletionTest extends SampleTest {
 
-    @Ignore
     @Test
     public void tagsPageEditTagEntireTagDeletionTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("muilt_tags_second_email"),

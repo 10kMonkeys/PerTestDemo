@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsSecond", "Android_MultipleTagsSecond", "MultipleTagsSecond"})
+@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsSecond", "Android_MultipleTagsSecond", "MultipleTagsSecond", "Local_Android_Run"})
 public class TI50_TagsPageEditTagDuplicateTest extends SampleTest {
 
     @Ignore
@@ -56,6 +56,7 @@ public class TI50_TagsPageEditTagDuplicateTest extends SampleTest {
         user.atTagsPage.checkDuplicatedAndExistingTagsItemsAreSame();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atMyTagsPage.checkTagsIconCountForFirstAndSecondListings("2");
+        user.atMyTagsPage.swipeDownForAndroidAtTaggedItemsPage(); //
         user.atMyTagsPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.shouldSeeFirstExistingTagsPill();
         user.atTagsPage.shouldSeeDuplicatedTagsPill();
@@ -65,6 +66,7 @@ public class TI50_TagsPageEditTagDuplicateTest extends SampleTest {
         user.atTagsPage.searchDuplicatedTag();
         user.atTagsPage.allTagsAreSelected(1);
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atMyTagsPage.resetSwipeOnlyForAndroid(1); //
         user.atMyTagsPage.openSecondBuilding();
         user.atOpenedBuildingPage.shouldSeeFirstExistingTag();
         user.atOpenedBuildingPage.shouldSeeDuplicatedTag();

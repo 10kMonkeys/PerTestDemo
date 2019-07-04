@@ -691,4 +691,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void openListingWithOneAgent() {
 		onPage.openListingWithOneAgent();
 	}
+
+	@Step
+    public void singleSwipeDownForAndroid() {
+		onPage.singleSwipeDownForAndroid();
+    }
 }

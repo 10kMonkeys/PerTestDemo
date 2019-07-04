@@ -273,6 +273,12 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Active Rental: '")
 	private WebElement activeRentalsCount;
 
+	@AndroidFindBy(accessibility = "tag color: #37d2be")
+	private List<WebElement> greenColorTagPil;
+
+	@AndroidFindBy(accessibility = "tag color: #a8aab7")
+	private List<WebElement> grayColorTagPil;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -922,5 +928,13 @@ public class OpenedBuildingPage extends TechHelper {
                 activeRentalsString.indexOf(" ACTIVE RENTAL")));
 		activeRentalsBuilding = Integer.parseInt(activeRentalsCount.getAttribute("value"));
 		Assert.assertEquals(activeRentals, activeRentalsBuilding);
+	}
+
+	public void checkBothTagsGreenColor(int greenPillsAmountToCheck) {
+		Assert.assertEquals(greenColorTagPil.size(), greenPillsAmountToCheck);
+	}
+
+	public void checkBothTagsGrayColor(int grayPillsAmountToCheck) {
+		Assert.assertEquals(grayColorTagPil.size(), grayPillsAmountToCheck);
 	}
 }

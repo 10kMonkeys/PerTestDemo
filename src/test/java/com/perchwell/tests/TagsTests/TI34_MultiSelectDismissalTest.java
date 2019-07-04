@@ -8,10 +8,9 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_TagsThird", "Android_TagsThird", "TagsThird"})
+@WithTagValuesOf({"TagsTests", "iOS_TagsThird_IGNORED", "Android_TagsThird", "TagsThird", "Local_Android_Run"})
 public class TI34_MultiSelectDismissalTest extends SampleTest {
 
-    @Ignore
     @Test
     public void multiSelectDismissalTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

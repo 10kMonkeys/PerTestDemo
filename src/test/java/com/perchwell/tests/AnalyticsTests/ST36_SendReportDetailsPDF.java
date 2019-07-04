@@ -6,7 +6,8 @@ import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-@WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "iOS_Third", "Android_Third_Not_Implemented", "Third", "Local_Android_Run"})
+
+@WithTagValuesOf({"SmokeTestSuit", "AnalyticsTests", "iOS_Third", "Android_Third_Not_Implemented", "Third", "Local_Android_Run_IGNORED"})
 public class ST36_SendReportDetailsPDF extends SampleTest {
 
 	@Test

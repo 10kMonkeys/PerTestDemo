@@ -6,10 +6,9 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsFirst", "Android_MultipleTagsFirst", "MultipleTagsFirst"})
+@WithTagValuesOf({"TagsTests", "iOS_MultipleTagsFirst_IGNORED", "Android_MultipleTagsFirst", "MultipleTagsFirst", "Local_Android_Run"})
 public class TI36_ListViewTagRemovalNotSelectedBeforeTest extends SampleTest {
 
-    @Ignore
     @Test
     public void listViewTagRemovalNotSelectedBeforeTest() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("muilt_tags_first_email"),
@@ -17,7 +16,7 @@ public class TI36_ListViewTagRemovalNotSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.getListingsAddresses(2);
-        user.onlyAndroid.resetListView();
+        user.onlyAndroid.resetListViewBySearch();
         user.atPerchwellPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.clearTagsList();
@@ -25,12 +24,6 @@ public class TI36_ListViewTagRemovalNotSelectedBeforeTest extends SampleTest {
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
-//        user.atPerchwellPage.clickOnTagIconOnFirstListing();
-//        user.atTagsPage.removeAllTagPills();
-//        user.atTagsPage.clickOnArrowBackFromTagsButton();
-//        user.atPerchwellPage.clickOnTagIconOnSecondListing();
-//        user.atTagsPage.removeAllTagPills();
-//        user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.clickOnMoreOptionsButton();
@@ -60,9 +53,11 @@ public class TI36_ListViewTagRemovalNotSelectedBeforeTest extends SampleTest {
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
+        user.atPerchwellPage.singleSwipeDownForAndroid(); //
         user.atPerchwellPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.onlyAndroid.resetListViewBySwipe(); //
         user.atPerchwellPage.openSecondBuilding();
         user.atOpenedBuildingPage.checkNoOneTagPillIsShown();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
