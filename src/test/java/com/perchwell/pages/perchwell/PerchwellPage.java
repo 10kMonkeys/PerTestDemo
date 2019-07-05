@@ -46,7 +46,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "EXPLORE SEARCH RESULTS BY LOCATION")
 	private WebElement exploreSearchResultHint;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/arrow")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[1]")
 	private WebElement magnifierIcon;
 
