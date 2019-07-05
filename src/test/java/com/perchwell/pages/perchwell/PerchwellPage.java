@@ -187,6 +187,7 @@ public class PerchwellPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'sqft: '")
     private List<WebElement> sqFeetList;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/second_label")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Sort Button: '")
     private WebElement sortType;
 
@@ -488,7 +489,11 @@ public class PerchwellPage extends TechHelper {
 
     public void checkSortLabel(String stringSortType) {
 //		waitFor(sortType);
-        Assert.assertTrue(element(sortType).getAttribute("name").contains(stringSortType));
+        if(Config.isAndroid()) {
+            Assert.assertTrue(element(sortType).getAttribute("text").contains(stringSortType));
+        } else {
+            Assert.assertTrue(element(sortType).getAttribute("name").contains(stringSortType));
+        }
     }
 
     public void clickOnBathroomsSortButton() {
