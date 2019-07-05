@@ -247,7 +247,7 @@ public class PerchwellPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Number of selected listings: 3")
     private WebElement counterWithValueThree;
 
-    @AndroidFindBy(xpath = "//android.widget.RelativeLayout/android.widget.TextSwitcher/android.widget.TextView")
+    @AndroidFindBy(xpath = "//android.widget.TextSwitcher/android.widget.TextView[contains(@text, ' Selected')]")
     @iOSXCUITFindBy(accessibility = "Selected")
     private WebElement selectedWord;
 
@@ -267,7 +267,7 @@ public class PerchwellPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'DISCUSS BUTTON'")
     private WebElement discussionButton;
 
-    @AndroidFindBy(xpath = "//android.widget.RelativeLayout/android.widget.TextSwitcher/android.widget.TextView")
+    @AndroidFindBy(xpath = "//android.widget.TextSwitcher/android.widget.TextView[contains(@text, ' Selected')]")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Number of selected listings: '")
     private WebElement numberOfSelectedListings;
 
