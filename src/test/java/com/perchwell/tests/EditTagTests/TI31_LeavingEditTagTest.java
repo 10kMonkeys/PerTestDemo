@@ -65,5 +65,7 @@ public class TI31_LeavingEditTagTest extends SampleTest {
         user.atEditTagPage.clickOnArrowBackFromEditTagPage();
         user.atEditTagPage.clickOnPopUpSaveButton(); //updated locator on xpath (need to update locator)
         user.atTagsPage.checkNoOneActiveBellDisplayed();
+        user.atTagsPage.swipeRenamedTag();
+        user.atTagsPage.clickOnGreenBellButton();
     }
 }
