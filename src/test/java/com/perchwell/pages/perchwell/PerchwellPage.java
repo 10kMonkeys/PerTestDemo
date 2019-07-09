@@ -639,7 +639,7 @@ public class PerchwellPage extends TechHelper {
 		WebElement specificAddress;
 
 		if(Config.isAndroid()) {
-			specificAddress = getDriver().findElement(By.xpath("//*[@text = '" + SessionVariables.getValueFromSessionVariable("First_building_address") + "']"));
+			specificAddress = getDriver().findElement(By.xpath("//*[@text = '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "']"));
 		} else {
 			specificAddress = getDriver().findElement(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("First_building_address")));
 		}
