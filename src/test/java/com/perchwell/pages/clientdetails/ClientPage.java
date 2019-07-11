@@ -1,7 +1,6 @@
 package com.perchwell.pages.clientdetails;
 
 import com.perchwell.crossPlatform.Config;
-import com.perchwell.data.SearchRequests;
 import com.perchwell.email.MailTrap;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.Helper;
@@ -11,7 +10,6 @@ import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -337,7 +335,7 @@ public class ClientPage extends TechHelper {
 		WebElement client;
 		waitABit(3000);
 		if (Config.isAndroid()) {
-			client = element(MobileBy.xpath("//android.widget.TextView[@content-desc= '" + name + " ']"));
+			client = element(MobileBy.xpath("//android.widget.TextView[@content-desc= '" + name + "']"));
 		} else {
 			client = element(MobileBy.AccessibilityId(name));
 		}

@@ -62,7 +62,7 @@ public class TI48_TagsPageTagRemovalSelectedBeforeTest extends SampleTest {
         user.atTagsPage.checkNoOneTagPillIsShown();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atPerchwellPage.openFirstBuilding();
-        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+//        user.atOpenedBuildingPage.skipDiscussWithClientHint(); temporary solution
         user.atOpenedBuildingPage.shouldNotSeeCustomClientTag();
         user.atOpenedBuildingPage.shouldNotSeeFirstExistingTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();

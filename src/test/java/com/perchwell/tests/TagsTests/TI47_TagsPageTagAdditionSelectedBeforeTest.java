@@ -59,7 +59,7 @@ public class TI47_TagsPageTagAdditionSelectedBeforeTest extends SampleTest {
         user.atTagsPage.shouldSeeCustomClientTagsPill();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atMyTagsPage.openFirstBuilding();
-        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+//        user.atOpenedBuildingPage.skipDiscussWithClientHint(); temporary solution
         user.atOpenedBuildingPage.shouldSeeCustomClientTag();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.shouldSeeCustomClientTagsPill();

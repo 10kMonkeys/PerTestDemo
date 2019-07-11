@@ -18,6 +18,7 @@ public class ST22_DiscussionWithNewClientTest extends SampleTest {
 				AppProperties.INSTANCE.getProperty("password"));
 		user.atPerchwellPage.skipAllHints();
 		user.atPerchPopup.clickNotNowButton();
+		user.atPerchwellPage.getFirstListingAddress();
 		user.usingComplexSteps.startShareAndSendWithinPerchwellForFirstBuilding();
 		user.atOpenedBuildingPage.clickOnAddDiscusButton();
 		user.atClientPage.addNewClient(ClientGroups.ACTIVELY_SEARCHING);

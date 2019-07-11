@@ -17,6 +17,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import static com.perchwell.email.MailTrap.getTextBody;
 
 public class DiscussionsListPage extends TechHelper {
@@ -127,17 +129,21 @@ public class DiscussionsListPage extends TechHelper {
 
 	public void clickOnDeleteButton() {
 		element(deleteButton).click();
-		waitFor(ExpectedConditions.invisibilityOf(deleteButton));
+		if(!Config.isAndroid()) {
+			waitFor(ExpectedConditions.invisibilityOf(deleteButton));
+		}
 	}
 
 	public void shouldBeDiscussionDeletedFromDiscussionsList() {
 		String message = SessionVariables.getValueFromSessionVariable("message");
 
+		setImplicitTimeout(3, TimeUnit.SECONDS);
 		if (Config.isAndroid()) {
 			element(MobileBy.xpath("//*[@text = '" + message + "']")).shouldNotBePresent();
 		} else {
 			element(MobileBy.AccessibilityId(message)).shouldNotBePresent();
 		}
+		resetImplicitTimeout();
 	}
 
 	public void closePage() {

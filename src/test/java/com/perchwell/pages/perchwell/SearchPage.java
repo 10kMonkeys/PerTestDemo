@@ -621,7 +621,8 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "% Financing Maximum Value Input")
     private WebElement financingMaxValueField;
 
-    @AndroidFindBy(accessibility = "Brokerage Suboption: CORE Public")
+//    @AndroidFindBy(accessibility = "Brokerage Suboption: CORE Public")
+    @AndroidFindBy(accessibility = "Brokerage Suboption: STRI Public")
     @iOSXCUITFindBy(accessibility = "brokerage: deselected STRI Public")
     private WebElement corePublicOption;
 
@@ -2120,7 +2121,8 @@ public class SearchPage extends TechHelper {
 //        element(selectedCorePublicButton).shouldBeVisible();
         setImplicitTimeout(3, SECONDS);
         if (Config.isAndroid()) {
-            Assert.assertEquals(0, getDriver().findElements(MobileBy.AccessibilityId("Brokerage Suboption: CORE Public")).size());
+//            Assert.assertEquals(0, getDriver().findElements(MobileBy.AccessibilityId("Brokerage Suboption: CORE Public")).size());
+            Assert.assertEquals(0, getDriver().findElements(MobileBy.AccessibilityId("Brokerage Suboption: STRI Public")).size());
         } else {
             Assert.assertEquals(0, getDriver().findElements(MobileBy.AccessibilityId("brokerage: deselected STRI Public")).size());
         }
