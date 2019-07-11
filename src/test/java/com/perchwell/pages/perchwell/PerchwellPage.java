@@ -207,7 +207,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'ADDRESS:'")
 	private List<WebElement> addresseslist;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH 'Select button: unselected 1 West 72nd St. #95'")
+	@iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH 'Select button: unselected 1 West 72nd St. #81'")
 	private WebElement testListingWithOneAgentCheckbox;
 
 	@AndroidFindBy(accessibility = "Select button: unselected 240 East 35th St. #11A")
@@ -267,7 +267,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][2]")
 	private WebElement tagIconOnSecondListing;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'ADDRESS: 1 West 72nd St. #95'")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'ADDRESS: 1 West 72nd St. #81'")
 	private WebElement testListingWithOneAgent;
 
 	//endregion
@@ -962,7 +962,7 @@ public class PerchwellPage extends TechHelper {
 
 	public void selectFirstTestListingWithOneAgent() {
 		singleUpShortSwipeIOS();
-		universalVerticalSwipe(testListingWithOneAgentCheckbox);
+//		universalVerticalSwipe(testListingWithOneAgentCheckbox);
 		element(testListingWithOneAgentCheckbox).click();
 	}
 
@@ -1161,7 +1161,7 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void openListingWithOneAgent() {
-		universalVerticalSwipe(testListingWithOneAgent);
+//		universalVerticalSwipe(testListingWithOneAgent);
 		element(testListingWithOneAgent).click();
 	}
 
