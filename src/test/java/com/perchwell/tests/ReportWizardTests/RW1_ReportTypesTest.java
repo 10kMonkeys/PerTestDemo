@@ -51,6 +51,7 @@ public class RW1_ReportTypesTest extends SampleTest {
         user.atCreateReportPage.detailedOptionButtonIsShown();
         user.atCreateReportPage.clickOnBackButton();
         user.atCreateReportPage.clickOnBackButton();
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
         user.atMyTagsPage.clickOnFirstTag();
