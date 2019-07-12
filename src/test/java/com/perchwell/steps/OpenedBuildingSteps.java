@@ -461,5 +461,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void checkBothTagsGrayColor(int grayPillsAmountToCheck) {
 			onPage.checkBothTagsGrayColor(grayPillsAmountToCheck);
 	}
+
+	@Step
+    public void clickOnCreateReportButton() {
+		onPage.clickOnCreateReportButton();
+    }
 }
 

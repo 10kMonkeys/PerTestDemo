@@ -270,6 +270,9 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'ADDRESS: 1 West 72nd St. #81'")
 	private WebElement testListingWithOneAgent;
 
+	@iOSXCUITFindBy(accessibility = "cell: Create Report")
+	private WebElement createReportButton;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -1171,5 +1174,9 @@ public class PerchwellPage extends TechHelper {
 			waitABit(10000);
 			universalSingleSwipe();
 		}
+    }
+
+    public void clickOnCreateReportButton() {
+		element(createReportButton).click();
     }
 }

@@ -102,4 +102,7 @@ public class User extends ScenarioSteps {
 
     @Steps
     public OnlyAndroidSteps onlyAndroid;
+
+    @Steps
+    public CreateReportSteps atCreateReportPage;
 }

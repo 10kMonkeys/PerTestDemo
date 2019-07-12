@@ -330,4 +330,8 @@ public class MyTagsSteps extends ScenarioSteps {
 		}
 	}
 
+	@Step
+    public void clickOnCreateReportButton() {
+		onPage.clickOnCreateReportButton();
+    }
 }

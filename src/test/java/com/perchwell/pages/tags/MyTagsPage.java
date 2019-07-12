@@ -156,6 +156,9 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell[2]")
 	private WebElement secondBuilding;
 
+	@iOSXCUITFindBy(accessibility = "cell: Create Report")
+	private WebElement createReportButton;
+
 	//endregion
 
 	public MyTagsPage(WebDriver driver) {
@@ -636,5 +639,9 @@ public class MyTagsPage extends TechHelper {
 			universalSingleSwipe();
 		}
 	}
+
+    public void clickOnCreateReportButton() {
+		element(createReportButton).click();
+    }
 }
 
