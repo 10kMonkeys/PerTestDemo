@@ -42,7 +42,7 @@ public class RW2_EmailValidationTest extends SampleTest {
         user.atCreateReportPage.checkEmailFieldValueIsShowAsText();
         user.atCreateReportPage.checkEmailReportButtonIsDisabled();
         user.atCreateReportPage.clearEmailField();
-        user.atCreateReportPage.fillEmailField("x@x.xx");
+        user.atCreateReportPage.fillEmailField("valid@email.com");
         user.atCreateReportPage.clickOnReturnButtonOnKeyboard();
         user.atCreateReportPage.checkEmailFieldIsShownAsGreenPill();
         user.atCreateReportPage.checkEmailReportButtonIsEnabled();
