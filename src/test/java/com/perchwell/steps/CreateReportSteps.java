@@ -68,4 +68,55 @@ public class CreateReportSteps extends ScenarioSteps {
     public void detailedOptionButtonIsShown() {
         onPage.detailedOptionButtonIsShown();
     }
+
+    @Step
+    public void clickDefaultButton() {
+        onPage.clickOnDefaultButton();
+    }
+
+    @Step
+    public void clickNextButton() {
+        onPage.clickOnNextButton();
+    }
+
+    @Step
+    public void fillEmailField(String email) {
+        onPage.fillEmailField(email);
+    }
+
+    @Step
+    public void checkEmailReportButtonIsDisabled() {
+        onPage.checkEmailReportButtonIsDisabled();
+    }
+
+    @Step
+    public void fillSubjectField(String message) {
+        onPage.fillSubjectField(message);
+    }
+
+    @Step
+    public void checkEmailReportButtonIsEnabled() {
+        onPage.checkEmailReportButtonIsEnabled();
+    }
+
+    @Step
+    public void clickOnReturnButtonOnKeyboard() {
+        onPage.clickOnReturnButtonOnKeyboard();
+    }
+
+    @Step
+    public void clearEmailField() {
+        onPage.clearEmailField();
+    }
+
+    @Step
+    public void checkEmailFieldValueIsShowAsText(){
+        onPage.checkEmailFieldValueIsShownAsText();
+    }
+
+    @Step
+    public void checkEmailFieldIsShownAsGreenPill() {
+        onPage.checkEmailFieldIsShownAsGreenPill();
+    }
+
 }

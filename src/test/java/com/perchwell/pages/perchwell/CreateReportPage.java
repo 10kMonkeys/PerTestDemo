@@ -1,7 +1,10 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -45,6 +48,24 @@ public class CreateReportPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = "Detailed ")
     private WebElement detailedButton;
+
+    @iOSXCUITFindBy(accessibility = "Next")
+    private WebElement nextButton;
+
+    @iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
+    private WebElement emailField;
+
+    @iOSXCUITFindBy(accessibility = "EMAIL REPORT")
+    private WebElement emailReportButton;
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[@name='Tag Cell: Search Text Field']/XCUIElementTypeOther")
+    private WebElement emailPill;
+
+    @iOSXCUITFindBy(accessibility = "Subject textField")
+    private WebElement subjectField;
+
+    @iOSXCUITFindBy(accessibility = "Return")
+    private WebElement returnButtonOnKeyboard;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -104,5 +125,50 @@ public class CreateReportPage extends TechHelper {
 
     public void detailedOptionButtonIsShown() {
         element(detailedButton).shouldBeVisible();
+    }
+
+    public void clickOnDefaultButton() {
+        element(defaultButton).click();
+    }
+
+    public void clickOnNextButton() {
+        element(nextButton).click();
+    }
+
+    public void fillEmailField(String email) {
+        element(emailField).sendKeys(email);
+        SessionVariables.addValueInSessionVariable("emailAddress", email);
+    }
+
+    public void checkEmailReportButtonIsDisabled() {
+        element(emailReportButton).shouldNotBeEnabled();
+    }
+
+    public void checkEmailReportButtonIsEnabled() {
+        element(emailReportButton).shouldBeEnabled();
+    }
+
+    public void fillSubjectField(String message) {
+        element(subjectField).typeAndEnter(message);
+        SessionVariables.addValueInSessionVariable("Contact_subject", message);
+    }
+
+    public void clickOnReturnButtonOnKeyboard() {
+        element(returnButtonOnKeyboard).click();
+    }
+
+    public void clearEmailField() {
+        element(emailField).clear();
+    }
+
+    public void checkEmailFieldValueIsShownAsText() {
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailField).getAttribute("value"));
+
+    }
+
+    public void checkEmailFieldIsShownAsGreenPill() {
+        element(MobileBy.xpath("//XCUIElementTypeStaticText[@name='" + SessionVariables.getValueFromSessionVariable("emailAddress") + "']")).shouldBeVisible();
+        element(emailPill).shouldBePresent();
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailField).getAttribute("value"));
     }
 }
