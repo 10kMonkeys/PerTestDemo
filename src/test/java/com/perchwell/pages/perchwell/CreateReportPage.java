@@ -1,5 +1,7 @@
 package com.perchwell.pages.perchwell;
 
+import com.perchwell.email.MailTrap;
+import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
@@ -7,6 +9,8 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import static com.perchwell.email.MailTrap.getTextBody;
 
 public class CreateReportPage extends TechHelper {
 
@@ -68,13 +72,22 @@ public class CreateReportPage extends TechHelper {
     private WebElement returnButtonOnKeyboard;
 
     @iOSXCUITFindBy(accessibility = "REPORT SUCCESSFULLY SENT")
-    private WebElement popUpReportSuccessfullySentMessage;
+    private WebElement emailReportPopUp;
 
     @iOSXCUITFindBy(accessibility = "EXIT")
     private WebElement popUpExitButton;
 
     @iOSXCUITFindBy(accessibility = "OK")
     private WebElement popUpOkButton;
+
+    @iOSXCUITFindBy(accessibility = "textView")
+    private WebElement messageField;
+
+    @iOSXCUITFindBy(accessibility = "shrink")
+    private WebElement shrinkButton;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "label = 'removeBubble'")
+    private WebElement removeBubble;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -159,7 +172,7 @@ public class CreateReportPage extends TechHelper {
 
     public void fillSubjectField(String message) {
         element(subjectField).typeAndEnter(message);
-        SessionVariables.addValueInSessionVariable("Contact_subject", message);
+        SessionVariables.addValueInSessionVariable("Report_subject", message);
     }
 
     public void clickOnReturnButtonOnKeyboard() {
@@ -181,12 +194,17 @@ public class CreateReportPage extends TechHelper {
         Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailField).getAttribute("value"));
     }
 
+    public void fillInMessageField(String message) {
+        element(messageField).sendKeys(message);
+        SessionVariables.addValueInSessionVariable("Report_message", message);
+    }
+
     public void clickOnEmailReportButton() {
         element(emailReportButton).click();
     }
 
-    public void checkReportSuccessfullySentMessageIsShown() {
-        element(popUpReportSuccessfullySentMessage).shouldBeVisible();
+    public void checkEmailReportPopUpIsShown() {
+        element(emailReportPopUp).shouldBeVisible();
     }
 
     public void checkPopUpExitButtonIsShown() {
@@ -202,7 +220,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkPopUpMessageIsClosed() {
-        element(popUpReportSuccessfullySentMessage).shouldNotBeVisible();
+        element(emailReportPopUp).shouldNotBeVisible();
     }
 
     public void checkSubjectFieldIsFilledOut() {
@@ -215,5 +233,31 @@ public class CreateReportPage extends TechHelper {
 
     public void clickOnMediaReportButton() {
         element(mediaReportButton).click();
+    }
+
+    public void clickOnShrinkButton() {
+        element(shrinkButton).click();
+    }
+
+    public void removeValidEmail() {
+        element(removeBubble).click();
+    }
+
+    public void shouldFindSentReportBySubjectAndMessage() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
+        String message = SessionVariables.getValueFromSessionVariable("Report_message");
+        String rawBody;
+
+        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
+        rawBody = getTextBody(mailTrapResponse[0].getRaw_path());
+
+        Assert.assertTrue(rawBody.contains("Subject: " + subject));
+        Assert.assertTrue(rawBody.contains(message));
     }
 }

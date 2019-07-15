@@ -22,10 +22,10 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
         user.atCreateReportPage.clickDefaultButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
-        user.atCreateReportPage.fillEmailField("x@x.xx");
+        user.atCreateReportPage.fillEmailField("valid@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkReportSuccessfullySentMessageIsShown();
+        user.atCreateReportPage.checkEmailReportPopUpIsShown();
         user.atCreateReportPage.checkPopUpExitButtonIsShown();
         user.atCreateReportPage.checkPopUpOkButtonIsShown();
         user.atCreateReportPage.clickOnPopUpOkButton();
@@ -43,10 +43,10 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
         user.atCreateReportPage.clickOnMediaReportButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
-        user.atCreateReportPage.fillEmailField("x@x.xx");
+        user.atCreateReportPage.fillEmailField("valid@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkReportSuccessfullySentMessageIsShown();
+        user.atCreateReportPage.checkEmailReportPopUpIsShown();
         user.atCreateReportPage.checkPopUpExitButtonIsShown();
         user.atCreateReportPage.checkPopUpOkButtonIsShown();
         user.atCreateReportPage.clickOnPopUpOkButton();
@@ -67,10 +67,10 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
         user.atCreateReportPage.clickOnMediaReportButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
-        user.atCreateReportPage.fillEmailField("x@x.xx");
+        user.atCreateReportPage.fillEmailField("valid@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkReportSuccessfullySentMessageIsShown();
+        user.atCreateReportPage.checkEmailReportPopUpIsShown();
         user.atCreateReportPage.checkPopUpExitButtonIsShown();
         user.atCreateReportPage.checkPopUpOkButtonIsShown();
         user.atCreateReportPage.clickOnPopUpOkButton();

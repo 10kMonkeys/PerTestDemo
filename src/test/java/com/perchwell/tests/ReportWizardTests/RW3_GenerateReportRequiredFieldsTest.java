@@ -5,13 +5,13 @@ import com.perchwell.data.DiscussionMessages;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class RW2_EmailValidationTest extends SampleTest {
+public class RW3_GenerateReportRequiredFieldsTest extends SampleTest {
 
     @Test
-    public void emailValidationTest() {
-        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
+    public void generateReportRequiredFieldsTest() {
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("core_email"),
                 AppProperties.INSTANCE.getProperty("password")
-                );
+        );
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.selectFirstListing();
@@ -21,30 +21,23 @@ public class RW2_EmailValidationTest extends SampleTest {
         user.atCreateReportPage.clickDefaultButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
-        user.atCreateReportPage.fillSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
-        user.atCreateReportPage.fillEmailField("invalid@");
-        user.atCreateReportPage.clickOnReturnButtonOnKeyboard();
-        user.atCreateReportPage.checkEmailFieldValueIsShowAsText();
-        user.atCreateReportPage.checkEmailReportButtonIsDisabled();
-        user.atCreateReportPage.clearEmailField();
-        user.atCreateReportPage.fillEmailField("invalid@x");
-        user.atCreateReportPage.clickOnReturnButtonOnKeyboard();
-        user.atCreateReportPage.checkEmailFieldValueIsShowAsText();
-        user.atCreateReportPage.checkEmailReportButtonIsDisabled();
-        user.atCreateReportPage.clearEmailField();
         user.atCreateReportPage.fillEmailField("invalid@x.x");
         user.atCreateReportPage.clickOnReturnButtonOnKeyboard();
-        user.atCreateReportPage.checkEmailFieldValueIsShowAsText();
-        user.atCreateReportPage.checkEmailReportButtonIsDisabled();
-        user.atCreateReportPage.clearEmailField();
-        user.atCreateReportPage.fillEmailField("invalid.xx");
-        user.atCreateReportPage.clickOnReturnButtonOnKeyboard();
-        user.atCreateReportPage.checkEmailFieldValueIsShowAsText();
         user.atCreateReportPage.checkEmailReportButtonIsDisabled();
         user.atCreateReportPage.clearEmailField();
         user.atCreateReportPage.fillEmailField("valid@email.com");
         user.atCreateReportPage.clickOnReturnButtonOnKeyboard();
-        user.atCreateReportPage.checkEmailFieldIsShownAsGreenPill();
+        user.atCreateReportPage.checkEmailReportButtonIsDisabled();
+        user.atCreateReportPage.removeValidEmail();
+        user.atCreateReportPage.fillSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
+        user.atCreateReportPage.checkEmailReportButtonIsDisabled();
+        user.atCreateReportPage.fillEmailField("valid@email.com");
+        user.atCreateReportPage.clickOnReturnButtonOnKeyboard();
         user.atCreateReportPage.checkEmailReportButtonIsEnabled();
+        user.atCreateReportPage.fillInMessageFiled(DiscussionMessages.MESSAGE);
+        user.atCreateReportPage.clickOnShrinkButton();
+        user.atCreateReportPage.clickOnEmailReportButton();
+        user.atCreateReportPage.checkEmailReportPopUpIsShown();
+        user.atCreateReportPage.shouldFindSentReportBySubjectAndMessage();
     }
 }

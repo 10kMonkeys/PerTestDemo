@@ -125,11 +125,6 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkReportSuccessfullySentMessageIsShown() {
-        onPage.checkReportSuccessfullySentMessageIsShown();
-    }
-
-    @Step
     public void checkPopUpExitButtonIsShown() {
         onPage.checkPopUpExitButtonIsShown();
     }
@@ -162,5 +157,30 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void clickOnMediaReportButton() {
         onPage.clickOnMediaReportButton();
+    }
+
+    @Step
+    public void fillInMessageFiled(String message) {
+        onPage.fillInMessageField(message);
+    }
+
+    @Step
+    public void clickOnShrinkButton() {
+        onPage.clickOnShrinkButton();
+    }
+
+    @Step
+    public void removeValidEmail() {
+        onPage.removeValidEmail();
+    }
+
+    @Step
+    public void checkEmailReportPopUpIsShown() {
+        onPage.checkEmailReportPopUpIsShown();
+    }
+
+    @Step
+    public void shouldFindSentReportBySubjectAndMessage() {
+        onPage.shouldFindSentReportBySubjectAndMessage();
     }
 }
