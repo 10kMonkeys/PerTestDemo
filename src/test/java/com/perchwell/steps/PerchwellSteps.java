@@ -701,4 +701,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void clickOnCreateReportButton() {
 		onPage.clickOnCreateReportButton();
 	}
+
+	@Step
+	public void checkFirstListingIsSelected() {
+		onPage.checkFirstListingIsSelected();
+	}
 }

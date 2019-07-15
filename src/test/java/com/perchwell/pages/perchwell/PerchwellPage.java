@@ -1179,4 +1179,9 @@ public class PerchwellPage extends TechHelper {
     public void clickOnCreateReportButton() {
 		element(createReportButton).click();
     }
+
+	public void checkFirstListingIsSelected() {
+		element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: selected "
+				+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'")).shouldBePresent();
+	}
 }

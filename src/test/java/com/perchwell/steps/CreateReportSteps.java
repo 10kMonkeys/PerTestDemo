@@ -119,4 +119,48 @@ public class CreateReportSteps extends ScenarioSteps {
         onPage.checkEmailFieldIsShownAsGreenPill();
     }
 
+    @Step
+    public void clickOnEmailReportButton() {
+        onPage.clickOnEmailReportButton();
+    }
+
+    @Step
+    public void checkReportSuccessfullySentMessageIsShown() {
+        onPage.checkReportSuccessfullySentMessageIsShown();
+    }
+
+    @Step
+    public void checkPopUpExitButtonIsShown() {
+        onPage.checkPopUpExitButtonIsShown();
+    }
+
+    @Step
+    public void checkPopUpOkButtonIsShown() {
+        onPage.checkPopUpOkButtonIsShown();
+    }
+
+    @Step
+    public void clickOnPopUpOkButton() {
+        onPage.clickOnPopUpOkButton();
+    }
+
+    @Step
+    public void checkPopUpMessageIsClosed() {
+        onPage.checkPopUpMessageIsClosed();
+    }
+
+    @Step
+    public void checkSubjectFieldIsFilledOut() {
+        onPage.checkSubjectFieldIsFilledOut();
+    }
+
+    @Step
+    public void clickOnPopUpExitButton() {
+        onPage.clickOnPopUpExitButton();
+    }
+
+    @Step
+    public void clickOnMediaReportButton() {
+        onPage.clickOnMediaReportButton();
+    }
 }

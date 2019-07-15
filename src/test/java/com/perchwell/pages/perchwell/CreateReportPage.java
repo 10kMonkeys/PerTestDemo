@@ -67,6 +67,15 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Return")
     private WebElement returnButtonOnKeyboard;
 
+    @iOSXCUITFindBy(accessibility = "REPORT SUCCESSFULLY SENT")
+    private WebElement popUpReportSuccessfullySentMessage;
+
+    @iOSXCUITFindBy(accessibility = "EXIT")
+    private WebElement popUpExitButton;
+
+    @iOSXCUITFindBy(accessibility = "OK")
+    private WebElement popUpOkButton;
+
     public CreateReportPage(WebDriver driver) {
         super(driver);
     }
@@ -170,5 +179,41 @@ public class CreateReportPage extends TechHelper {
         element(MobileBy.xpath("//XCUIElementTypeStaticText[@name='" + SessionVariables.getValueFromSessionVariable("emailAddress") + "']")).shouldBeVisible();
         element(emailPill).shouldBePresent();
         Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailField).getAttribute("value"));
+    }
+
+    public void clickOnEmailReportButton() {
+        element(emailReportButton).click();
+    }
+
+    public void checkReportSuccessfullySentMessageIsShown() {
+        element(popUpReportSuccessfullySentMessage).shouldBeVisible();
+    }
+
+    public void checkPopUpExitButtonIsShown() {
+        element(popUpExitButton).shouldBeVisible();
+    }
+
+    public void checkPopUpOkButtonIsShown() {
+        element(popUpOkButton).shouldBeVisible();
+    }
+
+    public void clickOnPopUpOkButton() {
+        element(popUpOkButton).click();
+    }
+
+    public void checkPopUpMessageIsClosed() {
+        element(popUpReportSuccessfullySentMessage).shouldNotBeVisible();
+    }
+
+    public void checkSubjectFieldIsFilledOut() {
+        Assert.assertEquals(element(subjectField).getText(), SessionVariables.getValueFromSessionVariable("Contact_subject"));
+    }
+
+    public void clickOnPopUpExitButton() {
+        element(popUpExitButton).click();
+    }
+
+    public void clickOnMediaReportButton() {
+        element(mediaReportButton).click();
     }
 }
