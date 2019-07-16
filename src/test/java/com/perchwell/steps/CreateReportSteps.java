@@ -183,4 +183,49 @@ public class CreateReportSteps extends ScenarioSteps {
     public void shouldFindSentReportBySubjectAndMessage() {
         onPage.shouldFindSentReportBySubjectAndMessage();
     }
+
+    @Step
+    public void clickOnShortButton() {
+        onPage.clickOnShortButton();
+    }
+
+    @Step
+    public void checkListingType(String property) {
+        onPage.checkListingType(property);
+    }
+
+    @Step
+    public void checkStudioIsDisplayed() {
+        onPage.checkStudioIsDisplayed();
+    }
+
+    @Step
+    public void checkSquareFeetWithoutApproxLabel() {
+        onPage.checkSquareFeetWithoutApproxLabel();
+    }
+
+    @Step
+    public void checkPriceWithoutMO() {
+        onPage.checkPriceWithoutMO();
+    }
+
+    @Step
+    public void checkOneAndHalfBathroomIsShown() {
+        onPage.checkOneAndHalfBathroomIsShown();
+    }
+
+    @Step
+    public void checkSquareFeetWithApproxLabel() {
+        onPage.checkSquareFeetWithApproxLabel();
+    }
+
+    @Step
+    public void checkPriceWithMO() {
+        onPage.checkPriceWithMO();
+    }
+
+    @Step
+    public void checkOpenHouseInfoIsShown() {
+        onPage.checkOpenHouseInfoIsShown();
+    }
 }

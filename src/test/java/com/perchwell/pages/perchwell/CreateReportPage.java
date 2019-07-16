@@ -89,6 +89,18 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "label = 'removeBubble'")
     private WebElement removeBubble;
 
+    @iOSXCUITFindBy(accessibility = "STUDIO")
+    private WebElement studioBedroom;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'FT2'")
+    private WebElement squareFeetLabel;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS '$'")
+    private WebElement priceLabel;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS '1½'")
+    private WebElement oneAndHalfBathroomLabel;
+
     public CreateReportPage(WebDriver driver) {
         super(driver);
     }
@@ -259,5 +271,41 @@ public class CreateReportPage extends TechHelper {
 
         Assert.assertTrue(rawBody.contains("Subject: " + subject));
         Assert.assertTrue(rawBody.contains(message));
+    }
+
+    public void clickOnShortButton() {
+        element(shortButton).click();
+    }
+
+    public void checkListingType(String property) {
+        element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + property + "'")).shouldBeVisible();
+    }
+
+    public void checkStudioIsDisplayed() {
+        element(studioBedroom).shouldBeVisible();
+    }
+
+    public void checkSquareFeetWithoutApproxLabel() {
+        element(squareFeetLabel).shouldNotContainText("Approx.");
+    }
+
+    public void checkPriceWithoutMO() {
+        element(priceLabel).shouldNotContainText("/MO");
+    }
+
+    public void checkOneAndHalfBathroomIsShown() {
+        element(oneAndHalfBathroomLabel).shouldBeVisible();
+    }
+
+    public void checkSquareFeetWithApproxLabel() {
+        element(squareFeetLabel).shouldContainText("Approx.");
+    }
+
+    public void checkPriceWithMO() {
+        element(priceLabel).shouldContainText("/MO");
+    }
+
+    public void checkOpenHouseInfoIsShown() {
+        element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + SessionVariables.getValueFromSessionVariable("openHouseDate") + "'")).shouldBeVisible();
     }
 }

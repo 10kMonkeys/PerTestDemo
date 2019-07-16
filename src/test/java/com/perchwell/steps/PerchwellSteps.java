@@ -706,4 +706,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void checkFirstListingIsSelected() {
 		onPage.checkFirstListingIsSelected();
 	}
+
+	@Step
+	public void getOpenHouseDateForFirstListing() {
+		onPage.getOpenHouseDateForFirstListing();
+	}
 }

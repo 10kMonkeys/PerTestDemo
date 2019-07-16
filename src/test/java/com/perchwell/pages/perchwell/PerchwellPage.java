@@ -273,6 +273,9 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "cell: Create Report")
 	private WebElement createReportButton;
 
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$value CONTAINS 'OH: '$][1]")
+	private WebElement openHouseLabelOnFirstListing;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -1183,5 +1186,9 @@ public class PerchwellPage extends TechHelper {
 	public void checkFirstListingIsSelected() {
 		element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: selected "
 				+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'")).shouldBePresent();
+	}
+
+	public void getOpenHouseDateForFirstListing() {
+		SessionVariables.addValueInSessionVariable("openHouseDate", element(openHouseLabelOnFirstListing).getAttribute("value"));
 	}
 }

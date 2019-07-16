@@ -10,8 +10,7 @@ public class RW3_GenerateReportRequiredFieldsTest extends SampleTest {
     @Test
     public void generateReportRequiredFieldsTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("core_email"),
-                AppProperties.INSTANCE.getProperty("password")
-        );
+                AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.selectFirstListing();
@@ -21,17 +20,19 @@ public class RW3_GenerateReportRequiredFieldsTest extends SampleTest {
         user.atCreateReportPage.clickDefaultButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
+        user.atCreateReportPage.checkEmailReportButtonIsDisabled();
         user.atCreateReportPage.fillEmailField("invalid@x.x");
         user.atCreateReportPage.clickOnReturnButtonOnKeyboard();
         user.atCreateReportPage.checkEmailReportButtonIsDisabled();
         user.atCreateReportPage.clearEmailField();
-        user.atCreateReportPage.fillEmailField("valid@email.com");
+        user.atCreateReportPage.fillEmailField("report-valid-wizard1@email.com");
         user.atCreateReportPage.clickOnReturnButtonOnKeyboard();
         user.atCreateReportPage.checkEmailReportButtonIsDisabled();
         user.atCreateReportPage.removeValidEmail();
-        user.atCreateReportPage.fillSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
         user.atCreateReportPage.checkEmailReportButtonIsDisabled();
-        user.atCreateReportPage.fillEmailField("valid@email.com");
+        user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
+        user.atCreateReportPage.checkEmailReportButtonIsDisabled();
+        user.atCreateReportPage.fillEmailField("report-valid-wizard1@email.com");
         user.atCreateReportPage.clickOnReturnButtonOnKeyboard();
         user.atCreateReportPage.checkEmailReportButtonIsEnabled();
         user.atCreateReportPage.fillInMessageFiled(DiscussionMessages.MESSAGE);

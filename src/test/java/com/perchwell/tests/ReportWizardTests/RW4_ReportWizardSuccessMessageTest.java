@@ -10,8 +10,7 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
     @Test
     public void reportWizardSuccessMessageTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
-                AppProperties.INSTANCE.getProperty("password")
-        );
+                AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.getFirstListingAddress();
@@ -22,8 +21,8 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
         user.atCreateReportPage.clickDefaultButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
-        user.atCreateReportPage.fillEmailField("valid@email.com");
-        user.atCreateReportPage.fillSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
+        user.atCreateReportPage.fillEmailField("report-valid-wizard1@email.com");
+        user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.checkEmailReportPopUpIsShown();
         user.atCreateReportPage.checkPopUpExitButtonIsShown();
@@ -43,8 +42,8 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
         user.atCreateReportPage.clickOnMediaReportButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
-        user.atCreateReportPage.fillEmailField("valid@email.com");
-        user.atCreateReportPage.fillSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
+        user.atCreateReportPage.fillEmailField("report-valid-wizard1@email.com");
+        user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.checkEmailReportPopUpIsShown();
         user.atCreateReportPage.checkPopUpExitButtonIsShown();
@@ -67,8 +66,8 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
         user.atCreateReportPage.clickOnMediaReportButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
-        user.atCreateReportPage.fillEmailField("valid@email.com");
-        user.atCreateReportPage.fillSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
+        user.atCreateReportPage.fillEmailField("report-valid-wizard1@email.com");
+        user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.checkEmailReportPopUpIsShown();
         user.atCreateReportPage.checkPopUpExitButtonIsShown();

@@ -10,8 +10,7 @@ public class RW2_EmailValidationTest extends SampleTest {
     @Test
     public void emailValidationTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
-                AppProperties.INSTANCE.getProperty("password")
-                );
+                AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.selectFirstListing();
@@ -21,7 +20,7 @@ public class RW2_EmailValidationTest extends SampleTest {
         user.atCreateReportPage.clickDefaultButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
-        user.atCreateReportPage.fillSubjectField(DiscussionMessages.CONTACT_AGENT_SUBJECT);
+        user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.fillEmailField("invalid@");
         user.atCreateReportPage.clickOnReturnButtonOnKeyboard();
         user.atCreateReportPage.checkEmailFieldValueIsShowAsText();
@@ -42,7 +41,7 @@ public class RW2_EmailValidationTest extends SampleTest {
         user.atCreateReportPage.checkEmailFieldValueIsShowAsText();
         user.atCreateReportPage.checkEmailReportButtonIsDisabled();
         user.atCreateReportPage.clearEmailField();
-        user.atCreateReportPage.fillEmailField("valid@email.com");
+        user.atCreateReportPage.fillEmailField("report-valid-wizard1@email.com");
         user.atCreateReportPage.clickOnReturnButtonOnKeyboard();
         user.atCreateReportPage.checkEmailFieldIsShownAsGreenPill();
         user.atCreateReportPage.checkEmailReportButtonIsEnabled();
