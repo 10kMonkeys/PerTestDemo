@@ -10,6 +10,8 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 import static com.perchwell.email.MailTrap.getTextBody;
 
 public class CreateReportPage extends TechHelper {
