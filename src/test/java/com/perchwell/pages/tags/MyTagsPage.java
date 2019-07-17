@@ -456,6 +456,7 @@ public class MyTagsPage extends TechHelper {
 			firstBuildAddress = firstBuildingAddress.getAttribute("value");
 		}
 		SessionVariables.addValueInSessionVariable("listingAddress1", firstBuildAddress);
+		SessionVariables.addValueInSessionVariable("buildingAddress1", firstBuildAddress);
 	}
 
 	public void openFirstBuilding() {

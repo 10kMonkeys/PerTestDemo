@@ -228,4 +228,49 @@ public class CreateReportSteps extends ScenarioSteps {
     public void checkOpenHouseInfoIsShown() {
         onPage.checkOpenHouseInfoIsShown();
     }
+
+    @Step
+    public void clickOnMediumButton() {
+        onPage.clickOnMediumButton();
+    }
+
+    @Step
+    public void swipeLeftListingByAddress() {
+        onPage.swipeLeftListingByAddress();
+    }
+
+    @Step
+    public void deleteFirstListing() {
+        onPage.deleteFirstListing();
+    }
+
+    @Step
+    public void reorderByDragging() {
+        onPage.reorderByDragging();
+    }
+
+    @Step
+    public void shouldNotFindDeletedListingAndBuildingInEmail() {
+        onPage.shouldNotFindDeletedListingAndBuildingInEmail();
+    }
+
+    @Step
+    public void swipeLeftBuildingByAddress() {
+        onPage.swipeLeftBuildingByAddress();
+    }
+
+    @Step
+    public void checkFirstListingIsDeleted() {
+        onPage.checkFirstListingIsDeleted();
+    }
+
+    @Step
+    public void checkFirstBuildingIsDeleted() {
+        onPage.checkFirstBuildingIsDeleted();
+    }
+
+    @Step
+    public void checkListingsOrderIsSavedInEmail() {
+        onPage.checkListingsOrderIsSavedInEmail();
+    }
 }

@@ -1191,4 +1191,10 @@ public class PerchwellPage extends TechHelper {
 	public void getOpenHouseDateForFirstListing() {
 		SessionVariables.addValueInSessionVariable("openHouseDate", element(openHouseLabelOnFirstListing).getAttribute("value"));
 	}
+
+	public void selectFirstFiveListings() {
+		for (int i = 0; i < 5; i++) {
+			selectFirstListings();
+		}
+	}
 }

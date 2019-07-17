@@ -24,9 +24,6 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
         user.atCreateReportPage.fillEmailField("report-valid-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkEmailReportPopUpIsShown();
-        user.atCreateReportPage.checkPopUpExitButtonIsShown();
-        user.atCreateReportPage.checkPopUpOkButtonIsShown();
         user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.checkPopUpMessageIsClosed();
         user.atCreateReportPage.checkEmailFieldIsShownAsGreenPill();
@@ -45,9 +42,6 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
         user.atCreateReportPage.fillEmailField("report-valid-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkEmailReportPopUpIsShown();
-        user.atCreateReportPage.checkPopUpExitButtonIsShown();
-        user.atCreateReportPage.checkPopUpOkButtonIsShown();
         user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.checkPopUpMessageIsClosed();
         user.atCreateReportPage.checkEmailFieldIsShownAsGreenPill();
@@ -69,9 +63,6 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
         user.atCreateReportPage.fillEmailField("report-valid-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkEmailReportPopUpIsShown();
-        user.atCreateReportPage.checkPopUpExitButtonIsShown();
-        user.atCreateReportPage.checkPopUpOkButtonIsShown();
         user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.checkPopUpMessageIsClosed();
         user.atCreateReportPage.checkEmailFieldIsShownAsGreenPill();

@@ -62,7 +62,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "EMAIL REPORT")
     private WebElement emailReportButton;
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[@name='Tag Cell: Search Text Field']/XCUIElementTypeOther")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$value == 'tag color: #37d2be'$]")
     private WebElement emailPill;
 
     @iOSXCUITFindBy(accessibility = "Subject textField")
@@ -100,6 +100,15 @@ public class CreateReportPage extends TechHelper {
 
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS '1½'")
     private WebElement oneAndHalfBathroomLabel;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell")
+    private List<WebElement> listingsList;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'cross16' AND visible == 1")
+    private WebElement firstListingDeleteButton;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'iosReorder' AND visible == 1")
+    private List<WebElement> reorderButtonList;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -201,9 +210,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkEmailFieldIsShownAsGreenPill() {
-        element(MobileBy.xpath("//XCUIElementTypeStaticText[@name='" + SessionVariables.getValueFromSessionVariable("emailAddress") + "']")).shouldBeVisible();
-        element(emailPill).shouldBePresent();
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailField).getAttribute("value"));
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailPill).getAttribute("name"));
     }
 
     public void fillInMessageField(String message) {
@@ -307,5 +314,60 @@ public class CreateReportPage extends TechHelper {
 
     public void checkOpenHouseInfoIsShown() {
         element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + SessionVariables.getValueFromSessionVariable("openHouseDate") + "'")).shouldBeVisible();
+    }
+
+    public void clickOnMediumButton() {
+        element(mediumButton).click();
+    }
+
+
+    public void swipeLeftListingByAddress() {
+        WebElement listingAddress1 = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1")));
+        universalHorizontalSwipe(listingAddress1, 500);
+    }
+
+    public void deleteFirstListing() {
+        element(firstListingDeleteButton).click();
+    }
+
+    public void reorderByDragging() {
+        //#TODO
+    }
+
+    public void shouldNotFindDeletedListingAndBuildingInEmail() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
+        String deletedListing1 = SessionVariables.getValueFromSessionVariable("listingAddress1");
+        String deletedBuilding1 = SessionVariables.getValueFromSessionVariable("buildingAddress1");
+        String rawBody;
+
+        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
+        rawBody = getTextBody(mailTrapResponse[0].getRaw_path());
+
+        Assert.assertFalse(rawBody.contains(deletedListing1));
+        Assert.assertFalse(rawBody.contains(deletedBuilding1));
+    }
+
+    public void swipeLeftBuildingByAddress() {
+        WebElement buildingAddress1 = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("buildingAddress1")));
+        universalVerticalSwipe(buildingAddress1);
+        universalHorizontalSwipe(buildingAddress1, 500);
+    }
+
+    public void checkFirstListingIsDeleted() {
+        element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).shouldNotBePresent();
+    }
+
+    public void checkFirstBuildingIsDeleted() {
+        element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("buildingAddress1"))).shouldNotBePresent();
+    }
+
+    public void checkListingsOrderIsSavedInEmail() {
+        //#TODO
     }
 }
