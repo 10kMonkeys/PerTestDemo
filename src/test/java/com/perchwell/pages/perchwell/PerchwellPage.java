@@ -1197,4 +1197,8 @@ public class PerchwellPage extends TechHelper {
 			selectFirstListings();
 		}
 	}
+
+    public void getSquareFeetForFirstListing() {
+		SessionVariables.addValueInSessionVariable("squareFeetListing1", element(sqFeetList.get(0)).getAttribute("value"));
+    }
 }

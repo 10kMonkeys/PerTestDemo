@@ -295,6 +295,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkSquareFeetWithoutApproxLabel() {
+        Assert.assertEquals(element(squareFeetLabel).getAttribute("value"), SessionVariables.getValueFromSessionVariable("squareFeetListing1"));
         element(squareFeetLabel).shouldNotContainText("Approx.");
     }
 

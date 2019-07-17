@@ -716,4 +716,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void selectFirstFiveListings() {
 		onPage.selectFirstFiveListings();
 	}
+
+	@Step
+    public void getSquareFeetForFirstListing() {
+		onPage.getSquareFeetForFirstListing();
+    }
 }
