@@ -644,5 +644,9 @@ public class MyTagsPage extends TechHelper {
     public void clickOnCreateReportButton() {
 		element(createReportButton).click();
     }
+
+	public void checkListingsAreSelected(int value) {
+		Assert.assertEquals(value, selectedListingsListByAddress.size());
+	}
 }
 

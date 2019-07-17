@@ -334,4 +334,9 @@ public class MyTagsSteps extends ScenarioSteps {
     public void clickOnCreateReportButton() {
 		onPage.clickOnCreateReportButton();
     }
+
+	@Step
+	public void checkListingsAreSelected(int value) {
+		onPage.checkListingsAreSelected(value);
+	}
 }

@@ -466,5 +466,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
     public void clickOnCreateReportButton() {
 		onPage.clickOnCreateReportButton();
     }
+
+    @Step
+	public void checkCreateReportButtonIsNotPresented() {
+		onPage.checkCreateReportButtonIsNotPresented();
+	}
 }
 
