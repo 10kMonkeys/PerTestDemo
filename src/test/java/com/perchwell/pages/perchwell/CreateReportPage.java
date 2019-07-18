@@ -368,29 +368,17 @@ public class CreateReportPage extends TechHelper {
 
         List<String> listingsAddress = new ArrayList<>();
         String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
-        String deletedListing1 = SessionVariables.getValueFromSessionVariable("listingAddress1");
-        String deletedBuilding1 = SessionVariables.getValueFromSessionVariable("buildingAddress1");
         String rawBody;
 
         MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
         rawBody = getTextBody(mailTrapResponse[0].getTxt_path());
 
-        String regexForListing = "([0-9]{1,4}.\\w.*St.*#[0-9]{1,5})|([0-9]{1,4}.\\w.\\w.\\w.*#[0-9]{1,5})";
-        String regexForBuilding = "(\\|.[0-9]{1,4}.\\w.*St.)";
-        Pattern patternForListing = Pattern.compile(regexForListing);
-        Pattern patternForBuilding = Pattern.compile(regexForBuilding);
-        Matcher matcherForListing = patternForListing.matcher(rawBody);
-        Matcher matcherForBuilding = patternForBuilding.matcher(rawBody);
+        String address = "([0-9]{1,10}[#0-9]{1,10}.*#[\\S]{1,30})|([0-9]{1,10}.*St.)";
+        Pattern patternForAddress = Pattern.compile(address);
+        Matcher matcherForAddress = patternForAddress.matcher(rawBody);
 
-        Assert.assertFalse(orderListing.contains(deletedListing1));
-        Assert.assertFalse(orderListing.contains(deletedBuilding1));
-
-        while (matcherForListing.find()) {
-            listingsAddress.add(rawBody.substring(matcherForListing.start(), matcherForListing.end()));
-        }
-
-        while (matcherForBuilding.find()) {
-            listingsAddress.add(rawBody.substring(matcherForBuilding.start() + 2, matcherForBuilding.end()));
+        while (matcherForAddress.find()) {
+            listingsAddress.add(rawBody.substring(matcherForAddress.start(), matcherForAddress.end()));
         }
 
         for(int i = 0; i < listingsAddress.size(); i++) {
