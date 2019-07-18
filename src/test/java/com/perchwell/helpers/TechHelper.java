@@ -329,6 +329,17 @@ public class TechHelper extends BasePage {
         appiumDriver.hideKeyboard();
     }
 
+    public void reorderListingByDraggingAtCreateReportPage(int longPressX, int longPressY, int moveToX, int moveToY) {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        new TouchAction(appiumDriver)
+                .longPress(longPressX + 10, longPressY + 10)
+                .waitAction(Duration.ofSeconds(1))
+                .moveTo(moveToX + 10, moveToY + 10)
+                .release().perform();
+    }
     //endregion
 
     //region Coordinates

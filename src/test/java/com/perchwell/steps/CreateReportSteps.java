@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.email.MailTrap;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.CreateReportPage;
 import net.thucydides.core.annotations.Step;
@@ -182,7 +183,7 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void shouldFindSentReportBySubjectAndMessage() {
-        onPage.shouldFindSentReportBySubjectAndMessage();
+        MailTrap.shouldFindSentReportBySubjectAndMessage();
     }
 
     @Step
@@ -262,7 +263,7 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void checkListingsOrderIsSavedInEmailAndNotDeletedListings() {
-        onPage.checkListingsOrderIsSavedInEmailAndNotDeletedListings();
+        MailTrap.checkListingsOrderIsSavedInEmailAndNotDeletedListings();
     }
 
     @Step

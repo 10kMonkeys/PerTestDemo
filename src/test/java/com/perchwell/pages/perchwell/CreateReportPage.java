@@ -1,29 +1,19 @@
 package com.perchwell.pages.perchwell;
 
-import com.perchwell.email.MailTrap;
-import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static com.perchwell.email.MailTrap.getTextBody;
 
 public class CreateReportPage extends TechHelper {
 
-    private List<String> orderListing = new ArrayList<>();
+    public static List<String> orderListing = new ArrayList<>();
 
     @iOSXCUITFindBy(accessibility = "CMA")
     private WebElement cmaButton;
@@ -273,24 +263,6 @@ public class CreateReportPage extends TechHelper {
         element(removeBubble).click();
     }
 
-    public void shouldFindSentReportBySubjectAndMessage() {
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
-        String message = SessionVariables.getValueFromSessionVariable("Report_message");
-        String rawBody;
-
-        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
-        rawBody = getTextBody(mailTrapResponse[0].getRaw_path());
-
-        Assert.assertTrue(rawBody.contains("Subject: " + subject));
-        Assert.assertTrue(rawBody.contains(message));
-    }
-
     public void clickOnShortButton() {
         element(shortButton).click();
     }
@@ -340,15 +312,12 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void moveFirstListingToThirdListingByDragging() {
-        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-        WebDriver webDriver = webDriverFacade.getProxiedDriver();
-        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+        int longPressX = reorderButtonList.get(0).getLocation().getX();
+        int longPressY = reorderButtonList.get(0).getLocation().getY();
+        int moveToX = reorderButtonList.get(2).getLocation().getX();
+        int moveToY = reorderButtonList.get(2).getLocation().getY();
 
-        new TouchAction(appiumDriver)
-                .longPress(reorderButtonList.get(0).getLocation().getX() + 10, reorderButtonList.get(0).getLocation().getY() + 10)
-                .waitAction(Duration.ofSeconds(1))
-                .moveTo(reorderButtonList.get(2).getLocation().getX() + 10, reorderButtonList.get(2).getLocation().getY() + 10)
-                .release().perform();
+        reorderListingByDraggingAtCreateReportPage(longPressX, longPressY, moveToX, moveToY);
     }
 
     public void checkFirstListingIsDeleted() {
@@ -359,48 +328,17 @@ public class CreateReportPage extends TechHelper {
         element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("buildingAddress1"))).shouldNotBePresent();
     }
 
-    public void checkListingsOrderIsSavedInEmailAndNotDeletedListings() {
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        List<String> listingsAddress = new ArrayList<>();
-        String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
-        String rawBody;
-
-        MailTrapResponse[] mailTrapResponse = MailTrap.getEmail(subject);
-        rawBody = getTextBody(mailTrapResponse[0].getTxt_path());
-
-        String address = "([0-9]{1,10}[#0-9]{1,10}.*#[\\S]{1,30})|([0-9]{1,10}.*St.)";
-        Pattern patternForAddress = Pattern.compile(address);
-        Matcher matcherForAddress = patternForAddress.matcher(rawBody);
-
-        while (matcherForAddress.find()) {
-            listingsAddress.add(rawBody.substring(matcherForAddress.start(), matcherForAddress.end()));
-        }
-
-        for(int i = 0; i < listingsAddress.size(); i++) {
-            Assert.assertEquals(orderListing.get(i), listingsAddress.get(i));
-        }
-    }
-
     public void moveFirstBuildingToSecondBuildingByDragging() {
-        universalVerticalSwipe(reorderButtonList.get(5));
-        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
-        WebDriver webDriver = webDriverFacade.getProxiedDriver();
-        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+        int longPressX = reorderButtonList.get(4).getLocation().getX();
+        int longPressY = reorderButtonList.get(4).getLocation().getY();
+        int moveToX = reorderButtonList.get(5).getLocation().getX();
+        int moveToY = reorderButtonList.get(5).getLocation().getY();
 
-        new TouchAction(appiumDriver)
-                .longPress(reorderButtonList.get(4).getLocation().getX() + 10, reorderButtonList.get(4).getLocation().getY() + 10)
-                .waitAction(Duration.ofSeconds(1))
-                .moveTo(reorderButtonList.get(5).getLocation().getX() + 10, reorderButtonList.get(5).getLocation().getY() + 10)
-                .release().perform();
+        universalVerticalSwipe(reorderButtonList.get(5));
+        reorderListingByDraggingAtCreateReportPage(longPressX, longPressY, moveToX, moveToY);
     }
 
     public void getListingsAndBuildingsOrder() {
-
         for (int i = 0; i < listingsList.size(); i++) {
             orderListing.add(element(MobileBy.iOSClassChain("**/XCUIElementTypeCell[" + (i + 1) + "]/*/*/*[1]/*[2]/*/*/*[1]/*/XCUIElementTypeStaticText[1]")).getValue());
         }

@@ -4,6 +4,8 @@ package com.perchwell.email;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
+import com.perchwell.helpers.SessionVariables;
+import com.perchwell.pages.perchwell.CreateReportPage;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -13,8 +15,13 @@ import org.apache.http.util.EntityUtils;
 import org.codehaus.jackson.map.DeserializationConfig;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.junit.Assert;
 
 public class MailTrap {
 
@@ -126,5 +133,50 @@ public class MailTrap {
 			e.printStackTrace();
 		}
 		return textBody;
+	}
+
+	public static void checkListingsOrderIsSavedInEmailAndNotDeletedListings() {
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		List<String> listingsAddress = new ArrayList<>();
+		String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
+		String rawBody;
+
+		MailTrapResponse[] mailTrapResponse = getEmail(subject);
+		rawBody = getTextBody(mailTrapResponse[0].getTxt_path());
+
+		String address = "([0-9]{1,10}[#0-9]{1,10}.*#[\\S]{1,30})|([0-9]{1,10}.*St.)";
+		Pattern patternForAddress = Pattern.compile(address);
+		Matcher matcherForAddress = patternForAddress.matcher(rawBody);
+
+		while (matcherForAddress.find()) {
+			listingsAddress.add(rawBody.substring(matcherForAddress.start(), matcherForAddress.end()));
+		}
+
+		for(int i = 0; i < listingsAddress.size(); i++) {
+			Assert.assertEquals(CreateReportPage.orderListing.get(i), listingsAddress.get(i));
+		}
+	}
+
+	public static void shouldFindSentReportBySubjectAndMessage() {
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
+		String message = SessionVariables.getValueFromSessionVariable("Report_message");
+		String rawBody;
+
+		MailTrapResponse[] mailTrapResponse = getEmail(subject);
+		rawBody = getTextBody(mailTrapResponse[0].getRaw_path());
+
+		Assert.assertTrue(rawBody.contains("Subject: " + subject));
+		Assert.assertTrue(rawBody.contains(message));
 	}
 }
