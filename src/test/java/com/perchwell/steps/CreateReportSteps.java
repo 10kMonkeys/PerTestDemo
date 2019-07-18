@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.CreateReportPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -230,13 +231,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOnMediumButton() {
-        onPage.clickOnMediumButton();
-    }
-
-    @Step
     public void swipeLeftListingByAddress() {
-        onPage.swipeLeftListingByAddress();
+        onPage.swipeLeftByAddress(SessionVariables.getValueFromSessionVariable("listingAddress1"));
     }
 
     @Step
@@ -245,18 +241,13 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void reorderByDragging() {
-        onPage.reorderByDragging();
-    }
-
-    @Step
-    public void shouldNotFindDeletedListingAndBuildingInEmail() {
-        onPage.shouldNotFindDeletedListingAndBuildingInEmail();
+    public void moveFirstListingToThirdListingByDragging() {
+        onPage.moveFirstListingToThirdListingByDragging();
     }
 
     @Step
     public void swipeLeftBuildingByAddress() {
-        onPage.swipeLeftBuildingByAddress();
+        onPage.swipeLeftByAddress(SessionVariables.getValueFromSessionVariable("buildingAddress1"));
     }
 
     @Step
@@ -270,7 +261,17 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkListingsOrderIsSavedInEmail() {
-        onPage.checkListingsOrderIsSavedInEmail();
+    public void checkListingsOrderIsSavedInEmailAndNotDeletedListings() {
+        onPage.checkListingsOrderIsSavedInEmailAndNotDeletedListings();
+    }
+
+    @Step
+    public void moveFirstBuildingToSecondBuildingByDragging() {
+        onPage.moveFirstBuildingToSecondBuildingByDragging();
+    }
+
+    @Step
+    public void getListingsAndBuildingsOrder() {
+        onPage.getListingsAndBuildingsOrder();
     }
 }

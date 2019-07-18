@@ -64,17 +64,17 @@ public class RW5_ListingsBuildingsReorderingAndDeletionTest extends SampleTest {
         user.atCreateReportPage.swipeLeftListingByAddress();
         user.atCreateReportPage.deleteFirstListing();
 //        user.atCreateReportPage.checkFirstListingIsDeleted();     will be fixed by jianghong
-//        user.atCreateReportPage.reorderByDragging();
-//        user.atCreateReportPage.reorderByDragging();
+        user.atCreateReportPage.moveFirstListingToThirdListingByDragging();
         user.atCreateReportPage.swipeLeftBuildingByAddress();
         user.atCreateReportPage.deleteFirstListing();
 //        user.atCreateReportPage.checkFirstBuildingIsDeleted();    will be fixed by jianhong
+        user.atCreateReportPage.moveFirstBuildingToSecondBuildingByDragging();
+        user.atCreateReportPage.getListingsAndBuildingsOrder();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.shouldNotFindDeletedListingAndBuildingInEmail();
-        user.atCreateReportPage.checkListingsOrderIsSavedInEmail();
+        user.atCreateReportPage.checkListingsOrderIsSavedInEmailAndNotDeletedListings();
     }
 }

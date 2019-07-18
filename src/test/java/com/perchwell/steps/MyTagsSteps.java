@@ -158,6 +158,11 @@ public class MyTagsSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void getFirstListingAddress() {
+		onPage.getFirstListingAddress();
+	}
+
+	@Step
 	public void openFirstBuilding() {
 		onPage.openFirstBuilding();
 	}

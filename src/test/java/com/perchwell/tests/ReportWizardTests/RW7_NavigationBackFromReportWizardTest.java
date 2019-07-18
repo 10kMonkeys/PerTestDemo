@@ -29,7 +29,7 @@ public class RW7_NavigationBackFromReportWizardTest extends SampleTest {
         user.atMyTagsPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnBackButton();
         user.atMyTagsPage.checkListingsAreSelected(2);
-        user.atMyTagsPage.getFirstBuildingAddress();
+        user.atMyTagsPage.getFirstListingAddress();
         user.atMyTagsPage.openFirstBuilding();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.clickShareButton();

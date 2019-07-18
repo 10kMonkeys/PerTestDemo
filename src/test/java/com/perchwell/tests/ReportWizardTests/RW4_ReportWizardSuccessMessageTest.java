@@ -57,7 +57,7 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnSearchButton();
         user.atMyTagsPage.selectFirstListing();
-        user.atMyTagsPage.getFirstBuildingAddress();
+        user.atMyTagsPage.getFirstListingAddress();
         user.atMyTagsPage.clickOnMoreOptionsButton();
         user.atMyTagsPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnMediaReportButton();
