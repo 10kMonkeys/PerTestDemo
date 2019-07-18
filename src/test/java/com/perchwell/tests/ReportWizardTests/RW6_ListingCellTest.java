@@ -28,7 +28,7 @@ public class RW6_ListingCellTest extends SampleTest {
         user.atCreateReportPage.clickOnShortButton();
         user.atCreateReportPage.checkListingType(Properties.CONDO);
         user.atCreateReportPage.checkStudioIsDisplayed();
-        user.atCreateReportPage.checkSquareFeetWithoutApproxLabel();
+        user.atCreateReportPage.checkSquareFeetValueWithoutApproxLabel();
         user.atCreateReportPage.checkPriceWithoutMO();
         user.atCreateReportPage.clickOnBackButton();
         user.atCreateReportPage.clickOnBackButton();
@@ -47,7 +47,7 @@ public class RW6_ListingCellTest extends SampleTest {
         user.atCreateReportPage.clickOnShortButton();
         user.atCreateReportPage.checkListingType(Properties.COOP_RENTAL);
         user.atCreateReportPage.checkOneAndHalfBathroomIsShown();
-        user.atCreateReportPage.checkSquareFeetWithApproxLabel();
+        user.atCreateReportPage.checkOnlySquareFeetWithApproxLabel();
         user.atCreateReportPage.checkPriceWithMO();
         user.atCreateReportPage.clickOnBackButton();
         user.atCreateReportPage.clickOnBackButton();
@@ -81,6 +81,6 @@ public class RW6_ListingCellTest extends SampleTest {
         user.atCreateReportPage.clickOnListingReportButton();
         user.atCreateReportPage.clickOnShortButton();
         user.atCreateReportPage.checkListingType(Properties.CONDOP);
-        user.atCreateReportPage.checkSquareFeetWithApproxLabel();
+        user.atCreateReportPage.checkOnlySquareFeetWithApproxLabel();
     }
 }

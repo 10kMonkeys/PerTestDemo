@@ -201,8 +201,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkSquareFeetWithoutApproxLabel() {
-        onPage.checkSquareFeetWithoutApproxLabel();
+    public void checkSquareFeetValueWithoutApproxLabel() {
+        onPage.checkSquareFeetValueWithoutApproxLabel();
     }
 
     @Step
@@ -216,8 +216,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkSquareFeetWithApproxLabel() {
-        onPage.checkSquareFeetWithApproxLabel();
+    public void checkOnlySquareFeetWithApproxLabel() {
+        onPage.checkOnlySquareFeetWithApproxLabel();
     }
 
     @Step

@@ -303,7 +303,7 @@ public class CreateReportPage extends TechHelper {
         element(studioBedroom).shouldBeVisible();
     }
 
-    public void checkSquareFeetWithoutApproxLabel() {
+    public void checkSquareFeetValueWithoutApproxLabel() {
         Assert.assertEquals(element(squareFeetLabel).getAttribute("value"), SessionVariables.getValueFromSessionVariable("squareFeetListing1"));
         element(squareFeetLabel).shouldNotContainText("Approx.");
     }
@@ -316,7 +316,7 @@ public class CreateReportPage extends TechHelper {
         element(oneAndHalfBathroomLabel).shouldBeVisible();
     }
 
-    public void checkSquareFeetWithApproxLabel() {
+    public void checkOnlySquareFeetWithApproxLabel() {
         element(squareFeetLabel).shouldContainText("Approx.");
     }
 
