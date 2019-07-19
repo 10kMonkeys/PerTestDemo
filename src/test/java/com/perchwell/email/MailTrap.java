@@ -179,4 +179,23 @@ public class MailTrap {
 		Assert.assertTrue(rawBody.contains("Subject: " + subject));
 		Assert.assertTrue(rawBody.contains(message));
 	}
+
+	public static void checkEmailContainsPDFReport() {
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
+		String rawBody;
+		String regex = "(http:\\/{2}[A-z][\\S]{1,100}\\.pdf)";
+		MailTrapResponse[] mailTrapResponse = getEmail(subject);
+		rawBody = getTextBody(mailTrapResponse[0].getRaw_path());
+
+		Pattern patternForPDFReport = Pattern.compile(regex);
+		Matcher matcherForPDFReport = patternForPDFReport.matcher(rawBody);
+
+		Assert.assertTrue(matcherForPDFReport.find());
+	}
 }

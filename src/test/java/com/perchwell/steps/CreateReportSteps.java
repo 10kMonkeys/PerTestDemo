@@ -285,4 +285,9 @@ public class CreateReportSteps extends ScenarioSteps {
     public void clickOnSalesButton() {
         onPage.clickOnSalesButton();
     }
+
+    @Step
+    public void checkEmailContainsPDFReport() {
+        MailTrap.checkEmailContainsPDFReport();
+    }
 }

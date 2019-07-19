@@ -27,7 +27,8 @@ public class RW9_ReportWizardMultiSelectNoSP_CMATest extends SampleTest {
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.clickOnPopUpExitButton();
-        user.inSearchMenu.openSearchMenu();
+        user.atCreateReportPage.checkEmailContainsPDFReport();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectRentalsProperty();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.selectFirstListing();

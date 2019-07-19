@@ -521,11 +521,11 @@ public class SearchPage extends TechHelper {
     private WebElement selectedRentalFilter;
 
     @AndroidFindBy(accessibility = "Sales")
-    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option: Sales'")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Sales'")
     private WebElement salesProperty;
 
     @AndroidFindBy(accessibility = "Rentals-SELECTED")
-    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Option Selected: Rentals'")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Rentals'")
     private WebElement selectedRentalsProperty;
 
     @AndroidFindBy(xpath = "*//android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.ImageView")
@@ -1688,6 +1688,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectSalesProperty() {
+        universalVerticalSwipe(salesProperty);
         element(salesProperty).click();
     }
 
