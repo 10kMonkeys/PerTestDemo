@@ -52,7 +52,7 @@ public class OpenedBuildingPage extends TechHelper {
 	private List<WebElement> deleteButtonList;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/*/XCUIElementTypeStaticText")
 	private WebElement buildingAddress;
 
 	@AndroidFindBy(xpath = "//*[@text='SEND WITHIN PERCHWELL']")
@@ -279,6 +279,9 @@ public class OpenedBuildingPage extends TechHelper {
 	@AndroidFindBy(accessibility = "tag color: #a8aab7")
 	private List<WebElement> grayColorTagPil;
 
+	@iOSXCUITFindBy(accessibility = "CREATE REPORT")
+	private WebElement createReportButton;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -320,7 +323,7 @@ public class OpenedBuildingPage extends TechHelper {
 			return buildingAddress.getAttribute("text");
 		}
 		else{
-			return buildAddress.getAttribute("name");
+			return buildingAddress.getAttribute("name");
 		}
 	}
 
@@ -936,5 +939,15 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void checkBothTagsGrayColor(int grayPillsAmountToCheck) {
 		Assert.assertEquals(grayColorTagPil.size(), grayPillsAmountToCheck);
+	}
+
+    public void clickOnCreateReportButton() {
+		element(createReportButton).click();
+    }
+
+	public void checkCreateReportButtonIsNotPresented() {
+		setImplicitTimeout(3, SECONDS);
+		element(createReportButton).shouldNotBePresent();
+		resetImplicitTimeout();
 	}
 }

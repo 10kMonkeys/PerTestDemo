@@ -696,4 +696,29 @@ public class PerchwellSteps extends ScenarioSteps {
     public void singleSwipeDownForAndroid() {
 		onPage.singleSwipeDownForAndroid();
     }
+
+    @Step
+	public void clickOnCreateReportButton() {
+		onPage.clickOnCreateReportButton();
+	}
+
+	@Step
+	public void checkFirstListingIsSelected() {
+		onPage.checkFirstListingIsSelected();
+	}
+
+	@Step
+	public void getOpenHouseDateForFirstListing() {
+		onPage.getOpenHouseDateForFirstListing();
+	}
+
+	@Step
+	public void selectFirstFiveListings() {
+		onPage.selectFirstFiveListings();
+	}
+
+	@Step
+    public void getSquareFeetForFirstListing() {
+		onPage.getSquareFeetForFirstListing();
+    }
 }

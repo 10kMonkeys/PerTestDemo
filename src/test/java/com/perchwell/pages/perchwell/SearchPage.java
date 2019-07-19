@@ -257,7 +257,7 @@ public class SearchPage extends TechHelper {
     private WebElement selectedLaundryBLDGFilter;
 
     @AndroidFindBy(accessibility = "CONDO")
-    @iOSXCUITFindBy(accessibility = "Condo")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption: Condo")
     private WebElement condoFilter;
 
     @iOSXCUITFindBy(accessibility = "Outdoor Space")
@@ -493,23 +493,23 @@ public class SearchPage extends TechHelper {
     private WebElement listingActivitySection;
 
     @AndroidFindBy(accessibility = "CONDO-SELECTED")
-    @iOSXCUITFindBy(accessibility = "Condo-selected")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption Selected: Condo")
     private WebElement selectedCondoFilter;
 
     @AndroidFindBy(accessibility = "CO-OP")
-    @iOSXCUITFindBy(accessibility = "Co-op")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption: Co-op")
     private WebElement coopFilter;
 
     @AndroidFindBy(accessibility = "TOWNHOUSE")
-    @iOSXCUITFindBy(accessibility = "Townhouse")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption: Townhouse")
     private WebElement townhouseFilter;
 
     @AndroidFindBy(accessibility = "CO-OP-SELECTED")
-    @iOSXCUITFindBy(accessibility = "Co-op-selected")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption Selected: Co-op")
     private WebElement selectedCoopFilter;
 
     @AndroidFindBy(accessibility = "TOWNHOUSE-SELECTED")
-    @iOSXCUITFindBy(accessibility = "Townhouse-selected")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption Selected: Townhouse")
     private WebElement selectedTownhouseFilter;
 
     @AndroidFindBy(accessibility = "RENTAL")
@@ -658,11 +658,11 @@ public class SearchPage extends TechHelper {
     private WebElement bldgWidthSection;
 
     @AndroidFindBy(accessibility = "OPEN_HOUSES Minimum Value Input")
-    @iOSXCUITFindBy(accessibility = "Open Houses Minimum Value Input")
+    @iOSXCUITFindBy(accessibility = "OPEN HOUSES Minimum Value Input")
     private WebElement openHouseMinValueInput;
 
     @AndroidFindBy(accessibility = "OPEN_HOUSES Maximum Value Input")
-    @iOSXCUITFindBy(accessibility = "Open Houses Maximum Value Input")
+    @iOSXCUITFindBy(accessibility = "OPEN HOUSES Maximum Value Input")
     private WebElement openHouseMaxValueInput;
 
     @AndroidFindBy(accessibility = "Go to next")
@@ -760,7 +760,7 @@ public class SearchPage extends TechHelper {
     private List<WebElement> buildingAddressesList;
 
     @AndroidFindBy(accessibility = "CONDOP")
-    @iOSXCUITFindBy(accessibility = "Condop")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption: Condop")
     private WebElement condopFilter;
 
     public SearchPage(WebDriver driver) {

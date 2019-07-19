@@ -270,6 +270,12 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'ADDRESS: 1 West 72nd St. #81'")
 	private WebElement testListingWithOneAgent;
 
+	@iOSXCUITFindBy(accessibility = "cell: Create Report")
+	private WebElement createReportButton;
+
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$value CONTAINS 'OH: '$][1]")
+	private WebElement openHouseLabelOnFirstListing;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -1171,5 +1177,28 @@ public class PerchwellPage extends TechHelper {
 			waitABit(10000);
 			universalSingleSwipe();
 		}
+    }
+
+    public void clickOnCreateReportButton() {
+		element(createReportButton).click();
+    }
+
+	public void checkFirstListingIsSelected() {
+		element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: selected "
+				+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'")).shouldBePresent();
+	}
+
+	public void getOpenHouseDateForFirstListing() {
+		SessionVariables.addValueInSessionVariable("openHouseDate", element(openHouseLabelOnFirstListing).getAttribute("value"));
+	}
+
+	public void selectFirstFiveListings() {
+		for (int i = 0; i < 5; i++) {
+			selectFirstListings();
+		}
+	}
+
+    public void getSquareFeetForFirstListing() {
+		SessionVariables.addValueInSessionVariable("squareFeetListing1", element(sqFeetList.get(0)).getAttribute("value"));
     }
 }

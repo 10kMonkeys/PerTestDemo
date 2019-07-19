@@ -158,6 +158,11 @@ public class MyTagsSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void getFirstListingAddress() {
+		onPage.getFirstListingAddress();
+	}
+
+	@Step
 	public void openFirstBuilding() {
 		onPage.openFirstBuilding();
 	}
@@ -330,4 +335,13 @@ public class MyTagsSteps extends ScenarioSteps {
 		}
 	}
 
+	@Step
+    public void clickOnCreateReportButton() {
+		onPage.clickOnCreateReportButton();
+    }
+
+	@Step
+	public void checkListingsAreSelected(int value) {
+		onPage.checkListingsAreSelected(value);
+	}
 }

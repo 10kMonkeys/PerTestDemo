@@ -156,6 +156,9 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell[2]")
 	private WebElement secondBuilding;
 
+	@iOSXCUITFindBy(accessibility = "cell: Create Report")
+	private WebElement createReportButton;
+
 	//endregion
 
 	public MyTagsPage(WebDriver driver) {
@@ -452,8 +455,20 @@ public class MyTagsPage extends TechHelper {
 		else {
 			firstBuildAddress = firstBuildingAddress.getAttribute("value");
 		}
+		SessionVariables.addValueInSessionVariable("buildingAddress1", firstBuildAddress);
+	}
+	public void getFirstListingAddress() {
+		String firstBuildAddress;
+
+		if (Config.isAndroid()){
+			firstBuildAddress = firstBuildingAddress.getAttribute("text");
+		}
+		else {
+			firstBuildAddress = firstBuildingAddress.getAttribute("value");
+		}
 		SessionVariables.addValueInSessionVariable("listingAddress1", firstBuildAddress);
 	}
+
 
 	public void openFirstBuilding() {
 		element(firstBuilding).click();
@@ -635,6 +650,14 @@ public class MyTagsPage extends TechHelper {
 		if(Config.isAndroid()) {
 			universalSingleSwipe();
 		}
+	}
+
+    public void clickOnCreateReportButton() {
+		element(createReportButton).click();
+    }
+
+	public void checkListingsAreSelected(int value) {
+		Assert.assertEquals(value, selectedListingsListByAddress.size());
 	}
 }
 

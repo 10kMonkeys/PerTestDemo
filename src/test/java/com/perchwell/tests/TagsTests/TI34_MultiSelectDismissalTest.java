@@ -22,7 +22,7 @@ public class TI34_MultiSelectDismissalTest extends SampleTest {
         user.atTagsPage.fillInTagSearchField(SearchRequests.CLIENT0_TEST);
         user.atTagsPage.clickOnFirstTagWithItems();
         user.atTagsPage.clickOnSearchButton();
-        user.atMyTagsPage.getFirstBuildingAddress();
+        user.atMyTagsPage.getFirstListingAddress();
         user.atMyTagsPage.selectFirstListing();
         user.atMyTagsPage.clickOnMoreOptionsButton();
         user.atMyTagsPage.clickOnTagSelectedListingsOption();
