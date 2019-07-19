@@ -14,7 +14,7 @@ public class RW9_ReportWizardMultiSelectNoSP_CMATest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.selectSalesProperty();
+        user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.clickOnMoreOptionsButton();
@@ -30,6 +30,7 @@ public class RW9_ReportWizardMultiSelectNoSP_CMATest extends SampleTest {
         user.atCreateReportPage.checkEmailContainsPDFReport();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectRentalsProperty();
+        user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.clickOnMoreOptionsButton();
@@ -42,7 +43,6 @@ public class RW9_ReportWizardMultiSelectNoSP_CMATest extends SampleTest {
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.clickOnPopUpExitButton();
-
     }
 
 }
