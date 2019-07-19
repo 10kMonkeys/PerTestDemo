@@ -275,4 +275,14 @@ public class CreateReportSteps extends ScenarioSteps {
     public void getListingsAndBuildingsOrder() {
         onPage.getListingsAndBuildingsOrder();
     }
+
+    @Step
+    public void clickOnCmaButton() {
+        onPage.clickOnCmaButton();
+    }
+
+    @Step
+    public void clickOnSalesButton() {
+        onPage.clickOnSalesButton();
+    }
 }

@@ -111,6 +111,9 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'iosReorder'")
     private List<WebElement> reorderButtonList;
 
+    @iOSXCUITFindBy(accessibility = "Sales")
+    private WebElement salesButton;
+
     public CreateReportPage(WebDriver driver) {
         super(driver);
     }
@@ -121,6 +124,10 @@ public class CreateReportPage extends TechHelper {
 
     public void cmaOptionButtonIsShown() {
         element(cmaButton).shouldBeVisible();
+    }
+
+    public void clickOnCmaButton() {
+        element(cmaButton).click();
     }
 
     public void extendedCmaOptionButtonIsShown() {
@@ -342,5 +349,9 @@ public class CreateReportPage extends TechHelper {
         for (int i = 0; i < listingsList.size(); i++) {
             orderListing.add(element(MobileBy.iOSClassChain("**/XCUIElementTypeCell[" + (i + 1) + "]/*/*/*[1]/*[2]/*/*/*[1]/*/XCUIElementTypeStaticText[1]")).getValue());
         }
+    }
+
+    public void clickOnSalesButton() {
+        element(salesButton).click();
     }
 }
