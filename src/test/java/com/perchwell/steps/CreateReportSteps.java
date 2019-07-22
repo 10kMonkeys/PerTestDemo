@@ -342,4 +342,84 @@ public class CreateReportSteps extends ScenarioSteps {
     public void checkSubjectPropertyFieldIsNotShown() {
         onPage.checkSubjectPropertyFieldIsNotShown();
     }
+
+    @Step
+    public void checkLayoutIsLandscape() {
+        onPage.checkLayoutIsLandscape();
+    }
+
+    @Step
+    public void checkSelectedFieldsAmount(int amount) {
+        onPage.checkSelectedFieldsAmount(amount);
+    }
+
+    @Step
+    public void checkCCMaintIsPresented() {
+        onPage.checkSelectedCCMaintIsPresented();
+    }
+
+    @Step
+    public void checkRETaxedIsPresented() {
+        onPage.checkSelectedRETaxedIsPresented();
+    }
+
+    @Step
+    public void checkTotalMonthliesIsPresented() {
+        onPage.checkTotalMonthliesIsPresented();
+    }
+
+    @Step
+    public void checkExternalPageOptionIsSelected() {
+        onPage.checkExternalPageOptionIsSelected();
+    }
+
+    @Step
+    public void switchToPortrait() {
+        onPage.switchToPortrait();
+    }
+
+    @Step
+    public void switchToLandscape() {
+        onPage.switchToLandscape();
+    }
+
+    @Step
+    public void selectedOriginalPriceSuboptionClick() {
+        onPage.selectedOriginalPriceSuboptionClick();
+    }
+
+    @Step
+    public void unselectedOriginalPriceSuboptionClick() {
+        onPage.unselectedOriginalPriceSuboptionClick();
+    }
+
+    @Step
+    public void checkElevenFieldsCounterIsPresented() {
+        onPage.checkElevenFieldsCounterIsPresented();
+    }
+
+    @Step
+    public void checkTwelveFieldsCounterIsPresented() {
+        onPage.checkTwelveFieldsCounterIsPresented();
+    }
+
+    @Step
+    public void unselectedContractDateSuboptionClick() {
+        onPage.unselectedContractDateSuboptionClick();
+    }
+
+    @Step
+    public void checkUnselectedContractDateSuboptionIsPresent() {
+        onPage.checkUnselectedContractDateSuboptionIsPresent();
+    }
+
+    @Step
+    public void checkUnselectedCCMaintIsPresented() {
+        onPage.checkUnselectedCCMaintIsPresented();
+    }
+
+    @Step
+    public void checkUnselectedRETaxedIsPresented() {
+        onPage.checkUnselectedRETaxedIsPresented();
+    }
 }

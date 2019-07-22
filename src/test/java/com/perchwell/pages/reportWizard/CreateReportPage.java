@@ -138,6 +138,54 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Rentals")
     private WebElement rentalsButton;
 
+    @iOSXCUITFindBy(accessibility = " Option Selected: Landscape")
+    private WebElement selectedLandscapeButton;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'Suboption Selected:' AND visible == 1")
+    private List<WebElement> subOptions;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: CC/Maintenance")
+    private WebElement selectedCcMaintSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: CC/Maintenance")
+    private WebElement unselectedCcMaintSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: RE Taxes")
+    private WebElement selectedReTaxesSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: RE Taxes")
+    private WebElement unselectedReTaxesSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: Total Monthlies")
+    private WebElement totalMonthliesSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: External Page")
+    private WebElement selectedExternalPageOption;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeTextField[1]")
+    private WebElement reportLabelTextField;
+
+    @iOSXCUITFindBy(accessibility = " Option: Portrait")
+    private WebElement unselectedPortraitButton;
+
+    @iOSXCUITFindBy(accessibility = " Option: Landscape")
+    private WebElement unselectedLandscapeButton;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Price Change")
+    private WebElement unselectedPriceChangeSubption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: Original Price")
+    private WebElement selectedOriginalPriceSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Contract Date")
+    private WebElement unselectedContractDateOption;
+
+    @iOSXCUITFindBy(accessibility = "(12/12)")
+    private WebElement twelveFieldCounter;
+
+    @iOSXCUITFindBy(accessibility = "(11/12)")
+    private WebElement elevenFieldsCounter;
+
     public CreateReportPage(WebDriver driver) {
         super(driver);
     }
@@ -462,5 +510,71 @@ public class CreateReportPage extends TechHelper {
         setImplicitTimeout(3, TimeUnit.SECONDS);
         element(subjectPropertyCell).shouldNotBeVisible();
         resetImplicitTimeout();
+    }
+
+    public void checkLayoutIsLandscape() {
+        element(selectedLandscapeButton).shouldBePresent();
+    }
+
+    public void checkSelectedFieldsAmount(int amount) {
+        Assert.assertEquals(amount,subOptions.size());
+    }
+
+    public void checkSelectedCCMaintIsPresented() {
+        element(selectedCcMaintSuboption).shouldBePresent();
+    }
+
+    public void checkSelectedRETaxedIsPresented() {
+        element(selectedReTaxesSuboption).shouldBePresent();
+    }
+
+    public void checkTotalMonthliesIsPresented() {
+        element(totalMonthliesSuboption).shouldBePresent();
+    }
+
+    public void checkExternalPageOptionIsSelected() {
+        universalVerticalSwipe(selectedExternalPageOption);
+        element(selectedExternalPageOption).shouldBePresent();
+    }
+
+    public void switchToPortrait() {
+        swipeUpElementIOS(unselectedPortraitButton, 500);
+        element(unselectedPortraitButton).click();
+    }
+
+    public void switchToLandscape() {
+        element(unselectedLandscapeButton).click();
+    }
+
+    public void selectedOriginalPriceSuboptionClick() {
+        element(selectedOriginalPriceSuboption).click();
+    }
+
+    public void unselectedOriginalPriceSuboptionClick() {
+        element(unselectedPriceChangeSubption).click();
+    }
+
+    public void checkElevenFieldsCounterIsPresented() {
+        element(elevenFieldsCounter).shouldBePresent();
+    }
+
+    public void checkTwelveFieldsCounterIsPresented() {
+        element(twelveFieldCounter).shouldBePresent();
+    }
+
+    public void unselectedContractDateSuboptionClick() {
+        element(unselectedContractDateOption).click();
+    }
+
+    public void checkUnselectedContractDateSuboptionIsPresent() {
+        element(unselectedContractDateOption).shouldBePresent();
+    }
+
+    public void checkUnselectedCCMaintIsPresented() {
+        element(unselectedCcMaintSuboption).shouldBePresent();
+    }
+
+    public void checkUnselectedRETaxedIsPresented() {
+        element(unselectedReTaxesSuboption).shouldBePresent();
     }
 }
