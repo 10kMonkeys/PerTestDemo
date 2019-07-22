@@ -180,22 +180,24 @@ public class MailTrap {
 		Assert.assertTrue(rawBody.contains(message));
 	}
 
-	public static void checkEmailContainsPDFReport() {
+	public static boolean shouldFindAttachmentWithReport() {
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(30000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
 		String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
-		String rawBody;
-		String regex = "(http:\\/{2}[A-z][\\S]{1,100}\\.pdf)";
+		boolean reportWasFound = false;
 		MailTrapResponse[] mailTrapResponse = getEmail(subject);
-		rawBody = getTextBody(mailTrapResponse[0].getRaw_path());
-
-		Pattern patternForPDFReport = Pattern.compile(regex);
-		Matcher matcherForPDFReport = patternForPDFReport.matcher(rawBody);
-
-		Assert.assertTrue(matcherForPDFReport.find());
+		if(mailTrapResponse.length != 0) {
+			MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
+			for (MailTrapAttachment my_attachment : mailTrapAttachment) {
+				if (my_attachment.getFilename().contains("report")) {
+						reportWasFound = true;
+						break;
+				}
+			}
+		}
+		return reportWasFound;
 	}
 }

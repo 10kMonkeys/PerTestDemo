@@ -5,6 +5,7 @@ import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.reportWizard.CreateReportPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 
 public class CreateReportSteps extends ScenarioSteps {
 
@@ -288,7 +289,7 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void checkEmailContainsPDFReport() {
-        MailTrap.checkEmailContainsPDFReport();
+        Assert.assertTrue(MailTrap.shouldFindAttachmentWithReport());
     }
 
     @Step
