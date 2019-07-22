@@ -5,7 +5,7 @@ import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.perchwell.CreateReportPage;
+import com.perchwell.pages.reportWizard.CreateReportPage;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;

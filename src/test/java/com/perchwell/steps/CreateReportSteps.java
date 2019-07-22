@@ -2,7 +2,7 @@ package com.perchwell.steps;
 
 import com.perchwell.email.MailTrap;
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.perchwell.CreateReportPage;
+import com.perchwell.pages.reportWizard.CreateReportPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -237,8 +237,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void deleteFirstListing() {
-        onPage.deleteFirstListing();
+    public void clickOnDeleteButton() {
+        onPage.clickOnDeleteButton();
     }
 
     @Step
@@ -289,5 +289,57 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void checkEmailContainsPDFReport() {
         MailTrap.checkEmailContainsPDFReport();
+    }
+
+    @Step
+    public void clickOnSubjectPropertyButton() {
+        onPage.clickOnSubjectPropertyButton();
+    }
+
+    @Step
+    public void checkSubjectPropertyCellIsShownWithPlaceholders() {
+        onPage.checkAddressPlaceholderIsShown();
+        onPage.checkUnitPlaceholderIsShown();
+        onPage.checkPricePlaceholderIsShown();
+        onPage.checkPropertyTypePlaceholderIsShown();
+        onPage.checkBedroomsPlaceholderIsShown();
+        onPage.checkBathroomsPlaceholderIsShown();
+        onPage.checkSqrFootagePlaceholderIsShown();
+    }
+
+    @Step
+    public void clickOnSubjectPropertyCell() {
+        onPage.clickOnSubjectPropertyCell();
+    }
+
+    @Step
+    public void checkSubjectPropertyCellIsShownWithValue() {
+        onPage.checkAddressPlaceholderWithValue();
+        onPage.checkUnitPlaceholderWithValue();
+        onPage.checkPricePlaceholderWithValue();
+        onPage.checkPropertyTypePlaceholderWithValue();
+        onPage.checkBedroomsPlaceholderWithValue();
+        onPage.checkBathroomsPlaceholderWithValue();
+        onPage.checkSqrFootagePlaceholderWithValue();
+    }
+
+    @Step
+    public void clickOnRentalsButton() {
+        onPage.clickOnRentalsButton();
+    }
+
+    @Step
+    public void swipeLeftSubjectPropertyCell() {
+        onPage.swipeLeftSubjectPropertyCell();
+    }
+
+    @Step
+    public void checkSubjectPropertyPlusIconIsShown() {
+        onPage.checkSubjectPropertyPlusIconIsShown();
+    }
+
+    @Step
+    public void checkSubjectPropertyFieldIsNotShown() {
+        onPage.checkSubjectPropertyFieldIsNotShown();
     }
 }

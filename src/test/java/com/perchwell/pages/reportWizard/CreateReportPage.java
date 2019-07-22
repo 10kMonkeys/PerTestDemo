@@ -1,4 +1,4 @@
-package com.perchwell.pages.perchwell;
+package com.perchwell.pages.reportWizard;
 
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class CreateReportPage extends TechHelper {
 
@@ -106,13 +107,36 @@ public class CreateReportPage extends TechHelper {
     private List<WebElement> listingsList;
 
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'cross16' AND visible == 1")
-    private WebElement firstListingDeleteButton;
+    private WebElement deleteButton;
 
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'iosReorder'")
     private List<WebElement> reorderButtonList;
 
     @iOSXCUITFindBy(accessibility = "Sales")
     private WebElement salesButton;
+
+    @iOSXCUITFindBy(accessibility = "addTag")
+    private WebElement subjectPropertyButton;
+
+    private WebElement addressPlaceholder;
+
+    private WebElement unitPlaceholder;
+
+    private WebElement pricePlaceholder;
+
+    private WebElement propertyTypePlaceholder;
+
+    private WebElement bedroomsPlaceholder;
+
+    private WebElement bathtoomsPlaceholder;
+
+    private WebElement sqrFootagePlaceholder;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[1]")
+    private WebElement subjectPropertyCell;
+
+    @iOSXCUITFindBy(accessibility = "Rentals")
+    private WebElement rentalsButton;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -247,7 +271,9 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkPopUpMessageIsClosed() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
         element(emailReportPopUp).shouldNotBeVisible();
+        resetImplicitTimeout();
     }
 
     public void checkSubjectFieldIsFilledOut() {
@@ -314,8 +340,8 @@ public class CreateReportPage extends TechHelper {
         universalHorizontalSwipe(listingAddress, y + 1);
     }
 
-    public void deleteFirstListing() {
-        element(firstListingDeleteButton).click();
+    public void clickOnDeleteButton() {
+        element(deleteButton).click();
     }
 
     public void moveFirstListingToThirdListingByDragging() {
@@ -353,5 +379,88 @@ public class CreateReportPage extends TechHelper {
 
     public void clickOnSalesButton() {
         element(salesButton).click();
+    }
+
+    public void clickOnSubjectPropertyButton() {
+        element(subjectPropertyButton).click();
+    }
+
+    public void checkAddressPlaceholderIsShown() {
+        element(addressPlaceholder).shouldBeVisible();
+    }
+
+    public void checkUnitPlaceholderIsShown() {
+        element(unitPlaceholder).shouldBeVisible();
+    }
+
+    public void checkPropertyTypePlaceholderIsShown() {
+        element(propertyTypePlaceholder).shouldBeVisible();
+    }
+
+    public void checkPricePlaceholderIsShown() {
+        element(pricePlaceholder).shouldBeVisible();
+    }
+
+    public void checkBedroomsPlaceholderIsShown() {
+        element(bedroomsPlaceholder).shouldBeVisible();
+    }
+
+    public void checkBathroomsPlaceholderIsShown() {
+        element(bathtoomsPlaceholder).shouldBeVisible();
+    }
+
+    public void checkSqrFootagePlaceholderIsShown() {
+        element(sqrFootagePlaceholder).shouldBeVisible();
+    }
+
+    public void clickOnSubjectPropertyCell() {
+        element(subjectPropertyCell).click();
+    }
+
+    public void checkAddressPlaceholderWithValue() {
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("addressValue"), element(addressPlaceholder).getValue());
+    }
+
+    public void checkUnitPlaceholderWithValue() {
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitPlaceholder).getValue());
+    }
+
+    public void checkPricePlaceholderWithValue() {
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(pricePlaceholder).getValue());
+    }
+
+    public void checkPropertyTypePlaceholderWithValue() {
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("propertyTypeValue"), element(propertyTypePlaceholder).getValue());
+    }
+
+    public void checkBedroomsPlaceholderWithValue() {
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue"), element(bedroomsPlaceholder).getValue());
+    }
+
+    public void checkBathroomsPlaceholderWithValue() {
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue"), element(bathtoomsPlaceholder).getValue());
+    }
+
+    public void checkSqrFootagePlaceholderWithValue() {
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue"), element(sqrFootagePlaceholder).getValue());
+    }
+
+    public void clickOnRentalsButton() {
+        element(rentalsButton).click();
+    }
+
+    public void swipeLeftSubjectPropertyCell() {
+        int y = subjectPropertyCell.getLocation().getY();
+        universalHorizontalSwipe(subjectPropertyCell, y + 1);
+    }
+
+    public void checkSubjectPropertyPlusIconIsShown() {
+        element(subjectPropertyButton).shouldBeVisible();
+    }
+
+    public void checkSubjectPropertyFieldIsNotShown() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(subjectPropertyCell).shouldNotBeVisible();
+        resetImplicitTimeout();
     }
 }
