@@ -1,6 +1,7 @@
 package com.perchwell.email;
 
 
+import com.perchwell.data.ReportTypes;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
@@ -192,7 +193,7 @@ public class MailTrap {
 		if(mailTrapResponse.length != 0) {
 			MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
 			for (MailTrapAttachment my_attachment : mailTrapAttachment) {
-				if (my_attachment.getFilename().contains("report")) {
+				if (my_attachment.getFilename().equalsIgnoreCase(ReportTypes.CMA_REPORT)) {
 						reportWasFound = true;
 						break;
 				}
