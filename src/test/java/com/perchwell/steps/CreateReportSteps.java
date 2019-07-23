@@ -390,8 +390,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectOriginalPriceSuboption() {
-        onPage.selectOriginalPriceSuboption();
+    public void selectPriceChangeSuboption() {
+        onPage.selectPriceChangeSuboption();
     }
 
     @Step
@@ -427,5 +427,65 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void swipeToPortrait() {
         onPage.swipeToPortrait();
+    }
+
+    @Step
+    public void checkCCMaintIsNotPresented() {
+        onPage.checkCCMaintIsNotPresented();
+    }
+
+    @Step
+    public void checkRETaxedIsNotPresented() {
+        onPage.checkRETaxedIsNotPresented();
+    }
+
+    @Step
+    public void checkTotalMonthliesIsNotPresented() {
+        onPage.checkTotalMonthliesIsNotPresented();
+    }
+
+    @Step
+    public void selectPerchwellLinkOption() {
+        onPage.selectPerchwellLinkOption();
+    }
+
+    @Step
+    public void checkExternalPageOptionUnselected() {
+        onPage.checkExternalPageOptionUnselected();
+    }
+
+    @Step
+    public void checkPerchwellLinkOptionSelected() {
+        onPage.checkPerchwellLinkOptionSelected();
+    }
+
+    @Step
+    public void deselectBedsSuboption() {
+        onPage.deselectBedsSuboption();
+    }
+
+    @Step
+    public void selectBedsSuboption() {
+        onPage.selectBedsSuboption();
+    }
+
+    @Step
+    public void selectRoomsSuboption() {
+        onPage.selectRoomsSuboption();
+    }
+
+    @Step
+    public void checkUnselectedRoomsSuboptionIsVisible() {
+        onPage.checkUnselectedRoomsSuboptionIsVisible();
+    }
+
+    @Step
+    public void checkNineFieldsCounterIsVisible() {
+        onPage.checkNineFieldsCounterIsVisible();
+    }
+
+    @Step
+    public void checkEightFieldsCounterIsVisible() {
+        onPage.checkEightFieldsCounterIsVisible();
     }
 }

@@ -6,43 +6,44 @@ import com.perchwell.data.ReportTypes;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class RW12_ReportWizardMultiSelectSaleCustomOptionsTest extends SampleTest {
+public class RW13_ReportWizardMultiSelectRentalSPPlusSPDeletionAndResubmissionTest extends SampleTest {
 
     @Test
-    public void reportWizardMultiSelectSaleCustomOptionsTest() {
+    public void rentalSPPlusSPDeletionAndResubmissionTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("core_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.selectCondoFilter();
+        user.atSearchPage.selectRentalsProperty();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnCmaButton();
-        user.atCreateReportPage.clickOnSalesButton();
+        user.atCreateReportPage.clickOnRentalsButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkLayoutIsLandscape();
-        user.atCreateReportPage.checkSelectedFieldsAmount(12);
-        user.atCreateReportPage.checkCCMaintIsVisible();
-        user.atCreateReportPage.checkRETaxedIsVisible();
-        user.atCreateReportPage.checkTotalMonthliesIsVisible();
+        user.atCreateReportPage.checkCCMaintIsNotPresented();
+        user.atCreateReportPage.checkRETaxedIsNotPresented();
+        user.atCreateReportPage.checkTotalMonthliesIsNotPresented();
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
-//        #TODO Field check
+        user.atCreateReportPage.selectPerchwellLinkOption();
+        user.atCreateReportPage.checkExternalPageOptionUnselected();
+        user.atCreateReportPage.checkPerchwellLinkOptionSelected();
         user.atCreateReportPage.swipeToPortrait();
         user.atCreateReportPage.switchToPortrait();
-        user.atCreateReportPage.checkSelectedFieldsAmount(9);
-        user.atCreateReportPage.checkUnselectedCCMaintIsVisible();
-        user.atCreateReportPage.checkUnselectedRETaxedIsVisible();
-        user.atCreateReportPage.checkTotalMonthliesIsVisible();
-        user.atCreateReportPage.switchToLandscape();
-        user.atCreateReportPage.deselectOriginalPriceSuboption();
-        user.atCreateReportPage.checkElevenFieldsCounterIsVisible();
+        user.atCreateReportPage.switchToPortrait();
+        user.atCreateReportPage.checkCCMaintIsNotPresented();
+        user.atCreateReportPage.checkRETaxedIsNotPresented();
+        user.atCreateReportPage.checkTotalMonthliesIsNotPresented();
         user.atCreateReportPage.selectPriceChangeSuboption();
-        user.atCreateReportPage.checkTwelveFieldsCounterIsVisible();
-        user.atCreateReportPage.selectContractDateSuboption();
-        user.atCreateReportPage.checkUnselectedContractDateSuboptionIsVisible();
+        user.atCreateReportPage.deselectBedsSuboption();
+        user.atCreateReportPage.checkEightFieldsCounterIsVisible();
+        user.atCreateReportPage.selectBedsSuboption();
+        user.atCreateReportPage.checkNineFieldsCounterIsVisible();
+        user.atCreateReportPage.selectRoomsSuboption();
+        user.atCreateReportPage.checkUnselectedRoomsSuboptionIsVisible();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);

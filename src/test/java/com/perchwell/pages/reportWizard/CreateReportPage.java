@@ -162,6 +162,9 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption Selected: External Page")
     private WebElement selectedExternalPageOption;
 
+    @iOSXCUITFindBy(accessibility = " Suboption: External Page")
+    private WebElement unselectedExternalPageOption;
+
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeTextField[1]")
     private WebElement reportLabelTextField;
 
@@ -181,10 +184,32 @@ public class CreateReportPage extends TechHelper {
     private WebElement unselectedContractDateOption;
 
     @iOSXCUITFindBy(accessibility = "(12/12)")
-    private WebElement twelveFieldCounter;
+    private WebElement twelveOfTwelveFieldsCounter;
 
     @iOSXCUITFindBy(accessibility = "(11/12)")
-    private WebElement elevenFieldsCounter;
+    private WebElement elevenOfTwelveFieldsCounter;
+
+    @iOSXCUITFindBy(accessibility = "(9/9)")
+    private WebElement nineOfNineFieldsCounter;
+
+    @iOSXCUITFindBy(accessibility = "(8/9)")
+    private WebElement eightOfNiveFieldsCounter;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Perchwell")
+    private WebElement unselectedPerchwellLinkOption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: Perchwell")
+    private WebElement selectedPerchwellLinkOption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: Beds")
+    private WebElement selectedBedsSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Beds")
+    private WebElement unselectedBedsSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Rooms")
+    private WebElement unselectedRoomsSuboption;
+
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -549,16 +574,16 @@ public class CreateReportPage extends TechHelper {
         element(selectedOriginalPriceSuboption).click();
     }
 
-    public void selectOriginalPriceSuboption() {
+    public void selectPriceChangeSuboption() {
         element(unselectedPriceChangeSubption).click();
     }
 
     public void checkElevenFieldsCounterIsVisible() {
-        element(elevenFieldsCounter).shouldBeVisible();
+        element(elevenOfTwelveFieldsCounter).shouldBeVisible();
     }
 
     public void checkTwelveFieldsCounterIsVisible() {
-        element(twelveFieldCounter).shouldBeVisible();
+        element(twelveOfTwelveFieldsCounter).shouldBeVisible();
     }
 
     public void selectContractDateSuboption() {
@@ -579,5 +604,60 @@ public class CreateReportPage extends TechHelper {
 
     public void swipeToPortrait() {
         swipeUpElementIOS(unselectedPortraitButton, 500);
+        waitABit(10000);
+    }
+
+    public void checkCCMaintIsNotPresented() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(selectedCcMaintSuboption).shouldNotBePresent();
+        resetImplicitTimeout();
+    }
+
+    public void checkRETaxedIsNotPresented() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(selectedReTaxesSuboption).shouldNotBePresent();
+        resetImplicitTimeout();
+    }
+
+    public void checkTotalMonthliesIsNotPresented() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(totalMonthliesSuboption).shouldNotBePresent();
+        resetImplicitTimeout();
+    }
+
+    public void selectPerchwellLinkOption() {
+        element(unselectedPerchwellLinkOption).click();
+    }
+
+    public void checkExternalPageOptionUnselected() {
+        element(unselectedExternalPageOption).shouldBeVisible();
+    }
+
+    public void checkPerchwellLinkOptionSelected() {
+        element(selectedPerchwellLinkOption).shouldBeVisible();
+    }
+
+    public void deselectBedsSuboption() {
+        element(selectedBedsSuboption).click();
+    }
+
+    public void checkEightFieldsCounterIsVisible() {
+        element(eightOfNiveFieldsCounter).shouldBeVisible();
+    }
+
+    public void selectBedsSuboption() {
+        element(unselectedBedsSuboption).click();
+    }
+
+    public void selectRoomsSuboption() {
+        element(unselectedRoomsSuboption).click();
+    }
+
+    public void checkUnselectedRoomsSuboptionIsVisible() {
+        element(unselectedRoomsSuboption).shouldBeVisible();
+    }
+
+    public void checkNineFieldsCounterIsVisible() {
+        element(nineOfNineFieldsCounter).shouldBeVisible();
     }
 }
