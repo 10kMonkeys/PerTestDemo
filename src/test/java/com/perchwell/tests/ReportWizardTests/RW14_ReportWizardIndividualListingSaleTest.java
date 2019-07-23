@@ -64,7 +64,7 @@ public class RW14_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atCreateReportPage.checkUnselectedRETaxedIsVisible();
         user.atCreateReportPage.checkTotalMonthliesIsVisible();
         user.atCreateReportPage.switchToLandscape();
-        user.atCreateReportPage.selectOriginalPriceSuboption();
+        user.atCreateReportPage.selectPriceChangeSuboption();
         user.atCreateReportPage.checkElevenFieldsCounterIsVisible();
         user.atCreateReportPage.deselectOriginalPriceSuboption();
         user.atCreateReportPage.checkTwelveFieldsCounterIsVisible();
