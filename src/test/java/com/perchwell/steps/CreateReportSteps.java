@@ -288,8 +288,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkEmailContainsPDFReport() {
-        Assert.assertTrue(MailTrap.shouldFindAttachmentWithReport());
+    public void checkEmailContainsPDFReport(String reportType) {
+        Assert.assertTrue(MailTrap.shouldFindAttachmentWithReport(reportType));
     }
 
     @Step

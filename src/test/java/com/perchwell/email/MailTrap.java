@@ -181,7 +181,7 @@ public class MailTrap {
 		Assert.assertTrue(rawBody.contains(message));
 	}
 
-	public static boolean shouldFindAttachmentWithReport() {
+	public static boolean shouldFindAttachmentWithReport(String reportType) {
 		try {
 			Thread.sleep(30000);
 		} catch (InterruptedException e) {
@@ -193,7 +193,7 @@ public class MailTrap {
 		if(mailTrapResponse.length != 0) {
 			MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
 			for (MailTrapAttachment my_attachment : mailTrapAttachment) {
-				if (my_attachment.getFilename().equalsIgnoreCase(ReportTypes.CMA_REPORT)) {
+				if (my_attachment.getFilename().equalsIgnoreCase(reportType)) {
 						reportWasFound = true;
 						break;
 				}

@@ -3,6 +3,7 @@ package com.perchwell.tests.ReportWizardTests;
 import com.perchwell.SampleTest;
 import com.perchwell.data.Addresses;
 import com.perchwell.data.DiscussionMessages;
+import com.perchwell.data.ReportTypes;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
@@ -71,6 +72,6 @@ public class RW10_ReportWizardMultiSelectSaleSPTest extends SampleTest {
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport();
+        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.CMA_REPORT);
     }
 }

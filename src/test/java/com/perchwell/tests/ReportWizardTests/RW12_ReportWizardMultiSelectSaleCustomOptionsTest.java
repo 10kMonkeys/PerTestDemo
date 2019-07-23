@@ -2,6 +2,7 @@ package com.perchwell.tests.ReportWizardTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.data.DiscussionMessages;
+import com.perchwell.data.ReportTypes;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
@@ -46,6 +47,6 @@ public class RW12_ReportWizardMultiSelectSaleCustomOptionsTest extends SampleTes
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.clickOnPopUpExitButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport();
+        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.CMA_REPORT);
     }
 }
