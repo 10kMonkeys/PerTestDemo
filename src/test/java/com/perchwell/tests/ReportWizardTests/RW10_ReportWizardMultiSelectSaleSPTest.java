@@ -25,9 +25,10 @@ public class RW10_ReportWizardMultiSelectSaleSPTest extends SampleTest {
         user.atCreateReportPage.clickOnSubjectPropertyButton();
         user.atAddSubjectPropertyPage.checkCcMaintenanceFieldIsShown();
         user.atAddSubjectPropertyPage.checkReTaxesFiledIsShown();
+        user.atAddSubjectPropertyPage.checkSaveButtonIsEnabled();
         user.atAddSubjectPropertyPage.fillInCcMaintenanceField("5000");
         user.atAddSubjectPropertyPage.clickOnSaveButton();
-        user.atCreateReportPage.checkSubjectPropertyCellIsShownWithPlaceholders();
+        user.atCreateReportPage.checkSubjectPropertyCellIsShownWithPlaceholders(); //TODO: need to implement locators
         user.atCreateReportPage.clickOnSubjectPropertyCell();
         user.atAddSubjectPropertyPage.checkAddSubjectPropertyPageIsOpened();
         user.atAddSubjectPropertyPage.checkCcMaintenanceFieldIsFilledOut();
@@ -38,8 +39,6 @@ public class RW10_ReportWizardMultiSelectSaleSPTest extends SampleTest {
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
         user.atAddSubjectPropertyPage.fillInSqrFootageField("3500");
-        user.atAddSubjectPropertyPage.clickOnDateFiled();
-        user.atAddSubjectPropertyPage.setDateForNextMonth("25");
         user.atAddSubjectPropertyPage.fillInReTaxesField("3000");
         user.atAddSubjectPropertyPage.clickOnPropertyTypeField();
         user.atAddSubjectPropertyPage.clickOnCondo();
@@ -47,7 +46,7 @@ public class RW10_ReportWizardMultiSelectSaleSPTest extends SampleTest {
         user.atAddSubjectPropertyPage.selectDoormanBuildingFilter();
         user.atAddSubjectPropertyPage.fillInBuildingSizeField("10x10");
         user.atAddSubjectPropertyPage.clickOnSaveButton();
-        user.atCreateReportPage.checkSubjectPropertyCellIsShownWithValue();
+        user.atCreateReportPage.checkSubjectPropertyCellIsShownWithValue(); //TODO: need to implement locators
         user.atCreateReportPage.clickOnSubjectPropertyCell();
         user.atAddSubjectPropertyPage.checkAllFieldsAreFilledOut();
         user.atAddSubjectPropertyPage.clearAddressField();

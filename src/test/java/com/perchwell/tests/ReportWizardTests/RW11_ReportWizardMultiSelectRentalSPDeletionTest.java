@@ -34,8 +34,6 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
         user.atAddSubjectPropertyPage.fillInSqrFootageField("3500");
-        user.atAddSubjectPropertyPage.clickOnDateFiled();
-        user.atAddSubjectPropertyPage.setDateForNextMonth("25");
         user.atAddSubjectPropertyPage.clickOnPropertyTypeField();
         user.atAddSubjectPropertyPage.clickOnCondo();
         user.atAddSubjectPropertyPage.selectOutdoorSpaceCrossFilter();
@@ -48,7 +46,7 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atCreateReportPage.checkSubjectPropertyFieldIsNotShown();
         user.atCreateReportPage.checkSubjectPropertyPlusIconIsShown();
         user.atCreateReportPage.clickOnSubjectPropertyButton();
-        user.atAddSubjectPropertyPage.checkAllFieldsAreEmpty();
+        user.atAddSubjectPropertyPage.checkAllFieldsAreEmpty(); //TODO: need to implement all insides methods
         user.atAddSubjectPropertyPage.fillInAddressField(Addresses.WEST_72ND);
         user.atAddSubjectPropertyPage.fillInUnitField("3");
         user.atAddSubjectPropertyPage.fillInPriceField("300000");
@@ -56,8 +54,6 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
         user.atAddSubjectPropertyPage.fillInSqrFootageField("3500");
-        user.atAddSubjectPropertyPage.clickOnDateFiled();
-        user.atAddSubjectPropertyPage.setDateForNextMonth("25");
         user.atAddSubjectPropertyPage.clickOnPropertyTypeField();
         user.atAddSubjectPropertyPage.clickOnCondo();
         user.atAddSubjectPropertyPage.selectOutdoorSpaceCrossFilter();
