@@ -309,4 +309,10 @@ public class AddSubjectPropertyPage extends TechHelper {
     public void checkBuildingSizeFieldIsEmpty() {
         //TODO
     }
+
+    public void checkCcMaintenanceFieldIsNotShown() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(ccMaintenanceField).shouldNotBeVisible();
+        resetImplicitTimeout();
+    }
 }

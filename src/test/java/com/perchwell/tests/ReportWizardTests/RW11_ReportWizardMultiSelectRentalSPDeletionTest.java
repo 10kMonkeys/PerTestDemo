@@ -25,7 +25,7 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atCreateReportPage.clickOnCmaButton();
         user.atCreateReportPage.clickOnRentalsButton();
         user.atCreateReportPage.clickOnSubjectPropertyButton();
-        user.atAddSubjectPropertyPage.checkCcMaintenanceFieldIsShown();
+        user.atAddSubjectPropertyPage.checkCcMaintenanceFieldIsNotShown();
         user.atAddSubjectPropertyPage.checkReTaxesFiledIsNotShown();
         user.atAddSubjectPropertyPage.checkSaveButtonIsEnabled();
         user.atAddSubjectPropertyPage.fillInAddressField(Addresses.WEST_72ND);

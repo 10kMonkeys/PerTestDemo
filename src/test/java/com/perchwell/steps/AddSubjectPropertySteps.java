@@ -195,4 +195,9 @@ public class AddSubjectPropertySteps extends ScenarioSteps {
         onPage.checkOutdoorSpaceIsDeselected();
         onPage.checkBuildingSizeFieldIsEmpty();
     }
+
+    @Step
+    public void checkCcMaintenanceFieldIsNotShown() {
+        onPage.checkCcMaintenanceFieldIsNotShown();
+    }
 }
