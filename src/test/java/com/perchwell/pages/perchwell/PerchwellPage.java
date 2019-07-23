@@ -276,6 +276,9 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$value CONTAINS 'OH: '$][1]")
 	private WebElement openHouseLabelOnFirstListing;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'LISTING TYPE: '")
+	private List<WebElement> listingTypeList;
+
 	//endregion
 
 	public PerchwellPage(WebDriver driver) {
@@ -1198,7 +1201,27 @@ public class PerchwellPage extends TechHelper {
 		}
 	}
 
-    public void getSquareFeetForFirstListing() {
-		SessionVariables.addValueInSessionVariable("squareFeetListing1", element(sqFeetList.get(0)).getAttribute("value"));
+    public void getFirstListingSquareFeetForReport() {
+		SessionVariables.addValueInSessionVariable("sqrFootageValue", element(sqFeetList.get(0)).getAttribute("value"));
     }
+
+	public void getFirstListingAddressForReport() {
+		SessionVariables.addValueInSessionVariable("addressValue", element(addressesList.get(0)).getAttribute("value"));
+	}
+
+	public void getFirstListingPriceForReport() {
+		SessionVariables.addValueInSessionVariable("priceValue", element(pricesList.get(0)).getAttribute("value"));
+	}
+
+	public void getFirstListingPropertyTypeForReport() {
+		SessionVariables.addValueInSessionVariable("propertyTypeValue", element(listingTypeList.get(0)).getAttribute("value"));
+	}
+
+	public void getFirstListingBedroomsForReport() {
+		SessionVariables.addValueInSessionVariable("bedsValue", element(bedInfoList.get(0)).getAttribute("value"));
+	}
+
+	public void getFirstListingBathroomsForReport() {
+		SessionVariables.addValueInSessionVariable("bathsValue", element(bathsInfoList.get(0)).getAttribute("value"));
+	}
 }

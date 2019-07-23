@@ -428,4 +428,35 @@ public class CreateReportSteps extends ScenarioSteps {
     public void swipeToPortrait() {
         onPage.swipeToPortrait();
     }
+
+    @Step
+    public void checkDeleteButtonIsNotDisplayed() {
+        onPage.checkDeleteButtonIsNotDisplayed();
+    }
+
+    @Step
+    public void clickOnTagsField() {
+        onPage.clickOnTagsField();
+    }
+
+    @Step
+    public void checkFirstListingInActiveSection() {
+        onPage.checkFirstListingInActiveSection();
+    }
+
+    @Step
+    public void checkSecondListingInContractSection() {
+        onPage.checkSecondListingInContractSection();
+    }
+
+    @Step
+    public void checkThirdAndFourthListingsInOffMarketSection() {
+        onPage.checkThirdAndFourthListingsInOffMarketSection(SessionVariables.getValueFromSessionVariable("reportWizardAddress3"),
+                SessionVariables.getValueFromSessionVariable("reportWizardAddress4"));
+    }
+
+    @Step
+    public void checkFifthListingInSoldSection() {
+        onPage.checkFifthListingInSoldSection();
+    }
 }

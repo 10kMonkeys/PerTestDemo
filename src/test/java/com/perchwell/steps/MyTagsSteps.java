@@ -344,4 +344,14 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void checkListingsAreSelected(int value) {
 		onPage.checkListingsAreSelected(value);
 	}
+
+	@Step
+	public void getListingsAddresses(int amount) {
+		onPage.getListingsAddresses(amount);
+	}
+
+	@Step
+	public void fillInTagSearchField(String value) {
+		onPage.fillInTagSearchField(value);
+	}
 }

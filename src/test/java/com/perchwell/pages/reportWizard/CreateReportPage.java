@@ -186,6 +186,24 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "(11/12)")
     private WebElement elevenFieldsCounter;
 
+    @iOSXCUITFindBy(accessibility = "Add Listings From Tags")
+    private WebElement tagsField;
+
+    @iOSXCUITFindBy(accessibility = "ACTIVE")
+    private WebElement activeSection;
+
+    @iOSXCUITFindBy(accessibility = "IN CONTRACT")
+    private WebElement inContractSection;
+
+    @iOSXCUITFindBy(accessibility = "OFF MARKET")
+    private WebElement offMarketSection;
+
+    @iOSXCUITFindBy(accessibility = "SOLD")
+    private WebElement soldSection;
+
+    @iOSXCUITFindBy(accessibility = "RENTED")
+    private WebElement rentedSection;
+
     public CreateReportPage(WebDriver driver) {
         super(driver);
     }
@@ -357,7 +375,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkSquareFeetValueWithoutApproxLabel() {
-        Assert.assertEquals(element(squareFeetLabel).getAttribute("value"), SessionVariables.getValueFromSessionVariable("squareFeetListing1"));
+        Assert.assertEquals(element(squareFeetLabel).getAttribute("value"), SessionVariables.getValueFromSessionVariable("sqrFootageValue"));
         element(squareFeetLabel).shouldNotContainText("Approx.");
     }
 
@@ -470,7 +488,9 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkUnitPlaceholderWithValue() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitPlaceholder).getValue());
+        if(element(unitPlaceholder).isVisible()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitPlaceholder).getValue());
+        }
     }
 
     public void checkPricePlaceholderWithValue() {
@@ -579,5 +599,51 @@ public class CreateReportPage extends TechHelper {
 
     public void swipeToPortrait() {
         swipeUpElementIOS(unselectedPortraitButton, 500);
+    }
+
+    public void checkDeleteButtonIsNotDisplayed() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(deleteButton).shouldNotBeVisible();
+        resetImplicitTimeout();
+    }
+
+    public void clickOnTagsField() {
+        element(tagsField).click();
+    }
+
+    public void checkFirstListingInActiveSection() {
+        checkOneListingAddressBelowSection(activeSection, SessionVariables.getValueFromSessionVariable("reportWizardAddress1"));
+    }
+
+    public void checkSecondListingInContractSection() {
+        checkOneListingAddressBelowSection(inContractSection, SessionVariables.getValueFromSessionVariable("reportWizardAddress2"));
+    }
+
+    public void checkThirdAndFourthListingsInOffMarketSection(String address3, String address4) {
+        universalSingleSwipe();
+
+        WebElement listingCell;
+        WebElement listingCell2;
+
+        listingCell = element(MobileBy.AccessibilityId(address3));
+        listingCell2 = element(MobileBy.AccessibilityId(address4));
+
+        System.out.println(getYPositionOfElement(offMarketSection));
+        System.out.println(getYPositionOfElement(listingCell));
+        System.out.println(getYPositionOfElement(listingCell2));
+
+        Assert.assertEquals(getYPositionOfElement(offMarketSection) + 144, getYPositionOfElement(listingCell));
+        Assert.assertEquals(getYPositionOfElement(offMarketSection) + 51, getYPositionOfElement(listingCell2));
+    }
+
+    public void checkFifthListingInSoldSection() {
+        universalSingleSwipe();
+        checkOneListingAddressBelowSection(soldSection, SessionVariables.getValueFromSessionVariable("reportWizardAddress5"));
+    }
+
+    private void checkOneListingAddressBelowSection(WebElement section, String address) {
+        WebElement listingCell;
+        listingCell = element(MobileBy.AccessibilityId(address));
+        Assert.assertEquals(getYPositionOfElement(section) + 51, getYPositionOfElement(listingCell));
     }
 }

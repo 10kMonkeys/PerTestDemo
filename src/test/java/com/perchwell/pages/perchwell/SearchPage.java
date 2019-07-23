@@ -1675,6 +1675,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectCoopFilter() {
+        universalVerticalSwipe(coopFilter);
         element(coopFilter).click();
     }
 

@@ -659,5 +659,11 @@ public class MyTagsPage extends TechHelper {
 	public void checkListingsAreSelected(int value) {
 		Assert.assertEquals(value, selectedListingsListByAddress.size());
 	}
+
+	public void getListingsAddresses(int amount) {
+		for (int i = 0; i < amount; i++) {
+			SessionVariables.addValueInSessionVariable("reportWizardAddress" + (amount - i), addressesList.get(i).getAttribute("value"));
+		}
+	}
 }
 
