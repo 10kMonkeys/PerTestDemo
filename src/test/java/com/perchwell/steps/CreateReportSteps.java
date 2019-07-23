@@ -355,18 +355,18 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkCCMaintIsPresented() {
-        onPage.checkSelectedCCMaintIsPresented();
+    public void checkCCMaintIsVisible() {
+        onPage.checkCCMaintIsVisible();
     }
 
     @Step
-    public void checkRETaxedIsPresented() {
-        onPage.checkSelectedRETaxedIsPresented();
+    public void checkRETaxedIsVisible() {
+        onPage.checkRETaxedIsVisible();
     }
 
     @Step
-    public void checkTotalMonthliesIsPresented() {
-        onPage.checkTotalMonthliesIsPresented();
+    public void checkTotalMonthliesIsVisible() {
+        onPage.checkTotalMonthliesIsVisible();
     }
 
     @Step
@@ -385,42 +385,47 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectedOriginalPriceSuboptionClick() {
-        onPage.selectedOriginalPriceSuboptionClick();
+    public void deselectOriginalPriceSuboption() {
+        onPage.deselectOriginalPriceSuboption();
     }
 
     @Step
-    public void unselectedOriginalPriceSuboptionClick() {
-        onPage.unselectedOriginalPriceSuboptionClick();
+    public void selectOriginalPriceSuboption() {
+        onPage.selectOriginalPriceSuboption();
     }
 
     @Step
-    public void checkElevenFieldsCounterIsPresented() {
-        onPage.checkElevenFieldsCounterIsPresented();
+    public void checkElevenFieldsCounterIsVisible() {
+        onPage.checkElevenFieldsCounterIsVisible();
     }
 
     @Step
-    public void checkTwelveFieldsCounterIsPresented() {
-        onPage.checkTwelveFieldsCounterIsPresented();
+    public void checkTwelveFieldsCounterIsVisible() {
+        onPage.checkTwelveFieldsCounterIsVisible();
     }
 
     @Step
-    public void unselectedContractDateSuboptionClick() {
-        onPage.unselectedContractDateSuboptionClick();
+    public void selectContractDateSuboption() {
+        onPage.selectContractDateSuboption();
     }
 
     @Step
-    public void checkUnselectedContractDateSuboptionIsPresent() {
-        onPage.checkUnselectedContractDateSuboptionIsPresent();
+    public void checkUnselectedContractDateSuboptionIsVisible() {
+        onPage.checkUnselectedContractDateSuboptionIsVisible();
     }
 
     @Step
-    public void checkUnselectedCCMaintIsPresented() {
-        onPage.checkUnselectedCCMaintIsPresented();
+    public void checkUnselectedCCMaintIsVisible() {
+        onPage.checkUnselectedCCMaintIsVisible();
     }
 
     @Step
-    public void checkUnselectedRETaxedIsPresented() {
-        onPage.checkUnselectedRETaxedIsPresented();
+    public void checkUnselectedRETaxedIsVisible() {
+        onPage.checkUnselectedRETaxedIsVisible();
+    }
+
+    @Step
+    public void swipeToPortrait() {
+        onPage.swipeToPortrait();
     }
 }

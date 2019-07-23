@@ -513,32 +513,31 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkLayoutIsLandscape() {
-        element(selectedLandscapeButton).shouldBePresent();
+        element(selectedLandscapeButton).shouldBeVisible();
     }
 
     public void checkSelectedFieldsAmount(int amount) {
         Assert.assertEquals(amount,subOptions.size());
     }
 
-    public void checkSelectedCCMaintIsPresented() {
-        element(selectedCcMaintSuboption).shouldBePresent();
+    public void checkCCMaintIsVisible() {
+        element(selectedCcMaintSuboption).shouldBeVisible();
     }
 
-    public void checkSelectedRETaxedIsPresented() {
-        element(selectedReTaxesSuboption).shouldBePresent();
+    public void checkRETaxedIsVisible() {
+        element(selectedReTaxesSuboption).shouldBeVisible();
     }
 
-    public void checkTotalMonthliesIsPresented() {
-        element(totalMonthliesSuboption).shouldBePresent();
+    public void checkTotalMonthliesIsVisible() {
+        element(totalMonthliesSuboption).shouldBeVisible();
     }
 
     public void checkExternalPageOptionIsSelected() {
         universalVerticalSwipe(selectedExternalPageOption);
-        element(selectedExternalPageOption).shouldBePresent();
+        element(selectedExternalPageOption).shouldBeVisible();
     }
 
     public void switchToPortrait() {
-        swipeUpElementIOS(unselectedPortraitButton, 500);
         element(unselectedPortraitButton).click();
     }
 
@@ -546,35 +545,39 @@ public class CreateReportPage extends TechHelper {
         element(unselectedLandscapeButton).click();
     }
 
-    public void selectedOriginalPriceSuboptionClick() {
+    public void deselectOriginalPriceSuboption() {
         element(selectedOriginalPriceSuboption).click();
     }
 
-    public void unselectedOriginalPriceSuboptionClick() {
+    public void selectOriginalPriceSuboption() {
         element(unselectedPriceChangeSubption).click();
     }
 
-    public void checkElevenFieldsCounterIsPresented() {
-        element(elevenFieldsCounter).shouldBePresent();
+    public void checkElevenFieldsCounterIsVisible() {
+        element(elevenFieldsCounter).shouldBeVisible();
     }
 
-    public void checkTwelveFieldsCounterIsPresented() {
-        element(twelveFieldCounter).shouldBePresent();
+    public void checkTwelveFieldsCounterIsVisible() {
+        element(twelveFieldCounter).shouldBeVisible();
     }
 
-    public void unselectedContractDateSuboptionClick() {
+    public void selectContractDateSuboption() {
         element(unselectedContractDateOption).click();
     }
 
-    public void checkUnselectedContractDateSuboptionIsPresent() {
-        element(unselectedContractDateOption).shouldBePresent();
+    public void checkUnselectedContractDateSuboptionIsVisible() {
+        element(unselectedContractDateOption).shouldBeVisible();
     }
 
-    public void checkUnselectedCCMaintIsPresented() {
-        element(unselectedCcMaintSuboption).shouldBePresent();
+    public void checkUnselectedCCMaintIsVisible() {
+        element(unselectedCcMaintSuboption).shouldBeVisible();
     }
 
-    public void checkUnselectedRETaxedIsPresented() {
-        element(unselectedReTaxesSuboption).shouldBePresent();
+    public void checkUnselectedRETaxedIsVisible() {
+        element(unselectedReTaxesSuboption).shouldBeVisible();
+    }
+
+    public void swipeToPortrait() {
+        swipeUpElementIOS(unselectedPortraitButton, 500);
     }
 }
