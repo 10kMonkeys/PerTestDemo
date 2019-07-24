@@ -60,13 +60,14 @@ public class RW14_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
         //TODO: need to implement filling and checking Report label field after id will add
         user.atCreateReportPage.switchToPortrait();
+        user.atCreateReportPage.checkSelectedFieldsAmount(9);
         user.atCreateReportPage.checkUnselectedCCMaintIsVisible();
         user.atCreateReportPage.checkUnselectedRETaxedIsVisible();
         user.atCreateReportPage.checkTotalMonthliesIsVisible();
         user.atCreateReportPage.switchToLandscape();
-        user.atCreateReportPage.selectPriceChangeSuboption();
-        user.atCreateReportPage.checkElevenFieldsCounterIsVisible();
         user.atCreateReportPage.deselectOriginalPriceSuboption();
+        user.atCreateReportPage.checkElevenFieldsCounterIsVisible();
+        user.atCreateReportPage.selectPriceChangeSuboption();
         user.atCreateReportPage.checkTwelveFieldsCounterIsVisible();
         user.atCreateReportPage.selectContractDateSuboption();
         user.atCreateReportPage.checkUnselectedContractDateSuboptionIsVisible();
