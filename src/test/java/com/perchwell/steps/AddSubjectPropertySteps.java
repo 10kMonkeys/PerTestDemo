@@ -68,11 +68,6 @@ public class AddSubjectPropertySteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOnDateFiled() {
-        onPage.clickOnDateFiled();
-    }
-
-    @Step
     public void checkCcMaintenanceFieldIsShown() {
         onPage.checkCcMaintenanceFieldIsShown();
     }
@@ -155,12 +150,6 @@ public class AddSubjectPropertySteps extends ScenarioSteps {
     }
 
     @Step
-    public void setDateForNextMonth(String date) {
-        onPage.openNextMonthPage();
-        onPage.setDate(date);
-    }
-
-    @Step
     public void selectOutdoorSpaceCrossFilter() {
         onPage.selectOutdoorSpaceCrossFilter();
     }
@@ -189,7 +178,6 @@ public class AddSubjectPropertySteps extends ScenarioSteps {
         onPage.checkBedsFieldIsEmpty();
         onPage.checkBathsFieldIsEmpty();
         onPage.checkSqrFootageFieldIsEmpty();
-        onPage.checkCcMaintenanceFieldIsEmpty();
         onPage.checkPropertyTypeFieldIsEmpty();
         onPage.checkDoormanBuildingIsDeselected();
         onPage.checkOutdoorSpaceIsDeselected();

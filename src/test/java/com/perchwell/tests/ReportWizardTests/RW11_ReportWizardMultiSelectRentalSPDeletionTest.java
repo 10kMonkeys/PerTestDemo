@@ -28,8 +28,8 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atAddSubjectPropertyPage.checkCcMaintenanceFieldIsNotShown();
         user.atAddSubjectPropertyPage.checkReTaxesFiledIsNotShown();
         user.atAddSubjectPropertyPage.checkSaveButtonIsEnabled();
-        user.atAddSubjectPropertyPage.fillInAddressField(Addresses.WEST_72ND);
-        user.atAddSubjectPropertyPage.fillInUnitField("3");
+        user.atAddSubjectPropertyPage.fillInAddressField(Addresses.DAKOTA_15PLACE);
+        user.atAddSubjectPropertyPage.fillInUnitField(Addresses.DAKOTA);
         user.atAddSubjectPropertyPage.fillInPriceField("300000");
         user.atAddSubjectPropertyPage.fillInRoomsField("2.5");
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
@@ -47,9 +47,9 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atCreateReportPage.checkSubjectPropertyFieldIsNotShown();
         user.atCreateReportPage.checkSubjectPropertyPlusIconIsShown();
         user.atCreateReportPage.clickOnSubjectPropertyButton();
-        user.atAddSubjectPropertyPage.checkAllFieldsAreEmpty(); //TODO: need to implement all insides methods
-        user.atAddSubjectPropertyPage.fillInAddressField(Addresses.WEST_72ND);
-        user.atAddSubjectPropertyPage.fillInUnitField("3");
+        user.atAddSubjectPropertyPage.checkAllFieldsAreEmpty(); //TODO: need to implement locator for property type
+        user.atAddSubjectPropertyPage.fillInAddressField(Addresses.DAKOTA_15PLACE);
+        user.atAddSubjectPropertyPage.fillInUnitField(Addresses.DAKOTA);
         user.atAddSubjectPropertyPage.fillInPriceField("300000");
         user.atAddSubjectPropertyPage.fillInRoomsField("2.5");
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");

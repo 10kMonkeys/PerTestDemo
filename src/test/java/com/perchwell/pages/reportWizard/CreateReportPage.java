@@ -128,7 +128,7 @@ public class CreateReportPage extends TechHelper {
 
     private WebElement bedroomsPlaceholder;
 
-    private WebElement bathtoomsPlaceholder;
+    private WebElement bathroomsPlaceholder;
 
     private WebElement sqrFootagePlaceholder;
 
@@ -503,7 +503,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkBathroomsPlaceholderIsShown() {
-        element(bathtoomsPlaceholder).shouldBeVisible();
+        element(bathroomsPlaceholder).shouldBeVisible();
     }
 
     public void checkSqrFootagePlaceholderIsShown() {
@@ -537,7 +537,9 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkBathroomsPlaceholderWithValue() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue"), element(bathtoomsPlaceholder).getValue());
+        if(element(bathroomsPlaceholder).isVisible()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue"), element(bathroomsPlaceholder).getValue());
+        }
     }
 
     public void checkSqrFootagePlaceholderWithValue() {
@@ -731,5 +733,19 @@ public class CreateReportPage extends TechHelper {
         WebElement listingCell;
         listingCell = element(MobileBy.AccessibilityId(address));
         Assert.assertEquals(getYPositionOfElement(section) + 51, getYPositionOfElement(listingCell));
+    }
+
+    public void checkBathroomsIsHidden() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(bathroomsPlaceholder).shouldNotBeVisible();
+        resetImplicitTimeout();
+    }
+
+    public void checkEighthListingInActiveSection() {
+        checkOneListingAddressBelowSection(activeSection, SessionVariables.getValueFromSessionVariable("reportWizardAddress8"));
+    }
+
+    public void checkNinthListingInRentedSection() {
+        checkOneListingAddressBelowSection(rentedSection, SessionVariables.getValueFromSessionVariable("reportWizardAddress9"));
     }
 }

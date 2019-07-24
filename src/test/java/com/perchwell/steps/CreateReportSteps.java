@@ -519,4 +519,19 @@ public class CreateReportSteps extends ScenarioSteps {
     public void checkEightFieldsCounterIsVisible() {
         onPage.checkEightFieldsCounterIsVisible();
     }
+
+    @Step
+    public void checkBathroomsIsHidden() {
+        onPage.checkBathroomsIsHidden();
+    }
+
+    @Step
+    public void checkEighthListingInActiveSection() {
+        onPage.checkEighthListingInActiveSection();
+    }
+
+    @Step
+    public void checkNinthListingInRentedSection() {
+        onPage.checkNinthListingInRentedSection();
+    }
 }

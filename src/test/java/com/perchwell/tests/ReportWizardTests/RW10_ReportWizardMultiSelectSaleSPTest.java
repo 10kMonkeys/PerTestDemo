@@ -33,8 +33,8 @@ public class RW10_ReportWizardMultiSelectSaleSPTest extends SampleTest {
         user.atCreateReportPage.clickOnSubjectPropertyCell();
         user.atAddSubjectPropertyPage.checkAddSubjectPropertyPageIsOpened();
         user.atAddSubjectPropertyPage.checkCcMaintenanceFieldIsFilledOut();
-        user.atAddSubjectPropertyPage.fillInAddressField(Addresses.WEST_72ND);
-        user.atAddSubjectPropertyPage.fillInUnitField("3");
+        user.atAddSubjectPropertyPage.fillInAddressField(Addresses.DAKOTA_15PLACE);
+        user.atAddSubjectPropertyPage.fillInUnitField(Addresses.DAKOTA);
         user.atAddSubjectPropertyPage.fillInPriceField("300000");
         user.atAddSubjectPropertyPage.fillInRoomsField("2.5");
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
@@ -59,8 +59,8 @@ public class RW10_ReportWizardMultiSelectSaleSPTest extends SampleTest {
         user.atAddSubjectPropertyPage.clickOnSaveButton();
         user.atCreateReportPage.checkSubjectPropertyCellIsShownWithPlaceholders();
         user.atCreateReportPage.clickOnSubjectPropertyCell();
-        user.atAddSubjectPropertyPage.fillInAddressField(Addresses.WEST_72ND);
-        user.atAddSubjectPropertyPage.fillInUnitField("3");
+        user.atAddSubjectPropertyPage.fillInAddressField(Addresses.DAKOTA_15PLACE);
+        user.atAddSubjectPropertyPage.fillInUnitField(Addresses.DAKOTA);
         user.atAddSubjectPropertyPage.fillInPriceField("300000");
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");

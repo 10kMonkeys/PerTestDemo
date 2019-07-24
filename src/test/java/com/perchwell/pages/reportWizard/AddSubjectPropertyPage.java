@@ -15,28 +15,36 @@ public class AddSubjectPropertyPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Save")
     private WebElement saveButton;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address-'")
     private WebElement addressField;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Unit-'")
     private WebElement unitField;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Price-'")
     private WebElement priceField;
 
-    private WebElement dateField;
-
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Rooms-'")
     private WebElement roomsField;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Beds-'")
     private WebElement bedsField;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Baths-'")
     private WebElement bathsField;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Square Footage-'")
     private WebElement sqrFootageField;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'CC/Maintenance-'")
     private WebElement ccMaintenanceField;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'RE Taxes-'")
     private WebElement reTaxesField;
 
     private WebElement propertyTypeField;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Building Size-'")
     private WebElement buildingSizeField;
 
     @iOSXCUITFindBy(accessibility = "Suboption: Condo")
@@ -77,11 +85,13 @@ public class AddSubjectPropertyPage extends TechHelper {
     public void fillInAddressField(String address) {
         element(addressField).sendKeys(address);
         SessionVariables.addValueInSessionVariable("addressValue", address);
+        hideKeyboard();
     }
 
     public void fillInUnitField(String unit) {
         element(unitField).sendKeys(unit);
         SessionVariables.addValueInSessionVariable("unitValue", unit);
+        hideKeyboard();
     }
 
     public void fillInPriceField(String price) {
@@ -122,14 +132,11 @@ public class AddSubjectPropertyPage extends TechHelper {
     public void fillInBuildingSizeField(String buildingSize) {
         element(buildingSizeField).sendKeys(buildingSize);
         SessionVariables.addValueInSessionVariable("buildingSizeValue", buildingSize);
+        hideKeyboard();
     }
 
     public void clickOnPropertyTypeField() {
         element(propertyTypeField).click();
-    }
-
-    public void clickOnDateFiled() {
-        element(dateField).click();
     }
 
     public void checkCcMaintenanceFieldIsShown() {
@@ -157,7 +164,7 @@ public class AddSubjectPropertyPage extends TechHelper {
     }
 
     public void checkCcMaintenanceFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("ccMaintenanceValue"), element(ccMaintenanceField).getValue());
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("ccMaintenanceValue"), element(ccMaintenanceField).getValue().replace("$", "").replace(",", ""));
     }
 
     public void checkAddressFieldIsFilledOut() {
@@ -169,7 +176,7 @@ public class AddSubjectPropertyPage extends TechHelper {
     }
 
     public void checkPriceFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(priceField).getValue());
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(priceField).getValue().replace("$", "").replace(",", ""));
     }
 
     public void checkRoomsFieldIsFilledOut() {
@@ -185,11 +192,11 @@ public class AddSubjectPropertyPage extends TechHelper {
     }
 
     public void checkSqrFootageFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue"), element(sqrFootageField).getValue());
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue"), element(sqrFootageField).getValue().replace(",", ""));
     }
 
     public void checkReTaxesFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("reTaxesValue"), element(reTaxesField).getValue());
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("reTaxesValue"), element(reTaxesField).getValue().replace("$", "").replace(",", ""));
     }
 
     public void checkBuildingSizeFieldIsFilledOut() {
@@ -199,7 +206,6 @@ public class AddSubjectPropertyPage extends TechHelper {
     public void checkCondoIsVisible() {
         //TODO
     }
-
 
     public void checkDoormanBuildingIsSelected() {
         element(selectedDoormanBuildingFilter).shouldBeVisible();
@@ -233,15 +239,6 @@ public class AddSubjectPropertyPage extends TechHelper {
         element(sqrFootageField).clear();
     }
 
-    public void openNextMonthPage() {
-        element(nextMonthPageButton).click();
-    }
-
-    public void setDate(String date) {
-        element(MobileBy.AccessibilityId(date)).click();
-    }
-
-
     public void selectOutdoorSpaceCrossFilter() {
         element(outdoorSpaceCrossFilter).click();
     }
@@ -261,35 +258,31 @@ public class AddSubjectPropertyPage extends TechHelper {
     }
 
     public void checkAddressFieldIsEmpty() {
-        //TODO
+        Assert.assertEquals("Address", element(addressField).getValue());
     }
 
     public void checkUnitFieldIsEmpty() {
-        //TODO
+        Assert.assertEquals("Unit", element(unitField).getValue());
     }
 
     public void checkPriceFieldIsEmpty() {
-        //TODO
+        Assert.assertEquals("Price", element(priceField).getValue());
     }
 
     public void checkRoomsFieldIsEmpty() {
-        //TODO
+        Assert.assertEquals("Number of total rooms", element(roomsField).getValue());
     }
 
     public void checkBedsFieldIsEmpty() {
-        //TODO
+        Assert.assertEquals("Beds", element(bedsField).getValue());
     }
 
     public void checkBathsFieldIsEmpty() {
-        //TODO
+        Assert.assertEquals("Use .5 for half baths", element(bathsField).getValue());
     }
 
     public void checkSqrFootageFieldIsEmpty() {
-        //TODO
-    }
-
-    public void checkCcMaintenanceFieldIsEmpty() {
-        //TODO
+        Assert.assertEquals("Square Footage", element(sqrFootageField).getValue());
     }
 
     public void checkPropertyTypeFieldIsEmpty() {
@@ -307,7 +300,7 @@ public class AddSubjectPropertyPage extends TechHelper {
     }
 
     public void checkBuildingSizeFieldIsEmpty() {
-        //TODO
+        Assert.assertEquals("10 x 10", element(buildingSizeField).getValue());
     }
 
     public void checkCcMaintenanceFieldIsNotShown() {
