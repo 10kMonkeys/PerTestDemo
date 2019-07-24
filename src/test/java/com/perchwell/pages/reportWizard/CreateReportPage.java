@@ -144,6 +144,15 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'Suboption Selected:' AND visible == 1")
     private List<WebElement> subOptions;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'CC/Maintenance' AND visible == 1")
+    private WebElement ccMaintSuboption;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'RE Taxes' AND visible == 1")
+    private WebElement reTaxesSuboption;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'Total Monthlies' AND visible == 1")
+    private WebElement totalMonthliesSuboption;
+
     @iOSXCUITFindBy(accessibility = " Suboption Selected: CC/Maintenance")
     private WebElement selectedCcMaintSuboption;
 
@@ -155,9 +164,6 @@ public class CreateReportPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = " Suboption: RE Taxes")
     private WebElement unselectedReTaxesSuboption;
-
-    @iOSXCUITFindBy(accessibility = " Suboption Selected: Total Monthlies")
-    private WebElement totalMonthliesSuboption;
 
     @iOSXCUITFindBy(accessibility = " Suboption Selected: External Page")
     private WebElement selectedExternalPageOption;
@@ -629,13 +635,13 @@ public class CreateReportPage extends TechHelper {
 
     public void checkCCMaintIsNotPresented() {
         setImplicitTimeout(3, TimeUnit.SECONDS);
-        element(selectedCcMaintSuboption).shouldNotBePresent();
+        element(ccMaintSuboption).shouldNotBePresent();
         resetImplicitTimeout();
     }
 
     public void checkRETaxedIsNotPresented() {
         setImplicitTimeout(3, TimeUnit.SECONDS);
-        element(selectedReTaxesSuboption).shouldNotBePresent();
+        element(reTaxesSuboption).shouldNotBePresent();
         resetImplicitTimeout();
     }
 

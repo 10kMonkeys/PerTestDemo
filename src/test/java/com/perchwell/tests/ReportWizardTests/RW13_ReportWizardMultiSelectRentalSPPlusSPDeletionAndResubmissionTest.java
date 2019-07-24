@@ -32,12 +32,12 @@ public class RW13_ReportWizardMultiSelectRentalSPPlusSPDeletionAndResubmissionTe
         user.atCreateReportPage.checkExternalPageOptionUnselected();
         user.atCreateReportPage.checkPerchwellLinkOptionSelected();
         user.atCreateReportPage.swipeToPortrait();
-        user.atCreateReportPage.switchToPortrait();
-        user.atCreateReportPage.switchToPortrait();
+        user.atCreateReportPage.switchToPortrait();// Temp. fix
+        user.atCreateReportPage.switchToPortrait();// Temp. fix
         user.atCreateReportPage.checkCCMaintIsNotPresented();
         user.atCreateReportPage.checkRETaxedIsNotPresented();
         user.atCreateReportPage.checkTotalMonthliesIsNotPresented();
-        user.atCreateReportPage.selectPriceChangeSuboption();
+        user.atCreateReportPage.selectPriceChangeSuboption();//temp select
         user.atCreateReportPage.deselectBedsSuboption();
         user.atCreateReportPage.checkEightFieldsCounterIsVisible();
         user.atCreateReportPage.selectBedsSuboption();
