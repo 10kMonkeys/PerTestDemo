@@ -354,4 +354,9 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void fillInTagSearchField(String value) {
 		onPage.fillInTagSearchField(value);
 	}
+
+	@Step
+	public void openActiveCondoSaleListing() {
+		onPage.openActiveCondoSaleListing();
+	}
 }

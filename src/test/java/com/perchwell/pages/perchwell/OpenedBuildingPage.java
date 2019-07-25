@@ -282,6 +282,9 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "CREATE REPORT")
 	private WebElement createReportButton;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "name == 'MORE INFO' AND visible == 1")
+	private WebElement moreInfoButton;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -949,5 +952,11 @@ public class OpenedBuildingPage extends TechHelper {
 		setImplicitTimeout(3, SECONDS);
 		element(createReportButton).shouldNotBePresent();
 		resetImplicitTimeout();
+	}
+
+	public void openOnMoreInfoSection() {
+		universalSingleSwipe();
+		waitABit(10000);
+		element(moreInfoButton).click();
 	}
 }

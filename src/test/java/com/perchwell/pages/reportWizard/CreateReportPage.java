@@ -118,6 +118,9 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "addTag")
     private WebElement subjectPropertyButton;
 
+    @iOSXCUITFindBy(accessibility = "Remove Button: TAGNAMEREPORTWIZARD")
+    private WebElement reportWizardDeleteButton;
+
     private WebElement addressPlaceholder;
 
     private WebElement unitPlaceholder;
@@ -731,6 +734,15 @@ public class CreateReportPage extends TechHelper {
         Assert.assertEquals(getYPositionOfElement(section) + 51, getYPositionOfElement(listingCell));
     }
 
+    private void checkOneListingAddressIsNotShown(String address) {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        WebElement listingCell;
+        listingCell = element(MobileBy.AccessibilityId(address));
+        element(listingCell).shouldNotBePresent();
+        resetImplicitTimeout();
+    }
+
+
     public void checkBathroomsIsHidden() {
         setImplicitTimeout(3, TimeUnit.SECONDS);
         element(bathroomsPlaceholder).shouldNotBeVisible();
@@ -743,5 +755,53 @@ public class CreateReportPage extends TechHelper {
 
     public void checkNinthListingInRentedSection() {
         checkOneListingAddressBelowSection(rentedSection, SessionVariables.getValueFromSessionVariable("reportWizardAddress9"));
+    }
+
+    public void checkSixPerEightListingIsNotShown() {
+        checkOneListingAddressIsNotShown(SessionVariables.getValueFromSessionVariable("reportWizardAddress6"));
+        checkOneListingAddressIsNotShown(SessionVariables.getValueFromSessionVariable("reportWizardAddress7"));
+        checkOneListingAddressIsNotShown(SessionVariables.getValueFromSessionVariable("reportWizardAddress8"));
+    }
+
+    public void checkBuildingIsNotShown() {
+        checkOneListingAddressIsNotShown(SessionVariables.getValueFromSessionVariable("reportWizardAddress10"));
+    }
+
+    private void checkOneListingAddressIsShown(String address) {
+        WebElement listingCell;
+        listingCell = element(MobileBy.AccessibilityId(address));
+        element(listingCell).shouldBePresent();
+    }
+
+    public void checkEightAndNineListingsIsShown() {
+        checkOneListingAddressIsShown(SessionVariables.getValueFromSessionVariable("reportWizardAddress8"));
+        checkOneListingAddressIsShown(SessionVariables.getValueFromSessionVariable("reportWizardAddress9"));
+    }
+
+    public void checkRentalSectionIsShown() {
+        element(rentedSection).shouldBeVisible();
+    }
+
+    public void checkFirstListingIsShown() {
+        checkOneListingAddressIsShown(SessionVariables.getValueFromSessionVariable("reportWizardAddress1"));
+    }
+
+    public void deleteReportWizardTag() {
+        element(reportWizardDeleteButton).click();
+    }
+
+    public void checkFirstAddressInActiveSectionAfterFirstListing(String address) {
+        WebElement listingCell;
+
+        listingCell = element(MobileBy.AccessibilityId(address));
+
+        System.out.println(getYPositionOfElement(activeSection));
+        System.out.println(getYPositionOfElement(listingCell));
+
+        Assert.assertEquals(getYPositionOfElement(activeSection) + 144, getYPositionOfElement(listingCell));
+    }
+
+    public void checkListingsAmount(int amount) {
+        Assert.assertEquals(amount, listingsList.size());
     }
 }

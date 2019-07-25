@@ -558,4 +558,44 @@ public class CreateReportSteps extends ScenarioSteps {
     public void checkSqrFootagePlaceholderWithValue() {
         onPage.checkSqrFootagePlaceholderWithValue();
     }
+
+    @Step
+    public void checkSixPerEightListingIsNotShown() {
+        onPage.checkSixPerEightListingIsNotShown();
+    }
+
+    @Step
+    public void checkBuildingIsNotShown() {
+        onPage.checkBuildingIsNotShown();
+    }
+
+    @Step
+    public void checkEightAndNineListingsIsShown() {
+        onPage.checkEightAndNineListingsIsShown();
+    }
+
+    @Step
+    public void checkRentalSectionIsShown() {
+        onPage.checkRentalSectionIsShown();
+    }
+
+    @Step
+    public void checkFirstListingIsShown() {
+        onPage.checkFirstListingIsShown();
+    }
+
+    @Step
+    public void deleteReportWizardTag() {
+        onPage.deleteReportWizardTag();
+    }
+
+    @Step
+    public void checkFirstAddressInActiveSectionAfterFirstListing() {
+        onPage.checkFirstAddressInActiveSectionAfterFirstListing(SessionVariables.getValueFromSessionVariable("reportWizardAddress1"));
+    }
+
+    @Step
+    public void checkListingsAmount(int amount) {
+        onPage.checkListingsAmount(amount);
+    }
 }
