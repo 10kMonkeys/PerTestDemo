@@ -40,7 +40,7 @@ public class RW14_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atCreateReportPage.clickOnCmaButton();
         user.atCreateReportPage.clickOnSalesButton();
         user.atCreateReportPage.checkSubjectPropertyCellIsShownWithValue(); //TODO: need to implement locators
-        user.atCreateReportPage.checkOnlySquareFeetWithApproxLabel();
+        user.atCreateReportPage.checkOnlySquareFeetWithApproxLabel(); //TODO: need to implement locator
         user.atCreateReportPage.swipeLeftSubjectPropertyCell();
         user.atCreateReportPage.checkDeleteButtonIsNotDisplayed();
         user.atCreateReportPage.clickOnTagsField();

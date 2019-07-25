@@ -41,8 +41,8 @@ public class RW10_ReportWizardMultiSelectSaleSPTest extends SampleTest {
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
         user.atAddSubjectPropertyPage.fillInSqrFootageField("3500");
         user.atAddSubjectPropertyPage.fillInReTaxesField("3000");
-        user.atAddSubjectPropertyPage.clickOnPropertyTypeField();
-        user.atAddSubjectPropertyPage.clickOnCondo();
+        user.atAddSubjectPropertyPage.clickOnPropertyTypeField(); //TODO: need to implement locator
+        user.atAddSubjectPropertyPage.clickOnCondo(); //TODO: need to implement locator
         user.atAddSubjectPropertyPage.selectOutdoorSpaceFilter();
         user.atAddSubjectPropertyPage.selectDoormanBuildingFilter();
         user.atAddSubjectPropertyPage.fillInBuildingSizeField("10x10");
@@ -57,7 +57,7 @@ public class RW10_ReportWizardMultiSelectSaleSPTest extends SampleTest {
         user.atAddSubjectPropertyPage.clearBathroomsField();
         user.atAddSubjectPropertyPage.clearSqrFootageField();
         user.atAddSubjectPropertyPage.clickOnSaveButton();
-        user.atCreateReportPage.checkSubjectPropertyCellIsShownWithPlaceholders();
+        user.atCreateReportPage.checkSubjectPropertyCellIsShownWithPlaceholders(); //TODO: need to implement locators
         user.atCreateReportPage.clickOnSubjectPropertyCell();
         user.atAddSubjectPropertyPage.fillInAddressField(Addresses.DAKOTA_15PLACE);
         user.atAddSubjectPropertyPage.fillInUnitField(Addresses.DAKOTA);

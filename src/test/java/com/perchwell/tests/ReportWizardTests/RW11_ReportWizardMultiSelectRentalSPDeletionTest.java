@@ -35,13 +35,13 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
         user.atAddSubjectPropertyPage.fillInSqrFootageField("3500");
-        user.atAddSubjectPropertyPage.clickOnPropertyTypeField();
-        user.atAddSubjectPropertyPage.clickOnCondo();
+        user.atAddSubjectPropertyPage.clickOnPropertyTypeField(); //TODO: need to implement locator
+        user.atAddSubjectPropertyPage.clickOnCondo(); //TODO: need to implement locator
         user.atAddSubjectPropertyPage.selectOutdoorSpaceCrossFilter();
         user.atAddSubjectPropertyPage.selectDoormanBuildingCrossFilter();
         user.atAddSubjectPropertyPage.fillInBuildingSizeField("10x10");
         user.atAddSubjectPropertyPage.clickOnSaveButton();
-        user.atCreateReportPage.checkSubjectPropertyCellIsShownWithValue();
+        user.atCreateReportPage.checkSubjectPropertyCellIsShownWithValue(); //TODO: need to implement locators
         user.atCreateReportPage.swipeLeftSubjectPropertyCell();
         user.atCreateReportPage.clickOnDeleteButton();
         user.atCreateReportPage.checkSubjectPropertyFieldIsNotShown();
@@ -55,8 +55,8 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
         user.atAddSubjectPropertyPage.fillInSqrFootageField("3500");
-        user.atAddSubjectPropertyPage.clickOnPropertyTypeField();
-        user.atAddSubjectPropertyPage.clickOnCondo();
+        user.atAddSubjectPropertyPage.clickOnPropertyTypeField(); //TODO: need to implement locator
+        user.atAddSubjectPropertyPage.clickOnCondo(); //TODO: need to implement locator
         user.atAddSubjectPropertyPage.selectOutdoorSpaceCrossFilter();
         user.atAddSubjectPropertyPage.selectDoormanBuildingCrossFilter();
         user.atAddSubjectPropertyPage.fillInBuildingSizeField("10x10");
