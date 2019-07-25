@@ -39,7 +39,12 @@ public class RW14_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnCmaButton();
         user.atCreateReportPage.clickOnSalesButton();
-        user.atCreateReportPage.checkSubjectPropertyCellIsShownWithValue(); //TODO: need to implement locators
+        user.atCreateReportPage.checkAddressPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkPricePlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkPropertyTypePlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkBedroomsPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkBathroomsPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkSqrFootagePlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkOnlySquareFeetWithApproxLabel(); //TODO: need to implement locator
         user.atCreateReportPage.swipeLeftSubjectPropertyCell();
         user.atCreateReportPage.checkDeleteButtonIsNotDisplayed();
@@ -47,10 +52,10 @@ public class RW14_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atTagsPage.fillInTagSearchField("TAGNAMEREPORTWIZARD");
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnCrossBackFromTagsButton();
-        user.atCreateReportPage.checkFirstListingInActiveSection(); //
-        user.atCreateReportPage.checkSecondListingInContractSection(); //
-        user.atCreateReportPage.checkThirdAndFourthListingsInOffMarketSection(); //
-        user.atCreateReportPage.checkFifthListingInSoldSection(); //
+        user.atCreateReportPage.checkFirstListingInActiveSection();
+        user.atCreateReportPage.checkSecondListingInContractSection();
+        user.atCreateReportPage.checkThirdAndFourthListingsInOffMarketSection();
+        user.atCreateReportPage.checkFifthListingInSoldSection();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkLayoutIsLandscape();
         user.atCreateReportPage.checkSelectedFieldsAmount(12);

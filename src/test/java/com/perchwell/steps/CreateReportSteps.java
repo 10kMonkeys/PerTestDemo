@@ -314,17 +314,6 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkSubjectPropertyCellIsShownWithValue() {
-        onPage.checkAddressPlaceholderWithValue();
-        onPage.checkUnitPlaceholderWithValue();
-        onPage.checkPricePlaceholderWithValue();
-        onPage.checkPropertyTypePlaceholderWithValue();
-        onPage.checkBedroomsPlaceholderWithValue();
-        onPage.checkBathroomsPlaceholderWithValue();
-        onPage.checkSqrFootagePlaceholderWithValue();
-    }
-
-    @Step
     public void clickOnRentalsButton() {
         onPage.clickOnRentalsButton();
     }
@@ -533,5 +522,40 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void checkNinthListingInRentedSection() {
         onPage.checkNinthListingInRentedSection();
+    }
+
+    @Step
+    public void checkAddressPlaceholderWithValue() {
+        onPage.checkAddressPlaceholderWithValue();
+    }
+
+    @Step
+    public void checkUnitPlaceholderWithValue() {
+        onPage.checkUnitPlaceholderWithValue();
+    }
+
+    @Step
+    public void checkPricePlaceholderWithValue() {
+        onPage.checkPricePlaceholderWithValue();
+    }
+
+    @Step
+    public void checkPropertyTypePlaceholderWithValue() {
+        onPage.checkPropertyTypePlaceholderWithValue();
+    }
+
+    @Step
+    public void checkBedroomsPlaceholderWithValue() {
+        onPage.checkBedroomsPlaceholderWithValue();
+    }
+
+    @Step
+    public void checkBathroomsPlaceholderWithValue() {
+        onPage.checkBathroomsPlaceholderWithValue();
+    }
+
+    @Step
+    public void checkSqrFootagePlaceholderWithValue() {
+        onPage.checkSqrFootagePlaceholderWithValue();
     }
 }

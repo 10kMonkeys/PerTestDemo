@@ -519,9 +519,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkUnitPlaceholderWithValue() {
-        if(element(unitPlaceholder).isVisible()) {
-            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitPlaceholder).getValue());
-        }
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitPlaceholder).getValue());
     }
 
     public void checkPricePlaceholderWithValue() {
@@ -537,9 +535,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkBathroomsPlaceholderWithValue() {
-        if(element(bathroomsPlaceholder).isVisible()) {
-            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue"), element(bathroomsPlaceholder).getValue());
-        }
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue"), element(bathroomsPlaceholder).getValue());
     }
 
     public void checkSqrFootagePlaceholderWithValue() {

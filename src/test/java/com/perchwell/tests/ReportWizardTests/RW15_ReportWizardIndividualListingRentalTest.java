@@ -39,7 +39,11 @@ public class RW15_ReportWizardIndividualListingRentalTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnCmaButton();
         user.atCreateReportPage.clickOnRentalsButton();
-        user.atCreateReportPage.checkSubjectPropertyCellIsShownWithValue(); //TODO: need to implement locators
+        user.atCreateReportPage.checkAddressPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkPricePlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkPropertyTypePlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkBedroomsPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkSqrFootagePlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkSquareFeetValueWithoutApproxLabel(); //TODO: need to implement locator
         user.atCreateReportPage.checkStudioIsDisplayed(); //TODO: need to implement locator
         user.atCreateReportPage.checkBathroomsIsHidden(); //TODO: need to implement locator

@@ -41,13 +41,19 @@ public class RW10_ReportWizardMultiSelectSaleSPTest extends SampleTest {
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
         user.atAddSubjectPropertyPage.fillInSqrFootageField("3500");
         user.atAddSubjectPropertyPage.fillInReTaxesField("3000");
-        user.atAddSubjectPropertyPage.clickOnPropertyTypeField(); //TODO: need to implement locator
-        user.atAddSubjectPropertyPage.clickOnCondo(); //TODO: need to implement locator
+        user.atAddSubjectPropertyPage.clickOnPropertyTypeField();
+        user.atAddSubjectPropertyPage.clickOnCondo();
         user.atAddSubjectPropertyPage.selectOutdoorSpaceFilter();
         user.atAddSubjectPropertyPage.selectDoormanBuildingFilter();
         user.atAddSubjectPropertyPage.fillInBuildingSizeField("10x10");
         user.atAddSubjectPropertyPage.clickOnSaveButton();
-        user.atCreateReportPage.checkSubjectPropertyCellIsShownWithValue(); //TODO: need to implement locators
+        user.atCreateReportPage.checkAddressPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkUnitPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkPricePlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkPropertyTypePlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkBedroomsPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkBathroomsPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkSqrFootagePlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.clickOnSubjectPropertyCell();
         user.atAddSubjectPropertyPage.checkAllFieldsAreFilledOut();
         user.atAddSubjectPropertyPage.clearAddressField();

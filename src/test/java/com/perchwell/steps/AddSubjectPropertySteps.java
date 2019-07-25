@@ -113,7 +113,7 @@ public class AddSubjectPropertySteps extends ScenarioSteps {
         onPage.checkSqrFootageFieldIsFilledOut();
         onPage.checkCcMaintenanceFieldIsFilledOut();
         onPage.checkReTaxesFieldIsFilledOut();
-        onPage.checkCondoIsVisible();
+        onPage.checkCondoIsVisibleInPropertyType();
         onPage.checkDoormanBuildingIsSelected();
         onPage.checkOutdoorSpaceIsSelected();
         onPage.checkBuildingSizeFieldIsFilledOut();

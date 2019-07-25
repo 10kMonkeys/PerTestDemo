@@ -2,7 +2,6 @@ package com.perchwell.pages.reportWizard;
 
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -42,6 +41,7 @@ public class AddSubjectPropertyPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'RE Taxes-'")
     private WebElement reTaxesField;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Property Type-'")
     private WebElement propertyTypeField;
 
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Building Size-'")
@@ -79,7 +79,7 @@ public class AddSubjectPropertyPage extends TechHelper {
     }
 
     public void clickOnSaveButton() {
-        element(saveButton);
+        element(saveButton).click();
     }
 
     public void fillInAddressField(String address) {
@@ -203,8 +203,8 @@ public class AddSubjectPropertyPage extends TechHelper {
         Assert.assertEquals(SessionVariables.getValueFromSessionVariable("buildingSizeValue"), element(buildingSizeField).getValue());
     }
 
-    public void checkCondoIsVisible() {
-        //TODO
+    public void checkCondoIsVisibleInPropertyType() {
+        Assert.assertEquals("Condo", element(propertyTypeField).getValue());
     }
 
     public void checkDoormanBuildingIsSelected() {
@@ -286,7 +286,7 @@ public class AddSubjectPropertyPage extends TechHelper {
     }
 
     public void checkPropertyTypeFieldIsEmpty() {
-        //TODO
+        Assert.assertEquals("Select a property type", element(propertyTypeField).getValue());
     }
 
     public void checkDoormanBuildingIsDeselected() {
