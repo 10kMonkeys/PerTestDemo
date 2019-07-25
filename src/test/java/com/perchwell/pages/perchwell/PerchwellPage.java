@@ -1224,4 +1224,9 @@ public class PerchwellPage extends TechHelper {
 	public void getFirstListingBathroomsForReport() {
 		SessionVariables.addValueInSessionVariable("bathsValue", element(bathsInfoList.get(0)).getAttribute("value"));
 	}
+
+	public void getFirstListingUnitForReport() {
+		String unit = element(addressesList.get(0)).getValue().substring(element(addressesList.get(0)).getValue().indexOf("#"));
+		SessionVariables.addValueInSessionVariable("unitValue", unit);
+	}
 }

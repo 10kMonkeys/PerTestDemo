@@ -28,6 +28,7 @@ public class RW14_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atSearchPage.selectCoopFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.getFirstListingAddressForReport();
+        user.atPerchwellPage.getFirstListingUnitForReport();
         user.atPerchwellPage.getFirstListingPriceForReport();
         user.atPerchwellPage.getFirstListingPropertyTypeForReport();
         user.atPerchwellPage.getFirstListingBedroomsForReport();
@@ -40,6 +41,7 @@ public class RW14_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atCreateReportPage.clickOnCmaButton();
         user.atCreateReportPage.clickOnSalesButton();
         user.atCreateReportPage.checkAddressPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkUnitForListing(); //TODO: need to implement locator
         user.atCreateReportPage.checkPricePlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkPropertyTypePlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkBedroomsPlaceholderWithValue(); //TODO: need to implement locator

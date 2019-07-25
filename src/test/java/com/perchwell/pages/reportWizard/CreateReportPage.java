@@ -804,4 +804,9 @@ public class CreateReportPage extends TechHelper {
     public void checkListingsAmount(int amount) {
         Assert.assertEquals(amount, listingsList.size());
     }
+
+    public void checkUnitForListing() {
+        String unit = element(addressPlaceholder).getValue().substring(element(addressPlaceholder).getValue().indexOf("#"));
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), unit);
+    }
 }

@@ -29,6 +29,7 @@ public class RW15_ReportWizardIndividualListingRentalTest extends SampleTest {
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.getFirstListingAddressForReport();
+        user.atPerchwellPage.getFirstListingUnitForReport();
         user.atPerchwellPage.getFirstListingPriceForReport();
         user.atPerchwellPage.getFirstListingPropertyTypeForReport();
         user.atPerchwellPage.getFirstListingBedroomsForReport();
@@ -40,6 +41,7 @@ public class RW15_ReportWizardIndividualListingRentalTest extends SampleTest {
         user.atCreateReportPage.clickOnCmaButton();
         user.atCreateReportPage.clickOnRentalsButton();
         user.atCreateReportPage.checkAddressPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkUnitForListing(); //TODO: need to implement locator
         user.atCreateReportPage.checkPricePlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkPropertyTypePlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkBedroomsPlaceholderWithValue(); //TODO: need to implement locator

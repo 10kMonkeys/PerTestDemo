@@ -598,4 +598,9 @@ public class CreateReportSteps extends ScenarioSteps {
     public void checkListingsAmount(int amount) {
         onPage.checkListingsAmount(amount);
     }
+
+    @Step
+    public void checkUnitForListing() {
+        onPage.checkUnitForListing();
+    }
 }

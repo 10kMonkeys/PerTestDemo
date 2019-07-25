@@ -745,4 +745,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void getFirstListingBathroomsForReport() {
 		onPage.getFirstListingBathroomsForReport();
 	}
+
+	@Step
+	public void getFirstListingUnitForReport() {
+		onPage.getFirstListingUnitForReport();
+	}
 }
