@@ -34,7 +34,7 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atAddSubjectPropertyPage.fillInRoomsField("2.5");
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
-        user.atAddSubjectPropertyPage.fillInSqrFootageField("3500");
+        user.atAddSubjectPropertyPage.fillInSqrFootageField("3500"); //temp fix inside
         user.atAddSubjectPropertyPage.clickOnPropertyTypeField();
         user.atAddSubjectPropertyPage.clickOnCondo();
         user.atAddSubjectPropertyPage.selectOutdoorSpaceCrossFilter();
@@ -60,7 +60,7 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atAddSubjectPropertyPage.fillInRoomsField("2.5");
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
-        user.atAddSubjectPropertyPage.fillInSqrFootageField("3500");
+        user.atAddSubjectPropertyPage.fillInSqrFootageField("3500"); //temp fix inside
         user.atAddSubjectPropertyPage.clickOnPropertyTypeField();
         user.atAddSubjectPropertyPage.clickOnCondo();
         user.atAddSubjectPropertyPage.selectOutdoorSpaceCrossFilter();

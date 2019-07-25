@@ -39,8 +39,8 @@ public class RW10_ReportWizardMultiSelectSaleSPTest extends SampleTest {
         user.atAddSubjectPropertyPage.fillInRoomsField("2.5");
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
-        user.atAddSubjectPropertyPage.fillInSqrFootageField("3500");
-        user.atAddSubjectPropertyPage.fillInReTaxesField("3000");
+        user.atAddSubjectPropertyPage.fillInSqrFootageField("3500"); //temp fix inside
+        user.atAddSubjectPropertyPage.fillInReTaxesField("3000"); //temp fix inside
         user.atAddSubjectPropertyPage.clickOnPropertyTypeField();
         user.atAddSubjectPropertyPage.clickOnCondo();
         user.atAddSubjectPropertyPage.selectOutdoorSpaceFilter();
@@ -70,7 +70,7 @@ public class RW10_ReportWizardMultiSelectSaleSPTest extends SampleTest {
         user.atAddSubjectPropertyPage.fillInPriceField("300000");
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
-        user.atAddSubjectPropertyPage.fillInSqrFootageField("3500");
+        user.atAddSubjectPropertyPage.fillInSqrFootageField("3500"); //temp fix inside
         user.atAddSubjectPropertyPage.clickOnSaveButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
