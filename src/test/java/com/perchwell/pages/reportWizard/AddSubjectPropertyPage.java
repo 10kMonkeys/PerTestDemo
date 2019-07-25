@@ -47,7 +47,7 @@ public class AddSubjectPropertyPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Building Size-'")
     private WebElement buildingSizeField;
 
-    @iOSXCUITFindBy(accessibility = "Suboption: Condo")
+    @iOSXCUITFindBy(accessibility = " Suboption: Condo")
     private WebElement condoOption;
 
     @iOSXCUITFindBy(accessibility = "Outdoor Space-checkmark")
@@ -117,6 +117,9 @@ public class AddSubjectPropertyPage extends TechHelper {
     public void fillInSqrFootageField(String sqrFootage) {
         element(sqrFootageField).sendKeys(sqrFootage);
         SessionVariables.addValueInSessionVariable("sqrFootageValue", sqrFootage);
+
+        element(unitField).click();
+        hideKeyboard();
     }
 
     public void fillInCcMaintenanceField(String ccMaintenance) {
@@ -127,12 +130,15 @@ public class AddSubjectPropertyPage extends TechHelper {
     public void fillInReTaxesField(String reTaxes) {
         element(reTaxesField).sendKeys(reTaxes);
         SessionVariables.addValueInSessionVariable("reTaxesValue", reTaxes);
+
+        singleUpShortSwipeIOS();
+        element(unitField).click();
+        hideKeyboard();
     }
 
     public void fillInBuildingSizeField(String buildingSize) {
         element(buildingSizeField).sendKeys(buildingSize);
         SessionVariables.addValueInSessionVariable("buildingSizeValue", buildingSize);
-        hideKeyboard();
     }
 
     public void clickOnPropertyTypeField() {
