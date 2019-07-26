@@ -479,11 +479,22 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 
 	@Step
     public void getMonthlyCommonCharges() {
-
+		onPage.getMonthlyCommonCharges();
 	}
 
 	@Step
 	public void getPropertyTax() {
+		onPage.getPropertyTax();
+	}
+
+	@Step
+	public void checkMonthlyCommonChargesNotChanged() {
+		onPage.checkMonthlyCommonChargesNotChanged();
+	}
+
+	@Step
+	public void checkMonthlyPropertyTaxNotChanged() {
+		onPage.checkMonthlyPropertyTaxNotChanged();
 	}
 }
 

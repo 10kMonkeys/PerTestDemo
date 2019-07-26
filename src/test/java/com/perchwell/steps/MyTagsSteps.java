@@ -359,4 +359,9 @@ public class MyTagsSteps extends ScenarioSteps {
 	public void openActiveCondoSaleListing() {
 		onPage.openActiveCondoSaleListing();
 	}
+
+	@Step
+	public void getFirstBuildingAddressForReport() {
+		onPage.getFirstBuildingAddressForReport();
+	}
 }

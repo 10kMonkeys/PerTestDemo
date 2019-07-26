@@ -603,4 +603,9 @@ public class CreateReportSteps extends ScenarioSteps {
     public void checkUnitForListing() {
         onPage.checkUnitForListing();
     }
+
+    @Step
+    public void openSecondListing() {
+        onPage.openSecondListing();
+    }
 }

@@ -118,7 +118,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "addTag")
     private WebElement subjectPropertyButton;
 
-    @iOSXCUITFindBy(accessibility = "Remove Button: TAGNAMEREPORTWIZARD")
+    @iOSXCUITFindBy(accessibility = "Remove Button: TAGNAME201900000000019")
     private WebElement reportWizardDeleteButton;
 
     private WebElement addressPlaceholder;
@@ -808,5 +808,9 @@ public class CreateReportPage extends TechHelper {
     public void checkUnitForListing() {
         String unit = element(addressPlaceholder).getValue().substring(element(addressPlaceholder).getValue().indexOf("#"));
         Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), unit);
+    }
+
+    public void openSecondListing() {
+        element(listingsList.get(2)).click();
     }
 }

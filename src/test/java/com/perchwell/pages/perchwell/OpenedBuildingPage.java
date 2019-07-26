@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static com.perchwell.email.MailTrap.getTextBody;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class OpenedBuildingPage extends TechHelper {
@@ -282,8 +283,14 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "CREATE REPORT")
 	private WebElement createReportButton;
 
-	@iOSXCUITFindBy(iOSNsPredicate = "name == 'MORE INFO' AND visible == 1")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeOther' AND name == 'MORE INFO'")
 	private WebElement moreInfoButton;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'MONTHLY COMMON CHARGES-'")
+	private WebElement monthlyCommonCharges;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'MONTHLY PROPERTY TAX-'")
+	private WebElement monthlyPropertyTax;
 
 	//endregion
 
@@ -955,8 +962,24 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void openOnMoreInfoSection() {
-		universalSingleSwipe();
-		waitABit(10000);
+		universalVerticalShortSwipe(moreInfoButton);
+		waitFor(moreInfoButton).shouldBeVisible();
 		element(moreInfoButton).click();
+	}
+
+	public void getMonthlyCommonCharges() {
+		SessionVariables.addValueInSessionVariable("monthlyCommonCharges", element(monthlyCommonCharges).getAttribute("value"));
+	}
+
+	public void getPropertyTax() {
+		SessionVariables.addValueInSessionVariable("monthlyPropertyTax", element(monthlyPropertyTax).getAttribute("value"));
+	}
+
+	public void checkMonthlyCommonChargesNotChanged() {
+		Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyCommonCharges"), element(monthlyCommonCharges).getAttribute("value"));
+	}
+
+	public void checkMonthlyPropertyTaxNotChanged() {
+		Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyPropertyTax"), element(monthlyPropertyTax).getAttribute("value"));
 	}
 }

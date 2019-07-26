@@ -15,39 +15,38 @@ public class RW8_ReportWizardMultiSelectSalesRentalsBreakdownAndTags extends Sam
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atMyTagsPage.fillInTagSearchField("TAGNAMEREPORTWIZARD");
+        user.atMyTagsPage.fillInTagSearchField("TAGNAME201900000000019");
         user.atMyTagsPage.clickOnFirstTag();
         user.atMyTagsPage.clickOnSearchButton();
-        user.atMyTagsPage.getListingsAddresses(10);
+        user.atMyTagsPage.getListingsAddresses(9);
         user.atMyTagsPage.closeTagsPage();
         user.atAccountPage.closeAccountMenu();
         user.atPerchwellPage.clickOnMyNewSearch();
         user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
         user.atSearchPage.openFirstBuilding();
-        user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
-        user.atMyTagsPage.fillInTagSearchField("TAGNAMEREPORTWIZARD");
+        user.atMyTagsPage.fillInTagSearchField("TAGNAME201900000000019");
         user.atMyTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atSearchPage.clickOnCrossBackButtonFromAddressSearch();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atMyTagsPage.fillInTagSearchField("TAGNAMEREPORTWIZARD");
+        user.atMyTagsPage.fillInTagSearchField("TAGNAME201900000000019");
         user.atMyTagsPage.clickOnFirstTag();
         user.atMyTagsPage.clickOnSearchButton();
+        user.atMyTagsPage.getFirstBuildingAddressForReport();
         user.atMyTagsPage.openActiveCondoSaleListing();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.createAndSaveNewTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atOpenedBuildingPage.openOnMoreInfoSection(); //TODO unable to click after swupe
+        user.atOpenedBuildingPage.openOnMoreInfoSection(); //TODO unable to click after swipe
         user.atOpenedBuildingPage.getMonthlyCommonCharges();//TODO fix the DOM
         user.atOpenedBuildingPage.getPropertyTax();//TODO fix the DOM
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atMyTagsPage.clickOnCrossFromAccountTagsButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
         user.atAccountPage.closeAccountMenu();
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectCondoFilter();
@@ -58,7 +57,7 @@ public class RW8_ReportWizardMultiSelectSalesRentalsBreakdownAndTags extends Sam
         user.atCreateReportPage.clickOnCmaButton();
         user.atCreateReportPage.clickOnSalesButton();
         user.atCreateReportPage.clickOnTagsField();
-        user.atTagsPage.fillInTagSearchField("TAGNAMEREPORTWIZARD");
+        user.atTagsPage.fillInTagSearchField("TAGNAME201900000000019");
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.closeTagsPage();
         user.atCreateReportPage.checkFirstAddressInActiveSectionAfterFirstListing();
@@ -75,7 +74,7 @@ public class RW8_ReportWizardMultiSelectSalesRentalsBreakdownAndTags extends Sam
         user.atCreateReportPage.clickOnSalesButton();
         user.atCreateReportPage.deleteReportWizardTag();
         user.atCreateReportPage.clickOnTagsField();
-        user.atMyTagsPage.fillInTagSearchField("TAGNAMEREPORTWIZARD");
+        user.atMyTagsPage.fillInTagSearchField("TAGNAME201900000000019");
         user.atMyTagsPage.clickOnFirstTag();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
@@ -83,6 +82,10 @@ public class RW8_ReportWizardMultiSelectSalesRentalsBreakdownAndTags extends Sam
         user.atCreateReportPage.checkFirstListingIsShown();
         user.atCreateReportPage.deleteReportWizardTag();
         user.atCreateReportPage.checkFirstListingIsShown();
-        user.atCreateReportPage.checkListingsAmount(1); //TODO DOM ISSUE
+        user.atCreateReportPage.checkListingsAmount(2); //TODO DOM ISSUE
+        user.atCreateReportPage.openSecondListing();
+        user.atOpenedBuildingPage.openOnMoreInfoSection();
+        user.atOpenedBuildingPage.checkMonthlyCommonChargesNotChanged();
+        user.atOpenedBuildingPage.checkMonthlyPropertyTaxNotChanged();
     }
 }
