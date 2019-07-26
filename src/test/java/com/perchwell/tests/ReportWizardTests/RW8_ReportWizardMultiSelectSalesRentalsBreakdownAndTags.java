@@ -42,9 +42,9 @@ public class RW8_ReportWizardMultiSelectSalesRentalsBreakdownAndTags extends Sam
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.createAndSaveNewTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atOpenedBuildingPage.openOnMoreInfoSection(); //TODO unable to click after swipe
-        user.atOpenedBuildingPage.getMonthlyCommonCharges();//TODO fix the DOM
-        user.atOpenedBuildingPage.getPropertyTax();//TODO fix the DOM
+        user.atOpenedBuildingPage.openOnMoreInfoSection();
+        user.atOpenedBuildingPage.getMonthlyCommonCharges();
+        user.atOpenedBuildingPage.getPropertyTax();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atMyTagsPage.clickOnCrossFromAccountTagsButton();
         user.atAccountPage.closeAccountMenu();
