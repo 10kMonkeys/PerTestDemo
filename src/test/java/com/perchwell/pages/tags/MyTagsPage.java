@@ -159,7 +159,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "cell: Create Report")
 	private WebElement createReportButton;
 
-	@iOSXCUITFindBy(accessibility = "ADDRESS: 53 West 53rd St. #PH76 726656")
+	@iOSXCUITFindBy(accessibility = "ADDRESS: 1111 Sixth Ave. #58 1767344")
 	private WebElement activeCondoSaleListing;
 
 	//endregion

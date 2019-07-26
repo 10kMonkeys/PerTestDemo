@@ -118,7 +118,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "addTag")
     private WebElement subjectPropertyButton;
 
-    @iOSXCUITFindBy(accessibility = "Remove Button: TAGNAME201900000000019")
+    @iOSXCUITFindBy(accessibility = "Remove Button: TAGNAMEREPORTWIZARD")
     private WebElement reportWizardDeleteButton;
 
     private WebElement addressPlaceholder;
@@ -812,5 +812,19 @@ public class CreateReportPage extends TechHelper {
 
     public void openSecondListing() {
         element(listingsList.get(2)).click();
+    }
+
+    public void clickOnExtendedCMAButton() {
+        element(extendedCmaButton).click();
+    }
+
+    public void checkFirstListingIsShownOnce() {
+        List<WebElement> firstListing = getDriver().findElements(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("reportWizardAddress1")));
+        Assert.assertEquals(firstListing.size(),1);
+    }
+
+    public void checkRentalListingIsShownOnce() {
+        List<WebElement> rentalListing = getDriver().findElements(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("rentalListing")));
+        Assert.assertEquals(rentalListing.size(),1);
     }
 }

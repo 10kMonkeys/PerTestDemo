@@ -29,7 +29,7 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atAddSubjectPropertyPage.checkReTaxesFiledIsNotShown();
         user.atAddSubjectPropertyPage.checkSaveButtonIsEnabled();
         user.atAddSubjectPropertyPage.fillInAddressField(Addresses.DAKOTA_15PLACE);
-        user.atAddSubjectPropertyPage.fillInUnitField(Addresses.DAKOTA);
+        user.atAddSubjectPropertyPage.fillInUnitField("#77");
         user.atAddSubjectPropertyPage.fillInPriceField("300000");
         user.atAddSubjectPropertyPage.fillInRoomsField("2.5");
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");
@@ -44,6 +44,7 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atCreateReportPage.checkAddressPlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkUnitPlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkPricePlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkPriceWithoutMO();
         user.atCreateReportPage.checkPropertyTypePlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkBedroomsPlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkBathroomsPlaceholderWithValue(); //TODO: need to implement locator
@@ -55,7 +56,7 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atCreateReportPage.clickOnSubjectPropertyButton();
         user.atAddSubjectPropertyPage.checkAllFieldsAreEmpty();
         user.atAddSubjectPropertyPage.fillInAddressField(Addresses.DAKOTA_15PLACE);
-        user.atAddSubjectPropertyPage.fillInUnitField(Addresses.DAKOTA);
+        user.atAddSubjectPropertyPage.fillInUnitField("#77");
         user.atAddSubjectPropertyPage.fillInPriceField("300000");
         user.atAddSubjectPropertyPage.fillInRoomsField("2.5");
         user.atAddSubjectPropertyPage.fillInBedsField("3.5");

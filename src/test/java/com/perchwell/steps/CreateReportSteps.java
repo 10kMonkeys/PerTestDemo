@@ -608,4 +608,19 @@ public class CreateReportSteps extends ScenarioSteps {
     public void openSecondListing() {
         onPage.openSecondListing();
     }
+
+    @Step
+    public void clickOnExtendedCMAButton() {
+        onPage.clickOnExtendedCMAButton();
+    }
+
+    @Step
+    public void checkFirstListingIsShownOnce() {
+        onPage.checkFirstListingIsShownOnce();
+    }
+
+    @Step
+    public void checkRentalListingIsShownOnce() {
+        onPage.checkRentalListingIsShownOnce();
+    }
 }
