@@ -4,6 +4,7 @@ import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -174,7 +175,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: External Page")
     private WebElement unselectedExternalPageOption;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell/XCUIElementTypeTextField[1]")
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Report Label-'")
     private WebElement reportLabelTextField;
 
     @iOSXCUITFindBy(accessibility = " Option: Portrait")
@@ -826,5 +827,16 @@ public class CreateReportPage extends TechHelper {
     public void checkRentalListingIsShownOnce() {
         List<WebElement> rentalListing = getDriver().findElements(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("rentalListing")));
         Assert.assertEquals(rentalListing.size(),1);
+    }
+
+    public void fillReportLabelField(int length) {
+        String message = StringUtils.repeat("a", length);
+        waitFor(reportLabelTextField).shouldBeVisible();
+        element(reportLabelTextField).sendKeys(message);
+        hideKeyboard();
+    }
+
+    public void checkOnlySeventySymbolsAllowed() {
+        Assert.assertEquals(70, element(reportLabelTextField).getAttribute("value").length());
     }
 }

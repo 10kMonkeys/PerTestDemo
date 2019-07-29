@@ -6,6 +6,7 @@ import com.perchwell.pages.reportWizard.CreateReportPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
+import org.junit.Test;
 
 public class CreateReportSteps extends ScenarioSteps {
 
@@ -622,5 +623,15 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void checkRentalListingIsShownOnce() {
         onPage.checkRentalListingIsShownOnce();
+    }
+
+    @Step
+    public void fillReportLabelField(int length) {
+        onPage.fillReportLabelField(length);
+    }
+
+    @Step
+    public void checkOnlySeventySymbolsAllowed() {
+        onPage.checkOnlySeventySymbolsAllowed();
     }
 }

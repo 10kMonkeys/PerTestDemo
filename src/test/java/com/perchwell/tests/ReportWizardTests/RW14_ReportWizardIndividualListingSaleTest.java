@@ -65,7 +65,10 @@ public class RW14_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atCreateReportPage.checkRETaxedIsVisible();
         user.atCreateReportPage.checkTotalMonthliesIsVisible();
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
-        //TODO: need to implement filling and checking Report label field after id will add
+        user.atCreateReportPage.swipeToPortrait();
+        user.atCreateReportPage.fillReportLabelField(70);
+        user.atCreateReportPage.fillReportLabelField(1);
+        user.atCreateReportPage.checkOnlySeventySymbolsAllowed();
         user.atCreateReportPage.switchToPortrait();
         user.atCreateReportPage.checkSelectedFieldsAmount(9);
         user.atCreateReportPage.checkUnselectedCCMaintIsVisible();

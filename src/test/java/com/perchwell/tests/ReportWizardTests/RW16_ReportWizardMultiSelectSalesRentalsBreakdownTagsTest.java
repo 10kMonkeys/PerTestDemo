@@ -5,20 +5,38 @@ import com.perchwell.data.Addresses;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class RW8_ReportWizardMultiSelectSalesRentalsBreakdownAndTags extends SampleTest {
+public class RW16_ReportWizardMultiSelectSalesRentalsBreakdownTagsTest extends SampleTest {
 
     @Test
-    public void reportWizardIndividualListingRentalTest() {
+    public void reportWizardMultiSelectSalesRentalsBreakdownTagsTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("core_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atMyTagsPage.fillInTagSearchField("TAGNAMEREPORTWIZARD");
+        user.atMyTagsPage.fillInTagSearchField("TAGNAME201900000000019");
         user.atMyTagsPage.clickOnFirstTag();
         user.atMyTagsPage.clickOnSearchButton();
-        user.atMyTagsPage.getListingsAddresses(10);
+        user.atMyTagsPage.getListingsAddresses(9);
+        user.atMyTagsPage.closeTagsPage();
+        user.atAccountPage.closeAccountMenu();
+        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openAddressSearch();
+        user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
+        user.atSearchPage.openFirstBuilding();
+        user.atOpenedBuildingPage.clickOnMyTagsLabel();
+        user.atMyTagsPage.fillInTagSearchField("TAGNAME201900000000019");
+        user.atMyTagsPage.clickOnFirstTag();
+        user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
+        user.atSearchPage.clickOnCrossBackButtonFromAddressSearch();
+        user.atPerchwellPage.clickOnOpenAccountButton();
+        user.atAccountPage.clickOnTagsLabel();
+        user.atMyTagsPage.fillInTagSearchField("TAGNAME201900000000019");
+        user.atMyTagsPage.clickOnFirstTag();
+        user.atMyTagsPage.clickOnSearchButton();
+        user.atMyTagsPage.getFirstBuildingAddressForReport();
         user.atMyTagsPage.openActiveCondoSaleListing();
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
@@ -33,11 +51,10 @@ public class RW8_ReportWizardMultiSelectSalesRentalsBreakdownAndTags extends Sam
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.getFirstListingNameForReport();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnCreateReportButton();
-        user.atCreateReportPage.clickOnCmaButton();
+        user.atCreateReportPage.clickOnExtendedCMAButton();
         user.atCreateReportPage.clickOnSalesButton();
         user.atCreateReportPage.clickOnTagsField();
         user.atTagsPage.fillInTagSearchField("TAGNAMEREPORTWIZARD");
