@@ -471,5 +471,30 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void checkCreateReportButtonIsNotPresented() {
 		onPage.checkCreateReportButtonIsNotPresented();
 	}
+
+	@Step
+	public void openOnMoreInfoSection() {
+		onPage.openOnMoreInfoSection();
+	}
+
+	@Step
+    public void getMonthlyCommonCharges() {
+		onPage.getMonthlyCommonCharges();
+	}
+
+	@Step
+	public void getPropertyTax() {
+		onPage.getPropertyTax();
+	}
+
+	@Step
+	public void checkMonthlyCommonChargesNotChanged() {
+		onPage.checkMonthlyCommonChargesNotChanged();
+	}
+
+	@Step
+	public void checkMonthlyPropertyTaxNotChanged() {
+		onPage.checkMonthlyPropertyTaxNotChanged();
+	}
 }
 

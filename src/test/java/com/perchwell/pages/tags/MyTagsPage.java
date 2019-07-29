@@ -159,6 +159,9 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "cell: Create Report")
 	private WebElement createReportButton;
 
+	@iOSXCUITFindBy(accessibility = "ADDRESS: 1111 Sixth Ave. #58 1767344")
+	private WebElement activeCondoSaleListing;
+
 	//endregion
 
 	public MyTagsPage(WebDriver driver) {
@@ -658,6 +661,21 @@ public class MyTagsPage extends TechHelper {
 
 	public void checkListingsAreSelected(int value) {
 		Assert.assertEquals(value, selectedListingsListByAddress.size());
+	}
+
+	public void getListingsAddresses(int amount) {
+		for (int i = 0; i < amount; i++) {
+			SessionVariables.addValueInSessionVariable("reportWizardAddress" + (amount - i), addressesList.get(i).getAttribute("value"));
+		}
+	}
+
+	public void openActiveCondoSaleListing() {
+		universalVerticalSwipe(activeCondoSaleListing);
+		element(activeCondoSaleListing).click();
+	}
+
+	public void getFirstBuildingAddressForReport() {
+		SessionVariables.addValueInSessionVariable("reportWizardAddress10", addressesList.get(0).getAttribute("value"));
 	}
 }
 

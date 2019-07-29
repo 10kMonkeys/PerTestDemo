@@ -1,11 +1,12 @@
 package com.perchwell.email;
 
 
+import com.perchwell.data.ReportTypes;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.SessionVariables;
-import com.perchwell.pages.perchwell.CreateReportPage;
+import com.perchwell.pages.reportWizard.CreateReportPage;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -178,5 +179,26 @@ public class MailTrap {
 
 		Assert.assertTrue(rawBody.contains("Subject: " + subject));
 		Assert.assertTrue(rawBody.contains(message));
+	}
+
+	public static boolean shouldFindAttachmentWithReport(String reportType) {
+		try {
+			Thread.sleep(30000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
+		boolean reportWasFound = false;
+		MailTrapResponse[] mailTrapResponse = getEmail(subject);
+		if(mailTrapResponse.length != 0) {
+			MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
+			for (MailTrapAttachment my_attachment : mailTrapAttachment) {
+				if (my_attachment.getFilename().equalsIgnoreCase(reportType)) {
+						reportWasFound = true;
+						break;
+				}
+			}
+		}
+		return reportWasFound;
 	}
 }

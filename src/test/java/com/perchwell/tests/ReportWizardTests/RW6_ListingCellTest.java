@@ -20,7 +20,7 @@ public class RW6_ListingCellTest extends SampleTest {
         user.atSearchPage.setSquareFeetMinFilter("1000");
         user.atSearchPage.setSquareFeetMaxFilter("3000");
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.getSquareFeetForFirstListing();
+        user.atPerchwellPage.getFirstListingSquareFeetForReport();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnCreateReportButton();

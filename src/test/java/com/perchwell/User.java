@@ -105,4 +105,7 @@ public class User extends ScenarioSteps {
 
     @Steps
     public CreateReportSteps atCreateReportPage;
+
+    @Steps
+    public AddSubjectPropertySteps atAddSubjectPropertyPage;
 }
