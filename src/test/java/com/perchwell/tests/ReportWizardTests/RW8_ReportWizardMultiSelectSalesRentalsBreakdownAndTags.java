@@ -66,7 +66,7 @@ public class RW8_ReportWizardMultiSelectSalesRentalsBreakdownAndTags extends Sam
         user.atCreateReportPage.deleteReportWizardTag();
         user.atCreateReportPage.checkFirstListingIsShownOnce();
         user.atCreateReportPage.checkRentalListingIsShownOnce();
-//        user.atCreateReportPage.checkListingsAmount(2); //TODO DOM ISSUE
+        user.atCreateReportPage.checkListingsAmount(2); //TODO DOM ISSUE
         user.atCreateReportPage.openSecondListing();
         user.atOpenedBuildingPage.openOnMoreInfoSection();
         user.atOpenedBuildingPage.checkMonthlyCommonChargesNotChanged();
