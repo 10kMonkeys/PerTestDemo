@@ -220,7 +220,6 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Rooms")
     private WebElement unselectedRoomsSuboption;
 
-
     @iOSXCUITFindBy(accessibility = "Add Listings From Tags")
     private WebElement tagsField;
 
@@ -238,6 +237,15 @@ public class CreateReportPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = "RENTED")
     private WebElement rentedSection;
+
+    @iOSXCUITFindBy(accessibility = "LISTINGS")
+    private WebElement listingSection;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: Include Exact Address")
+    private WebElement selectedIncludeExactAddress;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent Info")
+    private WebElement unselectedListingAgentInfo;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -838,5 +846,48 @@ public class CreateReportPage extends TechHelper {
 
     public void checkOnlySeventySymbolsAllowed() {
         Assert.assertEquals(70, element(reportLabelTextField).getAttribute("value").length());
+    }
+
+    public void clickOnShowSheetsButton() {
+        element(showSheetButton).click();
+    }
+
+    public void checkFirstAndSecondListingsInListingsSection(String address1, String address2) {
+        WebElement listingCell;
+        WebElement listingCell2;
+
+        listingCell = element(MobileBy.AccessibilityId(address1));
+        listingCell2 = element(MobileBy.AccessibilityId(address2));
+
+        System.out.println(getYPositionOfElement(listingSection));
+        System.out.println(getYPositionOfElement(listingCell));
+        System.out.println(getYPositionOfElement(listingCell2));
+
+        Assert.assertEquals(getYPositionOfElement(listingSection) + 144, getYPositionOfElement(listingCell));
+        Assert.assertEquals(getYPositionOfElement(listingSection) + 166, getYPositionOfElement(listingCell2));
+    }
+
+    public void checkThirdListingIsNotShown() {
+        checkOneListingAddressIsNotShown(SessionVariables.getValueFromSessionVariable("reportWizardAddress3"));
+    }
+
+    public void checkIncludeExactAddressIsSelected() {
+        element(selectedIncludeExactAddress).shouldBeVisible();
+    }
+
+    public void checkListingAgentInfoIsUnselected() {
+        element(unselectedListingAgentInfo).shouldBeVisible();
+    }
+
+    public void selectListingAgentInfoOption() {
+        element(unselectedListingAgentInfo).click();
+    }
+
+    public void deselectIncludeExactAddressOption() {
+        element(selectedIncludeExactAddress).click();
+    }
+
+    public void clearSubjectField() {
+        element(subjectField).clear();
     }
 }

@@ -91,23 +91,23 @@ public class SearchPage extends TechHelper {
     private WebElement filterFor1Bath;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption: In Contract")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption: In Contract")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption: In Contract")
     private WebElement inContractFilter;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption: Off Market")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption: Off Market")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption: Off Market")
     private WebElement offMKTButton;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption: Sold/Rented")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption: Sold/Rented")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption: Sold/Rented")
     private WebElement soldOrRentedButton;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption: Expired")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption: Expired")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption: Expired")
     private WebElement expiredButton;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption: Active")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption: Active")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption: Active")
     private WebElement activeButton;
 
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeStaticText[not(contains(@name,'LISTING STATUS'))]")
@@ -227,15 +227,15 @@ public class SearchPage extends TechHelper {
     private WebElement selectedFilterFor3Baths;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption Selected: Active")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: Active")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption Selected: Active")
     private WebElement selectedActiveFilter;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption Selected: In Contract")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: In Contract")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption Selected: In Contract")
     private WebElement selectedContractFilter;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption Selected: Off Market")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: Off Market")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption Selected: Off Market")
     private WebElement selectedOffMktFilter;
 
     @AndroidFindBy(accessibility = "Sales-SELECTED")

@@ -634,4 +634,45 @@ public class CreateReportSteps extends ScenarioSteps {
     public void checkOnlySeventySymbolsAllowed() {
         onPage.checkOnlySeventySymbolsAllowed();
     }
+
+    @Step
+    public void clickOnShowSheetsButton() {
+        onPage.clickOnShowSheetsButton();
+    }
+
+    @Step
+    public void checkFirstAndSecondListingsInListingsSection() {
+        onPage.checkFirstAndSecondListingsInListingsSection(SessionVariables.getValueFromSessionVariable("reportWizardAddress1"),
+                SessionVariables.getValueFromSessionVariable("reportWizardAddress2"));
+    }
+
+    @Step
+    public void checkThirdListingIsNotShown() {
+        onPage.checkThirdListingIsNotShown();
+    }
+
+    @Step
+    public void checkIncludeExactAddressIsSelected() {
+        onPage.checkIncludeExactAddressIsSelected();
+    }
+
+    @Step
+    public void checkListingAgentInfoIsUnselected() {
+        onPage.checkListingAgentInfoIsUnselected();
+    }
+
+    @Step
+    public void selectListingAgentInfoOption() {
+        onPage.selectListingAgentInfoOption();
+    }
+
+    @Step
+    public void deselectIncludeExactAddressOption() {
+        onPage.deselectIncludeExactAddressOption();
+    }
+
+    @Step
+    public void clearSubjectField() {
+        onPage.clearSubjectField();
+    }
 }
