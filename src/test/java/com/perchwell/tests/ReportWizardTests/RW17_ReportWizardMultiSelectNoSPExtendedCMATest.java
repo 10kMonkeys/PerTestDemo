@@ -42,6 +42,5 @@ public class RW17_ReportWizardMultiSelectNoSPExtendedCMATest extends SampleTest 
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.EXTENDED_CMA_REPORT);
-        user.atCreateReportPage.clickOnPopUpExitButton();
     }
 }

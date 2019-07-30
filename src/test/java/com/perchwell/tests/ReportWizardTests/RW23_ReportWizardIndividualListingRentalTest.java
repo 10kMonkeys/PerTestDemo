@@ -6,7 +6,7 @@ import com.perchwell.data.ReportTypes;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class RW15_ReportWizardIndividualListingRentalTest extends SampleTest {
+public class RW23_ReportWizardIndividualListingRentalTest extends SampleTest {
 
     @Test
     public void reportWizardIndividualListingRentalTest() {
@@ -38,17 +38,17 @@ public class RW15_ReportWizardIndividualListingRentalTest extends SampleTest {
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.clickShareButton();
         user.atOpenedBuildingPage.clickOnCreateReportButton();
-        user.atCreateReportPage.clickOnCmaButton();
+        user.atCreateReportPage.clickOnExtendedCMAButton();
         user.atCreateReportPage.clickOnRentalsButton();
-//        user.atCreateReportPage.checkAddressPlaceholderWithValue(); //TODO: need to implement locator
-//        user.atCreateReportPage.checkUnitForListing(); //TODO: need to implement locator
-//        user.atCreateReportPage.checkPricePlaceholderWithValue(); //TODO: need to implement locator
-//        user.atCreateReportPage.checkPropertyTypePlaceholderWithValue(); //TODO: need to implement locator
-//        user.atCreateReportPage.checkBedroomsPlaceholderWithValue(); //TODO: need to implement locator
-//        user.atCreateReportPage.checkSqrFootagePlaceholderWithValue(); //TODO: need to implement locator
-//        user.atCreateReportPage.checkSquareFeetValueWithoutApproxLabel(); //TODO: need to implement locator
-//        user.atCreateReportPage.checkStudioIsDisplayed(); //TODO: need to implement locator
-//        user.atCreateReportPage.checkBathroomsIsHidden(); //TODO: need to implement locator
+        user.atCreateReportPage.checkAddressPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkUnitForListing(); //TODO: need to implement locator
+        user.atCreateReportPage.checkPricePlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkPropertyTypePlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkBedroomsPlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkSqrFootagePlaceholderWithValue(); //TODO: need to implement locator
+        user.atCreateReportPage.checkSquareFeetValueWithoutApproxLabel(); //TODO: need to implement locator
+        user.atCreateReportPage.checkStudioIsDisplayed(); //TODO: need to implement locator
+        user.atCreateReportPage.checkBathroomsIsHidden(); //TODO: need to implement locator
         user.atCreateReportPage.clickOnTagsField();
         user.atTagsPage.fillInTagSearchField("TAGNAMEREPORTWIZARD");
         user.atTagsPage.clickOnFirstTag();
@@ -81,7 +81,7 @@ public class RW15_ReportWizardIndividualListingRentalTest extends SampleTest {
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.clickOnPopUpExitButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.CMA_REPORT);
+        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.EXTENDED_CMA_REPORT);
     }
+
 }
