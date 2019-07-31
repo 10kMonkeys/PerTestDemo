@@ -17,4 +17,5 @@ public class DiscussionMessages {
     public static final String MESSAGE = "Message" + emailDateFormat.format(new Date());
     public static final String CONTACT_AGENT_SUBJECT = "Subject" + emailDateFormat.format(new Date());
     public static final String REPORT_SUBJECT = "Report_Subject" + emailDateFormat.format(new Date());
+    public static final String DESCRIPTION = "Description" + emailDateFormat.format(new Date());
 }

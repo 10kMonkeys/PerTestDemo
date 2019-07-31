@@ -675,4 +675,89 @@ public class CreateReportSteps extends ScenarioSteps {
     public void clearSubjectField() {
         onPage.clearSubjectField();
     }
+
+    @Step
+    public void fillInDescriptionField(String description) {
+        onPage.fillInDescriptionField(description);
+    }
+
+    @Step
+    public void clickOnAppointmentDate() {
+        onPage.clickOnAppointmentDate();
+    }
+
+    @Step
+    public void checkTodayMonthAndYearCalendarAreShown() {
+        onPage.checkTodayMonthAndYearCalendarAreShown();
+    }
+
+    @Step
+    public void setDateForNextMonth(String date) {
+        onPage.setDateForNextMonth(date);
+    }
+
+    @Step
+    public void checkCalendarIsClosed() {
+        onPage.checkCalendarIsClosed();
+    }
+
+    @Step
+    public void checkSelectedDateIsShown() {
+        onPage.checkSelectedDateIsShown();
+    }
+
+    @Step
+    public void checkTodayDateIsSelected() {
+        onPage.checkTodayDateIsSelected();
+    }
+
+    @Step
+    public void clickOnAppointmentTime() {
+        onPage.clickOnAppointmentTime();
+    }
+
+    @Step
+    public void changeTime() {
+        onPage.changeTime();
+    }
+
+    @Step
+    public void clickOnRevertIcon() {
+        onPage.clickOnRevertIcon();
+    }
+
+    @Step
+    public void checkTimeIsReset() {
+        onPage.checkTimeIsReset();
+    }
+
+    @Step
+    public void clickOnSaveButton() {
+        onPage.clickOnSaveButton();
+    }
+
+    @Step
+    public void checkTimeSelectorIsShown() {
+        onPage.checkTimeSelectorIsShown();
+    }
+
+    @Step
+    public void checkSelectedTimeIsShown() {
+        onPage.checkSelectedTimeIsShown();
+    }
+
+    @Step
+    public void clickOnFloorplanEditIcon() {
+        onPage.clickOnFloorplanEditIcon();
+    }
+
+    @Step
+    public void clickOnPhotosEditIcon() {
+        onPage.clickOnPhotosEditIcon();
+    }
+
+    @Step
+    public void clearDescriptionField() {
+        onPage.clearDescriptionField();
+    }
 }

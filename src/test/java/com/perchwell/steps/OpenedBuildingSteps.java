@@ -496,5 +496,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void checkMonthlyPropertyTaxNotChanged() {
 		onPage.checkMonthlyPropertyTaxNotChanged();
 	}
+
+	@Step
+    public void clickOnReportListing() {
+		onPage.clickOnReportListing();
+    }
 }
 

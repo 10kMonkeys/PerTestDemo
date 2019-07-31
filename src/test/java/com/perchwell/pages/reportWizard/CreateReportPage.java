@@ -9,7 +9,10 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -246,6 +249,42 @@ public class CreateReportPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent Info")
     private WebElement unselectedListingAgentInfo;
+
+    @iOSXCUITFindBy(accessibility = "textView")
+    private WebElement descriptionField;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Appointment Date-'")
+    private WebElement appointmentDateField;
+
+    @iOSXCUITFindBy(accessibility = "chevronRight")
+    private WebElement nextMonthButton;
+
+    @iOSXCUITFindBy(accessibility = "SELECT A DATE")
+    private WebElement calendarLabel;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Appointment Time-'")
+    private WebElement appointmentTimeField;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "value CONTAINS 'o’clock'")
+    private WebElement hourWheel;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "value CONTAINS 'minutes'")
+    private WebElement minuteWheel;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "value CONTAINS 'M'")
+    private WebElement meridiemWheel;
+
+    @iOSXCUITFindBy(accessibility = "refresh14")
+    private WebElement revertIcon;
+
+    @iOSXCUITFindBy(accessibility = "Save")
+    private WebElement saveButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name='edit'$][1]")
+    private WebElement floorplanEditIcon;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name='edit'$][2]")
+    private WebElement photosEditIcon;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -889,5 +928,115 @@ public class CreateReportPage extends TechHelper {
 
     public void clearSubjectField() {
         element(subjectField).clear();
+    }
+
+    public void fillInDescriptionField(String description) {
+        element(descriptionField).sendKeys(description);
+    }
+
+    public void clickOnAppointmentDate() {
+        element(appointmentDateField).click();
+    }
+
+    public void checkTodayMonthAndYearCalendarAreShown() {
+        waitABit(2000);
+        DateFormat month = new SimpleDateFormat("MMMM");
+        DateFormat year = new SimpleDateFormat("YYYY");
+
+        element(MobileBy.AccessibilityId(month.format(new Date()).toUpperCase())).shouldBeVisible();
+        element(MobileBy.AccessibilityId(year.format(new Date()))).shouldBeVisible();
+    }
+
+    public void setDateForNextMonth(String date) {
+        element(nextMonthButton).click();
+        element(MobileBy.AccessibilityId(date)).click();
+        SessionVariables.addValueInSessionVariable("selectedDay", date);
+    }
+
+    public void checkCalendarIsClosed() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(calendarLabel).shouldNotBeVisible();
+        resetImplicitTimeout();
+    }
+
+    public void checkSelectedDateIsShown() {
+        DateFormat monthFormat = new SimpleDateFormat("MM");
+        DateFormat yearFormat = new SimpleDateFormat("YYYY");
+        String selectedMonth;
+        int nextMonth = Integer.parseInt(monthFormat.format(new Date())) + 1;
+        int currentYear = Integer.parseInt(yearFormat.format(new Date()));
+
+        if(String.valueOf(nextMonth).length() < 2)
+            selectedMonth = "0" + nextMonth;
+        else if(nextMonth == 13) {
+            selectedMonth = "01";
+            currentYear += 1;
+        }
+        else
+            selectedMonth = String.valueOf(nextMonth);
+
+        String selectedDate = selectedMonth + "/"
+                + SessionVariables.getValueFromSessionVariable("selectedDay")
+                + "/" + currentYear;
+
+        Assert.assertEquals(selectedDate, element(appointmentDateField).getValue());
+    }
+
+    public void checkTodayDateIsSelected() {
+        //TODO: need to implement, cause selected date doesn't differ from non-selected date
+    }
+
+    public void clickOnAppointmentTime() {
+        element(appointmentTimeField).click();
+    }
+
+    public void changeTime() {
+        swipeUpElementIOS(hourWheel, 100);
+        SessionVariables.addValueInSessionVariable("hourWheelValue", element(hourWheel).getValue());
+        swipeUpElementIOS(minuteWheel, 100);
+        SessionVariables.addValueInSessionVariable("minuteWheelValue", element(minuteWheel).getValue());
+        swipeUpElementIOS(meridiemWheel, 100);
+        SessionVariables.addValueInSessionVariable("meridiemWheelValue", element(meridiemWheel).getValue());
+    }
+
+    public void clickOnRevertIcon() {
+        element(revertIcon).click();
+    }
+
+    public void checkTimeIsReset() {
+        Assert.assertEquals("10 o’clock", element(hourWheel).getValue());
+        Assert.assertEquals("00 minutes", element(minuteWheel).getValue());
+        Assert.assertEquals("AM", element(meridiemWheel).getValue());
+    }
+
+    public void clickOnSaveButton() {
+        element(saveButton).click();
+    }
+
+    public void checkTimeSelectorIsShown() {
+        element(hourWheel).shouldBeVisible();
+        element(minuteWheel).shouldBeVisible();
+        element(meridiemWheel).shouldBeVisible();
+    }
+
+    public void checkSelectedTimeIsShown() {
+        String selectedTime = SessionVariables.getValueFromSessionVariable("hourWheelValue").replace(" o’clock", "")
+                + ":"
+                + SessionVariables.getValueFromSessionVariable("minuteWheelValue").replace("minutes", "")
+                + SessionVariables.getValueFromSessionVariable("meridiemWheelValue");
+
+        Assert.assertEquals(selectedTime, element(appointmentTimeField).getValue());
+    }
+
+    public void clickOnFloorplanEditIcon() {
+        element(floorplanEditIcon).click();
+    }
+
+    public void clickOnPhotosEditIcon() {
+        element(photosEditIcon).click();
+    }
+
+    public void clearDescriptionField() {
+        element(descriptionField).clear();
     }
 }

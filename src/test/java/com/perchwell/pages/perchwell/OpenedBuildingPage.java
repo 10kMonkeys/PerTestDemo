@@ -292,6 +292,9 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'MONTHLY PROPERTY TAX-'")
 	private WebElement monthlyPropertyTax;
 
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address: 5800 AVE. U #53'")
+	private WebElement reportListing;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -982,4 +985,9 @@ public class OpenedBuildingPage extends TechHelper {
 	public void checkMonthlyPropertyTaxNotChanged() {
 		Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyPropertyTax"), element(monthlyPropertyTax).getAttribute("value"));
 	}
+
+    public void clickOnReportListing() {
+		universalVerticalSwipe(reportListing);
+		element(reportListing).click();
+    }
 }
