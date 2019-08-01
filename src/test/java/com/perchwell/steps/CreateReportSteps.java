@@ -760,4 +760,234 @@ public class CreateReportSteps extends ScenarioSteps {
     public void clearDescriptionField() {
         onPage.clearDescriptionField();
     }
+
+    @Step
+    public void clickOnShowSheetButton() {
+        onPage.clickOnShowSheetButton();
+    }
+
+    @Step
+    public void checkListingAgentInfoSuboptionUnselected() {
+        onPage.checkListingAgentInfoSuboptionUnselected();
+    }
+
+    @Step
+    public void checkDomSupoptionSelected() {
+        onPage.checkDomSupoptionSelected();
+    }
+
+    @Step
+    public void checkListDateSupoptionSelected() {
+        onPage.checkListDateSupoptionSelected();
+    }
+
+    @Step
+    public void checkSubwayInfoSupoptionSelected() {
+        onPage.checkSubwayInfoSupoptionSelected();
+    }
+
+    @Step
+    public void checkIncludeMapSupoptionSelected() {
+        onPage.checkIncludeMapSupoptionSelected();
+    }
+
+    @Step
+    public void checkFloorplanSupoptionSelected() {
+        onPage.checkFloorplanSupoptionSelected();
+    }
+
+    @Step
+    public void checkIncludeExactAddressSupoptionSelected() {
+        onPage.checkIncludeExactAddressSupoptionSelected();
+    }
+
+    @Step
+    public void checkOpenHouseSupoptionSelected() {
+        onPage.checkOpenHouseSupoptionSelected();
+    }
+
+    @Step
+    public void checkNeighborhoodSupoptionSelected() {
+        onPage.checkNeighborhoodSupoptionSelected();
+    }
+
+    @Step
+    public void deselectAllOptions() {
+        onPage.deselectAllOptions();
+    }
+
+    @Step
+    public void checkAllOptionsDeselected() {
+        onPage.checkAllOptionsDeselected();
+    }
+
+    @Step
+    public void selectAllOptions() {
+        onPage.selectAllOptions();
+    }
+
+    @Step
+    public void checkAllOptionsAreSelected() {
+        onPage.checkAllOptionsAreSelected();
+    }
+
+    @Step
+    public void checkDescriptionFieldMarkedRed() {
+//        TODO
+    }
+
+    @Step
+    public void checkNextButtonIsDisabled() {
+        onPage.checkNextButtonIsDisabled();
+    }
+
+    @Step
+    public void checkFloorplanIsShown() {
+        //        TODO
+    }
+
+    @Step
+    public void checkPhotosAreShown() {
+        //        TODO
+    }
+
+    @Step
+    public void tapOnDescriptionField() {
+        onPage.tapOnDescriptionField();
+    }
+
+    @Step
+    public void checkDescribtionFieldExpanded() {
+//    TODO
+    }
+
+    @Step
+    public void removeSymbolsToLeaveOnly1160() {
+//        TODO
+    }
+
+    @Step
+    public void checkCharactersLabelMarkedBlack() {
+//        TODO
+    }
+
+    @Step
+    public void tapDoneButton() {
+        onPage.tapDone();
+    }
+
+    @Step
+    public void fillDescriptionField() {
+//        todo
+    }
+
+    @Step
+    public void tapFloorplanPencil() {
+        onPage.tapFloorplanPencil();
+    }
+
+    @Step
+    public void checkOnePerOneSelectedLabelIsShown() {
+        onPage.checkOnePerOneSelectedLabelIsShown();
+    }
+
+    @Step
+    public void checkOneIsShownOnFirstFloorplan() {
+        onPage.checkOneIsShownOnFirstFloorplan();
+    }
+
+    @Step
+    public void checkSecondFloorplanNotSelected() {
+//        todo no listings with 2 floorplans
+    }
+
+    @Step
+    public void tapOnSecondFloorplan() {
+//        todo no listings with 2 floorplans
+    }
+
+    @Step
+    public void tapOnFirstFloorplan() {
+        onPage.tapOnFirstFloorplan();
+    }
+
+    @Step
+    public void checkZeroPerOneSelectedLabelIsShown() {
+        onPage.checkZeroPerOneSelectedLabelIsShown();
+    }
+
+    @Step
+    public void oneSelectedLabeRemovedFromFirstFloorplan() {
+        onPage.oneSelectedLabeRemovedFromFirstFloorplan();
+    }
+
+    @Step
+    public void tapCollapseButton() {
+        onPage.tapCollapseButton();
+    }
+
+    @Step
+    public void checkFloorplanRemovedFromReportScreen() {
+//        todo no locators for floorplan
+    }
+
+    @Step
+    public void checkNextButtonIsEnabled() {
+        onPage.checkNextButtonIsEnabled();
+    }
+
+    @Step
+    public void tapPhotosPencil() {
+        onPage.tapPhotosPencil();
+    }
+
+    @Step
+    public void checkFourPerFourSelectedLabelIsShown() {
+        onPage.checkFourPerFourSelectedLabelIsShown();
+    }
+
+    @Step
+    public void checkFirstPhotoSelected() {
+        onPage.checkFirstPhotoSelected();
+    }
+
+    @Step
+    public void checkSecondPhotoSelected() {
+        onPage.checkSecondPhotoSelected();
+    }
+
+    @Step
+    public void checkThirdPhotoSelected() {
+        onPage.checkThirdPhotoSelected();
+    }
+
+    @Step
+    public void selectFithPhoto() {
+        onPage.selectFithPhoto();
+    }
+
+    @Step
+    public void checkFifthPhotoIsNotSelected() {
+        onPage.checkFifthPhotoIsNotSelected();
+    }
+
+    @Step
+    public void deselectAllPhotos() {
+        onPage.deselectAllPhotos();
+    }
+
+    @Step
+    public void zeroPerFourSelectedLabelIsShown() {
+        onPage.zeroPerFourSelectedLabelIsShown();
+    }
+
+    @Step
+    public void checkPhotosRemovedFromReportScreen() {
+        //        todo no locators for photos
+    }
+
+    @Step
+    public void checkFourthPhotoSelected() {
+        onPage.checkFourthPhotoSelected();
+    }
 }
