@@ -223,6 +223,57 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Rooms")
     private WebElement unselectedRoomsSuboption;
 
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: DOM")
+    private WebElement selectedDOMSuboption;
+
+    @iOSXCUITFindBy(accessibility = "Suboption: DOM")
+    private WebElement unselectedDOMSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: List Date")
+    private WebElement selectedListDateSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: List Date")
+    private WebElement unselectedListDateSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: Subway Info")
+    private WebElement selectedSubwayInfoSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Subway Info")
+    private WebElement unselectedSubwayInfoSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: Include Map")
+    private WebElement selectedIncludeMapSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Include Map")
+    private WebElement unselectedIncludeMapSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: Floorplan")
+    private WebElement selectedFloorplanSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Floorplan")
+    private WebElement unselectedFloorplanSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: Include Exact Address")
+    private WebElement selectedIncludeExactAddressSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Include Exact Address")
+    private WebElement unselectedIncludeExactAddressSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: Open House")
+    private WebElement selectedOpenHouseSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Open House")
+    private WebElement unselectedOpenHouseSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: Neighborhood")
+    private WebElement selectedNeighborhoodSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent Info")
+    private WebElement unselectedListingAgentInfoSuboption;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Suboption:'")
+    private List<WebElement> unselectedSuboptions;
+
     @iOSXCUITFindBy(accessibility = "Add Listings From Tags")
     private WebElement tagsField;
 
@@ -271,7 +322,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "value CONTAINS 'minutes'")
     private WebElement minuteWheel;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "value CONTAINS 'M'")
+    @iOSXCUITFindBy(iOSNsPredicate = "value CONTAINS 'AM' OR value CONTAINS 'PM' AND visible == 1")
     private WebElement meridiemWheel;
 
     @iOSXCUITFindBy(accessibility = "refresh14")
@@ -285,6 +336,57 @@ public class CreateReportPage extends TechHelper {
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name='edit'$][2]")
     private WebElement photosEditIcon;
+
+    @iOSXCUITFindBy(accessibility = "Done")
+    private WebElement doneButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name=='edit'$][1]")
+    private WebElement floorplanEditButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name=='edit'$][2]")
+    private WebElement photosEditButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name=='1'$]")
+    private WebElement selectedOneLabel;
+
+    @iOSXCUITFindBy(accessibility = "1/1")
+    private WebElement oneAndOneSelectedLabel;
+
+    @iOSXCUITFindBy(accessibility = "0/1")
+    private WebElement zeroPerOneLabel;
+
+    @iOSXCUITFindBy(accessibility = "4/4")
+    private WebElement fourPerFourLabel;
+
+    @iOSXCUITFindBy(accessibility = "0/4")
+    private WebElement zeroPerFourSelectedLabel;
+    
+    @iOSXCUITFindBy(accessibility = "shrink")
+    private WebElement collapseButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]")
+    private WebElement firstFloorplan;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name=='1'$]")
+    private WebElement firstPhotoSelectedLabel;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name=='2'$]")
+    private WebElement secondPhotoSelectedLabel;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[3]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name=='3'$]")
+    private WebElement thirdPhotoSelectedLabel;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[4]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name=='4'$]")
+    private WebElement fourthPhotoSelectedLabel;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[5]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name=='5'$]")
+    private WebElement fifthPhotoSelectedLabel;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell")
+    private List<WebElement> photosList;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeStaticText")
+    private List<WebElement> selectedPhotosList;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -944,7 +1046,7 @@ public class CreateReportPage extends TechHelper {
         DateFormat year = new SimpleDateFormat("YYYY");
 
         element(MobileBy.AccessibilityId(month.format(new Date()).toUpperCase())).shouldBeVisible();
-        element(MobileBy.AccessibilityId(year.format(new Date()))).shouldBeVisible();
+        element(MobileBy.AccessibilityId(" " + year.format(new Date()) + " ")).shouldBeVisible();
     }
 
     public void setDateForNextMonth(String date) {
@@ -991,11 +1093,11 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void changeTime() {
-        swipeUpElementIOS(hourWheel, 100);
+        swipeDownDateWheel(hourWheel);
         SessionVariables.addValueInSessionVariable("hourWheelValue", element(hourWheel).getValue());
-        swipeUpElementIOS(minuteWheel, 100);
+        swipeDownDateWheel(minuteWheel);
         SessionVariables.addValueInSessionVariable("minuteWheelValue", element(minuteWheel).getValue());
-        swipeUpElementIOS(meridiemWheel, 100);
+        swipeDownDateWheel(meridiemWheel);
         SessionVariables.addValueInSessionVariable("meridiemWheelValue", element(meridiemWheel).getValue());
     }
 
@@ -1038,5 +1140,160 @@ public class CreateReportPage extends TechHelper {
 
     public void clearDescriptionField() {
         element(descriptionField).clear();
+    }
+    
+    public void clickOnShowSheetButton() {
+        element(showSheetButton).click();
+    }
+
+    public void checkListingAgentInfoSuboptionUnselected() {
+        element(unselectedListingAgentInfoSuboption).shouldBeVisible();
+    }
+
+    public void checkDomSupoptionSelected() {
+        element(selectedDOMSuboption).shouldBeVisible();
+    }
+
+    public void checkListDateSupoptionSelected() {
+        element(selectedListDateSuboption).shouldBeVisible();
+    }
+
+    public void checkSubwayInfoSupoptionSelected() {
+        element(selectedSubwayInfoSuboption).shouldBeVisible();
+    }
+
+    public void checkIncludeMapSupoptionSelected() {
+        element(selectedIncludeMapSuboption).shouldBeVisible();
+    }
+
+    public void checkFloorplanSupoptionSelected() {
+        element(selectedFloorplanSuboption).shouldBeVisible();
+    }
+
+    public void checkIncludeExactAddressSupoptionSelected() {
+        element(selectedIncludeExactAddressSuboption).shouldBeVisible();
+    }
+
+    public void checkOpenHouseSupoptionSelected() {
+        element(selectedOpenHouseSuboption).shouldBeVisible();
+    }
+
+    public void checkNeighborhoodSupoptionSelected() {
+        element(selectedNeighborhoodSuboption).shouldBeVisible();
+    }
+
+    public void deselectAllOptions() {
+        for (WebElement subOption : subOptions) {
+            element(subOption).click();
+        }
+    }
+
+    public void checkAllOptionsDeselected() {
+        Assert.assertEquals(9, unselectedSuboptions.size());
+    }
+
+    public void selectAllOptions() {
+        for (WebElement i: unselectedSuboptions) {
+            element(i).click();
+        }
+    }
+
+    public void checkAllOptionsAreSelected() {
+        Assert.assertEquals(9, subOptions.size());
+    }
+
+    public void checkNextButtonIsDisabled() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(nextButton).shouldNotBeEnabled();
+        resetImplicitTimeout();
+    }
+
+    public void tapOnDescriptionField() {
+        element(descriptionField).click();
+    }
+
+    public void tapDone() {
+        element(doneButton).click();
+    }
+
+    public void tapFloorplanPencil() {
+        element(floorplanEditButton).click();
+    }
+
+    public void checkOnePerOneSelectedLabelIsShown() {
+        element(oneAndOneSelectedLabel).shouldBeVisible();
+    }
+
+    public void checkOneIsShownOnFirstFloorplan() {
+        element(selectedOneLabel).shouldBeVisible();
+    }
+
+    public void tapOnFirstFloorplan() {
+        element(firstFloorplan).click();
+    }
+
+    public void checkZeroPerOneSelectedLabelIsShown() {
+        element(zeroPerOneLabel).shouldBeVisible();
+    }
+
+    public void oneSelectedLabeRemovedFromFirstFloorplan() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(selectedOneLabel).shouldNotBeVisible();
+        resetImplicitTimeout();
+    }
+
+    public void tapCollapseButton() {
+        element(collapseButton).click();
+    }
+
+    public void checkNextButtonIsEnabled() {
+        element(nextButton).shouldBeEnabled();
+    }
+
+    public void tapPhotosPencil() {
+        element(photosEditButton).click();
+    }
+
+    public void checkFourPerFourSelectedLabelIsShown() {
+        element(fourPerFourLabel).shouldBeVisible();
+    }
+
+    public void checkFirstPhotoSelected() {
+        element(firstPhotoSelectedLabel).shouldBeVisible();
+    }
+
+    public void checkSecondPhotoSelected() {
+        element(secondPhotoSelectedLabel).shouldBeVisible();
+    }
+
+    public void checkThirdPhotoSelected() {
+        element(thirdPhotoSelectedLabel).shouldBeVisible();
+    }
+
+    public void checkFourthPhotoSelected() {
+        element(fourthPhotoSelectedLabel).shouldBeVisible();
+    }
+
+    public void selectFithPhoto() {
+        element(photosList.get(5)).click();
+    }
+
+    public void checkFifthPhotoIsNotSelected() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(fifthPhotoSelectedLabel).shouldNotBeVisible();
+        resetImplicitTimeout();
+    }
+
+    public void deselectAllPhotos() {
+        for (WebElement i : selectedPhotosList) {
+            element(i).click();
+        }
+    }
+
+    public void zeroPerFourSelectedLabelIsShown() {
+        element(zeroPerFourSelectedLabel).shouldBeVisible();
+    }
+
+    public void checkPhotosRemovedFromReportScreen() {
     }
 }

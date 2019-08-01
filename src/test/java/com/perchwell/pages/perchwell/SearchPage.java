@@ -763,6 +763,9 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption: Condop")
     private WebElement condopFilter;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address: 5800 AVE. U #53'")
+    private WebElement reportListing;
+
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -2276,6 +2279,11 @@ public class SearchPage extends TechHelper {
     public void checkSelectedFilterFor3Baths() {
         universalVerticalShortSwipe(totalRoomsSection);
         Assert.assertTrue(element(selectedFilterFor3Baths).isDisplayed());
+    }
+
+    public void clickOnReportListing() {
+        universalVerticalSwipe(reportListing);
+        element(reportListing).click();
     }
 
     public void checkSelectedFilterFor3Beds() {

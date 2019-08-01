@@ -55,7 +55,6 @@ public class RW26_ReportWizardIndividualListingMaxInfoPhotosReorderTest extends 
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.SHOW_SHEET_REPORT);
     }
 }
