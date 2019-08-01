@@ -990,4 +990,24 @@ public class CreateReportSteps extends ScenarioSteps {
     public void checkFourthPhotoSelected() {
         onPage.checkFourthPhotoSelected();
     }
+
+    @Step
+    public void selectAgentCommissionOption() {
+        onPage.selectAgentCommissionOption();
+    }
+
+    @Step
+    public void clickOnMediumButton() {
+        onPage.clickOnMediumButton();
+    }
+
+    @Step
+    public void clickDefaultIncludesBuildingsButton() {
+        onPage.clickDefaultIncludesBuildingsButton();
+    }
+
+    @Step
+    public void checkBuildingInBuildingsSection() {
+        onPage.checkBuildingInBuildingsSection();
+    }
 }

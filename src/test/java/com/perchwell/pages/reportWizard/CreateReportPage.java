@@ -388,6 +388,12 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeStaticText")
     private List<WebElement> selectedPhotosList;
 
+    @iOSXCUITFindBy(accessibility = "Suboption: Listing Agent/Commission")
+    private WebElement unselectedlistingAgentCommissionOption;
+
+    @iOSXCUITFindBy(accessibility = "BUILDINGS")
+    private WebElement buildingSection;
+
     public CreateReportPage(WebDriver driver) {
         super(driver);
     }
@@ -1295,5 +1301,21 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkPhotosRemovedFromReportScreen() {
+    }
+
+    public void selectAgentCommissionOption() {
+        element(unselectedlistingAgentCommissionOption).click();
+    }
+
+    public void clickOnMediumButton() {
+        element(mediumButton).click();
+    }
+
+    public void clickDefaultIncludesBuildingsButton() {
+        element(defaultIncludesBuildingButton).click();
+    }
+
+    public void checkBuildingInBuildingsSection() {
+        checkOneListingAddressBelowSection(buildingSection, SessionVariables.getValueFromSessionVariable("reportWizardAddress3"));
     }
 }
