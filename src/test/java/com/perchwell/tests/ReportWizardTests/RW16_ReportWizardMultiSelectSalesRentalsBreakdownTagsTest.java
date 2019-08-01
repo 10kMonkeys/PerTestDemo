@@ -5,10 +5,10 @@ import com.perchwell.data.Addresses;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class RW8_ReportWizardMultiSelectSalesRentalsBreakdownAndTags extends SampleTest {
+public class RW16_ReportWizardMultiSelectSalesRentalsBreakdownTagsTest extends SampleTest {
 
     @Test
-    public void reportWizardIndividualListingRentalTest() {
+    public void reportWizardMultiSelectSalesRentalsBreakdownTagsTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("core_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -37,7 +37,7 @@ public class RW8_ReportWizardMultiSelectSalesRentalsBreakdownAndTags extends Sam
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnCreateReportButton();
-        user.atCreateReportPage.clickOnCmaButton();
+        user.atCreateReportPage.clickOnExtendedCMAButton();
         user.atCreateReportPage.clickOnSalesButton();
         user.atCreateReportPage.clickOnTagsField();
         user.atTagsPage.fillInTagSearchField("TAGNAMEREPORTWIZARD");

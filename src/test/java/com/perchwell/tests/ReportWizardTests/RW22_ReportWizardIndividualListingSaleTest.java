@@ -6,8 +6,7 @@ import com.perchwell.data.ReportTypes;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class RW14_ReportWizardIndividualListingSaleTest extends SampleTest {
-
+public class RW22_ReportWizardIndividualListingSaleTest extends SampleTest {
     @Test
     public void reportWizardIndividualListingSaleTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("core_email"),
@@ -38,7 +37,7 @@ public class RW14_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.clickShareButton();
         user.atOpenedBuildingPage.clickOnCreateReportButton();
-        user.atCreateReportPage.clickOnCmaButton();
+        user.atCreateReportPage.clickOnExtendedCMAButton();
         user.atCreateReportPage.clickOnSalesButton();
         user.atCreateReportPage.checkAddressPlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkUnitForListing(); //TODO: need to implement locator
@@ -86,6 +85,7 @@ public class RW14_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.clickOnPopUpExitButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.CMA_REPORT);
+        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.EXTENDED_CMA_REPORT);
+
     }
 }

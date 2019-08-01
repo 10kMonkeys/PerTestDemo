@@ -6,10 +6,10 @@ import com.perchwell.data.ReportTypes;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class RW12_ReportWizardMultiSelectSaleCustomOptionsTest extends SampleTest {
+public class RW20_ReportWizardMultiSelectSaleCustomOptionTest extends SampleTest {
 
     @Test
-    public void reportWizardMultiSelectSaleCustomOptionsTest() {
+    public void reportWizardMultiSelectSaleCustomOptionTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("core_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -20,7 +20,7 @@ public class RW12_ReportWizardMultiSelectSaleCustomOptionsTest extends SampleTes
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnCreateReportButton();
-        user.atCreateReportPage.clickOnCmaButton();
+        user.atCreateReportPage.clickOnExtendedCMAButton();
         user.atCreateReportPage.clickOnSalesButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkLayoutIsLandscape();
@@ -50,6 +50,6 @@ public class RW12_ReportWizardMultiSelectSaleCustomOptionsTest extends SampleTes
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.clickOnPopUpExitButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.CMA_REPORT);
+        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.EXTENDED_CMA_REPORT);
     }
 }
