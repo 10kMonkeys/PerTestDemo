@@ -201,4 +201,43 @@ public class MailTrap {
 		}
 		return reportWasFound;
 	}
+
+	public static void checkListingsOrderInMediaReportEmail() {
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		List<String> listingsAddress = new ArrayList<>();
+		String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
+		String rawBody;
+
+		MailTrapResponse[] mailTrapResponse = getEmail(subject);
+		rawBody = getTextBody(mailTrapResponse[0].getTxt_path());
+
+		String address = "(\\w{1,100}\\s[0-9]{1,100}\\w{1,100}\\s\\w{1,100}\\.)|(\\w{3,100}\\s\\w{1,100}\\.)";
+		Pattern patternForAddress = Pattern.compile(address);
+		Matcher matcherForAddress = patternForAddress.matcher(rawBody);
+
+		while (matcherForAddress.find()) {
+			listingsAddress.add(rawBody.substring(matcherForAddress.start(), matcherForAddress.end()));
+		}
+
+		List<String> nonExactAdressOrderListing = new ArrayList<>();
+
+		for (String orderedListing: CreateReportPage.orderListing) {
+		Pattern pattern = Pattern.compile("(\\w{1,100}\\s[0-9]{1,100}\\w{1,100}\\s\\w{1,100}\\.)|(\\w{3,100}\\s\\w{1,100}\\.)");
+		Matcher matcher = pattern.matcher(orderedListing);
+		if (matcher.find()) {
+				nonExactAdressOrderListing.add(orderedListing.substring(matcher.start(), matcher.end()));
+			}
+		}
+
+		Assert.assertEquals(2, listingsAddress.size());
+
+		for(int i = 0; i < listingsAddress.size(); i++) {
+			Assert.assertEquals(nonExactAdressOrderListing.get(i),listingsAddress.get(i));
+		}
+	}
 }

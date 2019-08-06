@@ -877,9 +877,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void fillDescriptionField() {
-//        todo
-    }
+    public void fillDescriptionField(int length) {
+        onPage.fillDescriptionField(length);    }
 
     @Step
     public void tapFloorplanPencil() {
@@ -992,8 +991,13 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectAgentCommissionOption() {
-        onPage.selectAgentCommissionOption();
+    public void checkListingAgentCommissionIsUnselected() {
+        onPage.checkListingAgentCommissionIsUnselected();
+    }
+
+    @Step
+    public void selectListingAgentCommissionOption() {
+        onPage.selectListingAgentCommissionOption();
     }
 
     @Step
@@ -1009,5 +1013,66 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void checkBuildingInBuildingsSection() {
         onPage.checkBuildingInBuildingsSection();
+    }
+
+    @Step
+    public void clickOnDetailedButton() {
+        onPage.clickOnDetailedButton();
+    }
+
+    @Step
+    public void checkCharactersLabelMarkedRed() {
+    }
+
+    @Step
+    public void removeOneSymboldFromDescriptionField() {
+        onPage.removeOneSymboldFromDescriptionField();
+    }
+
+    @Step
+    public void checkCharactersLabelMarkedGreen() {
+    }
+
+    @Step
+    public void checkDescriptionFieldMarkedGreen() {
+    }
+
+    @Step
+    public void tapCommentsField() {
+        onPage.tapCommentsField();
+    }
+
+    @Step
+    public void fillCommentsField(int length) {
+        onPage.fillCommentsField(length);
+    }
+
+    @Step
+    public void checkCommentsLabelIsGreen() {
+    }
+
+    @Step
+    public void checkBuildingSectionIsNotShown() {
+        onPage.checkBuildingSectionIsNotShown();
+    }
+
+    @Step
+    public void checkListingsOrderInMediaReportEmail() {
+        MailTrap.checkListingsOrderInMediaReportEmail();
+    }
+
+    @Step
+    public void selectPhotosSuboption() {
+        onPage.selectPhotosSuboption();
+    }
+
+    @Step
+    public void switchToFloorplanSuboption() {
+        onPage.switchToFloorplanSuboption();
+    }
+
+    @Step
+    public void selectIncludeExactAddressOption() {
+        onPage.selectIncludeExactAddressOption();
     }
 }

@@ -7,4 +7,6 @@ public class ReportTypes {
     public static final String SHORT_REPORT = "short_report.pdf";
     public static final String MEDIUM_REPORT = "medium_report.pdf";
     public static final String MEDIUM_DEFAULT_REPORT = "medium_default_report.pdf";
+    public static final String LONG_REPORT = "long_report.pdf";
+    public static final String MEDIA_REPORT = "media_report.pdf";
 }

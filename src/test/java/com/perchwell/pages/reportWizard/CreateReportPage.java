@@ -3,6 +3,7 @@ package com.perchwell.pages.reportWizard;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
@@ -253,6 +254,10 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Floorplan")
     private WebElement unselectedFloorplanSuboption;
 
+    @iOSXCUITFindBy(accessibility = " Suboption: Floor Plans")
+    private WebElement unselectedFloorplansSuboption;
+
+
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Include Exact Address")
     private WebElement selectedIncludeExactAddressSuboption;
 
@@ -300,6 +305,9 @@ public class CreateReportPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent Info")
     private WebElement unselectedListingAgentInfo;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent/Commission")
+    private WebElement unselectedListingAgentCommission;
 
     @iOSXCUITFindBy(accessibility = "textView")
     private WebElement descriptionField;
@@ -388,11 +396,17 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeStaticText")
     private List<WebElement> selectedPhotosList;
 
-    @iOSXCUITFindBy(accessibility = "Suboption: Listing Agent/Commission")
-    private WebElement unselectedlistingAgentCommissionOption;
-
     @iOSXCUITFindBy(accessibility = "BUILDINGS")
     private WebElement buildingSection;
+
+    @iOSXCUITFindBy(accessibility = "delete")
+    private WebElement keyboardDeleteButton;
+
+    @iOSXCUITFindBy(accessibility = "Comments")
+    private WebElement commentsField;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Photos")
+    private WebElement unselectedPhotosSuboption;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -1303,8 +1317,12 @@ public class CreateReportPage extends TechHelper {
     public void checkPhotosRemovedFromReportScreen() {
     }
 
-    public void selectAgentCommissionOption() {
-        element(unselectedlistingAgentCommissionOption).click();
+    public void checkListingAgentCommissionIsUnselected() {
+        element(unselectedListingAgentCommission).shouldBeVisible();
+    }
+
+    public void selectListingAgentCommissionOption() {
+        element(unselectedListingAgentCommission).click();
     }
 
     public void clickOnMediumButton() {
@@ -1317,5 +1335,45 @@ public class CreateReportPage extends TechHelper {
 
     public void checkBuildingInBuildingsSection() {
         checkOneListingAddressBelowSection(buildingSection, SessionVariables.getValueFromSessionVariable("reportWizardAddress3"));
+    }
+
+    public void clickOnDetailedButton() {
+        element(detailedButton).click();
+    }
+
+    public void fillDescriptionField(int length) {
+        String message = StringUtils.repeat("a", length);
+        waitFor(reportLabelTextField).shouldBeVisible();
+        element(reportLabelTextField).sendKeys(message);
+        hideKeyboard();
+
+    }
+
+    public void removeOneSymboldFromDescriptionField() {
+        element(keyboardDeleteButton).click();
+    }
+
+    public void tapCommentsField() {
+        element(commentsField).click();
+    }
+
+    public void fillCommentsField(int length) {
+
+    }
+
+    public void checkBuildingSectionIsNotShown() {
+        element(buildingSection).shouldNotBeVisible();
+    }
+
+    public void selectPhotosSuboption() {
+        element(unselectedPhotosSuboption).click();
+    }
+
+    public void switchToFloorplanSuboption() {
+        element(unselectedFloorplansSuboption).click();
+    }
+
+    public void selectIncludeExactAddressOption() {
+        element(unselectedIncludeExactAddressSuboption).click();
     }
 }

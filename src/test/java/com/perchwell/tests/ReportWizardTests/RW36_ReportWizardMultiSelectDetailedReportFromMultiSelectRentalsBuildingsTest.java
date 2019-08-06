@@ -7,27 +7,20 @@ import com.perchwell.data.ReportTypes;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class RW29_ReportWizardMultiSelectShortReportRentalsBuildingTest extends SampleTest {
-
+public class RW36_ReportWizardMultiSelectDetailedReportFromMultiSelectRentalsBuildingsTest extends SampleTest {
     @Test
-    public void reportWizardMultiSelectShortReportRentalsBuildingTest() {
+    public void reportWizardMultiSelectDetailedReportFromMultiSelectRentalsBuildingsTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("core_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.inSearchMenu.openSearchPage();
-        user.atSearchPage.selectCondoFilter();
+        user.atSearchPage.selectRentalsProperty();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnTagIconOnFirstListing();
         user.atTagsPage.createAndSaveNewTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.inSearchMenu.openSearchPage();
-        user.atSearchPage.selectRentalsProperty();
-        user.atSearchPage.selectCondoFilter();
-        user.atSearchPage.deselectActiveFilter();
-        user.atSearchPage.selectSoldOrRentFilter();
-        user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnTagIconOnFirstListing();
+        user.atPerchwellPage.clickOnTagIconOnSecondListing();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
@@ -43,33 +36,20 @@ public class RW29_ReportWizardMultiSelectShortReportRentalsBuildingTest extends 
         user.atSearchPage.closeAddressSearch();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atMyTagsPage.searchJustCreatedTag();
-        user.atMyTagsPage.clickOnFirstTag();
-        user.atMyTagsPage.clickOnSearchButton();
-        user.atMyTagsPage.getListingsAddresses(3);
-        user.atMyTagsPage.selectFirstListing();
-        user.atMyTagsPage.clickOnSelectAll();
-        user.atMyTagsPage.clickOnMoreOptionsButton();
-        user.atMyTagsPage.clickOnCreateReportButton();
+        user.atTagsPage.searchJustCreatedTag();
+        user.atTagsPage.clickOnFirstTag();
+        user.atTagsPage.clickOnSearchButton();
+        user.atPerchwellPage.selectFirstListing();
+        user.atPerchwellPage.clickOnSelectAll();
+        user.atPerchwellPage.clickOnMoreOptionsButton();
+        user.atPerchwellPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnListingReportButton();
-        user.atCreateReportPage.clickOnShortButton();
-        user.atCreateReportPage.checkFirstAndSecondListingsInListingsSection();
-        user.atCreateReportPage.checkThirdListingIsNotShown();
+        user.atCreateReportPage.clickOnDetailedButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.SHORT_REPORT);
-        user.atCreateReportPage.clickOnPopUpOkButton();
-        user.atCreateReportPage.clickOnBackButton();
-        user.atCreateReportPage.selectPerchwellLinkOption();
-        user.atCreateReportPage.selectListingAgentCommissionOption();
-        user.atCreateReportPage.deselectIncludeExactAddressOption();
-        user.atCreateReportPage.clickNextButton();
-        user.atCreateReportPage.clearSubjectField();
-        user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
-        user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.SHORT_REPORT);
+        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.LONG_REPORT);
     }
 }
