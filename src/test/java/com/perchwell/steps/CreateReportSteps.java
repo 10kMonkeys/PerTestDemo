@@ -1056,8 +1056,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkListingsOrderInMediaReportEmail() {
-        MailTrap.checkListingsOrderInMediaReportEmail();
+    public void checkOnlyTwoListingsAreShownInEmailWithoutExactAddresses() {
+        MailTrap.checkOnlyTwoListingsAreShownInEmailWithoutExactAddresses();
     }
 
     @Step

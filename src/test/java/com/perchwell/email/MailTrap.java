@@ -202,7 +202,7 @@ public class MailTrap {
 		return reportWasFound;
 	}
 
-	public static void checkListingsOrderInMediaReportEmail() {
+	public static void checkOnlyTwoListingsAreShownInEmailWithoutExactAddresses() {
 		try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e) {
@@ -216,6 +216,10 @@ public class MailTrap {
 		MailTrapResponse[] mailTrapResponse = getEmail(subject);
 		rawBody = getTextBody(mailTrapResponse[0].getTxt_path());
 
+		for(String exactAddress : CreateReportPage.orderListing) {
+			Assert.assertFalse(rawBody.contains(exactAddress));
+		}
+
 		String address = "(\\w{1,100}\\s[0-9]{1,100}\\w{1,100}\\s\\w{1,100}\\.)|(\\w{3,100}\\s\\w{1,100}\\.)";
 		Pattern patternForAddress = Pattern.compile(address);
 		Matcher matcherForAddress = patternForAddress.matcher(rawBody);
@@ -227,9 +231,9 @@ public class MailTrap {
 		List<String> nonExactAddressOrderListing = new ArrayList<>();
 
 		for (String orderedListing: CreateReportPage.orderListing) {
-		Pattern pattern = Pattern.compile("(\\w{1,100}\\s[0-9]{1,100}\\w{1,100}\\s\\w{1,100}\\.)|(\\w{3,100}\\s\\w{1,100}\\.)");
-		Matcher matcher = pattern.matcher(orderedListing);
-		if (matcher.find()) {
+			Pattern pattern = Pattern.compile("(\\w{1,100}\\s[0-9]{1,100}\\w{1,100}\\s\\w{1,100}\\.)|(\\w{3,100}\\s\\w{1,100}\\.)");
+			Matcher matcher = pattern.matcher(orderedListing);
+			if(matcher.find()) {
 				nonExactAddressOrderListing.add(orderedListing.substring(matcher.start(), matcher.end()));
 			}
 		}
@@ -239,7 +243,6 @@ public class MailTrap {
 		for(int i = 0; i < listingsAddress.size(); i++) {
 			Assert.assertEquals(nonExactAddressOrderListing.get(i),listingsAddress.get(i));
 		}
-
 	}
 
 	public static void checkOnlyThreeListingsAreShownInEmail() {

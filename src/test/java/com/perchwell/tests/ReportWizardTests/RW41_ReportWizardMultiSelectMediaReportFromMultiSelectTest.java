@@ -58,7 +58,7 @@ public class RW41_ReportWizardMultiSelectMediaReportFromMultiSelectTest extends 
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.MEDIA_REPORT);
-        user.atCreateReportPage.checkListingsOrderInMediaReportEmail();
+        user.atCreateReportPage.checkOnlyTwoListingsAreShownInEmailWithoutExactAddresses();
         user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.clickOnBackButton();
         user.atCreateReportPage.selectPerchwellLinkOption();

@@ -46,6 +46,7 @@ public class RW40_ReportWizardMultiSelectItineraryReportRentalBuildingGeneralOpt
         user.atMyTagsPage.clickOnMoreOptionsButton();
         user.atMyTagsPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnItineraryButton();
+        user.atCreateReportPage.getListingsAndBuildingsOrder();
         user.atCreateReportPage.checkThirdListingIsNotShown();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkAppointmentDateFieldIsRed(); // TODO: no color diff attributes
@@ -85,7 +86,7 @@ public class RW40_ReportWizardMultiSelectItineraryReportRentalBuildingGeneralOpt
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.ITINERARY_REPORT);
-
+        user.atCreateReportPage.checkOnlyTwoListingsAreShownInEmailWithoutExactAddresses();
         user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.clickOnBackButton();
         user.atCreateReportPage.selectAllOptions();
