@@ -38,7 +38,7 @@ public class RW27_ReportWizardIndividualListingOptionsTest extends SampleTest {
         user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.clickOnBackButton();
         user.atCreateReportPage.selectAllOptions();
-        user.atCreateReportPage.checkAllOptionsAreSelected();
+        user.atCreateReportPage.checkAllOptionsAreSelected(9);
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clearSubjectField();
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);

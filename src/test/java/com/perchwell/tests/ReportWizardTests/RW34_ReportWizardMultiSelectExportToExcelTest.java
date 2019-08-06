@@ -7,11 +7,11 @@ import com.perchwell.data.ReportTypes;
 import com.perchwell.entity.AppProperties;
 import org.junit.Test;
 
-public class RW24_ReportWizardMultiSelectGeneratingShowSheetsFromMultiSelectTest extends SampleTest {
+public class RW34_ReportWizardMultiSelectExportToExcelTest extends SampleTest {
 
     @Test
-    public void reportWizardMultiSelectGeneratingShowSheetsFromMultiSelectTest() {
-        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("core_email"),
+    public void reportWizardMultiSelectExportToExcelTest() {
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
@@ -51,27 +51,23 @@ public class RW24_ReportWizardMultiSelectGeneratingShowSheetsFromMultiSelectTest
         user.atMyTagsPage.clickOnSelectAll();
         user.atMyTagsPage.clickOnMoreOptionsButton();
         user.atMyTagsPage.clickOnCreateReportButton();
-        user.atCreateReportPage.clickOnShowSheetButton();
+        user.atCreateReportPage.clickOnExportToExcelButton();
         user.atCreateReportPage.checkFirstAndSecondListingsInListingsSection();
-        user.atCreateReportPage.checkThirdListingIsNotShown();
+        user.atCreateReportPage.checkBuildingInBuildingsSectionForExportToExcel();
         user.atCreateReportPage.clickNextButton();
+        user.atCreateReportPage.checkAllOptionsAreSelected(31);
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
-        user.atCreateReportPage.checkIncludeExactAddressIsSelected();
-        user.atCreateReportPage.checkListingAgentInfoIsUnselected();
         user.atCreateReportPage.clickNextButton();
-        user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
+        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.EXPORT_TO_EXCEL_REPORT);
         user.atCreateReportPage.clickOnPopUpOkButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.SHOW_SHEET_REPORT);
         user.atCreateReportPage.clickOnBackButton();
         user.atCreateReportPage.selectPerchwellLinkOption();
-        user.atCreateReportPage.selectListingAgentInfoOption();
-        user.atCreateReportPage.deselectIncludeExactAddressOption();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clearSubjectField();
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.SHOW_SHEET_REPORT);
+        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.EXPORT_TO_EXCEL_REPORT);
     }
 }

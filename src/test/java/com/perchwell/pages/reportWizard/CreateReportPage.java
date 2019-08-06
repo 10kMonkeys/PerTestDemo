@@ -1,5 +1,6 @@
 package com.perchwell.pages.reportWizard;
 
+import com.perchwell.helpers.CurrentYear;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
@@ -11,10 +12,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.text.DateFormat;
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class CreateReportPage extends TechHelper {
@@ -407,6 +407,33 @@ public class CreateReportPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = " Suboption: Photos")
     private WebElement unselectedPhotosSuboption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Internal Information")
+    private WebElement unselectedInternalInformationOption;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'edit' AND visible == true")
+    private WebElement editButton;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[3]/XCUIElementTypeOther/XCUIElementTypeStaticText")
+    private WebElement currentYear;
+
+    @iOSXCUITFindBy(accessibility = "chevronLeft")
+    private WebElement previousMonthButton;
+
+    @iOSXCUITFindBy(accessibility = "x")
+    private WebElement closeButton;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Start Time-'")
+    private WebElement startTimeField;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'End Time-'")
+    private WebElement endTimeField;
+
+    @iOSXCUITFindBy(accessibility = "Meeting Location textField")
+    private WebElement meetingLocationField;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Prepared For-'")
+    private WebElement preparedForField;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -823,6 +850,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void selectPerchwellLinkOption() {
+        universalVerticalSwipe(unselectedPerchwellLinkOption);
         element(unselectedPerchwellLinkOption).click();
     }
 
@@ -1009,10 +1037,6 @@ public class CreateReportPage extends TechHelper {
         Assert.assertEquals(70, element(reportLabelTextField).getAttribute("value").length());
     }
 
-    public void clickOnShowSheetsButton() {
-        element(showSheetButton).click();
-    }
-
     public void checkFirstAndSecondListingsInListingsSection(String address1, String address2) {
         WebElement listingCell;
         WebElement listingCell2;
@@ -1142,12 +1166,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkSelectedTimeIsShown() {
-        String selectedTime = SessionVariables.getValueFromSessionVariable("hourWheelValue").replace(" o’clock", "")
-                + ":"
-                + SessionVariables.getValueFromSessionVariable("minuteWheelValue").replace("minutes", "")
-                + SessionVariables.getValueFromSessionVariable("meridiemWheelValue");
-
-        Assert.assertEquals(selectedTime, element(appointmentTimeField).getValue());
+        Assert.assertEquals(getSelectedTimeToString(), element(appointmentTimeField).getValue());
     }
 
     public void clickOnFloorplanEditIcon() {
@@ -1218,8 +1237,8 @@ public class CreateReportPage extends TechHelper {
         }
     }
 
-    public void checkAllOptionsAreSelected() {
-        Assert.assertEquals(9, subOptions.size());
+    public void checkAllOptionsAreSelected(int amount) {
+        Assert.assertEquals(amount, subOptions.size());
     }
 
     public void checkNextButtonIsDisabled() {
@@ -1337,6 +1356,10 @@ public class CreateReportPage extends TechHelper {
         checkOneListingAddressBelowSection(buildingSection, SessionVariables.getValueFromSessionVariable("reportWizardAddress3"));
     }
 
+    public void clickOnExportToExcelButton() {
+        element(exportToExcelButton).click();
+    }
+
     public void clickOnDetailedButton() {
         element(detailedButton).click();
     }
@@ -1375,5 +1398,137 @@ public class CreateReportPage extends TechHelper {
 
     public void selectIncludeExactAddressOption() {
         element(unselectedIncludeExactAddressSuboption).click();
+    }
+
+    public void moveFirstListingToSecondListingByDragging() {
+        int longPressX = reorderButtonList.get(0).getLocation().getX();
+        int longPressY = reorderButtonList.get(0).getLocation().getY();
+        int moveToX = reorderButtonList.get(1).getLocation().getX();
+        int moveToY = reorderButtonList.get(1).getLocation().getY();
+
+        reorderListingByDraggingAtCreateReportPage(longPressX, longPressY, moveToX, moveToY);
+    }
+
+    public void checkFirstAndSecondListingsAreReordered() {
+        WebElement listingCell;
+        WebElement listingCell2;
+
+        listingCell = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1")));
+        listingCell2 = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress2")));
+
+        System.out.println(getYPositionOfElement(listingSection));
+        System.out.println(getYPositionOfElement(listingCell));
+        System.out.println(getYPositionOfElement(listingCell2));
+
+        waitABit(1000);
+        Assert.assertEquals(getYPositionOfElement(listingSection) + 51, getYPositionOfElement(listingCell2));
+        Assert.assertEquals(getYPositionOfElement(listingSection) + 144, getYPositionOfElement(listingCell));
+    }
+
+    public void selectInternalInformationOption() {
+        element(unselectedInternalInformationOption).click();
+    }
+
+    public void checkBuildingInBuildingsSectionForExportToExcel() {
+        WebElement listingCell;
+        listingCell = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("reportWizardAddress3")));
+        Assert.assertEquals(getYPositionOfElement(buildingSection) + 59, getYPositionOfElement(listingCell));
+    }
+
+    public void clickOnItineraryButton() {
+        element(itineraryButton).click();
+    }
+
+    public void swipeLeftSecondListing() {
+        swipeLeftByAddress(SessionVariables.getValueFromSessionVariable("listingAddress2"));
+    }
+
+    public void clickOnEditButton() {
+        element(editButton).click();
+    }
+
+    public void swipeLeftThirdListing() {
+        swipeLeftByAddress(SessionVariables.getValueFromSessionVariable("listingAddress3"));
+    }
+
+    public void checkAppointmentTimeIsShownForListing() {
+        element(MobileBy.AccessibilityId(getSelectedTimeToString())).shouldBeVisible();
+    }
+
+    public void swipeLeftFourthListing() {
+        swipeLeftByAddress(SessionVariables.getValueFromSessionVariable("listingAddress4"));
+    }
+
+    public void checkAppointmentDateFieldIsRed() {
+        // TODO: no color diff attributes
+    }
+
+    public void clickOnNextYear() {
+        int nextYear = CurrentYear.getCurrentYear() + 1;
+        element(MobileBy.AccessibilityId(" " + nextYear + " ")).click();
+    }
+
+    public void checkYearIsSwitched() {
+        int nextYear = CurrentYear.getCurrentYear() + 1;
+        Assert.assertEquals(nextYear, Integer.parseInt(element(currentYear).getValue()));
+    }
+
+    public void clickOnPreviousMonth() {
+        element(previousMonthButton).click();
+    }
+
+    public void clickOnNextMonth() {
+        element(nextMonthButton).click();
+    }
+
+    public void checkPreviousMonthIsShown() {
+        String month = new DateFormatSymbols().getMonths()[Calendar.getInstance().get(Calendar.MONTH) - 1];
+
+        element(MobileBy.AccessibilityId(month.toUpperCase())).shouldBeVisible();
+    }
+
+    public void checkNextMonthIsShown() {
+        String month = new DateFormatSymbols().getMonths()[Calendar.getInstance().get(Calendar.MONTH) + 1];
+
+        element(MobileBy.AccessibilityId(month.toUpperCase())).shouldBeVisible();
+    }
+
+    public void clickOnCloseButton() {
+        element(closeButton).click();
+    }
+
+    public void checkAppointmentDateFieldIsEmpty() {
+        Assert.assertEquals("Appointment Date", element(appointmentDateField).getValue());
+    }
+
+    public void clickOnStartTimeField() {
+        element(startTimeField).click();
+    }
+
+    public void clickOnEndTimeField() {
+        element(endTimeField).click();
+    }
+
+    public void checkStartTimeFieldIsFilled() {
+        Assert.assertEquals(getSelectedTimeToString(), element(startTimeField).getValue());
+    }
+
+    public void checkEndTimeFieldIsFilled() {
+        Assert.assertEquals(getSelectedTimeToString(), element(endTimeField).getValue());
+    }
+
+    private String getSelectedTimeToString() {
+        return SessionVariables.getValueFromSessionVariable("hourWheelValue").replace(" o’clock", "")
+                + ":"
+                + SessionVariables.getValueFromSessionVariable("minuteWheelValue").replace("minutes", "")
+                + SessionVariables.getValueFromSessionVariable("meridiemWheelValue");
+    }
+
+    public void fillInMeetingLocationField(String meetingLocation) {
+        element(meetingLocationField).sendKeys(meetingLocation);
+    }
+
+    public void fillInPreparedForField(String preparedFor) {
+        element(preparedForField).sendKeys(preparedFor);
     }
 }

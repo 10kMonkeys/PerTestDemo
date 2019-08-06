@@ -9,4 +9,6 @@ public class ReportTypes {
     public static final String MEDIUM_DEFAULT_REPORT = "medium_default_report.pdf";
     public static final String LONG_REPORT = "long_report.pdf";
     public static final String MEDIA_REPORT = "media_report.pdf";
+    public static final String EXPORT_TO_EXCEL_REPORT = "report.csv";
+    public static final String ITINERARY_REPORT = "itinerary_report.pdf";
 }

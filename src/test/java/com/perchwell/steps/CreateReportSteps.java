@@ -6,7 +6,6 @@ import com.perchwell.pages.reportWizard.CreateReportPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
-import org.junit.Test;
 
 public class CreateReportSteps extends ScenarioSteps {
 
@@ -636,11 +635,6 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOnShowSheetsButton() {
-        onPage.clickOnShowSheetsButton();
-    }
-
-    @Step
     public void checkFirstAndSecondListingsInListingsSection() {
         onPage.checkFirstAndSecondListingsInListingsSection(SessionVariables.getValueFromSessionVariable("reportWizardAddress1"),
                 SessionVariables.getValueFromSessionVariable("reportWizardAddress2"));
@@ -827,8 +821,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkAllOptionsAreSelected() {
-        onPage.checkAllOptionsAreSelected();
+    public void checkAllOptionsAreSelected(int amount) {
+        onPage.checkAllOptionsAreSelected(amount);
     }
 
     @Step
@@ -1016,6 +1010,11 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
+    public void clickOnExportToExcelButton() {
+        onPage.clickOnExportToExcelButton();
+    }
+
+    @Step
     public void clickOnDetailedButton() {
         onPage.clickOnDetailedButton();
     }
@@ -1072,7 +1071,139 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
+    public void moveFirstListingToSecondListingByDragging() {
+        onPage.moveFirstListingToSecondListingByDragging();
+    }
+
+    @Step
+    public void checkFirstAndSecondListingsAreReordered() {
+        onPage.checkFirstAndSecondListingsAreReordered();
+    }
+
+    @Step
+    public void selectInternalInformationOption() {
+        onPage.selectInternalInformationOption();
+    }
+
+    @Step
     public void selectIncludeExactAddressOption() {
         onPage.selectIncludeExactAddressOption();
+    }
+
+    @Step
+    public void checkBuildingInBuildingsSectionForExportToExcel() {
+        onPage.checkBuildingInBuildingsSectionForExportToExcel();
+    }
+
+    @Step
+    public void clickOnItineraryButton() {
+        onPage.clickOnItineraryButton();
+    }
+
+    @Step
+    public void swipeLeftSecondListing() {
+        onPage.swipeLeftSecondListing();
+    }
+
+    @Step
+    public void clickOnEditButton() {
+        onPage.clickOnEditButton();
+    }
+
+    @Step
+    public void swipeLeftThirdListing() {
+        onPage.swipeLeftThirdListing();
+    }
+
+    @Step
+    public void checkAppointmentTimeIsShownForListing() {
+        onPage.checkAppointmentTimeIsShownForListing();
+    }
+
+    @Step
+    public void swipeLeftFourthListing() {
+        onPage.swipeLeftFourthListing();
+    }
+
+    @Step
+    public void checkListingsOrderIsSavedInEmailAndOnlyThreeListingsAreShown() {
+        MailTrap.checkOnlyThreeListingsAreShownInEmail();
+        MailTrap.checkListingsOrderIsSavedInEmailAndNotDeletedListings();
+    }
+
+    @Step
+    public void checkAppointmentDateFieldIsRed() {
+        onPage.checkAppointmentDateFieldIsRed();
+    }
+
+    @Step
+    public void clickOnNextYear() {
+        onPage.clickOnNextYear();
+    }
+
+    @Step
+    public void checkYearIsSwitched() {
+        onPage.checkYearIsSwitched();
+    }
+
+    @Step
+    public void clickOnPreviousMonth() {
+        onPage.clickOnPreviousMonth();
+    }
+
+    @Step
+    public void clickOnNextMonth() {
+        onPage.clickOnNextMonth();
+    }
+
+    @Step
+    public void checkPreviousMonthIsShown() {
+        onPage.checkPreviousMonthIsShown();
+    }
+
+    @Step
+    public void checkNextMonthIsShown() {
+        onPage.checkNextMonthIsShown();
+    }
+
+    @Step
+    public void clickOnCloseButton() {
+        onPage.clickOnCloseButton();
+
+    }
+
+    @Step
+    public void checkAppointmentDateFieldIsEmpty() {
+        onPage.checkAppointmentDateFieldIsEmpty();
+    }
+
+    @Step
+    public void clickOnStartTimeField() {
+        onPage.clickOnStartTimeField();
+    }
+
+    @Step
+    public void clickOnEndTimeField() {
+        onPage.clickOnEndTimeField();
+    }
+
+    @Step
+    public void checkStartTimeFieldIsFilled() {
+        onPage.checkStartTimeFieldIsFilled();
+    }
+
+    @Step
+    public void checkEndTimeFieldIsFilled() {
+        onPage.checkEndTimeFieldIsFilled();
+    }
+
+    @Step
+    public void fillInMeetingLocationField(String meetingLocation) {
+        onPage.fillInMeetingLocationField(meetingLocation);
+    }
+
+    @Step
+    public void fillInPreparedForField(String preparedFor) {
+        onPage.fillInPreparedForField(preparedFor);
     }
 }

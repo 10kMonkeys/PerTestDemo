@@ -22,7 +22,7 @@ public class RW26_ReportWizardIndividualListingMaxInfoPhotosReorderTest extends 
         user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.clickShareButton();
         user.atOpenedBuildingPage.clickOnCreateReportButton();
-        user.atCreateReportPage.clickOnShowSheetsButton();
+        user.atCreateReportPage.clickOnShowSheetButton();
         user.atCreateReportPage.clearDescriptionField();
         user.atCreateReportPage.fillInDescriptionField(DiscussionMessages.DESCRIPTION);
         user.atCreateReportPage.clickOnShrinkButton();
@@ -32,7 +32,7 @@ public class RW26_ReportWizardIndividualListingMaxInfoPhotosReorderTest extends 
         user.atCreateReportPage.setDateForNextMonth("21");
         user.atCreateReportPage.checkCalendarIsClosed();
         user.atCreateReportPage.clickOnBackButton(); //temp fix
-        user.atCreateReportPage.clickOnShowSheetsButton(); //temp fix
+        user.atCreateReportPage.clickOnShowSheetButton(); //temp fix
         user.atCreateReportPage.checkSelectedDateIsShown();
         user.atCreateReportPage.clickOnAppointmentTime();
         user.atCreateReportPage.checkTimeSelectorIsShown();
@@ -42,7 +42,7 @@ public class RW26_ReportWizardIndividualListingMaxInfoPhotosReorderTest extends 
         user.atCreateReportPage.changeTime();
         user.atCreateReportPage.clickOnSaveButton();
         user.atCreateReportPage.clickOnBackButton(); //temp fix
-        user.atCreateReportPage.clickOnShowSheetsButton(); //temp fix
+        user.atCreateReportPage.clickOnShowSheetButton(); //temp fix
         user.atCreateReportPage.checkSelectedTimeIsShown();
         user.atCreateReportPage.clickOnFloorplanEditIcon();
         //TODO: need to implement selecting and deselecting floorplan
