@@ -15,9 +15,6 @@ public class RW41_ReportWizardMultiSelectMediaReportFromMultiSelectTest extends 
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.inSearchMenu.openSearchPage();
-        user.atSearchPage.selectRentalsProperty();
-        user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.selectThirdListingAfterSecond();
@@ -73,9 +70,6 @@ public class RW41_ReportWizardMultiSelectMediaReportFromMultiSelectTest extends 
         user.atCreateReportPage.checkListingsOrderIsSavedInEmailAndNotDeletedListings();
         user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.clickOnBackButton();
-        user.atCreateReportPage.deselectAllOptions();
-        user.atCreateReportPage.selectListingAgentInfoOption();
-        user.atCreateReportPage.selectIncludeExactAddressOption();
         user.atCreateReportPage.switchToFloorplanSuboption();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clearSubjectField();

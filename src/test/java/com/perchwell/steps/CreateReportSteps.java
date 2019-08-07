@@ -1206,4 +1206,29 @@ public class CreateReportSteps extends ScenarioSteps {
     public void fillInPreparedForField(String preparedFor) {
         onPage.fillInPreparedForField(preparedFor);
     }
+
+    @Step
+    public void selectBrokerageOption() {
+        onPage.selectBrokerageOption();
+    }
+
+    @Step
+    public void selectAgentNameOption() {
+        onPage.selectAgentNameOption();
+    }
+
+    @Step
+    public void selectAgentPhoneNumberOption() {
+        onPage.selectAgentPhoneNumberOption();
+    }
+
+    @Step
+    public void selectOpenHouseOption() {
+        onPage.selectOpenHouseOption();
+    }
+
+    @Step
+    public void selectLargeMapOption() {
+        onPage.selectLargeMapOption();
+    }
 }

@@ -435,6 +435,21 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Prepared For-'")
     private WebElement preparedForField;
 
+    @iOSXCUITFindBy(accessibility = " Suboption: Brokerage")
+    private WebElement unselectedBrokerageOption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Agent Name")
+    private WebElement unselectedAgentNameOption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Agent Phone Number")
+    private WebElement unselectedAgentPhoneNumberOption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Open House")
+    private WebElement unselectedOpenHouseOption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Large Map")
+    private WebElement unselectedLargeMapOption;
+
     public CreateReportPage(WebDriver driver) {
         super(driver);
     }
@@ -1470,7 +1485,7 @@ public class CreateReportPage extends TechHelper {
 
     public void checkYearIsSwitched() {
         int nextYear = CurrentYear.getCurrentYear() + 1;
-        Assert.assertEquals(nextYear, Integer.parseInt(element(currentYear).getValue()));
+        Assert.assertEquals(nextYear, Integer.parseInt(element(currentYear).getValue().replace(" ", "")));
     }
 
     public void clickOnPreviousMonth() {
@@ -1526,9 +1541,31 @@ public class CreateReportPage extends TechHelper {
 
     public void fillInMeetingLocationField(String meetingLocation) {
         element(meetingLocationField).sendKeys(meetingLocation);
+        hideKeyboard();
     }
 
     public void fillInPreparedForField(String preparedFor) {
         element(preparedForField).sendKeys(preparedFor);
+        hideKeyboard();
+    }
+
+    public void selectBrokerageOption() {
+        element(unselectedBrokerageOption).click();
+    }
+
+    public void selectAgentNameOption() {
+        element(unselectedAgentNameOption).click();
+    }
+
+    public void selectAgentPhoneNumberOption() {
+        element(unselectedAgentPhoneNumberOption).click();
+    }
+
+    public void selectOpenHouseOption() {
+        element(unselectedOpenHouseOption).click();
+    }
+
+    public void selectLargeMapOption() {
+        element(unselectedLargeMapOption).click();
     }
 }

@@ -25,10 +25,11 @@ public class RW40_ReportWizardMultiSelectItineraryReportRentalBuildingGeneralOpt
         user.atPerchwellPage.clickOnTagSelectedListingsOption();
         user.atTagsPage.removeAllTagPills();
         user.atTagsPage.createAndSaveNewTag();
-        user.atTagsPage.closeTagsPage();
+        user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
         user.atSearchPage.openFirstBuilding();
+        user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
         user.atTagsPage.searchJustCreatedTag();
         user.atTagsPage.clickOnFirstTag();
@@ -89,7 +90,12 @@ public class RW40_ReportWizardMultiSelectItineraryReportRentalBuildingGeneralOpt
         user.atCreateReportPage.checkOnlyTwoListingsAreShownInEmailWithoutExactAddresses();
         user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.clickOnBackButton();
-        user.atCreateReportPage.selectAllOptions();
+        user.atCreateReportPage.selectIncludeExactAddressOption();
+        user.atCreateReportPage.selectBrokerageOption();
+        user.atCreateReportPage.selectAgentNameOption();
+        user.atCreateReportPage.selectAgentPhoneNumberOption();
+        user.atCreateReportPage.selectOpenHouseOption();
+        user.atCreateReportPage.selectLargeMapOption();
         user.atCreateReportPage.selectPerchwellLinkOption();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clearSubjectField();
