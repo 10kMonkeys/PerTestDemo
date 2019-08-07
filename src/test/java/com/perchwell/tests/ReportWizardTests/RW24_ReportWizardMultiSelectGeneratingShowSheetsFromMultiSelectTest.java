@@ -56,8 +56,8 @@ public class RW24_ReportWizardMultiSelectGeneratingShowSheetsFromMultiSelectTest
         user.atCreateReportPage.checkThirdListingIsNotShown();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
-        user.atCreateReportPage.checkIncludeExactAddressIsSelected();
-        user.atCreateReportPage.checkListingAgentInfoIsUnselected();
+        user.atCreateReportPage.checkIncludeExactAddressOptionIsSelected();
+        user.atCreateReportPage.checkListingAgentInfoOptionIsUnselected();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);

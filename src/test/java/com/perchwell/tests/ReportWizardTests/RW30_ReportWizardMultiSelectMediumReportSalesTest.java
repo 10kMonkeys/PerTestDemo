@@ -25,8 +25,8 @@ public class RW30_ReportWizardMultiSelectMediumReportSalesTest extends SampleTes
         user.atCreateReportPage.clickOnMediumButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
-        user.atCreateReportPage.checkIncludeExactAddressIsSelected();
-        user.atCreateReportPage.checkListingAgentInfoIsUnselected();
+        user.atCreateReportPage.checkIncludeExactAddressOptionIsSelected();
+        user.atCreateReportPage.checkListingAgentInfoOptionIsUnselected();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);

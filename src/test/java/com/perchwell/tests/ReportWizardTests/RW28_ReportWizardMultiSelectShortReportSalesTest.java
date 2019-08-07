@@ -24,7 +24,7 @@ public class RW28_ReportWizardMultiSelectShortReportSalesTest extends SampleTest
         user.atCreateReportPage.clickOnShortButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
-        user.atCreateReportPage.checkIncludeExactAddressIsSelected();
+        user.atCreateReportPage.checkIncludeExactAddressOptionIsSelected();
         user.atCreateReportPage.checkListingAgentCommissionIsUnselected();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");

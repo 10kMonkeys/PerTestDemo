@@ -4,7 +4,6 @@ import com.perchwell.helpers.CurrentYear;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
@@ -227,7 +226,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption Selected: DOM")
     private WebElement selectedDOMSuboption;
 
-    @iOSXCUITFindBy(accessibility = "Suboption: DOM")
+    @iOSXCUITFindBy(accessibility = " Suboption: DOM")
     private WebElement unselectedDOMSuboption;
 
     @iOSXCUITFindBy(accessibility = " Suboption Selected: List Date")
@@ -257,10 +256,6 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Floor Plans")
     private WebElement unselectedFloorplansSuboption;
 
-
-    @iOSXCUITFindBy(accessibility = " Suboption Selected: Include Exact Address")
-    private WebElement selectedIncludeExactAddressSuboption;
-
     @iOSXCUITFindBy(accessibility = " Suboption: Include Exact Address")
     private WebElement unselectedIncludeExactAddressSuboption;
 
@@ -268,13 +263,10 @@ public class CreateReportPage extends TechHelper {
     private WebElement selectedOpenHouseSuboption;
 
     @iOSXCUITFindBy(accessibility = " Suboption: Open House")
-    private WebElement unselectedOpenHouseSuboption;
+    private WebElement unselectedOpenHouseOption;
 
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Neighborhood")
     private WebElement selectedNeighborhoodSuboption;
-
-    @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent Info")
-    private WebElement unselectedListingAgentInfoSuboption;
 
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Suboption:'")
     private List<WebElement> unselectedSuboptions;
@@ -301,10 +293,10 @@ public class CreateReportPage extends TechHelper {
     private WebElement listingSection;
 
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Include Exact Address")
-    private WebElement selectedIncludeExactAddress;
+    private WebElement selectedIncludeExactAddressOption;
 
     @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent Info")
-    private WebElement unselectedListingAgentInfo;
+    private WebElement unselectedListingAgentInfoOption;
 
     @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent/Commission")
     private WebElement unselectedListingAgentCommission;
@@ -368,9 +360,6 @@ public class CreateReportPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = "0/4")
     private WebElement zeroPerFourSelectedLabel;
-    
-    @iOSXCUITFindBy(accessibility = "shrink")
-    private WebElement collapseButton;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]")
     private WebElement firstFloorplan;
@@ -444,11 +433,17 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Agent Phone Number")
     private WebElement unselectedAgentPhoneNumberOption;
 
-    @iOSXCUITFindBy(accessibility = " Suboption: Open House")
-    private WebElement unselectedOpenHouseOption;
-
     @iOSXCUITFindBy(accessibility = " Suboption: Large Map")
     private WebElement unselectedLargeMapOption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Neighborhood")
+    private WebElement unselectedNeightborhoodOption;
+
+    @iOSXCUITFindBy(accessibility = " Suboption: Include Cross Streets")
+    private WebElement unselectedIncludeCrossStreetsOption;
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/*[2]/*/*[2]/*[2]/*/XCUIElementTypeStaticText[1]")
+    private WebElement amountPhotosSelected;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -1041,7 +1036,7 @@ public class CreateReportPage extends TechHelper {
         Assert.assertEquals(rentalListing.size(),1);
     }
 
-    public void fillReportLabelField(int length) {
+    public void fillInReportLabelField(int length) {
         String message = StringUtils.repeat("a", length);
         waitFor(reportLabelTextField).shouldBeVisible();
         element(reportLabelTextField).sendKeys(message);
@@ -1071,20 +1066,20 @@ public class CreateReportPage extends TechHelper {
         checkOneListingAddressIsNotShown(SessionVariables.getValueFromSessionVariable("reportWizardAddress3"));
     }
 
-    public void checkIncludeExactAddressIsSelected() {
-        element(selectedIncludeExactAddress).shouldBeVisible();
+    public void checkIncludeExactAddressOptionIsSelected() {
+        element(selectedIncludeExactAddressOption).shouldBeVisible();
     }
 
-    public void checkListingAgentInfoIsUnselected() {
-        element(unselectedListingAgentInfo).shouldBeVisible();
+    public void checkListingAgentInfoOptionIsUnselected() {
+        element(unselectedListingAgentInfoOption).shouldBeVisible();
     }
 
     public void selectListingAgentInfoOption() {
-        element(unselectedListingAgentInfo).click();
+        element(unselectedListingAgentInfoOption).click();
     }
 
     public void deselectIncludeExactAddressOption() {
-        element(selectedIncludeExactAddress).click();
+        element(selectedIncludeExactAddressOption).click();
     }
 
     public void clearSubjectField() {
@@ -1195,44 +1190,36 @@ public class CreateReportPage extends TechHelper {
     public void clearDescriptionField() {
         element(descriptionField).clear();
     }
-    
+
     public void clickOnShowSheetButton() {
         element(showSheetButton).click();
     }
 
-    public void checkListingAgentInfoSuboptionUnselected() {
-        element(unselectedListingAgentInfoSuboption).shouldBeVisible();
-    }
-
-    public void checkDomSupoptionSelected() {
+    public void checkDomSuboptionSelected() {
         element(selectedDOMSuboption).shouldBeVisible();
     }
 
-    public void checkListDateSupoptionSelected() {
+    public void checkListDateSuboptionSelected() {
         element(selectedListDateSuboption).shouldBeVisible();
     }
 
-    public void checkSubwayInfoSupoptionSelected() {
+    public void checkSubwayInfoSuboptionSelected() {
         element(selectedSubwayInfoSuboption).shouldBeVisible();
     }
 
-    public void checkIncludeMapSupoptionSelected() {
+    public void checkIncludeMapSuboptionSelected() {
         element(selectedIncludeMapSuboption).shouldBeVisible();
     }
 
-    public void checkFloorplanSupoptionSelected() {
+    public void checkFloorplanSuboptionSelected() {
         element(selectedFloorplanSuboption).shouldBeVisible();
     }
 
-    public void checkIncludeExactAddressSupoptionSelected() {
-        element(selectedIncludeExactAddressSuboption).shouldBeVisible();
-    }
-
-    public void checkOpenHouseSupoptionSelected() {
+    public void checkOpenHouseSuboptionSelected() {
         element(selectedOpenHouseSuboption).shouldBeVisible();
     }
 
-    public void checkNeighborhoodSupoptionSelected() {
+    public void checkNeighborhoodSuboptionSelected() {
         element(selectedNeighborhoodSuboption).shouldBeVisible();
     }
 
@@ -1262,16 +1249,12 @@ public class CreateReportPage extends TechHelper {
         resetImplicitTimeout();
     }
 
-    public void tapOnDescriptionField() {
+    public void clickOnDescriptionField() {
         element(descriptionField).click();
     }
 
-    public void tapDone() {
+    public void clickOnDoneButton() {
         element(doneButton).click();
-    }
-
-    public void tapFloorplanPencil() {
-        element(floorplanEditButton).click();
     }
 
     public void checkOnePerOneSelectedLabelIsShown() {
@@ -1282,7 +1265,7 @@ public class CreateReportPage extends TechHelper {
         element(selectedOneLabel).shouldBeVisible();
     }
 
-    public void tapOnFirstFloorplan() {
+    public void clickOnFirstFloorplan() {
         element(firstFloorplan).click();
     }
 
@@ -1290,22 +1273,14 @@ public class CreateReportPage extends TechHelper {
         element(zeroPerOneLabel).shouldBeVisible();
     }
 
-    public void oneSelectedLabeRemovedFromFirstFloorplan() {
+    public void oneSelectedLabelRemovedFromFirstFloorplan() {
         setImplicitTimeout(3, TimeUnit.SECONDS);
         element(selectedOneLabel).shouldNotBeVisible();
         resetImplicitTimeout();
     }
 
-    public void tapCollapseButton() {
-        element(collapseButton).click();
-    }
-
     public void checkNextButtonIsEnabled() {
         element(nextButton).shouldBeEnabled();
-    }
-
-    public void tapPhotosPencil() {
-        element(photosEditButton).click();
     }
 
     public void checkFourPerFourSelectedLabelIsShown() {
@@ -1379,7 +1354,7 @@ public class CreateReportPage extends TechHelper {
         element(detailedButton).click();
     }
 
-    public void fillDescriptionField(int length) {
+    public void fillInDescriptionField(int length) {
         String message = StringUtils.repeat("a", length);
         waitFor(reportLabelTextField).shouldBeVisible();
         element(reportLabelTextField).sendKeys(message);
@@ -1391,7 +1366,7 @@ public class CreateReportPage extends TechHelper {
         element(keyboardDeleteButton).click();
     }
 
-    public void tapCommentsField() {
+    public void clickOnCommentsField() {
         element(commentsField).click();
     }
 
@@ -1567,5 +1542,35 @@ public class CreateReportPage extends TechHelper {
 
     public void selectLargeMapOption() {
         element(unselectedLargeMapOption).click();
+    }
+
+    public void selectNeighborhoodOption() {
+        element(unselectedNeightborhoodOption).click();
+    }
+
+    public void selectIncludeCrossStreetsOption() {
+        element(unselectedIncludeCrossStreetsOption).click();
+    }
+
+    public void deselectFirstPhoto() {
+        element(firstPhotoSelectedLabel).click();
+    }
+
+    public void checkPhotosCountIsChanged(int amount) {
+        Assert.assertEquals(Integer.parseInt(SessionVariables.getValueFromSessionVariable("amountSelectedPhotos")) + amount,
+                Integer.parseInt(element(amountPhotosSelected).getValue()));
+    }
+
+    public void moveFirstPhotoToSecondPhotoByDragging() {
+        int longPressX = selectedPhotosList.get(0).getLocation().getX();
+        int longPressY = selectedPhotosList.get(0).getLocation().getY();
+        int moveToX = selectedPhotosList.get(1).getLocation().getX();
+        int moveToY = selectedPhotosList.get(1).getLocation().getY();
+
+        reorderListingByDraggingAtCreateReportPage(longPressX, longPressY, moveToX, moveToY);
+    }
+
+    public void getAmountSelectedPhotos() {
+        SessionVariables.addValueInSessionVariable("amountSelectedPhotos", element(amountPhotosSelected).getValue());
     }
 }

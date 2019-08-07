@@ -65,8 +65,8 @@ public class RW22_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atCreateReportPage.checkTotalMonthliesIsVisible();
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
         user.atCreateReportPage.swipeToPortrait();
-        user.atCreateReportPage.fillReportLabelField(70);
-        user.atCreateReportPage.fillReportLabelField(1);
+        user.atCreateReportPage.fillInReportLabelField(70);
+        user.atCreateReportPage.fillInReportLabelField(1);
         user.atCreateReportPage.checkOnlySeventySymbolsAllowed();
         user.atCreateReportPage.switchToPortrait();
         user.atCreateReportPage.checkSelectedFieldsAmount(9);

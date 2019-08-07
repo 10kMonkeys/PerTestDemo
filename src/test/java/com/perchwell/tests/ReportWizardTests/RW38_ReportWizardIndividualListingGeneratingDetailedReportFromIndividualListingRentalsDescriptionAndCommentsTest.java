@@ -24,22 +24,22 @@ public class RW38_ReportWizardIndividualListingGeneratingDetailedReportFromIndiv
         user.atCreateReportPage.clickOnListingReportButton();
         user.atCreateReportPage.clickOnDetailedButton();
         user.atCreateReportPage.checkNextButtonIsEnabled();
-        user.atCreateReportPage.tapOnDescriptionField();
+        user.atCreateReportPage.clickOnDescriptionField();
         user.atCreateReportPage.clearDescriptionField();
         user.atCreateReportPage.checkCharactersLabelMarkedRed(); //todo no color diff attributes
-        user.atCreateReportPage.tapDoneButton();
+        user.atCreateReportPage.clickOnDoneButton();
         user.atCreateReportPage.checkDescriptionFieldMarkedRed(); //todo no color diff attributes
         user.atCreateReportPage.checkNextButtonIsDisabled();
-        user.atCreateReportPage.tapOnDescriptionField();
-        user.atCreateReportPage.fillDescriptionField(2001); //todo no locators for field
+        user.atCreateReportPage.clickOnDescriptionField();
+        user.atCreateReportPage.fillInDescriptionField(2001); //todo no locators for field
         user.atCreateReportPage.checkCharactersLabelMarkedRed();
-        user.atCreateReportPage.tapDoneButton();
+        user.atCreateReportPage.clickOnDoneButton();
         user.atCreateReportPage.checkNextButtonIsDisabled();
         user.atCreateReportPage.checkDescriptionFieldMarkedRed();
-        user.atCreateReportPage.tapOnDescriptionField();
+        user.atCreateReportPage.clickOnDescriptionField();
         user.atCreateReportPage.removeOneSymboldFromDescriptionField();
         user.atCreateReportPage.checkCharactersLabelMarkedGreen(); //todo no color diff attributes
-        user.atCreateReportPage.tapDoneButton();
+        user.atCreateReportPage.clickOnDoneButton();
         user.atCreateReportPage.checkNextButtonIsEnabled();
         user.atCreateReportPage.checkDescriptionFieldMarkedGreen(); //todo no color diff attributes
         user.atCreateReportPage.clickNextButton();
@@ -51,14 +51,14 @@ public class RW38_ReportWizardIndividualListingGeneratingDetailedReportFromIndiv
         user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.clickOnBackButton();
         user.atCreateReportPage.clickOnBackButton();
-        user.atCreateReportPage.tapCommentsField();
+        user.atCreateReportPage.clickOnCommentsField();
         user.atCreateReportPage.fillCommentsField(2001); //todo no locators for field
-        user.atCreateReportPage.tapDoneButton();
+        user.atCreateReportPage.clickOnDoneButton();
         user.atCreateReportPage.checkNextButtonIsDisabled();
         user.atCreateReportPage.checkCommentsLabelIsGreen(); //todo no color diff attributes
-        user.atCreateReportPage.tapCommentsField();
+        user.atCreateReportPage.clickOnCommentsField();
         user.atCreateReportPage.removeOneSymboldFromDescriptionField();
-        user.atCreateReportPage.tapDoneButton();
+        user.atCreateReportPage.clickOnDoneButton();
         user.atCreateReportPage.checkNextButtonIsEnabled();
         user.atCreateReportPage.checkCommentsLabelIsGreen();
         user.atCreateReportPage.clickNextButton();

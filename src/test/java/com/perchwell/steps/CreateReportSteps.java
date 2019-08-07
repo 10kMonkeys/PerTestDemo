@@ -625,8 +625,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void fillReportLabelField(int length) {
-        onPage.fillReportLabelField(length);
+    public void fillInReportLabelField(int length) {
+        onPage.fillInReportLabelField(length);
     }
 
     @Step
@@ -646,13 +646,13 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkIncludeExactAddressIsSelected() {
-        onPage.checkIncludeExactAddressIsSelected();
+    public void checkIncludeExactAddressOptionIsSelected() {
+        onPage.checkIncludeExactAddressOptionIsSelected();
     }
 
     @Step
-    public void checkListingAgentInfoIsUnselected() {
-        onPage.checkListingAgentInfoIsUnselected();
+    public void checkListingAgentInfoOptionIsUnselected() {
+        onPage.checkListingAgentInfoOptionIsUnselected();
     }
 
     @Step
@@ -761,48 +761,38 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkListingAgentInfoSuboptionUnselected() {
-        onPage.checkListingAgentInfoSuboptionUnselected();
+    public void checkDomSuboptionSelected() {
+        onPage.checkDomSuboptionSelected();
     }
 
     @Step
-    public void checkDomSupoptionSelected() {
-        onPage.checkDomSupoptionSelected();
+    public void checkListDateSuboptionSelected() {
+        onPage.checkListDateSuboptionSelected();
     }
 
     @Step
-    public void checkListDateSupoptionSelected() {
-        onPage.checkListDateSupoptionSelected();
+    public void checkSubwayInfoSuboptionSelected() {
+        onPage.checkSubwayInfoSuboptionSelected();
     }
 
     @Step
-    public void checkSubwayInfoSupoptionSelected() {
-        onPage.checkSubwayInfoSupoptionSelected();
+    public void checkIncludeMapSuboptionSelected() {
+        onPage.checkIncludeMapSuboptionSelected();
     }
 
     @Step
-    public void checkIncludeMapSupoptionSelected() {
-        onPage.checkIncludeMapSupoptionSelected();
+    public void checkFloorplanSuboptionSelected() {
+        onPage.checkFloorplanSuboptionSelected();
     }
 
     @Step
-    public void checkFloorplanSupoptionSelected() {
-        onPage.checkFloorplanSupoptionSelected();
+    public void checkOpenHouseSuboptionSelected() {
+        onPage.checkOpenHouseSuboptionSelected();
     }
 
     @Step
-    public void checkIncludeExactAddressSupoptionSelected() {
-        onPage.checkIncludeExactAddressSupoptionSelected();
-    }
-
-    @Step
-    public void checkOpenHouseSupoptionSelected() {
-        onPage.checkOpenHouseSupoptionSelected();
-    }
-
-    @Step
-    public void checkNeighborhoodSupoptionSelected() {
-        onPage.checkNeighborhoodSupoptionSelected();
+    public void checkNeighborhoodSuboptionSelected() {
+        onPage.checkNeighborhoodSuboptionSelected();
     }
 
     @Step
@@ -846,12 +836,12 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void tapOnDescriptionField() {
-        onPage.tapOnDescriptionField();
+    public void clickOnDescriptionField() {
+        onPage.clickOnDescriptionField();
     }
 
     @Step
-    public void checkDescribtionFieldExpanded() {
+    public void checkDescriptionFieldExpanded() {
 //    TODO
     }
 
@@ -866,17 +856,13 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void tapDoneButton() {
-        onPage.tapDone();
+    public void clickOnDoneButton() {
+        onPage.clickOnDoneButton();
     }
 
     @Step
-    public void fillDescriptionField(int length) {
-        onPage.fillDescriptionField(length);    }
-
-    @Step
-    public void tapFloorplanPencil() {
-        onPage.tapFloorplanPencil();
+    public void fillInDescriptionField(int length) {
+        onPage.fillInDescriptionField(length);
     }
 
     @Step
@@ -895,13 +881,13 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void tapOnSecondFloorplan() {
+    public void clickOnSecondFloorplan() {
 //        todo no listings with 2 floorplans
     }
 
     @Step
-    public void tapOnFirstFloorplan() {
-        onPage.tapOnFirstFloorplan();
+    public void clickOnFirstFloorplan() {
+        onPage.clickOnFirstFloorplan();
     }
 
     @Step
@@ -910,13 +896,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void oneSelectedLabeRemovedFromFirstFloorplan() {
-        onPage.oneSelectedLabeRemovedFromFirstFloorplan();
-    }
-
-    @Step
-    public void tapCollapseButton() {
-        onPage.tapCollapseButton();
+    public void oneSelectedLabelRemovedFromFirstFloorplan() {
+        onPage.oneSelectedLabelRemovedFromFirstFloorplan();
     }
 
     @Step
@@ -927,11 +908,6 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void checkNextButtonIsEnabled() {
         onPage.checkNextButtonIsEnabled();
-    }
-
-    @Step
-    public void tapPhotosPencil() {
-        onPage.tapPhotosPencil();
     }
 
     @Step
@@ -1037,8 +1013,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void tapCommentsField() {
-        onPage.tapCommentsField();
+    public void clickOnCommentsField() {
+        onPage.clickOnCommentsField();
     }
 
     @Step
@@ -1230,5 +1206,70 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void selectLargeMapOption() {
         onPage.selectLargeMapOption();
+    }
+
+    @Step
+    public void selectNeighborhoodOption() {
+        onPage.selectNeighborhoodOption();
+    }
+
+    @Step
+    public void selectIncludeCrossStreetsOption() {
+        onPage.selectIncludeCrossStreetsOption();
+    }
+
+    @Step
+    public void deselectFirstPhoto() {
+        onPage.deselectFirstPhoto();
+    }
+
+    @Step
+    public void checkNumberInCircleIsNotShown() {
+        //TODO: need to add id for element
+    }
+
+    @Step
+    public void checkGreenFrameIsRemoved() {
+        //TODO: need to add id for element
+    }
+
+    @Step
+    public void checkPhotosCountIsChanged(int amount) {
+        onPage.checkPhotosCountIsChanged(amount);
+    }
+
+    @Step
+    public void moveFirstPhotoToSecondPhotoByDragging() {
+        onPage.moveFirstPhotoToSecondPhotoByDragging();
+    }
+
+    @Step
+    public void checkPhotosAreReordered() {
+        //TODO: need to add id for element
+    }
+
+    @Step
+    public void checkPhotosAreShownInUpdatedOrder() {
+        //TODO: need to add id for element
+    }
+
+    @Step
+    public void moveFirstFloorplanToSecondFloorplanByDragging() {
+        onPage.moveFirstPhotoToSecondPhotoByDragging();
+    }
+
+    @Step
+    public void checkFloorplanAreReordered() {
+        //TODO: need to add id for element
+    }
+
+    @Step
+    public void checkFloorplanAreShownInUpdatedOrder() {
+        //TODO: need to add id for element
+    }
+
+    @Step
+    public void getAmountSelectedPhotos() {
+        onPage.getAmountSelectedPhotos();
     }
 }
