@@ -861,8 +861,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void fillInDescriptionField(int length) {
-        onPage.fillInDescriptionField(length);
+    public void fillInDescriptionFieldWithCountSymbols(int length) {
+        onPage.fillInDescriptionFieldWithCountSymbols(length);
     }
 
     @Step
@@ -1064,11 +1064,6 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void selectIncludeExactAddressOption() {
         onPage.selectIncludeExactAddressOption();
-    }
-
-    @Step
-    public void checkBuildingInBuildingsSectionForExportToExcel() {
-        onPage.checkBuildingInBuildingsSectionForExportToExcel();
     }
 
     @Step

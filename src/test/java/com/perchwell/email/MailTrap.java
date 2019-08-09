@@ -220,12 +220,12 @@ public class MailTrap {
 			Assert.assertFalse(rawBody.contains(exactAddress));
 		}
 
-		String address = "(\\w{1,100}\\s[0-9]{1,100}\\w{1,100}\\s\\w{1,100}\\.)|(\\w{3,100}\\s\\w{1,100}\\.)";
+		String address = "(\\w{1,100}\\s[0-9]{1,100}\\w{1,100}\\s\\w{1,100}\\.)|(\\w{3,100}\\s\\w{1,100}\\.)|(\\w{1,100}\\s\\w{1,100}\\n\\$)|(\\w{1,100}\\s\\w{1,100}\\s\\w{1,100}\\n\\$)";
 		Pattern patternForAddress = Pattern.compile(address);
 		Matcher matcherForAddress = patternForAddress.matcher(rawBody);
 
 		while (matcherForAddress.find()) {
-			listingsAddress.add(rawBody.substring(matcherForAddress.start(), matcherForAddress.end()));
+			listingsAddress.add(rawBody.substring(matcherForAddress.start(), matcherForAddress.end()).replace("\n$", ""));
 		}
 
 		List<String> nonExactAddressOrderListing = new ArrayList<>();

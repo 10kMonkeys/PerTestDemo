@@ -31,7 +31,7 @@ public class RW38_ReportWizardIndividualListingGeneratingDetailedReportFromIndiv
         user.atCreateReportPage.checkDescriptionFieldMarkedRed(); //todo no color diff attributes
         user.atCreateReportPage.checkNextButtonIsDisabled();
         user.atCreateReportPage.clickOnDescriptionField();
-        user.atCreateReportPage.fillInDescriptionField(2001); //todo no locators for field
+        user.atCreateReportPage.fillInDescriptionFieldWithCountSymbols(2001); //todo no locators for field
         user.atCreateReportPage.checkCharactersLabelMarkedRed();
         user.atCreateReportPage.clickOnDoneButton();
         user.atCreateReportPage.checkNextButtonIsDisabled();

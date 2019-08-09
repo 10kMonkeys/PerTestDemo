@@ -53,7 +53,7 @@ public class RW34_ReportWizardMultiSelectExportToExcelTest extends SampleTest {
         user.atMyTagsPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnExportToExcelButton();
         user.atCreateReportPage.checkFirstAndSecondListingsInListingsSection();
-        user.atCreateReportPage.checkBuildingInBuildingsSectionForExportToExcel();
+        user.atCreateReportPage.checkBuildingInBuildingsSection();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkAllOptionsAreSelected(31);
         user.atCreateReportPage.checkExternalPageOptionIsSelected();

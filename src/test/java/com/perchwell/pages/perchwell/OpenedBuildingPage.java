@@ -295,6 +295,9 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address: 5800 AVE. U #53'")
 	private WebElement reportListing;
 
+	@iOSXCUITFindBy(accessibility = "Table View Cell: Show More")
+	private WebElement showMoreListingsButton;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -987,6 +990,8 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
     public void clickOnReportListing() {
+		universalVerticalSwipe(showMoreListingsButton);
+		element(showMoreListingsButton).click();
 		universalVerticalSwipe(reportListing);
 		element(reportListing).click();
     }

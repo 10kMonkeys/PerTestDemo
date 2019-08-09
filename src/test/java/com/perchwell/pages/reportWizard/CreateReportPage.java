@@ -1343,7 +1343,9 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkBuildingInBuildingsSection() {
-        checkOneListingAddressBelowSection(buildingSection, SessionVariables.getValueFromSessionVariable("reportWizardAddress3"));
+        WebElement listingCell;
+        listingCell = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("reportWizardAddress3")));
+        Assert.assertEquals(getYPositionOfElement(buildingSection) + 59, getYPositionOfElement(listingCell));
     }
 
     public void clickOnExportToExcelButton() {
@@ -1354,10 +1356,10 @@ public class CreateReportPage extends TechHelper {
         element(detailedButton).click();
     }
 
-    public void fillInDescriptionField(int length) {
+    public void fillInDescriptionFieldWithCountSymbols(int length) {
         String message = StringUtils.repeat("a", length);
-        waitFor(reportLabelTextField).shouldBeVisible();
-        element(reportLabelTextField).sendKeys(message);
+        waitFor(descriptionField).shouldBeVisible();
+        element(descriptionField).sendKeys(message);
         hideKeyboard();
 
     }
@@ -1417,12 +1419,6 @@ public class CreateReportPage extends TechHelper {
 
     public void selectInternalInformationOption() {
         element(unselectedInternalInformationOption).click();
-    }
-
-    public void checkBuildingInBuildingsSectionForExportToExcel() {
-        WebElement listingCell;
-        listingCell = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("reportWizardAddress3")));
-        Assert.assertEquals(getYPositionOfElement(buildingSection) + 59, getYPositionOfElement(listingCell));
     }
 
     public void clickOnItineraryButton() {

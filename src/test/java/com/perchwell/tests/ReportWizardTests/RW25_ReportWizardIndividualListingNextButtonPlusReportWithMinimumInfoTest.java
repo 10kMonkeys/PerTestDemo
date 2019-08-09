@@ -34,7 +34,7 @@ public class RW25_ReportWizardIndividualListingNextButtonPlusReportWithMinimumIn
         user.atCreateReportPage.checkCharactersLabelMarkedBlack();
         user.atCreateReportPage.clickOnDoneButton();
         user.atCreateReportPage.clickOnDescriptionField();
-        user.atCreateReportPage.fillInDescriptionField(412); //todo no locators for field
+        user.atCreateReportPage.fillInDescriptionFieldWithCountSymbols(412); //todo no locators for field
         user.atCreateReportPage.clickOnDoneButton();
         user.atCreateReportPage.clickOnFloorplanEditIcon();
         user.atCreateReportPage.checkOnePerOneSelectedLabelIsShown();

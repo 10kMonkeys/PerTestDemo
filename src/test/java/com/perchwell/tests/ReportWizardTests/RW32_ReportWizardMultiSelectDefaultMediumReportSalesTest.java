@@ -41,6 +41,5 @@ public class RW32_ReportWizardMultiSelectDefaultMediumReportSalesTest extends Sa
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.MEDIUM_DEFAULT_REPORT);
-
     }
 }
