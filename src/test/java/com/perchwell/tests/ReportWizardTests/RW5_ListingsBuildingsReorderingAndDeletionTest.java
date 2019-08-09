@@ -31,7 +31,7 @@ public class RW5_ListingsBuildingsReorderingAndDeletionTest extends SampleTest {
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atSearchPage.clearAddressSearchField();
-        user.atSearchPage.fillInAddressSearchField(Addresses.DAKOTA);
+        user.atSearchPage.fillInAddressSearchField(Addresses.WEST_72ND);
         user.atSearchPage.openFirstBuilding();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
@@ -40,7 +40,7 @@ public class RW5_ListingsBuildingsReorderingAndDeletionTest extends SampleTest {
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atSearchPage.clearAddressSearchField();
-        user.atSearchPage.fillInAddressSearchField(Addresses.UNITED_NAT_PLAZA);
+        user.atSearchPage.fillInAddressSearchField(Addresses.AVENUE_5800);
         user.atSearchPage.openFirstBuilding();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
@@ -63,11 +63,11 @@ public class RW5_ListingsBuildingsReorderingAndDeletionTest extends SampleTest {
         user.atCreateReportPage.clickDefaultButton();
         user.atCreateReportPage.swipeLeftListingByAddress();
         user.atCreateReportPage.clickOnDeleteButton();
-//        user.atCreateReportPage.checkFirstListingIsDeleted();     will be fixed by jianghong
+        user.atCreateReportPage.checkFirstListingIsDeleted();     //will be fixed by jianghong
         user.atCreateReportPage.moveFirstListingToThirdListingByDragging();
         user.atCreateReportPage.swipeLeftBuildingByAddress();
         user.atCreateReportPage.clickOnDeleteButton();
-//        user.atCreateReportPage.checkFirstBuildingIsDeleted();    will be fixed by jianhong
+        user.atCreateReportPage.checkFirstBuildingIsDeleted();    //will be fixed by jianhong
         user.atCreateReportPage.moveFirstBuildingToSecondBuildingByDragging();
         user.atCreateReportPage.getListingsAndBuildingsOrder();
         user.atCreateReportPage.clickNextButton();

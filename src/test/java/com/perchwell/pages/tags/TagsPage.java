@@ -166,6 +166,7 @@ public class TagsPage extends TechHelper {
 	public void fillInTagSearchField(String uniqueTagName) {
 		waitABit(1000);
 		element(searchTagTextBox).sendKeys(uniqueTagName);
+		hideKeyboard();
 	}
 
 	public void clickOnCreateTagLabel() {

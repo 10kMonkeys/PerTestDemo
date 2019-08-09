@@ -344,13 +344,13 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkCCMaintIsVisible() {
-        onPage.checkCCMaintIsVisible();
+    public void checkUnselectedCCMaintenanceSubpoptionIsVisible() {
+        onPage.checkUnselectedCCMaintenanceSubpoptionIsVisible();
     }
 
     @Step
-    public void checkRETaxedIsVisible() {
-        onPage.checkRETaxedIsVisible();
+    public void checkUnselectedRETaxedSuboptionIsVisible() {
+        onPage.checkUnselectedRETaxedSuboptionIsVisible();
     }
 
     @Step
@@ -1271,5 +1271,34 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void getAmountSelectedPhotos() {
         onPage.getAmountSelectedPhotos();
+    }
+
+    @Step
+    public void swipeToReportLabelField() {
+        onPage.swipeToReportLabelField();
+    }
+
+    @Step
+    public void checkSelectedCCMaintananceSuboptionIsVisible() {
+        onPage.checkSelectedCCMaintananceSuboptionIsVisible();
+    }
+
+    @Step
+    public void checkTransitInfoSuboptionSelected() {
+        onPage.checkTransitInfoSuboptionSelected();
+    }
+
+    @Step
+    public void checkTenOfElevenCounterIsShown() {
+        onPage.checkTenOfElevenCounterIsShown();
+    }
+
+    public void checkSuboptionCounterIsEquals(String counter) {
+        onPage.checkSuboptionCounterIsEquals(counter);
+    }
+
+    @Step
+    public void checkSelectedCCMaintenanceSubpoptionIsVisible() {
+        onPage.checkSelectedCCMaintenanceSubpoptionIsVisible();
     }
 }
