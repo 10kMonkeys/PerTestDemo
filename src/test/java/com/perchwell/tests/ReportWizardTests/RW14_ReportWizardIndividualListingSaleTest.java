@@ -61,8 +61,8 @@ public class RW14_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkLayoutIsLandscape();
         user.atCreateReportPage.checkSelectedFieldsAmount(12);
-        user.atCreateReportPage.checkCCMaintIsVisible();
-        user.atCreateReportPage.checkRETaxedIsVisible();
+        user.atCreateReportPage.checkUnselectedCCMaintenanceSubpoptionIsVisible();
+        user.atCreateReportPage.checkUnselectedRETaxedSuboptionIsVisible();
         user.atCreateReportPage.checkTotalMonthliesIsVisible();
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
         user.atCreateReportPage.swipeToPortrait();

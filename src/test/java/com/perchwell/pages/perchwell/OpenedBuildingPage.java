@@ -968,7 +968,7 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void openOnMoreInfoSection() {
-		universalVerticalShortSwipe(moreInfoButton);
+		universalVerticalSwipe(moreInfoButton);
 		waitFor(moreInfoButton).shouldBeVisible();
 		element(moreInfoButton).click();
 	}
@@ -995,4 +995,8 @@ public class OpenedBuildingPage extends TechHelper {
 		universalVerticalSwipe(reportListing);
 		element(reportListing).click();
     }
+
+	public void swipeToMonthlyCommonCharges() {
+		universalVerticalShortSwipe(monthlyCommonCharges);
+	}
 }

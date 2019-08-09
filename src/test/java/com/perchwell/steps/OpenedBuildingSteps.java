@@ -501,5 +501,10 @@ public class OpenedBuildingSteps extends ScenarioSteps {
     public void clickOnReportListing() {
 		onPage.clickOnReportListing();
     }
+
+    @Step
+    public void swipeToMonthlyCommonCharges() {
+    	onPage.swipeToMonthlyCommonCharges();
+	}
 }
 

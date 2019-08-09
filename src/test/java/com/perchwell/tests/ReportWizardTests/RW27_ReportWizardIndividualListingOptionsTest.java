@@ -21,7 +21,7 @@ public class RW27_ReportWizardIndividualListingOptionsTest extends SampleTest {
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkDomSuboptionSelected();
         user.atCreateReportPage.checkListDateSuboptionSelected();
-        user.atCreateReportPage.checkSubwayInfoSuboptionSelected();
+        user.atCreateReportPage.checkTransitInfoSuboptionSelected();
         user.atCreateReportPage.checkIncludeMapSuboptionSelected();
         user.atCreateReportPage.checkFloorplanSuboptionSelected();
         user.atCreateReportPage.checkIncludeExactAddressOptionIsSelected();

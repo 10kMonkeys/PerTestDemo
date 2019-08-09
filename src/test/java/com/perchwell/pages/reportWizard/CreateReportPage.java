@@ -92,7 +92,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "shrink")
     private WebElement shrinkButton;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "label = 'removeBubble'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name = 'Remove Button:'")
     private WebElement removeBubble;
 
     @iOSXCUITFindBy(accessibility = "STUDIO")
@@ -207,6 +207,9 @@ public class CreateReportPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = "(8/9)")
     private WebElement eightOfNiveFieldsCounter;
+
+    @iOSXCUITFindBy(accessibility = "(10/11)")
+    private WebElement tenOfElevenCounter;
 
     @iOSXCUITFindBy(accessibility = " Suboption: Perchwell")
     private WebElement unselectedPerchwellLinkOption;
@@ -441,6 +444,9 @@ public class CreateReportPage extends TechHelper {
 
     @iOSXCUITFindBy(accessibility = " Suboption: Include Cross Streets")
     private WebElement unselectedIncludeCrossStreetsOption;
+
+    @iOSXCUITFindBy(accessibility =  " Suboption Selected: Transit Info")
+    private WebElement selectedTransitInfoSuboption;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/*[2]/*/*[2]/*[2]/*/XCUIElementTypeStaticText[1]")
     private WebElement amountPhotosSelected;
@@ -779,12 +785,12 @@ public class CreateReportPage extends TechHelper {
         Assert.assertEquals(amount,subOptions.size());
     }
 
-    public void checkCCMaintIsVisible() {
-        element(selectedCcMaintSuboption).shouldBeVisible();
+    public void checkUnselectedCCMaintenanceSubpoptionIsVisible() {
+        element(unselectedCcMaintSuboption).shouldBeVisible();
     }
 
-    public void checkRETaxedIsVisible() {
-        element(selectedReTaxesSuboption).shouldBeVisible();
+    public void checkUnselectedRETaxedSuboptionIsVisible() {
+        element(unselectedReTaxesSuboption).shouldBeVisible();
     }
 
     public void checkTotalMonthliesIsVisible() {
@@ -1568,5 +1574,30 @@ public class CreateReportPage extends TechHelper {
 
     public void getAmountSelectedPhotos() {
         SessionVariables.addValueInSessionVariable("amountSelectedPhotos", element(amountPhotosSelected).getValue());
+    }
+
+    public void swipeToReportLabelField() {
+        singleUpShortSwipeIOS();
+    }
+
+    public void checkSelectedCCMaintananceSuboptionIsVisible() {
+        element(selectedCcMaintSuboption).shouldBeVisible();
+    }
+
+    public void checkTransitInfoSuboptionSelected() {
+        element(selectedTransitInfoSuboption).shouldBeVisible();
+    }
+
+    public void checkTenOfElevenCounterIsShown() {
+        element(tenOfElevenCounter).shouldBeVisible();
+    }
+
+    public void checkSuboptionCounterIsEquals(String counter) {
+        element(MobileBy.AccessibilityId("(" + counter + ")")).shouldBeVisible();
+
+    }
+
+    public void checkSelectedCCMaintenanceSubpoptionIsVisible() {
+        element(selectedCcMaintSuboption).shouldBeVisible();
     }
 }

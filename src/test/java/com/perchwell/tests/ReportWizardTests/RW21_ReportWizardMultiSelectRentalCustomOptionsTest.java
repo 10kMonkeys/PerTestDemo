@@ -38,10 +38,11 @@ public class RW21_ReportWizardMultiSelectRentalCustomOptionsTest extends SampleT
         user.atCreateReportPage.checkRETaxedIsNotPresented();
         user.atCreateReportPage.checkTotalMonthliesIsNotPresented();
         user.atCreateReportPage.selectPriceChangeSuboption();//temp select
+        user.atCreateReportPage.selectContractDateSuboption();
         user.atCreateReportPage.deselectBedsSuboption();
-        user.atCreateReportPage.checkEightFieldsCounterIsVisible();
+        user.atCreateReportPage.checkSuboptionCounterIsEquals("7/8");
         user.atCreateReportPage.selectBedsSuboption();
-        user.atCreateReportPage.checkNineFieldsCounterIsVisible();
+        user.atCreateReportPage.checkSuboptionCounterIsEquals("8/8");
         user.atCreateReportPage.selectRoomsSuboption();
         user.atCreateReportPage.checkUnselectedRoomsSuboptionIsVisible();
         user.atCreateReportPage.clickNextButton();

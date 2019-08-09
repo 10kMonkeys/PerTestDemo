@@ -17,7 +17,7 @@ public class RW2_EmailValidationTest extends SampleTest {
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnListingReportButton();
-        user.atCreateReportPage.clickDefaultButton();
+        user.atCreateReportPage.clickDefaultIncludesBuildingsButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
