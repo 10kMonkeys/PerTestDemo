@@ -280,6 +280,7 @@ public class OpenedBuildingPage extends TechHelper {
 	@AndroidFindBy(accessibility = "tag color: #a8aab7")
 	private List<WebElement> grayColorTagPil;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'CREATE REPORT')]")
 	@iOSXCUITFindBy(accessibility = "CREATE REPORT")
 	private WebElement createReportButton;
 

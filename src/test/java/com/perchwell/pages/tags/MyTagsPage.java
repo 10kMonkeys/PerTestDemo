@@ -156,6 +156,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell[2]")
 	private WebElement secondBuilding;
 
+	@AndroidFindBy(accessibility = "cell: Create Report")
 	@iOSXCUITFindBy(accessibility = "cell: Create Report")
 	private WebElement createReportButton;
 

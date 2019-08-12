@@ -4,6 +4,7 @@ import com.perchwell.helpers.CurrentYear;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
@@ -20,42 +21,55 @@ public class CreateReportPage extends TechHelper {
 
     public static List<String> orderListing = new ArrayList<>();
 
+    @AndroidFindBy(accessibility = "CMA")
     @iOSXCUITFindBy(accessibility = "CMA")
     private WebElement cmaButton;
 
+    @AndroidFindBy(accessibility = "Extended CMA")
     @iOSXCUITFindBy(accessibility = "Extended CMA")
     private WebElement extendedCmaButton;
 
+    @AndroidFindBy(accessibility = "Listing Report")
     @iOSXCUITFindBy(accessibility = "Listing Report")
     private WebElement listingReportButton;
 
+    @AndroidFindBy(accessibility = "Show Sheet")
     @iOSXCUITFindBy(accessibility = "Show Sheet")
     private WebElement showSheetButton;
 
+    @AndroidFindBy(accessibility = "Export To Excel")
     @iOSXCUITFindBy(accessibility = "Export To Excel")
     private WebElement exportToExcelButton;
 
+    @AndroidFindBy(accessibility = "Itinerary")
     @iOSXCUITFindBy(accessibility = "Itinerary")
     private WebElement itineraryButton;
 
+    @AndroidFindBy(accessibility = "Media Report")
     @iOSXCUITFindBy(accessibility = "Media Report")
     private WebElement mediaReportButton;
 
+    @AndroidFindBy(accessibility = "Short")
     @iOSXCUITFindBy(accessibility = "Short")
     private WebElement shortButton;
 
+    @AndroidFindBy(accessibility = "Medium")
     @iOSXCUITFindBy(accessibility = "Medium")
     private WebElement mediumButton;
 
+    @AndroidFindBy(accessibility = "Default")
     @iOSXCUITFindBy(accessibility = "Default")
     private WebElement defaultButton;
 
+    @AndroidFindBy(accessibility = "Default (Includes Buildings)")
     @iOSXCUITFindBy(accessibility = "Default (Includes Buildings)")
     private WebElement defaultIncludesBuildingButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
     @iOSXCUITFindBy(accessibility = "iconChevronLeft")
     private WebElement backButton;
 
+    @AndroidFindBy(accessibility = "Detailed ")
     @iOSXCUITFindBy(accessibility = "Detailed ")
     private WebElement detailedButton;
 

@@ -270,6 +270,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'ADDRESS: 1 West 72nd St. #81'")
 	private WebElement testListingWithOneAgent;
 
+	@AndroidFindBy(accessibility = "cell: Create Report")
 	@iOSXCUITFindBy(accessibility = "cell: Create Report")
 	private WebElement createReportButton;
 
