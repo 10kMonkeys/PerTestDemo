@@ -78,7 +78,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Next")
     private WebElement nextButton;
 
-    @AndroidFindBy(xpath = "//android.view.ViewGroup[1]/android.widget.FrameLayout/android.support.v7.widget.LinearLayoutCompat/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText")
+    @AndroidFindBy(accessibility = "Email textField")
     @iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
     private WebElement emailField;
 
@@ -90,7 +90,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$value == 'tag color: #37d2be'$]")
     private WebElement emailPill;
 
-    @AndroidFindBy(xpath = "//android.widget.RelativeLayout[3]/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout/android.support.v7.widget.LinearLayoutCompat/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText")
+    @AndroidFindBy(accessibility = "Subject textField")
     @iOSXCUITFindBy(accessibility = "Subject textField")
     private WebElement subjectField;
 
@@ -109,12 +109,18 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "OK")
     private WebElement popUpOkButton;
 
+    @AndroidFindBy(accessibility = "Message textField")
     @iOSXCUITFindBy(accessibility = "textView")
     private WebElement messageField;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/edit_text")
+    private WebElement messageFieldExpanded;
+
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/shrink_button")
     @iOSXCUITFindBy(accessibility = "shrink")
     private WebElement shrinkButton;
 
+    @AndroidFindBy(accessibility = "RemoveButton")
     @iOSXCUITFindBy(iOSNsPredicate = "name = 'Remove Button:'")
     private WebElement removeBubble;
 
@@ -562,9 +568,16 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void fillEmailField(String email) {
-        element(emailField).sendKeys(email);
-        SessionVariables.addValueInSessionVariable("emailAddress", email);
-    }
+        if (!Config.isAndroid()) {
+            element(emailField).sendKeys(email);
+            hideKeyboard();
+            SessionVariables.addValueInSessionVariable("emailAddress", email);
+        } else {
+            element(emailField).click();
+            element(emailField).sendKeys(email);
+            SessionVariables.addValueInSessionVariable("emailAddress", email);
+            }
+        }
 
     public void checkEmailReportButtonIsDisabled() {
         element(emailReportButton).shouldNotBeEnabled();
@@ -575,12 +588,14 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void fillSubjectField(String message) {
-        element(subjectField).typeAndEnter(message);
+        element(subjectField).sendKeys(message);
         SessionVariables.addValueInSessionVariable("Report_subject", message);
     }
 
     public void clickOnReturnButtonOnKeyboard() {
-        element(returnButtonOnKeyboard).click();
+        if (!Config.isAndroid()) {
+            element(returnButtonOnKeyboard).click();
+        }
     }
 
     public void clearEmailField() {
@@ -604,8 +619,15 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void fillInMessageField(String message) {
-        element(messageField).sendKeys(message);
-        SessionVariables.addValueInSessionVariable("Report_message", message);
+       if (Config.isAndroid()){
+           element(messageField).click();
+           element(messageFieldExpanded).sendKeys(message);
+           hideKeyboard();
+           SessionVariables.addValueInSessionVariable("Report_message", message);
+       } else {
+           element(messageField).sendKeys(message);
+           SessionVariables.addValueInSessionVariable("Report_message", message);
+       }
     }
 
     public void clickOnEmailReportButton() {
@@ -636,9 +658,9 @@ public class CreateReportPage extends TechHelper {
 
     public void checkSubjectFieldIsFilledOut() {
         if(Config.isAndroid()) {
-            Assert.assertEquals(element(subjectField).getText(), SessionVariables.getValueFromSessionVariable("Contact_subject"));
+            Assert.assertEquals(element(subjectField).getText(), SessionVariables.getValueFromSessionVariable("Report_subject"));
         } else {
-            Assert.assertEquals(element(subjectField).getText(), SessionVariables.getValueFromSessionVariable("Contact_subject"));
+            Assert.assertEquals(element(subjectField).getText(), SessionVariables.getValueFromSessionVariable("Report_subject"));
         }
     }
 
