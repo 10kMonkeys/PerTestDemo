@@ -13,9 +13,6 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
-
-
 public class TechHelper extends BasePage {
 
     public TechHelper(WebDriver driver) {
@@ -30,7 +27,6 @@ public class TechHelper extends BasePage {
 
         return (AppiumDriver) webDriver;
     }
-
 
     //endregion
 
@@ -157,7 +153,6 @@ public class TechHelper extends BasePage {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-//        Dimension size = getDriver().manage().window().getSize();
         int startPoint = (int) (element.getLocation().getX());
         int endPoint = (int) (element.getLocation().getX()-swipeLength);
         int y = (int) (element.getLocation().getY());
@@ -296,7 +291,6 @@ public class TechHelper extends BasePage {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-
         swipeVerticalAndroid(appiumDriver, 0.8, 0.29, 0.5);
     }
 
@@ -360,7 +354,6 @@ public class TechHelper extends BasePage {
         int a = element.getLocation().getY();
         return a;
     }
-
 
     //endregion
 }

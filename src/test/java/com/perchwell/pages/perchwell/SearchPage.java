@@ -2273,6 +2273,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectCondopFilter() {
+        universalVerticalSwipe(condopFilter);
         element(condopFilter).click();
     }
 

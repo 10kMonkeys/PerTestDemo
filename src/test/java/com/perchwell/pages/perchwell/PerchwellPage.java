@@ -128,7 +128,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'ADDRESS:'")
 	private WebElement firstBuildingAddress;
 
-	@iOSXCUITFindBy(xpath = "com.perchwell.re.staging:id/listing_address")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$name CONTAINS 'ADDRESS:'$][2]")
 	private WebElement secondBuildingAddress;
 
@@ -190,6 +190,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "SAVE")
 	private WebElement saveButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'ADDRESS:'")
 	private List<WebElement> addressesList;
 
@@ -243,6 +244,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Selected")
 	private WebElement selectedWord;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'Select button: selected')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: selected'")
 	private List<WebElement> selectedListingsList;
 
@@ -260,6 +262,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Number of selected listings: '")
 	private WebElement numberOfSelectedListings;
 
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc, 'Select button: selected')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND label == 'lv selected rb'")
 	private List<WebElement> selectedListingsListByAddress;
 
@@ -274,9 +277,11 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "cell: Create Report")
 	private WebElement createReportButton;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/upcoming_open_house")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$value CONTAINS 'OH: '$][1]")
 	private WebElement openHouseLabelOnFirstListing;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_type")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'LISTING TYPE: '")
 	private List<WebElement> listingTypeList;
 
@@ -1188,12 +1193,21 @@ public class PerchwellPage extends TechHelper {
     }
 
 	public void checkFirstListingIsSelected() {
-		element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: selected "
-				+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'")).shouldBePresent();
+		if(Config.isAndroid()) {
+			element(MobileBy.AccessibilityId("Select button: selected "
+					+ SessionVariables.getValueFromSessionVariable("listingAddress1"))).shouldBePresent();
+		} else {
+			element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeButton' AND name CONTAINS 'Select button: selected "
+					+ SessionVariables.getValueFromSessionVariable("listingAddress1") + "'")).shouldBePresent();
+		}
 	}
 
 	public void getOpenHouseDateForFirstListing() {
-		SessionVariables.addValueInSessionVariable("openHouseDate", element(openHouseLabelOnFirstListing).getAttribute("value"));
+		if(Config.isAndroid()) {
+			SessionVariables.addValueInSessionVariable("openHouseDate", element(openHouseLabelOnFirstListing).getAttribute("text"));
+		} else {
+			SessionVariables.addValueInSessionVariable("openHouseDate", element(openHouseLabelOnFirstListing).getAttribute("value"));
+		}
 	}
 
 	public void selectFirstFiveListings() {
@@ -1203,35 +1217,68 @@ public class PerchwellPage extends TechHelper {
 	}
 
     public void getFirstListingSquareFeetForReport() {
-		SessionVariables.addValueInSessionVariable("sqrFootageValue", element(sqFeetList.get(0)).getAttribute("value"));
+		if(Config.isAndroid()) {
+			SessionVariables.addValueInSessionVariable("sqrFootageValue", element(sqFeetList.get(0)).getAttribute("text"));
+		} else {
+			SessionVariables.addValueInSessionVariable("sqrFootageValue", element(sqFeetList.get(0)).getAttribute("value"));
+		}
     }
 
 	public void getFirstListingAddressForReport() {
-		SessionVariables.addValueInSessionVariable("addressValue", element(addressesList.get(0)).getAttribute("value"));
+		if(Config.isAndroid()) {
+			SessionVariables.addValueInSessionVariable("addressValue", element(addressesList.get(0)).getAttribute("text"));
+		} else {
+			SessionVariables.addValueInSessionVariable("addressValue", element(addressesList.get(0)).getAttribute("value"));
+		}
 	}
 
 	public void getFirstListingPriceForReport() {
-		SessionVariables.addValueInSessionVariable("priceValue", element(pricesList.get(0)).getAttribute("value"));
+		if(Config.isAndroid()) {
+			SessionVariables.addValueInSessionVariable("priceValue", element(pricesList.get(0)).getAttribute("text"));
+		} else {
+			SessionVariables.addValueInSessionVariable("priceValue", element(pricesList.get(0)).getAttribute("value"));
+		}
 	}
 
 	public void getFirstListingPropertyTypeForReport() {
-		SessionVariables.addValueInSessionVariable("propertyTypeValue", element(listingTypeList.get(0)).getAttribute("value"));
+		if(Config.isAndroid()) {
+			SessionVariables.addValueInSessionVariable("propertyTypeValue", element(listingTypeList.get(0)).getAttribute("text"));
+		} else {
+			SessionVariables.addValueInSessionVariable("propertyTypeValue", element(listingTypeList.get(0)).getAttribute("value"));
+		}
 	}
 
 	public void getFirstListingBedroomsForReport() {
-		SessionVariables.addValueInSessionVariable("bedsValue", element(bedInfoList.get(0)).getAttribute("value"));
+		if(Config.isAndroid()) {
+			SessionVariables.addValueInSessionVariable("bedsValue", element(bedInfoList.get(0)).getAttribute("text"));
+		} else {
+			SessionVariables.addValueInSessionVariable("bedsValue", element(bedInfoList.get(0)).getAttribute("value"));
+		}
 	}
 
 	public void getFirstListingBathroomsForReport() {
-		SessionVariables.addValueInSessionVariable("bathsValue", element(bathsInfoList.get(0)).getAttribute("value"));
+		if(Config.isAndroid()) {
+			SessionVariables.addValueInSessionVariable("bathsValue", element(bathsInfoList.get(0)).getAttribute("text"));
+		} else {
+			SessionVariables.addValueInSessionVariable("bathsValue", element(bathsInfoList.get(0)).getAttribute("value"));
+		}
 	}
 
 	public void getFirstListingUnitForReport() {
-		String unit = element(addressesList.get(0)).getValue().substring(element(addressesList.get(0)).getValue().indexOf("#"));
-		SessionVariables.addValueInSessionVariable("unitValue", unit);
+		if(Config.isAndroid()) {
+			String unit = element(addressesList.get(0)).getText().substring(element(addressesList.get(0)).getText().indexOf("#"));
+			SessionVariables.addValueInSessionVariable("unitValue", unit);
+		} else {
+			String unit = element(addressesList.get(0)).getValue().substring(element(addressesList.get(0)).getValue().indexOf("#"));
+			SessionVariables.addValueInSessionVariable("unitValue", unit);
+		}
 	}
 
 	public void getFirstListingNameForReport() {
-		SessionVariables.addValueInSessionVariable("rentalListing", addressesList.get(0).getAttribute("value"));
+		if(Config.isAndroid()) {
+			SessionVariables.addValueInSessionVariable("rentalListing", addressesList.get(0).getAttribute("text"));
+		} else {
+			SessionVariables.addValueInSessionVariable("rentalListing", addressesList.get(0).getAttribute("value"));
+		}
 	}
 }

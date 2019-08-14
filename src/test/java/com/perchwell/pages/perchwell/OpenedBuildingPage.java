@@ -284,6 +284,7 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "CREATE REPORT")
 	private WebElement createReportButton;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text = 'MORE INFO']")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeOther' AND name == 'MORE INFO'")
 	private WebElement moreInfoButton;
 

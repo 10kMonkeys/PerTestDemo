@@ -1,5 +1,6 @@
 package com.perchwell.pages.reportWizard;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.CurrentYear;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
@@ -73,30 +74,38 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Detailed ")
     private WebElement detailedButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/action_button")
     @iOSXCUITFindBy(accessibility = "Next")
     private WebElement nextButton;
 
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[1]/android.widget.FrameLayout/android.support.v7.widget.LinearLayoutCompat/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText")
     @iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
     private WebElement emailField;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/email_report")
     @iOSXCUITFindBy(accessibility = "EMAIL REPORT")
     private WebElement emailReportButton;
 
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc='tag color: #37d2be']/android.widget.TextView")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$value == 'tag color: #37d2be'$]")
     private WebElement emailPill;
 
+    @AndroidFindBy(xpath = "//android.widget.RelativeLayout[3]/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout/android.support.v7.widget.LinearLayoutCompat/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText")
     @iOSXCUITFindBy(accessibility = "Subject textField")
     private WebElement subjectField;
 
     @iOSXCUITFindBy(accessibility = "Return")
     private WebElement returnButtonOnKeyboard;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'REPORT SUCCESSFULLY SENT')]")
     @iOSXCUITFindBy(accessibility = "REPORT SUCCESSFULLY SENT")
     private WebElement emailReportPopUp;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/negative_button")
     @iOSXCUITFindBy(accessibility = "EXIT")
     private WebElement popUpExitButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
     @iOSXCUITFindBy(accessibility = "OK")
     private WebElement popUpOkButton;
 
@@ -109,18 +118,23 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "name = 'Remove Button:'")
     private WebElement removeBubble;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'STUDIO']")
     @iOSXCUITFindBy(accessibility = "STUDIO")
     private WebElement studioBedroom;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/sqft")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'FT2'")
     private WebElement squareFeetLabel;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/listing_price")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS '$'")
     private WebElement priceLabel;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = '1½ BA']")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS '1½'")
     private WebElement oneAndHalfBathroomLabel;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/foreground_layout")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell")
     private List<WebElement> listingsList;
 
@@ -130,12 +144,14 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'iosReorder'")
     private List<WebElement> reorderButtonList;
 
+    @AndroidFindBy(accessibility = "Sales")
     @iOSXCUITFindBy(accessibility = "Sales")
     private WebElement salesButton;
 
     @iOSXCUITFindBy(accessibility = "addTag")
     private WebElement subjectPropertyButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/remove_icon")
     @iOSXCUITFindBy(accessibility = "Remove Button: TAGNAMEREPORTWIZARD")
     private WebElement reportWizardDeleteButton;
 
@@ -156,6 +172,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[1]")
     private WebElement subjectPropertyCell;
 
+    @AndroidFindBy(accessibility = "Rentals")
     @iOSXCUITFindBy(accessibility = "Rentals")
     private WebElement rentalsButton;
 
@@ -288,24 +305,31 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Suboption:'")
     private List<WebElement> unselectedSuboptions;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/tags_container")
     @iOSXCUITFindBy(accessibility = "Add Listings From Tags")
     private WebElement tagsField;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'ACTIVE']")
     @iOSXCUITFindBy(accessibility = "ACTIVE")
     private WebElement activeSection;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'IN CONTRACT']")
     @iOSXCUITFindBy(accessibility = "IN CONTRACT")
     private WebElement inContractSection;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'OFF MARKET']")
     @iOSXCUITFindBy(accessibility = "OFF MARKET")
     private WebElement offMarketSection;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'SOLD']")
     @iOSXCUITFindBy(accessibility = "SOLD")
     private WebElement soldSection;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'RENTED']")
     @iOSXCUITFindBy(accessibility = "RENTED")
     private WebElement rentedSection;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'LISTINGS']")
     @iOSXCUITFindBy(accessibility = "LISTINGS")
     private WebElement listingSection;
 
@@ -564,12 +588,19 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkEmailFieldValueIsShownAsText() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailField).getAttribute("value"));
-
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailField).getAttribute("text"));
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailField).getAttribute("value"));
+        }
     }
 
     public void checkEmailFieldIsShownAsGreenPill() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailPill).getAttribute("name"));
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailPill).getAttribute("text"));
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailPill).getAttribute("name"));
+        }
     }
 
     public void fillInMessageField(String message) {
@@ -604,7 +635,11 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkSubjectFieldIsFilledOut() {
-        Assert.assertEquals(element(subjectField).getText(), SessionVariables.getValueFromSessionVariable("Contact_subject"));
+        if(Config.isAndroid()) {
+            Assert.assertEquals(element(subjectField).getText(), SessionVariables.getValueFromSessionVariable("Contact_subject"));
+        } else {
+            Assert.assertEquals(element(subjectField).getText(), SessionVariables.getValueFromSessionVariable("Contact_subject"));
+        }
     }
 
     public void clickOnPopUpExitButton() {
@@ -628,7 +663,11 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkListingType(String property) {
-        element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + property + "'")).shouldBeVisible();
+        if(Config.isAndroid()) {
+            element(MobileBy.xpath("//android.widget.TextView[@text = '" + property + "']")).shouldBeVisible();
+        } else {
+            element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + property + "'")).shouldBeVisible();
+        }
     }
 
     public void checkStudioIsDisplayed() {
@@ -636,7 +675,11 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkSquareFeetValueWithoutApproxLabel() {
-        Assert.assertEquals(element(squareFeetLabel).getAttribute("value"), SessionVariables.getValueFromSessionVariable("sqrFootageValue"));
+        if(Config.isAndroid()) {
+            Assert.assertEquals(element(squareFeetLabel).getAttribute("text"), SessionVariables.getValueFromSessionVariable("sqrFootageValue"));
+        } else {
+            Assert.assertEquals(element(squareFeetLabel).getAttribute("value"), SessionVariables.getValueFromSessionVariable("sqrFootageValue"));
+        }
         element(squareFeetLabel).shouldNotContainText("Approx.");
     }
 
@@ -657,7 +700,11 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkOpenHouseInfoIsShown() {
-        element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + SessionVariables.getValueFromSessionVariable("openHouseDate") + "'")).shouldBeVisible();
+        if(Config.isAndroid()) {
+            element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("openHouseDate") + "']")).shouldBeVisible();
+        } else {
+            element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + SessionVariables.getValueFromSessionVariable("openHouseDate") + "'")).shouldBeVisible();
+        }
     }
 
     public void swipeLeftByAddress(String address) {
@@ -940,15 +987,19 @@ public class CreateReportPage extends TechHelper {
         WebElement listingCell;
         WebElement listingCell2;
 
-        listingCell = element(MobileBy.AccessibilityId(address3));
-        listingCell2 = element(MobileBy.AccessibilityId(address4));
+        if(Config.isAndroid()) {
+            listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address3 + "']"));
+            listingCell2 = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address4 + "']"));
 
-        System.out.println(getYPositionOfElement(offMarketSection));
-        System.out.println(getYPositionOfElement(listingCell));
-        System.out.println(getYPositionOfElement(listingCell2));
+            Assert.assertEquals(getYPositionOfElement(offMarketSection) + 566, getYPositionOfElement(listingCell));
+            Assert.assertEquals(getYPositionOfElement(offMarketSection) + 241, getYPositionOfElement(listingCell2));
+        } else {
+            listingCell = element(MobileBy.AccessibilityId(address3));
+            listingCell2 = element(MobileBy.AccessibilityId(address4));
 
-        Assert.assertEquals(getYPositionOfElement(offMarketSection) + 144, getYPositionOfElement(listingCell));
-        Assert.assertEquals(getYPositionOfElement(offMarketSection) + 51, getYPositionOfElement(listingCell2));
+            Assert.assertEquals(getYPositionOfElement(offMarketSection) + 144, getYPositionOfElement(listingCell));
+            Assert.assertEquals(getYPositionOfElement(offMarketSection) + 51, getYPositionOfElement(listingCell2));
+        }
     }
 
     public void checkFifthListingInSoldSection() {
@@ -958,14 +1009,23 @@ public class CreateReportPage extends TechHelper {
 
     private void checkOneListingAddressBelowSection(WebElement section, String address) {
         WebElement listingCell;
-        listingCell = element(MobileBy.AccessibilityId(address));
-        Assert.assertEquals(getYPositionOfElement(section) + 51, getYPositionOfElement(listingCell));
+        if(Config.isAndroid()) {
+            listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address + "']"));
+            Assert.assertEquals(getYPositionOfElement(section) + 241, getYPositionOfElement(listingCell));
+        } else {
+            listingCell = element(MobileBy.AccessibilityId(address));
+            Assert.assertEquals(getYPositionOfElement(section) + 51, getYPositionOfElement(listingCell));
+        }
     }
 
     private void checkOneListingAddressIsNotShown(String address) {
         setImplicitTimeout(3, TimeUnit.SECONDS);
         WebElement listingCell;
-        listingCell = element(MobileBy.AccessibilityId(address));
+        if(Config.isAndroid()) {
+            listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address + "']"));
+        } else {
+            listingCell = element(MobileBy.AccessibilityId(address));
+        }
         element(listingCell).shouldNotBePresent();
         resetImplicitTimeout();
     }
@@ -997,7 +1057,12 @@ public class CreateReportPage extends TechHelper {
 
     private void checkOneListingAddressIsShown(String address) {
         WebElement listingCell;
-        listingCell = element(MobileBy.AccessibilityId(address));
+        if(Config.isAndroid()) {
+            listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address + "']"));
+        } else {
+            listingCell = element(MobileBy.AccessibilityId(address));
+        }
+
         element(listingCell).shouldBePresent();
     }
 
@@ -1021,12 +1086,13 @@ public class CreateReportPage extends TechHelper {
     public void checkFirstAddressInActiveSectionAfterFirstListing(String address) {
         WebElement listingCell;
 
-        listingCell = element(MobileBy.AccessibilityId(address));
-
-        System.out.println(getYPositionOfElement(activeSection));
-        System.out.println(getYPositionOfElement(listingCell));
-
-        Assert.assertEquals(getYPositionOfElement(activeSection) + 144, getYPositionOfElement(listingCell));
+        if(Config.isAndroid()) {
+            listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address + "']"));
+            Assert.assertEquals(getYPositionOfElement(activeSection) + 566, getYPositionOfElement(listingCell));
+        } else {
+            listingCell = element(MobileBy.AccessibilityId(address));
+            Assert.assertEquals(getYPositionOfElement(activeSection) + 144, getYPositionOfElement(listingCell));
+        }
     }
 
     public void checkListingsAmount(int amount) {
@@ -1039,7 +1105,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void openSecondListing() {
-        element(listingsList.get(2)).click();
+        element(listingsList.get(1)).click();
     }
 
     public void clickOnExtendedCMAButton() {
@@ -1047,12 +1113,22 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkFirstListingIsShownOnce() {
-        List<WebElement> firstListing = getDriver().findElements(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("reportWizardAddress1")));
+        List<WebElement> firstListing;
+        if(Config.isAndroid()) {
+            firstListing = getDriver().findElements(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("reportWizardAddress1") + "']"));
+        } else {
+            firstListing = getDriver().findElements(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("reportWizardAddress1")));
+        }
         Assert.assertEquals(firstListing.size(),1);
     }
 
     public void checkRentalListingIsShownOnce() {
-        List<WebElement> rentalListing = getDriver().findElements(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("rentalListing")));
+        List<WebElement> rentalListing;
+        if(Config.isAndroid()) {
+            rentalListing = getDriver().findElements(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("rentalListing") + "']"));
+        } else {
+            rentalListing = getDriver().findElements(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("rentalListing")));
+        }
         Assert.assertEquals(rentalListing.size(),1);
     }
 

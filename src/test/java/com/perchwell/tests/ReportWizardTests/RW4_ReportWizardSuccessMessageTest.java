@@ -18,7 +18,7 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnListingReportButton();
-        user.atCreateReportPage.clickDefaultButton();
+        user.atCreateReportPage.clickOnShortButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.fillEmailField("report-valid-wizard1@email.com");
