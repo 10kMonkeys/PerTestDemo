@@ -568,12 +568,12 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void fillEmailField(String email) {
-        if (!Config.isAndroid()) {
+        if (Config.isAndroid()) {
+            element(emailField).click();
             element(emailField).sendKeys(email);
             hideKeyboard();
             SessionVariables.addValueInSessionVariable("emailAddress", email);
         } else {
-            element(emailField).click();
             element(emailField).sendKeys(email);
             SessionVariables.addValueInSessionVariable("emailAddress", email);
             }
