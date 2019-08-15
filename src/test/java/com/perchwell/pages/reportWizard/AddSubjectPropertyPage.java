@@ -316,6 +316,9 @@ public class AddSubjectPropertyPage extends TechHelper {
     }
 
     public void clearAddressField() {
+        if(Config.isAndroid()) {
+            singleUpShortSwipeAndroid();
+        }
         element(addressField).clear();
     }
 

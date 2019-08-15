@@ -78,7 +78,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Next")
     private WebElement nextButton;
 
-    @AndroidFindBy(accessibility = "Email textField")
+    @AndroidFindBy(accessibility = "Email textField color:#ea6656")
     @iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
     private WebElement emailField;
 
@@ -90,7 +90,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[$value == 'tag color: #37d2be'$]")
     private WebElement emailPill;
 
-    @AndroidFindBy(accessibility = "Subject textField")
+    @AndroidFindBy(xpath = "//android.widget.EditText[contains(@content-desc, 'Subject textField ')]")
     @iOSXCUITFindBy(accessibility = "Subject textField")
     private WebElement subjectField;
 
@@ -109,7 +109,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "OK")
     private WebElement popUpOkButton;
 
-    @AndroidFindBy(accessibility = "Message textField")
+    @AndroidFindBy(accessibility = "Message textField color:#606060")
     @iOSXCUITFindBy(accessibility = "textView")
     private WebElement messageField;
 
