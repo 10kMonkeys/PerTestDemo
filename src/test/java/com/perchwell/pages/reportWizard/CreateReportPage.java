@@ -154,6 +154,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Sales")
     private WebElement salesButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/plus_button")
     @iOSXCUITFindBy(accessibility = "addTag")
     private WebElement subjectPropertyButton;
 
@@ -161,20 +162,28 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Remove Button: TAGNAMEREPORTWIZARD")
     private WebElement reportWizardDeleteButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
     private WebElement addressPlaceholder;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/listing_unit")
     private WebElement unitPlaceholder;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/listing_price")
     private WebElement pricePlaceholder;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/listing_type")
     private WebElement propertyTypePlaceholder;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/beds")
     private WebElement bedroomsPlaceholder;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/baths")
     private WebElement bathroomsPlaceholder;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/sqft")
     private WebElement sqrFootagePlaceholder;
 
+    @AndroidFindBy(xpath = "//android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.view.ViewGroup/android.widget.RelativeLayout")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[1]")
     private WebElement subjectPropertyCell;
 
@@ -814,31 +823,60 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkAddressPlaceholderWithValue() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("addressValue"), element(addressPlaceholder).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("addressValue"), element(addressPlaceholder).getText());
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("addressValue"), element(addressPlaceholder).getValue());
+        }
+
     }
 
     public void checkUnitPlaceholderWithValue() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitPlaceholder).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitPlaceholder).getText());
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitPlaceholder).getValue());
+        }
     }
 
     public void checkPricePlaceholderWithValue() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(pricePlaceholder).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(pricePlaceholder).getText().replaceAll("[$,]",""));
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(pricePlaceholder).getValue());
+        }
     }
 
     public void checkPropertyTypePlaceholderWithValue() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("propertyTypeValue"), element(propertyTypePlaceholder).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("propertyTypeValue"), element(propertyTypePlaceholder).getText());
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("propertyTypeValue"), element(propertyTypePlaceholder).getValue());
+        }
     }
 
     public void checkBedroomsPlaceholderWithValue() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue"), element(bedroomsPlaceholder).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue") + " BD", element(bedroomsPlaceholder).getText());
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue") + " BD", element(bedroomsPlaceholder).getValue());
+        }
     }
 
     public void checkBathroomsPlaceholderWithValue() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue"), element(bathroomsPlaceholder).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue").replace(".5", "½") + " BA", element(bathroomsPlaceholder).getText());
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue").replace(".5", "½") + " BA", element(bathroomsPlaceholder).getValue());
+        }
     }
 
     public void checkSqrFootagePlaceholderWithValue() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue"), element(sqrFootagePlaceholder).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue") + " FT2", element(sqrFootagePlaceholder).getText().replace(",", ""));
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue").replace(",", "") + " FT2", element(sqrFootagePlaceholder).getValue());
+        }
     }
 
     public void clickOnRentalsButton() {

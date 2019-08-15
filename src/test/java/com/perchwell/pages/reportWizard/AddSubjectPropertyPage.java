@@ -1,7 +1,9 @@
 package com.perchwell.pages.reportWizard;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -11,66 +13,86 @@ import java.util.concurrent.TimeUnit;
 
 public class AddSubjectPropertyPage extends TechHelper {
 
+    @AndroidFindBy(accessibility = "Save")
     @iOSXCUITFindBy(accessibility = "Save")
     private WebElement saveButton;
 
+    @AndroidFindBy(accessibility = "Address textField color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address-'")
     private WebElement addressField;
 
+    @AndroidFindBy(accessibility = "Unit textField color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Unit-'")
     private WebElement unitField;
 
+    @AndroidFindBy(accessibility = "Price textField color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Price-'")
     private WebElement priceField;
 
+    @AndroidFindBy(accessibility = "Rooms textField color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Rooms-'")
     private WebElement roomsField;
 
+    @AndroidFindBy(accessibility = "Beds textField color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Beds-'")
     private WebElement bedsField;
 
+    @AndroidFindBy(accessibility = "Baths textField color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Baths-'")
     private WebElement bathsField;
 
+    @AndroidFindBy(accessibility = "Square Footage textField color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Square Footage-'")
     private WebElement sqrFootageField;
 
+    @AndroidFindBy(accessibility = "CC/Maintenance textField color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'CC/Maintenance-'")
     private WebElement ccMaintenanceField;
 
+    @AndroidFindBy(accessibility = "RE Taxes textField color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'RE Taxes-'")
     private WebElement reTaxesField;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/select_property_type_button")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Property Type-'")
     private WebElement propertyTypeField;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/selected_radio_button")
+    private WebElement selectedPropertyType;
+
+    @AndroidFindBy(accessibility = "Building Size textField color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Building Size-'")
     private WebElement buildingSizeField;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'Condo']")
     @iOSXCUITFindBy(accessibility = " Suboption: Condo")
     private WebElement condoOption;
 
+    @AndroidFindBy(accessibility = "Outdoor Space-checkmark")
     @iOSXCUITFindBy(accessibility = "Outdoor Space-checkmark")
     private WebElement outdoorSpaceFilter;
 
+    @AndroidFindBy(accessibility = "Doorman Building-checkmark")
     @iOSXCUITFindBy(accessibility = "Doorman Building-checkmark")
     private WebElement doormanBuildingFilter;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'ADD SUBJECT PROPERTY']")
     @iOSXCUITFindBy(iOSNsPredicate = "label == 'ADD SUBJECT PROPERTY'")
     private WebElement addSubjectPropertyTypeLabel;
 
+    @AndroidFindBy(accessibility = "Doorman Building-checkmark-SELECTED")
     @iOSXCUITFindBy(accessibility = "Doorman Building-checkmark-SELECTED")
     private WebElement selectedDoormanBuildingFilter;
 
+    @AndroidFindBy(accessibility = "Outdoor Space-checkmark-SELECTED")
     @iOSXCUITFindBy(accessibility = "Outdoor Space-checkmark-SELECTED")
     private WebElement selectedOutdoorSpaceFilter;
 
-    @iOSXCUITFindBy(accessibility = "chevronRight")
-    private WebElement nextMonthPageButton;
-
+    @AndroidFindBy(accessibility = "Outdoor Space-cross")
     @iOSXCUITFindBy(accessibility = "Outdoor Space-cross")
     private WebElement outdoorSpaceCrossFilter;
 
+    @AndroidFindBy(accessibility = "Doorman Building-cross")
     @iOSXCUITFindBy(accessibility = "Doorman Building-cross")
     private WebElement doormanBuildingCrossFilter;
 
@@ -85,13 +107,17 @@ public class AddSubjectPropertyPage extends TechHelper {
     public void fillInAddressField(String address) {
         element(addressField).sendKeys(address);
         SessionVariables.addValueInSessionVariable("addressValue", address);
-        hideKeyboard();
+        if(!Config.isAndroid()) {
+            hideKeyboard();
+        }
     }
 
     public void fillInUnitField(String unit) {
         element(unitField).sendKeys(unit);
         SessionVariables.addValueInSessionVariable("unitValue", unit);
-        hideKeyboard();
+        if(!Config.isAndroid()) {
+            hideKeyboard();
+        }
     }
 
     public void fillInPriceField(String price) {
@@ -117,9 +143,10 @@ public class AddSubjectPropertyPage extends TechHelper {
     public void fillInSqrFootageField(String sqrFootage) {
         element(sqrFootageField).sendKeys(sqrFootage);
         SessionVariables.addValueInSessionVariable("sqrFootageValue", sqrFootage);
-
-        element(unitField).click();
-        hideKeyboard();
+        if(!Config.isAndroid()) {
+            element(unitField).click();
+            hideKeyboard();
+        }
     }
 
     public void fillInCcMaintenanceField(String ccMaintenance) {
@@ -131,12 +158,17 @@ public class AddSubjectPropertyPage extends TechHelper {
         element(reTaxesField).sendKeys(reTaxes);
         SessionVariables.addValueInSessionVariable("reTaxesValue", reTaxes);
 
-        singleUpShortSwipeIOS();
-        element(unitField).click();
-        hideKeyboard();
+        if(!Config.isAndroid()) {
+            singleUpShortSwipeIOS();
+            element(unitField).click();
+            hideKeyboard();
+        }
     }
 
     public void fillInBuildingSizeField(String buildingSize) {
+        if(Config.isAndroid()) {
+            androidSwipeDownUntilElementVisible(buildingSizeField);
+        }
         element(buildingSizeField).sendKeys(buildingSize);
         SessionVariables.addValueInSessionVariable("buildingSizeValue", buildingSize);
     }
@@ -154,14 +186,24 @@ public class AddSubjectPropertyPage extends TechHelper {
     }
 
     public void clickOnCondo() {
+        if(Config.isAndroid()) {
+            swipeDownUntilElementVisible(condoOption);
+        }
         element(condoOption).click();
+        SessionVariables.addValueInSessionVariable("propertyTypeValue", element(condoOption).getText());
     }
 
     public void selectOutdoorSpaceFilter() {
+        if(Config.isAndroid()) {
+            androidSwipeDownUntilElementVisible(outdoorSpaceFilter);
+        }
         element(outdoorSpaceFilter).click();
     }
 
     public void selectDoormanBuildingFilter() {
+        if(Config.isAndroid()) {
+            androidSwipeDownUntilElementVisible(doormanBuildingFilter);
+        }
         element(doormanBuildingFilter).click();
     }
 
@@ -170,54 +212,106 @@ public class AddSubjectPropertyPage extends TechHelper {
     }
 
     public void checkCcMaintenanceFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("ccMaintenanceValue"), element(ccMaintenanceField).getValue().replace("$", "").replace(",", ""));
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("ccMaintenanceValue"), element(ccMaintenanceField).getText().replaceAll("[$,]",""));
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("ccMaintenanceValue"), element(ccMaintenanceField).getValue().replaceAll("[$,]",""));
+        }
     }
 
     public void checkAddressFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("addressValue"), element(addressField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("addressValue"), element(addressField).getText());
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("addressValue"), element(addressField).getValue());
+        }
     }
 
     public void checkUnitFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitField).getText());
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitField).getValue());
+        }
     }
 
     public void checkPriceFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(priceField).getValue().replace("$", "").replace(",", ""));
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(priceField).getText().replaceAll("[$,]",""));
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(priceField).getValue().replaceAll("[$,]",""));
+        }
     }
 
     public void checkRoomsFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("roomsValue"), element(roomsField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("roomsValue"), element(roomsField).getText());
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("roomsValue"), element(roomsField).getValue());
+        }
     }
 
     public void checkBedsFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue"), element(bedsField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue"), element(bedsField).getText());
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue"), element(bedsField).getValue());
+        }
     }
 
     public void checkBathsFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue"), element(bathsField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue"), element(bathsField).getText());
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue"), element(bathsField).getValue());
+        }
     }
 
     public void checkSqrFootageFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue"), element(sqrFootageField).getValue().replace(",", ""));
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue"), element(sqrFootageField).getText().replace(",", ""));
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue"), element(sqrFootageField).getValue().replace(",", ""));
+        }
     }
 
     public void checkReTaxesFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("reTaxesValue"), element(reTaxesField).getValue().replace("$", "").replace(",", ""));
+        if(Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("reTaxesValue"), element(reTaxesField).getText().replaceAll("[$,]",""));
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("reTaxesValue"), element(reTaxesField).getValue().replaceAll("[$,]",""));
+        }
     }
 
     public void checkBuildingSizeFieldIsFilledOut() {
-        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("buildingSizeValue"), element(buildingSizeField).getValue());
+        if(Config.isAndroid()) {
+            swipeDownUntilElementVisible(buildingSizeField);
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("buildingSizeValue"), element(buildingSizeField).getText());
+        } else {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("buildingSizeValue"), element(buildingSizeField).getValue());
+        }
+
     }
 
     public void checkCondoIsVisibleInPropertyType() {
-        Assert.assertEquals("Condo", element(propertyTypeField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals("Condo", element(selectedPropertyType).getText());
+        } else {
+            Assert.assertEquals("Condo", element(propertyTypeField).getValue());
+        }
     }
 
     public void checkDoormanBuildingIsSelected() {
+        if(Config.isAndroid()) {
+            androidSwipeDownUntilElementVisible(selectedDoormanBuildingFilter);
+        }
         element(selectedDoormanBuildingFilter).shouldBeVisible();
     }
 
     public void checkOutdoorSpaceIsSelected() {
+        if(Config.isAndroid()) {
+            androidSwipeDownUntilElementVisible(selectedOutdoorSpaceFilter);
+        }
         element(selectedOutdoorSpaceFilter).shouldBeVisible();
     }
 
@@ -264,49 +358,92 @@ public class AddSubjectPropertyPage extends TechHelper {
     }
 
     public void checkAddressFieldIsEmpty() {
-        Assert.assertEquals("Address", element(addressField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals("Address", element(addressField).getText());
+        } else {
+            Assert.assertEquals("Address", element(addressField).getValue());
+        }
     }
 
     public void checkUnitFieldIsEmpty() {
-        Assert.assertEquals("Unit", element(unitField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals("Unit", element(unitField).getText());
+        } else {
+            Assert.assertEquals("Unit", element(unitField).getValue());
+        }
     }
 
     public void checkPriceFieldIsEmpty() {
-        Assert.assertEquals("Price", element(priceField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals("Price", element(priceField).getText());
+        } else {
+            Assert.assertEquals("Price", element(priceField).getValue());
+        }
     }
 
     public void checkRoomsFieldIsEmpty() {
-        Assert.assertEquals("Number of total rooms", element(roomsField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals("Number of total rooms", element(roomsField).getText());
+        } else {
+            Assert.assertEquals("Number of total rooms", element(roomsField).getValue());
+        }
     }
 
     public void checkBedsFieldIsEmpty() {
-        Assert.assertEquals("Beds", element(bedsField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals("Beds", element(bedsField).getText());
+        } else {
+            Assert.assertEquals("Beds", element(bedsField).getValue());
+        }
     }
 
     public void checkBathsFieldIsEmpty() {
-        Assert.assertEquals("Use .5 for half baths", element(bathsField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals("Use .5 for half baths", element(bathsField).getText());
+        } else {
+            Assert.assertEquals("Use .5 for half baths", element(bathsField).getValue());
+        }
     }
 
     public void checkSqrFootageFieldIsEmpty() {
-        Assert.assertEquals("Square Footage", element(sqrFootageField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals("Square Footage", element(sqrFootageField).getText());
+        } else {
+            Assert.assertEquals("Square Footage", element(sqrFootageField).getValue());
+        }
     }
 
     public void checkPropertyTypeFieldIsEmpty() {
-        Assert.assertEquals("Select a property type", element(propertyTypeField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals("Select a property type", element(propertyTypeField).getText());
+        } else {
+            Assert.assertEquals("Select a property type", element(propertyTypeField).getValue());
+        }
     }
 
     public void checkDoormanBuildingIsDeselected() {
+        if(Config.isAndroid()) {
+            androidSwipeDownUntilElementVisible(doormanBuildingFilter);
+        }
         element(doormanBuildingFilter).shouldBeVisible();
         element(doormanBuildingCrossFilter).shouldBeVisible();
     }
 
     public void checkOutdoorSpaceIsDeselected() {
+        if(Config.isAndroid()) {
+            androidSwipeDownUntilElementVisible(outdoorSpaceFilter);
+        }
         element(outdoorSpaceFilter).shouldBeVisible();
         element(outdoorSpaceCrossFilter).shouldBeVisible();
     }
 
     public void checkBuildingSizeFieldIsEmpty() {
-        Assert.assertEquals("10 x 10", element(buildingSizeField).getValue());
+        if(Config.isAndroid()) {
+            androidSwipeDownUntilElementVisible(buildingSizeField);
+            Assert.assertEquals("10 x 10", element(buildingSizeField).getText());
+        } else {
+            Assert.assertEquals("10 x 10", element(buildingSizeField).getValue());
+        }
     }
 
     public void checkCcMaintenanceFieldIsNotShown() {

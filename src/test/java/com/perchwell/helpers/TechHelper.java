@@ -231,10 +231,12 @@ public class TechHelper extends BasePage {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
+        setImplicitTimeout(3, TimeUnit.SECONDS);
         while (!(isElementDisplayed(element)) && counter < 10) {
             swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
             counter += 1;
         }
+        resetImplicitTimeout();
     }
 
     public void swipeUpElementIOS(WebElement element, int duration) {

@@ -30,7 +30,7 @@ public class RW19_ReportWizardMultiSelectRentalSPPlusSPDeletionAndResubmissionTe
         user.atAddSubjectPropertyPage.fillInUnitField("#77");
         user.atAddSubjectPropertyPage.fillInPriceField("300000");
         user.atAddSubjectPropertyPage.fillInRoomsField("2.5");
-        user.atAddSubjectPropertyPage.fillInBedsField("3.5");
+        user.atAddSubjectPropertyPage.fillInBedsField("3");
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
         user.atAddSubjectPropertyPage.fillInSqrFootageField("3500"); //temp fix inside
         user.atAddSubjectPropertyPage.clickOnPropertyTypeField();
@@ -57,7 +57,7 @@ public class RW19_ReportWizardMultiSelectRentalSPPlusSPDeletionAndResubmissionTe
         user.atAddSubjectPropertyPage.fillInUnitField("#77");
         user.atAddSubjectPropertyPage.fillInPriceField("300000");
         user.atAddSubjectPropertyPage.fillInRoomsField("2.5");
-        user.atAddSubjectPropertyPage.fillInBedsField("3.5");
+        user.atAddSubjectPropertyPage.fillInBedsField("3");
         user.atAddSubjectPropertyPage.fillInBathsField("4.5");
         user.atAddSubjectPropertyPage.fillInSqrFootageField("3500"); //temp fix inside
         user.atAddSubjectPropertyPage.clickOnPropertyTypeField();
