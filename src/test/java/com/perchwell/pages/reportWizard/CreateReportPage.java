@@ -709,9 +709,9 @@ public class CreateReportPage extends TechHelper {
 
     public void checkSquareFeetValueWithoutApproxLabel() {
         if(Config.isAndroid()) {
-            Assert.assertEquals(element(squareFeetLabel).getAttribute("text"), SessionVariables.getValueFromSessionVariable("sqrFootageValue"));
+            Assert.assertEquals(element(squareFeetLabel).getText().replaceAll("[, FT2]", ""), SessionVariables.getValueFromSessionVariable("sqrFootageValue"));
         } else {
-            Assert.assertEquals(element(squareFeetLabel).getAttribute("value"), SessionVariables.getValueFromSessionVariable("sqrFootageValue"));
+            Assert.assertEquals(element(squareFeetLabel).getValue().replaceAll("[, FT2]", ""), SessionVariables.getValueFromSessionVariable("sqrFootageValue"));
         }
         element(squareFeetLabel).shouldNotContainText("Approx.");
     }
@@ -856,17 +856,17 @@ public class CreateReportPage extends TechHelper {
 
     public void checkPricePlaceholderWithValue() {
         if(Config.isAndroid()) {
-            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(pricePlaceholder).getText().replaceAll("[$,]",""));
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(pricePlaceholder).getText().replaceAll("[$,/MO]",""));
         } else {
-            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(pricePlaceholder).getValue());
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(pricePlaceholder).getValue().replaceAll("[$,/MO]",""));
         }
     }
 
     public void checkPropertyTypePlaceholderWithValue() {
         if(Config.isAndroid()) {
-            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("propertyTypeValue"), element(propertyTypePlaceholder).getText());
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("propertyTypeValue"), element(propertyTypePlaceholder).getText().replace(" Rental", ""));
         } else {
-            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("propertyTypeValue"), element(propertyTypePlaceholder).getValue());
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("propertyTypeValue"), element(propertyTypePlaceholder).getValue().replace(" Rental", ""));
         }
     }
 
@@ -888,9 +888,9 @@ public class CreateReportPage extends TechHelper {
 
     public void checkSqrFootagePlaceholderWithValue() {
         if(Config.isAndroid()) {
-            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue") + " FT2", element(sqrFootagePlaceholder).getText().replace(",", ""));
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue"), element(sqrFootagePlaceholder).getText().replaceAll("[Aprox., FT2]", ""));
         } else {
-            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue").replace(",", "") + " FT2", element(sqrFootagePlaceholder).getValue());
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue"), element(sqrFootagePlaceholder).getValue().replaceAll("[Aprox., FT2]", ""));
         }
     }
 

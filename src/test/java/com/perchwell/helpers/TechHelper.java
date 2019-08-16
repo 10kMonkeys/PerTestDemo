@@ -336,11 +336,20 @@ public class TechHelper extends BasePage {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        new TouchAction(appiumDriver)
-                .longPress(longPressX + 10, longPressY + 10)
-                .waitAction(Duration.ofSeconds(1))
-                .moveTo(moveToX + 10, moveToY + 10)
-                .release().perform();
+        if(Config.isAndroid()) {
+            new TouchAction(appiumDriver)
+                    .longPress(longPressX + 10, longPressY + 10)
+                    .waitAction(Duration.ofSeconds(1))
+                    .moveTo(moveToX + 10, moveToY + 10)
+                    .moveTo(moveToX + 10, moveToY + 10)
+                    .release().perform();
+        } else {
+            new TouchAction(appiumDriver)
+                    .longPress(longPressX + 10, longPressY + 10)
+                    .waitAction(Duration.ofSeconds(1))
+                    .moveTo(moveToX + 10, moveToY + 10)
+                    .release().perform();
+        }
     }
 
     public void swipeDownDateWheel(WebElement element) {
