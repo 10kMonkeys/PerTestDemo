@@ -288,9 +288,11 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeOther' AND name == 'MORE INFO'")
 	private WebElement moreInfoButton;
 
+	@AndroidFindBy(accessibility = "MONTHLY COMMON CHARGES")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'MONTHLY COMMON CHARGES-'")
 	private WebElement monthlyCommonCharges;
 
+	@AndroidFindBy(accessibility = "MONTHLY PROPERTY TAXES")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'MONTHLY PROPERTY TAX-'")
 	private WebElement monthlyPropertyTax;
 
@@ -976,19 +978,39 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
 	public void getMonthlyCommonCharges() {
-		SessionVariables.addValueInSessionVariable("monthlyCommonCharges", element(monthlyCommonCharges).getAttribute("value"));
+		if(Config.isAndroid()) {
+			androidSwipeDownUntilElementVisible(monthlyCommonCharges);
+			SessionVariables.addValueInSessionVariable("monthlyCommonCharges", element(monthlyCommonCharges).getText());
+		} else {
+			SessionVariables.addValueInSessionVariable("monthlyCommonCharges", element(monthlyCommonCharges).getValue());
+		}
 	}
 
 	public void getPropertyTax() {
-		SessionVariables.addValueInSessionVariable("monthlyPropertyTax", element(monthlyPropertyTax).getAttribute("value"));
+		if(Config.isAndroid()) {
+			androidSwipeDownUntilElementVisible(monthlyPropertyTax);
+			SessionVariables.addValueInSessionVariable("monthlyPropertyTax", element(monthlyPropertyTax).getText());
+		} else {
+			SessionVariables.addValueInSessionVariable("monthlyPropertyTax", element(monthlyPropertyTax).getValue());
+		}
 	}
 
 	public void checkMonthlyCommonChargesNotChanged() {
-		Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyCommonCharges"), element(monthlyCommonCharges).getAttribute("value"));
+		if(Config.isAndroid()) {
+			androidSwipeDownUntilElementVisible(monthlyCommonCharges);
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyCommonCharges"), element(monthlyCommonCharges).getText());
+		} else {
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyCommonCharges"), element(monthlyCommonCharges).getValue());
+		}
 	}
 
 	public void checkMonthlyPropertyTaxNotChanged() {
-		Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyPropertyTax"), element(monthlyPropertyTax).getAttribute("value"));
+		if(Config.isAndroid()) {
+			androidSwipeDownUntilElementVisible(monthlyPropertyTax);
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyPropertyTax"), element(monthlyPropertyTax).getText());
+		} else {
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyPropertyTax"), element(monthlyPropertyTax).getValue());
+		}
 	}
 
     public void clickOnReportListing() {

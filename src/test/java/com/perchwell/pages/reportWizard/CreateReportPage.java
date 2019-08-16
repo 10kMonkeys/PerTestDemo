@@ -144,9 +144,11 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell")
     private List<WebElement> listingsList;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/delete_button")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'cross16' AND visible == 1")
     private WebElement deleteButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/dragger_icon")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'iosReorder'")
     private List<WebElement> reorderButtonList;
 
@@ -739,7 +741,12 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void swipeLeftByAddress(String address) {
-        WebElement listingAddress = element(MobileBy.iOSNsPredicateString("value == '" + address + "' AND visible == true"));
+        WebElement listingAddress;
+        if(Config.isAndroid()) {
+            listingAddress = element(MobileBy.xpath("//android.widget.TextView[@text = '"+ address + "']"));
+        } else {
+            listingAddress = element(MobileBy.iOSNsPredicateString("value == '" + address + "' AND visible == true"));
+        }
         int y = listingAddress.getLocation().getY();
         universalVerticalSwipe(listingAddress);
         universalHorizontalSwipe(listingAddress, y + 1);
@@ -759,11 +766,19 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkFirstListingIsDeleted() {
-        element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).shouldNotBePresent();
+        if(Config.isAndroid()) {
+            element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "']")).shouldNotBePresent();
+        } else {
+            element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).shouldNotBePresent();
+        }
     }
 
     public void checkFirstBuildingIsDeleted() {
-        element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("buildingAddress1"))).shouldNotBePresent();
+        if(Config.isAndroid()) {
+            element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("buildingAddress1") + "']")).shouldNotBePresent();
+        } else {
+            element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("buildingAddress1"))).shouldNotBePresent();
+        }
     }
 
     public void moveFirstBuildingToSecondBuildingByDragging() {

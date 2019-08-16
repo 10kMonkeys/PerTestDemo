@@ -15,6 +15,7 @@ public class RW5_ListingsBuildingsReorderingAndDeletionTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.getListingsAddresses(5);
+        user.onlyAndroid.resetListViewBySearch();
         user.atPerchwellPage.selectFirstFiveListings();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnTagSelectedListingsOption();
