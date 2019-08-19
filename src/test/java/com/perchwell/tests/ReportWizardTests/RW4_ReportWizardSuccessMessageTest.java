@@ -54,7 +54,7 @@ public class RW4_ReportWizardSuccessMessageTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
         user.atPerchwellPage.clickOnOpenAccountButton();
         user.atAccountPage.clickOnTagsLabel();
-        user.atTagsPage.clickOnFirstTag();
+        user.atTagsPage.clickOnFirstTagWithItems();
         user.atTagsPage.clickOnSearchButton();
         user.atMyTagsPage.selectFirstListing();
         user.atMyTagsPage.getFirstListingAddress();

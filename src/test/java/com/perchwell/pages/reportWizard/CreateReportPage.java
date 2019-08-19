@@ -750,8 +750,8 @@ public class CreateReportPage extends TechHelper {
         } else {
             listingAddress = element(MobileBy.iOSNsPredicateString("value == '" + address + "' AND visible == true"));
         }
-        int y = listingAddress.getLocation().getY();
         universalVerticalSwipe(listingAddress);
+        int y = listingAddress.getLocation().getY();
         universalHorizontalSwipe(listingAddress, y + 1);
     }
 
@@ -1804,5 +1804,13 @@ public class CreateReportPage extends TechHelper {
 
     public void checkSelectedCCMaintenanceSubpoptionIsVisible() {
         element(selectedCcMaintSuboption).shouldBeVisible();
+    }
+
+    public void clickOnDeleteButtonOnFirstBuilding() {
+        if (Config.isAndroid()) {
+            for (WebElement i: listingsList) {
+
+            }
+        }
     }
 }

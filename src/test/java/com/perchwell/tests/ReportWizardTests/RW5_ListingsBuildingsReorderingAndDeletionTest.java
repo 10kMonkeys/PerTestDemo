@@ -67,7 +67,7 @@ public class RW5_ListingsBuildingsReorderingAndDeletionTest extends SampleTest {
         user.atCreateReportPage.checkFirstListingIsDeleted();     //will be fixed by jianghong
         user.atCreateReportPage.moveFirstListingToThirdListingByDragging();
         user.atCreateReportPage.swipeLeftBuildingByAddress();
-        user.atCreateReportPage.clickOnDeleteButton();
+        user.atCreateReportPage.clickOnDeleteButtonOnFirstBuilding();
         user.atCreateReportPage.checkFirstBuildingIsDeleted();    //will be fixed by jianhong
         user.atCreateReportPage.moveFirstBuildingToSecondBuildingByDragging();
         user.onlyAndroid.clickOnBackButtonAndReturnOnDefaultReportPage();

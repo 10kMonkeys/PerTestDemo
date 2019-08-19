@@ -1296,4 +1296,9 @@ public class CreateReportSteps extends ScenarioSteps {
     public void checkSelectedCCMaintenanceSubpoptionIsVisible() {
         onPage.checkSelectedCCMaintenanceSubpoptionIsVisible();
     }
+
+    @Step
+    public void clickOnDeleteButtonOnFirstBuilding() {
+        onPage.clickOnDeleteButtonOnFirstBuilding();
+    }
 }
