@@ -33,7 +33,6 @@ public class RW21_ReportWizardMultiSelectRentalCustomOptionsTest extends SampleT
         user.atCreateReportPage.checkPerchwellLinkOptionSelected();
         user.atCreateReportPage.swipeToPortrait();
         user.atCreateReportPage.switchToPortrait();// Temp. fix
-        user.atCreateReportPage.switchToPortrait();// Temp. fix
         user.atCreateReportPage.checkCCMaintIsNotPresented();
         user.atCreateReportPage.checkRETaxedIsNotPresented();
         user.atCreateReportPage.checkTotalMonthliesIsNotPresented();

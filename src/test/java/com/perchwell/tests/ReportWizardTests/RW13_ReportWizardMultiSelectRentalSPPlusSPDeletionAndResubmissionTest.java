@@ -33,7 +33,6 @@ public class RW13_ReportWizardMultiSelectRentalSPPlusSPDeletionAndResubmissionTe
         user.atCreateReportPage.checkPerchwellLinkOptionSelected();
         user.atCreateReportPage.swipeToPortrait();
         user.atCreateReportPage.switchToPortrait();// Temp. fix
-        user.atCreateReportPage.switchToPortrait();// Temp. fix
         user.atCreateReportPage.checkCCMaintIsNotPresented();
         user.atCreateReportPage.checkRETaxedIsNotPresented();
         user.atCreateReportPage.checkTotalMonthliesIsNotPresented();

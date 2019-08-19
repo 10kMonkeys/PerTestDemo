@@ -1218,9 +1218,9 @@ public class PerchwellPage extends TechHelper {
 
     public void getFirstListingSquareFeetForReport() {
 		if(Config.isAndroid()) {
-			SessionVariables.addValueInSessionVariable("sqrFootageValue", element(sqFeetList.get(0)).getAttribute("text"));
+			SessionVariables.addValueInSessionVariable("sqrFootageValue", element(sqFeetList.get(0)).getAttribute("text").replaceAll("[Aprox., FT2]", ""));
 		} else {
-			SessionVariables.addValueInSessionVariable("sqrFootageValue", element(sqFeetList.get(0)).getAttribute("value"));
+			SessionVariables.addValueInSessionVariable("sqrFootageValue", element(sqFeetList.get(0)).getAttribute("value").replaceAll("[Aprox., FT2]", ""));
 		}
     }
 
@@ -1234,9 +1234,9 @@ public class PerchwellPage extends TechHelper {
 
 	public void getFirstListingPriceForReport() {
 		if(Config.isAndroid()) {
-			SessionVariables.addValueInSessionVariable("priceValue", element(pricesList.get(0)).getAttribute("text"));
+			SessionVariables.addValueInSessionVariable("priceValue", element(pricesList.get(0)).getAttribute("text").replaceAll("[$,/MO]", ""));
 		} else {
-			SessionVariables.addValueInSessionVariable("priceValue", element(pricesList.get(0)).getAttribute("value"));
+			SessionVariables.addValueInSessionVariable("priceValue", element(pricesList.get(0)).getAttribute("value").replaceAll("[$,/MO]", ""));
 		}
 	}
 
@@ -1250,17 +1250,17 @@ public class PerchwellPage extends TechHelper {
 
 	public void getFirstListingBedroomsForReport() {
 		if(Config.isAndroid()) {
-			SessionVariables.addValueInSessionVariable("bedsValue", element(bedInfoList.get(0)).getAttribute("text"));
+			SessionVariables.addValueInSessionVariable("bedsValue", element(bedInfoList.get(0)).getAttribute("text").replace(" BD", ""));
 		} else {
-			SessionVariables.addValueInSessionVariable("bedsValue", element(bedInfoList.get(0)).getAttribute("value"));
+			SessionVariables.addValueInSessionVariable("bedsValue", element(bedInfoList.get(0)).getAttribute("value").replace(" BD", ""));
 		}
 	}
 
 	public void getFirstListingBathroomsForReport() {
 		if(Config.isAndroid()) {
-			SessionVariables.addValueInSessionVariable("bathsValue", element(bathsInfoList.get(0)).getAttribute("text"));
+			SessionVariables.addValueInSessionVariable("bathsValue", element(bathsInfoList.get(0)).getAttribute("text").replace(" BA", ""));
 		} else {
-			SessionVariables.addValueInSessionVariable("bathsValue", element(bathsInfoList.get(0)).getAttribute("value"));
+			SessionVariables.addValueInSessionVariable("bathsValue", element(bathsInfoList.get(0)).getAttribute("value").replace(" BA", ""));
 		}
 	}
 

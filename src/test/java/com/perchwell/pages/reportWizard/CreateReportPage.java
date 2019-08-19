@@ -204,9 +204,11 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'Suboption Selected:' AND visible == 1")
     private List<WebElement> subOptions;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Suboption: CC/Maintenance']")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'CC/Maintenance' AND visible == 1")
     private WebElement ccMaintSuboption;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='RE Taxes']")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'RE Taxes' AND visible == 1")
     private WebElement reTaxesSuboption;
 
@@ -222,6 +224,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: CC/Maintenance")
     private WebElement unselectedCcMaintSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption Selected: RE Taxes")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: RE Taxes")
     private WebElement selectedReTaxesSuboption;
 
@@ -233,6 +236,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption Selected: External Page")
     private WebElement selectedExternalPageOption;
 
+    @AndroidFindBy(accessibility = "Option: External Page")
     @iOSXCUITFindBy(accessibility = " Suboption: External Page")
     private WebElement unselectedExternalPageOption;
 
@@ -248,6 +252,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Option: Landscape")
     private WebElement unselectedLandscapeButton;
 
+    @AndroidFindBy(accessibility = "Suboption: Price Change")
     @iOSXCUITFindBy(accessibility = " Suboption: Price Change")
     private WebElement unselectedPriceChangeSubption;
 
@@ -259,30 +264,39 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Contract Date")
     private WebElement unselectedContractDateOption;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
     @iOSXCUITFindBy(accessibility = "(12/12)")
     private WebElement twelveOfTwelveFieldsCounter;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
     @iOSXCUITFindBy(accessibility = "(11/12)")
     private WebElement elevenOfTwelveFieldsCounter;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
     @iOSXCUITFindBy(accessibility = "(9/9)")
     private WebElement nineOfNineFieldsCounter;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
     @iOSXCUITFindBy(accessibility = "(8/9)")
     private WebElement eightOfNiveFieldsCounter;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
     @iOSXCUITFindBy(accessibility = "(10/11)")
     private WebElement tenOfElevenCounter;
 
+    @AndroidFindBy(accessibility = "Option: Perchwell")
     @iOSXCUITFindBy(accessibility = " Suboption: Perchwell")
     private WebElement unselectedPerchwellLinkOption;
 
+    @AndroidFindBy(accessibility = "Option Selected: Perchwell")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Perchwell")
     private WebElement selectedPerchwellLinkOption;
 
+    @AndroidFindBy(accessibility = "Suboption Selected: Beds")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Beds")
     private WebElement selectedBedsSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: Beds")
     @iOSXCUITFindBy(accessibility = " Suboption: Beds")
     private WebElement unselectedBedsSuboption;
 
@@ -290,48 +304,63 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Rooms")
     private WebElement unselectedRoomsSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption Selected: DOM")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: DOM")
     private WebElement selectedDOMSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: DOM")
     @iOSXCUITFindBy(accessibility = " Suboption: DOM")
     private WebElement unselectedDOMSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption Selected: List Date")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: List Date")
     private WebElement selectedListDateSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: List Date")
     @iOSXCUITFindBy(accessibility = " Suboption: List Date")
     private WebElement unselectedListDateSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption Selected: Subway Info")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Subway Info")
     private WebElement selectedSubwayInfoSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: Subway Info")
     @iOSXCUITFindBy(accessibility = " Suboption: Subway Info")
     private WebElement unselectedSubwayInfoSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption Selected: Include Map")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Include Map")
     private WebElement selectedIncludeMapSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: Include Map")
     @iOSXCUITFindBy(accessibility = " Suboption: Include Map")
     private WebElement unselectedIncludeMapSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption Selected: Floorplan")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Floorplan")
     private WebElement selectedFloorplanSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: Floorplan")
     @iOSXCUITFindBy(accessibility = " Suboption: Floorplan")
     private WebElement unselectedFloorplanSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: Floor Plans")
     @iOSXCUITFindBy(accessibility = " Suboption: Floor Plans")
     private WebElement unselectedFloorplansSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: Include Exact Address")
     @iOSXCUITFindBy(accessibility = " Suboption: Include Exact Address")
     private WebElement unselectedIncludeExactAddressSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption Selected: Open House")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Open House")
     private WebElement selectedOpenHouseSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: Open House")
     @iOSXCUITFindBy(accessibility = " Suboption: Open House")
     private WebElement unselectedOpenHouseOption;
 
+    @AndroidFindBy(accessibility = "Suboption Selected: Neighborhood")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Neighborhood")
     private WebElement selectedNeighborhoodSuboption;
 
@@ -776,7 +805,6 @@ public class CreateReportPage extends TechHelper {
             element(MobileBy.AccessibilityId("Delete button " + SessionVariables.getValueFromSessionVariable(address))).click();
         } else {
             element(deleteButton).click();
-
         }
     }
 
@@ -946,9 +974,17 @@ public class CreateReportPage extends TechHelper {
 
     public void checkBedroomsPlaceholderWithValue() {
         if (Config.isAndroid()) {
-            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue") + " BD", element(bedroomsPlaceholder).getText());
+            if(SessionVariables.getValueFromSessionVariable("bedsValue").equals("STUDIO")) {
+                Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue"), element(bedroomsPlaceholder).getText());
+            } else {
+                Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue") + " BD", element(bedroomsPlaceholder).getText());
+            }
         } else {
-            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue") + " BD", element(bedroomsPlaceholder).getValue());
+            if(SessionVariables.getValueFromSessionVariable("bedsValue").equals("STUDIO")) {
+                Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue") + " BD", element(bedroomsPlaceholder).getValue());
+            } else {
+                Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue") + " BD", element(bedroomsPlaceholder).getValue());
+            }
         }
     }
 
@@ -1013,7 +1049,12 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void switchToPortrait() {
-        element(unselectedPortraitButton).click();
+        if(Config.isAndroid()) {
+            element(unselectedPortraitButton).click();
+        } else {
+            element(unselectedPortraitButton).click();
+            element(unselectedPortraitButton).click(); //temp fix
+        }
     }
 
     public void switchToLandscape() {
@@ -1053,8 +1094,12 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void swipeToPortrait() {
-        swipeUpElementIOS(unselectedPortraitButton, 500);
-        waitABit(10000);
+        if(Config.isAndroid()) {
+            resetSwipeOnlyAndroid(1);
+        } else {
+            swipeUpElementIOS(unselectedPortraitButton, 500);
+            waitABit(10000);
+        }
     }
 
     public void checkCCMaintIsNotPresented() {
@@ -1211,7 +1256,6 @@ public class CreateReportPage extends TechHelper {
         } else {
             listingCell = element(MobileBy.AccessibilityId(address));
         }
-
         element(listingCell).shouldBePresent();
     }
 
@@ -1234,7 +1278,6 @@ public class CreateReportPage extends TechHelper {
 
     public void checkFirstAddressInActiveSectionAfterFirstListing(String address) {
         WebElement listingCell;
-
         if (Config.isAndroid()) {
             listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address + "']"));
             Assert.assertEquals(getYPositionOfElement(activeSection) + 566, getYPositionOfElement(listingCell));
@@ -1249,7 +1292,12 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkUnitForListing() {
-        String unit = element(addressPlaceholder).getValue().substring(element(addressPlaceholder).getValue().indexOf("#"));
+        String unit;
+        if (Config.isAndroid()) {
+            unit = element(addressPlaceholder).getText().substring(element(addressPlaceholder).getText().indexOf("#"));
+        } else {
+            unit = element(addressPlaceholder).getValue().substring(element(addressPlaceholder).getValue().indexOf("#"));
+        }
         Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), unit);
     }
 
@@ -1846,8 +1894,11 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkSuboptionCounterIsEquals(String counter) {
-        element(MobileBy.AccessibilityId("(" + counter + ")")).shouldBeVisible();
-
+        if(Config.isAndroid()) {
+            element(MobileBy.xpath("//android.widget.TextView[contains(@text, '(" + counter + ")')]")).shouldBeVisible();
+        } else {
+            element(MobileBy.AccessibilityId("(" + counter + ")")).shouldBeVisible();
+        }
     }
 
     public void checkSelectedCCMaintenanceSubpoptionIsVisible() {

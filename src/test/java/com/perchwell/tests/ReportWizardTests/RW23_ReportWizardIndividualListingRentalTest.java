@@ -66,7 +66,6 @@ public class RW23_ReportWizardIndividualListingRentalTest extends SampleTest {
         user.atCreateReportPage.checkPerchwellLinkOptionSelected();
         user.atCreateReportPage.swipeToPortrait();
         user.atCreateReportPage.switchToPortrait();
-        user.atCreateReportPage.switchToPortrait(); //temp fix
         user.atCreateReportPage.checkCCMaintIsNotPresented();
         user.atCreateReportPage.checkRETaxedIsNotPresented();
         user.atCreateReportPage.checkTotalMonthliesIsNotPresented();

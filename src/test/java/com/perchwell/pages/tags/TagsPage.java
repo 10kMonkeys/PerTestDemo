@@ -150,6 +150,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "MY TAGS")
 	private WebElement myTagsLabel;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossBackFromTagsButton;
 
