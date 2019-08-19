@@ -144,6 +144,9 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell")
     private List<WebElement> listingsList;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
+    private List<WebElement> addressList;
+
     @AndroidFindBy(id = "com.perchwell.re.staging:id/delete_button")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'cross16' AND visible == 1")
     private WebElement deleteButton;
@@ -185,7 +188,7 @@ public class CreateReportPage extends TechHelper {
     @AndroidFindBy(id = "com.perchwell.re.staging:id/sqft")
     private WebElement sqrFootagePlaceholder;
 
-    @AndroidFindBy(xpath = "//android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.view.ViewGroup/android.widget.RelativeLayout")
+    @AndroidFindBy(xpath = "//android.widget.RelativeLayout[@content-desc='Subject Property Cell']")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[1]")
     private WebElement subjectPropertyCell;
 
@@ -500,7 +503,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Include Cross Streets")
     private WebElement unselectedIncludeCrossStreetsOption;
 
-    @iOSXCUITFindBy(accessibility =  " Suboption Selected: Transit Info")
+    @iOSXCUITFindBy(accessibility = " Suboption Selected: Transit Info")
     private WebElement selectedTransitInfoSuboption;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/*[2]/*/*[2]/*[2]/*/XCUIElementTypeStaticText[1]")
@@ -587,8 +590,8 @@ public class CreateReportPage extends TechHelper {
         } else {
             element(emailField).sendKeys(email);
             SessionVariables.addValueInSessionVariable("emailAddress", email);
-            }
         }
+    }
 
     public void checkEmailReportButtonIsDisabled() {
         element(emailReportButton).shouldNotBeEnabled();
@@ -614,7 +617,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkEmailFieldValueIsShownAsText() {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailField).getAttribute("text"));
         } else {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailField).getAttribute("value"));
@@ -622,7 +625,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkEmailFieldIsShownAsGreenPill() {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailPill).getAttribute("text"));
         } else {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("emailAddress"), element(emailPill).getAttribute("name"));
@@ -630,15 +633,15 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void fillInMessageField(String message) {
-       if (Config.isAndroid()){
-           element(messageField).click();
-           element(messageFieldExpanded).sendKeys(message);
-           hideKeyboard();
-           SessionVariables.addValueInSessionVariable("Report_message", message);
-       } else {
-           element(messageField).sendKeys(message);
-           SessionVariables.addValueInSessionVariable("Report_message", message);
-       }
+        if (Config.isAndroid()) {
+            element(messageField).click();
+            element(messageFieldExpanded).sendKeys(message);
+            hideKeyboard();
+            SessionVariables.addValueInSessionVariable("Report_message", message);
+        } else {
+            element(messageField).sendKeys(message);
+            SessionVariables.addValueInSessionVariable("Report_message", message);
+        }
     }
 
     public void clickOnEmailReportButton() {
@@ -668,7 +671,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkSubjectFieldIsFilledOut() {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             Assert.assertEquals(element(subjectField).getText(), SessionVariables.getValueFromSessionVariable("Report_subject"));
         } else {
             Assert.assertEquals(element(subjectField).getText(), SessionVariables.getValueFromSessionVariable("Report_subject"));
@@ -696,7 +699,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkListingType(String property) {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             element(MobileBy.xpath("//android.widget.TextView[@text = '" + property + "']")).shouldBeVisible();
         } else {
             element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + property + "'")).shouldBeVisible();
@@ -708,7 +711,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkSquareFeetValueWithoutApproxLabel() {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             Assert.assertEquals(element(squareFeetLabel).getText().replaceAll("[, FT2]", ""), SessionVariables.getValueFromSessionVariable("sqrFootageValue"));
         } else {
             Assert.assertEquals(element(squareFeetLabel).getValue().replaceAll("[, FT2]", ""), SessionVariables.getValueFromSessionVariable("sqrFootageValue"));
@@ -733,7 +736,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkOpenHouseInfoIsShown() {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("openHouseDate") + "']")).shouldBeVisible();
         } else {
             element(MobileBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value = '" + SessionVariables.getValueFromSessionVariable("openHouseDate") + "'")).shouldBeVisible();
@@ -742,8 +745,8 @@ public class CreateReportPage extends TechHelper {
 
     public void swipeLeftByAddress(String address) {
         WebElement listingAddress;
-        if(Config.isAndroid()) {
-            listingAddress = element(MobileBy.xpath("//android.widget.TextView[@text = '"+ address + "']"));
+        if (Config.isAndroid()) {
+            listingAddress = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address + "']"));
         } else {
             listingAddress = element(MobileBy.iOSNsPredicateString("value == '" + address + "' AND visible == true"));
         }
@@ -766,34 +769,72 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkFirstListingIsDeleted() {
-        if(Config.isAndroid()) {
-            element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "']")).shouldNotBePresent();
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        if (Config.isAndroid()) {
+            element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "']")).shouldNotBeVisible();
         } else {
             element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).shouldNotBePresent();
         }
+        resetImplicitTimeout();
     }
 
     public void checkFirstBuildingIsDeleted() {
-        if(Config.isAndroid()) {
-            element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("buildingAddress1") + "']")).shouldNotBePresent();
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        if (Config.isAndroid()) {
+            element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("buildingAddress1") + "']")).shouldNotBeVisible();
         } else {
             element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("buildingAddress1"))).shouldNotBePresent();
         }
+        resetImplicitTimeout();
     }
 
     public void moveFirstBuildingToSecondBuildingByDragging() {
-        int longPressX = reorderButtonList.get(4).getLocation().getX();
-        int longPressY = reorderButtonList.get(4).getLocation().getY();
-        int moveToX = reorderButtonList.get(5).getLocation().getX();
-        int moveToY = reorderButtonList.get(5).getLocation().getY();
+        int longPressX;
+        int longPressY;
+        int moveToX;
+        int moveToY;
 
-        universalVerticalSwipe(reorderButtonList.get(5));
+        if (Config.isAndroid()) {
+            universalSingleSwipe();
+            longPressX = reorderButtonList.get(2).getLocation().getX();
+            longPressY = reorderButtonList.get(2).getLocation().getY();
+            moveToX = reorderButtonList.get(3).getLocation().getX();
+            moveToY = reorderButtonList.get(3).getLocation().getY();
+        } else {
+            longPressX = reorderButtonList.get(4).getLocation().getX();
+            longPressY = reorderButtonList.get(4).getLocation().getY();
+            moveToX = reorderButtonList.get(5).getLocation().getX();
+            moveToY = reorderButtonList.get(5).getLocation().getY();
+
+            universalVerticalSwipe(reorderButtonList.get(5));
+        }
+
         reorderListingByDraggingAtCreateReportPage(longPressX, longPressY, moveToX, moveToY);
     }
 
     public void getListingsAndBuildingsOrder() {
-        for (int i = 0; i < listingsList.size(); i++) {
-            orderListing.add(element(MobileBy.iOSClassChain("**/XCUIElementTypeCell[" + (i + 1) + "]/*/*/*[1]/*[2]/*/*/*[1]/*/XCUIElementTypeStaticText[1]")).getValue());
+        if (Config.isAndroid()) {
+            if (listingsList.size() > 3) {
+                for (int i = 0; i < listingsList.size(); i++) {
+                    if (i == 3) {
+                        universalSingleSwipe();
+                        universalSingleSwipe();
+                        for (i = 0; i < addressList.size(); i++) {
+                            orderListing.add(addressList.get(i).getText());
+                        }
+                    } else {
+                        orderListing.add(addressList.get(i).getText());
+                    }
+                }
+            } else {
+                for (WebElement address : addressList) {
+                    orderListing.add(address.getText());
+                }
+            }
+        } else {
+            for (int i = 0; i < listingsList.size(); i++) {
+                orderListing.add(element(MobileBy.iOSClassChain("**/XCUIElementTypeCell[" + (i + 1) + "]/*/*/*[1]/*[2]/*/*/*[1]/*/XCUIElementTypeStaticText[1]")).getValue());
+            }
         }
     }
 
@@ -838,7 +879,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkAddressPlaceholderWithValue() {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("addressValue"), element(addressPlaceholder).getText());
         } else {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("addressValue"), element(addressPlaceholder).getValue());
@@ -847,7 +888,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkUnitPlaceholderWithValue() {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitPlaceholder).getText());
         } else {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("unitValue"), element(unitPlaceholder).getValue());
@@ -855,15 +896,15 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkPricePlaceholderWithValue() {
-        if(Config.isAndroid()) {
-            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(pricePlaceholder).getText().replaceAll("[$,/MO]",""));
+        if (Config.isAndroid()) {
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(pricePlaceholder).getText().replaceAll("[$,/MO]", ""));
         } else {
-            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(pricePlaceholder).getValue().replaceAll("[$,/MO]",""));
+            Assert.assertEquals(SessionVariables.getValueFromSessionVariable("priceValue"), element(pricePlaceholder).getValue().replaceAll("[$,/MO]", ""));
         }
     }
 
     public void checkPropertyTypePlaceholderWithValue() {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("propertyTypeValue"), element(propertyTypePlaceholder).getText().replace(" Rental", ""));
         } else {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("propertyTypeValue"), element(propertyTypePlaceholder).getValue().replace(" Rental", ""));
@@ -871,7 +912,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkBedroomsPlaceholderWithValue() {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue") + " BD", element(bedroomsPlaceholder).getText());
         } else {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bedsValue") + " BD", element(bedroomsPlaceholder).getValue());
@@ -879,7 +920,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkBathroomsPlaceholderWithValue() {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue").replace(".5", "½") + " BA", element(bathroomsPlaceholder).getText());
         } else {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("bathsValue").replace(".5", "½") + " BA", element(bathroomsPlaceholder).getValue());
@@ -887,7 +928,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkSqrFootagePlaceholderWithValue() {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue"), element(sqrFootagePlaceholder).getText().replaceAll("[Aprox., FT2]", ""));
         } else {
             Assert.assertEquals(SessionVariables.getValueFromSessionVariable("sqrFootageValue"), element(sqrFootagePlaceholder).getValue().replaceAll("[Aprox., FT2]", ""));
@@ -918,7 +959,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkSelectedFieldsAmount(int amount) {
-        Assert.assertEquals(amount,subOptions.size());
+        Assert.assertEquals(amount, subOptions.size());
     }
 
     public void checkUnselectedCCMaintenanceSubpoptionIsVisible() {
@@ -1062,7 +1103,7 @@ public class CreateReportPage extends TechHelper {
         WebElement listingCell;
         WebElement listingCell2;
 
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address3 + "']"));
             listingCell2 = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address4 + "']"));
 
@@ -1084,7 +1125,7 @@ public class CreateReportPage extends TechHelper {
 
     private void checkOneListingAddressBelowSection(WebElement section, String address) {
         WebElement listingCell;
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address + "']"));
             Assert.assertEquals(getYPositionOfElement(section) + 241, getYPositionOfElement(listingCell));
         } else {
@@ -1096,7 +1137,7 @@ public class CreateReportPage extends TechHelper {
     private void checkOneListingAddressIsNotShown(String address) {
         setImplicitTimeout(3, TimeUnit.SECONDS);
         WebElement listingCell;
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address + "']"));
         } else {
             listingCell = element(MobileBy.AccessibilityId(address));
@@ -1132,7 +1173,7 @@ public class CreateReportPage extends TechHelper {
 
     private void checkOneListingAddressIsShown(String address) {
         WebElement listingCell;
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address + "']"));
         } else {
             listingCell = element(MobileBy.AccessibilityId(address));
@@ -1161,7 +1202,7 @@ public class CreateReportPage extends TechHelper {
     public void checkFirstAddressInActiveSectionAfterFirstListing(String address) {
         WebElement listingCell;
 
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address + "']"));
             Assert.assertEquals(getYPositionOfElement(activeSection) + 566, getYPositionOfElement(listingCell));
         } else {
@@ -1189,22 +1230,22 @@ public class CreateReportPage extends TechHelper {
 
     public void checkFirstListingIsShownOnce() {
         List<WebElement> firstListing;
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             firstListing = getDriver().findElements(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("reportWizardAddress1") + "']"));
         } else {
             firstListing = getDriver().findElements(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("reportWizardAddress1")));
         }
-        Assert.assertEquals(firstListing.size(),1);
+        Assert.assertEquals(firstListing.size(), 1);
     }
 
     public void checkRentalListingIsShownOnce() {
         List<WebElement> rentalListing;
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             rentalListing = getDriver().findElements(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("rentalListing") + "']"));
         } else {
             rentalListing = getDriver().findElements(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("rentalListing")));
         }
-        Assert.assertEquals(rentalListing.size(),1);
+        Assert.assertEquals(rentalListing.size(), 1);
     }
 
     public void fillInReportLabelField(int length) {
@@ -1293,13 +1334,12 @@ public class CreateReportPage extends TechHelper {
         int nextMonth = Integer.parseInt(monthFormat.format(new Date())) + 1;
         int currentYear = Integer.parseInt(yearFormat.format(new Date()));
 
-        if(String.valueOf(nextMonth).length() < 2)
+        if (String.valueOf(nextMonth).length() < 2)
             selectedMonth = "0" + nextMonth;
-        else if(nextMonth == 13) {
+        else if (nextMonth == 13) {
             selectedMonth = "01";
             currentYear += 1;
-        }
-        else
+        } else
             selectedMonth = String.valueOf(nextMonth);
 
         String selectedDate = selectedMonth + "/"
@@ -1405,7 +1445,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void selectAllOptions() {
-        for (WebElement i: unselectedSuboptions) {
+        for (WebElement i : unselectedSuboptions) {
             element(i).click();
         }
     }

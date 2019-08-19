@@ -340,8 +340,8 @@ public class TechHelper extends BasePage {
             new TouchAction(appiumDriver)
                     .longPress(longPressX + 10, longPressY + 10)
                     .waitAction(Duration.ofSeconds(1))
-                    .moveTo(moveToX + 10, moveToY + 10)
-                    .moveTo(moveToX + 10, moveToY + 10)
+                    .moveTo(moveToX + 10, moveToY + 100)
+                    .moveTo(moveToX + 10, moveToY + 100)
                     .release().perform();
         } else {
             new TouchAction(appiumDriver)

@@ -27,6 +27,9 @@ public class OnlyAndroidSteps extends ScenarioSteps{
     @Steps
     private MyTagsSteps atMyTagsPage1;
 
+    @Steps
+    private CreateReportSteps atCreateReportPage;
+
     @Step
     public void resetListViewBySearch() {
         if(Config.isAndroid()) {
@@ -54,6 +57,14 @@ public class OnlyAndroidSteps extends ScenarioSteps{
     public void resetListViewBySwipe() {
         if(Config.isAndroid()) {
             singleUpShortSwipeAndroid();
+        }
+    }
+
+    @Step
+    public void clickOnBackButtonAndReturnOnDefaultReportPage() {
+        if(Config.isAndroid()) {
+            atCreateReportPage.clickOnBackButton();
+            atCreateReportPage.clickDefaultButton();
         }
     }
 }
