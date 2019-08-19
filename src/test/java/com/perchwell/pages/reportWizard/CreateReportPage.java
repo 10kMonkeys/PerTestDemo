@@ -196,9 +196,11 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Rentals")
     private WebElement rentalsButton;
 
+    @AndroidFindBy(accessibility = "Option Selected: Landscape")
     @iOSXCUITFindBy(accessibility = " Option Selected: Landscape")
     private WebElement selectedLandscapeButton;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'Suboption Selected: ')]")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'Suboption Selected:' AND visible == 1")
     private List<WebElement> subOptions;
 
@@ -208,27 +210,32 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'RE Taxes' AND visible == 1")
     private WebElement reTaxesSuboption;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Total Monthlies']")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'Total Monthlies' AND visible == 1")
     private WebElement totalMonthliesSuboption;
 
     @iOSXCUITFindBy(accessibility = " Suboption Selected: CC/Maintenance")
     private WebElement selectedCcMaintSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: CC/Maintenance")
     @iOSXCUITFindBy(accessibility = " Suboption: CC/Maintenance")
     private WebElement unselectedCcMaintSuboption;
 
     @iOSXCUITFindBy(accessibility = " Suboption Selected: RE Taxes")
     private WebElement selectedReTaxesSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: RE Taxes")
     @iOSXCUITFindBy(accessibility = " Suboption: RE Taxes")
     private WebElement unselectedReTaxesSuboption;
 
+    @AndroidFindBy(accessibility = "Option Selected: External Page")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: External Page")
     private WebElement selectedExternalPageOption;
 
     @iOSXCUITFindBy(accessibility = " Suboption: External Page")
     private WebElement unselectedExternalPageOption;
 
+    @AndroidFindBy(accessibility = "Report Label textField color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Report Label-'")
     private WebElement reportLabelTextField;
 
@@ -755,8 +762,13 @@ public class CreateReportPage extends TechHelper {
         universalHorizontalSwipe(listingAddress, y + 1);
     }
 
-    public void clickOnDeleteButton() {
-        element(deleteButton).click();
+    public void clickOnDeleteButton(String address) {
+        if (Config.isAndroid()) {
+            element(MobileBy.AccessibilityId("Delete button " + SessionVariables.getValueFromSessionVariable(address))).click();
+        } else {
+            element(deleteButton).click();
+
+        }
     }
 
     public void moveFirstListingToThirdListingByDragging() {
@@ -774,26 +786,38 @@ public class CreateReportPage extends TechHelper {
             element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "']")).shouldNotBeVisible();
         } else {
             element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).shouldNotBePresent();
+        if (Config.isAndroid()) {
+            setImplicitTimeout(3, TimeUnit.SECONDS);
+            if (Config.isAndroid()) {
+                element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "']")).shouldNotBeVisible();
+            } else {
+                element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).shouldNotBePresent();
+            }
+            resetImplicitTimeout();
         }
         resetImplicitTimeout();
+        }
     }
 
     public void checkFirstBuildingIsDeleted() {
-        setImplicitTimeout(3, TimeUnit.SECONDS);
-        if (Config.isAndroid()) {
-            element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("buildingAddress1") + "']")).shouldNotBeVisible();
-        } else {
-            element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("buildingAddress1"))).shouldNotBePresent();
+            setImplicitTimeout(3, TimeUnit.SECONDS);
+            if (Config.isAndroid()) {
+                element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("buildingAddress1") + "']")).shouldNotBeVisible();
+                if (Config.isAndroid()) {
+                    element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("buildingAddress1") + "']")).shouldNotBeVisible();
+                    setImplicitTimeout(3, TimeUnit.SECONDS);
+                } else {
+                    element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("buildingAddress1"))).shouldNotBePresent();
+                }
+                resetImplicitTimeout();
+            }
         }
-        resetImplicitTimeout();
-    }
 
     public void moveFirstBuildingToSecondBuildingByDragging() {
         int longPressX;
         int longPressY;
         int moveToX;
         int moveToY;
-
         if (Config.isAndroid()) {
             universalSingleSwipe();
             longPressX = reorderButtonList.get(2).getLocation().getX();
@@ -1782,7 +1806,12 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void swipeToReportLabelField() {
-        singleUpShortSwipeIOS();
+        if (Config.isAndroid()) {
+            singleUpShortSwipeAndroid();
+            singleUpShortSwipeAndroid();
+        } else {
+            singleUpShortSwipeIOS();
+        }
     }
 
     public void checkSelectedCCMaintananceSuboptionIsVisible() {
@@ -1808,9 +1837,11 @@ public class CreateReportPage extends TechHelper {
 
     public void clickOnDeleteButtonOnFirstBuilding() {
         if (Config.isAndroid()) {
-            for (WebElement i: listingsList) {
-
-            }
+            element(MobileBy.AccessibilityId("Delete button " + SessionVariables.getValueFromSessionVariable("buildingAddress1"))).click();
         }
+    }
+
+    public void clickDeleteButtonOnSubjectProperty() {
+            element(deleteButton).click();
     }
 }

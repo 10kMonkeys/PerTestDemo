@@ -50,7 +50,7 @@ public class RW11_ReportWizardMultiSelectRentalSPDeletionTest extends SampleTest
         user.atCreateReportPage.checkBathroomsPlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkSqrFootagePlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.swipeLeftSubjectPropertyCell();
-        user.atCreateReportPage.clickOnDeleteButton();
+        user.atCreateReportPage.clickDeleteButtonOnSubjectProperty();
         user.atCreateReportPage.checkSubjectPropertyFieldIsNotShown();
         user.atCreateReportPage.checkSubjectPropertyPlusIconIsShown();
         user.atCreateReportPage.clickOnSubjectPropertyButton();

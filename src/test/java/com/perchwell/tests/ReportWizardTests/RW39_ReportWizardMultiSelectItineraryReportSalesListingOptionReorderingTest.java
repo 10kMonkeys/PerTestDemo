@@ -25,7 +25,7 @@ public class RW39_ReportWizardMultiSelectItineraryReportSalesListingOptionReorde
         user.atPerchwellPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnItineraryButton();
         user.atCreateReportPage.swipeLeftListingByAddress();
-        user.atCreateReportPage.clickOnDeleteButton();
+//        user.atCreateReportPage.clickOnDeleteButton(); #TODO delete fix later
         user.atCreateReportPage.checkFirstListingIsDeleted(); // will be fixed by jianghong
         user.atCreateReportPage.swipeLeftSecondListing();
         user.atCreateReportPage.clickOnEditButton();

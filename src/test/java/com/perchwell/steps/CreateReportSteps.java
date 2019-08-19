@@ -238,8 +238,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOnDeleteButton() {
-        onPage.clickOnDeleteButton();
+    public void clickOnDeleteButton(String address) {
+        onPage.clickOnDeleteButton(address);
     }
 
     @Step
@@ -1300,5 +1300,10 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void clickOnDeleteButtonOnFirstBuilding() {
         onPage.clickOnDeleteButtonOnFirstBuilding();
+    }
+
+    @Step
+    public void clickDeleteButtonOnSubjectProperty() {
+        onPage.clickDeleteButtonOnSubjectProperty();
     }
 }
