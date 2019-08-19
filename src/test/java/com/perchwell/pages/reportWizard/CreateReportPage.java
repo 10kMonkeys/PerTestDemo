@@ -747,8 +747,8 @@ public class CreateReportPage extends TechHelper {
         } else {
             listingAddress = element(MobileBy.iOSNsPredicateString("value == '" + address + "' AND visible == true"));
         }
-        int y = listingAddress.getLocation().getY();
         universalVerticalSwipe(listingAddress);
+        int y = listingAddress.getLocation().getY();
         universalHorizontalSwipe(listingAddress, y + 1);
     }
 
@@ -767,7 +767,7 @@ public class CreateReportPage extends TechHelper {
 
     public void checkFirstListingIsDeleted() {
         if(Config.isAndroid()) {
-            element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "']")).shouldNotBePresent();
+            element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "']")).shouldNotBeVisible();
         } else {
             element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1"))).shouldNotBePresent();
         }
@@ -775,25 +775,43 @@ public class CreateReportPage extends TechHelper {
 
     public void checkFirstBuildingIsDeleted() {
         if(Config.isAndroid()) {
-            element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("buildingAddress1") + "']")).shouldNotBePresent();
+            element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("buildingAddress1") + "']")).shouldBeVisible();
         } else {
             element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("buildingAddress1"))).shouldNotBePresent();
         }
     }
 
     public void moveFirstBuildingToSecondBuildingByDragging() {
-        int longPressX = reorderButtonList.get(4).getLocation().getX();
-        int longPressY = reorderButtonList.get(4).getLocation().getY();
-        int moveToX = reorderButtonList.get(5).getLocation().getX();
-        int moveToY = reorderButtonList.get(5).getLocation().getY();
+        int longPressX;
+        int longPressY;
+        int moveToX;
+        int moveToY;
 
-        universalVerticalSwipe(reorderButtonList.get(5));
+        if(Config.isAndroid()) {
+            longPressX = reorderButtonList.get(2).getLocation().getX();
+            longPressY = reorderButtonList.get(2).getLocation().getY();
+            moveToX = reorderButtonList.get(3).getLocation().getX();
+            moveToY = reorderButtonList.get(3).getLocation().getY();
+        } else {
+            longPressX = reorderButtonList.get(4).getLocation().getX();
+            longPressY = reorderButtonList.get(4).getLocation().getY();
+            moveToX = reorderButtonList.get(5).getLocation().getX();
+            moveToY = reorderButtonList.get(5).getLocation().getY();
+
+            universalVerticalSwipe(reorderButtonList.get(5));
+        }
+
         reorderListingByDraggingAtCreateReportPage(longPressX, longPressY, moveToX, moveToY);
     }
 
     public void getListingsAndBuildingsOrder() {
-        for (int i = 0; i < listingsList.size(); i++) {
-            orderListing.add(element(MobileBy.iOSClassChain("**/XCUIElementTypeCell[" + (i + 1) + "]/*/*/*[1]/*[2]/*/*/*[1]/*/XCUIElementTypeStaticText[1]")).getValue());
+        if(Config.isAndroid()) {
+            universalUpSwipe(element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("listingAddress2") + "']")));
+
+        } else {
+            for (int i = 0; i < listingsList.size(); i++) {
+                orderListing.add(element(MobileBy.iOSClassChain("**/XCUIElementTypeCell[" + (i + 1) + "]/*/*/*[1]/*[2]/*/*/*[1]/*/XCUIElementTypeStaticText[1]")).getValue());
+            }
         }
     }
 
@@ -1764,5 +1782,13 @@ public class CreateReportPage extends TechHelper {
 
     public void checkSelectedCCMaintenanceSubpoptionIsVisible() {
         element(selectedCcMaintSuboption).shouldBeVisible();
+    }
+
+    public void clickOnDeleteButtonOnFirstBuilding() {
+        if (Config.isAndroid()) {
+            for (WebElement i: listingsList) {
+
+            }
+        }
     }
 }

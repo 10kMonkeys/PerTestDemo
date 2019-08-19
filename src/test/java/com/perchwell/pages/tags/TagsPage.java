@@ -153,7 +153,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossBackFromTagsButton;
 
-	@AndroidFindBy(xpath = "*//android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[@resource-id='com.perchwell.re.staging:id/tag_name']")
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'TAGNAME')")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'items'$][1]")
 	private WebElement firstTagWithItems;
 
@@ -800,7 +800,11 @@ public class TagsPage extends TechHelper {
 	}
 
 	public void clickOnFirstTagWithItems() {
-		element(firstTagWithItems).click();
+		if (Config.isAndroid()) {
+			element(firstTagWithItems).click();
+		} else {
+			element(firstTagWithItems).click();
+		}
 	}
 
 	public void swipeTagPill(String tagName, int duration) {
