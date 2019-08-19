@@ -214,6 +214,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'Total Monthlies' AND visible == 1")
     private WebElement totalMonthliesSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption Selected: CC/Maintenance")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: CC/Maintenance")
     private WebElement selectedCcMaintSuboption;
 
@@ -235,22 +236,26 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: External Page")
     private WebElement unselectedExternalPageOption;
 
-    @AndroidFindBy(accessibility = "Report Label textField color:#606060")
+    @AndroidFindBy(xpath = "//android.widget.EditText[contains(@content-desc, 'Report Label textField')]")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Report Label-'")
     private WebElement reportLabelTextField;
 
+    @AndroidFindBy(accessibility = "Option: Portrait")
     @iOSXCUITFindBy(accessibility = " Option: Portrait")
     private WebElement unselectedPortraitButton;
 
+    @AndroidFindBy(accessibility = "Option: Landscape")
     @iOSXCUITFindBy(accessibility = " Option: Landscape")
     private WebElement unselectedLandscapeButton;
 
     @iOSXCUITFindBy(accessibility = " Suboption: Price Change")
     private WebElement unselectedPriceChangeSubption;
 
+    @AndroidFindBy(accessibility = "Suboption Selected: Original Price")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Original Price")
     private WebElement selectedOriginalPriceSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: Contract Date")
     @iOSXCUITFindBy(accessibility = " Suboption: Contract Date")
     private WebElement unselectedContractDateOption;
 
@@ -281,6 +286,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Beds")
     private WebElement unselectedBedsSuboption;
 
+    @AndroidFindBy(accessibility = "Suboption: Rooms")
     @iOSXCUITFindBy(accessibility = " Suboption: Rooms")
     private WebElement unselectedRoomsSuboption;
 
@@ -515,6 +521,9 @@ public class CreateReportPage extends TechHelper {
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/*[2]/*/*[2]/*[2]/*/XCUIElementTypeStaticText[1]")
     private WebElement amountPhotosSelected;
+
+    @AndroidFindBy(accessibility = "Report Label textField color:#ea6656")
+    private WebElement invalidReportLabelField;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -1274,13 +1283,24 @@ public class CreateReportPage extends TechHelper {
 
     public void fillInReportLabelField(int length) {
         String message = StringUtils.repeat("a", length);
-        waitFor(reportLabelTextField).shouldBeVisible();
-        element(reportLabelTextField).sendKeys(message);
-        hideKeyboard();
+        if (Config.isAndroid()) {
+            element(reportLabelTextField).sendKeys(message);
+        } else {
+            waitFor(reportLabelTextField).shouldBeVisible();
+            element(reportLabelTextField).clear();
+            element(reportLabelTextField).sendKeys(message);
+            hideKeyboard();
+        }
     }
 
     public void checkOnlySeventySymbolsAllowed() {
-        Assert.assertEquals(70, element(reportLabelTextField).getAttribute("value").length());
+        if (Config.isAndroid()) {
+            element(invalidReportLabelField).shouldBeVisible();
+            element(nextButton).shouldNotBeEnabled();
+            element(reportLabelTextField).clear();
+        } else {
+            Assert.assertEquals(70, element(reportLabelTextField).getAttribute("value").length());
+        }
     }
 
     public void checkFirstAndSecondListingsInListingsSection(String address1, String address2) {
@@ -1807,8 +1827,7 @@ public class CreateReportPage extends TechHelper {
 
     public void swipeToReportLabelField() {
         if (Config.isAndroid()) {
-            singleUpShortSwipeAndroid();
-            singleUpShortSwipeAndroid();
+            resetSwipeOnlyAndroid(1);
         } else {
             singleUpShortSwipeIOS();
         }

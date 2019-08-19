@@ -311,7 +311,6 @@ public class TechHelper extends BasePage {
 
     public void resetSwipeOnlyAndroid(int numSwipes) {
         if (Config.isAndroid()) {
-
             for (int i = 0; i < numSwipes; i++) {
                 this.singleUpShortSwipeAndroidToReturnListInInitialState();
             }
