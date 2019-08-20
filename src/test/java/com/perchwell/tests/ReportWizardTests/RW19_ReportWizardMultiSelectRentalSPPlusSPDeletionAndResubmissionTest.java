@@ -42,13 +42,13 @@ public class RW19_ReportWizardMultiSelectRentalSPPlusSPDeletionAndResubmissionTe
         user.atCreateReportPage.checkAddressPlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkUnitPlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkPricePlaceholderWithValue(); //TODO: need to implement locator
-        user.atCreateReportPage.checkPriceWithoutMO();
+        user.atCreateReportPage.checkPriceWithMO();
         user.atCreateReportPage.checkPropertyTypePlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkBedroomsPlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkBathroomsPlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.checkSqrFootagePlaceholderWithValue(); //TODO: need to implement locator
         user.atCreateReportPage.swipeLeftSubjectPropertyCell();
-//        user.atCreateReportPage.clickOnDeleteButton(); #TODO delete fix later
+        user.atCreateReportPage.clickDeleteButtonOnSubjectProperty();
         user.atCreateReportPage.checkSubjectPropertyFieldIsNotShown();
         user.atCreateReportPage.checkSubjectPropertyPlusIconIsShown();
         user.atCreateReportPage.clickOnSubjectPropertyButton();

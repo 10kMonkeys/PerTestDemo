@@ -31,7 +31,7 @@ public class RW20_ReportWizardMultiSelectSaleCustomOptionTest extends SampleTest
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
         user.atCreateReportPage.swipeToReportLabelField();
         user.atCreateReportPage.fillInReportLabelField(70);
-        user.atCreateReportPage.fillInReportLabelField(1);
+        user.atCreateReportPage.fillInReportLabelField(71);
         user.atCreateReportPage.checkOnlySeventySymbolsAllowed();
         user.atCreateReportPage.switchToPortrait();
         user.atCreateReportPage.checkSelectedFieldsAmount(8);
