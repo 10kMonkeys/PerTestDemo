@@ -384,16 +384,6 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkElevenFieldsCounterIsVisible() {
-        onPage.checkElevenFieldsCounterIsVisible();
-    }
-
-    @Step
-    public void checkTwelveFieldsCounterIsVisible() {
-        onPage.checkTwelveFieldsCounterIsVisible();
-    }
-
-    @Step
     public void selectContractDateSuboption() {
         onPage.selectContractDateSuboption();
     }
@@ -497,16 +487,6 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void checkUnselectedRoomsSuboptionIsVisible() {
         onPage.checkUnselectedRoomsSuboptionIsVisible();
-    }
-
-    @Step
-    public void checkNineFieldsCounterIsVisible() {
-        onPage.checkNineFieldsCounterIsVisible();
-    }
-
-    @Step
-    public void checkEightFieldsCounterIsVisible() {
-        onPage.checkEightFieldsCounterIsVisible();
     }
 
     @Step
@@ -1283,11 +1263,6 @@ public class CreateReportSteps extends ScenarioSteps {
         onPage.checkTransitInfoSuboptionSelected();
     }
 
-    @Step
-    public void checkTenOfElevenCounterIsShown() {
-        onPage.checkTenOfElevenCounterIsShown();
-    }
-
     public void checkSuboptionCounterIsEquals(String counter) {
         onPage.checkSuboptionCounterIsEquals(counter);
     }
@@ -1305,5 +1280,15 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void clickDeleteButtonOnSubjectProperty() {
         onPage.clickDeleteButtonOnSubjectProperty();
+    }
+
+    @Step
+    public void checkCCMaintIsPresented() {
+        onPage.checkCCMaintIsPresented();
+    }
+
+    @Step
+    public void checkRETaxedIsPresented() {
+        onPage.checkRETaxedIsPresented();
     }
 }

@@ -74,9 +74,9 @@ public class RW22_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atCreateReportPage.checkTotalMonthliesIsVisible();
         user.atCreateReportPage.switchToLandscape();
         user.atCreateReportPage.deselectOriginalPriceSuboption();
-        user.atCreateReportPage.checkElevenFieldsCounterIsVisible();
+        user.atCreateReportPage.checkSuboptionCounterIsEquals("10/11");
         user.atCreateReportPage.selectPriceChangeSuboption();
-        user.atCreateReportPage.checkTwelveFieldsCounterIsVisible();
+        user.atCreateReportPage.checkSuboptionCounterIsEquals("11/11");
         user.atCreateReportPage.selectContractDateSuboption();
         user.atCreateReportPage.checkUnselectedContractDateSuboptionIsVisible();
         user.atCreateReportPage.clickNextButton();

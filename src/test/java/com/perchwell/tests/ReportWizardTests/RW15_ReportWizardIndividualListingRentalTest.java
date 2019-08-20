@@ -69,11 +69,12 @@ public class RW15_ReportWizardIndividualListingRentalTest extends SampleTest {
         user.atCreateReportPage.checkCCMaintIsNotPresented();
         user.atCreateReportPage.checkRETaxedIsNotPresented();
         user.atCreateReportPage.checkTotalMonthliesIsNotPresented();
+        user.atCreateReportPage.selectContractDateSuboption(); //temp fix
         user.atCreateReportPage.selectPriceChangeSuboption(); //temp fix
         user.atCreateReportPage.deselectBedsSuboption();
-        user.atCreateReportPage.checkEightFieldsCounterIsVisible();
+        user.atCreateReportPage.checkSuboptionCounterIsEquals("7/8");
         user.atCreateReportPage.selectBedsSuboption();
-        user.atCreateReportPage.checkNineFieldsCounterIsVisible();
+        user.atCreateReportPage.checkSuboptionCounterIsEquals("8/8");
         user.atCreateReportPage.selectRoomsSuboption();
         user.atCreateReportPage.checkUnselectedRoomsSuboptionIsVisible();
         user.atCreateReportPage.clickNextButton();

@@ -204,7 +204,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'Suboption Selected:' AND visible == 1")
     private List<WebElement> subOptions;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Suboption: CC/Maintenance']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='CC/Maintenance']")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'CC/Maintenance' AND visible == 1")
     private WebElement ccMaintSuboption;
 
@@ -265,24 +265,7 @@ public class CreateReportPage extends TechHelper {
     private WebElement unselectedContractDateOption;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
-    @iOSXCUITFindBy(accessibility = "(12/12)")
-    private WebElement twelveOfTwelveFieldsCounter;
-
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
-    @iOSXCUITFindBy(accessibility = "(11/12)")
-    private WebElement elevenOfTwelveFieldsCounter;
-
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
-    @iOSXCUITFindBy(accessibility = "(9/9)")
-    private WebElement nineOfNineFieldsCounter;
-
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
-    @iOSXCUITFindBy(accessibility = "(8/9)")
-    private WebElement eightOfNiveFieldsCounter;
-
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/subtitle")
-    @iOSXCUITFindBy(accessibility = "(10/11)")
-    private WebElement tenOfElevenCounter;
+    private WebElement counterField;
 
     @AndroidFindBy(accessibility = "Option: Perchwell")
     @iOSXCUITFindBy(accessibility = " Suboption: Perchwell")
@@ -1069,14 +1052,6 @@ public class CreateReportPage extends TechHelper {
         element(unselectedPriceChangeSubption).click();
     }
 
-    public void checkElevenFieldsCounterIsVisible() {
-        element(elevenOfTwelveFieldsCounter).shouldBeVisible();
-    }
-
-    public void checkTwelveFieldsCounterIsVisible() {
-        element(twelveOfTwelveFieldsCounter).shouldBeVisible();
-    }
-
     public void selectContractDateSuboption() {
         element(unselectedContractDateOption).click();
     }
@@ -1137,10 +1112,6 @@ public class CreateReportPage extends TechHelper {
         element(selectedBedsSuboption).click();
     }
 
-    public void checkEightFieldsCounterIsVisible() {
-        element(eightOfNiveFieldsCounter).shouldBeVisible();
-    }
-
     public void selectBedsSuboption() {
         element(unselectedBedsSuboption).click();
     }
@@ -1153,14 +1124,12 @@ public class CreateReportPage extends TechHelper {
         element(unselectedRoomsSuboption).shouldBeVisible();
     }
 
-    public void checkNineFieldsCounterIsVisible() {
-        element(nineOfNineFieldsCounter).shouldBeVisible();
-    }
-
     public void checkDeleteButtonIsNotDisplayed() {
-        setImplicitTimeout(3, TimeUnit.SECONDS);
-        element(deleteButton).shouldNotBeVisible();
-        resetImplicitTimeout();
+        if (!Config.isAndroid()) {
+            setImplicitTimeout(3, TimeUnit.SECONDS);
+            element(deleteButton).shouldNotBeVisible();
+            resetImplicitTimeout();
+        }
     }
 
     public void clickOnTagsField() {
@@ -1889,13 +1858,9 @@ public class CreateReportPage extends TechHelper {
         element(selectedTransitInfoSuboption).shouldBeVisible();
     }
 
-    public void checkTenOfElevenCounterIsShown() {
-        element(tenOfElevenCounter).shouldBeVisible();
-    }
-
     public void checkSuboptionCounterIsEquals(String counter) {
         if(Config.isAndroid()) {
-            element(MobileBy.xpath("//android.widget.TextView[contains(@text, '(" + counter + ")')]")).shouldBeVisible();
+            element(counterField).shouldContainText("(" + counter + ")");
         } else {
             element(MobileBy.AccessibilityId("(" + counter + ")")).shouldBeVisible();
         }
@@ -1913,5 +1878,13 @@ public class CreateReportPage extends TechHelper {
 
     public void clickDeleteButtonOnSubjectProperty() {
             element(deleteButton).click();
+    }
+
+    public void checkCCMaintIsPresented() {
+        element(ccMaintSuboption).shouldBePresent();
+    }
+
+    public void checkRETaxedIsPresented() {
+        element(reTaxesSuboption).shouldBePresent();
     }
 }
