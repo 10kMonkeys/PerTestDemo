@@ -378,9 +378,11 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "LISTINGS")
     private WebElement listingSection;
 
+    @AndroidFindBy(accessibility = "Suboption Selected: Include Exact Address")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Include Exact Address")
     private WebElement selectedIncludeExactAddressOption;
 
+    @AndroidFindBy(accessibility = "Suboption: Listing Agent Info")
     @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent Info")
     private WebElement unselectedListingAgentInfoOption;
 
@@ -1129,6 +1131,9 @@ public class CreateReportPage extends TechHelper {
             setImplicitTimeout(3, TimeUnit.SECONDS);
             element(deleteButton).shouldNotBeVisible();
             resetImplicitTimeout();
+        } else {
+            element(deleteButton).click();
+            element(subjectPropertyCell).shouldBeVisible();
         }
     }
 
@@ -1324,15 +1329,19 @@ public class CreateReportPage extends TechHelper {
         WebElement listingCell;
         WebElement listingCell2;
 
-        listingCell = element(MobileBy.AccessibilityId(address1));
-        listingCell2 = element(MobileBy.AccessibilityId(address2));
+        if (Config.isAndroid()) {
+            listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address1 + "']"));
+            listingCell2 = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address2 + "']"));
 
-        System.out.println(getYPositionOfElement(listingSection));
-        System.out.println(getYPositionOfElement(listingCell));
-        System.out.println(getYPositionOfElement(listingCell2));
+            Assert.assertEquals(getYPositionOfElement(listingSection) + 566, getYPositionOfElement(listingCell));
+            Assert.assertEquals(getYPositionOfElement(listingSection) + 241, getYPositionOfElement(listingCell2));
+        } else {
+            listingCell = element(MobileBy.AccessibilityId(address1));
+            listingCell2 = element(MobileBy.AccessibilityId(address2));
 
-        Assert.assertEquals(getYPositionOfElement(listingSection) + 144, getYPositionOfElement(listingCell));
-        Assert.assertEquals(getYPositionOfElement(listingSection) + 166, getYPositionOfElement(listingCell2));
+            Assert.assertEquals(getYPositionOfElement(listingSection) + 144, getYPositionOfElement(listingCell));
+            Assert.assertEquals(getYPositionOfElement(listingSection) + 166, getYPositionOfElement(listingCell2));
+        }
     }
 
     public void checkThirdListingIsNotShown() {

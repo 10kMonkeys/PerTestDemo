@@ -299,6 +299,7 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address: 5800 AVE. U #53'")
 	private WebElement reportListing;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/more_label")
 	@iOSXCUITFindBy(accessibility = "Table View Cell: Show More")
 	private WebElement showMoreListingsButton;
 

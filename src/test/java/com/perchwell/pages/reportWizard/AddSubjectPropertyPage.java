@@ -447,6 +447,9 @@ public class AddSubjectPropertyPage extends TechHelper {
         } else {
             Assert.assertEquals("10 x 10", element(buildingSizeField).getValue());
         }
+        if (Config.isAndroid()) {
+            singleUpShortSwipeAndroidToReturnListInInitialState();
+        }
     }
 
     public void checkCcMaintenanceFieldIsNotShown() {
