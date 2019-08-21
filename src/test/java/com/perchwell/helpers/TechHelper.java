@@ -357,7 +357,12 @@ public class TechHelper extends BasePage {
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
         int x = (int) (element.getLocation().getX() + 25);
-        int startPoint =  (int) (element.getLocation().getY() + 50);
+        int startPoint;
+        if(Config.isAndroid()) {
+            startPoint =  (int) (element.getLocation().getY() + 250);
+        } else {
+            startPoint =  (int) (element.getLocation().getY() + 50);
+        }
         int endPoint = (int) (element.getLocation().getY() - 50);
 
         new TouchAction(appiumDriver).longPress(x, startPoint).moveTo(x, endPoint).release().perform();

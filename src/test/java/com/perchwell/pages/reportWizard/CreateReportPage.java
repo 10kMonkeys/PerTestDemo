@@ -389,39 +389,57 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent/Commission")
     private WebElement unselectedListingAgentCommission;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'Description textField')]")
     @iOSXCUITFindBy(accessibility = "textView")
     private WebElement descriptionField;
 
+    @AndroidFindBy(accessibility = "Description textField color:#ea6656")
+    private WebElement redDiscriptionField;
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[contains(@content-desc, 'Characters textField')]")
+    private WebElement expandedDiscriptionField;
+
+    @AndroidFindBy(accessibility = "Appointment Date color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Appointment Date-'")
     private WebElement appointmentDateField;
 
+    @AndroidFindBy(accessibility = "Go to next")
     @iOSXCUITFindBy(accessibility = "chevronRight")
     private WebElement nextMonthButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/year_picker")
     @iOSXCUITFindBy(accessibility = "SELECT A DATE")
     private WebElement calendarLabel;
 
+    @AndroidFindBy(accessibility = "Appointment Time color:#606060")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Appointment Time-'")
     private WebElement appointmentTimeField;
 
+    @AndroidFindBy(xpath = "(//android.widget.NumberPicker[1]/android.widget.EditText)[1]")
     @iOSXCUITFindBy(iOSNsPredicate = "value CONTAINS 'o’clock'")
     private WebElement hourWheel;
 
+    @AndroidFindBy(xpath = "//android.widget.NumberPicker[2]/android.widget.EditText")
     @iOSXCUITFindBy(iOSNsPredicate = "value CONTAINS 'minutes'")
     private WebElement minuteWheel;
 
+    @AndroidFindBy(xpath = "(//android.widget.NumberPicker[1]/android.widget.EditText)[2]")
     @iOSXCUITFindBy(iOSNsPredicate = "value CONTAINS 'AM' OR value CONTAINS 'PM' AND visible == 1")
     private WebElement meridiemWheel;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/reset_button")
     @iOSXCUITFindBy(accessibility = "refresh14")
     private WebElement revertIcon;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'Save']")
     @iOSXCUITFindBy(accessibility = "Save")
     private WebElement saveButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@content-desc='Edit button'])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name='edit'$][1]")
     private WebElement floorplanEditIcon;
 
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@content-desc='Edit button'])[2]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name='edit'$][2]")
     private WebElement photosEditIcon;
 
@@ -434,42 +452,41 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name=='edit'$][2]")
     private WebElement photosEditButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/selected_circle_text_view")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name=='1'$]")
     private WebElement selectedOneLabel;
 
-    @iOSXCUITFindBy(accessibility = "1/1")
-    private WebElement oneAndOneSelectedLabel;
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/selected_items_count")
+    private WebElement amountSelectedLabel;
 
-    @iOSXCUITFindBy(accessibility = "0/1")
-    private WebElement zeroPerOneLabel;
-
-    @iOSXCUITFindBy(accessibility = "4/4")
-    private WebElement fourPerFourLabel;
-
-    @iOSXCUITFindBy(accessibility = "0/4")
-    private WebElement zeroPerFourSelectedLabel;
-
+    @AndroidFindBy(accessibility = "Image1 Index:1 Frame:#37d2be")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]")
     private WebElement firstFloorplan;
 
+    @AndroidFindBy(accessibility = "Image1 Index:1 Frame:#37d2be")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name=='1'$]")
     private WebElement firstPhotoSelectedLabel;
 
+    @AndroidFindBy(accessibility = "Image2 Index:2 Frame:#37d2be")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name=='2'$]")
     private WebElement secondPhotoSelectedLabel;
 
+    @AndroidFindBy(accessibility = "Image3 Index:3 Frame:#37d2be")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[3]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name=='3'$]")
     private WebElement thirdPhotoSelectedLabel;
 
+    @AndroidFindBy(accessibility = "Image4 Index:4 Frame:#37d2be")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[4]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name=='4'$]")
     private WebElement fourthPhotoSelectedLabel;
 
+    @AndroidFindBy(accessibility = "Image5 Index:5 Frame:#37d2be")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[5]/XCUIElementTypeOther/XCUIElementTypeStaticText[$name=='5'$]")
     private WebElement fifthPhotoSelectedLabel;
 
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell")
     private List<WebElement> photosList;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/selected_frame_view")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeStaticText")
     private List<WebElement> selectedPhotosList;
 
@@ -538,6 +555,18 @@ public class CreateReportPage extends TechHelper {
 
     @AndroidFindBy(accessibility = "Report Label textField color:#ea6656")
     private WebElement invalidReportLabelField;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'Floor Plan']")
+    private WebElement floorplanLabel;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'Photos']")
+    private WebElement photosLabel;
+
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[4]/android.support.v7.widget.RecyclerView/android.widget.FrameLayout/android.widget.FrameLayout")
+    private WebElement floorplanImage;
+
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/image")
+    private WebElement photosImage;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -1369,7 +1398,12 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void fillInDescriptionField(String description) {
-        element(descriptionField).sendKeys(description);
+        if(Config.isAndroid()) {
+            element(descriptionField).click();
+            element(expandedDiscriptionField).sendKeys(description);
+        } else {
+            element(descriptionField).sendKeys(description);
+        }
     }
 
     public void clickOnAppointmentDate() {
@@ -1381,8 +1415,13 @@ public class CreateReportPage extends TechHelper {
         DateFormat month = new SimpleDateFormat("MMMM");
         DateFormat year = new SimpleDateFormat("YYYY");
 
-        element(MobileBy.AccessibilityId(month.format(new Date()).toUpperCase())).shouldBeVisible();
-        element(MobileBy.AccessibilityId(" " + year.format(new Date()) + " ")).shouldBeVisible();
+        if(Config.isAndroid()) {
+            element(MobileBy.xpath("//android.widget.TextView[@text = '" + year.format(new Date()) + "']")).shouldBeVisible();
+            element(MobileBy.xpath("//android.widget.TextView[@text = '" + month.format(new Date()).toUpperCase() + "']")).shouldBeVisible();
+        } else {
+            element(MobileBy.AccessibilityId(month.format(new Date()).toUpperCase())).shouldBeVisible();
+            element(MobileBy.AccessibilityId(" " + year.format(new Date()) + " ")).shouldBeVisible();
+        }
     }
 
     public void setDateForNextMonth(String date) {
@@ -1416,7 +1455,11 @@ public class CreateReportPage extends TechHelper {
                 + SessionVariables.getValueFromSessionVariable("selectedDay")
                 + "/" + currentYear;
 
-        Assert.assertEquals(selectedDate, element(appointmentDateField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(selectedDate, element(appointmentDateField).getText());
+        } else {
+            Assert.assertEquals(selectedDate, element(appointmentDateField).getValue());
+        }
     }
 
     public void checkTodayDateIsSelected() {
@@ -1429,11 +1472,18 @@ public class CreateReportPage extends TechHelper {
 
     public void changeTime() {
         swipeDownDateWheel(hourWheel);
-        SessionVariables.addValueInSessionVariable("hourWheelValue", element(hourWheel).getValue());
         swipeDownDateWheel(minuteWheel);
-        SessionVariables.addValueInSessionVariable("minuteWheelValue", element(minuteWheel).getValue());
         swipeDownDateWheel(meridiemWheel);
-        SessionVariables.addValueInSessionVariable("meridiemWheelValue", element(meridiemWheel).getValue());
+
+        if(Config.isAndroid()) {
+            SessionVariables.addValueInSessionVariable("hourWheelValue", element(hourWheel).getText());
+            SessionVariables.addValueInSessionVariable("minuteWheelValue", element(minuteWheel).getText());
+            SessionVariables.addValueInSessionVariable("meridiemWheelValue", element(meridiemWheel).getText());
+        } else {
+            SessionVariables.addValueInSessionVariable("hourWheelValue", element(hourWheel).getValue());
+            SessionVariables.addValueInSessionVariable("minuteWheelValue", element(minuteWheel).getValue());
+            SessionVariables.addValueInSessionVariable("meridiemWheelValue", element(meridiemWheel).getValue());
+        }
     }
 
     public void clickOnRevertIcon() {
@@ -1441,9 +1491,15 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkTimeIsReset() {
-        Assert.assertEquals("10 o’clock", element(hourWheel).getValue());
-        Assert.assertEquals("00 minutes", element(minuteWheel).getValue());
-        Assert.assertEquals("AM", element(meridiemWheel).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals("10", element(hourWheel).getText());
+            Assert.assertEquals("00", element(minuteWheel).getText());
+            Assert.assertEquals("AM", element(meridiemWheel).getText());
+        } else {
+            Assert.assertEquals("10 o’clock", element(hourWheel).getValue());
+            Assert.assertEquals("00 minutes", element(minuteWheel).getValue());
+            Assert.assertEquals("AM", element(meridiemWheel).getValue());
+        }
     }
 
     public void clickOnSaveButton() {
@@ -1457,7 +1513,11 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkSelectedTimeIsShown() {
-        Assert.assertEquals(getSelectedTimeToString(), element(appointmentTimeField).getValue());
+        if(Config.isAndroid()) {
+            Assert.assertEquals(getSelectedTimeToString(), element(appointmentTimeField).getText());
+        } else {
+            Assert.assertEquals(getSelectedTimeToString(), element(appointmentTimeField).getValue());
+        }
     }
 
     public void clickOnFloorplanEditIcon() {
@@ -1469,7 +1529,13 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void clearDescriptionField() {
-        element(descriptionField).clear();
+        if(Config.isAndroid()) {
+            element(descriptionField).click();
+            element(expandedDiscriptionField).clear();
+            element(shrinkButton).click();
+        } else {
+            element(descriptionField).clear();
+        }
     }
 
     public void clickOnShowSheetButton() {
@@ -1535,11 +1601,19 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void clickOnDoneButton() {
-        element(doneButton).click();
+        if(Config.isAndroid()) {
+            element(shrinkButton).click();
+        } else {
+            element(doneButton).click();
+        }
     }
 
-    public void checkOnePerOneSelectedLabelIsShown() {
-        element(oneAndOneSelectedLabel).shouldBeVisible();
+    public void checkAmountSelectedLabel(String amount) {
+        if(Config.isAndroid()) {
+            element(amountSelectedLabel).shouldContainOnlyText(amount);
+        } else {
+            element(MobileBy.AccessibilityId(amount)).shouldBeVisible();
+        }
     }
 
     public void checkOneIsShownOnFirstFloorplan() {
@@ -1550,10 +1624,6 @@ public class CreateReportPage extends TechHelper {
         element(firstFloorplan).click();
     }
 
-    public void checkZeroPerOneSelectedLabelIsShown() {
-        element(zeroPerOneLabel).shouldBeVisible();
-    }
-
     public void oneSelectedLabelRemovedFromFirstFloorplan() {
         setImplicitTimeout(3, TimeUnit.SECONDS);
         element(selectedOneLabel).shouldNotBeVisible();
@@ -1562,10 +1632,6 @@ public class CreateReportPage extends TechHelper {
 
     public void checkNextButtonIsEnabled() {
         element(nextButton).shouldBeEnabled();
-    }
-
-    public void checkFourPerFourSelectedLabelIsShown() {
-        element(fourPerFourLabel).shouldBeVisible();
     }
 
     public void checkFirstPhotoSelected() {
@@ -1600,11 +1666,10 @@ public class CreateReportPage extends TechHelper {
         }
     }
 
-    public void zeroPerFourSelectedLabelIsShown() {
-        element(zeroPerFourSelectedLabel).shouldBeVisible();
-    }
-
     public void checkPhotosRemovedFromReportScreen() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(photosImage).shouldNotBeVisible();
+        resetImplicitTimeout();
     }
 
     public void checkListingAgentCommissionIsUnselected() {
@@ -1639,10 +1704,14 @@ public class CreateReportPage extends TechHelper {
 
     public void fillInDescriptionFieldWithCountSymbols(int length) {
         String message = StringUtils.repeat("a", length);
-        waitFor(descriptionField).shouldBeVisible();
-        element(descriptionField).sendKeys(message);
-        hideKeyboard();
-
+        if(Config.isAndroid()) {
+            element(expandedDiscriptionField).clear();
+            element(expandedDiscriptionField).sendKeys(message);
+        } else {
+            waitFor(descriptionField).shouldBeVisible();
+            element(descriptionField).sendKeys(message);
+            hideKeyboard();
+        }
     }
 
     public void removeOneSymboldFromDescriptionField() {
@@ -1785,10 +1854,17 @@ public class CreateReportPage extends TechHelper {
     }
 
     private String getSelectedTimeToString() {
-        return SessionVariables.getValueFromSessionVariable("hourWheelValue").replace(" o’clock", "")
-                + ":"
-                + SessionVariables.getValueFromSessionVariable("minuteWheelValue").replace("minutes", "")
-                + SessionVariables.getValueFromSessionVariable("meridiemWheelValue");
+        if(Config.isAndroid()) {
+            return SessionVariables.getValueFromSessionVariable("hourWheelValue").replace(" o’clock", "")
+                    + ":"
+                    + SessionVariables.getValueFromSessionVariable("minuteWheelValue").replace("minutes", "")
+                    + " " + SessionVariables.getValueFromSessionVariable("meridiemWheelValue");
+        } else {
+            return SessionVariables.getValueFromSessionVariable("hourWheelValue").replace(" o’clock", "")
+                    + ":"
+                    + SessionVariables.getValueFromSessionVariable("minuteWheelValue").replace("minutes", "")
+                    + SessionVariables.getValueFromSessionVariable("meridiemWheelValue");
+        }
     }
 
     public void fillInMeetingLocationField(String meetingLocation) {
@@ -1895,5 +1971,73 @@ public class CreateReportPage extends TechHelper {
 
     public void checkRETaxedIsPresented() {
         element(reTaxesSuboption).shouldBePresent();
+    }
+
+    public void checkDescriptionFieldMarkedRed() {
+        if(Config.isAndroid()) {
+            element(descriptionField).click();
+            element(expandedDiscriptionField).clear();
+            element(shrinkButton).click();
+            element(redDiscriptionField).shouldBeVisible();
+        } else {
+            //TODO
+        }
+    }
+
+    public void checkDescriptionFieldExpanded() {
+        if(Config.isAndroid()) {
+            element(expandedDiscriptionField).shouldBeVisible();
+        } else {
+            //TODO
+        }
+    }
+
+    public void checkFloorplanIsShown() {
+        element(floorplanLabel).shouldBeVisible();
+    }
+
+    public void checkPhotosAreShown() {
+        element(photosLabel).shouldBeVisible();
+    }
+
+    public void checkCharactersLabelMarkedBlack() {
+        //TODO
+    }
+
+    public void checkFloorplanRemovedFromReportScreen() {
+        setImplicitTimeout(3, TimeUnit.SECONDS);
+        element(floorplanImage).shouldNotBeVisible();
+        resetImplicitTimeout();
+    }
+
+    public void checkSecondFloorplanIsSelected() {
+        //todo no listings with 2 floorplans
+    }
+
+    public void moveFourthPhotoToFirstPhotoByDragging() {
+        int longPressX = selectedPhotosList.get(2).getLocation().getX();
+        int longPressY = selectedPhotosList.get(2).getLocation().getY();
+        int moveToX = selectedPhotosList.get(0).getLocation().getX() - 100;
+        int moveToY = selectedPhotosList.get(0).getLocation().getY() - 200;
+
+        reorderListingByDraggingAtCreateReportPage(longPressX, longPressY, moveToX, moveToY);
+    }
+
+    public void checkPhotoIsMovedToThePosition(int numberOfPhoto, int currentPosition) {
+        element(MobileBy.AccessibilityId("Image" + numberOfPhoto + " Index:" + currentPosition + " Frame:#37d2be")).shouldBeVisible();
+    }
+
+    public void deselectFourthPhoto() {
+        //TODO not listings with 4 photos
+    }
+
+    public void checkFifthPhotoIsSelected() {
+        //TODO not listings with 5 photos
+    }
+
+    public void checkPhotosAreShownInUpdatedOrder(int currentFirstPhoto, int currentSecondPhoto, int currentThirdPhoto) {
+        element(MobileBy.xpath("//android.widget.FrameLayout[1]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentFirstPhoto  + "']")).shouldBeVisible();
+        element(MobileBy.xpath("//android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentSecondPhoto  + "']")).shouldBeVisible();
+        element(MobileBy.xpath("//android.widget.FrameLayout[3]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentThirdPhoto  + "']")).shouldBeVisible();
     }
 }

@@ -45,11 +45,20 @@ public class RW26_ReportWizardIndividualListingMaxInfoPhotosReorderTest extends 
         user.atCreateReportPage.clickOnShowSheetButton(); //temp fix
         user.atCreateReportPage.checkSelectedTimeIsShown();
         user.atCreateReportPage.clickOnFloorplanEditIcon();
-        //TODO: need to implement selecting and deselecting floorplan
+        user.atCreateReportPage.clickOnFirstFloorplan();
+        user.atCreateReportPage.clickOnSecondFloorplan();
+        user.atCreateReportPage.checkSecondFloorplanIsSelected(); //TODO not 2 floorplans
         user.atCreateReportPage.clickOnShrinkButton();
         user.atCreateReportPage.clickOnPhotosEditIcon();
-        //TODO: need to implement reordering photos
+        user.atCreateReportPage.moveFourthPhotoToFirstPhotoByDragging();
+        user.atCreateReportPage.checkPhotoIsMovedToThePosition(3, 1);
+        user.atCreateReportPage.checkPhotoIsMovedToThePosition(1, 2);
+        user.atCreateReportPage.checkPhotoIsMovedToThePosition(2, 3);
+        user.atCreateReportPage.deselectFourthPhoto(); //TODO not listings with 5 photos
+        user.atCreateReportPage.selectFithPhoto(); //TODO not listings with 5 photos
+        user.atCreateReportPage.checkFifthPhotoIsSelected(); //TODO not listings with 5 photos
         user.atCreateReportPage.clickOnShrinkButton();
+        user.atCreateReportPage.checkPhotosAreShownInUpdatedOrder(3, 1, 2);
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");

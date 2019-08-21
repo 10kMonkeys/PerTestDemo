@@ -797,7 +797,7 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void checkDescriptionFieldMarkedRed() {
-//        TODO
+        onPage.checkDescriptionFieldMarkedRed();
     }
 
     @Step
@@ -807,12 +807,12 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void checkFloorplanIsShown() {
-        //        TODO
+        onPage.checkFloorplanIsShown();
     }
 
     @Step
     public void checkPhotosAreShown() {
-        //        TODO
+        onPage.checkPhotosAreShown();
     }
 
     @Step
@@ -822,17 +822,12 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void checkDescriptionFieldExpanded() {
-//    TODO
-    }
-
-    @Step
-    public void removeSymbolsToLeaveOnly1160() {
-//        TODO
+        onPage.checkDescriptionFieldExpanded();
     }
 
     @Step
     public void checkCharactersLabelMarkedBlack() {
-//        TODO
+        onPage.checkCharactersLabelMarkedBlack();
     }
 
     @Step
@@ -846,8 +841,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkOnePerOneSelectedLabelIsShown() {
-        onPage.checkOnePerOneSelectedLabelIsShown();
+    public void checkAmountSelectedLabel(String amount) {
+        onPage.checkAmountSelectedLabel(amount);
     }
 
     @Step
@@ -871,28 +866,18 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkZeroPerOneSelectedLabelIsShown() {
-        onPage.checkZeroPerOneSelectedLabelIsShown();
-    }
-
-    @Step
     public void oneSelectedLabelRemovedFromFirstFloorplan() {
         onPage.oneSelectedLabelRemovedFromFirstFloorplan();
     }
 
     @Step
     public void checkFloorplanRemovedFromReportScreen() {
-//        todo no locators for floorplan
+        onPage.checkFloorplanRemovedFromReportScreen();
     }
 
     @Step
     public void checkNextButtonIsEnabled() {
         onPage.checkNextButtonIsEnabled();
-    }
-
-    @Step
-    public void checkFourPerFourSelectedLabelIsShown() {
-        onPage.checkFourPerFourSelectedLabelIsShown();
     }
 
     @Step
@@ -926,13 +911,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void zeroPerFourSelectedLabelIsShown() {
-        onPage.zeroPerFourSelectedLabelIsShown();
-    }
-
-    @Step
     public void checkPhotosRemovedFromReportScreen() {
-        //        todo no locators for photos
+        onPage.checkPhotosRemovedFromReportScreen();
     }
 
     @Step
@@ -1219,13 +1199,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkPhotosAreReordered() {
-        //TODO: need to add id for element
-    }
-
-    @Step
-    public void checkPhotosAreShownInUpdatedOrder() {
-        //TODO: need to add id for element
+    public void checkPhotosAreShownInUpdatedOrder(int currentFirstPhoto, int currentSecondPhoto, int currentThirdPhoto) {
+        onPage.checkPhotosAreShownInUpdatedOrder(currentFirstPhoto, currentSecondPhoto, currentThirdPhoto);
     }
 
     @Step
@@ -1290,5 +1265,30 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void checkRETaxedIsPresented() {
         onPage.checkRETaxedIsPresented();
+    }
+
+    @Step
+    public void checkSecondFloorplanIsSelected() {
+        onPage.checkSecondFloorplanIsSelected();
+    }
+
+    @Step
+    public void moveFourthPhotoToFirstPhotoByDragging() {
+        onPage.moveFourthPhotoToFirstPhotoByDragging();
+    }
+
+    @Step
+    public void checkPhotoIsMovedToThePosition(int numberOfPhoto, int currentPosition) {
+        onPage.checkPhotoIsMovedToThePosition(numberOfPhoto, currentPosition);
+    }
+
+    @Step
+    public void deselectFourthPhoto() {
+        onPage.deselectFourthPhoto();
+    }
+
+    @Step
+    public void checkFifthPhotoIsSelected() {
+        onPage.checkFifthPhotoIsSelected();
     }
 }

@@ -296,6 +296,7 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'MONTHLY PROPERTY TAX-'")
 	private WebElement monthlyPropertyTax;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text = '5800 AVE. U #53']")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address: 5800 AVE. U #53'")
 	private WebElement reportListing;
 

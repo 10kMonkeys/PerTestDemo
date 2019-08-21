@@ -30,9 +30,9 @@ public class RW42_ReportWizardIndividualListingMediaReportFromIndividualListingP
         user.atCreateReportPage.checkGreenFrameIsRemoved(); //TODO: need to add id for element
         user.atCreateReportPage.checkPhotosCountIsChanged(-1);
         user.atCreateReportPage.moveFirstPhotoToSecondPhotoByDragging();
-        user.atCreateReportPage.checkPhotosAreReordered(); //TODO: need to add id for element
+        user.atCreateReportPage.checkPhotoIsMovedToThePosition(1, 2); //TODO: need to add id for element
         user.atCreateReportPage.clickOnShrinkButton();
-        user.atCreateReportPage.checkPhotosAreShownInUpdatedOrder(); //TODO: need to add id for element
+        user.atCreateReportPage.checkPhotosAreShownInUpdatedOrder(2, 1, 3); //TODO: need to add id for element
         user.atCreateReportPage.clickOnFloorplanEditIcon();
         user.atCreateReportPage.getAmountSelectedPhotos();
         user.atCreateReportPage.clickOnFirstFloorplan();
