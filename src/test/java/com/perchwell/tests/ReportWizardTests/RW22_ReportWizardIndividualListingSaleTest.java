@@ -59,23 +59,23 @@ public class RW22_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atCreateReportPage.checkFifthListingInSoldSection();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkLayoutIsLandscape();
-        user.atCreateReportPage.checkSelectedFieldsAmount(12);
+        user.atCreateReportPage.checkSelectedFieldsAmount(11);
         user.atCreateReportPage.checkUnselectedRETaxedSuboptionIsVisible();
         user.atCreateReportPage.checkTotalMonthliesIsVisible();
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
         user.atCreateReportPage.swipeToPortrait();
         user.atCreateReportPage.fillInReportLabelField(70);
-        user.atCreateReportPage.fillInReportLabelField(1);
+        user.atCreateReportPage.fillInReportLabelField(71);
         user.atCreateReportPage.checkOnlySeventySymbolsAllowed();
         user.atCreateReportPage.switchToPortrait();
-        user.atCreateReportPage.checkSelectedFieldsAmount(9);
-        user.atCreateReportPage.checkUnselectedCCMaintIsVisible();
-        user.atCreateReportPage.checkUnselectedRETaxedIsVisible();
+        user.atCreateReportPage.checkSelectedFieldsAmount(8);
+        user.atCreateReportPage.checkCCMaintIsPresented();
+        user.atCreateReportPage.checkRETaxedIsPresented();
         user.atCreateReportPage.checkTotalMonthliesIsVisible();
         user.atCreateReportPage.switchToLandscape();
         user.atCreateReportPage.deselectOriginalPriceSuboption();
         user.atCreateReportPage.checkSuboptionCounterIsEquals("10/11");
-        user.atCreateReportPage.selectPriceChangeSuboption();
+        user.atCreateReportPage.selectRoomsSuboption();
         user.atCreateReportPage.checkSuboptionCounterIsEquals("11/11");
         user.atCreateReportPage.selectContractDateSuboption();
         user.atCreateReportPage.checkUnselectedContractDateSuboptionIsVisible();
@@ -85,6 +85,5 @@ public class RW22_ReportWizardIndividualListingSaleTest extends SampleTest {
         user.atCreateReportPage.clickOnEmailReportButton();
         user.atCreateReportPage.clickOnPopUpExitButton();
         user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.EXTENDED_CMA_REPORT);
-
     }
 }
