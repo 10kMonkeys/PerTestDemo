@@ -1100,7 +1100,6 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void clickOnCloseButton() {
         onPage.clickOnCloseButton();
-
     }
 
     @Step

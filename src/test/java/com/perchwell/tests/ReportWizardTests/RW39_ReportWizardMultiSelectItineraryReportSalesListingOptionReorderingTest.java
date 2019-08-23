@@ -18,6 +18,7 @@ public class RW39_ReportWizardMultiSelectItineraryReportSalesListingOptionReorde
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.getListingsAddresses(4);
+        user.onlyAndroid.resetListViewBySearch();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.selectThirdAndFourthListingsByAddress();
@@ -25,7 +26,7 @@ public class RW39_ReportWizardMultiSelectItineraryReportSalesListingOptionReorde
         user.atPerchwellPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnItineraryButton();
         user.atCreateReportPage.swipeLeftListingByAddress();
-//        user.atCreateReportPage.clickOnDeleteButton(); #TODO delete fix later
+        user.atCreateReportPage.clickOnDeleteButton("listingAddress1");
         user.atCreateReportPage.checkFirstListingIsDeleted(); // will be fixed by jianghong
         user.atCreateReportPage.swipeLeftSecondListing();
         user.atCreateReportPage.clickOnEditButton();

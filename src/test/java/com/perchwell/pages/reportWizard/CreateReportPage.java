@@ -399,7 +399,7 @@ public class CreateReportPage extends TechHelper {
     @AndroidFindBy(xpath = "//android.widget.EditText[contains(@content-desc, 'Characters textField')]")
     private WebElement expandedDiscriptionField;
 
-    @AndroidFindBy(accessibility = "Appointment Date color:#606060")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'Appointment Date color')]")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Appointment Date-'")
     private WebElement appointmentDateField;
 
@@ -490,6 +490,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeStaticText")
     private List<WebElement> selectedPhotosList;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'BUILDINGS']")
     @iOSXCUITFindBy(accessibility = "BUILDINGS")
     private WebElement buildingSection;
 
@@ -505,6 +506,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Internal Information")
     private WebElement unselectedInternalInformationOption;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/edit_button")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'edit' AND visible == true")
     private WebElement editButton;
 
@@ -514,6 +516,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "chevronLeft")
     private WebElement previousMonthButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/up_button")
     @iOSXCUITFindBy(accessibility = "x")
     private WebElement closeButton;
 
@@ -567,6 +570,12 @@ public class CreateReportPage extends TechHelper {
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/image")
     private WebElement photosImage;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'Listing Report - Default (Includes Buildings)']")
+    private WebElement defaultIncludesBuildingLabel;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text = 'Export To Excel']")
+    private WebElement exportToExcelLabel;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -1362,8 +1371,15 @@ public class CreateReportPage extends TechHelper {
             listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address1 + "']"));
             listingCell2 = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address2 + "']"));
 
-            Assert.assertEquals(getYPositionOfElement(listingSection) + 566, getYPositionOfElement(listingCell));
-            Assert.assertEquals(getYPositionOfElement(listingSection) + 241, getYPositionOfElement(listingCell2));
+            setImplicitTimeout(3, TimeUnit.SECONDS);
+            if(element(defaultIncludesBuildingLabel).isVisible()) {
+                Assert.assertEquals(getYPositionOfElement(listingSection) + 862, getYPositionOfElement(listingCell));
+                Assert.assertEquals(getYPositionOfElement(listingSection) + 389, getYPositionOfElement(listingCell2));
+            } else {
+                Assert.assertEquals(getYPositionOfElement(listingSection) + 566, getYPositionOfElement(listingCell));
+                Assert.assertEquals(getYPositionOfElement(listingSection) + 241, getYPositionOfElement(listingCell2));
+            }
+            resetImplicitTimeout();
         } else {
             listingCell = element(MobileBy.AccessibilityId(address1));
             listingCell2 = element(MobileBy.AccessibilityId(address2));
@@ -1690,8 +1706,19 @@ public class CreateReportPage extends TechHelper {
 
     public void checkBuildingInBuildingsSection() {
         WebElement listingCell;
-        listingCell = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("reportWizardAddress3")));
-        Assert.assertEquals(getYPositionOfElement(buildingSection) + 59, getYPositionOfElement(listingCell));
+        if(Config.isAndroid()) {
+            listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("reportWizardAddress3") + "']"));
+            setImplicitTimeout(3, TimeUnit.SECONDS);
+            if(element(exportToExcelLabel).isVisible()) {
+                Assert.assertEquals(getYPositionOfElement(buildingSection) + 273, getYPositionOfElement(listingCell));
+            } else {
+                Assert.assertEquals(getYPositionOfElement(buildingSection) + 421, getYPositionOfElement(listingCell));
+            }
+            setImplicitTimeout(3, TimeUnit.SECONDS);
+        } else {
+            listingCell = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("reportWizardAddress3")));
+            Assert.assertEquals(getYPositionOfElement(buildingSection) + 59, getYPositionOfElement(listingCell));
+        }
     }
 
     public void clickOnExportToExcelButton() {
@@ -1788,7 +1815,11 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkAppointmentTimeIsShownForListing() {
-        element(MobileBy.AccessibilityId(getSelectedTimeToString())).shouldBeVisible();
+        if(Config.isAndroid()) {
+            element(MobileBy.xpath("//android.widget.TextView[@text = '" + getSelectedTimeToString() + "']")).shouldBeVisible();
+        } else {
+            element(MobileBy.AccessibilityId(getSelectedTimeToString())).shouldBeVisible();
+        }
     }
 
     public void swipeLeftFourthListing() {
