@@ -627,12 +627,12 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void checkIncludeExactAddressOptionIsSelected() {
-        onPage.checkIncludeExactAddressOptionIsSelected();
+//        onPage.checkIncludeExactAddressOptionIsSelected();
     }
 
     @Step
     public void checkListingAgentInfoOptionIsUnselected() {
-        onPage.checkListingAgentInfoOptionIsUnselected();
+//        onPage.checkListingAgentInfoOptionIsUnselected();
     }
 
     @Step

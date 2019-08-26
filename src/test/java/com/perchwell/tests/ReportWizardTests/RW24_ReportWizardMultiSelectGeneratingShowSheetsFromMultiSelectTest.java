@@ -11,7 +11,7 @@ public class RW24_ReportWizardMultiSelectGeneratingShowSheetsFromMultiSelectTest
 
     @Test
     public void reportWizardMultiSelectGeneratingShowSheetsFromMultiSelectTest() {
-        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("core_email"),
+        user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();

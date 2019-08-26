@@ -32,7 +32,7 @@ public class RW31_ReportWizardMultiSelectMediumReportRentalsBuildingTest extends
         user.atTagsPage.clickOnFirstTag();
         user.atTagsPage.clickOnArrowBackFromTagsButton();
         user.inSearchMenu.openAddressSearch();
-        user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
+        user.atSearchPage.fillInAddressSearchField(Addresses.WEST_72ND);
         user.atSearchPage.openFirstBuilding();
         user.atOpenedBuildingPage.clearTagsList();
         user.atOpenedBuildingPage.clickOnMyTagsLabel();
@@ -52,7 +52,7 @@ public class RW31_ReportWizardMultiSelectMediumReportRentalsBuildingTest extends
         user.atMyTagsPage.clickOnMoreOptionsButton();
         user.atMyTagsPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnListingReportButton();
-        user.atCreateReportPage.clickOnMediumButton();
+        user.atCreateReportPage.clickDefaultButton();
         user.atCreateReportPage.checkFirstAndSecondListingsInListingsSection();
         user.atCreateReportPage.checkThirdListingIsNotShown();
         user.atCreateReportPage.clickNextButton();

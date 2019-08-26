@@ -22,7 +22,7 @@ public class RW30_ReportWizardMultiSelectMediumReportSalesTest extends SampleTes
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnListingReportButton();
-        user.atCreateReportPage.clickOnMediumButton();
+        user.atCreateReportPage.clickDefaultButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
         user.atCreateReportPage.checkIncludeExactAddressOptionIsSelected();

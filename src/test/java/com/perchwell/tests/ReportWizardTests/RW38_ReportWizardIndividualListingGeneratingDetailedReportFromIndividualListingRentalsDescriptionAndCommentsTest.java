@@ -21,7 +21,6 @@ public class RW38_ReportWizardIndividualListingGeneratingDetailedReportFromIndiv
         user.atOpenedBuildingPage.clickShareButton();
         user.atOpenedBuildingPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnListingReportButton();
-        user.atCreateReportPage.clickOnListingReportButton();
         user.atCreateReportPage.clickOnDetailedButton();
         user.atCreateReportPage.checkNextButtonIsEnabled();
         user.atCreateReportPage.clickOnDescriptionField();

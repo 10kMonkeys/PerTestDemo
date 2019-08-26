@@ -22,6 +22,7 @@ public class RW32_ReportWizardMultiSelectDefaultMediumReportSalesTest extends Sa
         user.atPerchwellPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnListingReportButton();
         user.atCreateReportPage.clickDefaultIncludesBuildingsButton();
+        user.atCreateReportPage.clickDefaultButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
         user.atCreateReportPage.checkIncludeExactAddressOptionIsSelected();

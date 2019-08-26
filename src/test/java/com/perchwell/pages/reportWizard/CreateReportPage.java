@@ -5,6 +5,7 @@ import com.perchwell.helpers.CurrentYear;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.apache.commons.lang3.StringUtils;
@@ -389,8 +390,12 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent/Commission")
     private WebElement unselectedListingAgentCommission;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'Description textField ')]")
     @iOSXCUITFindBy(accessibility = "textView")
     private WebElement descriptionField;
+
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/edit_text")
+    private WebElement expandedDescriptionField;
 
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Appointment Date-'")
     private WebElement appointmentDateField;
@@ -479,8 +484,12 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "delete")
     private WebElement keyboardDeleteButton;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'Comments textField ')]")
     @iOSXCUITFindBy(accessibility = "Comments")
     private WebElement commentsField;
+
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/edit_text")
+    private WebElement expandedCommentsField;
 
     @iOSXCUITFindBy(accessibility = " Suboption: Photos")
     private WebElement unselectedPhotosSuboption;
@@ -1333,6 +1342,9 @@ public class CreateReportPage extends TechHelper {
             listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address1 + "']"));
             listingCell2 = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address2 + "']"));
 
+            System.out.println(address1);
+            System.out.println(address2);
+
             Assert.assertEquals(getYPositionOfElement(listingSection) + 566, getYPositionOfElement(listingCell));
             Assert.assertEquals(getYPositionOfElement(listingSection) + 241, getYPositionOfElement(listingCell2));
         } else {
@@ -1345,6 +1357,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkThirdListingIsNotShown() {
+        System.out.println(SessionVariables.getValueFromSessionVariable("reportWizardAddress3"));
         checkOneListingAddressIsNotShown(SessionVariables.getValueFromSessionVariable("reportWizardAddress3"));
     }
 
@@ -1469,7 +1482,11 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void clearDescriptionField() {
-        element(descriptionField).clear();
+        if (Config.isAndroid()) {
+            element(expandedDescriptionField).clear();
+        } else {
+            element(descriptionField).clear();
+        }
     }
 
     public void clickOnShowSheetButton() {
@@ -1535,7 +1552,11 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void clickOnDoneButton() {
-        element(doneButton).click();
+        if (Config.isAndroid()) {
+            element(shrinkButton).click();
+        } else {
+            element(doneButton).click();
+        }
     }
 
     public void checkOnePerOneSelectedLabelIsShown() {
@@ -1638,15 +1659,27 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void fillInDescriptionFieldWithCountSymbols(int length) {
-        String message = StringUtils.repeat("a", length);
-        waitFor(descriptionField).shouldBeVisible();
-        element(descriptionField).sendKeys(message);
-        hideKeyboard();
+        if (Config.isAndroid()) {
+            String message = StringUtils.repeat("a", length);
+            waitFor(expandedDescriptionField).shouldBeVisible();
+            element(expandedDescriptionField).sendKeys(message);
+            hideKeyboard();
+
+        } else {
+            String message = StringUtils.repeat("a", length);
+            waitFor(descriptionField).shouldBeVisible();
+            element(descriptionField).sendKeys(message);
+            hideKeyboard();
+        }
 
     }
 
     public void removeOneSymboldFromDescriptionField() {
-        element(keyboardDeleteButton).click();
+        if (Config.isAndroid()) {
+            pressDeleteButtonOnlyAndroid();
+        } else {
+            element(keyboardDeleteButton).click();
+        }
     }
 
     public void clickOnCommentsField() {
@@ -1654,7 +1687,11 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void fillCommentsField(int length) {
-
+        if (Config.isAndroid()) {
+            String message = StringUtils.repeat("a", length);
+            waitFor(expandedCommentsField).shouldBeVisible();
+            element(expandedCommentsField).sendKeys(message);
+            hideKeyboard();        }
     }
 
     public void checkBuildingSectionIsNotShown() {
@@ -1686,16 +1723,29 @@ public class CreateReportPage extends TechHelper {
         WebElement listingCell;
         WebElement listingCell2;
 
-        listingCell = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1")));
-        listingCell2 = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress2")));
+        System.out.println(SessionVariables.getValueFromSessionVariable("listingAddress1"));
+        System.out.println(SessionVariables.getValueFromSessionVariable("listingAddress2"));
+        if (Config.isAndroid()) {
+            listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("listingAddress1") + "']"));
+            listingCell2 = element(MobileBy.xpath("//android.widget.TextView[@text = '" + SessionVariables.getValueFromSessionVariable("listingAddress2") + "']"));
+            System.out.println(getYPositionOfElement(listingSection));
+            System.out.println(getYPositionOfElement(listingCell));
+            System.out.println(getYPositionOfElement(listingCell2));
+            waitABit(1000);
+            Assert.assertEquals(getYPositionOfElement(listingSection) + 241, getYPositionOfElement(listingCell2));
+            Assert.assertEquals(getYPositionOfElement(listingSection) + 566, getYPositionOfElement(listingCell));
+        } else {
+            listingCell = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress1")));
+            listingCell2 = element(MobileBy.AccessibilityId(SessionVariables.getValueFromSessionVariable("listingAddress2")));
+            waitABit(1000);
+            Assert.assertEquals(getYPositionOfElement(listingSection) + 51, getYPositionOfElement(listingCell2));
+            Assert.assertEquals(getYPositionOfElement(listingSection) + 144, getYPositionOfElement(listingCell));
 
+        }
         System.out.println(getYPositionOfElement(listingSection));
         System.out.println(getYPositionOfElement(listingCell));
         System.out.println(getYPositionOfElement(listingCell2));
 
-        waitABit(1000);
-        Assert.assertEquals(getYPositionOfElement(listingSection) + 51, getYPositionOfElement(listingCell2));
-        Assert.assertEquals(getYPositionOfElement(listingSection) + 144, getYPositionOfElement(listingCell));
     }
 
     public void selectInternalInformationOption() {

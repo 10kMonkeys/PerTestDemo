@@ -256,6 +256,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[$name CONTAINS 'TAG BUTTON'$][1]")
 	private WebElement tagIconOnFirstListing;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/discuss_button")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'DISCUSS BUTTON'")
 	private WebElement discussionButton;
 
@@ -1000,8 +1001,8 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void selectFirstListings() {
-		universalVerticalShortSwipe(firstContactListingCheckbox);
-		element(firstContactListingCheckbox).click();
+			universalVerticalShortSwipe(firstContactListingCheckbox);
+			element(firstContactListingCheckbox).click();
 	}
 
 	public void selectSecondListings() {
@@ -1018,7 +1019,9 @@ public class PerchwellPage extends TechHelper {
 				SessionVariables.addValueInSessionVariable("listingAddress" + (i + 1),
 						element(MobileBy.xpath("*//android.widget.TextView[contains(@content-desc, 'ADDRESS:')]")).getAttribute("text"));
 				universalSingleSwipe();
+				System.out.println(SessionVariables.getValueFromSessionVariable("listingAddress" + (i + 1)));
 			}
+			resetSwipeOnlyAndroid(3);
 		} else {
 			for (int i = 0; i < amount; i++) {
 				SessionVariables.addValueInSessionVariable("listingAddress" + (i + 1), addressesList.get(i).getAttribute("value"));

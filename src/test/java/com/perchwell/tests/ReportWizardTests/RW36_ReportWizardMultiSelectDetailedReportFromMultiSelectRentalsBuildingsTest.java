@@ -17,13 +17,12 @@ public class RW36_ReportWizardMultiSelectDetailedReportFromMultiSelectRentalsBui
         user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectRentalsProperty();
         user.atSearchPage.clickOnApplyButton();
-        user.atPerchwellPage.clickOnTagIconOnFirstListing();
+        user.atPerchwellPage.selectFirstListing();
+        user.atPerchwellPage.selectSecondListingAfterFirst();
+        user.atPerchwellPage.clickOnMoreOptionsButton();
+        user.atPerchwellPage.clickOnTagSelectedListingsOption();
         user.atTagsPage.createAndSaveNewTag();
-        user.atTagsPage.clickOnArrowBackFromTagsButton();
-        user.atPerchwellPage.clickOnTagIconOnSecondListing();
-        user.atTagsPage.searchJustCreatedTag();
-        user.atTagsPage.clickOnFirstTag();
-        user.atTagsPage.clickOnArrowBackFromTagsButton();
+        user.atTagsPage.clickOnCrossBackFromTagsButton();
         user.inSearchMenu.openAddressSearch();
         user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
         user.atSearchPage.openFirstBuilding();
