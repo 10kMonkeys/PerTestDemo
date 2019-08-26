@@ -23,32 +23,31 @@ public class RW25_ReportWizardIndividualListingNextButtonPlusReportWithMinimumIn
         user.atOpenedBuildingPage.clickShareButton();
         user.atOpenedBuildingPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnShowSheetButton();
-        user.atCreateReportPage.clickOnShowSheetButton();
         user.atCreateReportPage.checkDescriptionFieldMarkedRed();
         user.atCreateReportPage.checkNextButtonIsDisabled(); //todo we have not enough description
         user.atCreateReportPage.checkFloorplanIsShown();
         user.atCreateReportPage.checkPhotosAreShown();
         user.atCreateReportPage.clickOnDescriptionField();
         user.atCreateReportPage.checkDescriptionFieldExpanded();
-        user.atCreateReportPage.removeSymbolsToLeaveOnly1160();
-        user.atCreateReportPage.checkCharactersLabelMarkedBlack();
+        user.atCreateReportPage.fillInDescriptionFieldWithCountSymbols(1160);
+        user.atCreateReportPage.checkCharactersLabelMarkedBlack(); //TODO no color locators
         user.atCreateReportPage.clickOnDoneButton();
         user.atCreateReportPage.clickOnDescriptionField();
         user.atCreateReportPage.fillInDescriptionFieldWithCountSymbols(412); //todo no locators for field
         user.atCreateReportPage.clickOnDoneButton();
         user.atCreateReportPage.clickOnFloorplanEditIcon();
-        user.atCreateReportPage.checkOnePerOneSelectedLabelIsShown();
+        user.atCreateReportPage.checkAmountSelectedLabel("1/1");
         user.atCreateReportPage.checkOneIsShownOnFirstFloorplan();
-        user.atCreateReportPage.clickOnSecondFloorplan();
-        user.atCreateReportPage.checkSecondFloorplanNotSelected();
+        user.atCreateReportPage.clickOnSecondFloorplan(); //TODO no second floorplan
+        user.atCreateReportPage.checkSecondFloorplanNotSelected(); //TODO no second floorplan
         user.atCreateReportPage.clickOnFirstFloorplan();
-        user.atCreateReportPage.checkZeroPerOneSelectedLabelIsShown();
+        user.atCreateReportPage.checkAmountSelectedLabel("0/1");
         user.atCreateReportPage.oneSelectedLabelRemovedFromFirstFloorplan();
         user.atCreateReportPage.clickOnShrinkButton();
         user.atCreateReportPage.checkFloorplanRemovedFromReportScreen();
         user.atCreateReportPage.checkNextButtonIsEnabled();
         user.atCreateReportPage.clickOnPhotosEditIcon();
-        user.atCreateReportPage.checkFourPerFourSelectedLabelIsShown(); // todo there is only 3 photos
+        user.atCreateReportPage.checkAmountSelectedLabel("4/4"); // todo there is only 3 photos
         user.atCreateReportPage.checkFirstPhotoSelected();
         user.atCreateReportPage.checkSecondPhotoSelected();
         user.atCreateReportPage.checkThirdPhotoSelected();
@@ -56,7 +55,7 @@ public class RW25_ReportWizardIndividualListingNextButtonPlusReportWithMinimumIn
         user.atCreateReportPage.selectFithPhoto(); // todo there is only 3 photos
         user.atCreateReportPage.checkFifthPhotoIsNotSelected();
         user.atCreateReportPage.deselectAllPhotos();
-        user.atCreateReportPage.zeroPerFourSelectedLabelIsShown();
+        user.atCreateReportPage.checkAmountSelectedLabel("0/4");
         user.atCreateReportPage.clickOnShrinkButton();
         user.atCreateReportPage.checkPhotosRemovedFromReportScreen();
         user.atCreateReportPage.clickNextButton();
