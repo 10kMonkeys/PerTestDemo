@@ -3,6 +3,7 @@ package com.perchwell.steps;
 import com.perchwell.email.MailTrap;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.reportWizard.CreateReportPage;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -1179,12 +1180,12 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void checkNumberInCircleIsNotShown() {
-        //TODO: need to add id for element
+        onPage.checkNumberInCircleIsNotShown();
     }
 
     @Step
-    public void checkGreenFrameIsRemoved() {
-        //TODO: need to add id for element
+    public void checkGreenFrameIsRemoved(int photoNumber) {
+        onPage.checkGreenFrameIsRemoved(photoNumber);
     }
 
     @Step
@@ -1198,8 +1199,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkPhotosAreShownInUpdatedOrder(int currentFirstPhoto, int currentSecondPhoto, int currentThirdPhoto) {
-        onPage.checkPhotosAreShownInUpdatedOrder(currentFirstPhoto, currentSecondPhoto, currentThirdPhoto);
+    public void checkPhotosAreShownInUpdatedOrder(int currentFirstPhoto, int currentSecondPhoto, int currentThirdPhoto, int currentFourthPhoto ) {
+        onPage.checkPhotosAreShownInUpdatedOrder(currentFirstPhoto, currentSecondPhoto,currentThirdPhoto, currentFourthPhoto);
     }
 
     @Step
@@ -1213,8 +1214,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkFloorplanAreShownInUpdatedOrder() {
-        //TODO: need to add id for element
+    public void checkFloorplanAreShownInUpdatedOrder(int currentFirstPhoto, int currentSecondPhoto) {
+        onPage.checkFloorplanAreShownInUpdatedOrder(currentFirstPhoto,currentSecondPhoto);
     }
 
     @Step
@@ -1289,5 +1290,20 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void checkFifthPhotoIsSelected() {
         onPage.checkFifthPhotoIsSelected();
+    }
+
+    @Step
+    public void deselectThirdPhoto() {
+        onPage.deselectThirdPhoto();
+    }
+
+    @Step
+    public void deselectFirthPhoto() {
+        onPage.deselectFirthPhoto();
+    }
+
+    @Step
+    public void clickOnThirdFloorplan() {
+        onPage.clickOnThirdFloorplan();
     }
 }

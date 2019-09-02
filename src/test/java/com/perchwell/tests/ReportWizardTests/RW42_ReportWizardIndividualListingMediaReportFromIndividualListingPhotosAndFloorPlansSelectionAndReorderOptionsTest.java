@@ -10,7 +10,7 @@ import org.junit.Test;
 public class RW42_ReportWizardIndividualListingMediaReportFromIndividualListingPhotosAndFloorPlansSelectionAndReorderOptionsTest extends SampleTest {
 
     @Test
-    public void reportWizardIndividualListingMediaReportFromIndividualListingPhotosAndFloorPlansSelectionAndReorderOptionsTest() {
+    public void qreportWizardIndividualListingMediaReportFromIndividualListingPhotosAndFloorPlansSelectionAndReorderOptionsTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("core_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
@@ -25,24 +25,24 @@ public class RW42_ReportWizardIndividualListingMediaReportFromIndividualListingP
         user.atCreateReportPage.clickOnMediaReportButton();
         user.atCreateReportPage.clickOnPhotosEditIcon();
         user.atCreateReportPage.getAmountSelectedPhotos();
-        user.atCreateReportPage.deselectFirstPhoto();
-        user.atCreateReportPage.checkNumberInCircleIsNotShown(); //TODO: need to add id for element
-        user.atCreateReportPage.checkGreenFrameIsRemoved(); //TODO: need to add id for element
+        user.atCreateReportPage.deselectFirthPhoto();
+        user.atCreateReportPage.checkNumberInCircleIsNotShown(); //TODO: need to add id for element iOS
+        user.atCreateReportPage.checkGreenFrameIsRemoved(5); //TODO: need to add id for element
         user.atCreateReportPage.checkPhotosCountIsChanged(-1);
         user.atCreateReportPage.moveFirstPhotoToSecondPhotoByDragging();
         user.atCreateReportPage.checkPhotoIsMovedToThePosition(1, 2); //TODO: need to add id for element
         user.atCreateReportPage.clickOnShrinkButton();
-        user.atCreateReportPage.checkPhotosAreShownInUpdatedOrder(2, 1, 3); //TODO: need to add id for element
+        user.atCreateReportPage.checkPhotosAreShownInUpdatedOrder(2, 1,3,4); //TODO: need to add id for element
         user.atCreateReportPage.clickOnFloorplanEditIcon();
         user.atCreateReportPage.getAmountSelectedPhotos();
-        user.atCreateReportPage.clickOnFirstFloorplan();
+        user.atCreateReportPage.deselectThirdPhoto();
         user.atCreateReportPage.checkNumberInCircleIsNotShown(); //TODO: need to add id for element
-        user.atCreateReportPage.checkGreenFrameIsRemoved(); //TODO: need to add id for element
+        user.atCreateReportPage.checkGreenFrameIsRemoved(3); //TODO: need to add id for element
         user.atCreateReportPage.checkPhotosCountIsChanged(-1);
-        user.atCreateReportPage.moveFirstFloorplanToSecondFloorplanByDragging();
-        user.atCreateReportPage.checkFloorplanAreReordered(); //TODO: need to add id for element
+        user.atCreateReportPage.moveFirstPhotoToSecondPhotoByDragging();
+        user.atCreateReportPage.checkPhotoIsMovedToThePosition(2,1); //TODO: need to add id for element
         user.atCreateReportPage.clickOnShrinkButton();
-        user.atCreateReportPage.checkFloorplanAreShownInUpdatedOrder(); //TODO: need to add id for element
+        user.atCreateReportPage.checkFloorplanAreShownInUpdatedOrder(2,1); //TODO: need to add id for element
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.deselectAllOptions();
         user.atCreateReportPage.clickNextButton();

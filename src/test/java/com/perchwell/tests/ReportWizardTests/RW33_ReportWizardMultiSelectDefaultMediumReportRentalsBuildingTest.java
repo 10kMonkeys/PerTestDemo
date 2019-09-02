@@ -52,7 +52,7 @@ public class RW33_ReportWizardMultiSelectDefaultMediumReportRentalsBuildingTest 
         user.atMyTagsPage.clickOnMoreOptionsButton();
         user.atMyTagsPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnListingReportButton();
-        user.atCreateReportPage.clickDefaultIncludesBuildingsButton();
+        user.atCreateReportPage.clickDefaultButton();
         user.atCreateReportPage.checkFirstAndSecondListingsInListingsSection();
         user.atCreateReportPage.checkBuildingInBuildingsSection();
         user.atCreateReportPage.clickNextButton();

@@ -58,7 +58,7 @@ public class RW26_ReportWizardIndividualListingMaxInfoPhotosReorderTest extends 
         user.atCreateReportPage.selectFithPhoto(); //TODO not listings with 5 photos
         user.atCreateReportPage.checkFifthPhotoIsSelected(); //TODO not listings with 5 photos
         user.atCreateReportPage.clickOnShrinkButton();
-        user.atCreateReportPage.checkPhotosAreShownInUpdatedOrder(3, 1, 2);
+        user.atCreateReportPage.checkPhotosAreShownInUpdatedOrder(3, 1, 2, 4);
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");

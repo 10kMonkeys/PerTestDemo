@@ -12,4 +12,5 @@ public class Addresses {
     public static final String EAST_66TH = "2657 EAST 66TH STREET";
     public static final String WEST_72ND = "1 WEST 72ND STREET";
     public static final String AVENUE_5800 = "5800 AVENUE U";
+    public static final String EDGECOMBE_AVE = "345 EDGECOMBE AVE";
 }

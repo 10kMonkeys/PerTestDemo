@@ -46,7 +46,7 @@ public class RW41_ReportWizardMultiSelectMediaReportFromMultiSelectTest extends 
         user.atCreateReportPage.checkBuildingSectionIsNotShown();
         user.atCreateReportPage.moveFirstListingToThirdListingByDragging();
         user.atCreateReportPage.swipeLeftListingByAddress();
-//        user.atCreateReportPage.clickOnDeleteButton(); #TODO delete fix later
+        user.atCreateReportPage.clickOnDeleteButton("listingAddress1");
         user.atCreateReportPage.getListingsAndBuildingsOrder();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.deselectAllOptions();
