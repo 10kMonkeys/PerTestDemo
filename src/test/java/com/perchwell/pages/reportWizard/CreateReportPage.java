@@ -588,6 +588,9 @@ public class CreateReportPage extends TechHelper {
     @AndroidFindBy(id = "com.perchwell.re.staging:id/unselected_circle")
     private WebElement unselectedPhotoCircle;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'Option Selected')]")
+    private List<WebElement> options;
+
     public CreateReportPage(WebDriver driver) {
         super(driver);
     }
@@ -1611,7 +1614,11 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkAllOptionsAreSelected(int amount) {
-        Assert.assertEquals(amount, subOptions.size());
+        if (Config.isAndroid()) {
+            Assert.assertEquals(amount, options.size());
+        } else {
+            Assert.assertEquals(amount, subOptions.size());
+        }
     }
 
     public void checkNextButtonIsDisabled() {
@@ -2130,7 +2137,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkPhotoIsMovedToThePosition(int numberOfPhoto, int currentPosition) {
-            element(MobileBy.AccessibilityId("Image" + numberOfPhoto + " Index:" + currentPosition + " Frame:#37d2be")).shouldBeVisible();
+        element(MobileBy.AccessibilityId("Image" + numberOfPhoto + " Index:" + currentPosition + " Frame:#37d2be")).shouldBeVisible();
     }
 
     public void deselectFourthPhoto() {
@@ -2141,15 +2148,15 @@ public class CreateReportPage extends TechHelper {
         //TODO not listings with 5 photos
     }
 
-    public void checkPhotosAreShownInUpdatedOrder(int currentFirstPhoto, int currentSecondPhoto ,int currentThirdPhoto, int currentFourthPhoto) {
+    public void checkPhotosAreShownInUpdatedOrder(int currentFirstPhoto, int currentSecondPhoto, int currentThirdPhoto, int currentFourthPhoto) {
         if (Config.isAndroid()) {
             int y = element(MobileBy.xpath("//android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentSecondPhoto + "']")).getLocation().getY();
 
             element(MobileBy.xpath("//android.widget.FrameLayout[1]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentFirstPhoto + "']")).shouldBeVisible();
-        element(MobileBy.xpath("//android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentSecondPhoto + "']")).shouldBeVisible();
-        universalHorizontalSwipe(element(MobileBy.xpath("//android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentSecondPhoto + "']")), y + 1);
-        element(MobileBy.xpath("//android.widget.FrameLayout[3]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentThirdPhoto + "']")).shouldBeVisible();
-        element(MobileBy.xpath("//android.widget.FrameLayout[4]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentFourthPhoto + "']")).shouldBeVisible();
+            element(MobileBy.xpath("//android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentSecondPhoto + "']")).shouldBeVisible();
+            universalHorizontalSwipe(element(MobileBy.xpath("//android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentSecondPhoto + "']")), y + 1);
+            element(MobileBy.xpath("//android.widget.FrameLayout[3]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentThirdPhoto + "']")).shouldBeVisible();
+            element(MobileBy.xpath("//android.widget.FrameLayout[4]/android.widget.FrameLayout/android.widget.ImageView[@content-desc='Image" + currentFourthPhoto + "']")).shouldBeVisible();
         }
     }
 
@@ -2177,7 +2184,7 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkFloorplanAreShownInUpdatedOrder(int currentFirstPhoto, int currentSecondPhoto) {
-        element(MobileBy.xpath("(//android.widget.ImageView[@content-desc='Image" + currentFirstPhoto +"'])[2]")).shouldBeVisible();
-        element(MobileBy.xpath("(//android.widget.ImageView[@content-desc='Image" + currentSecondPhoto +"'])[2]")).shouldBeVisible();
+        element(MobileBy.xpath("(//android.widget.ImageView[@content-desc='Image" + currentFirstPhoto + "'])[2]")).shouldBeVisible();
+        element(MobileBy.xpath("(//android.widget.ImageView[@content-desc='Image" + currentSecondPhoto + "'])[2]")).shouldBeVisible();
     }
 }

@@ -532,7 +532,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: PROPERTY TYPE")
     private WebElement propertyTypeCollapseButton;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/address_edit_text")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
     @iOSXCUITFindBy(accessibility = "AddressSearchBar")
     private WebElement searchAddressField;
 
