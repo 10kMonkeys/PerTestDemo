@@ -200,7 +200,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Option Selected: Landscape")
     private WebElement selectedLandscapeButton;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'Suboption Selected: ')]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'Option Selected: ')]")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'Suboption Selected:' AND visible == 1")
     private List<WebElement> subOptions;
 
@@ -331,19 +331,19 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Floor Plans")
     private WebElement unselectedFloorplansSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption: Include Exact Address")
+    @AndroidFindBy(accessibility = "Option: Include Exact Address")
     @iOSXCUITFindBy(accessibility = " Suboption: Include Exact Address")
     private WebElement unselectedIncludeExactAddressSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption Selected: Open House")
+    @AndroidFindBy(accessibility = "Option Selected: Open House")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Open House")
     private WebElement selectedOpenHouseSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption: Open House")
+    @AndroidFindBy(accessibility = "Option: Open House")
     @iOSXCUITFindBy(accessibility = " Suboption: Open House")
     private WebElement unselectedOpenHouseOption;
 
-    @AndroidFindBy(accessibility = "Suboption Selected: Neighborhood")
+    @AndroidFindBy(accessibility = "Option Selected: Neighborhood")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Neighborhood")
     private WebElement selectedNeighborhoodSuboption;
 
@@ -382,7 +382,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Include Exact Address")
     private WebElement selectedIncludeExactAddressOption;
 
-    @AndroidFindBy(accessibility = "Suboption: Listing Agent Info")
+    @AndroidFindBy(accessibility = "Option: Listing Agent Info")
     @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent Info")
     private WebElement unselectedListingAgentInfoOption;
 
@@ -501,6 +501,7 @@ public class CreateReportPage extends TechHelper {
     @AndroidFindBy(id = "com.perchwell.re.staging:id/edit_text")
     private WebElement expandedCommentsField;
 
+    @AndroidFindBy(accessibility = "Option: Photos")
     @iOSXCUITFindBy(accessibility = " Suboption: Photos")
     private WebElement unselectedPhotosSuboption;
 
@@ -539,21 +540,27 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Prepared For-'")
     private WebElement preparedForField;
 
+    @AndroidFindBy(accessibility = "Option: Brokerage")
     @iOSXCUITFindBy(accessibility = " Suboption: Brokerage")
     private WebElement unselectedBrokerageOption;
 
+    @AndroidFindBy(accessibility = "Option: Agent Name")
     @iOSXCUITFindBy(accessibility = " Suboption: Agent Name")
     private WebElement unselectedAgentNameOption;
 
+    @AndroidFindBy(accessibility = "Option: Agent Phone Number")
     @iOSXCUITFindBy(accessibility = " Suboption: Agent Phone Number")
     private WebElement unselectedAgentPhoneNumberOption;
 
+    @AndroidFindBy(accessibility = "Option: Large Map")
     @iOSXCUITFindBy(accessibility = " Suboption: Large Map")
     private WebElement unselectedLargeMapOption;
 
+    @AndroidFindBy(accessibility = "Option: Neighborhood")
     @iOSXCUITFindBy(accessibility = " Suboption: Neighborhood")
     private WebElement unselectedNeightborhoodOption;
 
+    @AndroidFindBy(accessibility = "Option: Include Cross Streets")
     @iOSXCUITFindBy(accessibility = " Suboption: Include Cross Streets")
     private WebElement unselectedIncludeCrossStreetsOption;
 
@@ -590,6 +597,12 @@ public class CreateReportPage extends TechHelper {
 
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'Option Selected')]")
     private List<WebElement> options;
+
+    @AndroidFindBy(accessibility = "Appointment Date color:#ea6656")
+    private WebElement redAppointmentDateLabel;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'Large Map')]")
+    private WebElement largeMapOption;
 
     public CreateReportPage(WebDriver driver) {
         super(driver);
@@ -1864,8 +1877,10 @@ public class CreateReportPage extends TechHelper {
     }
 
     public void checkAppointmentDateFieldIsRed() {
-        // TODO: no color diff attributes
-    }
+        if (Config.isAndroid()) {
+            element(redAppointmentDateLabel).shouldBeVisible();
+            }
+        }
 
     public void clickOnNextYear() {
         int nextYear = CurrentYear.getCurrentYear() + 1;
@@ -2186,5 +2201,9 @@ public class CreateReportPage extends TechHelper {
     public void checkFloorplanAreShownInUpdatedOrder(int currentFirstPhoto, int currentSecondPhoto) {
         element(MobileBy.xpath("(//android.widget.ImageView[@content-desc='Image" + currentFirstPhoto + "'])[2]")).shouldBeVisible();
         element(MobileBy.xpath("(//android.widget.ImageView[@content-desc='Image" + currentSecondPhoto + "'])[2]")).shouldBeVisible();
+    }
+
+    public void swipeToLargeMapOptionOnlyAndroid() {
+        androidSwipeDownUntilElementVisible(largeMapOption);
     }
 }

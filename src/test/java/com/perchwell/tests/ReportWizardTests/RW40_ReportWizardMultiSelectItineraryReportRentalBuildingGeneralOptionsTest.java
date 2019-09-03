@@ -50,7 +50,7 @@ public class RW40_ReportWizardMultiSelectItineraryReportRentalBuildingGeneralOpt
         user.atCreateReportPage.getListingsAndBuildingsOrder();
         user.atCreateReportPage.checkThirdListingIsNotShown();
         user.atCreateReportPage.clickNextButton();
-        user.atCreateReportPage.checkAppointmentDateFieldIsRed(); // TODO: no color diff attributes
+        user.atCreateReportPage.checkAppointmentDateFieldIsRed(); // TODO: no color diff attributes on iOS
         user.atCreateReportPage.checkNextButtonIsDisabled();
         user.atCreateReportPage.clickOnAppointmentDate();
         user.atCreateReportPage.clickOnNextYear();
@@ -81,6 +81,7 @@ public class RW40_ReportWizardMultiSelectItineraryReportRentalBuildingGeneralOpt
         user.atCreateReportPage.checkEndTimeFieldIsFilled();
         user.atCreateReportPage.fillInMeetingLocationField(DiscussionMessages.MEETING_LOCATION);
         user.atCreateReportPage.fillInPreparedForField(DiscussionMessages.DESCRIPTION);
+        user.atCreateReportPage.swipeToLargeMapOptionOnlyAndroid();
         user.atCreateReportPage.deselectAllOptions();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");
@@ -90,6 +91,7 @@ public class RW40_ReportWizardMultiSelectItineraryReportRentalBuildingGeneralOpt
         user.atCreateReportPage.checkOnlyTwoListingsAreShownInEmailWithoutExactAddresses();
         user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.clickOnBackButton();
+        user.atCreateReportPage.deselectAllOptions();
         user.atCreateReportPage.selectIncludeExactAddressOption();
         user.atCreateReportPage.selectBrokerageOption();
         user.atCreateReportPage.selectAgentNameOption();

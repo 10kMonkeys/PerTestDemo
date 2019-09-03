@@ -1306,4 +1306,9 @@ public class CreateReportSteps extends ScenarioSteps {
     public void clickOnThirdFloorplan() {
         onPage.clickOnThirdFloorplan();
     }
+
+    @Step
+    public void swipeToLargeMapOptionOnlyAndroid() {
+        onPage.swipeToLargeMapOptionOnlyAndroid();
+    }
 }

@@ -1016,8 +1016,6 @@ public class OpenedBuildingPage extends TechHelper {
 	}
 
     public void clickOnReportListing() {
-//		universalVerticalSwipe(showMoreListingsButton);
-//		element(showMoreListingsButton).click();
 		universalVerticalSwipe(reportListing);
 		element(reportListing).click();
     }

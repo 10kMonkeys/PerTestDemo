@@ -154,7 +154,7 @@ public class TagsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TagsViewControllerCancelButton")
 	private WebElement crossBackFromTagsButton;
 
-	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'TAGNAME')")
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'TAGNAME')]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name CONTAINS 'items'$][1]")
 	private WebElement firstTagWithItems;
 

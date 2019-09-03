@@ -10,7 +10,7 @@ import org.junit.Test;
 public class RW42_ReportWizardIndividualListingMediaReportFromIndividualListingPhotosAndFloorPlansSelectionAndReorderOptionsTest extends SampleTest {
 
     @Test
-    public void qreportWizardIndividualListingMediaReportFromIndividualListingPhotosAndFloorPlansSelectionAndReorderOptionsTest() {
+    public void reportWizardIndividualListingMediaReportFromIndividualListingPhotosAndFloorPlansSelectionAndReorderOptionsTest() {
         user.atLoginPage.loginAsClient(AppProperties.INSTANCE.getProperty("core_email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();

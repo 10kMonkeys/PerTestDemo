@@ -24,6 +24,8 @@ import java.util.regex.Pattern;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Assert;
 
+import javax.validation.constraints.AssertTrue;
+
 public class MailTrap {
 
 	public static void getEmails() {
@@ -183,7 +185,7 @@ public class MailTrap {
 
 	public static boolean shouldFindAttachmentWithReport(String reportType) {
 		try {
-			Thread.sleep(30000);
+			Thread.sleep(60000); // temp time
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -231,7 +233,7 @@ public class MailTrap {
 		List<String> nonExactAddressOrderListing = new ArrayList<>();
 
 		for (String orderedListing: CreateReportPage.orderListing) {
-			Pattern pattern = Pattern.compile("(\\w{1,100}\\s[0-9]{1,100}\\w{1,100}\\s\\w{1,100}\\.)|(\\w{3,100}\\s\\w{1,100}\\.)");
+			Pattern pattern = Pattern.compile("(\\w{1,100}\\s[0-9]{1,100}\\w{1,100}\\s\\w{1,100}\\.)|(\\w{3,100}\\s\\w{1,100}\\.)|(\\w{1,7}.\\s\\w{1,7})");
 			Matcher matcher = pattern.matcher(orderedListing);
 			if(matcher.find()) {
 				nonExactAddressOrderListing.add(orderedListing.substring(matcher.start(), matcher.end()));
@@ -240,9 +242,12 @@ public class MailTrap {
 
 		Assert.assertEquals(2, listingsAddress.size());
 
-		for(int i = 0; i < listingsAddress.size(); i++) {
-			Assert.assertEquals(nonExactAddressOrderListing.get(i),listingsAddress.get(i));
-		}
+
+			for(int i = 0; i < listingsAddress.size(); i++) {
+				Assert.assertNotSame(listingsAddress.get(i), CreateReportPage.orderListing.get(i));
+				Assert.assertTrue(CreateReportPage.orderListing.get(i).contains(listingsAddress.get(i)));
+				Assert.assertTrue(CreateReportPage.orderListing.get(i).length()>listingsAddress.get(i).length());
+			}
 	}
 
 	public static void checkOnlyThreeListingsAreShownInEmail() {

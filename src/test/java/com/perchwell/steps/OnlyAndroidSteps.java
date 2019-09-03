@@ -1,11 +1,12 @@
 package com.perchwell.steps;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.helpers.TechHelper;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 
-import static com.perchwell.helpers.Helper.singleUpShortSwipeAndroid;
+import static com.perchwell.helpers.Helper.*;
 
 public class OnlyAndroidSteps extends ScenarioSteps{
 
