@@ -1021,7 +1021,7 @@ public class PerchwellPage extends TechHelper {
 				universalSingleSwipe();
 				System.out.println(SessionVariables.getValueFromSessionVariable("listingAddress" + (i + 1)));
 			}
-			resetSwipeOnlyAndroid(3);
+			resetSwipeOnlyAndroid(amount);
 		} else {
 			for (int i = 0; i < amount; i++) {
 				SessionVariables.addValueInSessionVariable("listingAddress" + (i + 1), addressesList.get(i).getAttribute("value"));

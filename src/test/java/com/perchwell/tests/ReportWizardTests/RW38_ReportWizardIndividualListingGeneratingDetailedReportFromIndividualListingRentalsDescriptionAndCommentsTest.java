@@ -54,7 +54,7 @@ public class RW38_ReportWizardIndividualListingGeneratingDetailedReportFromIndiv
         user.atCreateReportPage.fillCommentsField(2001); //todo no locators for field
         user.atCreateReportPage.clickOnDoneButton();
         user.atCreateReportPage.checkNextButtonIsDisabled();
-        user.atCreateReportPage.checkCommentsLabelIsGreen(); //todo no color diff attributes
+        user.atCreateReportPage.checkCommentsLabelIsRed(); //todo no color diff attributes
         user.atCreateReportPage.clickOnCommentsField();
         user.atCreateReportPage.removeOneSymboldFromDescriptionField();
         user.atCreateReportPage.clickOnDoneButton();

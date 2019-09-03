@@ -18,7 +18,7 @@ public class RW39_ReportWizardMultiSelectItineraryReportSalesListingOptionReorde
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.getListingsAddresses(4);
-        user.onlyAndroid.resetListViewBySearch();
+//        user.onlyAndroid.resetListViewBySwipe();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.selectThirdAndFourthListingsByAddress();
@@ -48,7 +48,7 @@ public class RW39_ReportWizardMultiSelectItineraryReportSalesListingOptionReorde
         user.atEditListingPage.clickOnDoneButton();
         user.atCreateReportPage.checkAppointmentTimeIsShownForListing();
         user.atCreateReportPage.swipeLeftThirdListing();
-        user.atCreateReportPage.clickOnEditButton();
+//        user.atCreateReportPage.clickOnEditButton();
         user.atEditListingPage.selectNoMapOption();
         user.atEditListingPage.checkNoMapOptionIsSelected();
         user.atEditListingPage.checkNotesMaxSymbolsLabelIsChangedOnEightyHundred();

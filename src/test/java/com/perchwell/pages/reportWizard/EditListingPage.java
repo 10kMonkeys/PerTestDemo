@@ -216,7 +216,9 @@ public class EditListingPage extends TechHelper {
     }
 
     public void checkCharactersLabelIsRed() {
-        // TODO: no color diff attributes
+        if (Config.isAndroid()) {
+            element(MobileBy.AccessibilityId("Characters textField color:#ea6656")).shouldBeVisible();
+        }
     }
 
     public void checkDoneButtonIsDisabled() {
@@ -224,15 +226,23 @@ public class EditListingPage extends TechHelper {
     }
 
     public void checkNotesLabelIsRed() {
-        // TODO: no color diff attributes
+        if (Config.isAndroid()) {
+            element(MobileBy.AccessibilityId("Notes textField color:#ea6656")).shouldBeVisible();
+        }
     }
 
     public void removeOneSymbol() {
-        element(deleteButtonOnKeyboard).click();
+        if (Config.isAndroid()) {
+            pressDeleteButtonOnlyAndroid();
+        } else
+            element(deleteButtonOnKeyboard).click();
     }
 
+
     public void checkCharactersLabelIsGreen() {
-        // TODO: no color diff attributes
+        if (Config.isAndroid()) {
+            element(MobileBy.AccessibilityId("Characters textField color:#606060")).shouldBeVisible();
+        }
     }
 
     public void checkDoneButtonIsEnabled() {
@@ -240,7 +250,9 @@ public class EditListingPage extends TechHelper {
     }
 
     public void checkNotesLabelIsGreen() {
-        // TODO: no color diff attributes
+        if (Config.isAndroid()) {
+            element(MobileBy.AccessibilityId("Notes textField color:#606060")).shouldBeVisible();
+        }
     }
 
     public void selectIncludeMapOption() {
@@ -248,6 +260,10 @@ public class EditListingPage extends TechHelper {
     }
 
     public void clearNotesField() {
-        element(notesField).clear();
+        if (Config.isAndroid()) {
+            element(MobileBy.id("com.perchwell.re.staging:id/edit_text")).clear();
+        } else {
+            element(notesField).clear();
+        }
     }
 }

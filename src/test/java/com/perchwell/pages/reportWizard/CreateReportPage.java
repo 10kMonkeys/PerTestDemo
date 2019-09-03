@@ -2206,4 +2206,30 @@ public class CreateReportPage extends TechHelper {
     public void swipeToLargeMapOptionOnlyAndroid() {
         androidSwipeDownUntilElementVisible(largeMapOption);
     }
+
+    public void checkCharactersLabelMarkedRed() {
+if (Config.isAndroid()) {
+    element(MobileBy.AccessibilityId("Characters textField color:#ea6656")).shouldBeVisible();
+        }
+    }
+
+    public void checkCharactersLabelMarkedGreen() {
+        if (Config.isAndroid()) {
+            element(MobileBy.AccessibilityId("Characters textField color:#606060")).shouldBeVisible();
+        }
+    }
+
+    public void checkDescriptionFieldMarkedGreen() {
+        if (Config.isAndroid()) {
+        element(MobileBy.AccessibilityId("Description textField color:#606060")).shouldBeVisible();
+        }
+    }
+
+    public void checkCommentsLabelIsRed() {
+        element(MobileBy.AccessibilityId("Comments textField color:#ea6656")).shouldBeVisible();
+    }
+
+    public void checkCommentsLabelIsGreen() {
+        element(MobileBy.AccessibilityId("Comments textField color:#606060")).shouldBeVisible();
+    }
 }

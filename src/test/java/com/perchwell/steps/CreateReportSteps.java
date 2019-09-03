@@ -1,5 +1,6 @@
 package com.perchwell.steps;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.email.MailTrap;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.reportWizard.CreateReportPage;
@@ -958,6 +959,7 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void checkCharactersLabelMarkedRed() {
+        onPage.checkCharactersLabelMarkedRed();
     }
 
     @Step
@@ -967,10 +969,12 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void checkCharactersLabelMarkedGreen() {
+        onPage.checkCharactersLabelMarkedGreen();
     }
 
     @Step
     public void checkDescriptionFieldMarkedGreen() {
+        onPage.checkDescriptionFieldMarkedGreen();
     }
 
     @Step
@@ -984,7 +988,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkCommentsLabelIsGreen() {
+    public void checkCommentsLabelIsRed() {
+        onPage.checkCommentsLabelIsRed();
     }
 
     @Step
@@ -1310,5 +1315,10 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void swipeToLargeMapOptionOnlyAndroid() {
         onPage.swipeToLargeMapOptionOnlyAndroid();
+    }
+
+    @Step
+    public void checkCommentsLabelIsGreen() {
+        onPage.checkCommentsLabelIsGreen();
     }
 }
