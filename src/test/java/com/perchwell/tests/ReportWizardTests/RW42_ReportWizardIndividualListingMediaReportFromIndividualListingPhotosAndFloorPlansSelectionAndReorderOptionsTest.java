@@ -23,7 +23,7 @@ public class RW42_ReportWizardIndividualListingMediaReportFromIndividualListingP
         user.atOpenedBuildingPage.clickShareButton();
         user.atOpenedBuildingPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnMediaReportButton();
-        user.atCreateReportPage.clickOnPhotosEditIcon();
+        user.atCreateReportPage.clickOnPhotosEditIconOnMediaReport();
         user.atCreateReportPage.getAmountSelectedPhotos();
         user.atCreateReportPage.deselectFirthPhoto();
         user.atCreateReportPage.checkNumberInCircleIsNotShown(); //TODO: need to add id for element iOS
@@ -33,7 +33,7 @@ public class RW42_ReportWizardIndividualListingMediaReportFromIndividualListingP
         user.atCreateReportPage.checkPhotoIsMovedToThePosition(1, 2); //TODO: need to add id for element
         user.atCreateReportPage.clickOnShrinkButton();
         user.atCreateReportPage.checkPhotosAreShownInUpdatedOrder(2, 1,3,4); //TODO: need to add id for element
-        user.atCreateReportPage.clickOnFloorplanEditIcon();
+        user.atCreateReportPage.clickOnFloorplanEditIconOnMediaReport();
         user.atCreateReportPage.getAmountSelectedPhotos();
         user.atCreateReportPage.deselectThirdPhoto();
         user.atCreateReportPage.checkNumberInCircleIsNotShown(); //TODO: need to add id for element
