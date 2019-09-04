@@ -378,7 +378,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "LISTINGS")
     private WebElement listingSection;
 
-    @AndroidFindBy(accessibility = "Suboption Selected: Include Exact Address")
+    @AndroidFindBy(accessibility = "Option Selected: Include Exact Address")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Include Exact Address")
     private WebElement selectedIncludeExactAddressOption;
 
@@ -505,6 +505,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Photos")
     private WebElement unselectedPhotosSuboption;
 
+    @AndroidFindBy(accessibility = "Option: Internal Information")
     @iOSXCUITFindBy(accessibility = " Suboption: Internal Information")
     private WebElement unselectedInternalInformationOption;
 
@@ -1395,6 +1396,17 @@ public class CreateReportPage extends TechHelper {
         WebElement listingCell2;
 
         if (Config.isAndroid()) {
+            if (element(MobileBy.xpath("//android.widget.TextView[contains(@text, 'appointment ')]")).isVisible()) {
+                listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address1 + "']"));
+                listingCell2 = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address2 + "']"));
+
+                System.out.println(address1);
+                System.out.println(address2);
+
+                Assert.assertEquals(getYPositionOfElement(listingSection) + 862, getYPositionOfElement(listingCell));
+                Assert.assertEquals(getYPositionOfElement(listingSection) + 389, getYPositionOfElement(listingCell2));
+
+            } else {
             listingCell = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address1 + "']"));
             listingCell2 = element(MobileBy.xpath("//android.widget.TextView[@text = '" + address2 + "']"));
 
@@ -1403,6 +1415,7 @@ public class CreateReportPage extends TechHelper {
 
             Assert.assertEquals(getYPositionOfElement(listingSection) + 566, getYPositionOfElement(listingCell));
             Assert.assertEquals(getYPositionOfElement(listingSection) + 241, getYPositionOfElement(listingCell2));
+            }
         } else {
             listingCell = element(MobileBy.AccessibilityId(address1));
             listingCell2 = element(MobileBy.AccessibilityId(address2));
