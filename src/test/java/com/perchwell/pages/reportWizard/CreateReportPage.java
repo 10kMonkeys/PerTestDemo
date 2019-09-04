@@ -216,19 +216,19 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'Total Monthlies' AND visible == 1")
     private WebElement totalMonthliesSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption Selected: CC/Maintenance")
+    @AndroidFindBy(accessibility = "Option Selected: CC/Maintenance")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: CC/Maintenance")
     private WebElement selectedCcMaintSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption: CC/Maintenance")
+    @AndroidFindBy(accessibility = "Option: CC/Maintenance")
     @iOSXCUITFindBy(accessibility = " Suboption: CC/Maintenance")
     private WebElement unselectedCcMaintSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption Selected: RE Taxes")
+    @AndroidFindBy(accessibility = "Option Selected: RE Taxes")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: RE Taxes")
     private WebElement selectedReTaxesSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption: RE Taxes")
+    @AndroidFindBy(accessibility = "Option: RE Taxes")
     @iOSXCUITFindBy(accessibility = " Suboption: RE Taxes")
     private WebElement unselectedReTaxesSuboption;
 
@@ -252,15 +252,15 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Option: Landscape")
     private WebElement unselectedLandscapeButton;
 
-    @AndroidFindBy(accessibility = "Suboption: Price Change")
+    @AndroidFindBy(accessibility = "Option: Price Change")
     @iOSXCUITFindBy(accessibility = " Suboption: Price Change")
     private WebElement unselectedPriceChangeSubption;
 
-    @AndroidFindBy(accessibility = "Suboption Selected: Original Price")
+    @AndroidFindBy(accessibility = "Option Selected: Original Price")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Original Price")
     private WebElement selectedOriginalPriceSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption: Contract Date")
+    @AndroidFindBy(accessibility = "Option: Contract Date")
     @iOSXCUITFindBy(accessibility = " Suboption: Contract Date")
     private WebElement unselectedContractDateOption;
 
@@ -275,55 +275,55 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Perchwell")
     private WebElement selectedPerchwellLinkOption;
 
-    @AndroidFindBy(accessibility = "Suboption Selected: Beds")
+    @AndroidFindBy(accessibility = "Option Selected: Beds")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Beds")
     private WebElement selectedBedsSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption: Beds")
+    @AndroidFindBy(accessibility = "Option: Beds")
     @iOSXCUITFindBy(accessibility = " Suboption: Beds")
     private WebElement unselectedBedsSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption: Rooms")
+    @AndroidFindBy(accessibility = "Option: Rooms")
     @iOSXCUITFindBy(accessibility = " Suboption: Rooms")
     private WebElement unselectedRoomsSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption Selected: DOM")
+    @AndroidFindBy(accessibility = "Option Selected: DOM")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: DOM")
     private WebElement selectedDOMSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption: DOM")
+    @AndroidFindBy(accessibility = "Option: DOM")
     @iOSXCUITFindBy(accessibility = " Suboption: DOM")
     private WebElement unselectedDOMSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption Selected: List Date")
+    @AndroidFindBy(accessibility = "Option Selected: List Date")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: List Date")
     private WebElement selectedListDateSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption: List Date")
+    @AndroidFindBy(accessibility = "Option: List Date")
     @iOSXCUITFindBy(accessibility = " Suboption: List Date")
     private WebElement unselectedListDateSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption Selected: Subway Info")
+    @AndroidFindBy(accessibility = "Option Selected: Subway Info")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Subway Info")
     private WebElement selectedSubwayInfoSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption: Subway Info")
+    @AndroidFindBy(accessibility = "Option: Subway Info")
     @iOSXCUITFindBy(accessibility = " Suboption: Subway Info")
     private WebElement unselectedSubwayInfoSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption Selected: Include Map")
+    @AndroidFindBy(accessibility = "Option Selected: Include Map")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Include Map")
     private WebElement selectedIncludeMapSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption: Include Map")
+    @AndroidFindBy(accessibility = "Option: Include Map")
     @iOSXCUITFindBy(accessibility = " Suboption: Include Map")
     private WebElement unselectedIncludeMapSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption Selected: Floorplan")
+    @AndroidFindBy(accessibility = "Option Selected: Floorplan")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Floorplan")
     private WebElement selectedFloorplanSuboption;
 
-    @AndroidFindBy(accessibility = "Suboption: Floorplan")
+    @AndroidFindBy(accessibility = "Option: Floorplan")
     @iOSXCUITFindBy(accessibility = " Suboption: Floorplan")
     private WebElement unselectedFloorplanSuboption;
 
@@ -347,6 +347,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Neighborhood")
     private WebElement selectedNeighborhoodSuboption;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'Option:')]")
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Suboption:'")
     private List<WebElement> unselectedSuboptions;
 
@@ -386,6 +387,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent Info")
     private WebElement unselectedListingAgentInfoOption;
 
+    @AndroidFindBy(accessibility = "Option: Listing Agent/Commission")
     @iOSXCUITFindBy(accessibility = " Suboption: Listing Agent/Commission")
     private WebElement unselectedListingAgentCommission;
 
@@ -582,6 +584,7 @@ public class CreateReportPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = " Suboption: Include Cross Streets")
     private WebElement unselectedIncludeCrossStreetsOption;
 
+    @AndroidFindBy(accessibility = "Option Selected: Transit Info")
     @iOSXCUITFindBy(accessibility = " Suboption Selected: Transit Info")
     private WebElement selectedTransitInfoSuboption;
 
