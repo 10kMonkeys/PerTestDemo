@@ -4,7 +4,6 @@ import com.perchwell.crossPlatform.Config;
 import com.perchwell.email.MailTrap;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.reportWizard.CreateReportPage;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -629,12 +628,12 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void checkIncludeExactAddressOptionIsSelected() {
-//        onPage.checkIncludeExactAddressOptionIsSelected();
+        onPage.checkIncludeExactAddressOptionIsSelected();
     }
 
     @Step
     public void checkListingAgentInfoOptionIsUnselected() {
-//        onPage.checkListingAgentInfoOptionIsUnselected();
+        onPage.checkListingAgentInfoOptionIsUnselected();
     }
 
     @Step
@@ -724,12 +723,12 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void clickOnFloorplanEditIcon() {
-        onPage.clickOnFloorplanEditIcon();
+        onPage.clickOnFloorplanEditIconOnShowSheet();
     }
 
     @Step
     public void clickOnPhotosEditIcon() {
-        onPage.clickOnPhotosEditIcon();
+        onPage.clickOnPhotosEditIconOnShowSheet();
     }
 
     @Step
@@ -854,12 +853,12 @@ public class CreateReportSteps extends ScenarioSteps {
 
     @Step
     public void checkSecondFloorplanNotSelected() {
-//        todo no listings with 2 floorplans
+        onPage.checkSecondFloorplanNotSelected();
     }
 
     @Step
     public void clickOnSecondFloorplan() {
-//        todo no listings with 2 floorplans
+        onPage.clickOnSecondFloorplan();
     }
 
     @Step
@@ -1320,5 +1319,15 @@ public class CreateReportSteps extends ScenarioSteps {
     @Step
     public void checkCommentsLabelIsGreen() {
         onPage.checkCommentsLabelIsGreen();
+    }
+
+    @Step
+    public void clickOnPhotosEditIconOnMediaReport() {
+        onPage.clickOnPhotosEditIconOnMediaReport();
+    }
+
+    @Step
+    public void clickOnFloorplanEditIconOnMediaReport() {
+        onPage.clickOnFloorplanEditIconOnMediaReport();
     }
 }
