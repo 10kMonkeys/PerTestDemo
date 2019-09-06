@@ -52,15 +52,15 @@ public class RW31_ReportWizardMultiSelectMediumReportRentalsBuildingTest extends
         user.atMyTagsPage.clickOnMoreOptionsButton();
         user.atMyTagsPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnListingReportButton();
-        user.atCreateReportPage.clickDefaultButton();
+        user.atCreateReportPage.clickOnMediumButton();
         user.atCreateReportPage.checkFirstAndSecondListingsInListingsSection();
-//        user.atCreateReportPage.checkThirdListingIsNotShown();
+        user.atCreateReportPage.checkThirdListingIsNotShown();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.MEDIUM_DEFAULT_REPORT);
+        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.MEDIUM_REPORT);
         user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.clickOnBackButton();
         user.atCreateReportPage.selectPerchwellLinkOption();
@@ -70,6 +70,6 @@ public class RW31_ReportWizardMultiSelectMediumReportRentalsBuildingTest extends
         user.atCreateReportPage.clearSubjectField();
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.MEDIUM_DEFAULT_REPORT);
+        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.MEDIUM_REPORT);
     }
 }

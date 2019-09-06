@@ -1042,8 +1042,8 @@ public class CreateReportSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOnEditButton() {
-        onPage.clickOnEditButton();
+    public void clickOnEditButton(String address) {
+        onPage.clickOnEditButton(address);
     }
 
     @Step

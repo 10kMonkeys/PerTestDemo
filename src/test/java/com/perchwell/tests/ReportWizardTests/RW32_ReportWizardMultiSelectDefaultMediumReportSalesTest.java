@@ -21,8 +21,7 @@ public class RW32_ReportWizardMultiSelectDefaultMediumReportSalesTest extends Sa
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnCreateReportButton();
         user.atCreateReportPage.clickOnListingReportButton();
-        user.atCreateReportPage.clickDefaultButton();
-        user.atCreateReportPage.clickDefaultButton();
+        user.atCreateReportPage.clickOnMediumButton();
         user.atCreateReportPage.clickNextButton();
         user.atCreateReportPage.checkExternalPageOptionIsSelected();
         user.atCreateReportPage.checkIncludeExactAddressOptionIsSelected();
@@ -31,7 +30,7 @@ public class RW32_ReportWizardMultiSelectDefaultMediumReportSalesTest extends Sa
         user.atCreateReportPage.fillEmailField("valid-report-wizard1@email.com");
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.MEDIUM_DEFAULT_REPORT);
+        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.MEDIUM_REPORT);
         user.atCreateReportPage.clickOnPopUpOkButton();
         user.atCreateReportPage.clickOnBackButton();
         user.atCreateReportPage.selectListingAgentInfoOption();
@@ -41,6 +40,6 @@ public class RW32_ReportWizardMultiSelectDefaultMediumReportSalesTest extends Sa
         user.atCreateReportPage.clearSubjectField();
         user.atCreateReportPage.fillSubjectField(DiscussionMessages.REPORT_SUBJECT);
         user.atCreateReportPage.clickOnEmailReportButton();
-        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.MEDIUM_DEFAULT_REPORT);
+        user.atCreateReportPage.checkEmailContainsPDFReport(ReportTypes.MEDIUM_REPORT);
     }
 }

@@ -1890,8 +1890,12 @@ public class CreateReportPage extends TechHelper {
         swipeLeftByAddress(SessionVariables.getValueFromSessionVariable("listingAddress2"));
     }
 
-    public void clickOnEditButton() {
+    public void clickOnEditButton(String address) {
+        if (Config.isAndroid()) {
+            element(MobileBy.AccessibilityId("Edit button " + SessionVariables.getValueFromSessionVariable(address))).click();
+        } else {
         element(editButton).click();
+        }
     }
 
     public void swipeLeftThirdListing() {

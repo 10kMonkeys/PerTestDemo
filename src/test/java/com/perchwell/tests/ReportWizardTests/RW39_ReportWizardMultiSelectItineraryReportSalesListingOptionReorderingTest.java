@@ -18,7 +18,6 @@ public class RW39_ReportWizardMultiSelectItineraryReportSalesListingOptionReorde
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.getListingsAddresses(4);
-//        user.onlyAndroid.resetListViewBySwipe();
         user.atPerchwellPage.selectFirstListing();
         user.atPerchwellPage.selectSecondListingAfterFirst();
         user.atPerchwellPage.selectThirdAndFourthListingsByAddress();
@@ -29,7 +28,7 @@ public class RW39_ReportWizardMultiSelectItineraryReportSalesListingOptionReorde
         user.atCreateReportPage.clickOnDeleteButton("listingAddress1");
         user.atCreateReportPage.checkFirstListingIsDeleted(); // will be fixed by jianghong
         user.atCreateReportPage.swipeLeftSecondListing();
-        user.atCreateReportPage.clickOnEditButton();
+        user.atCreateReportPage.clickOnEditButton("listingAddress2");
         user.atEditListingPage.checkEditListingPageIsOpened();
         user.atEditListingPage.checkIncludeMapIsSelected();
         user.atEditListingPage.checkNotesMaxSymbolsLabelIsFortyHundred();
@@ -48,7 +47,7 @@ public class RW39_ReportWizardMultiSelectItineraryReportSalesListingOptionReorde
         user.atEditListingPage.clickOnDoneButton();
         user.atCreateReportPage.checkAppointmentTimeIsShownForListing();
         user.atCreateReportPage.swipeLeftThirdListing();
-//        user.atCreateReportPage.clickOnEditButton();
+        user.atCreateReportPage.clickOnEditButton("listingAddress3");
         user.atEditListingPage.selectNoMapOption();
         user.atEditListingPage.checkNoMapOptionIsSelected();
         user.atEditListingPage.checkNotesMaxSymbolsLabelIsChangedOnEightyHundred();
@@ -77,7 +76,7 @@ public class RW39_ReportWizardMultiSelectItineraryReportSalesListingOptionReorde
         user.atEditListingPage.checkNotesLabelIsGreen(); // TODO: no color diff attributes
         user.atEditListingPage.clickOnDoneButton();
         user.atCreateReportPage.swipeLeftFourthListing();
-        user.atCreateReportPage.clickOnEditButton();
+        user.atCreateReportPage.clickOnEditButton("listingAddress4");
         user.atEditListingPage.selectNoMapOption();
         user.atEditListingPage.clickOnNotesField();
         user.atEditListingPage.fillInExpendedNotesField(800);
