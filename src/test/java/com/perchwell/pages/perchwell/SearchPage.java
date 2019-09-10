@@ -79,11 +79,11 @@ public class SearchPage extends TechHelper {
     private WebElement saveButton;
 
     @AndroidFindBy(accessibility = "Asking Price Minimum Value Input")
-    @iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
+    @iOSXCUITFindBy(accessibility = "PRICE Minimum Value Input")
     private WebElement minimumPriceTextBox;
 
     @AndroidFindBy(accessibility = "Asking Price Maximum Value Input")
-    @iOSXCUITFindBy(accessibility = "Asking Price Maximum Value Input")
+    @iOSXCUITFindBy(accessibility = "PRICE Maximum Value Input")
     private WebElement maximumPriceTextBox;
 
     @AndroidFindBy(accessibility = "Bathrooms: 1")
@@ -399,7 +399,7 @@ public class SearchPage extends TechHelper {
     private WebElement excludeUnknownButton;
 
     @AndroidFindBy(accessibility = "Bedrooms: Studio +")
-    @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: Studio +")
+    @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: Studio+")
     private WebElement studioBedsMinimumFilter;
 
     @AndroidFindBy(accessibility = "Bedrooms: 1+")
