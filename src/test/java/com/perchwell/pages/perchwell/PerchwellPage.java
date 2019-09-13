@@ -566,6 +566,7 @@ public class PerchwellPage extends TechHelper {
 
 	public void isListingsQuantity() {
 		listingsAmount = getNumberOfListings(listingsByButton);
+		SessionVariables.addValueInSessionVariable("Listings_Amount", String.valueOf(getNumberOfListings(listingsByButton)));
 	}
 
 	public boolean checkListingsQuantity() {

@@ -141,4 +141,14 @@ public class MapSteps extends ScenarioSteps {
 	public void checkIfItemsInListAndMapViewIsEquals() {
 		Assert.assertEquals(SessionVariables.getValueFromSessionVariable("listingsAmount"), onPage.countItemsInMapView().toString());
 	}
+
+	@Step
+    public void checkBoundaryHasSameColorAsOnCreationScreen() {
+		onPage.checkBoundaryHasSameColorAsOnCreationScreen();
+    }
+
+    @Step
+	public void checkResultCountsIsSameAsOnListView() {
+		onPage.checkResultCountsIsSameAsOnListView();
+	}
 }
