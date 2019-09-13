@@ -155,7 +155,7 @@ public class SearchPage extends TechHelper {
     private WebElement createNewSearchButton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/reset_filters")
-    @iOSXCUITFindBy(accessibility = "Reset Search Filters")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeOther' AND name CONTAINS 'Reset Filters'")
     private WebElement resetFiltersButton;
 
     @AndroidFindBy(accessibility = "Bedrooms: 1")
