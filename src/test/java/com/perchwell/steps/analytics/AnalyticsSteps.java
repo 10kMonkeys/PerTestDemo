@@ -453,4 +453,9 @@ public class AnalyticsSteps extends ScenarioSteps {
 	public void shareButtonInChartClick() {
 		onPage.shareButtonInChartClick();
 	}
+
+	@Step
+	public void checkPriceChartIsSameListView() {
+		onPage.checkPriceChartIsSameListView();
+	}
 }
