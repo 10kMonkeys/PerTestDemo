@@ -86,6 +86,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Listing Results:'")
 	private WebElement listingsByButton;
 
+	@AndroidFindBy(accessibility = "cell: deselected Bedrooms")
 	@iOSXCUITFindBy(accessibility = "Bedrooms")
 	private WebElement bedroomsSortButton;
 
@@ -108,12 +109,15 @@ public class PerchwellPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name CONTAINS 'PRICE'")
     private List<WebElement> pricesList;
 
-    @iOSXCUITFindBy(accessibility = "Least Expensive")
+	@AndroidFindBy(accessibility = "cell: deselected Least Expensive")
+	@iOSXCUITFindBy(accessibility = "Least Expensive")
     private WebElement leastExpensiveButton;
 
+	@AndroidFindBy(accessibility = "cell: deselected Most Expensive")
     @iOSXCUITFindBy(accessibility = "Most Expensive")
     private WebElement mostExpensiveButton;
 
+	@AndroidFindBy(accessibility = "cell: deselected Bathrooms")
 	@iOSXCUITFindBy(accessibility = "Bathrooms")
 	private WebElement bathroomsSortButton;
 
@@ -180,6 +184,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS 'sqft: '")
 	private List<WebElement> sqFeetList;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/second_label")
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'Sort Button: '")
 	private WebElement sortType;
 
@@ -493,9 +498,13 @@ public class PerchwellPage extends TechHelper {
 
 	public void checkSortLabel(String stringSortType) {
 //		waitFor(sortType);
-		Assert.assertTrue(element(sortType).getAttribute("name").contains(stringSortType));
+		if (Config.isAndroid()) {
+			element(MobileBy.AccessibilityId(stringSortType)).shouldBeVisible();
+//			Assert.assertTrue(element(sortType).getText().contains(stringSortType));
+		} else {
+			Assert.assertTrue(element(sortType).getAttribute("name").contains(stringSortType));
+		}
 	}
-
 	public void clickOnBathroomsSortButton() {
 		element(bathroomsSortButton).click();
 	}

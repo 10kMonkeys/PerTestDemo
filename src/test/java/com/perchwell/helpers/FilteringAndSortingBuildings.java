@@ -101,7 +101,13 @@ public abstract class FilteringAndSortingBuildings {
             Iterator<WebElement> iterator = buildingList.iterator();
 
             while (iterator.hasNext()) {
-                String s = iterator.next().getAttribute("value");
+
+                String s;
+                if(Config.isAndroid()) {
+                    s = iterator.next().getAttribute("text");
+                } else {
+                     s = iterator.next().getAttribute("value");
+                }
 
                 switch (typeSorting) {
                     case "bedrooms":
