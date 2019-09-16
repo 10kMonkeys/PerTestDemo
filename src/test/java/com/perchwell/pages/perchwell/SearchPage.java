@@ -155,7 +155,7 @@ public class SearchPage extends TechHelper {
     private WebElement createNewSearchButton;
 
     @AndroidFindBy(id = "com.perchwell.re.staging:id/reset_filters")
-    @iOSXCUITFindBy(accessibility = "Reset Filters")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeOther' AND name CONTAINS 'Reset Filters'")
     private WebElement resetFiltersButton;
 
     @AndroidFindBy(accessibility = "Bedrooms: 1")
@@ -765,6 +765,12 @@ public class SearchPage extends TechHelper {
 
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address: 5800 AVE. U #53'")
     private WebElement reportListing;
+
+    @iOSXCUITFindBy(accessibility = "Remove Button: Custom Boundary 1")
+    private WebElement firstCustomBoundaryDeleteButton;
+
+    @iOSXCUITFindBy(accessibility = "YES")
+    private WebElement yesButton;
 
     public SearchPage(WebDriver driver) {
         super(driver);
@@ -2289,5 +2295,19 @@ public class SearchPage extends TechHelper {
 
     public void checkSelectedFilterFor3Beds() {
         Assert.assertTrue(element(selectedFilterFor3Beds).isDisplayed());
+    }
+
+    public void deleteFirstCustomBoundary() {
+        element(firstCustomBoundaryDeleteButton).click();
+    }
+
+    public void checkNeighbrhoodsAreDefault() {
+        element(manhattanCheckedCheckbox).shouldBeVisible();
+        element(brooklynRemoveIcon).shouldBeVisible();
+        element(queensRemoveIcon).shouldBeVisible();
+    }
+
+    public void clickOnYesButton() {
+        element(yesButton).click();
     }
 }

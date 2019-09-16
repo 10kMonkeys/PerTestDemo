@@ -20,6 +20,7 @@ public class NFT21_CustomBoundaryApplyingTest extends SampleTest {
         user.atPerchwellPage.checkFilterIsApplied();
         user.atPerchwellPage.isListingsQuantity();
         user.atPerchwellPage.clickOnAnalytics();
+        user.atAnalyticsPage.rebnyListingsButtonClick();
         user.atAnalyticsPage.mktShareButtonClick();
         user.atRebnyListingsPage.addMKTShareAskingPriceChart();
         user.atAnalyticsPage.skipHints();

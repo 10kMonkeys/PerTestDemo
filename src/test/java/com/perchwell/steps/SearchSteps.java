@@ -1233,4 +1233,19 @@ public class SearchSteps extends ScenarioSteps {
     public void selectCondopFilter() {
         onPage.selectCondopFilter();
     }
+
+    @Step
+    public void deleteFirstCustomBoudary() {
+        onPage.deleteFirstCustomBoundary();
+    }
+
+    @Step
+    public void checkNeighbrhoodsAreDefault() {
+        onPage.checkNeighbrhoodsAreDefault();
+    }
+
+    @Step
+    public void clickOnYesButton() {
+        onPage.clickOnYesButton();
+    }
 }
