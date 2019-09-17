@@ -14,196 +14,255 @@ public class ACRISClosingPage extends TechHelper {
 
     //region WebElements
 
-    @AndroidFindBy(xpath = "//*[@text='BUILDING HEIGHT (BY DEAL COUNT)']")
+    @AndroidFindBy(accessibility = "BUILDING HEIGHT (BY DEAL COUNT)")
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT (BY DEAL COUNT)")
     private WebElement dealCountByHeightButton;
 
-    @AndroidFindBy(xpath = "//*[@text='DEAL COUNT BY HEIGHT']")
+    @AndroidFindBy(accessibility = "DEAL COUNT BY HEIGHT")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY HEIGHT_RISE_NUM_STORIES_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private  WebElement dealCountByHeightChart;
 
-    @AndroidFindBy(xpath = "//*[@text='BUILDING TYPE (BY DEAL COUNT)']")
+    @AndroidFindBy(accessibility = "BUILDING TYPE (BY DEAL COUNT)")
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE (BY DEAL COUNT)")
     private WebElement buildingTypeByDealCountButton;
 
-    @AndroidFindBy(xpath = "//*[@text='DEAL COUNT BY TYPE']")
+    @AndroidFindBy(accessibility = "DEAL COUNT BY TYPE")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY TYPE_PROPERTYTYPES_PROPERTY_TYPE_CODE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement mktShareDealCountByTypeChart;
 
+    @AndroidFindBy(accessibility = "PRICE (BY DEAL COUNT)")
     @iOSXCUITFindBy(accessibility = "PRICE (BY DEAL COUNT)")
     private WebElement priceByDealCountButton;
 
+    @AndroidFindBy(accessibility = "DEAL COUNT BY SEGMENT")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY SEGMENT_PRICETRANCHES_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement mktSharePriceByDealCountChart;
 
+    @AndroidFindBy(accessibility = "$/FT2 PERCENTILES")
     @iOSXCUITFindBy(accessibility = "$/FT² PERCENTILES")
     private WebElement dollarPerFTPercentilesButton;
 
+    @AndroidFindBy(accessibility = "SALE $/FT2")
     @iOSXCUITFindBy(accessibility = "SALE $/FT²")
     private WebElement dollarPerFTPercentilesChart;
 
+    @AndroidFindBy(accessibility = "$/FT2 BY PRICE SEGMENT")
     @iOSXCUITFindBy(accessibility = "$/FT² BY PRICE SEGMENT")
     private WebElement dollarPerFTByPriceSegmentButton;
 
+    @AndroidFindBy(accessibility = "$/FT2 BY SEGMENT")
     @iOSXCUITFindBy(accessibility = "$/SQFT BY SEGMENT_MEDIANPERPRICETRANCHE_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement distributionDollarPerFTByPriceSegmentChart;
 
+    @AndroidFindBy(accessibility = "PRICE PERCENTILES")
     @iOSXCUITFindBy(accessibility = "PRICE PERCENTILES")
     private WebElement pricePercentilesButton;
 
+    @AndroidFindBy(accessibility = "SALE PRICE_PERCENTILES_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     @iOSXCUITFindBy(accessibility = "SALE PRICE_PERCENTILES_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement distributionPricePercentilesChart;
 
+    @AndroidFindBy(accessibility = "PRICE BY PRICE SEGMENT")
     @iOSXCUITFindBy(accessibility = "PRICE BY PRICE SEGMENT")
     private WebElement priceByPriceSegmentButton;
 
+    @AndroidFindBy(accessibility = "SALE PRICE BY SEGMENT")
     @iOSXCUITFindBy(accessibility = "SALE PRICE BY SEGMENT_MEDIANPERPRICETRANCHE_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement distributionPriceByPriceSegmentChart;
 
+    @AndroidFindBy(accessibility = "SQUARE FEET PERCENTILES")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET PERCENTILES")
     private WebElement squareFeetPercentilesButton;
 
+    @AndroidFindBy(accessibility = "PRICE BY TYPE")
     @iOSXCUITFindBy(accessibility = "PRICE BY TYPE")
     private WebElement priceByTypeButton;
 
+    @AndroidFindBy(accessibility = "MEDIAN SALE PRICE")
     @iOSXCUITFindBy(accessibility = "MEDIAN SALE PRICE_MEDIANPERPROPERTYCODE_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement distributionPriceByTypeChart;
 
+    @AndroidFindBy(accessibility = "SQUARE FEET")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET")
     private WebElement squareFeetButton;
 
+    @AndroidFindBy(accessibility = "SQUARE FEET_PERCENTILES_GROSS_SQUARE_FEET_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET_PERCENTILES_GROSS_SQUARE_FEET_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement distributionSquareFeetPercentilesChart;
 
+    @AndroidFindBy(accessibility = "DEAL VOLUME (ANNUAL)")
     @iOSXCUITFindBy(accessibility = "DEAL VOLUME (ANNUAL)")
     private WebElement dealVolumeAnnualButton;
 
+    @AndroidFindBy(accessibility = "DEAL VOLUME (QUARTERLY)")
     @iOSXCUITFindBy(accessibility = "DEAL VOLUME (QUARTERLY)")
     private WebElement dealVolumeQuarterlyButton;
 
+    @AndroidFindBy(accessibility = "DEAL COUNT")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT")
     private WebElement dealCountButton;
 
+    @AndroidFindBy(accessibility = "DEAL COUNT_COUNTS")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT_COUNTS_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement locationDealCountChart;
 
+    @AndroidFindBy(accessibility = "PRICE")
     @iOSXCUITFindBy(accessibility = "PRICE")
     private WebElement priceChartButton;
 
+    @AndroidFindBy(accessibility = "PRICE PER FT2")
     @iOSXCUITFindBy(accessibility = "PRICE PER FT²")
     private WebElement pricePerFT2ChartButton;
 
+    @AndroidFindBy(accessibility = "MEDIAN SALE PRICE")
     @iOSXCUITFindBy(accessibility = "MEDIAN SALE PRICE_MEDIAN_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement medianPriceChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN SALE PRICE")
     @iOSXCUITFindBy(accessibility = "MEDIAN SALE PRICE_BAR_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement locationPriceChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN SALE $/FT2")
     @iOSXCUITFindBy(accessibility = "MEDIAN SALE $/SQFT_MEDIAN_SALE_PRICE_PER_SQFT_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement medianPricePerFT2Chart;
 
+    @AndroidFindBy(accessibility = "MEDIAN SALE $/FT2")
     @iOSXCUITFindBy(accessibility = "MEDIAN SALE $/SQFT_BAR_SALE_PRICE_PER_SQFT_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement locationPricePerFT2Chart;
 
+    @AndroidFindBy(accessibility = "DEAL COUNT (ANNUAL)")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT (ANNUAL)")
     private WebElement dealCountAnnualButton;
 
+    @AndroidFindBy(accessibility = "DEAL COUNT (QUARTERLY)")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT (QUARTERLY)")
     private WebElement dealCountQuarterlyButton;
 
+    @AndroidFindBy(accessibility = "PRICE (ANNUAL)")
     @iOSXCUITFindBy(accessibility = "PRICE (ANNUAL)")
     private WebElement priceAnnualButton;
 
+    @AndroidFindBy(accessibility = "PRICE (QUARTERLY)")
     @iOSXCUITFindBy(accessibility = "PRICE (QUARTERLY)")
     private WebElement priceQuarterlyButton;
 
+    @AndroidFindBy(accessibility = "PRICE PER FT2 (ANNUAL)")
     @iOSXCUITFindBy(accessibility = "PRICE PER FT² (ANNUAL)")
     private WebElement pricePerFT2AnnualButton;
 
+    @AndroidFindBy(accessibility = "PRICE PER FT2 (QUARTERLY)")
     @iOSXCUITFindBy(accessibility = "PRICE PER FT² (QUARTERLY)")
     private WebElement pricePerFT2QuarterlyButton;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: DEAL VOLUME (ANNUAL)")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: DEAL VOLUME (ANNUAL)")
     private WebElement topTenPerMKTDealVolumeAnnualButton;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: PRICE (ANNUAL)")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: PRICE (ANNUAL)")
     private WebElement topTenPerMKTPriceAnnualButton;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: PRICE (QUARTERLY)")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: PRICE (QUARTERLY)")
     private WebElement topTenPerMKTPriceQuarterlyButton;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: PRICE PER FT2 (ANNUAL)")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: PRICE PER FT² (ANNUAL)")
     private WebElement topTenPerMKTPricePerFT2AnnualButton;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: PRICE PER FT2 (QUARTERLY)")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: PRICE PER FT² (QUARTERLY)")
     private WebElement topTenPerMKTPricePerFT2QuarterlyButton;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: UNIT SIZE (ANNUAL)")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: UNIT SIZE (ANNUAL)")
     private WebElement topTenPerMKTUnitSizeAnnualButton;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: UNIT SIZE (QUARTERLY)")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: UNIT SIZE (QUARTERLY)")
     private WebElement topTenPerMKTUnitSizeQuarterlyButton;
 
+    @AndroidFindBy(accessibility = "DEAL COUNT")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT_STACKEDYEARLYTRENDBARCOUNTS_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement dealCountAnnualChart;
 
+    @AndroidFindBy(accessibility = "DEAL COUNT")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT_STACKEDQUARTERLYTRENDBARCOUNTS_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement dealCountQuarterlyChart;
 
+    @AndroidFindBy(accessibility = "TOTAL DEAL VOLUME")
     @iOSXCUITFindBy(accessibility = "TOTAL DEAL VOLUME_STACKEDYEARLYTRENDBAR_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement dealVolumeAnnualChart;
 
+    @AndroidFindBy(accessibility = "TOTAL DEAL VOLUME")
     @iOSXCUITFindBy(accessibility = "TOTAL DEAL VOLUME_STACKEDQUARTERLYTRENDBAR_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement dealVolumeQuarterlyChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN SALE PRICE")
     @iOSXCUITFindBy(accessibility = "MEDIAN SALE PRICE_YEARLYTRENDBAR_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement priceAnnualChart;
 
+    @AndroidFindBy(accessibility = "QTRLY MEDIAN SALE PRICE")
     @iOSXCUITFindBy(accessibility = "QTRLY MEDIAN SALE PRICE_QUARTERLYTRENDBAR_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement priceQuarterlyChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN SALE $/FT2")
     @iOSXCUITFindBy(accessibility = "MEDIAN SALE $/SQFT_YEARLYTRENDBAR_SALE_PRICE_PER_SQFT_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement pricePerFT2AnnualChart;
 
+    @AndroidFindBy(accessibility = "QTRLY MEDIAN SALE $/FT2")
     @iOSXCUITFindBy(accessibility = "QTRLY MEDIAN SALE $/SQFT_QUARTERLYTRENDBAR_SALE_PRICE_PER_SQFT_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement pricePerFT2QuarterlyChart;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: DEAL VOLUME")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: DEAL VOLUME_TOPTENSTACKEDYEARLYTRENDBAR_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement topTenPerMKTDealVolumeAnnualChart;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: MEDIAN PRICE")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: MEDIAN PRICE_TOPTENYEARLYTRENDBAR_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement topTenPerMKTPriceAnnualChart;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: MEDIAN PRICE")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: MEDIAN PRICE_TOPTENQUARTERLYTRENDBAR_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement topTenPerMKTPriceQuarterlyChart;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: MEDIAN $/FT2")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: MEDIAN $/SQFT_TOPTENYEARLYTRENDBAR_SALE_PRICE_PER_SQFT_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement topTenPerMKTPricePerFT2AnnualChart;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: MEDIAN $/FT2")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: MEDIAN $/SQFT_TOPTENQUARTERLYTRENDBAR_GROSS_SQUARE_FEET_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement topTenPerMKTPricePerFT2QuarterlyChart;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: MEDIAN SIZE (FT2)")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: MEDIAN SIZE (SQFT)_TOPTENYEARLYTRENDBAR_GROSS_SQUARE_FEET_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement topTenPerMKTUnitSizeAnnualChart;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: MEDIAN SIZE (FT2)")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: MEDIAN SIZE (SQFT)_TOPTENQUARTERLYTRENDBAR_GROSS_SQUARE_FEET_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement topTenPerMKTUnitSizeQuarterlyChart;
 
+    @AndroidFindBy(accessibility = "BUILDING HEIGHT (BY DEAL COUNT)")
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT (BY DEAL COUNT)")
     private WebElement mktShareBuildingHeightByDealCountButton;
 
+    @AndroidFindBy(accessibility = "DEAL COUNT BY HEIGHT")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT BY HEIGHT_RISE_NUM_STORIES_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement mktShareBuildingHeightByDealCountChart;
 
+    @AndroidFindBy(accessibility = "$/FT2 PERCENTILES")
     @iOSXCUITFindBy(accessibility = "$/FT² PERCENTILES")
     private WebElement distributionDollarFT2PercentilesButton;
 
+    @AndroidFindBy(accessibility = "SALE $/FT2")
     @iOSXCUITFindBy(accessibility = "SALE $/SQFT_PERCENTILES_SALE_PRICE_PER_SQFT_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement distributionDollarFT2PercentilesChart;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: DEAL VOLUME (QUARTERLY)")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: DEAL VOLUME (QUARTERLY)")
     private WebElement trendsTopTenPerMKTDealVolumeQuarterlyButton;
 
+    @AndroidFindBy(accessibility = "TOP 10% OF MKT: DEAL VOLUME")
     @iOSXCUITFindBy(accessibility = "TOP 10% OF MKT: DEAL VOLUME_TOPTENSTACKEDQUARTERLYTRENDBAR_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement trendsTopTenPerMKTDealVolumeQuarterlyChart;
 

@@ -13,81 +13,103 @@ public class ManagementPage extends TechHelper {
 
     //region WebElements
 
+    @AndroidFindBy(accessibility = "PRICE")
     @iOSXCUITFindBy(accessibility = "PRICE")
     private WebElement askingPriceButton;
 
-    @AndroidFindBy(xpath = "//*[@text='BEDROOMS']")
+    @AndroidFindBy(accessibility = "BEDROOMS")
     @iOSXCUITFindBy(accessibility = "BEDROOMS")
     private WebElement bedroomsButton;
 
+    @AndroidFindBy(accessibility = "BUILDING HEIGHT")
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT")
     private WebElement buildingHeightButton;
 
+    @AndroidFindBy(accessibility = "BUILDING TYPE")
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE")
     private WebElement buildingTypeButton;
 
-    @AndroidFindBy(xpath = "//*[@text='DAYS ON MARKET']")
+    @AndroidFindBy(accessibility = "DAYS ON MARKET")
     @iOSXCUITFindBy(accessibility = "DAYS ON MARKET")
     private WebElement daysOnMarketButton;
 
-    @AndroidFindBy(xpath = "//*[@text='DAYS ON MARKET']")
+    @AndroidFindBy(accessibility = "DAYS ON MARKET")
     @iOSXCUITFindBy(accessibility = "DAYS ON MARKET_DAYSONMARKETPIE_DAYS_ON_MARKET_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement mktShareDaysOnMarketChart;
 
+    @AndroidFindBy(accessibility = "FIRM LISTING COUNT")
     @iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT")
     private WebElement firmListingCountButton;
 
+    @AndroidFindBy(accessibility = "FIRM LISTING COUNT")
     @iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT")
     private WebElement distributionFirmListingCountButton;
 
+    @AndroidFindBy(accessibility = "FIRM LISTING COUNT")
     @iOSXCUITFindBy(accessibility = "FIRM LISTING COUNT_COUNTPER_BROKERAGE_DISPLAY_NAME_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionFirmListingCountChart;
 
+    @AndroidFindBy(accessibility = "PRICE")
     @iOSXCUITFindBy(accessibility = "PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement mktShareAskingPriceChart;
 
+    @AndroidFindBy(accessibility = "BEDROOMS")
     @iOSXCUITFindBy(accessibility = "BEDROOMS_ROOMS_NUM_BEDROOMS_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement mktShareBedroomsChart;
 
+    @AndroidFindBy(accessibility = "BUILDING HEIGHT")
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT_RISE_NUM_STORIES_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement mktShareBuildingHeightChart;
 
+    @AndroidFindBy(accessibility = "BUILDING TYPE")
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE_PROPERTYTYPES_PROPERTY_TYPE_CODE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement mktShareBuildingTypeChart;
 
+    @AndroidFindBy(accessibility = "AGENT LISTING COUNT")
     @iOSXCUITFindBy(accessibility = "AGENT LISTING COUNT")
     private WebElement agentListingCountButton;
 
+    @AndroidFindBy(accessibility = "AGENT LISTING COUNT")
     @iOSXCUITFindBy(accessibility = "AGENT LISTING COUNT_COUNTPERAGENT_LISTING_PRICE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionAgentListingCountChart;
 
+    @AndroidFindBy(accessibility = "AGENT MEDIAN PRICE")
     @iOSXCUITFindBy(accessibility = "AGENT MEDIAN PRICE")
     private WebElement agentMedianPriceButton;
 
+    @AndroidFindBy(accessibility = "FIRM DOM")
     @iOSXCUITFindBy(accessibility = "FIRM DOM")
     private WebElement firmDOMButton;
 
+    @AndroidFindBy(accessibility = "FIRM LISTING VOLUME")
     @iOSXCUITFindBy(accessibility = "FIRM LISTING VOLUME")
     private WebElement firmListingVolumeButton;
 
+    @AndroidFindBy(accessibility = "FIRM MEDIAN $/FT2")
     @iOSXCUITFindBy(accessibility = "FIRM MEDIAN $/SQFT")
     private WebElement firmMedianDollarPerSQFTButton;
 
+    @AndroidFindBy(accessibility = "FIRM MEDIAN PRICE")
     @iOSXCUITFindBy(accessibility = "FIRM MEDIAN PRICE")
     private WebElement firmMedianPriceButton;
 
+    @AndroidFindBy(accessibility = "AGENT MEDIAN PRICE")
     @iOSXCUITFindBy(accessibility = "AGENT MEDIAN PRICE_MEDIANPERAGENT_LISTING_PRICE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionAgentMedianPriceChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN DOM")
     @iOSXCUITFindBy(accessibility = "MEDIAN DOM_DAYSONMARKETBYBROKERAGE_DAYS_ON_MARKET_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionFirmDOMChart;
 
+    @AndroidFindBy(accessibility = "CURRENT LISTING VOLUME")
     @iOSXCUITFindBy(accessibility = "CURRENT LISTING VOLUME_VOLUMEPERBROKERAGE_BROKERAGE_DISPLAY_NAME_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionFirmListingVolumeChart;
 
+    @AndroidFindBy(accessibility = "FIRM MEDIAN $/FT2")
     @iOSXCUITFindBy(accessibility = "FIRM MEDIAN $/SQFT_MEDIANPERBROKERAGE_LISTING_PRICE_PER_SQFT_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionFirmMedianDollarPerSQFTChart;
 
+    @AndroidFindBy(accessibility = "FIRM MEDIAN PRICE")
     @iOSXCUITFindBy(accessibility = "FIRM MEDIAN PRICE_MEDIANPERBROKERAGE_LISTING_PRICE_LISTINGS_MANAGEMENT: HEADER TITLE LABEL")
     private WebElement distributionFirmMedianPriceChart;
 

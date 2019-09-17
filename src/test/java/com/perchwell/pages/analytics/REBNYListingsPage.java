@@ -28,245 +28,320 @@ public class REBNYListingsPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "PRICE")
     private WebElement askingPriceButton;
 
-    @AndroidFindBy(xpath = "//*[@text='BEDROOMS']")
+    @AndroidFindBy(accessibility = "BEDROOMS")
     @iOSXCUITFindBy(accessibility = "BEDROOMS")
     private WebElement bedroomsButton;
 
-    @AndroidFindBy (xpath = "//*[@text='BUILDING HEIGHT']")
+    @AndroidFindBy(accessibility = "BUILDING HEIGHT")
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT")
     private WebElement buildingHeightButton;
 
+    @AndroidFindBy(accessibility = "BUILDING HEIGHT")
     @iOSXCUITFindBy(accessibility = "BUILDING HEIGHT_RISE_NUM_STORIES_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareBuildingHeightChart;
 
+    @AndroidFindBy(accessibility = "BUILDING TYPE")
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE")
     private WebElement buildingTypeButton;
 
+    @AndroidFindBy(accessibility = "BUILDING TYPE")
     @iOSXCUITFindBy(accessibility = "BUILDING TYPE_PROPERTYTYPES_PROPERTY_TYPE_CODE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareBuildingTypeChart;
 
+    @AndroidFindBy(accessibility = "DAYS ON MARKET")
     @iOSXCUITFindBy(accessibility = "DAYS ON MARKET")
     private WebElement daysOnMarketButton;
 
+    @AndroidFindBy(accessibility = "DAYS ON MARKET")
     @iOSXCUITFindBy(accessibility = "DAYS ON MARKET_DAYSONMARKETPIE_DAYS_ON_MARKET_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareDaysOnMarketChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN DOM")
     @iOSXCUITFindBy(accessibility = "MEDIAN DOM_DAYSONMARKETBYNEIGHBORHOOD_DAYS_ON_MARKET_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationDaysOnMarketChart;
 
+    @AndroidFindBy(accessibility = "DOORMAN")
     @iOSXCUITFindBy(accessibility = "DOORMAN")
     private WebElement doormanButton;
 
+    @AndroidFindBy(accessibility = "DOORMAN")
     @iOSXCUITFindBy(accessibility = "DOORMAN_MUSTHAVE_BUILDING_DOORMAN_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareDoormanChart;
 
+    @AndroidFindBy(accessibility = "DOORMAN PREMIUM")
     @iOSXCUITFindBy(accessibility = "DOORMAN PREMIUM_PREMIUM_BUILDING_DOORMAN_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresDoormanChart;
 
+    @AndroidFindBy(accessibility = "ELEVATOR")
     @iOSXCUITFindBy(accessibility = "ELEVATOR")
     private WebElement elevatorButton;
 
+    @AndroidFindBy(accessibility = "ELEVATOR")
     @iOSXCUITFindBy(accessibility = "ELEVATOR_MUSTHAVE_BUILDING_ELEVATOR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareElevatorChart;
 
+    @AndroidFindBy(accessibility = "ELEVATOR PREMIUM")
     @iOSXCUITFindBy(accessibility = "ELEVATOR PREMIUM_PREMIUM_BUILDING_ELEVATOR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresElevatorChart;
 
+    @AndroidFindBy(accessibility = "WORKING FIREPLACE")
     @iOSXCUITFindBy(accessibility = "WORKING FIREPLACE")
     private WebElement workingFireplaceButton;
 
+    @AndroidFindBy(accessibility = "WORKING FIREPLACE")
     @iOSXCUITFindBy(accessibility = "WORKING FIREPLACE_MUSTHAVE_HAS_FIREPLACE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareWorkingFireplaceChart;
 
+    @AndroidFindBy(accessibility = "WORKING FIREPLACE PREMIUM")
     @iOSXCUITFindBy(accessibility = "WORKING FIREPLACE PREMIUM_PREMIUM_HAS_FIREPLACE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresWorkingFireplaceChart;
 
+    @AndroidFindBy(accessibility = "GARAGE")
     @iOSXCUITFindBy(accessibility = "GARAGE")
     private WebElement garageButton;
 
+    @AndroidFindBy(accessibility = "GARAGE")
     @iOSXCUITFindBy(accessibility = "GARAGE_GARAGEMULTIPIE_GARAGE_TYPE_CODE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareGarageChart;
 
+    @AndroidFindBy(accessibility = "GARAGE PREMIUM")
     @iOSXCUITFindBy(accessibility = "GARAGE PREMIUM_GARAGEPREMIUM_GARAGE_TYPE_CODE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresGarageChart;
 
+    @AndroidFindBy(accessibility = "GYM")
     @iOSXCUITFindBy(accessibility = "GYM")
     private WebElement gymButton;
 
+    @AndroidFindBy(accessibility = "GYM")
     @iOSXCUITFindBy(accessibility = "GYM_MUSTHAVE_BUILDING_GYM_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareGymChart;
 
+    @AndroidFindBy(accessibility = "GYM PREMIUM")
     @iOSXCUITFindBy(accessibility = "GYM PREMIUM_PREMIUM_BUILDING_GYM_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresGymChart;
 
+    @AndroidFindBy(accessibility = "LAUNDRY - BUILDING")
     @iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING")
     private WebElement laundryBuildingButton;
 
+    @AndroidFindBy(accessibility = "LAUNDRY - BUILDING")
     @iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING_MUSTHAVE_BUILDING_LAUNDRY_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareLaundryBuildingChart;
 
+    @AndroidFindBy(accessibility = "LAUNDRY - BUILDING PREMIUM")
     @iOSXCUITFindBy(accessibility = "LAUNDRY - BUILDING PREMIUM_PREMIUM_BUILDING_LAUNDRY_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresLaundryBuildingChart;
 
+    @AndroidFindBy(accessibility = "OUTDOOR SPACE")
     @iOSXCUITFindBy(accessibility = "OUTDOOR SPACE")
     private WebElement outdoorSpaceButton;
 
+    @AndroidFindBy(accessibility = "OUTDOOR SPACE")
     @iOSXCUITFindBy(accessibility = "OUTDOOR SPACE_MUSTHAVE_HAS_OUTDOOR_SPACE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareOutdoorSpaceChart;
 
+    @AndroidFindBy(accessibility = "OUTDOOR SPACE PREMIUM")
     @iOSXCUITFindBy(accessibility = "OUTDOOR SPACE PREMIUM_PREMIUM_HAS_OUTDOOR_SPACE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresOutdoorSpaceChart;
 
+    @AndroidFindBy(accessibility = "PETS")
     @iOSXCUITFindBy(accessibility = "PETS")
     private WebElement petsButton;
 
+    @AndroidFindBy(accessibility = "PETS")
     @iOSXCUITFindBy(accessibility = "PETS_MUSTHAVE_BUILDING_PETS_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktSharePetsChart;
 
+    @AndroidFindBy(accessibility = "PETS PREMIUM")
     @iOSXCUITFindBy(accessibility = "PETS PREMIUM_PREMIUM_BUILDING_PETS_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresPetsChart;
 
+    @AndroidFindBy(accessibility = "POOL")
     @iOSXCUITFindBy(accessibility = "POOL")
     private WebElement poolButton;
 
+    @AndroidFindBy(accessibility = "POOL")
     @iOSXCUITFindBy(accessibility = "POOL_MUSTHAVE_BUILDING_POOL_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktSharePoolChart;
 
+    @AndroidFindBy(accessibility = "POOL PREMIUM")
     @iOSXCUITFindBy(accessibility = "POOL PREMIUM_PREMIUM_BUILDING_POOL_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresPoolChart;
 
+    @AndroidFindBy(accessibility = "PREWAR")
     @iOSXCUITFindBy(accessibility = "PREWAR")
     private WebElement prewarButton;
 
+    @AndroidFindBy(accessibility = "PREWAR")
     @iOSXCUITFindBy(accessibility = "PREWAR_MUSTHAVE_BUILDING_PREWAR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktSharePrewarChart;
 
+    @AndroidFindBy(accessibility = "PREWAR PREMIUM")
     @iOSXCUITFindBy(accessibility = "PREWAR PREMIUM_PREMIUM_BUILDING_PREWAR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresPrewarChart;
 
+    @AndroidFindBy(accessibility = "WASHER/DRYER")
     @iOSXCUITFindBy(accessibility = "WASHER/DRYER")
     private WebElement washerDryerButton;
 
+    @AndroidFindBy(accessibility = "WASHER/DRYER")
     @iOSXCUITFindBy(accessibility = "WASHER/DRYER_MUSTHAVE_UNIT_LAUNDRY_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareWasherDryerChart;
 
+    @AndroidFindBy(accessibility = "W/D PREMIUM")
     @iOSXCUITFindBy(accessibility = "W/D PREMIUM_PREMIUM_UNIT_LAUNDRY_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresWasherDryerChart;
 
+    @AndroidFindBy(accessibility = "$/FT2 BY PRICE SEGMENT")
     @iOSXCUITFindBy(accessibility = "$/FT² BY PRICE SEGMENT")
     private WebElement dollarPerFTByPriceSegmentButton;
 
+    @AndroidFindBy(accessibility = "PRICE BY # BEDS")
     @iOSXCUITFindBy(accessibility = "PRICE BY # BEDS")
     private WebElement askingPriceByBedsButton;
 
+    @AndroidFindBy(accessibility = "PRICE BY PRICE SEGMENT")
     @iOSXCUITFindBy(accessibility = "PRICE BY PRICE SEGMENT")
     private WebElement askingPriceByPriceSegmentButton;
 
+    @AndroidFindBy(accessibility = "PRICE BY TYPE")
     @iOSXCUITFindBy(accessibility = "PRICE BY TYPE")
     private WebElement askingPriceByTypeButton;
 
+    @AndroidFindBy(accessibility = "PRICE PER BED")
     @iOSXCUITFindBy(accessibility = "PRICE PER BED")
     private WebElement askingPricePerBedButton;
 
+    @AndroidFindBy(accessibility = "PRICE PER BED")
     @iOSXCUITFindBy(accessibility = "PRICE PER BED_PERCENTILES_LISTING_PRICE_PER_BR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPricePerBedChart;
 
+    @AndroidFindBy(accessibility = "PRICE PER FT2")
     @iOSXCUITFindBy(accessibility = "PRICE PER FT²")
     private WebElement askingPricePerFTButton;
 
+    @AndroidFindBy(accessibility = "DOM BY # BEDS")
     @iOSXCUITFindBy(accessibility = "DOM BY # BEDS")
     private WebElement domByNumberBedsButton;
 
+    @AndroidFindBy(accessibility = "DOM BY PRICE SEGMENT")
     @iOSXCUITFindBy(accessibility = "DOM BY PRICE SEGMENT")
     private WebElement domByPriceSegmentButton;
 
+    @AndroidFindBy(accessibility = "DOM BY PRICE SEGMENT")
     @iOSXCUITFindBy(accessibility = "DOM BY PRICE SEGMENT_DAYSONMARKETBYPRICESEGMENT_DAYS_ON_MARKET_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionDOMByPriceSegmentChart;
 
+    @AndroidFindBy(accessibility = "SQUARE FEET")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET")
     private WebElement squareFeetButton;
 
+    @AndroidFindBy(accessibility = "SQUARE FEET")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET_PERCENTILES_ABOVE_AREA_SQUARE_FT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionSquareFeetChart;
 
+    @AndroidFindBy(accessibility = "MONTHLIES")
     @iOSXCUITFindBy(accessibility = "MONTHLIES")
     private WebElement monthliesButton;
 
+    @AndroidFindBy(accessibility = "MONTHLIES")
     @iOSXCUITFindBy(accessibility = "MONTHLIES_PERCENTILES_MONTHLY_PAYMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionMonthliesChart;
 
+    @AndroidFindBy(accessibility = "LISTING COUNT")
     @iOSXCUITFindBy(accessibility = "LISTING COUNT")
     private WebElement listingCountButton;
 
+    @AndroidFindBy(accessibility = "LISTING COUNT")
     @iOSXCUITFindBy(accessibility = "LISTING COUNT_COUNTS_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationListingCountChart;
 
+    @AndroidFindBy(accessibility = "PROPERTY TAXES")
     @iOSXCUITFindBy(accessibility = "PROPERTY TAXES")
     private WebElement propertyTaxesButton;
 
+    @AndroidFindBy(accessibility = "MEDIAN $/BED")
     @iOSXCUITFindBy(accessibility = "MEDIAN $/BED_MEDIAN_LISTING_PRICE_PER_BR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianAskingPricePerBedChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN $/BED")
     @iOSXCUITFindBy(accessibility = "MEDIAN $/BED_BAR_LISTING_PRICE_PER_BR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationAskingPricePerBedChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN $/FT2")
     @iOSXCUITFindBy(accessibility = "MEDIAN $/SQFT_MEDIAN_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianAskingPerFTChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN $/FT2")
     @iOSXCUITFindBy(accessibility = "MEDIAN $/SQFT_BAR_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationAskingPerFTChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN $/FT2")
     @iOSXCUITFindBy(accessibility = "MEDIAN $/SQFT_PERCENTILES_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPricePerFTChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN MONTHLIES")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'MEDIAN MONTHLIES'")
 //    @iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES_MEDIAN_MONTHLY_PAYMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianMonthliesChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN MONTHLIES")
     @iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES_BAR_MONTHLY_PAYMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationMonthliesChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN PROPERTY TAXES")
     @iOSXCUITFindBy(accessibility = "MEDIAN PROPERTY TAXES_MEDIAN_REAL_ESTATE_TAX_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianPropertyTaxesChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN PROPERTY TAXES")
     @iOSXCUITFindBy(accessibility = "MEDIAN PROPERTY TAXES_BAR_REAL_ESTATE_TAX_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationPropertyTaxesChart;
 
-    @AndroidFindBy(xpath = "//*[@text='BEDROOM COUNT']")
+    @AndroidFindBy(accessibility = "BEDROOM COUNT")
     @iOSXCUITFindBy(accessibility = "BEDROOM COUNT_ROOMS_NUM_BEDROOMS_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement bedroomChart;
 
+    @AndroidFindBy(accessibility = "$/FT2 BY SEGMENT")
     @iOSXCUITFindBy(accessibility = "$/SQFT BY SEGMENT_MEDIANPERPRICETRANCHE_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionDollarPerFTByPriceSegmentChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN PRICE BY SEGMENT")
     @iOSXCUITFindBy(accessibility = "MEDIAN PRICE BY SEGMENT_MEDIANPERPRICETRANCHE_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPriceByPriceSegmentChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN PRICE")
     @iOSXCUITFindBy(accessibility = "MEDIAN PRICE_MEDIAN_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianAskingPriceChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN PRICE")
     @iOSXCUITFindBy(accessibility = "MEDIAN PRICE_MEDIANPERPROPERTYCODE_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPriceByTypeChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN PRICE")
     @iOSXCUITFindBy(accessibility = "MEDIAN PRICE_MEDIANPERBR_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPriceByNumberBedsChart;
 
+    @AndroidFindBy(accessibility = "DOM BY NUMBER BEDROOMS")
     @iOSXCUITFindBy(accessibility = "DOM BY NUMBER BEDROOMS_DAYSONMARKETBEDROOM_DAYS_ON_MARKET_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionDOMByNumberBedroomsChart;
 
+    @AndroidFindBy(accessibility = "NEW DEVELOPMENT")
     @iOSXCUITFindBy(accessibility = "NEW DEVELOPMENT")
     private WebElement newDevelopmentButton;
 
+    @AndroidFindBy(accessibility = "NEW DEVELOPMENT")
     @iOSXCUITFindBy(accessibility = "NEW DEVELOPMENT_PREMIUM_NEW_DEVELOPMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresNewDevelopmentChart;
 
-    @AndroidFindBy(xpath = "//*[@text='PRICE']")
+    @AndroidFindBy(accessibility = "PRICE")
     @iOSXCUITFindBy(accessibility = "PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement mktShareAskingPriceChart;
 
+    @AndroidFindBy(accessibility = "PRICE")
     @iOSXCUITFindBy(accessibility = "PRICE_PERCENTILES_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPriceChart;
 
+    @AndroidFindBy(accessibility = "MEDIAN PRICE")
     @iOSXCUITFindBy(accessibility = "MEDIAN PRICE_BAR_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationAskingPriceChart;
 

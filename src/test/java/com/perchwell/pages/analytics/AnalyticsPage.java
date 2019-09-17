@@ -136,24 +136,31 @@ public class AnalyticsPage extends TechHelper {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]")
     private List<WebElement> valueChartList;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/positive_button")
 	@iOSXCUITFindBy(accessibility = "SEND")
 	private WebElement sendButton;
 
+    @AndroidFindBy(xpath = "//*[@text='$12M+']")
 	@iOSXCUITFindBy(accessibility = "$12M+")
 	private WebElement upTo12MillionButton;
 
+    @AndroidFindBy(accessibility = "LOCATION")
 	@iOSXCUITFindBy(accessibility = "LOCATION")
     private WebElement locationButton;
 
+    @AndroidFindBy(accessibility = "MEDIAN")
 	@iOSXCUITFindBy(accessibility = "MEDIAN")
     private WebElement medianButton;
 
+    @AndroidFindBy(accessibility = "FEATURES")
 	@iOSXCUITFindBy(accessibility = "FEATURES")
     private WebElement featuresButton;
 
+    @AndroidFindBy(accessibility = "DISTRIBUTION")
 	@iOSXCUITFindBy(accessibility = "DISTRIBUTION")
     private WebElement distributionButton;
 
+    @AndroidFindBy(accessibility = "TRENDS")
 	@iOSXCUITFindBy(accessibility = "TRENDS")
     private WebElement trendsButton;
 
