@@ -1,11 +1,12 @@
 package com.perchwell.steps;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.helpers.TechHelper;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 
-import static com.perchwell.helpers.Helper.singleUpShortSwipeAndroid;
+import static com.perchwell.helpers.Helper.*;
 
 public class OnlyAndroidSteps extends ScenarioSteps{
 
@@ -26,6 +27,9 @@ public class OnlyAndroidSteps extends ScenarioSteps{
 
     @Steps
     private MyTagsSteps atMyTagsPage1;
+
+    @Steps
+    private CreateReportSteps atCreateReportPage;
 
     @Step
     public void resetListViewBySearch() {
@@ -54,6 +58,14 @@ public class OnlyAndroidSteps extends ScenarioSteps{
     public void resetListViewBySwipe() {
         if(Config.isAndroid()) {
             singleUpShortSwipeAndroid();
+        }
+    }
+
+    @Step
+    public void clickOnBackButtonAndReturnOnDefaultReportPage() {
+        if(Config.isAndroid()) {
+            atCreateReportPage.clickOnBackButton();
+            atCreateReportPage.clickDefaultButton();
         }
     }
 }

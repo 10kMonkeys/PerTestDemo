@@ -5,6 +5,8 @@ import com.perchwell.pages.base.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -12,9 +14,6 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
-
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
-
 
 public class TechHelper extends BasePage {
 
@@ -30,7 +29,6 @@ public class TechHelper extends BasePage {
 
         return (AppiumDriver) webDriver;
     }
-
 
     //endregion
 
@@ -157,7 +155,6 @@ public class TechHelper extends BasePage {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-//        Dimension size = getDriver().manage().window().getSize();
         int startPoint = (int) (element.getLocation().getX());
         int endPoint = (int) (element.getLocation().getX()-swipeLength);
         int y = (int) (element.getLocation().getY());
@@ -235,10 +232,12 @@ public class TechHelper extends BasePage {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
+        setImplicitTimeout(3, TimeUnit.SECONDS);
         while (!(isElementDisplayed(element)) && counter < 10) {
             swipeVerticalAndroid(appiumDriver, 0.8, 0.2, 0.5);
             counter += 1;
         }
+        resetImplicitTimeout();
     }
 
     public void swipeUpElementIOS(WebElement element, int duration) {
@@ -296,7 +295,6 @@ public class TechHelper extends BasePage {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-
         swipeVerticalAndroid(appiumDriver, 0.8, 0.29, 0.5);
     }
 
@@ -314,7 +312,6 @@ public class TechHelper extends BasePage {
 
     public void resetSwipeOnlyAndroid(int numSwipes) {
         if (Config.isAndroid()) {
-
             for (int i = 0; i < numSwipes; i++) {
                 this.singleUpShortSwipeAndroidToReturnListInInitialState();
             }
@@ -326,9 +323,61 @@ public class TechHelper extends BasePage {
         WebDriver webDriver = webDriverFacade.getProxiedDriver();
         AppiumDriver appiumDriver = (AppiumDriver) webDriver;
 
-        appiumDriver.hideKeyboard();
+        if(Config.isAndroid()) {
+            AndroidDriver androidDriver = (AndroidDriver) appiumDriver;
+            androidDriver.hideKeyboard();
+        } else {
+            appiumDriver.hideKeyboard();
+        }
     }
 
+    public void pressDeleteButtonOnlyAndroid() {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+        AndroidDriver androidDriver = (AndroidDriver) appiumDriver;
+
+        androidDriver.pressKeyCode(AndroidKeyCode.DEL);
+
+    }
+
+    public void reorderListingByDraggingAtCreateReportPage(int longPressX, int longPressY, int moveToX, int moveToY) {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        if(Config.isAndroid()) {
+            new TouchAction(appiumDriver)
+                    .longPress(longPressX + 10, longPressY + 10)
+                    .waitAction(Duration.ofSeconds(1))
+                    .moveTo(moveToX + 10, moveToY + 100)
+                    .moveTo(moveToX + 10, moveToY + 100)
+                    .release().perform();
+        } else {
+            new TouchAction(appiumDriver)
+                    .longPress(longPressX + 10, longPressY + 10)
+                    .waitAction(Duration.ofSeconds(1))
+                    .moveTo(moveToX + 10, moveToY + 10)
+                    .release().perform();
+        }
+    }
+
+    public void swipeDownDateWheel(WebElement element) {
+        WebDriverFacade webDriverFacade = (WebDriverFacade) getDriver();
+        WebDriver webDriver = webDriverFacade.getProxiedDriver();
+        AppiumDriver appiumDriver = (AppiumDriver) webDriver;
+
+        int x = (int) (element.getLocation().getX() + 25);
+        int startPoint;
+        if(Config.isAndroid()) {
+            startPoint =  (int) (element.getLocation().getY() + 250);
+        } else {
+            startPoint =  (int) (element.getLocation().getY() + 50);
+        }
+        int endPoint = (int) (element.getLocation().getY() - 50);
+
+        new TouchAction(appiumDriver).longPress(x, startPoint).moveTo(x, endPoint).release().perform();
+    }
     //endregion
 
     //region Coordinates
@@ -337,7 +386,6 @@ public class TechHelper extends BasePage {
         int a = element.getLocation().getY();
         return a;
     }
-
 
     //endregion
 }

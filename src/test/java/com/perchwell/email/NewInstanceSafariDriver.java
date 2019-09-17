@@ -31,7 +31,7 @@ public abstract class NewInstanceSafariDriver {
 
     public static void resetPasswordInChrome(String newPassword){ ////
 //        WebDriverManager.chromedriver().setup();
-        WebDriverManager.chromedriver().version("2.46").setup();
+        WebDriverManager.chromedriver().version("76.0.3809.126").setup();
         WebDriver chromeDriver = new ChromeDriver();
 
         chromeDriver.navigate().to("https://staging.perchwell.com/accounts/password/edit?reset_password_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));
@@ -49,7 +49,7 @@ public abstract class NewInstanceSafariDriver {
 
     public static void acceptInvitation() {
 //        WebDriverManager.chromedriver().setup();
-        WebDriverManager.chromedriver().version("2.46").setup();
+        WebDriverManager.chromedriver().version("76.0.3809.126").setup();
         WebDriver chromeDriver = new ChromeDriver();
 
         chromeDriver.navigate().to("https://staging.perchwell.com/accept_invitation?invitation_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));

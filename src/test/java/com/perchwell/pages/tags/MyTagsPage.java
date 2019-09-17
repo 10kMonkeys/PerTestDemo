@@ -58,6 +58,7 @@ public class MyTagsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'BUILDING PRICE:'")
 	private List<WebElement> buildingPricesList;
 
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell/XCUIElementTypeStaticText[$name BEGINSWITH 'ADDRESS: '$]")
 	private List<WebElement> addressesList;
 
@@ -155,6 +156,14 @@ public class MyTagsPage extends TechHelper {
 	@AndroidFindBy(xpath = "(//*[@resource-id='com.perchwell.re.staging:id/listing_image'])[2]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTable[$name=='TagsTableView'$]/XCUIElementTypeCell[2]")
 	private WebElement secondBuilding;
+
+	@AndroidFindBy(accessibility = "cell: Create Report")
+	@iOSXCUITFindBy(accessibility = "cell: Create Report")
+	private WebElement createReportButton;
+
+	@AndroidFindBy(accessibility = "ADDRESS: 940 Fifth Ave. #47")
+	@iOSXCUITFindBy(accessibility = "ADDRESS: 1111 Sixth Ave. #58 1767344")
+	private WebElement activeCondoSaleListing;
 
 	//endregion
 
@@ -452,8 +461,20 @@ public class MyTagsPage extends TechHelper {
 		else {
 			firstBuildAddress = firstBuildingAddress.getAttribute("value");
 		}
+		SessionVariables.addValueInSessionVariable("buildingAddress1", firstBuildAddress);
+	}
+	public void getFirstListingAddress() {
+		String firstBuildAddress;
+
+		if (Config.isAndroid()){
+			firstBuildAddress = firstBuildingAddress.getAttribute("text");
+		}
+		else {
+			firstBuildAddress = firstBuildingAddress.getAttribute("value");
+		}
 		SessionVariables.addValueInSessionVariable("listingAddress1", firstBuildAddress);
 	}
+
 
 	public void openFirstBuilding() {
 		element(firstBuilding).click();
@@ -635,6 +656,40 @@ public class MyTagsPage extends TechHelper {
 		if(Config.isAndroid()) {
 			universalSingleSwipe();
 		}
+	}
+
+    public void clickOnCreateReportButton() {
+		element(createReportButton).click();
+    }
+
+	public void checkListingsAreSelected(int value) {
+		Assert.assertEquals(value, selectedListingsListByAddress.size());
+	}
+
+	public void getListingsAddresses(int amount) {
+		if(Config.isAndroid()) {
+			for (int i = 0; i < amount; i++) {
+				if(addressesList.size() == 2) {
+					SessionVariables.addValueInSessionVariable("reportWizardAddress" + (amount - i), addressesList.get(1).getAttribute("text"));
+				} else {
+					SessionVariables.addValueInSessionVariable("reportWizardAddress" + (amount - i), addressesList.get(0).getAttribute("text"));
+				}
+				androidSingleInitialVerticalSwipeForListsOnTaggedItems();
+			}
+		} else {
+			for (int i = 0; i < amount; i++) {
+				SessionVariables.addValueInSessionVariable("reportWizardAddress" + (amount - i), addressesList.get(i).getAttribute("value"));
+			}
+		}
+	}
+
+	public void openActiveCondoSaleListing() {
+		universalVerticalSwipe(activeCondoSaleListing);
+		element(activeCondoSaleListing).click();
+	}
+
+	public void getFirstBuildingAddressForReport() {
+		SessionVariables.addValueInSessionVariable("reportWizardAddress10", addressesList.get(0).getAttribute("value"));
 	}
 }
 

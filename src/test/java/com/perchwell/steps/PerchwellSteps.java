@@ -1,12 +1,12 @@
 package com.perchwell.steps;
 
 import com.perchwell.crossPlatform.Config;
-import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import com.perchwell.pages.perchwell.PerchwellPage;
 import org.junit.Assert;
+import org.junit.Test;
 
 import static com.perchwell.helpers.Helper.universalSingleSwipe;
 
@@ -696,4 +696,64 @@ public class PerchwellSteps extends ScenarioSteps {
     public void singleSwipeDownForAndroid() {
 		onPage.singleSwipeDownForAndroid();
     }
+
+    @Step
+	public void clickOnCreateReportButton() {
+		onPage.clickOnCreateReportButton();
+	}
+
+	@Step
+	public void checkFirstListingIsSelected() {
+		onPage.checkFirstListingIsSelected();
+	}
+
+	@Step
+	public void getOpenHouseDateForFirstListing() {
+		onPage.getOpenHouseDateForFirstListing();
+	}
+
+	@Step
+	public void selectFirstFiveListings() {
+		onPage.selectFirstFiveListings();
+	}
+
+	@Step
+    public void getFirstListingSquareFeetForReport() {
+		onPage.getFirstListingSquareFeetForReport();
+    }
+
+    @Step
+	public void getFirstListingAddressForReport() {
+		onPage.getFirstListingAddressForReport();
+	}
+
+	@Step
+	public void getFirstListingPriceForReport() {
+		onPage.getFirstListingPriceForReport();
+	}
+
+	@Step
+	public void getFirstListingPropertyTypeForReport() {
+		onPage.getFirstListingPropertyTypeForReport();
+	}
+
+	@Step
+	public void getFirstListingBedroomsForReport() {
+		onPage.getFirstListingBedroomsForReport();
+	}
+
+	@Step
+	public void getFirstListingBathroomsForReport() {
+		onPage.getFirstListingBathroomsForReport();
+	}
+
+	@Step
+	public void getFirstListingUnitForReport() {
+		onPage.getFirstListingUnitForReport();
+	}
+
+	@Step
+	public void getFirstListingNameForReport() {
+		onPage.getFirstListingNameForReport();
+	}
 }

@@ -4,10 +4,12 @@ import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.junit.Assert;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -61,6 +63,14 @@ public class CustomBoundaryPage extends TechHelper {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'MY NEW SEARCH'")
     private WebElement backToSearchButton;
 
+    @iOSXCUITFindBy(accessibility = "iOsButtonFloatingIconUndo")
+    private WebElement revertButton;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Polygon Color'")
+    private WebElement polygonColor;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'GMSPolygon'")
+    private WebElement drawnPolygon;
     //endregion
 
     public CustomBoundaryPage(WebDriver driver) {
@@ -162,7 +172,27 @@ public class CustomBoundaryPage extends TechHelper {
             SessionVariables.addValueInSessionVariable("Custom_Boundary_name", element(customBoundaryNameField).getAttribute("text"));
         }
         else {
-            SessionVariables.addValueInSessionVariable("Custom_Boundary_name", element(customBoundaryNameField).getAttribute("value"));
+            SessionVariables.addValueInSessionVariable("Custom_Boundary_name", element(customBoundaryNameField).getValue());
         }
+    }
+
+    public void clickOnRevertButton() {
+        element(revertButton).click();
+    }
+
+    public void getPolygonColor() {
+        SessionVariables.addValueInSessionVariable("Polygon_Color", element(polygonColor).getAttribute("name").replace("Polygon Color:", ""));
+    }
+
+    public void checkSaveButtonIsShown() {
+        element(saveButton).shouldBeVisible();
+    }
+
+    public void checkPolygonIsDrawnWithSelectedColor() {
+        Assert.assertTrue(element(drawnPolygon).getAttribute("label").contains(SessionVariables.getValueFromSessionVariable("Polygon_Color")));
+    }
+
+    public void checkPolygonIsSavedWithProvidedName() {
+        element(MobileBy.iOSNsPredicateString("label == '" + SessionVariables.getValueFromSessionVariable("Custom_Boundary_name") +"'")).shouldBeVisible();
     }
 }

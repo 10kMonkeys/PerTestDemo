@@ -6,6 +6,7 @@ import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
 import com.perchwell.helpers.*;
+import com.perchwell.pages.perchwell.PerchwellPage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
@@ -210,6 +211,9 @@ public class AnalyticsPage extends TechHelper {
     @AndroidFindBy(accessibility = "com.perchwell.re.staging:id/upload")
     @iOSXCUITFindBy(accessibility = "share")
     private WebElement shareButtonInChart;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL:'")
+    private WebElement priceChartValue;
 
     //endregion
 
@@ -614,5 +618,9 @@ public class AnalyticsPage extends TechHelper {
 
     public void shareButtonInChartClick() {
         element(shareButtonInChart).click();
+    }
+
+    public void checkPriceChartIsSameListView() {
+        Assert.assertEquals(SessionVariables.getValueFromSessionVariable("Listings_Amount"), element(priceChartValue).getAttribute("label"));
     }
 }

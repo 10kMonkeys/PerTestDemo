@@ -158,6 +158,11 @@ public class MyTagsSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void getFirstListingAddress() {
+		onPage.getFirstListingAddress();
+	}
+
+	@Step
 	public void openFirstBuilding() {
 		onPage.openFirstBuilding();
 	}
@@ -330,4 +335,33 @@ public class MyTagsSteps extends ScenarioSteps {
 		}
 	}
 
+	@Step
+    public void clickOnCreateReportButton() {
+		onPage.clickOnCreateReportButton();
+    }
+
+	@Step
+	public void checkListingsAreSelected(int value) {
+		onPage.checkListingsAreSelected(value);
+	}
+
+	@Step
+	public void getListingsAddresses(int amount) {
+		onPage.getListingsAddresses(amount);
+	}
+
+	@Step
+	public void fillInTagSearchField(String value) {
+		onPage.fillInTagSearchField(value);
+	}
+
+	@Step
+	public void openActiveCondoSaleListing() {
+		onPage.openActiveCondoSaleListing();
+	}
+
+	@Step
+	public void getFirstBuildingAddressForReport() {
+		onPage.getFirstBuildingAddressForReport();
+	}
 }

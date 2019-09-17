@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static com.perchwell.email.MailTrap.getTextBody;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class OpenedBuildingPage extends TechHelper {
@@ -52,7 +53,7 @@ public class OpenedBuildingPage extends TechHelper {
 	private List<WebElement> deleteButtonList;
 
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/title")
-	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText")
+	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeNavigationBar/*/XCUIElementTypeStaticText")
 	private WebElement buildingAddress;
 
 	@AndroidFindBy(xpath = "//*[@text='SEND WITHIN PERCHWELL']")
@@ -279,6 +280,30 @@ public class OpenedBuildingPage extends TechHelper {
 	@AndroidFindBy(accessibility = "tag color: #a8aab7")
 	private List<WebElement> grayColorTagPil;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'CREATE REPORT')]")
+	@iOSXCUITFindBy(accessibility = "CREATE REPORT")
+	private WebElement createReportButton;
+
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text = 'MORE INFO']")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeOther' AND name == 'MORE INFO'")
+	private WebElement moreInfoButton;
+
+	@AndroidFindBy(accessibility = "MONTHLY COMMON CHARGES")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'MONTHLY COMMON CHARGES-'")
+	private WebElement monthlyCommonCharges;
+
+	@AndroidFindBy(accessibility = "MONTHLY PROPERTY TAXES")
+	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name BEGINSWITH 'MONTHLY PROPERTY TAX-'")
+	private WebElement monthlyPropertyTax;
+
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text = '5800 AVE. U #79']")
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address: 5800 AVE. U #79'")
+	private WebElement reportListing;
+
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/more_label")
+	@iOSXCUITFindBy(accessibility = "Table View Cell: Show More")
+	private WebElement showMoreListingsButton;
+
 	//endregion
 
 	public OpenedBuildingPage(WebDriver driver) {
@@ -320,7 +345,7 @@ public class OpenedBuildingPage extends TechHelper {
 			return buildingAddress.getAttribute("text");
 		}
 		else{
-			return buildAddress.getAttribute("name");
+			return buildingAddress.getAttribute("name");
 		}
 	}
 
@@ -936,5 +961,66 @@ public class OpenedBuildingPage extends TechHelper {
 
 	public void checkBothTagsGrayColor(int grayPillsAmountToCheck) {
 		Assert.assertEquals(grayColorTagPil.size(), grayPillsAmountToCheck);
+	}
+
+    public void clickOnCreateReportButton() {
+		element(createReportButton).click();
+    }
+
+	public void checkCreateReportButtonIsNotPresented() {
+		setImplicitTimeout(3, SECONDS);
+		element(createReportButton).shouldNotBePresent();
+		resetImplicitTimeout();
+	}
+
+	public void openOnMoreInfoSection() {
+		universalVerticalSwipe(moreInfoButton);
+		waitFor(moreInfoButton).shouldBeVisible();
+		element(moreInfoButton).click();
+	}
+
+	public void getMonthlyCommonCharges() {
+		if(Config.isAndroid()) {
+			androidSwipeDownUntilElementVisible(monthlyCommonCharges);
+			SessionVariables.addValueInSessionVariable("monthlyCommonCharges", element(monthlyCommonCharges).getText());
+		} else {
+			SessionVariables.addValueInSessionVariable("monthlyCommonCharges", element(monthlyCommonCharges).getValue());
+		}
+	}
+
+	public void getPropertyTax() {
+		if(Config.isAndroid()) {
+			androidSwipeDownUntilElementVisible(monthlyPropertyTax);
+			SessionVariables.addValueInSessionVariable("monthlyPropertyTax", element(monthlyPropertyTax).getText());
+		} else {
+			SessionVariables.addValueInSessionVariable("monthlyPropertyTax", element(monthlyPropertyTax).getValue());
+		}
+	}
+
+	public void checkMonthlyCommonChargesNotChanged() {
+		if(Config.isAndroid()) {
+			androidSwipeDownUntilElementVisible(monthlyCommonCharges);
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyCommonCharges"), element(monthlyCommonCharges).getText());
+		} else {
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyCommonCharges"), element(monthlyCommonCharges).getValue());
+		}
+	}
+
+	public void checkMonthlyPropertyTaxNotChanged() {
+		if(Config.isAndroid()) {
+			androidSwipeDownUntilElementVisible(monthlyPropertyTax);
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyPropertyTax"), element(monthlyPropertyTax).getText());
+		} else {
+			Assert.assertEquals(SessionVariables.getValueFromSessionVariable("monthlyPropertyTax"), element(monthlyPropertyTax).getValue());
+		}
+	}
+
+    public void clickOnReportListing() {
+		universalVerticalSwipe(reportListing);
+		element(reportListing).click();
+    }
+
+	public void swipeToMonthlyCommonCharges() {
+		universalVerticalShortSwipe(monthlyCommonCharges);
 	}
 }

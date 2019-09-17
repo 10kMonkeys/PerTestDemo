@@ -47,4 +47,49 @@ public class CustomBoundarySteps extends ScenarioSteps {
         onPage.clickOnSaveButton();
         onPage.clickOnBackToSearchPageButton();
     }
+
+    @Step
+    public void clickOnRevertButton() {
+        onPage.clickOnRevertButton();
+    }
+
+    @Step
+    public void clickOnSaveButton() {
+        onPage.clickOnSaveButton();
+    }
+
+    @Step
+    public void clickOnFinishButton() {
+        onPage.clickOnSaveButton();
+    }
+
+    @Step
+    public void checkFinishButtonIsShown() {
+        onPage.checkSaveButtonIsShown();
+    }
+
+    @Step
+    public void getPolygonColor() {
+        onPage.getPolygonColor();
+    }
+
+    @Step
+    public void checkSaveButtonIsShown() {
+        onPage.checkSaveButtonIsShown();
+    }
+
+    @Step
+    public void checkPolygonIsDrawnWithSelectedColor() {
+        onPage.checkPolygonIsDrawnWithSelectedColor();
+    }
+
+    @Step
+    public void checkPolygonIsSavedWithProvidedName() {
+        onPage.checkPolygonIsSavedWithProvidedName();
+    }
+
+    @Step
+    public void getCustomBoundaryName() {
+        onPage.getCustomBoundaryName();
+    }
 }

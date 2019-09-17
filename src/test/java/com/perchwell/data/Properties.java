@@ -8,4 +8,5 @@ public class Properties {
     public static final String CONDO_RENTAL = "CONDO RENTAL";
     public static final String COOP_RENTAL = "CO-OP RENTAL";
     public static final String TOWNHOUSE_RENTAL = "TOWNHOUSE RENTAL";
+    public static final String CONDOP = "CONDOP";
 }

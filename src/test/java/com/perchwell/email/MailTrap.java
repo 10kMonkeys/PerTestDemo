@@ -1,9 +1,12 @@
 package com.perchwell.email;
 
 
+import com.perchwell.data.ReportTypes;
 import com.perchwell.entity.AppProperties;
 import com.perchwell.entity.MailTrapAttachment;
 import com.perchwell.entity.MailTrapResponse;
+import com.perchwell.helpers.SessionVariables;
+import com.perchwell.pages.reportWizard.CreateReportPage;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -13,8 +16,15 @@ import org.apache.http.util.EntityUtils;
 import org.codehaus.jackson.map.DeserializationConfig;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.junit.Assert;
+
+import javax.validation.constraints.AssertTrue;
 
 public class MailTrap {
 
@@ -126,5 +136,143 @@ public class MailTrap {
 			e.printStackTrace();
 		}
 		return textBody;
+	}
+
+	public static void checkListingsOrderIsSavedInEmailAndNotDeletedListings() {
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		List<String> listingsAddress = new ArrayList<>();
+		String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
+		String rawBody;
+
+		MailTrapResponse[] mailTrapResponse = getEmail(subject);
+		rawBody = getTextBody(mailTrapResponse[0].getTxt_path());
+
+		String address = "([0-9]{1,10}[#0-9]{1,10}.*#[\\S]{1,30})|([0-9]{1,10}.*St.)";
+		Pattern patternForAddress = Pattern.compile(address);
+		Matcher matcherForAddress = patternForAddress.matcher(rawBody);
+
+		while (matcherForAddress.find()) {
+			listingsAddress.add(rawBody.substring(matcherForAddress.start(), matcherForAddress.end()));
+		}
+
+		for(int i = 0; i < listingsAddress.size(); i++) {
+			Assert.assertEquals(CreateReportPage.orderListing.get(i), listingsAddress.get(i));
+		}
+	}
+
+	public static void shouldFindSentReportBySubjectAndMessage() {
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
+		String message = SessionVariables.getValueFromSessionVariable("Report_message");
+		String rawBody;
+
+		MailTrapResponse[] mailTrapResponse = getEmail(subject);
+		rawBody = getTextBody(mailTrapResponse[0].getRaw_path());
+
+		Assert.assertTrue(rawBody.contains("Subject: " + subject));
+		Assert.assertTrue(rawBody.contains(message));
+	}
+
+	public static boolean shouldFindAttachmentWithReport(String reportType) {
+		try {
+			Thread.sleep(60000); // temp time
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
+		boolean reportWasFound = false;
+		MailTrapResponse[] mailTrapResponse = getEmail(subject);
+		if(mailTrapResponse.length != 0) {
+			MailTrapAttachment[] mailTrapAttachment = MailTrap.getMassageAttachment(mailTrapResponse[0].getId());
+			for (MailTrapAttachment my_attachment : mailTrapAttachment) {
+				if (my_attachment.getFilename().equalsIgnoreCase(reportType)) {
+						reportWasFound = true;
+						break;
+				}
+			}
+		}
+		return reportWasFound;
+	}
+
+	public static void checkOnlyTwoListingsAreShownInEmailWithoutExactAddresses() {
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		List<String> listingsAddress = new ArrayList<>();
+		String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
+		String rawBody;
+
+		MailTrapResponse[] mailTrapResponse = getEmail(subject);
+		rawBody = getTextBody(mailTrapResponse[0].getTxt_path());
+
+		for(String exactAddress : CreateReportPage.orderListing) {
+			Assert.assertFalse(rawBody.contains(exactAddress));
+		}
+
+		String address = "(\\w{1,100}\\s[0-9]{1,100}\\w{1,100}\\s\\w{1,100}\\.)|(\\w{3,100}\\s\\w{1,100}\\.)|(\\w{1,100}\\s\\w{1,100}\\n\\$)|(\\w{1,100}\\s\\w{1,100}\\s\\w{1,100}\\n\\$)";
+		Pattern patternForAddress = Pattern.compile(address);
+		Matcher matcherForAddress = patternForAddress.matcher(rawBody);
+
+		while (matcherForAddress.find()) {
+			listingsAddress.add(rawBody.substring(matcherForAddress.start(), matcherForAddress.end()).replace("\n$", ""));
+		}
+
+		List<String> nonExactAddressOrderListing = new ArrayList<>();
+
+		for (String orderedListing: CreateReportPage.orderListing) {
+			Pattern pattern = Pattern.compile("(\\w{1,100}\\s[0-9]{1,100}\\w{1,100}\\s\\w{1,100}\\.)|(\\w{3,100}\\s\\w{1,100}\\.)|(\\w{1,7}.\\s\\w{1,7})");
+			Matcher matcher = pattern.matcher(orderedListing);
+			if(matcher.find()) {
+				nonExactAddressOrderListing.add(orderedListing.substring(matcher.start(), matcher.end()));
+			}
+		}
+
+		Assert.assertEquals(2, listingsAddress.size());
+
+
+			for(int i = 0; i < listingsAddress.size(); i++) {
+				Assert.assertNotSame(listingsAddress.get(i), CreateReportPage.orderListing.get(i));
+				Assert.assertTrue(CreateReportPage.orderListing.get(i).contains(listingsAddress.get(i)));
+				Assert.assertTrue(CreateReportPage.orderListing.get(i).length()>listingsAddress.get(i).length());
+			}
+	}
+
+	public static void checkOnlyThreeListingsAreShownInEmail() {
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		List<String> listingsAddress = new ArrayList<>();
+		String subject = SessionVariables.getValueFromSessionVariable("Report_subject");
+		String rawBody;
+
+		MailTrapResponse[] mailTrapResponse = getEmail(subject);
+		rawBody = getTextBody(mailTrapResponse[0].getTxt_path());
+
+		String address = "([0-9]{1,10}[#0-9]{1,10}.*#[\\S]{1,30})|([0-9]{1,10}.*St.)";
+		Pattern patternForAddress = Pattern.compile(address);
+		Matcher matcherForAddress = patternForAddress.matcher(rawBody);
+
+		while (matcherForAddress.find()) {
+			listingsAddress.add(rawBody.substring(matcherForAddress.start(), matcherForAddress.end()));
+		}
+
+		Assert.assertTrue(rawBody.contains(" has created a report with 3 listings for you on Perchwell."));
+		Assert.assertEquals(3, listingsAddress.size());
 	}
 }

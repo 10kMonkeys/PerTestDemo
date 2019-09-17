@@ -3,6 +3,7 @@ package com.perchwell.pages.perchwell;
 import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.FilteringAndSortingBuildings;
 import com.perchwell.helpers.Helper;
+import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
@@ -70,6 +71,9 @@ public class MapPage extends TechHelper {
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_address")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]")
 	private WebElement mapFirstAddress;
+
+	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'GMSPolygon'")
+	private WebElement drawnPolygon;
 
 	public MapPage(WebDriver driver) {
 		super(driver);
@@ -234,5 +238,13 @@ public class MapPage extends TechHelper {
 		else{
 			element(MobileBy.iOSClassChain("**/XCUIElementTypeNavigationBar/XCUIElementTypeStaticText[$name CONTAINS '" + pinListingAddress + "'$]")).shouldBeVisible();
 		}
+	}
+
+    public void checkBoundaryHasSameColorAsOnCreationScreen() {
+		Assert.assertTrue(element(drawnPolygon).getAttribute("label").contains(SessionVariables.getValueFromSessionVariable("Polygon_Color")));
+    }
+
+	public void checkResultCountsIsSameAsOnListView() {
+		//TODO
 	}
 }

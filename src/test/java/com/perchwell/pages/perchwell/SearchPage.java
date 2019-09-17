@@ -79,11 +79,11 @@ public class SearchPage extends TechHelper {
     private WebElement saveButton;
 
     @AndroidFindBy(accessibility = "Asking Price Minimum Value Input")
-    @iOSXCUITFindBy(accessibility = "Asking Price Minimum Value Input")
+    @iOSXCUITFindBy(accessibility = "PRICE Minimum Value Input")
     private WebElement minimumPriceTextBox;
 
     @AndroidFindBy(accessibility = "Asking Price Maximum Value Input")
-    @iOSXCUITFindBy(accessibility = "Asking Price Maximum Value Input")
+    @iOSXCUITFindBy(accessibility = "PRICE Maximum Value Input")
     private WebElement maximumPriceTextBox;
 
     @AndroidFindBy(accessibility = "Bathrooms: 1")
@@ -91,23 +91,23 @@ public class SearchPage extends TechHelper {
     private WebElement filterFor1Bath;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption: In Contract")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption: In Contract")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption: In Contract")
     private WebElement inContractFilter;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption: Off Market")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption: Off Market")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption: Off Market")
     private WebElement offMKTButton;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption: Sold/Rented")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption: Sold/Rented")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption: Sold/Rented")
     private WebElement soldOrRentedButton;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption: Expired")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption: Expired")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption: Expired")
     private WebElement expiredButton;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption: Active")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption: Active")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption: Active")
     private WebElement activeButton;
 
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeStaticText[not(contains(@name,'LISTING STATUS'))]")
@@ -227,15 +227,15 @@ public class SearchPage extends TechHelper {
     private WebElement selectedFilterFor3Baths;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption Selected: Active")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: Active")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption Selected: Active")
     private WebElement selectedActiveFilter;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption Selected: In Contract")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: In Contract")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption Selected: In Contract")
     private WebElement selectedContractFilter;
 
     @AndroidFindBy(accessibility = "Listing Status Suboption Selected: Off Market")
-    @iOSXCUITFindBy(accessibility = "Listing Status Suboption Selected: Off Market")
+    @iOSXCUITFindBy(accessibility = "Current Status Suboption Selected: Off Market")
     private WebElement selectedOffMktFilter;
 
     @AndroidFindBy(accessibility = "Sales-SELECTED")
@@ -257,7 +257,7 @@ public class SearchPage extends TechHelper {
     private WebElement selectedLaundryBLDGFilter;
 
     @AndroidFindBy(accessibility = "CONDO")
-    @iOSXCUITFindBy(accessibility = "Condo")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption: Condo")
     private WebElement condoFilter;
 
     @iOSXCUITFindBy(accessibility = "Outdoor Space")
@@ -399,7 +399,7 @@ public class SearchPage extends TechHelper {
     private WebElement excludeUnknownButton;
 
     @AndroidFindBy(accessibility = "Bedrooms: Studio +")
-    @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: Studio +")
+    @iOSXCUITFindBy(accessibility = "BEDROOMS Suboption: Studio+")
     private WebElement studioBedsMinimumFilter;
 
     @AndroidFindBy(accessibility = "Bedrooms: 1+")
@@ -493,23 +493,23 @@ public class SearchPage extends TechHelper {
     private WebElement listingActivitySection;
 
     @AndroidFindBy(accessibility = "CONDO-SELECTED")
-    @iOSXCUITFindBy(accessibility = "Condo-selected")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption Selected: Condo")
     private WebElement selectedCondoFilter;
 
     @AndroidFindBy(accessibility = "CO-OP")
-    @iOSXCUITFindBy(accessibility = "Co-op")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption: Co-op")
     private WebElement coopFilter;
 
     @AndroidFindBy(accessibility = "TOWNHOUSE")
-    @iOSXCUITFindBy(accessibility = "Townhouse")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption: Townhouse")
     private WebElement townhouseFilter;
 
     @AndroidFindBy(accessibility = "CO-OP-SELECTED")
-    @iOSXCUITFindBy(accessibility = "Co-op-selected")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption Selected: Co-op")
     private WebElement selectedCoopFilter;
 
     @AndroidFindBy(accessibility = "TOWNHOUSE-SELECTED")
-    @iOSXCUITFindBy(accessibility = "Townhouse-selected")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption Selected: Townhouse")
     private WebElement selectedTownhouseFilter;
 
     @AndroidFindBy(accessibility = "RENTAL")
@@ -532,7 +532,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Cell Collapsible Button: PROPERTY TYPE")
     private WebElement propertyTypeCollapseButton;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/address_edit_text")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/search_src_text")
     @iOSXCUITFindBy(accessibility = "AddressSearchBar")
     private WebElement searchAddressField;
 
@@ -658,11 +658,11 @@ public class SearchPage extends TechHelper {
     private WebElement bldgWidthSection;
 
     @AndroidFindBy(accessibility = "OPEN_HOUSES Minimum Value Input")
-    @iOSXCUITFindBy(accessibility = "Open Houses Minimum Value Input")
+    @iOSXCUITFindBy(accessibility = "OPEN HOUSES Minimum Value Input")
     private WebElement openHouseMinValueInput;
 
     @AndroidFindBy(accessibility = "OPEN_HOUSES Maximum Value Input")
-    @iOSXCUITFindBy(accessibility = "Open Houses Maximum Value Input")
+    @iOSXCUITFindBy(accessibility = "OPEN HOUSES Maximum Value Input")
     private WebElement openHouseMaxValueInput;
 
     @AndroidFindBy(accessibility = "Go to next")
@@ -760,8 +760,11 @@ public class SearchPage extends TechHelper {
     private List<WebElement> buildingAddressesList;
 
     @AndroidFindBy(accessibility = "CONDOP")
-    @iOSXCUITFindBy(accessibility = "Condop")
+    @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption: Condop")
     private WebElement condopFilter;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Address: 5800 AVE. U #53'")
+    private WebElement reportListing;
 
     public SearchPage(WebDriver driver) {
         super(driver);
@@ -1675,6 +1678,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectCoopFilter() {
+        universalVerticalSwipe(coopFilter);
         element(coopFilter).click();
     }
 
@@ -1688,6 +1692,7 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectSalesProperty() {
+        universalVerticalSwipe(salesProperty);
         element(salesProperty).click();
     }
 
@@ -2268,12 +2273,18 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectCondopFilter() {
+        universalVerticalSwipe(condopFilter);
         element(condopFilter).click();
     }
 
     public void checkSelectedFilterFor3Baths() {
         universalVerticalShortSwipe(totalRoomsSection);
         Assert.assertTrue(element(selectedFilterFor3Baths).isDisplayed());
+    }
+
+    public void clickOnReportListing() {
+        universalVerticalSwipe(reportListing);
+        element(reportListing).click();
     }
 
     public void checkSelectedFilterFor3Beds() {
