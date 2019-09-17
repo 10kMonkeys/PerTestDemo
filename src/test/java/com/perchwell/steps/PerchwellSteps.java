@@ -756,4 +756,9 @@ public class PerchwellSteps extends ScenarioSteps {
 	public void getFirstListingNameForReport() {
 		onPage.getFirstListingNameForReport();
 	}
+
+	@Step
+	public void checkNoOneListingIsSelectedAfterDeselect() {
+		onPage.checkNoOneListingIsSelectedAfterDeselect();
+	}
 }

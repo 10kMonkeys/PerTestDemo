@@ -74,7 +74,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "analytics")
 	private WebElement analyticsButton;
 
-	@AndroidFindBy(id = "com.perchwell.re.staging:id/action_listings")
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/list_view_button")
 	@iOSXCUITFindBy(accessibility = "list_view_button")
 	private WebElement listButton;
 
@@ -121,7 +121,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Bathrooms")
 	private WebElement bathroomsSortButton;
 
-	@AndroidFindBy(xpath = "//*[@text = 'Total Rooms']")
+	@AndroidFindBy(accessibility = "cell: deselected Total Rooms")
 	@iOSXCUITFindBy(accessibility = "Total Rooms")
     private WebElement totalRoomsSortButton;
 
@@ -145,6 +145,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TBI")
 	private List<WebElement> buildingsLabels;
 
+	@AndroidFindBy(accessibility = "cell: deselected Address")
 	@iOSXCUITFindBy(accessibility = "Address")
 	private WebElement addressSortButton;
 
@@ -168,6 +169,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
 	private WebElement discussWithClientHint;
 
+	@AndroidFindBy(accessibility = "cell: deselected Newest")
 	@iOSXCUITFindBy(accessibility = "Newest")
 	private WebElement newestSortButton;
 
@@ -246,6 +248,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "Number of selected listings: 3")
 	private WebElement counterWithValueThree;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Selected')]")
 	@iOSXCUITFindBy(accessibility = "Selected")
 	private WebElement selectedWord;
 
@@ -265,6 +268,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeButton' AND name CONTAINS 'DISCUSS BUTTON'")
 	private WebElement discussionButton;
 
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Selected')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Number of selected listings: '")
 	private WebElement numberOfSelectedListings;
 
@@ -1101,11 +1105,33 @@ public class PerchwellPage extends TechHelper {
 	}
 
 	public void checkSelectedLabelEquals(int value) {
-		Assert.assertEquals(value, Integer.parseInt(numberOfSelectedListings.getAttribute("value")));
+		if(Config.isAndroid()) {
+			Assert.assertEquals(value, Integer.parseInt(numberOfSelectedListings.getAttribute("text").replace(" Selected", "")));
+		} else {
+			Assert.assertEquals(value, Integer.parseInt(numberOfSelectedListings.getAttribute("value")));
+		}
+
 	}
 
 	public void checkListingsAreSelected(int value) {
-		Assert.assertEquals(value, selectedListingsListByAddress.size());
+		if(Config.isAndroid()) {
+			int size = 0;
+			setImplicitTimeout(3, SECONDS);
+			for(int i = 0; i < value; i++) {
+				if(selectedListingsListByAddress.size() == 2) {
+					size += 1;
+
+				}
+				else if (selectedListingsListByAddress.size() == 1){
+					size += 1;
+				}
+				androidVerticalSwipeToCheckLists();
+			}
+			resetImplicitTimeout();
+			Assert.assertEquals(value, size);
+		} else {
+			Assert.assertEquals(value, selectedListingsListByAddress.size());
+		}
 	}
 
 	public void tabBarIsHidden() {
@@ -1293,5 +1319,18 @@ public class PerchwellPage extends TechHelper {
 		} else {
 			SessionVariables.addValueInSessionVariable("rentalListing", addressesList.get(0).getAttribute("value"));
 		}
+	}
+
+	public void checkNoOneListingIsSelectedAfterDeselect() {
+		setImplicitTimeout(3, SECONDS);
+		if(Config.isAndroid()) {
+			for(int i = 0; i < 20; i++) {
+				Assert.assertEquals(0, selectedListingsList.size());
+				singleUpShortSwipeAndroid();
+			}
+		} else {
+			checkNoOneListingIsSelected();
+		}
+		resetImplicitTimeout();
 	}
 }
