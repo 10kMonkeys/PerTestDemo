@@ -58,7 +58,7 @@ public class ACRISClosingPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "PRICE PERCENTILES")
     private WebElement pricePercentilesButton;
 
-    @AndroidFindBy(accessibility = "SALE PRICE_PERCENTILES_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
+    @AndroidFindBy(accessibility = "SALE PRICE")
     @iOSXCUITFindBy(accessibility = "SALE PRICE_PERCENTILES_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement distributionPricePercentilesChart;
 
@@ -86,7 +86,7 @@ public class ACRISClosingPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "SQUARE FEET")
     private WebElement squareFeetButton;
 
-    @AndroidFindBy(accessibility = "SQUARE FEET_PERCENTILES_GROSS_SQUARE_FEET_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
+    @AndroidFindBy(accessibility = "SQUARE FEET")
     @iOSXCUITFindBy(accessibility = "SQUARE FEET_PERCENTILES_GROSS_SQUARE_FEET_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement distributionSquareFeetPercentilesChart;
 
@@ -102,7 +102,7 @@ public class ACRISClosingPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "DEAL COUNT")
     private WebElement dealCountButton;
 
-    @AndroidFindBy(accessibility = "DEAL COUNT_COUNTS")
+    @AndroidFindBy(accessibility = "DEAL COUNT")
     @iOSXCUITFindBy(accessibility = "DEAL COUNT_COUNTS_SALE_PRICE_HISTORICALS_HISTORICALS: HEADER TITLE LABEL")
     private WebElement locationDealCountChart;
 
