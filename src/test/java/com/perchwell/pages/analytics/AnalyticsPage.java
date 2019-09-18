@@ -164,6 +164,7 @@ public class AnalyticsPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "TRENDS")
     private WebElement trendsButton;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/date_range")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton")
     private WebElement yearsRange;
 
@@ -505,9 +506,13 @@ public class AnalyticsPage extends TechHelper {
         return valueColumnYearsList.size() == 3;
     }
 
-    public String yearsRangeButtonValue(){
-	    return yearsRange.getAttribute("name");
-    }
+    public String yearsRangeButtonValue() {
+	    if (Config.isAndroid()) {
+	    return yearsRange.getAttribute("text");
+        } else {
+	        return yearsRange.getAttribute("name");
+        }
+	}
 
     public boolean isYearsRangeChange(String previous,String present){
 	    present = present.substring(2);

@@ -44,7 +44,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "GARDEN_MUSTHAVE_GARDEN_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareREBNYTownhouseListingsHasGardenChart;
 
-    @AndroidFindBy(accessibility = "HISTORIC DIST.")
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"IN HISTORIC DIST.\"])[1]")
     @iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS \"IN HISTORIC DIST.\"")
     private WebElement rebnyTownhouseListingsInHistoricDistButton;
 
@@ -114,6 +114,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "SALE PRICE_PRICETRANCHES_SALE_PRICE_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement ACRISTownhouseClosingDealCountByPriceChart;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"GARDEN\"])[2]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"GARDEN\"`][2]")
     private WebElement featureACRISTownhouseClosingsGardenButton;
 

@@ -24,7 +24,7 @@ public class REBNYListingsPage extends TechHelper {
     private int previousMKTShareAskingPriceStartListingsAmount = 0;
     private String[] previousLocationAskingPriceListingsLocationsStringList = new String[5];
 
-    @AndroidFindBy(accessibility = "PRICE")
+    @AndroidFindBy(xpath = "//android.widget.RelativeLayout[@content-desc='PRICE']")
     @iOSXCUITFindBy(accessibility = "PRICE")
     private WebElement askingPriceButton;
 
