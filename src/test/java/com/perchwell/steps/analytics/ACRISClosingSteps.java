@@ -242,6 +242,7 @@ public class ACRISClosingSteps extends ScenarioSteps {
     public void addAndVerifyTopTenPerMKTUnitSizeQuarterlyChart() throws Exception {
         acrisClosingPage.addAndVerifyTopTenPerMKTUnitSizeQuarterlyChart();
         this.isChartDisplayed();
+
     }
 
     @Step

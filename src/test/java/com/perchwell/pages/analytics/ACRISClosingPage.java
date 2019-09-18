@@ -436,7 +436,7 @@ public class ACRISClosingPage extends TechHelper {
     }
 
     public void addAndVerifyPricePerFT2QuarterlyChart() throws Exception {
-        this.swipeUntilButtonShown(pricePerFT2QuarterlyButton);
+        this.swipeUntilButtonShown(trendsTopTenPerMKTDealVolumeQuarterlyButton);
         element(pricePerFT2QuarterlyButton).click();
         element(pricePerFT2QuarterlyChart).shouldBeVisible();
     }
@@ -472,7 +472,10 @@ public class ACRISClosingPage extends TechHelper {
     }
 
     public void addAndVerifyTopTenPerMKTUnitSizeAnnualChart() throws Exception {
-        this.swipeUntilButtonShown(topTenPerMKTUnitSizeAnnualButton);
+        this.swipeUntilButtonShown(topTenPerMKTUnitSizeQuarterlyButton);
+        if (Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(topTenPerMKTUnitSizeAnnualButton).click();
         element(topTenPerMKTUnitSizeAnnualChart).shouldBeVisible();
     }
