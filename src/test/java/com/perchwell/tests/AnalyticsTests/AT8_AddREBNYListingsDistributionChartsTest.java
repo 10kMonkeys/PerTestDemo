@@ -33,8 +33,6 @@ public class AT8_AddREBNYListingsDistributionChartsTest extends SampleTest {
         user.atRebnyListingsPage.addAndVerifyDistributionAskingPriceByTypeChart();
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
         user.atRebnyListingsPage.addAndVerifyDistributionAskingPricePerBedChart();
-        user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnMySavedSearches(); // old search
         user.inSearchMenu.openSavedSearches(); // new search
         user.atSearchPage.createNewSearchClick();
         user.atAnalyticsPage.rebnyListingsButtonClick();

@@ -1,5 +1,6 @@
 package com.perchwell.pages.analytics;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
@@ -240,11 +241,11 @@ public class REBNYListingsPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "SQUARE FEET_PERCENTILES_ABOVE_AREA_SQUARE_FT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionSquareFeetChart;
 
-    @AndroidFindBy(accessibility = "MONTHLIES")
+    @AndroidFindBy(accessibility = "MAINTENANCE/COMMON")
     @iOSXCUITFindBy(accessibility = "MONTHLIES")
     private WebElement monthliesButton;
 
-    @AndroidFindBy(accessibility = "MONTHLIES")
+    @AndroidFindBy(accessibility = "MAINT./COMMON")
     @iOSXCUITFindBy(accessibility = "MONTHLIES_PERCENTILES_MONTHLY_PAYMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionMonthliesChart;
 
@@ -280,12 +281,12 @@ public class REBNYListingsPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "MEDIAN $/SQFT_PERCENTILES_LISTING_PRICE_PER_SQFT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement distributionAskingPricePerFTChart;
 
-    @AndroidFindBy(accessibility = "MEDIAN MONTHLIES")
+    @AndroidFindBy(accessibility = "MEDIAN MAINT./COMMON")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value CONTAINS 'MEDIAN MONTHLIES'")
 //    @iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES_MEDIAN_MONTHLY_PAYMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement medianMonthliesChart;
 
-    @AndroidFindBy(accessibility = "MEDIAN MONTHLIES")
+    @AndroidFindBy(accessibility = "MEDIAN MAINT./COMMON")
     @iOSXCUITFindBy(accessibility = "MEDIAN MONTHLIES_BAR_MONTHLY_PAYMENT_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationMonthliesChart;
 
@@ -345,9 +346,11 @@ public class REBNYListingsPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "MEDIAN PRICE_BAR_LISTING_PRICE_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement locationAskingPriceChart;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@content-desc, 'PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL:')]")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL:'")
     private WebElement mktShareAskingPriceListingsAmount;
 
+    @AndroidFindBy(xpath = "//android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeOther' AND name CONTAINS 'location -'")
     private List<WebElement> locationAskingPriceListingsLocationsList;
 
@@ -530,6 +533,9 @@ public class REBNYListingsPage extends TechHelper {
 
     public void addAndVerifyMKTShareGymChart() throws Exception {
         this.swipeUntilButtonShown(gymButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(gymButton).click();
         element(mktShareGymChart).shouldBeVisible();
     }
@@ -572,6 +578,9 @@ public class REBNYListingsPage extends TechHelper {
 
     public void addAndVerifyFeaturesPetsChart() throws Exception {
         this.swipeUntilButtonShown(petsButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(petsButton).click();
         element(featuresPetsChart).shouldBeVisible();
     }
@@ -602,6 +611,9 @@ public class REBNYListingsPage extends TechHelper {
 
     public void addAndVerifyMKTShareWasherDryerChart() throws Exception {
         this.swipeUntilButtonShown(washerDryerButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(washerDryerButton).click();
         element(mktShareWasherDryerChart).shouldBeVisible();
     }
@@ -656,6 +668,9 @@ public class REBNYListingsPage extends TechHelper {
 
     public void addAndVerifyDistributionAskingPriceByTypeChart() throws Exception {
         this.swipeUntilButtonShown(askingPriceByTypeButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(askingPriceByTypeButton).click();
         element(distributionAskingPriceByTypeChart).shouldBeVisible();
     }
@@ -712,7 +727,14 @@ public class REBNYListingsPage extends TechHelper {
     }
 
     public void getMKTShareAskingPriceListingsAmount() {
-        String str = element(mktShareAskingPriceListingsAmount).getAttribute("value");
+        String str;
+
+        if(Config.isAndroid()) {
+            str = element(mktShareAskingPriceListingsAmount).getText();
+        } else {
+            str = element(mktShareAskingPriceListingsAmount).getValue();
+        }
+
         str = str.replace(",", "");
 
         initialMKTShareAskingPriceStartListingsAmount = Integer.parseInt(str);
@@ -723,7 +745,11 @@ public class REBNYListingsPage extends TechHelper {
         int counter = 0;
 
         for (WebElement element : locationAskingPriceListingsLocationsList) {
-            initialLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("name");
+            if(Config.isAndroid()) {
+                initialLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("text");
+            } else {
+                initialLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("name");
+            }
             counter += 1;
         }
         previousLocationAskingPriceListingsLocationsStringList = initialLocationAskingPriceListingsLocationsStringList;
@@ -734,7 +760,14 @@ public class REBNYListingsPage extends TechHelper {
                 "PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL: "
                         + Integer.toString(previousMKTShareAskingPriceStartListingsAmount) + ".0")));
 
-        String str = element(mktShareAskingPriceListingsAmount).getAttribute("value");
+        String str;
+
+        if(Config.isAndroid()) {
+            str = element(mktShareAskingPriceListingsAmount).getAttribute("text");
+        } else {
+            str = element(mktShareAskingPriceListingsAmount).getAttribute("value");
+        }
+
         str = str.replace(",", "");
         int currentMKTShareAskingPriceListingsAmount = Integer.parseInt(str);
 
@@ -750,7 +783,11 @@ public class REBNYListingsPage extends TechHelper {
         String[] currentLocationAskingPriceListingsLocationsStringList = new String[5];
 
         for (WebElement element : locationAskingPriceListingsLocationsList) {
-            currentLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("name");
+            if(Config.isAndroid()) {
+                currentLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("text");
+            } else {
+                currentLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("name");
+            }
             counter += 1;
         }
 
@@ -771,7 +808,11 @@ public class REBNYListingsPage extends TechHelper {
         String[] currentLocationAskingPriceListingsLocationsStringList = new String[5];
 
         for (WebElement element : locationAskingPriceListingsLocationsList) {
-            currentLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("name");
+            if(Config.isAndroid()) {
+                currentLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("text");
+            } else {
+                currentLocationAskingPriceListingsLocationsStringList[counter] = element.getAttribute("name");
+            }
             counter += 1;
         }
 
