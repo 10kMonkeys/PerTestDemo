@@ -1,5 +1,6 @@
 package com.perchwell.pages.analytics;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -84,7 +85,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "GARDEN_MUSTHAVE_GARDEN_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareACRISTownhouseClosingHasGardenChart;
 
-    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"IN HISTORIC DIST.\"])[2]")
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"IN HISTORIC DIST.\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"IN HISTORIC DIST.\"`][2]")
     private WebElement ACRISTownhouseClosingInHistoricDistButton;
 
@@ -92,7 +93,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "HISTORIC DIST._MUSTHAVE_IS_HISTORICAL_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement ACRISTownhouseClosingInHistoricDistChart;
 
-    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"SQUARE FEET\"])[2]")
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"SQUARE FEET\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SQUARE FEET\"`][2]")
     private WebElement ACRISTownhouseClosingSquareFeetButton;
 
@@ -100,6 +101,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "SQUARE FEET_SQFTTRANCHES_ABOVE_AREA_SQUARE_FT_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement ACRISTownhouseClosingSquareFeetChart;
 
+    @AndroidFindBy(accessibility = "WIDTH")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"WIDTH\"`][2]")
     private WebElement ACRISTownhouseClosingWidthButton;
 
@@ -107,6 +109,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "WIDTH_WIDTHTRANCHES_WIDTH_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement ACRISTownhouseClosingWidthChart;
 
+    @AndroidFindBy(accessibility = "DEAL COUNT BY PRICE")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"DEAL COUNT BY PRICE\"`][1]")
     private WebElement ACRISTownhouseClosingDealCountByPriceButton;
 
@@ -130,6 +133,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "COUNT OF EXISTING TOWNHOUSES_COUNTS_WIDTH_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement locationTotalTHStockNumberTownhousesChart;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"HAS GARDEN\"])[2]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HAS GARDEN\"`][3]")
     private WebElement totalTHStockHasGardenButton;
 
@@ -137,6 +141,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "GARDEN_MUSTHAVE_GARDEN_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareTotalTHStockHasGardenChart;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"IN HISTORIC DIST.\"])[2]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"IN HISTORIC DIST.\"`][3]")
     private WebElement totalTHStockInHistoricDistButton;
 
@@ -144,6 +149,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "HISTORIC DIST._MUSTHAVE_IS_HISTORICAL_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareTotalTHStockInHistoricDistChart;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"SQUARE FEET\"])[2]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SQUARE FEET\"`][3]")
     private WebElement totalTHStockSquareFeetButton;
 
@@ -151,6 +157,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "SQUARE FEET_SQFTTRANCHES_ABOVE_AREA_SQUARE_FT_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareTotalTHStockSquareFeetChart;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"WIDTH\"])[2]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"WIDTH\"`][3]")
     private WebElement totalTHStockWidthButton;
 
@@ -158,6 +165,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "WIDTH_WIDTHTRANCHES_WIDTH_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement mktShareTotalTHStockWidthChart;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"YEAR LAST ALTERED\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"YEAR LAST ALTERED\"`][2]")
     private WebElement totalTHStockYearLastAlteredButton;
 
@@ -193,7 +201,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "# SALES BY WIDTH")
     private WebElement acrisTownhouseClosingNumSalesByWidthButton;
 
-    @iOSXCUITFindBy(accessibility = "NUMBER OF SALES BY WIDTH")
+    @AndroidFindBy(accessibility = "NUMBER OF SALES BY WIDTH")
     @iOSXCUITFindBy(accessibility = "NUMBER OF SALES BY WIDTH_COUNTPERWIDTHTRANCHE_WIDTH_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement distribACRISTownhouseClosingNumSalesByWidthChart;
 
@@ -229,6 +237,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "NUMBER OF LISTINGS_COUNTS_LISTING_PRICE_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement rebnyTHListingsNumListingsChart;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"# RECENTLY ALTERED\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"# RECENTLY ALTERED\"`][1]")
     private WebElement rebnyTHListingsNumRecentlyAlteredButton;
 
@@ -252,6 +261,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "PRICE_BAR_LISTING_PRICE_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement rebnyTHListingsAskingPriceChartChart;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"MEDIAN WIDTH\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"MEDIAN WIDTH\"`][1]")
     private WebElement rebnyTHListingsMedianWidthButton;
 
@@ -267,14 +277,15 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "# SALES OF RECENTLY ALTERED")
     private WebElement acrisClosingNumSalesOfRecentlyAlteredButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"MEDIAN WIDTH\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"MEDIAN WIDTH\"`][2]")
     private WebElement acrisClosingMedianWidthButton;
 
-    @AndroidFindBy(accessibility = "PRICE")
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"PRICE\"])[1]")
     @iOSXCUITFindBy(accessibility = "PRICE")
     private WebElement acrisClosingPriceButton;
 
-    @AndroidFindBy(accessibility = "PRICE PER FT2")
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"PRICE PER FT2\"])[1]")
     @iOSXCUITFindBy(accessibility = "PRICE PER FT²")
     private WebElement acrisClosingPricePerFT2Button;
 
@@ -290,14 +301,15 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "MEDIAN WIDTH_BAR_WIDTH_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement locationACRISClosingMedianWidthChart;
 
-    @AndroidFindBy(accessibility = "PRICE")
+    @AndroidFindBy(accessibility = "SALE PRICE")
     @iOSXCUITFindBy(accessibility = "PRICE_BAR_LISTING_PRICE_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement locationACRISClosingPriceChart;
 
-    @AndroidFindBy(accessibility = "MEDIAN $/FT2")
+    @AndroidFindBy(accessibility = "SALE $/FT2")
     @iOSXCUITFindBy(accessibility = "MEDIAN $/SQFT_BAR_LISTING_PRICE_PER_SQFT_LISTINGS_HOUSES: HEADER TITLE LABEL")
     private WebElement locationACRISClosingPricePerFT2Chart;
 
+    @AndroidFindBy(accessibility = "# RECENTLY ALTERED")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"# RECENTLY ALTERED\"`][2]")
     private WebElement locationTotalTHStockNumRecentlyAlteredButton;
 
@@ -305,6 +317,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "# TOWNHOUSES")
     private WebElement locationTotalTHStockNumTownhousesButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"MEDIAN WIDTH\"])[2]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"MEDIAN WIDTH\"`][3]")
     private WebElement locationTotalTHStockMedianWidthButton;
 
@@ -320,21 +333,27 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "MEDIAN WIDTH_BAR_WIDTH_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement locationTotalTHStockMedianWidthChart;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"SQUARE FEET\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SQUARE FEET\"`][1]")
     private WebElement medianREBNYTHListingsSquareFeetButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"WIDTH\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"WIDTH\"`][1]")
     private WebElement medianREBNYTHListingsWidthButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"SQUARE FEET\"])[2]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SQUARE FEET\"`][2]")
     private WebElement medianACRISTHClosingSquareFeetButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"WIDTH\"])[2]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"WIDTH\"`][2]")
     private WebElement medianACRISTHClosingWidthButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"SQUARE FEET\"])[3]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"SQUARE FEET\"`][3]")
     private WebElement medianTotalTHStockSquareFeetButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"WIDTH\"])[3]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"WIDTH\"`][3]")
     private WebElement medianTotalTHStockWidthButton;
 
@@ -362,12 +381,15 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "MEDIAN WIDTH_MEDIAN_WIDTH_HOUSES_HOUSES: HEADER TITLE LABEL")
     private WebElement medianTotalTHStockWidthChart;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"24 FT+ WIDTH\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"24 FT+ WIDTH\"`][1]")
     private WebElement featuresREBNYTHListingsTwentyFourPlusWidthButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"GARDEN\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"GARDEN\"`][1]")
     private WebElement featuresREBNYTHListingsGardenButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"HISTORIC DISTRICT\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HISTORIC DISTRICT\"`][1]")
     private WebElement featuresREBNYTHListingsHistoricDistButton;
 
@@ -375,15 +397,19 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "LANDMARK")
     private WebElement featuresREBNYTHListingsLandmarkButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"RECENTLY ALTERED\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"RECENTLY ALTERED\"`][1]")
     private WebElement featuresREBNYTHListingsRecentlyAlteredButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"24 FT+ WIDTH\"])[1]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"24 FT+ WIDTH\"`][2]")
     private WebElement featuresACRISClosingTwentyFourPlusWidthButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"HISTORIC DISTRICT\"])[2]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"HISTORIC DISTRICT\"`][2]")
     private WebElement featuresACRISTHClosingsHistoricDistButton;
 
+    @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@content-desc=\"RECENTLY ALTERED\"])[2]")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"RECENTLY ALTERED\"`][2]")
     private WebElement featuresACRISTHClosingsRecentlyAlteredButton;
 
@@ -502,24 +528,36 @@ public class NYCTownhousesPage extends TechHelper {
 
     public void addAndVerifyACRISTownhouseClosingInHistoricDistChart() throws Exception {
         this.swipeUntilButtonShown(ACRISTownhouseClosingInHistoricDistButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(ACRISTownhouseClosingInHistoricDistButton).click();
         element(ACRISTownhouseClosingInHistoricDistChart).shouldBeVisible();
     }
 
     public void addAndVerifyACRISTownhouseClosingSquareFeetChart() throws Exception {
         this.swipeUntilButtonShown(ACRISTownhouseClosingSquareFeetButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(ACRISTownhouseClosingSquareFeetButton).click();
         element(ACRISTownhouseClosingSquareFeetChart).shouldBeVisible();
     }
 
     public void addAndVerifyACRISTownhouseClosingWidthChart() throws Exception {
         this.swipeUntilButtonShown(ACRISTownhouseClosingWidthButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(ACRISTownhouseClosingWidthButton).click();
         element(ACRISTownhouseClosingWidthChart).shouldBeVisible();
     }
 
     public void addAndVerifyACRISTownhouseClosingDealCountByPriceChart() throws Exception {
         this.swipeUntilButtonShown(ACRISTownhouseClosingDealCountByPriceButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(ACRISTownhouseClosingDealCountByPriceButton).click();
         element(ACRISTownhouseClosingDealCountByPriceChart).shouldBeVisible();
     }
@@ -547,6 +585,9 @@ public class NYCTownhousesPage extends TechHelper {
 
     public void addTotalTHStockHasGardenChart() throws Exception {
         this.swipeUntilButtonShown(totalTHStockHasGardenButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(totalTHStockHasGardenButton).click();
     }
 
@@ -556,12 +597,19 @@ public class NYCTownhousesPage extends TechHelper {
 
     public void addAndVerifyTotalTHStockInHistoricDistChart() throws Exception {
         this.swipeUntilButtonShown(totalTHStockInHistoricDistButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(totalTHStockInHistoricDistButton).click();
         element(mktShareTotalTHStockInHistoricDistChart).shouldBeVisible();
     }
 
     public void addAndVerifyTotalTHStockSquareFeetChart() throws Exception {
         this.swipeUntilButtonShown(totalTHStockSquareFeetButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+            universalSingleSwipe();
+        }
         element(totalTHStockSquareFeetButton).click();
         element(mktShareTotalTHStockSquareFeetChart).shouldBeVisible();
 
@@ -569,12 +617,20 @@ public class NYCTownhousesPage extends TechHelper {
 
     public void addAndVerifyTotalTHStockWidthChart() throws Exception {
         this.swipeUntilButtonShown(totalTHStockWidthButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+            universalSingleSwipe();
+        }
         element(totalTHStockWidthButton).click();
         element(mktShareTotalTHStockWidthChart).shouldBeVisible();
     }
 
     public void addAndVerifyTotalTHStockYearLastAlteredChart() throws Exception {
         this.swipeUntilButtonShown(totalTHStockYearLastAlteredButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+            universalSingleSwipe();
+        }
         element(totalTHStockYearLastAlteredButton).click();
         element(mktShareTotalTHStockYearLastAlteredChart).shouldBeVisible();
     }
@@ -662,6 +718,9 @@ public class NYCTownhousesPage extends TechHelper {
 
     public void addACRISClosingNumSalesChart() throws Exception {
         this.swipeUntilButtonShown(acrisClosingNumSalesButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(acrisClosingNumSalesButton).click();
 
     }
@@ -678,24 +737,37 @@ public class NYCTownhousesPage extends TechHelper {
 
     public void addAndVerifyACRISClosingMedianWidthChart() throws Exception {
         this.swipeUntilButtonShown(acrisClosingMedianWidthButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(acrisClosingMedianWidthButton).click();
         element(locationACRISClosingMedianWidthChart).shouldBeVisible();
     }
 
     public void addAndVerifyACRISClosingPriceChart() throws Exception {
         this.swipeUntilButtonShown(acrisClosingPriceButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(acrisClosingPriceButton).click();
         element(locationACRISClosingPriceChart).shouldBeVisible();
     }
 
     public void addAndVerifyACRISClosingPricePerFT2Chart() throws Exception {
         this.swipeUntilButtonShown(acrisClosingPricePerFT2Button);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(acrisClosingPricePerFT2Button).click();
         element(locationACRISClosingPricePerFT2Chart).shouldBeVisible();
     }
 
     public void addTotalTHStockNumRecentlyAlteredChart() throws Exception {
         this.swipeUntilButtonShown(locationTotalTHStockNumRecentlyAlteredButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+            universalSingleSwipe();
+        }
         element(locationTotalTHStockNumRecentlyAlteredButton).click();
     }
 
@@ -711,6 +783,10 @@ public class NYCTownhousesPage extends TechHelper {
 
     public void addAndVerifyTotalTHStockMedianWidthChart() throws Exception {
         this.swipeUntilButtonShown(locationTotalTHStockMedianWidthButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+            universalSingleSwipe();
+        }
         element(locationTotalTHStockMedianWidthButton).click();
         element(locationTotalTHStockMedianWidthChart).shouldBeVisible();
     }
@@ -744,6 +820,9 @@ public class NYCTownhousesPage extends TechHelper {
 
     public void addAndVerifyMedianTotalTHStockSquareFeetChart() throws Exception {
         this.swipeUntilButtonShown(medianTotalTHStockSquareFeetButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(medianTotalTHStockSquareFeetButton).click();
         element(medianTotalTHStockSquareFeetChart).shouldBeVisible();
     }
@@ -789,6 +868,9 @@ public class NYCTownhousesPage extends TechHelper {
 
     public void addFeaturesACRISClosingTwentyFourPlusWidthChart() throws Exception{
         this.swipeUntilButtonShown(featuresACRISClosingTwentyFourPlusWidthButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(featuresACRISClosingTwentyFourPlusWidthButton).click();
     }
 

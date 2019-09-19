@@ -147,7 +147,6 @@ public class NYCTownhousesSteps extends ScenarioSteps {
     @Step
     public void addTotalTHStockHasGardenChart() throws Exception {
         nycTownhousesPage.addTotalTHStockHasGardenChart();
-
     }
 
     @Step
