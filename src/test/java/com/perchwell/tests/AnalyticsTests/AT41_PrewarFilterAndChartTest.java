@@ -16,7 +16,7 @@ public class AT41_PrewarFilterAndChartTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectPrewarFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();

@@ -14,12 +14,12 @@ public class AT43_FireplaceFilterAndChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
         user.atSearchPage.clickOnFireplaceFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
-        user.atAnalyticsPage.selectREBNYListingsWithMKTShare();
+        user.atAnalyticsPage.selectREBNYListingsSection();
         user.atRebnyListingsPage.addMKTShareFireplaceChart();
         user.atAnalyticsPage.skipHints();
 //        user.atAnalyticsPage.verifyThatChartIsDisplayedWithFilter("");

@@ -892,6 +892,9 @@ public class NYCTownhousesPage extends TechHelper {
 
     public void addMKTShareACRISClosingDealCountByPriceChart() throws Exception {
         this.swipeUntilButtonShown(ACRISTownhouseClosingDealCountByPriceButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(ACRISTownhouseClosingDealCountByPriceButton).click();
     }
 

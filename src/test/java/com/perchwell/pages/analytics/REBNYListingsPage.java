@@ -181,7 +181,7 @@ public class REBNYListingsPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "PREWAR PREMIUM_PREMIUM_BUILDING_PREWAR_LISTINGS_PROPERTIES: HEADER TITLE LABEL")
     private WebElement featuresPrewarChart;
 
-    @AndroidFindBy(accessibility = "WASHER/DRYER")
+    @AndroidFindBy(xpath = "//android.widget.RelativeLayout[@content-desc='WASHER/DRYER']")
     @iOSXCUITFindBy(accessibility = "WASHER/DRYER")
     private WebElement washerDryerButton;
 
@@ -871,6 +871,9 @@ public class REBNYListingsPage extends TechHelper {
 
     public void addDistributionAskingPriceByTypeChart() throws Exception {
         this.swipeUntilButtonShown(askingPriceByTypeButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(askingPriceByTypeButton).click();
     }
 
@@ -889,37 +892,40 @@ public class REBNYListingsPage extends TechHelper {
     }
 
     public void addElevatorChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(elevatorButton);
+        this.swipeUntilButtonShown(elevatorButton);
         element(elevatorButton).click();
     }
 
     public void addParkingChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(garageButton);
+        this.swipeUntilButtonShown(garageButton);
         element(garageButton).click();
     }
 
     public void addGymChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(gymButton);
+        this.swipeUntilButtonShown(gymButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(gymButton).click();
     }
 
     public void addLaundryBuildingChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(laundryBuildingButton);
+        this.swipeUntilButtonShown(laundryBuildingButton);
         element(laundryBuildingButton).click();
     }
 
     public void addPetsChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(petsButton);
+        this.swipeUntilButtonShown(petsButton);
         element(petsButton).click();
     }
 
     public void addPoolChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(poolButton);
+        this.swipeUntilButtonShown(poolButton);
         element(poolButton).click();
     }
 
     public void addFireplaceChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(workingFireplaceButton);
+        this.swipeUntilButtonShown(workingFireplaceButton);
         element(workingFireplaceButton).click();
     }
 

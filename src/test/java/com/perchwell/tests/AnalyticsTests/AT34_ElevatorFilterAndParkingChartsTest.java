@@ -14,11 +14,11 @@ public class AT34_ElevatorFilterAndParkingChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.addElevatorFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
-        user.atAnalyticsPage.selectREBNYListingsWithMKTShare();
+        user.atAnalyticsPage.selectREBNYListingsSection();
         user.atRebnyListingsPage.addMKTShareParkingChart();//
         user.atAnalyticsPage.skipHints();
 //        user.atAnalyticsPage.verifyThatChartIsDisplayedWithFilter("");

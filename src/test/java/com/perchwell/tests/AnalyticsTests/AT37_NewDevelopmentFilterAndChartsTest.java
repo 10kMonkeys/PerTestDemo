@@ -14,11 +14,11 @@ public class AT37_NewDevelopmentFilterAndChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnDevelopmentFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
-        user.atAnalyticsPage.selectREBNYListingsWithMKTShare();
+        user.atAnalyticsPage.selectREBNYListingsSection();
 //        user.atRebnyListingsPage.addMKTShareDevelopmentChart(); ////Charts is missing
         user.atAnalyticsPage.skipHints();
 //        user.atAnalyticsPage.verifyThatChartIsDisplayedWithFilter("");

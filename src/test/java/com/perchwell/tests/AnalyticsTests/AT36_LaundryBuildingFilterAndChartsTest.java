@@ -14,12 +14,12 @@ public class AT36_LaundryBuildingFilterAndChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
         user.atSearchPage.clickOnLaundryBuildingFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
-        user.atAnalyticsPage.selectREBNYListingsWithMKTShare();
+        user.atAnalyticsPage.selectREBNYListingsSection();
         user.atRebnyListingsPage.addMKTShareLaundryBuildingChart();
         user.atAnalyticsPage.skipHints();
 //        user.atAnalyticsPage.verifyThatChartIsDisplayedWithFilter("");
