@@ -14,7 +14,7 @@ public class AT47_SquareFeetFilterAndChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.setSquareFeetMinFilter("6000");
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.clickOnAnalytics();

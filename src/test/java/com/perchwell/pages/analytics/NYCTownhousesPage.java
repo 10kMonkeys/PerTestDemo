@@ -904,32 +904,44 @@ public class NYCTownhousesPage extends TechHelper {
     }
 
     public void addREBNYListingsSquareFeetChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(medianREBNYTHListingsSquareFeetButton);
+        this.swipeUntilButtonShown(medianREBNYTHListingsSquareFeetButton);
         element(medianREBNYTHListingsSquareFeetButton).click();
     }
 
     public void addACRISClosingsSquareFeetChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(medianACRISTHClosingSquareFeetButton);
-        element(medianACRISTHClosingSquareFeetButton).click();
+        this.swipeUntilButtonShown(medianACRISTHClosingSquareFeetButton);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+            element(medianREBNYTHListingsSquareFeetButton).click();
+        } else {
+            element(medianACRISTHClosingSquareFeetButton).click();
+        }
+
     }
 
     public void addStockSquareFeetChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(medianTotalTHStockSquareFeetButton);
-        element(medianTotalTHStockSquareFeetButton).click();
+        if(Config.isAndroid()) {
+            this.swipeUntilButtonShown(medianACRISTHClosingSquareFeetButton);
+            universalSingleSwipe();
+            element(medianACRISTHClosingSquareFeetButton).click();
+        } else {
+            this.swipeUntilButtonShown(medianTotalTHStockSquareFeetButton);
+            element(medianTotalTHStockSquareFeetButton).click();
+        }
     }
 
     public void addREBNYListingsBySQFTChar() throws Exception {
-        Helper.swipeDownUntilElementVisible(rebnyTHListingsNumListingsByFT2Button);
+        this.swipeUntilButtonShown(rebnyTHListingsNumListingsByFT2Button);
         element(rebnyTHListingsNumListingsByFT2Button).click();
     }
 
     public void addACRISClosingsBySQFTChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(acrisTownhouseClosingNumSalesByFT2Button);
+        this.swipeUntilButtonShown(acrisTownhouseClosingNumSalesByFT2Button);
         element(acrisTownhouseClosingNumSalesByFT2Button).click();
     }
 
     public void addStockBySQFTChart() throws Exception {
-        Helper.swipeDownUntilElementVisible(totalTHStockNumHousesByFT2Button);
+        this.swipeUntilButtonShown(totalTHStockNumHousesByFT2Button);
         element(totalTHStockNumHousesByFT2Button).click();
     }
 }
