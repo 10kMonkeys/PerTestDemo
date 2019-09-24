@@ -9,17 +9,26 @@ import org.junit.Test;
 @WithTagValuesOf({"AnalyticsTestSuit", "ThirdAdditionalAnalytics"})
 public class AT44_LocationFilterREBNYNeighborhoodChartsTest extends SampleTest {
 
-    @Ignore
+//    @Ignore
     @Test
     public void locationFilterREBNYNeighborhoodChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
-//        user.atSearchPage.selectFilter();
-        user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
-        //TODO test
+        user.atAnalyticsPage.rebnyListingsButtonClick();
+        user.atAnalyticsPage.locationButtonClick();
+        user.atRebnyListingsPage.addMKTShareAskingPriceChart();
+        user.atAnalyticsPage.selectREBNYListingsWithLocation();
+        user.atRebnyListingsPage.addDistributionAskingPricePerBedChart();
+        user.atAnalyticsPage.selectREBNYListingsWithLocation();
+        user.atRebnyListingsPage.addAndVerifyLocationAskingPerFTChart();
+        user.atAnalyticsPage.selectREBNYListingsWithLocation();
+        user.atRebnyListingsPage.addAndVerifyLocationDaysOnMarketChart();
+        user.atAnalyticsPage.selectREBNYListingsWithLocation();
+        user.atRebnyListingsPage.addAndVerifyLocationListingCountChart();
+        user.inSearchMenu.openSearchPage();
+        user.atSearchPage.expandLocationSection();
     }
 }

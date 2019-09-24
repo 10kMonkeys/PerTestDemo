@@ -20,6 +20,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import javax.validation.constraints.AssertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -222,6 +223,9 @@ public class AnalyticsPage extends TechHelper {
 
     @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'PRICE_PRICETRANCHES_LISTING_PRICE_LISTINGS_PROPERTIES: VALUE_LABEL:'")
     private WebElement priceChartValue;
+
+    @AndroidFindBy(xpath = "com.perchwell.re.staging:id/center_text_number_label")
+    private List<WebElement> donutValuesList;
 
     //endregion
 

@@ -431,6 +431,7 @@ public class NYCTownhousesSteps extends ScenarioSteps {
     @Step
     public void addMKTShareACRISClosingDealCountByPriceChart() throws Exception {
         nycTownhousesPage.addMKTShareACRISClosingDealCountByPriceChart();
+        analyticsPage.isChartDisplayed();
     }
 
     @Step

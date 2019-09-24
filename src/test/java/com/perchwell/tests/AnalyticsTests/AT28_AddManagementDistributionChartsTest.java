@@ -9,7 +9,7 @@ import org.junit.Test;
 @WithTagValuesOf({"AnalyticTests", "AnalyticsSecond", "iOS_AnalyticsSecond", "Android_AnalyticsSecond"})
 public class AT28_AddManagementDistributionChartsTest extends SampleTest {
 
-    @Ignore
+//    @Ignore
     @Test
     public void AddManagementDistributionChartsTest() throws Exception{
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

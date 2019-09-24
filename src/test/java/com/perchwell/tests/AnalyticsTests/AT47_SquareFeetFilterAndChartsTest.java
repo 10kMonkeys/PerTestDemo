@@ -7,14 +7,15 @@ import org.junit.Test;
 
 public class AT47_SquareFeetFilterAndChartsTest extends SampleTest {
 
-    @Ignore
+//    @Ignore
     @Test
     public void squareFeetFilterAndChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSavedSearches();
+//        user.atSearchPage.createNewSearchClick();
         user.atSearchPage.setSquareFeetMinFilter("6000");
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.clickOnAnalytics();

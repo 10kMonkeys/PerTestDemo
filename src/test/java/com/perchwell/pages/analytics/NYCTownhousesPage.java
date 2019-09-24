@@ -107,6 +107,7 @@ public class NYCTownhousesPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "WIDTH_WIDTHTRANCHES_WIDTH_HISTORICALS_HOUSES: HEADER TITLE LABEL")
     private WebElement ACRISTownhouseClosingWidthChart;
 
+    @AndroidFindBy(accessibility = "DEAL COUNT BY PRICE")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"DEAL COUNT BY PRICE\"`][1]")
     private WebElement ACRISTownhouseClosingDealCountByPriceButton;
 
@@ -809,7 +810,7 @@ public class NYCTownhousesPage extends TechHelper {
     }
 
     public void addMKTShareACRISClosingDealCountByPriceChart() throws Exception {
-        this.swipeUntilButtonShown(ACRISTownhouseClosingDealCountByPriceButton);
+        universalSingleSwipe();
         element(ACRISTownhouseClosingDealCountByPriceButton).click();
     }
 

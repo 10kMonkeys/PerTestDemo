@@ -458,4 +458,9 @@ public class AnalyticsSteps extends ScenarioSteps {
 	public void checkPriceChartIsSameListView() {
 		onPage.checkPriceChartIsSameListView();
 	}
+
+	@Step
+	public void checkOnlyOnlyOneValueInDonutIsShown() {
+//		onPage.checkOnlyOnlyOneValueInDonutIsShown();
+	}
 }

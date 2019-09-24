@@ -1,5 +1,6 @@
 package com.perchwell.pages.analytics;
 
+import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.Helper;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -207,6 +208,7 @@ public class ManagementPage extends TechHelper {
     }
 
     public void agentsListingCountButtonClick(){
+        Helper.androidSwipeDownUntilElementVisible(agentListingCountButton);
         element(agentListingCountButton).click();
     }
 

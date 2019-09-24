@@ -10,14 +10,14 @@ import org.junit.Test;
 @WithTagValuesOf({"AnalyticsTestSuit", "ThirdAdditionalAnalytics"})
 public class AT29_AskingPriceFilterAndChartsTest extends SampleTest {
 
-    @Ignore
+//    @Ignore
     @Test
     public void askingPriceFilterAndChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.setMinimumPriceFilter("1000000");
         user.atSearchPage.setMaximumPriceFilter("2900000");
         user.atSearchPage.clickOnApplyButton();
@@ -25,35 +25,34 @@ public class AT29_AskingPriceFilterAndChartsTest extends SampleTest {
         user.atAnalyticsPage.selectREBNYListingsSection();
         user.atRebnyListingsPage.addMKTShareAskingPriceChart();
         user.atAnalyticsPage.skipHints();
-//        checkOnlyOnlyOneValueInDonutIsShown(); //TODO
+        user.atAnalyticsPage.checkOnlyOnlyOneValueInDonutIsShown(); //TODO
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
         user.atRebnyListingsPage.addDistributionAskingPriceByPriceSegmentChart();
-//        checkOnlyOnlyOneColumn1to3dollarsIsShown(); //TODO
+//        checkOnlyOnlyOneColumn1to3dollarsIsShown(); //TODO missing locator
         user.atAnalyticsPage.selectREBNYListingsWithDistribution();
         user.atRebnyListingsPage.addDistributionDOMByPriceSegmentChart();
 //        checkOnlyOnlyOneColumn1to3dollarsIsShown(); //TODO
         user.atAnalyticsPage.selectACRISClosingSectionWithMKTShare();
         user.atAcrisClosingPage.addMKTSharePriceByDealCountChart();
-//        checkOnlyOnlyOneValueInDonutIsShown(); //TODO
+        user.atAnalyticsPage.checkOnlyOnlyOneValueInDonutIsShown(); //TODO
         user.atAnalyticsPage.selectACRISClosingWithDistribution();
         user.atAcrisClosingPage.addDistributionDollarFT2ByPriceSegmentChart();
 //        checkOnlyOnlyOneColumn1to3dollarsIsShown(); //TODO
         user.atAnalyticsPage.selectACRISClosingWithDistribution();
         user.atAcrisClosingPage.addDistributionPriceByPriceSegmentChart();
         //        checkOnlyOnlyOneColumn1to3dollarsIsShown(); //TODO
-        user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnMySavedSearches();
+        user.inSearchMenu.openSavedSearches();
         user.atSearchPage.createNewSearchClick();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.setMinimumPriceFilter("1000000");
         user.atSearchPage.setMaximumPriceFilter("2900000");
         user.atSearchPage.clickOnApplyButton();
-
         user.atAnalyticsPage.selectManagementSection();
         user.atManagementPage.addMKTShareAskingPriceChart();
-        //        checkOnlyOnlyOneValueInDonutIsShown(); //TODO
+        user.atAnalyticsPage.checkOnlyOnlyOneValueInDonutIsShown();
         user.atAnalyticsPage.selectNYTownhousesWithMKTShare();
         user.atNycTownhousesPage.addMKTShareACRISClosingDealCountByPriceChart();
-//        checkOnlyOnlyOneValueInDonutIsShown(); //TODO
+        user.atAnalyticsPage.checkOnlyOnlyOneValueInDonutIsShown();
         user.atAnalyticsPage.selectNYTownhousesWithDistribution();
         user.atNycTownhousesPage.addDistributionREBNYListingsDOMByPriceChart();
         //        checkOnlyOnlyOneColumnUpTo3MdollarsIsShown(); //TODO
