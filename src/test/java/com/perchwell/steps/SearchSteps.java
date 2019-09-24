@@ -432,11 +432,6 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void setMinimumSquareFeet(String value) {
-        onPage.setMinimumSquareFeet(value);
-    }
-
-    @Step
     public void clickOnLaundryUnitFilter() {
         onPage.clickOnLaundryUnitFilter();
     }

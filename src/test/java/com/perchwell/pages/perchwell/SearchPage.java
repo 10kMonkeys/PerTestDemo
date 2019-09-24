@@ -59,6 +59,7 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "BATHS")
     private WebElement baths;
 
+    @AndroidFindBy(accessibility = "Working Fireplace-checkmark")
     @iOSXCUITFindBy(accessibility = "Working Fireplace")
     private WebElement fireplaceFilter;
 
@@ -260,45 +261,35 @@ public class SearchPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "PROPERTY TYPE Suboption: Condo")
     private WebElement condoFilter;
 
+    @AndroidFindBy(accessibility = "Outdoor Space-checkmark")
     @iOSXCUITFindBy(accessibility = "Outdoor Space")
     private WebElement outdoorSpaceFilter;
 
+    @AndroidFindBy(accessibility = "Prewar-checkmark")
     @iOSXCUITFindBy(accessibility = "Prewar")
     private WebElement prewarFilter;
 
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name CONTAINS[cd] \"knob_upd\"`][3]")
-    private WebElement squareFeetMinControl;
-
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name CONTAINS[cd] \"knob_upd\"`][4]")
-    private WebElement squareFeetMaxControl;
-
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeImage[`name CONTAINS[cd] \"knob_upd\"`][4]")
-    private WebElement waitElement;
-
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Perchwell\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[10]/XCUIElementTypeOther[2]")
-    private WebElement squareFeetSlider;
-
+    @AndroidFindBy(accessibility = "Doorman-checkmark")
     @iOSXCUITFindBy(accessibility = "Doorman")
     private WebElement doormanFilter;
 
+    @AndroidFindBy(accessibility = "Elevator-checkmark")
     @iOSXCUITFindBy(accessibility = "Elevator")
     private WebElement elevatorFilter;
 
+    @AndroidFindBy(accessibility = "New Development-checkmark")
     @iOSXCUITFindBy(accessibility = "New Development")
     private WebElement developmentFilter;
 
+    @AndroidFindBy(accessibility = "Pets-checkmark")
     @iOSXCUITFindBy(accessibility = "Pets")
     private WebElement petsFilter;
 
+    @AndroidFindBy(accessibility = "Pool-checkmark")
     @iOSXCUITFindBy(accessibility = "Pool")
     private WebElement poolFilter;
 
-    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'NO MIN'")
-    private WebElement squareFeetMinimumValue;
-
-    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS '10,000+'")
-    private WebElement squareFeetMaximumValue;
-
+    @AndroidFindBy(accessibility = "Washer Dryer-checkmark")
     @iOSXCUITFindBy(accessibility = "Washer Dryer")
     private WebElement laundryUnitFilter;
 
@@ -1239,7 +1230,7 @@ public class SearchPage extends TechHelper {
     public void scrollToLaundryBLDG() {
         if (Config.isAndroid()) {
             setImplicitTimeout(1, SECONDS);
-            Helper.universalVerticalSwipe(laundryBLDGFilterButton);
+            universalVerticalSwipe(laundryBLDGFilterButton);
             resetImplicitTimeout();
         } else {
             Helper.universalVerticalSwipe(laundryBLDGFilterButton);
@@ -1250,7 +1241,7 @@ public class SearchPage extends TechHelper {
         if (Config.isAndroid()) {
             setImplicitTimeout(1, SECONDS);
 //			Helper.androidSwipeDownUntilElementVisible("LAUNDRY BLDG");
-            Helper.androidSwipeDownUntilElementVisible(selectedLaundryBLDGFilter);
+            androidSwipeDownUntilElementVisible(selectedLaundryBLDGFilter);
             resetImplicitTimeout();
             element(selectedLaundryBLDGFilter).shouldBeVisible();
         } else {
@@ -1264,12 +1255,12 @@ public class SearchPage extends TechHelper {
     }
 
     public void selectOutdoorSpaceFilter() {
-        Helper.swipeDownUntilElementVisible(outdoorSpaceFilter);
+        universalVerticalSwipe(outdoorSpaceFilter);
         element(outdoorSpaceFilter).click();
     }
 
     public void selectPrewarFilter() {
-        Helper.swipeDownUntilElementVisible(prewarFilter);
+        universalVerticalSwipe(prewarFilter);
         element(prewarFilter).click();
     }
 
@@ -1285,22 +1276,13 @@ public class SearchPage extends TechHelper {
         }
     }
 
-    private int getXCoordinateForSixK() {
-        Dimension size = getDriver().manage().window().getSize();
-        int deviceWidth = size.width;
-        int sliderStartPositionX = squareFeetSlider.getLocation().getX();
-        int sliderWidth = deviceWidth - (sliderStartPositionX * 2);
-
-        return (sliderStartPositionX + ((sliderWidth / 20) * 11));
-    }
-
     public void clickOnDoormanFilter() {
-        Helper.swipeDownUntilElementVisible(doormanFilter);
+        universalVerticalShortSwipe(doormanFilter);
         element(doormanFilter).click();
     }
 
     public void addElevatorFilter() {
-        Helper.swipeDownUntilElementVisible(elevatorFilter);
+        universalVerticalShortSwipe(elevatorFilter);
         element(elevatorFilter).click();
     }
 
@@ -1310,33 +1292,30 @@ public class SearchPage extends TechHelper {
     }
 
     public void clickOnPetsFilter() {
-        Helper.swipeDownUntilElementVisible(petsFilter);
+        universalVerticalShortSwipe(petsFilter);
         element(petsFilter).click();
     }
 
     public void clickOnDevelopmentFilter() {
-        Helper.swipeDownUntilElementVisible(developmentFilter);
+        universalVerticalShortSwipe(developmentFilter);
         element(developmentFilter).click();
     }
 
     public void clickOnPoolFilter() {
-        Helper.swipeDownUntilElementVisible(poolFilter);
+        universalVerticalShortSwipe(poolFilter);
+        if(Config.isAndroid()) {
+            universalSingleSwipe();
+        }
         element(poolFilter).click();
     }
 
     public void clickOnFireplaceFilter() {
-        Helper.swipeDownUntilElementVisible(fireplaceFilter);
+        universalVerticalShortSwipe(fireplaceFilter);
         element(fireplaceFilter).click();
     }
 
-    public void setMinimumSquareFeet(String value) {
-        Helper.swipeDownUntilElementVisible(squareFeetMinimumValue);
-        withAction().dragAndDrop(squareFeetMinimumValue, squareFeetMaximumValue).perform();
-
-    }
-
     public void clickOnLaundryUnitFilter() {
-        Helper.swipeDownUntilElementVisible(laundryUnitFilter);
+        universalVerticalShortSwipe(laundryUnitFilter);
         element(laundryUnitFilter).click();
     }
 

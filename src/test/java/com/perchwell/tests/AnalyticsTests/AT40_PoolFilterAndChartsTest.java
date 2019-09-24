@@ -14,12 +14,12 @@ public class AT40_PoolFilterAndChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
         user.atSearchPage.clickOnPoolFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
-        user.atAnalyticsPage.selectREBNYListingsWithMKTShare();
+        user.atAnalyticsPage.selectREBNYListingsSection();
         user.atRebnyListingsPage.addMKTSharePoolChart();
         user.atAnalyticsPage.skipHints();
 //        user.atAnalyticsPage.verifyThatChartIsDisplayedWithFilter("");

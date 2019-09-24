@@ -14,16 +14,16 @@ public class AT42_LaundryUnitFilterAndChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnLaundryUnitFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
-        user.atAnalyticsPage.selectREBNYListingsWithMKTShare();
-//        user.atRebnyListingsPage.addMKTShareLaundryUnitChart();
+        user.atAnalyticsPage.selectREBNYListingsSection();
+        user.atRebnyListingsPage.addAndVerifyMKTShareWasherDryerChart();
         user.atAnalyticsPage.skipHints();
 //        user.atAnalyticsPage.verifyThatChartIsDisplayedWithFilter("");
         user.atAnalyticsPage.selectREBNYListingsWithFeatures();
-//        user.atRebnyListingsPage.addFeaturesLaundryUnitChart();
+        user.atRebnyListingsPage.addAndVerifyFeaturesWasherDryerChart();
 //        user.atAnalyticsPage.verifyThatChartIsDisplayedWithFilter("");
     }
 }

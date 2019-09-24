@@ -16,7 +16,7 @@ public class AT30_BedroomsFilterAndChartsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectBedroomsRangeOption();
         user.atSearchPage.clickOnFilter1Bed();
         user.atSearchPage.clickOnApplyButton();

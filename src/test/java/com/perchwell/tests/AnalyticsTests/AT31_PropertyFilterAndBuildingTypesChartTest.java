@@ -16,7 +16,7 @@ public class AT31_PropertyFilterAndBuildingTypesChartTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButton();
         user.atPerchwellPage.clickOnAnalytics();
@@ -46,9 +46,9 @@ public class AT31_PropertyFilterAndBuildingTypesChartTest extends SampleTest {
         user.atAcrisClosingPage.addATrendsDealCountQuarterlyChart();
         //        checkOnlyOnlyColumnsCondoAreShown(); //TODO
 
-        user.atAnalyticsPage.clickMyNewSearch();
-        user.atSearchPage.clickOnMySavedSearches();
+        user.inSearchMenu.openSavedSearches();
         user.atSearchPage.createNewSearchClick();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.selectCondoFilter();
         user.atSearchPage.clickOnApplyButton();
 

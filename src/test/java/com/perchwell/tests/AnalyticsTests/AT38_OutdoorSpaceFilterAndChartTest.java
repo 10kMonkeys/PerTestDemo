@@ -16,7 +16,7 @@ public class AT38_OutdoorSpaceFilterAndChartTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch();
+        user.inSearchMenu.openSearchPage();
         user.atSearchPage.clickOnShowMoreFeaturesAndAmenitiesButton();
         user.atSearchPage.selectOutdoorSpaceFilter();
         user.atSearchPage.clickOnApplyButton();
