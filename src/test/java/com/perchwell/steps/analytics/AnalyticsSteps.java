@@ -218,8 +218,12 @@ public class AnalyticsSteps extends ScenarioSteps {
 
 	@Step
 	public void setMinRangeYearDefaultMinusOne(){
-		SessionVariables.addValueInSessionVariable("MinRangeYear",String.valueOf(Integer.parseInt(onPage.getDefaultMinValueYear()) - 1));
-		onPage.setMinValueYear(SessionVariables.getValueFromSessionVariable("MinRangeYear"));
+		if (Config.isAndroid()) {
+			onPage.setMinValueYear(SessionVariables.getValueFromSessionVariable("MinRangeYear"));
+		} else {
+			SessionVariables.addValueInSessionVariable("MinRangeYear",String.valueOf(Integer.parseInt(onPage.getDefaultMinValueYear()) - 1));
+			onPage.setMinValueYear(SessionVariables.getValueFromSessionVariable("MinRangeYear"));
+		}
 	}
 
 	@Step

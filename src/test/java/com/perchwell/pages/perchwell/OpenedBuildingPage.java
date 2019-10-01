@@ -136,6 +136,7 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "DISCUSS THIS WITH YOUR CLIENT OR AGENT. WE'LL ORGANIZE YOUR MESSAGES BY PERSON & LISTING.")
 	private WebElement discussWithClientHint;
 
+	@AndroidFindBy(xpath = "//*[contains(@text,'#TEST')]")
 	@iOSXCUITFindBy(iOSNsPredicate = "type = 'XCUIElementTypeStaticText' AND name CONTAINS '#TEST'")
 	private WebElement testListing;
 
@@ -160,6 +161,7 @@ public class OpenedBuildingPage extends TechHelper {
 	@iOSXCUITFindBy(accessibility = "BuildingViewBackButton")
 	private WebElement buildingViewBackButton;
 
+	@AndroidFindBy(xpath = "//android.widget.RelativeLayout[3]")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell[$name != 'Table View Cell: Show More' AND name BEGINSWITH 'Table View Cell'$][-1]")
 	private WebElement lastListing;
 

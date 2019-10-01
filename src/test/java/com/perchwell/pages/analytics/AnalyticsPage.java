@@ -169,9 +169,11 @@ public class AnalyticsPage extends TechHelper {
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView[2]/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton")
     private WebElement yearsRange;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/monthlies_min_picker")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypePickerWheel[1]")
     private WebElement beginningPickerWheel;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/monthlies_max_picker")
 	@iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypePickerWheel[2]")
     private MobileElement  endingPickerWheel;
 
@@ -458,8 +460,12 @@ public class AnalyticsPage extends TechHelper {
     }
 
     public String getDefaultMinValueYear(){
-        return element(beginningPickerWheel).getText();
-    }
+	    if (Config.isAndroid()) {
+            return element(beginningPickerWheel).getText();
+	    } else {
+	        return element(beginningPickerWheel).getText();
+        }
+	}
 
     public void getDefaultMaxValueYear() {
         SessionVariables.addValueInSessionVariable("MaxDefaultRangeYear",String.valueOf(endingPickerWheel.getAttribute("value")));
@@ -601,9 +607,20 @@ public class AnalyticsPage extends TechHelper {
     }
 
     private String getExpectedYearsRange() {
+        int minYear;
         int maxYear = CurrentYear.getCurrentYear() - 2000;
-        int minYear = maxYear - 4;
-        return "'" + minYear + "  — '" + maxYear; //add space
+
+        if (Config.isAndroid()) {
+            minYear = maxYear - 5;
+        } else {
+            minYear = maxYear - 4;
+        }
+
+        if (Config.isAndroid()) {
+            return "'" + minYear + " - '" + maxYear; //add space
+        } else {
+            return "'" + minYear + "  — '" + maxYear; //add space
+        }
     }
 
     public void clickOnResetButton() {

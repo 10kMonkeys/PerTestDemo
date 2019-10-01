@@ -16,13 +16,13 @@ public class LB1_SimilarListingsSearchByBedroomsTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
+//        user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openAddressSearch(); //search new
         user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.clickOnTestListing();
-        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+//        user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.fixSearchField(); //new
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
