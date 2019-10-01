@@ -9,7 +9,7 @@ import org.junit.Test;
 @WithTagValuesOf({"AnalyticsTestSuit", "ThirdAdditionalAnalytics"})
 public class AT44_LocationFilterREBNYNeighborhoodChartsTest extends SampleTest {
 
-//    @Ignore
+    @Ignore
     @Test
     public void locationFilterREBNYNeighborhoodChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),

@@ -10,7 +10,7 @@ import org.junit.Test;
 @WithTagValuesOf({"AnalyticsTestSuit", "ThirdAdditionalAnalytics"})
 public class AT29_AskingPriceFilterAndChartsTest extends SampleTest {
 
-//    @Ignore
+    @Ignore
     @Test
     public void askingPriceFilterAndChartsTest() throws Exception {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
