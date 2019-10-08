@@ -21,55 +21,63 @@ public abstract class FilteringAndSortingBuildings {
         String price = "^\\$\\d+.*$";
         String room = "";
         Pattern p = Pattern.compile("");
-
-        if (!input.matches(price)) {
-
-            switch (typeSorting) {
-                case "bedrooms":
-                    p = Pattern.compile("\\d+ BD");
-                    break;
-
-                case "bathrooms":
-                    p = Pattern.compile("\\d+.?\\d* BA");
-                    break;
-
-                case "bedroomsInBuilding":
-                    p = Pattern.compile("\\d+  BED");
-                    break;
+        if (Config.isAndroid()) {
+            if (input.contains("$")) {
+                input = input.replace("$", "");
+                input = input.replace(",", "");
             }
-            Matcher m = p.matcher(input);
+            return Float.parseFloat(input);
+        } else {
+            if (!input.matches(price)) {
 
-            while (m.find()) {
-                room = m.group();
+                switch (typeSorting) {
+                    case "bedrooms":
+                        p = Pattern.compile("\\d+ BD");
+                        break;
+
+                    case "bathrooms":
+                        p = Pattern.compile("\\d+.?\\d* BA");
+                        break;
+
+                    case "bedroomsInBuilding":
+                        p = Pattern.compile("\\d+  BED");
+                        break;
+                }
+                Matcher m = p.matcher(input);
+
+                while (m.find()) {
+                    room = m.group();
+                }
+
+                if ((room.contains("BD") || room.contains("BA")) && (room.contains("½"))) {
+                    room = room.substring(0, room.length() - 4);
+                } else if (room.contains("BD") || room.contains("BA")) {
+                    room = room.substring(0, room.length() - 3);
+                } else if ((room.contains("BED") || room.contains("BATH")) && (room.contains("½"))) {
+                    room = room.substring(0, room.length() - 5);
+                } else if (room.contains("BED") || room.contains("BATH")) {
+                    room = room.substring(0, room.length() - 4);
+                } else {
+                    room = "0";
+                }
+                return Float.parseFloat(room);
             }
 
-            if ((room.contains("BD") || room.contains("BA")) && (room.contains("½"))) {
-                room = room.substring(0, room.length() - 4);
-            } else if (room.contains("BD") || room.contains("BA")) {
-                room = room.substring(0, room.length() - 3);
-            } else if ((room.contains("BED") || room.contains("BATH")) && (room.contains("½"))) {
-                room = room.substring(0, room.length() - 5);
-            } else if (room.contains("BED") || room.contains("BATH")) {
-                room = room.substring(0, room.length() - 4);
-            } else {
-                room = "0";
+            String outputString = Helper.removeChar(input, '$');
+            outputString = Helper.removeChar(outputString, ',');
+
+            if (outputString.contains("M")) {
+                outputString = Helper.removeChar(outputString, 'M');
+                return (Float.parseFloat(outputString) * 1000000);
+            } else if (outputString.contains("k")) {
+                outputString = Helper.removeChar(outputString, 'k');
+                return (Float.parseFloat(outputString) * 1000);
             }
-            return Float.parseFloat(room);
+            output = Float.parseFloat(outputString);
+            return output;
         }
-
-        String outputString = Helper.removeChar(input, '$');
-        outputString = Helper.removeChar(outputString, ',');
-
-        if (outputString.contains("M")) {
-            outputString = Helper.removeChar(outputString, 'M');
-            return (Float.parseFloat(outputString) * 1000000);
-        } else if (outputString.contains("k")) {
-            outputString = Helper.removeChar(outputString, 'k');
-            return (Float.parseFloat(outputString) * 1000);
-        }
-        output = Float.parseFloat(outputString);
-        return output;
     }
+
 
     public static boolean isBuildingInAscendingOrder(float num1, float num2) {
         int k = 0;
@@ -133,6 +141,7 @@ public abstract class FilteringAndSortingBuildings {
                     case "bedroomsInBuilding":
                         currentNumber = getNumberFromString("bedroomsInBuilding", s);
                         buildingSort = FilteringAndSortingBuildings.isBuildingInDescendingOrder(currentNumber, numberToCompare);
+                        System.out.println(currentNumber + " " + numberToCompare);
                         break;
                 }
 

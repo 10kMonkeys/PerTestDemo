@@ -59,6 +59,9 @@ public class LoginPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Back")
     private WebElement backFromEmailButton;
 
+    @iOSXCUITFindBy(accessibility = "LOG IN FAILED")
+    private WebElement loginIsFailedLabel;
+
     //endregion
 
     public LoginPage(WebDriver driver) {
@@ -150,6 +153,15 @@ public class LoginPage extends TechHelper {
     public void backFromEmailPageClick() {
         if(!Config.isAndroid()) {
             element(backFromEmailButton).click();
+        }
+    }
+
+    public void checkUserIsNotLogged() {
+        if (Config.isAndroid()) {
+            shouldSeeAccountNeededToSignInMessage();
+            okButtonCLick();
+        } else {
+            element(loginButton).shouldBeVisible();
         }
     }
 }

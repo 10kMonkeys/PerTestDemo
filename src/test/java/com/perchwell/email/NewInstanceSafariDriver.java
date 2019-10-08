@@ -90,7 +90,7 @@ public abstract class NewInstanceSafariDriver {
     }
 
     private static void returnOldPasswordInChrome() { ////
-        WebDriverManager.chromedriver().version("2.46").setup();
+        WebDriverManager.chromedriver().version("76.0.3809.126").setup();
         WebDriver chromeDriver = new ChromeDriver();
 
         chromeDriver.navigate().to("https://staging.perchwell.com/accounts/password/edit?reset_password_token=" + SessionVariables.getValueFromSessionVariable("resetToken"));

@@ -86,4 +86,9 @@ public class ResetPasswordSteps extends ScenarioSteps {
     public void backFromEmailPageClick() {
         loginPage.backFromEmailPageClick();
     }
+
+    @Step
+    public void checkUserIsNotLogged() {
+        loginPage.checkUserIsNotLogged();
+    }
 }

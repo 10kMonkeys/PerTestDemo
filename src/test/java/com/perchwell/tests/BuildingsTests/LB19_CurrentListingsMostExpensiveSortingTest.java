@@ -15,7 +15,6 @@ public class LB19_CurrentListingsMostExpensiveSortingTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openAddressSearch(); //search new
         user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
@@ -23,7 +22,7 @@ public class LB19_CurrentListingsMostExpensiveSortingTest extends SampleTest {
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();
-        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.closeSortWindow();
         user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.clickOnLeastExpensiveButton();

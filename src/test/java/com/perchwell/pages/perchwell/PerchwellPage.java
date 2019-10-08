@@ -105,7 +105,7 @@ public class PerchwellPage extends TechHelper {
 	@iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND name CONTAINS 'Bed: STUDIO'")
 	private List<WebElement> studioList;
 
-    @AndroidFindBy(id = "com.perchwell.re.staging:id/price")
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/listing_price")
     @iOSXCUITFindBy(iOSNsPredicate = "type=='XCUIElementTypeStaticText' AND name CONTAINS 'PRICE'")
     private List<WebElement> pricesList;
 
@@ -294,6 +294,13 @@ public class PerchwellPage extends TechHelper {
 	@AndroidFindBy(id = "com.perchwell.re.staging:id/listing_type")
 	@iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'LISTING TYPE: '")
 	private List<WebElement> listingTypeList;
+
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/beds_count")
+	private List<WebElement> bedsList;
+
+	@AndroidFindBy(id = "com.perchwell.re.staging:id/baths_count")
+	private List<WebElement> bathsList;
+
 
 	//endregion
 
@@ -553,9 +560,12 @@ public class PerchwellPage extends TechHelper {
 
 
 	public void ListingBeSortedByBedroomsInBuilding() {
-		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedroomsInBuilding", bedAndBathListInBuilding) == 1);
+		if (Config.isAndroid()) {
+			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedroomsInBuilding", bedsList) == 1);
+		} else {
+			Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bedroomsInBuilding", bedAndBathListInBuilding) == 1);
+		}
 	}
-
     public void isListingSortedByBathrooms() {
 		Assert.assertTrue(FilteringAndSortingBuildings.getCounterInSorting("bathrooms", bathsInfoList) == 1);
     }

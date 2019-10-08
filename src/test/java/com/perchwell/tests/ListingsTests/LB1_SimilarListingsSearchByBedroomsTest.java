@@ -22,7 +22,7 @@ public class LB1_SimilarListingsSearchByBedroomsTest extends SampleTest {
         user.atSearchPage.clickOnTestBuilding();
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.clickOnTestListing();
-//        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+        user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atOpenedBuildingPage.fixSearchField(); //new
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();

@@ -2,7 +2,6 @@ package com.perchwell.tests.LogInTests;
 
 import com.perchwell.SampleTest;
 import com.perchwell.entity.AppProperties;
-import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
@@ -22,8 +21,9 @@ public class ST4_LogInAfterResetPasswordTest extends SampleTest {
         user.atResetPasswordPage.backFromEmailPageClick();
         user.atResetPasswordPage.login(AppProperties.INSTANCE.getProperty("reset_email"),
                 AppProperties.INSTANCE.getProperty("old_reset_password"));
-        user.atResetPasswordPage.isAccountNeededToSignInMessageDisplayed();
-        user.atResetPasswordPage.okButtonClick();
+        user.atResetPasswordPage.checkUserIsNotLogged();
+//        user.atResetPasswordPage.isAccountNeededToSignInMessageDisplayed();
+//        user.atResetPasswordPage.okButtonClick();
         user.atResetPasswordPage.clickOnBackFromLogin();
         user.atLoginPage.clickOnLoginButton();
         user.atResetPasswordPage.login(AppProperties.INSTANCE.getProperty("reset_email"),

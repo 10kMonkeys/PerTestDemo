@@ -4,6 +4,7 @@ import com.perchwell.crossPlatform.Config;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.pages.perchwell.OpenedBuildingPage;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 
 public class OpenedBuildingSteps extends ScenarioSteps {
@@ -505,6 +506,11 @@ public class OpenedBuildingSteps extends ScenarioSteps {
     @Step
     public void swipeToMonthlyCommonCharges() {
     	onPage.swipeToMonthlyCommonCharges();
+	}
+
+	@Step
+	public void getNeighborhoodValueOnTestListing() {
+		onPage.getNeighborhoodValueOnTestListing();
 	}
 }
 

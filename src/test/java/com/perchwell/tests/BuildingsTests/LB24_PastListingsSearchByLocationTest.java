@@ -15,12 +15,11 @@ public class LB24_PastListingsSearchByLocationTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openAddressSearch(); //search new
         user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
-        user.atOpenedBuildingPage.fixListingsSearchField();
         user.atOpenedBuildingPage.getNeighborhoodValue();
+        user.atOpenedBuildingPage.fixListingsSearchField();
         user.atOpenedBuildingPage.swipeToTheListings();
         user.atOpenedBuildingPage.clickOnPastListingsSection();
         user.atOpenedBuildingPage.getBedsAndBathsListingsAmount();
