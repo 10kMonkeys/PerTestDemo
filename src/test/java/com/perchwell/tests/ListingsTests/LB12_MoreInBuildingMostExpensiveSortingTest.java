@@ -27,7 +27,7 @@ public class LB12_MoreInBuildingMostExpensiveSortingTest extends SampleTest {
         user.atOpenedBuildingPage.clickOnMoreInBuildingSection();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.checkIfMostExpensiveSortingButtonIsEnabled();
-        user.atOpenedBuildingPage.clickOnSortButton();
+        user.atOpenedBuildingPage.closeSortWindow();
         user.atPerchwellPage.shouldListingBeSortedByMostExpensive();
         user.atOpenedBuildingPage.clickOnSortButton();
         user.atOpenedBuildingPage.clickOnLeastExpensiveButton();

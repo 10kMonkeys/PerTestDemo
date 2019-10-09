@@ -17,7 +17,6 @@ public class LB9_MoreInBuildingSearchByBathroomsTest extends SampleTest {
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
         user.atPerchwellPage.clickOnMyNewSearch();
-//        user.atPerchwellPage.clickOnMyNewSearch(); //search old
         user.inSearchMenu.openAddressSearch(); //search new
         user.atSearchPage.fillInAddressSearchField(Addresses.EAST_35TH);
         user.atSearchPage.clickOnTestBuilding();
