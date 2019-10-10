@@ -619,13 +619,18 @@ public class OpenedBuildingPage extends TechHelper {
     }
 
     public void swipeToTheListings() {
-        setImplicitTimeout(500, MILLISECONDS);
-        Helper.universalVerticalSwipe(moreButton);
-        resetImplicitTimeout();
-        universalSingleSwipe();
-        if (moreButton.isDisplayed()) {
-            moreButton.click();
+        if (Config.isAndroid()) {
+            setImplicitTimeout(500, MILLISECONDS);
+            Helper.universalVerticalSwipe(moreButton);
+            resetImplicitTimeout();
+            universalSingleSwipe();
+            if (moreButton.isDisplayed()) {
+                moreButton.click();
+            }
+        } else {
+            Helper.universalVerticalSwipe(lastListing);
         }
+
     }
 
     public void fillInSearchField(String value) {
