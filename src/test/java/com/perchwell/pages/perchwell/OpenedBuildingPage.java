@@ -630,7 +630,6 @@ public class OpenedBuildingPage extends TechHelper {
         } else {
             Helper.universalVerticalSwipe(lastListing);
         }
-
     }
 
     public void fillInSearchField(String value) {
@@ -710,18 +709,15 @@ public class OpenedBuildingPage extends TechHelper {
     }
 
     public void getInitialBedsAndBathsAmountList() {
-
         if (Config.isAndroid()) {
             for (int i = 0; i < bathsList.size(); i++) {
-//                universalSingleSwipe();
                 String bathsValue = bathsList.get(i).getAttribute("text");
                 String bedsValue = bedsList.get(i).getAttribute("text");
                 initialBedsAndBathsAmountList.add(bedsValue + " BEDS " + bathsValue + " BATHS");
             }
         } else {
-            for (WebElement element : currentBedsAndBathsAmountList) {
+            for (WebElement element: currentBedsAndBathsAmountList) {
                 initialBedsAndBathsAmountList.add(element.getAttribute("value"));
-                System.out.println(initialBedsAndBathsAmountList.add(element.getAttribute("value")));
             }
         }
     }

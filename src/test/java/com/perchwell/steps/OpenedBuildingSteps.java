@@ -512,5 +512,12 @@ public class OpenedBuildingSteps extends ScenarioSteps {
 	public void getNeighborhoodValueOnTestListing() {
 		onPage.getNeighborhoodValueOnTestListing();
 	}
+
+	@Step
+	public void getBuildingAddress() {
+		SessionVariables.addValueInSessionVariable("address", onPage.getBuildingAddress());
+		System.out.println(SessionVariables.getValueFromSessionVariable("address"));
+
+	}
 }
 

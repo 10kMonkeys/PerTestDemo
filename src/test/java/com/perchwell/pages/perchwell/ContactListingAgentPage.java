@@ -1,6 +1,7 @@
 package com.perchwell.pages.perchwell;
 
 import com.perchwell.crossPlatform.Config;
+import com.perchwell.entity.AppProperties;
 import com.perchwell.helpers.SessionVariables;
 import com.perchwell.helpers.TechHelper;
 import io.appium.java_client.AppiumDriver;
@@ -8,6 +9,7 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -35,6 +37,7 @@ public class ContactListingAgentPage extends TechHelper {
     @iOSXCUITFindBy(accessibility = "Tag Cell: Search Text Field")
     private WebElement emailField;
 
+    @AndroidFindBy(id = "com.perchwell.re.staging:id/tag_text")
     @iOSXCUITFindBy(accessibility = "test-ios+mgmt-stribling@perchwell.com")
     private WebElement defaultAgentCCAddress;
 
@@ -46,7 +49,7 @@ public class ContactListingAgentPage extends TechHelper {
     private WebElement okButton;
 
     //endregion
-    
+
     public ContactListingAgentPage(WebDriver driver) {
         super(driver);
     }
@@ -56,7 +59,7 @@ public class ContactListingAgentPage extends TechHelper {
     }
 
     public void fillInMessageField(String message) {
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             element(messageField).click();
         }
         element(messageField).sendKeys(message);
@@ -82,7 +85,7 @@ public class ContactListingAgentPage extends TechHelper {
 
     public void clickOnSendEmailButton() {
         element(sendEmailButton).click();
-        if(Config.isAndroid()) {
+        if (Config.isAndroid()) {
             element(okButton).click();
         }
     }
@@ -92,8 +95,8 @@ public class ContactListingAgentPage extends TechHelper {
     }
 
     public void checkIfEmailIsAdded(String email) {
-        if(Config.isAndroid()) {
-            element(MobileBy.xpath("*//android.widget.EditText[contains(@text, '" + email +"')]")).shouldBeVisible();
+        if (Config.isAndroid()) {
+            element(MobileBy.xpath("*//android.widget.EditText[contains(@text, '" + email + "')]")).shouldBeVisible();
         } else {
             element(MobileBy.AccessibilityId(email)).shouldBeVisible();
         }
@@ -101,7 +104,11 @@ public class ContactListingAgentPage extends TechHelper {
     }
 
     public void checkDefaultAgentCCAddress() {
-        element(defaultAgentCCAddress).shouldBeVisible();
+        if (Config.isAndroid()) {
+            Assert.assertEquals(defaultAgentCCAddress.getText(), AppProperties.INSTANCE.getProperty("email"));
+        } else {
+            element(defaultAgentCCAddress).shouldBeVisible();
+        }
     }
 
     public void hideKeyboard() {

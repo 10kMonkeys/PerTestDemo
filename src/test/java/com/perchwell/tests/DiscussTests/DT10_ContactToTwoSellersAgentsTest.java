@@ -9,7 +9,7 @@ import org.junit.Test;
 @WithTagValuesOf({"DiscussTests", "iOS_DiscContSavedSearch", "Android_DiscContSavedSearch", "DiscContSavedSearch", "Local_Android_Run"})
 public class DT10_ContactToTwoSellersAgentsTest extends SampleTest {
 
-    @Ignore
+//    @Ignore
     @Test
     public void contactToTwoSellersAgents() {
         user.atLoginPage.loginAsBroker(AppProperties.INSTANCE.getProperty("email"),
@@ -26,9 +26,12 @@ public class DT10_ContactToTwoSellersAgentsTest extends SampleTest {
         user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.openTwoAgentListing();
         user.atOpenedBuildingPage.clickOnDiscussWithMyClientHint();
+        user.atOpenedBuildingPage.getBuildingAddress();
         user.atSellersAgentPage.swipeDownUntilSellersSeveralAgentsSection();
         user.atOpenedBuildingPage.clickOnSeveralSellersAgentSection();
         user.atSellersAgentPage.updateMessage();
+        user.atSellersAgentPage.updateSubject();
+        user.atSellersAgentPage.getEmailData();
         user.atSellersAgentPage.clickOnSendEmailButton();
         user.atSellersAgentPage.selectConfirmOption();
         user.atSellersAgentPage.clickOnPositiveButton();

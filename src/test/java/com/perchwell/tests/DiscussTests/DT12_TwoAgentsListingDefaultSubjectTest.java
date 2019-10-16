@@ -17,12 +17,14 @@ public class DT12_TwoAgentsListingDefaultSubjectTest extends SampleTest {
                 AppProperties.INSTANCE.getProperty("password"));
         user.atPerchwellPage.skipAllHints();
         user.atPerchPopup.clickNotNowButton();
-        user.inSearchMenu.openSearchPage();
-        user.atSearchPage.clickOnSearchByAddressButton();
-        user.atSearchPage.fillInSearchField(Addresses.EAST_35TH);
-        user.atSearchPage.clickOnListingByAddress(Addresses.EAST_35TH);
-        user.atSearchPage.clickOnBackFromNeighborhoodsPage();
-        user.atSearchPage.clickOnApplyButton();
+        user.inSearchMenu.openSearchPage(); //search new
+        user.atSearchPage.setMaximumPriceFilter("13000000");
+        user.atSearchPage.setMinimumPriceFilter("13000000");
+        user.atSearchPage.selectBedroomsRangeOption();
+        user.atSearchPage.selectFilter2Beds();
+        user.atSearchPage.selectBathroomsRangeOption();
+        user.atSearchPage.selectFilter2Baths();
+        user.atSearchPage.clickOnApplyButtonWithoutKeyboard();
         user.atPerchwellPage.selectTestListingWithTwoAgents();
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.selectContactListingAgentsOption();

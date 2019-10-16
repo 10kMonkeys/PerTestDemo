@@ -23,7 +23,7 @@ public class DT13_SeveralContactListingsByBackButtonTest extends SampleTest {
         user.atPerchwellPage.clickOnContactListingAgentsButton();
         user.atContactListingAgentPage.clickOnBackButton();
         user.atPerchwellPage.checkSelectionMenuIsShown(3);
-        user.atPerchwellPage.checkThatThreeListingsAreSelected();
+        user.atPerchwellPage.checkThatThreeListingsAreSelected(1);
         user.atPerchwellPage.clickOnMoreOptionsButton();
         user.atPerchwellPage.clickOnContactListingAgentsButton();
         user.atContactListingAgentPage.clearSubjectField();

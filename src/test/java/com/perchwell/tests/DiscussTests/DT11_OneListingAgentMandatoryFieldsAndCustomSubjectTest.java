@@ -22,8 +22,10 @@ public class DT11_OneListingAgentMandatoryFieldsAndCustomSubjectTest extends Sam
         user.atSearchPage.clickOnListingByAddress(Addresses.DAKOTA);
         user.atSearchPage.clickOnBackFromNeighborhoodsPage();
         user.atSearchPage.clickOnApplyButton();
+        user.atPerchwellPage.clickOnListingsByButton();
+        user.atPerchwellPage.clickOnAddressSortButton();
         user.atPerchwellPage.openListingWithOneAgent();
-        user.atOpenedBuildingPage.skipDiscussWithClientHint();
+//        user.atOpenedBuildingPage.skipDiscussWithClientHint();
         user.atSellersAgentPage.swipeDownUntilSellersAgentSection();
         user.atOpenedBuildingPage.getTestAgentEmail();
         user.atOpenedBuildingPage.clickOnArrowBackButtonFromListing();
@@ -42,6 +44,9 @@ public class DT11_OneListingAgentMandatoryFieldsAndCustomSubjectTest extends Sam
         user.atContactListingAgentPage.hideKeyboard();
         user.atContactListingAgentPage.checkIfSendEmailButtonIsEnabled();
         user.atContactListingAgentPage.clickOnSendEmailButton();
+        user.atPerchwellPage.checkListingsAreSelected(1);
+        user.atPerchwellPage.clickOnMoreOptionsButton();
+        user.atPerchwellPage.selectContactListingAgentsOption();
         user.atSellersAgentPage.shouldContactEmailSentToOneAgent();
     }
 }
